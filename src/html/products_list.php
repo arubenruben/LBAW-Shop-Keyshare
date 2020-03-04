@@ -100,20 +100,17 @@ drawNavbar(0);
             </div>
         </nav>
         <div class="container col-10">
-            <!--Order By-->
-            <div class="row">
-                <div class="col-2">
-
-                    <span>Order By</span>
-                    <select class="form-control form-control-lg">
+            <!--Order By-->-
+            <div class="row justify-content-end">
+                <span id="productSearchBlock">
+                    <label for="order-by">Order By</label>
+                    <select id="order-by" class="form-control form-control-lg">
                         <option value="" selected disabled hidden>Choose here</option>
                         <option>Price</option>
                         <option>Rating</option>
                         <option>Release Date</option>
                     </select>
-                </div>
-
-
+                </span>
             </div>
             <div class="row">
                 <div class="col card h-100">
@@ -203,7 +200,6 @@ drawNavbar(0);
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                     </div>
                 </div>
-
                 <div class="col card h-100">
                     <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                     <div class="card-body">
@@ -219,7 +215,7 @@ drawNavbar(0);
     </div>
 
     <div>
-        <nav aria-label="Page navigation example">
+        <nav class="row justify-content-end" aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>

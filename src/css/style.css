@@ -3,3 +3,7 @@
 body{
     font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
 }
+#productSearchBlock *{ 
+    display: inline;
+    width: auto;
+}
