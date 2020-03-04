@@ -1,0 +1,16 @@
+body{
+
+    /*Fonts*/
+
+    --default-sans-serif-font:'Montserrat';
+    --default-serif-font:'Arvo';
+    
+    /*Colors*/
+
+    
+
+
+
+    font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+
+}
