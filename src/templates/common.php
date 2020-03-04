@@ -1,26 +1,40 @@
-<?php function draw_head($jsArray, $class = null) { ?>
-  <!DOCTYPE html>
-  <html lang="en-US">
-	<head>
-		<title>Key Share</title>
-        <meta charset="UTF-8" name="viewport" content="initial-scale=1.0">
-        <!-- bootstrap -->
-		<link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-        <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- fontawesome -->
-		<script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
-        <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
+<?php
+function drawHead($jsArray = null)
+{ ?>
+    <!DOCTYPE html>
+    <html lang="en-US">
 
+    <head>
+        <title>KeyShare</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <?php
+        if ($jsArray !== null) {
+            foreach ($jsArray as $jsFile) { ?>
+                <script src=<?= $jsFile ?> defer></script>
+        <?php }
+        }
+        ?>
+    </head>
 
-		<?php foreach($jsArray as $jsFile) { ?>
-			<script src=<?=$jsFile?> defer></script>
-		<?php } ?>
-	</head>
-	<body <?=$class == null? '' : "class=$class" ?> > 
-<?php } ?>
+    <body>
+    <?php
+}
+function drawHeader()
+{ ?>
+    <?php }
 
-<?php function draw_footer() { ?>
-        </body>
+function drawNavbar()
+{ ?>
+    <?php
+}
+
+function drawFooter()
+{ ?>
+    </body>
+
     </html>
-<?php } 
+<?php
+} ?>
