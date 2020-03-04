@@ -12,9 +12,9 @@ drawNavbar(0);
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <div class="list-group">
-                    <div>
-                        <header>Categories</header>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Button with data-target</button>
+                    <div class="productSideBarEntry">
+                        <header class="productSideBarTitle">Categories</header>
+                        <button class="btn btn-primary productSideBarDropdownButton" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">All Categories</button>
                         <div class="collapse" id="collapseExample2">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
@@ -22,75 +22,75 @@ drawNavbar(0);
                                         <label for="checkbox1">
                                             <span>Action</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox2">
                                             <span>Sports</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox2" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox3">
                                             <span>Racing</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox3" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox4">
                                             <span>Adventure</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox4" class="checkbox style-2 pull-right" />
                                     </div>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <header>Platforms</header>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
+                    <div class="productSideBarEntry">
+                        <header class="productSideBarTitle">Platforms</header>
+                        <button class="btn btn-primary productSideBarDropdownButton" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">All Platforms</button>
                         <div class="collapse" id="collapseExample1">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox5">
                                             <span>PC</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox2" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox5" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox6">
                                             <span>PS4</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox2" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox6" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox7">
                                             <span>Xbox</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox2" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox7" class="checkbox style-2 pull-right" />
                                     </div>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <header>Genres</header>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
+                    <div class="productSideBarEntry">
+                        <header class="productSideBarTitle">Genres</header>
+                        <button class="btn btn-primary productSideBarDropdownButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">All Genres</button>
                         <div class="collapse" id="collapseExample">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox8">
                                             <span>Game</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox8" class="checkbox style-2 pull-right" />
                                     </div>
                                     <div class="checkbox">
-                                        <label for="checkbox1">
+                                        <label for="checkbox9">
                                             <span>DLC</span>
                                         </label>
-                                        <input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right" checked="checked" />
+                                        <input type="checkbox" id="checkbox9" class="checkbox style-2 pull-right" />
                                     </div>
                                 </label>
                             </div>
@@ -100,11 +100,11 @@ drawNavbar(0);
             </div>
         </nav>
         <div class="container col-10">
-            <!--Order By-->-
+            <!--Order By-->
             <div class="row justify-content-end">
                 <span id="productSearchBlock">
                     <label for="order-by">Order By</label>
-                    <select id="order-by" class="form-control form-control-lg">
+                    <select id="order-by" class="form-control form-control-ls">
                         <option value="" selected disabled hidden>Choose here</option>
                         <option>Price</option>
                         <option>Rating</option>

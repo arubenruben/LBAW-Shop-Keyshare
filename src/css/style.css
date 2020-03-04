@@ -7,3 +7,14 @@ body{
     display: inline;
     width: auto;
 }
+
+.productSideBarTitle{
+    font-size: 1.5em;
+}
+.productSideBarDropdownButton{
+    background-color: red !important;
+}
+
+.productSideBarEntry{
+    margin: 1em;
+}
