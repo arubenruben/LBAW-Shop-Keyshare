@@ -1,6 +1,7 @@
 <?php function drawHomepage() { ?>
-	<div class="container">
+	<div id="homepage" class="container">
 		<div class="col">
+			<!-- carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 				<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,14 +29,14 @@
 				</a>
 			</div>
 			
-
+			<!-- most popular -->
 			<div class="row">
 				<div class="col-sm-9">
 					<h5 class="title"> Most popular </h5>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
-					<button type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
+					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
+					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
 				</div>	
 			</div>
 			<div id="most-popular" class="row mt-2">
@@ -90,13 +91,14 @@
 					</div>
 			</div>
 			
+			<!-- most recent -->
 			<div class="row">
 				<div class="col-sm-9">
 					<h5 class="title"> Most recent </h5>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
-					<button type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
+					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
+					<button id="side-btn"type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
 				</div>	
 			</div>
 			<div id="most-recent" class="row mt-2">

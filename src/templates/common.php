@@ -4,7 +4,7 @@
         <html lang="en">
             <head>
                 <title>Key Share</title>
-                <meta charset="UTF-8" name="viewport" content="initial-scale=1.0">
+                <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 
                 <!-- bootstrap -->
                 <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
@@ -13,11 +13,10 @@
                 <!-- fontawesome -->
                 <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
                 <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
-                <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 
                 <!-- css -->
-                <link href="../css/homepage.css" rel="stylesheet">
-                <link href="../css/footer.css.css" rel="stylesheet">
+                <link rel="stylesheet" href="../styles/common.css">
+                <link rel="stylesheet" href="../styles/homepage.css">
             </head>
             <body>   
 <?php 

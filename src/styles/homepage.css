@@ -1,3 +1,13 @@
-body {
-  padding-top: 56px;
+.container {
+  background-color: tomato;
+}
+
+#side-btn {
+  background-color: black;
+  border-radius: 50%;
+}
+
+#side-btn:hover {
+  color: 15303A;
+  border-radius: 50%;
 }
