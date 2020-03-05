@@ -1,9 +1,16 @@
 <?php
+<<<<<<< Updated upstream
 include_once('../templates/common.php');
 
 drawHead();
 drawHeader(0);
 //drawNavbar(0);
+=======
+    include_once('../templates/common.php');
+    drawHead();
+    drawHeader(0);
+    //drawNavbar(0);
+>>>>>>> Stashed changes
 ?>
 
 
@@ -224,4 +231,9 @@ drawHeader(0);
         </div>
     </div>
 </div>
+<<<<<<< Updated upstream
 <?php drawFooter(); ?>
+=======
+
+<?php drawFooter(); ?>
+>>>>>>> Stashed changes
