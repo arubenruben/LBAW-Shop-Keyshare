@@ -1,8 +1,20 @@
 @import "./constants.css";
-
-body{
-    font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+body {
+    font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
     margin: 0px;
     border: 0px;
     padding: 0px;
+}
+
+
+/* .usercontent-left {
+    border-right: 1px dashed #333;
+} */
+
+.avatar-pic {
+    width: 150px;
+}
+
+.accountDelete-button {
+    margin-top: 50px;
 }
