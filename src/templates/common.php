@@ -41,27 +41,40 @@ function drawHead($jsArray = null)
         switch ($type) {
                 //Draw Homepage header
             case 0: ?>
-                <header class="navbar navbar-light bg-light justify-content-between">
-                    <div class="col">
+                <header class="navbar navbar-light bg-light row">
+                    <div class="col-2 mt-auto">
                         <div class="row">
                             <a class="navbar-brand" href="#">
-                                <img class="img-fluid logo" src="../assets/images/logo/logo.png" />
+                                <img class="img-fluid logo ml-4" src="../assets/images/logo/logo.png" />
                             </a>
-                            <form id="navbarSearchContainer" class="form-inline mr-auto mt-auto">
-                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                    </div>
+                    <div class="col-6 mt-auto mb-3">
+                        <div class="row">
+                            <form id="headerSearchContainer" class="form-inline mr-auto mt-auto">
+                                <i id="headerSearchIcon" class="fas fa-search mr-3 pl-2 pr-2 pt-1 pb-2"></i>
+                                <input id="headerSearchInput" class="form-control mr-sm-2 pr-5" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
                     </div>
-                    <div class="col mt-5">
+                    <div class="col-3 mt-auto mb-3">
                         <div class="row">
-                            <button type="button" class="btn btn-primary mr-5">Explore</button>
-                            <button type="button" class="btn btn-primary ml-5">Sell Now</button>
-                            <div class="ml-auto mr-4">
+                            <button id="headerExploreButton" type="button" class="btn btn-primary pl-5 pr-5">Explore</button>
+                            <button id="headerSellButton" type="button" class="btn btn-primary ml-5 pl-5 pr-5">Sell Now</button>
+                            <!-- 
+                            <button id="headerLoginButton" type="button" class="btn btn-primary ml-5 pl-5 pr-5">Login</button>
+                            -->
+                        </div>
+                    </div>
+                    <div class="col-1 mt-auto mb-4">
+                        <div class="row">
+                            <div class="ml-auto mr-5">
                                 <i id="myAccountIcon" class="fas fa-user"></i>
                                 <i id="shoppingCartIcon" class="fas fa-shopping-cart"></i>
                             </div>
                         </div>
+
+
                     </div>
                 </header>
         <?php

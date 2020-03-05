@@ -7,7 +7,6 @@ body{
     display: inline;
     width: auto;
 }
-
 .productSideBarTitle{
     font-size: 1.5em;
 }
@@ -38,12 +37,10 @@ body{
     border-left: 0px;
     border-right: 0px;
 }
-
 .logo{
     width: 10em;
     height: 10em;
 }
-
 header.navbar{
     background-color: var(--color-background-dark-blue) !important;
 }
@@ -51,14 +48,26 @@ header.navbar{
     margin-left: 5em;
 }
 #headerSearchIcon{
-    color: red;
+    color: var(--color-interactive-orange);
+    font-size: 1.5em;
 }
 #myAccountIcon{
-    color: red;
+    color:var(--color-primary-light-blue);
     font-size: 1.5em;
     margin-right: 2em;
 }
 #shoppingCartIcon{
-    color: red;
+    color:var(--color-interactive-orange);
     font-size: 1.5em;
+}
+#headerSellButton{
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+#headerExploreButton{
+    background-color: var(--color-primary-light-blue);
+    border-style: none;
+}
+#headerSearchInput{
+    width: 30rem;
 }
