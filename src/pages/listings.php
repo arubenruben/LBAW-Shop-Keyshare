@@ -1,5 +1,5 @@
 <?php
-    include_once('../templates/common.php');
+    include_once('../templates/tpl_common.php');
     drawHead();
     drawHeader(0);
     //drawNavbar(0);

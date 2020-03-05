@@ -3,11 +3,10 @@
 }
 
 #side-btn {
-  background-color: black;
+  background-color: var(--color-primary-light-blue);
   border-radius: 50%;
 }
 
 #side-btn:hover {
-  color: 15303A;
-  border-radius: 50%;
+  background-color: var(--color-background-dark-blue);
 }
