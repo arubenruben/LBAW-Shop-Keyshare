@@ -12,9 +12,19 @@ body{
     font-size: 1.5em;
 }
 .productSideBarDropdownButton{
-    background-color: red !important;
+    margin-top: 1em;
+    background-color: gray !important;
 }
-
 .productSideBarEntry{
     margin: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+/*SideBar collapsed checklist*/
+.productSideBarEntry .collapse .form-check-inline{
+    margin-top: 0.8em;
+    margin-left: 0.5em;
+}
+.productSideBarEntry .collapse{
+    font-size: 1.2em;
 }
