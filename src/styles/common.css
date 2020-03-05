@@ -1,0 +1,72 @@
+@import "./constants.css";
+
+body{
+    font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+}
+#productSearchBlock *{ 
+    display: inline;
+    width: auto;
+}
+
+.productSideBarTitle{
+    font-size: 1.5em;
+}
+.productSideBarDropdownButton{
+    margin-top: 1em;
+    background-color: gray !important;
+}
+.productSideBarEntry{
+    margin: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+/*SideBar collapsed checklist*/
+.productSideBarEntry .collapse .form-check-inline{
+    margin-top: 0.8em;
+    margin-left: 0.5em;
+}
+.productSideBarEntry .collapse{
+    font-size: 1.2em;
+}
+#productListingContainer .pagination li a{
+    margin-top: auto;
+    font-size: 1.5em;
+}
+.productSideBarEntry{
+    border-style: solid;
+    border-top:0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.logo{
+    width: 10em;
+    height: 10em;
+}
+
+header.navbar{
+    background-color: var(--color-background-dark-blue) !important;
+}
+#navbarSearchContainer{
+    margin-left: 5em;
+}
+#headerSearchIcon{
+    color: white;
+    background-color: rgb(170, 124, 38)
+}
+#myAccountIcon{
+    color: red;
+    font-size: 1.5em;
+    margin-right: 2em;
+}
+#shoppingCartIcon{
+    color: red;
+    font-size: 1.5em;
+}
+
+/* footer css */
+
+#footer-line {
+    margin-top: 5%;
+}
+
