@@ -116,7 +116,7 @@ function drawHeader($type)
 
     function drawFooter()
     { ?>
-        <!-- Footer 
+        <!-- Footer -->
         <footer>
             <div class="container">
                 <br>
@@ -143,8 +143,6 @@ function drawHeader($type)
                 </div>
             </div>
         </footer>
-
-    -->
     </body>
 
     </html>
