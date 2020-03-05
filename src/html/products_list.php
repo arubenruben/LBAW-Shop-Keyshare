@@ -112,7 +112,7 @@ drawNavbar(0);
                     </select>
                 </span>
             </div>
-            <div class="row mt-2 justify-content-between">
+            <div class="row mt-2 justify-content-between ml-5 mt-4 mr-5">
                 <div class="col-sm-2">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
@@ -143,8 +143,7 @@ drawNavbar(0);
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-2 justify-content-between">
+            <div class="row mt-2 justify-content-between ml-5 mt-4 mr-5">
                 <div class="col-sm-2">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
@@ -175,7 +174,7 @@ drawNavbar(0);
                     </div>
                 </div>
             </div>
-            <div class="row mt-2 justify-content-between">
+            <div class="row mt-2 justify-content-between ml-5 mt-4 mr-5">
                 <div class="col-sm-2">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
@@ -206,13 +205,11 @@ drawNavbar(0);
                     </div>
                 </div>
             </div>
-
-            
         </div>
     </div>
 
     <div>
-        <nav class="row justify-content-end mr-2" aria-label="Page navigation example">
+        <nav class="row justify-content-end mr-5 pr-5 mt-5" aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
