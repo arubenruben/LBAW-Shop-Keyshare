@@ -34,27 +34,43 @@ function drawHead($jsArray = null)
     </head>
 
     <body>
-    <?php
-}
-function drawHeader($type)
-{
-    switch ($type) {
-            //Draw Homepage header
-        case 0:
-
-
-
-            break;
-
-
-
-
-        default:
-
-            break;
+        <?php
     }
+    function drawHeader($type)
+    {
+        switch ($type) {
+                //Draw Homepage header
+            case 0: ?>
+                <header class="navbar navbar-light bg-light justify-content-between">
+                    <div class="col">
+                        <div class="row">
+                            <a class="navbar-brand" href="#">
+                                <img class="img-fluid logo" src="../assets/images/logo/logo.png" />
+                            </a>
+                            <form id="navbarSearchContainer" class="form-inline mr-auto mt-auto">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col mt-5">
+                        <div class="row">
+                            <button type="button" class="btn btn-primary mr-5">Explore</button>
+                            <button type="button" class="btn btn-primary ml-5">Sell Now</button>
+                            <div class="ml-auto mr-4">
+                                <i id="myAccountIcon" class="fas fa-user"></i>
+                                <i id="shoppingCartIcon" class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+        <?php
+                break;
+            default:
 
-    ?>
+                break;
+        }
+        ?>
 
         <?php }
 
@@ -64,37 +80,6 @@ function drawHeader($type)
                 //Draw Homepage navbar
             case 0: ?>
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
 
 
         <?php

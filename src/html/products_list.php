@@ -2,8 +2,8 @@
 include_once('../templates/common.php');
 
 drawHead();
-//drawHeader(0);
-drawNavbar(0);
+drawHeader(0);
+//drawNavbar(0);
 ?>
 
 
