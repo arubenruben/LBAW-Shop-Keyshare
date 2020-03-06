@@ -12,6 +12,7 @@ body {
 #wrapper{
     min-height: 100%;
     position: relative;
+    background-color: var(--color-background-white);
 }
 footer#footerGeneric{
     width: 100%;

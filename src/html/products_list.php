@@ -6,7 +6,7 @@ drawHeader(0);
 //drawNavbar(0);
 ?>
 <div id="wrapper">
-    <div class="container-fluid mt-4">
+    <div class="container-fluid pt-4">
         <div class="row">
             <div class="col-2 d-none d-md-block">
                 <div class="productSideBarEntry">
