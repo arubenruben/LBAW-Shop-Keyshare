@@ -13,17 +13,16 @@ drawNavbar(0);
 
 <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
     <li class="nav-item">
-        <a class="nav-link deco-none" href="#">Account</a>
+        <a class="nav-link deco-none" href="userPage.php">Account</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active deco-none" href="#">Purchases</a>
+        <a class="nav-link  active deco-none" href="userPurchasesPage.php">Purchases</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link deco-none" href="#">Offers(7)</a>
+        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
     </li>
 </ul>
 </ul>
-
 
 
 <div class="container mt-5">
@@ -40,7 +39,7 @@ drawNavbar(0);
 
             <div class="container mt-4 mb-4">
                 <div class="row ">
-                    <div class="col-12">
+                    <div class="col-sm-12">
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
@@ -55,11 +54,11 @@ drawNavbar(0);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="100" /> </td>
+                                        <td class="text-center"><img class="img-fluid imageNotWorking" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" /> </td>
                                         <td>
                                             <h5 class="text-center">Destiny 2 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">124,90 € </h5>
@@ -77,7 +76,7 @@ drawNavbar(0);
                                         <td>
                                             <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">33,90 €</h5>
@@ -95,7 +94,7 @@ drawNavbar(0);
                                         <td>
                                             <h5 class="text-center">Fifa 20 (PC)<h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">70,00 €</h5>
@@ -113,7 +112,7 @@ drawNavbar(0);
                                         <td>
                                             <h5 class="text-center">Destiny 2 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">124,90 €</h5>
@@ -131,7 +130,7 @@ drawNavbar(0);
                                         <td>
                                             <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">33,90 €</h5>
@@ -149,7 +148,7 @@ drawNavbar(0);
                                         <td>
                                             <h5 class="text-center">Fifa 20 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">70,00 €</h5>

@@ -111,5 +111,9 @@ header.navbar {
 }
 
 .form-control .userDetailsForm {
-    border-radius: 1rem;
+    border-radius: 1rem !important;
+}
+
+.imageNotWorking {
+    max-height: 200px !important;
 }

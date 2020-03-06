@@ -9,18 +9,17 @@ drawNavbar(0);
 
 
 <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
-  <li class="nav-item">
-    <a class="nav-link active deco-none" href="#">Account</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link deco-none" href="#">Purchases</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link deco-none" href="#">Offers(7)</a>
-  </li>
+    <li class="nav-item">
+        <a class="nav-link  active deco-none" href="userPage.php">Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+    </li>
 </ul>
 </ul>
-
 
 <div class="container">
 
