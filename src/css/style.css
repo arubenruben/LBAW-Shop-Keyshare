@@ -5,17 +5,14 @@ body {
     border: 0px;
     padding: 0px;
 }
-
+footer{
+    width: 100%;
+}
 .avatar-pic {
     width: 150px;
 }
-
 .accountDelete-button {
     margin-top: 50px;
-}
-
-body {
-    font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
 }
 header.navbar{
     background-color: var(--color-background-dark-blue) !important;

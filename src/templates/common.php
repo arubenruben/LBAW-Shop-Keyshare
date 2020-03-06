@@ -108,8 +108,8 @@ function drawHead($jsArray = null)
     function drawFooter()
     { ?>
         <!-- Footer -->
-        <footer id="footerGeneric" class="container-fluid">
-            <div class="row pt-5 pb-5">
+        <footer id="footerGeneric" class="navbar navbar-fixed-bottom bg-info">
+            <div class="row pt-3 pb-1">
                 <div class="col-2">
                 </div>
                 <div class="col-7">
