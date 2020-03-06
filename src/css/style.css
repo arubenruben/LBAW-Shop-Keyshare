@@ -28,13 +28,6 @@ header.navbar{
     background-color: var(--color-primary-light-blue);
     border-style: none;
 }
-/*
-
-#navbarSearchContainer{
-}
-#headerSearchInput{
-    
-}
-.sidebar{
-    background-color: var(--color-background-dark-blue) !important;
+#footerGeneric{
+    background-color:var(--color-background-dark-blue) !important;
 }
