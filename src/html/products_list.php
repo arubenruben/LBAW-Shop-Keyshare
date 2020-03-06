@@ -96,20 +96,20 @@ drawHeader(0);
             </div>
             <div class="col-8 ml-auto mr-auto">
                 <!--Order By-->
-                <div class="row ml-auto">
-                    <span id="productSearchBlock">
-                        <label class="d-none d-md-block" for="order-by">Order By</label>
-                        <select id="order-by" class="form-control form-control-ls">
-                            <option value="" selected disabled hidden>Choose here</option>
-                            <option>Price</option>
-                            <option>Rating</option>
-                            <option>Release Date</option>
-                        </select>
-                    </span>
+                <div class="row mt-2">
+                    <div class="btn-group ml-auto">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle pl-4 pt-2 pb-2 pr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order By</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Price</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Rating</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Release Date</a>
+                        </div>
+                    </div>
                 </div>
-
                 <!--First Row-->
-                <div class="row justify-content-between">
+                <div class="row justify-content-between mt-4">
 
                     <div class="card gameListItem">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
