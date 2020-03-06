@@ -1,7 +1,21 @@
 @import "./constants.css";
+body {
+    font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
 
-body{
-    font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+.avatar-pic {
+    width: 150px;
+}
+
+.accountDelete-button {
+    margin-top: 50px;
+}
+
+body {
+    font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
 }
 header.navbar{
     background-color: var(--color-background-dark-blue) !important;
@@ -20,11 +34,17 @@ header.navbar{
 .headerIcon{
     font-size: 1.5rem;
 }
-#headerSellButton{
+#offerPageSellButton {
     background-color: var(--color-interactive-orange);
     border-style: none;
 }
-#headerExploreButton{
+
+#headerSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+
+#headerExploreButton {
     background-color: var(--color-primary-light-blue);
     border-style: none;
 }
