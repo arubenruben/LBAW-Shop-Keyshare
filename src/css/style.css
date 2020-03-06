@@ -91,6 +91,11 @@ header.navbar {
     font-size: 1.5em;
 }
 
+#offerPageSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+
 #headerSellButton {
     background-color: var(--color-interactive-orange);
     border-style: none;
@@ -103,4 +108,8 @@ header.navbar {
 
 #headerSearchInput {
     width: 30rem;
+}
+
+.form-control .userDetailsForm {
+    border-radius: 1rem;
 }

@@ -36,7 +36,8 @@ drawNavbar(0);
                 </div>
 
                 <div class="col-sm-3">
-                    <h3 class="text-left font-weight-bold"><button type="button" class="btn p-3 btn-sm btn btn-warning btn-block"><i class="fas fa-plus"></i> Add offer</button></h3>
+               
+                    <button id="headerSellButton" type="button" class="btn p-3 btn-md btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
                 </div>
 
             </div>
@@ -70,9 +71,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -88,9 +88,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -106,9 +105,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -162,9 +160,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -180,9 +177,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -198,9 +194,8 @@ drawNavbar(0);
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group-justified btn-group-lg">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                             </div>
                                         </td>
                                     </tr>

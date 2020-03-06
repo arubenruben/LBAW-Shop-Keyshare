@@ -9,7 +9,7 @@ drawNavbar(0);
 
 
 <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link active deco-none" href="#">Account</a>
   </li>
   <li class="nav-item">
@@ -26,7 +26,7 @@ drawNavbar(0);
 
   <div class="row mt-5">
 
-    <div class="col-sm-4 usercontent-left">
+    <div class="col-sm-4 usercontent-left  border rounded-top">
       <div class="row ">
         <div class="col-sm-12">
           <h4 class="text-center">Username</h4>
@@ -56,10 +56,11 @@ drawNavbar(0);
       </div>
     </div>
 
-    <div class="col-sm-8 text-center">
+
+    <div class="col-sm-7 ml-3 text-center border rounded-top-lg">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <h4 class="text-center">Account details</h4>
+          <h4 class="text-center">Account Details</h4>
         </div>
       </div>
 
@@ -69,7 +70,7 @@ drawNavbar(0);
 
             <div class="mb-3 mt-3">
               <label for="email">Email <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
               <div class="invalid-feedback">
                 Please enter a valid email.
               </div>
@@ -77,7 +78,7 @@ drawNavbar(0);
 
             <div class="mb-3">
               <label for="description">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
+              <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
               <div class="text-right mt-3">
                 <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> Save changes</button>
               </div>
@@ -87,9 +88,9 @@ drawNavbar(0);
 
             <div class="mb-3 mt">
               <label for="Password">Password (optional)</label>
-              <input type="password" class="form-control mb-1" placeholder="Current password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
-              <input type="password" class="form-control mb-1" placeholder="New password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
-              <input type="password" class="form-control mb-1" placeholder="Confirm new password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <input type="password" class="form-control userDetailsForm mb-1" placeholder="Current password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <input type="password" class="form-control userDetailsForm mb-1" placeholder="New password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <input type="password" class="form-control userDetailsForm mb-1" placeholder="Confirm new password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
               <div class="text-right mt-3">
                 <button type="button" class="btn btn-primary"><i class="fas fa-key"></i> Change password</button>
               </div>

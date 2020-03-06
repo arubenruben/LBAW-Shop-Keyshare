@@ -55,11 +55,11 @@ drawNavbar(0);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center"><img src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Destiny 2 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">124,90 € </h5>
@@ -73,11 +73,11 @@ drawNavbar(0);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><img src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">33,90 €</h5>
@@ -91,11 +91,11 @@ drawNavbar(0);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><img src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Fifa 20 (PC)<h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">70,00 €</h5>
@@ -109,11 +109,11 @@ drawNavbar(0);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><img src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Destiny 2 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">124,90 €</h5>
@@ -127,11 +127,11 @@ drawNavbar(0);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><img src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">33,90 €</h5>
@@ -145,11 +145,11 @@ drawNavbar(0);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><img src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="200" /> </td>
+                                        <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
                                         <td>
                                             <h5 class="text-center">Fifa 20 (PC)</h5>
                                         </td>
-                                        <td class="text-center"> <img class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
+                                        <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i>  |  4000 <i class="fas fa-shopping-cart"></i></span></td>
 
                                         <td class="text-center">
                                             <h5 class="font-weight-bold">70,00 €</h5>
