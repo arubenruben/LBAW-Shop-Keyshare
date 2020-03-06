@@ -1,112 +1,107 @@
 @import "./constants.css";
 
+html{
+    height: 100%;
+}
 body{
     font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
     background-color: var(--color-background-white);
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    height: 100%;
 }
-#productSearchBlock *{ 
-    display: inline;
-    width: auto;
+#wrapper{
+    min-height: 100%;
+    position: relative;
+    background-color: var(--color-background-white);
 }
-
-.productSideBarTitle{
-    font-size: 1.5em;
+footer#footerGeneric{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.productSideBarDropdownButton{
-    margin-top: 1em;
-    background-color: gray !important;
+#sidebar{
+    height: 100vh;
+    background-color: var(--color-background-full-white);
 }
-.productSideBarEntry{
-    margin: 1em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-/*SideBar collapsed checklist*/
-.productSideBarEntry .collapse .form-check-inline{
-    margin-top: 0.8em;
-    margin-left: 0.5em;
-}
-.productSideBarEntry .collapse{
-    font-size: 1.2em;
-}
-#productListingContainer .pagination li a{
-    margin-top: auto;
-    font-size: 1.5em;
-}
-.productSideBarEntry{
-    border-style: solid;
-    border-top:0px;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-
-#myAccountIcon{
-    color: red;
-    font-size: 1.5em;
-    margin-right: 2em;
-}
-#shoppingCartIcon{
-    color: red;
-    font-size: 1.5em;
-}
-
-/* header */
-
-.logo{
-    width: 10em;
-    height: 10em;
-}
-
+/*From template merge*/
 header.navbar{
     background-color: var(--color-background-dark-blue) !important;
 }
-
-#navbarSearchContainer{
-    margin-left: 5em;
+.avatar-pic {
+    width: 150px;
 }
-
+.accountDelete-button {
+    margin-top: 50px;
+}
 #headerSearchIcon{
-    color: white;
-    background-color: rgb(170, 124, 38)
+    color: var(--color-interactive-orange);
+    font-size: 1.5rem;
 }
-
-/* buttons css */ 
+#myAccountIcon{
+    color:var(--color-primary-light-blue);
+}
+#shoppingCartIcon{
+    color:var(--color-interactive-orange);
+    margin-left: auto !;
+}
+.headerIcon{
+    font-size: 1.5rem;
+}
+#offerPageSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+#headerSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+#headerExploreButton {
+    background-color: var(--color-primary-light-blue);
+    border-style: none;
+}
+#footerGeneric{
+    background-color:var(--color-background-dark-blue) !important;
+}
+.gameListItem{
+    max-width: 15em;
+    max-width: 15em;
+}
+/* HOMEPAGE buttons css */ 
 .btn-orange {
     background-color: var(--color-interactive-orange);
 }
-
 .btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
-
 /* backgrounds css */
-
 .bg-orange {
     background-color: var(--color-interactive-orange);
 }
-
 .bg-green {
     background-color: var(--color-accent-green);
 }
-
 .bg-success {
     background-color: var(--color-interactive-green-success);
 }
-
 .bg-insucess {
     background-color: var(--color-interactive-red-fail);
 }
-
 .bg-white {
     background-color: var(--color-background-white);
 }
-
 /* cards css */
-
 .card {
     border-radius: 0;
     -webkit-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+}
+#side-btn:hover {
+    background-color: var(--color-primary-light-blue);
 }
