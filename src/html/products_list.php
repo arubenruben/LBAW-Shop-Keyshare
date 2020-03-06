@@ -6,9 +6,9 @@ drawHeader(0);
 //drawNavbar(0);
 ?>
 <div id="wrapper">
-    <div class="container-fluid pt-4">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-2 d-none d-md-block">
+            <div id="sidebar" class="col-2 d-none d-md-block pt-4">
                 <div class="productSideBarEntry">
                     <header class="productSideBarTitle">Categories</header>
                     <button class="btn btn-primary productSideBarDropdownButton" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">All Categories</button>
@@ -94,7 +94,7 @@ drawHeader(0);
                     </div>
                 </div>
             </div>
-            <div class="col-8 ml-auto mr-auto">
+            <div class="col-8 ml-auto mr-auto pt-4">
                 <!--Order By-->
                 <div class="row mt-2">
                     <div class="btn-group ml-auto">
