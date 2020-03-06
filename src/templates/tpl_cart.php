@@ -1,10 +1,13 @@
 <?php function drawCart() { ?>
     <div id="cart" class="container" style="width: 80%">
-
         <!-- Shopping cart header -->
-        <div class="row">
-            <strong> Total: </strong>
-            <h5 class="font-weight-bold">$400.00</h5>
+        <div class="row mt-5 mb-2">
+            <div class="col-md-8">
+                <h3>Total: $400.00</h3>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-orange font-weight-bold rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </div>
         </div>
 
         <!-- Shopping cart table -->
@@ -21,7 +24,7 @@
                                 <div class="py-2 text-uppercase">Price</div>
                             </th>
                             <th scope="col" class="border-0 bg-light">
-                                <div class="py-2 text-uppercase">Remove</div>
+                                <div class="py-2 text-uppercase text-center">Remove</div>
                             </th>
                             </tr>
                         </thead>
@@ -48,7 +51,7 @@
                                 </div>
                             </th>
                             <td class="align-middle"><strong>$79.00</strong></td>
-                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            <td class="align-middle text-center"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
                             </td>
                             </tr>
                             <tr>
