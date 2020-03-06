@@ -1,7 +1,3 @@
-#side-btn {
-  border-radius: 50%;
-}
-
 #side-btn:hover {
   background-color: var(--color-primary-light-blue);
 }
