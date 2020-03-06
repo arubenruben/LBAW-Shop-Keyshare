@@ -1,6 +1,4 @@
-<?php
-function drawHead($jsArray = null)
-{ ?>
+<?php function drawHead($jsArray = null) { ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -15,6 +13,7 @@ function drawHead($jsArray = null)
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
         <!-- styles -->
         <link rel="stylesheet" href="../styles/common.css">
+        <link rel="stylesheet" href="../styles/homepage.css">
 
         <?php
         if ($jsArray !== null) {
@@ -99,10 +98,10 @@ function drawHead($jsArray = null)
                             <h5 class="title"> More </h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="#"> Contact </a>
+                                    <a href="#"> Help </a>
                                 </li>
                                 <li>
-                                    <a href="#"> FAQs </a>
+                                    <a href="#"> Contact </a>
                                 </li>
                                 <li>
                                     <a href="#"> About us </a>

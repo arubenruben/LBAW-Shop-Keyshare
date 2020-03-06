@@ -2,6 +2,7 @@
 
 body{
     font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+    background-color: var(--color-background-white);
 }
 #productSearchBlock *{ 
     display: inline;
@@ -39,21 +40,7 @@ body{
     border-right: 0px;
 }
 
-.logo{
-    width: 10em;
-    height: 10em;
-}
 
-header.navbar{
-    background-color: var(--color-background-dark-blue) !important;
-}
-#navbarSearchContainer{
-    margin-left: 5em;
-}
-#headerSearchIcon{
-    color: white;
-    background-color: rgb(170, 124, 38)
-}
 #myAccountIcon{
     color: red;
     font-size: 1.5em;
@@ -62,6 +49,35 @@ header.navbar{
 #shoppingCartIcon{
     color: red;
     font-size: 1.5em;
+}
+
+/* header */
+
+.logo{
+    width: 10em;
+    height: 10em;
+}
+
+header.navbar{
+    background-color: var(--color-background-dark-blue) !important;
+}
+
+#navbarSearchContainer{
+    margin-left: 5em;
+}
+
+#headerSearchIcon{
+    color: white;
+    background-color: rgb(170, 124, 38)
+}
+
+/* cards css */
+
+.card {
+    border-radius: 0;
+    -webkit-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+    -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+    box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
 }
 
 /* footer css */

@@ -1,5 +1,5 @@
 <?php function drawHomepage() { ?>
-	<div id="homepage" class="container">
+	<div id="homepage" class="container" style="width: 80%">
 		<div class="col">
 			<!-- carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -10,10 +10,10 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="d-block img-fluid" src="images/1.jpg" alt="First slide">
+					<img class="d-block img-fluid" src="../../assets/images/fifa19.JPG" alt="First slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block img-fluid" src="images/2.jpg" alt="Second slide">
+					<img class="d-block img-fluid" src="../../assets/images/fifa19.JPG" alt="Second slide">
 				</div>
 				<div class="carousel-item">
 					<img class="d-block img-fluid" src="images/3.png" alt="Third slide">
@@ -30,14 +30,16 @@
 			</div>
 			
 			<!-- most popular -->
-			<div class="row">
-				<div class="col-sm-9">
-					<h5 class="title"> Most popular </h5>
+			<div class="row mt-5" style="background-color: aqua;">
+				<div class="col sm-3">
+					<div class="row mt-2">
+						<h5 class="title col-xs-4"> Most popular <a href=""><small> See all</small></a> </h5>
+					</div>
 				</div>
-				<div class="col-sm-2">
-					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
-					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
-				</div>	
+				<div class="col sm-3 text-right">
+					<button id="side-btn" type="button" class="btn btn-light col-xs-9" style="border-radius: 50%;"><i class="fas fa-angle-left"></i></button>
+					<button id="side-btn" type="button" class="btn btn-light col-xs-4" style="border-radius: 50%;"><i class="fas fa-angle-right"></i></button>
+				</div>
 			</div>
 			<div id="most-popular" class="row mt-2">
 					<div class="col-sm-2">
@@ -49,6 +51,16 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="col-sm-2">
+					<div class="card h-100">
+						<a href="#"><img class="card-img-top" src="../../assets/images/fifa19.JPG" alt=""></a>
+						<div class="card-body">
+							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
+							<h5>$24.99</h5>
+						</div>
+					</div>
+				</div>
 	
 					<div class="col-sm-2">
 						<div class="card h-100">
@@ -92,16 +104,28 @@
 			</div>
 			
 			<!-- most recent -->
-			<div class="row">
-				<div class="col-sm-9">
-					<h5 class="title"> Most recent </h5>
+			<div class="row mt-5" style="background-color: aqua;">
+				<div class="col sm-3">
+					<div class="row mt-2">
+						<h5 class="title col-xs-4"> Most recent <a href=""><small> See all</small></a> </h5>
+					</div>
 				</div>
-				<div class="col-sm-2">
-					<button id="side-btn" type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-left"></i></button>
-					<button id="side-btn"type="button" class="btn btn-outline-dark btn-lg"><i class="fas fa-angle-right"></i></button>
-				</div>	
+				<div class="col sm-3 text-right">
+					<button id="side-btn" type="button" class="btn btn-light col-xs-9" style="border-radius: 50%;"><i class="fas fa-angle-left"></i></button>
+					<button id="side-btn" type="button" class="btn btn-light col-xs-4" style="border-radius: 50%;"><i class="fas fa-angle-right"></i></button>
+				</div>
 			</div>
 			<div id="most-recent" class="row mt-2">
+				<div class="col-sm-2">
+					<div class="card h-100">
+						<a href="#"><img class="card-img-top" src="../../assets/images/fifa19.JPG" alt=""></a>
+						<div class="card-body">
+							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
+							<h5>$24.99</h5>
+						</div>
+					</div>
+				</div>
+
 				<div class="col-sm-2">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top" src="../../assets/images/fifa19.JPG" alt=""></a>

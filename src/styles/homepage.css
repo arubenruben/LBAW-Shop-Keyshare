@@ -1,12 +1,7 @@
-.container {
-  background-color: tomato;
-}
-
 #side-btn {
-  background-color: var(--color-primary-light-blue);
   border-radius: 50%;
 }
 
 #side-btn:hover {
-  background-color: var(--color-background-dark-blue);
+  background-color: var(--color-primary-light-blue);
 }
