@@ -1,0 +1,71 @@
+@import "./constants.css";
+html{
+    height: 100%;
+}
+body {
+    font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    height: 100%;
+}
+#wrapper{
+    min-height: 100%;
+    position: relative;
+    background-color: var(--color-background-white);
+}
+footer#footerGeneric{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.avatar-pic {
+    width: 150px;
+}
+.accountDelete-button {
+    margin-top: 50px;
+}
+header.navbar{
+    background-color: var(--color-background-dark-blue) !important;
+}
+#sidebar{
+    height: 100vh;
+    background-color: var(--color-background-full-white);
+}
+#headerSearchIcon{
+    color: var(--color-interactive-orange);
+    font-size: 1.5rem;
+}
+#myAccountIcon{
+    color:var(--color-primary-light-blue);
+}
+#shoppingCartIcon{
+    color:var(--color-interactive-orange);
+    margin-left: auto !;
+}
+.headerIcon{
+    font-size: 1.5rem;
+}
+#offerPageSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+#headerSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+#headerExploreButton {
+    background-color: var(--color-primary-light-blue);
+    border-style: none;
+}
+#footerGeneric{
+    background-color:var(--color-background-dark-blue) !important;
+}
+.gameListItem{
+    max-width: 15em;
+    max-width: 15em;
+}
