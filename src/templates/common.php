@@ -43,21 +43,23 @@ function drawHead($jsArray = null)
                     </div>
                     <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
                         <form class="form-inline">
-                            <div class="form-group mb-auto mt-auto">
+                            <div class="form-group mb-auto">
                                 <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
                                 <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-4 d-none d-md-block">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="row">
-                            <button id="headerExploreButton" type="button" class="btn btn-primary ml-3 mr-0 pl-3 pr-3">Explore</button>
-                            <button id="headerSellButton" type="button" class="btn btn-primary ml-5 pl-4 pr-4">Sell Now</button>
+                            <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
+                            <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
                         </div>
                     </div>
-                    <div class="col-md-1 col-1 ml-auto pr-0 pl-0 mt-auto mb-auto d-none d-md-block">
-                        <i id="myAccountIcon" class="fas fa-user headerIcon mr-3"></i>
-                        <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
+                    <div class="col-md-2 col-1 d-none d-md-block">
+                        <div class="row">
+                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5"></i>
+                            <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
+                        </div>
                     </div>
                     <div class="col-2 d-md-none d-xs-block">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
