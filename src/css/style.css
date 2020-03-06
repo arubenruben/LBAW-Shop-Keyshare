@@ -76,16 +76,31 @@ header.navbar {
 }
 
 #headerSearchIcon {
-    color: red;
+    color: var(--color-interactive-orange);
+    font-size: 1.5em;
 }
 
 #myAccountIcon {
-    color: red;
+    color: var(--color-primary-light-blue);
     font-size: 1.5em;
     margin-right: 2em;
 }
 
 #shoppingCartIcon {
-    color: red;
+    color: var(--color-interactive-orange);
     font-size: 1.5em;
+}
+
+#headerSellButton {
+    background-color: var(--color-interactive-orange);
+    border-style: none;
+}
+
+#headerExploreButton {
+    background-color: var(--color-primary-light-blue);
+    border-style: none;
+}
+
+#headerSearchInput {
+    width: 30rem;
 }
