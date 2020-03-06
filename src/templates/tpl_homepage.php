@@ -2,6 +2,7 @@
 { ?>
 	<div id="homepage" class="container" style="width: 80%">
 		<div class="col">
+
 			<!-- carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 				<ol class="carousel-indicators">

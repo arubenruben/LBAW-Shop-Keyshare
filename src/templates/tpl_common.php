@@ -134,5 +134,4 @@ function drawHead($jsArray = null)
     </body>
 
     </html>
-<?php
-    } ?>
+<?php } ?>
