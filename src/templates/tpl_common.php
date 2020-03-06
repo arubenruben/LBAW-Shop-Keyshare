@@ -92,7 +92,7 @@
 <?php function drawFooter() { ?>
             <footer>
                 <div id="footer" class="container">
-                    <hr id="footer-line">
+                    <hr id="footer-line" class="mt-5">
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="title"> More </h5>

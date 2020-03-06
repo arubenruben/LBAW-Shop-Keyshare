@@ -71,6 +71,37 @@ header.navbar{
     background-color: rgb(170, 124, 38)
 }
 
+/* buttons css */ 
+.btn-orange {
+    background-color: var(--color-interactive-orange);
+}
+
+.btn-orange:hover {
+    background-color: var(--color-interactive-orange2);
+}
+
+/* backgrounds css */
+
+.bg-orange {
+    background-color: var(--color-interactive-orange);
+}
+
+.bg-green {
+    background-color: var(--color-accent-green);
+}
+
+.bg-success {
+    background-color: var(--color-interactive-green-success);
+}
+
+.bg-insucess {
+    background-color: var(--color-interactive-red-fail);
+}
+
+.bg-white {
+    background-color: var(--color-background-white);
+}
+
 /* cards css */
 
 .card {
@@ -79,10 +110,3 @@ header.navbar{
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
 }
-
-/* footer css */
-
-#footer-line {
-    margin-top: 5%;
-}
-
