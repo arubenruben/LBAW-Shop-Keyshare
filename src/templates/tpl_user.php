@@ -308,7 +308,7 @@
                 </div>
 <?php } ?>
 
-<?php function drawUserOffers() { ?>
+<?php function drawUserPurchases() { ?>
     <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
     <li class="nav-item">
         <a class="nav-link deco-none" href="userPage.php">Account</a>
@@ -472,5 +472,4 @@
                     </div>
                 </div>
             </div>
-
 <?php } ?>
