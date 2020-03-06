@@ -6,6 +6,7 @@ drawHeader(0);
 //drawNavbar(0);
 ?>
 
+<!--
 
 <div id="productListingContainer" class="container-fluid">
     <div class="row">
@@ -101,6 +102,7 @@ drawHeader(0);
         </nav>
         <div class="container col-10">
             <!--Order By-->
+<!--
             <div class="row justify-content-end">
                 <span id="productSearchBlock">
                     <label for="order-by">Order By</label>
@@ -224,4 +226,5 @@ drawHeader(0);
         </div>
     </div>
 </div>
+-->
 <?php drawFooter(); ?>
