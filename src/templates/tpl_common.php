@@ -16,6 +16,8 @@ function drawHead($jsArray = null)
         <!-- styles -->
         <link rel="stylesheet" href="../styles/common.css">
         <link rel="stylesheet" href="../styles/homepage.css">
+        <!-- jquery -->
+        <script src="../../assets/jquery/jquery.min.js"></script>
 
         <?php
         if ($jsArray !== null) {
