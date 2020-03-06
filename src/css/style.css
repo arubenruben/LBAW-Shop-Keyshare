@@ -1,12 +1,26 @@
 @import "./constants.css";
+html{
+    height: 100%;
+}
 body {
     font-family: var(--default-sans-serif-font), Arial, sans-serif !important;
     margin: 0px;
     border: 0px;
     padding: 0px;
+    height: 100%;
 }
-footer{
+main{
+    min-height: 100%;
+    position: relative;
+}
+footer#footerGeneric{
     width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .avatar-pic {
     width: 150px;

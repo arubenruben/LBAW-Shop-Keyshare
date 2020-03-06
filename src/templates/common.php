@@ -28,6 +28,7 @@ function drawHead($jsArray = null)
         }
         ?>
     </head>
+
     <body>
         <?php
     }
@@ -108,8 +109,8 @@ function drawHead($jsArray = null)
     function drawFooter()
     { ?>
         <!-- Footer -->
-        <footer id="footerGeneric" class="navbar navbar-fixed-bottom bg-info">
-            <div class="row pt-3 pb-1">
+        <footer id="footerGeneric" class="row mt-auto">
+            <div class="row pt-3">
                 <div class="col-2">
                 </div>
                 <div class="col-7">
@@ -126,7 +127,7 @@ function drawHead($jsArray = null)
                     </ul>
                 </div>
                 <div class="col-2">
-                    <p>© Copyright 2020 Key Share. All rights reserved.</p>
+
                 </div>
                 <div class="col-1">
                 </div>
