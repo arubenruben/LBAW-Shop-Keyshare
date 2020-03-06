@@ -43,11 +43,14 @@ header.navbar{
     background-color: var(--color-interactive-orange);
     border-style: none;
 }
-
 #headerExploreButton {
     background-color: var(--color-primary-light-blue);
     border-style: none;
 }
 #footerGeneric{
     background-color:var(--color-background-dark-blue) !important;
+}
+.gameListItem{
+    max-width: 15em;
+    max-width: 15em;
 }
