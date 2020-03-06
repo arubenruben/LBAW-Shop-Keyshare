@@ -8,7 +8,7 @@ drawHeader(0);
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
+        <div class="col-2 d-none d-md-block">
             <div class="productSideBarEntry">
                 <header class="productSideBarTitle">Categories</header>
                 <button class="btn btn-primary productSideBarDropdownButton" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">All Categories</button>
@@ -94,7 +94,7 @@ drawHeader(0);
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 ml-auto mr-auto">
             <!--Order By-->
             <div class="row justify-content-end mr-1">
                 <span id="productSearchBlock">
@@ -107,7 +107,7 @@ drawHeader(0);
                     </select>
                 </span>
             </div>
-            
+
             <!--First Row-->
             <div class="row justify-content-between">
                 <div class="col-sm-2">
@@ -120,7 +120,7 @@ drawHeader(0);
                     </div>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-2 d-none d-md-block">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
@@ -130,7 +130,7 @@ drawHeader(0);
                     </div>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-2 d-none d-md-block">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
@@ -151,7 +151,7 @@ drawHeader(0);
                     </div>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-2 d-none d-md-block">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
@@ -162,7 +162,7 @@ drawHeader(0);
                 </div>
 
                 <div class="col-sm-2">
-                    <div class="card h-60">
+                    <div class="card h-60 d-none d-md-block">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
@@ -182,7 +182,7 @@ drawHeader(0);
                     </div>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-2 d-none d-md-block">
                     <div class="card h-60">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
@@ -193,7 +193,7 @@ drawHeader(0);
                 </div>
 
                 <div class="col-sm-2">
-                    <div class="card h-60">
+                    <div class="card h-60 d-none d-md-block">
                         <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF" alt=""></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
@@ -202,7 +202,7 @@ drawHeader(0);
                     </div>
                 </div>
             </div>
-            
+
             <!--Paging-->
             <div>
                 <nav class="row justify-content-center mt-5" aria-label="Page navigation example">
@@ -221,8 +221,8 @@ drawHeader(0);
                 </nav>
             </div>
 
-        </div>    
-        <div class="col-2">
+        </div>
+        <div class="col-2 d-none d-md-block">
             <!--PlaceHolder-->
         </div>
     </div>
