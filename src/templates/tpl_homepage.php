@@ -11,13 +11,10 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="../../assets/images/car1.jpg" alt="First slide" width="850" height="200" max-width="850" max-height="200">
+						<img class="d-block img-fluid" src="../../assets/images/games/example1/example1.jpg" alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="../../assets/images/fifa19.jpg" alt="Second slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block img-fluid" src="../../assets/images/fifa19.jpg" alt="Third slide">
+						<img class="d-block img-fluid" src="../../assets/images/games/example/example.png" alt="Third slide">
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
