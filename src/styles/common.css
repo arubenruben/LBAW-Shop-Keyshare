@@ -18,7 +18,7 @@ body{
     position: relative;
 }
 #content{
-    padding-bottom: 30%;
+    padding-bottom: 20%;
 }
 footer#footerGeneric{
     width: 100%;
@@ -53,7 +53,7 @@ header.navbar{
 }
 #shoppingCartIcon{
     color:var(--color-interactive-orange);
-    margin-left: auto !;
+    margin-left: auto;
 }
 .headerIcon{
     font-size: 1.5rem;
