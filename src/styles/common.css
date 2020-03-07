@@ -2,19 +2,23 @@
 
 html{
     height: 100%;
+    margin:0;
+    padding: 0;
 }
 body{
     font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
     background-color: var(--color-background-white);
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
     height: 100%;
+    margin:0;
+    padding: 0;
 }
 #wrapper{
     min-height: 100%;
-    position: relative;
     background-color: var(--color-background-white);
+    position: relative;
+}
+#content{
+    padding-bottom: 30%;
 }
 footer#footerGeneric{
     width: 100%;
@@ -24,6 +28,7 @@ footer#footerGeneric{
     bottom: 0;
     left: 0;
     right: 0;
+    height: 9rem;
 }
 #sidebar{
     height: 100vh;
@@ -69,8 +74,8 @@ header.navbar{
     background-color:var(--color-background-dark-blue) !important;
 }
 .gameListItem{
-    max-width: 15em;
-    max-width: 15em;
+    max-width: 30em;
+    max-width: 30em;
 }
 /* HOMEPAGE buttons css */ 
 .btn-orange {
