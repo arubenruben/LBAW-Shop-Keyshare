@@ -114,10 +114,10 @@
         }
 
         ?>
-    <?php
-    }
-    function drawFooter()
-    { ?>
+<?php } ?>
+
+<!-- footer -->
+<?php function drawFooter() { ?>
         <!-- Footer -->
         <footer id="footerGeneric" class="row mt-auto">
             <div class="row pt-3">
@@ -129,7 +129,7 @@
                             <a href="#"> Contact </a>
                         </li>
                         <li>
-                            <a href="#"> FAQs </a>
+                            <a href="faq.php"> FAQs </a>
                         </li>
                         <li>
                             <a href="#"> About us </a>

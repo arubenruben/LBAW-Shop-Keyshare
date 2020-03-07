@@ -1,8 +1,4 @@
-<?php
-include_once('../templates/tpl_common.php');
-
-function drawHomepage()
-{ ?>
+<?php function drawHomepage(){ ?>
 	<div id="wrapper">
 		<div id="content" class="container">
 			<!-- carousel -->
