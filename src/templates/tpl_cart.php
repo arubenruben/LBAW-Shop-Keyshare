@@ -11,7 +11,7 @@
         </div>
 
         <!-- Shopping cart table -->
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
                 <div class="table-responsive">
                     <table class="table">
@@ -24,7 +24,7 @@
                                 <div class="py-2 text-uppercase">Price</div>
                             </th>
                             <th scope="col" class="border-0 bg-light">
-                                <div class="py-2 text-uppercase text-center">Remove</div>
+                                <div class="py-2 text-uppercase">Remove</div>
                             </th>
                             </tr>
                         </thead>
@@ -39,7 +39,7 @@
                                 </div>
                             </th>
                             <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                            <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                            <td class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a></td>
                             </tr>
                             <tr>
                             <th scope="row">
@@ -51,7 +51,7 @@
                                 </div>
                             </th>
                             <td class="align-middle"><strong>$79.00</strong></td>
-                            <td class="align-middle text-center"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            <td class="align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a>
                             </td>
                             </tr>
                             <tr>
@@ -63,7 +63,7 @@
                                 </div>
                                 </div>
                                 <td class="align-middle"><strong>$79.00</strong></td>
-                                <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                <td class="align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         </tbody>
