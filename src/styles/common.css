@@ -92,8 +92,14 @@ header.navbar{
 .cl-orange {
     color: var(--color-interactive-orange);
 }
+.cl-orange2 {
+    color: var(--color-interactive-orange2);
+}
 .cl-green {
     color: var(--color-accent-green);
+}
+.cl-blue {
+    color: var(--color-background-dark-blue);
 }
 .cl-success {
     color: var(--color-interactive-green-success);
