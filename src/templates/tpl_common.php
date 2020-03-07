@@ -1,6 +1,5 @@
-<?php
-function drawHead($jsArray = null)
-{ ?>
+<!-- head -->
+<?php function drawHead($jsArray = null) { ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -32,15 +31,16 @@ function drawHead($jsArray = null)
     </head>
 
     <body>
-        <?php
-    }
-    function drawHeader($type)
-    {
+        
+<?php } ?>
+
+<!-- header -->
+<?php  function drawHeader($type){ 
         switch ($type) {
             case 0: ?>
                 <header class="navbar navbar-light bg-light">
                     <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
-                        <a href="#">
+                        <a href="homepage.php">
                             <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
                         </a>
                     </div>
@@ -60,7 +60,7 @@ function drawHead($jsArray = null)
                     </div>
                     <div class="col-md-2 col-1 d-none d-md-block">
                         <div class="row">
-                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5"></i>
+                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
                             <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
                         </div>
                     </div>
@@ -77,6 +77,8 @@ function drawHead($jsArray = null)
                             </div>
                         </div>
                     </div>
+
+                   <?php drawAuthenticationPopup(); ?>
                 </header>
         <?php
                 break;
@@ -90,9 +92,10 @@ function drawHead($jsArray = null)
         }
         ?>
 
-        <?php }
+<?php } ?>
 
-    function drawNavbar($type)
+<!-- navbar -->
+<?php function drawNavbar($type)
     {
         switch ($type) {
                 //Draw Homepage navbar
@@ -110,36 +113,159 @@ function drawHead($jsArray = null)
         }
 
         ?>
-    <?php
-    }
-    function drawFooter()
-    { ?>
-        <!-- Footer -->
-        <footer id="footerGeneric" class="row mt-auto">
-            <div class="row pt-3">
-                <div class="col-2">
-                </div>
-                <div class="col-7">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"> Contact </a>
-                        </li>
-                        <li>
-                            <a href="#"> FAQs </a>
-                        </li>
-                        <li>
-                            <a href="#"> About us </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-2">
+    
+<?php } ?>
+    
+<!-- footer -->
+<?php function drawFooter() { ?>
+            <!-- Footer -->
+            <footer id="footerGeneric" class="row mt-auto">
+                <div class="row pt-3">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-7">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#"> Contact </a>
+                            </li>
+                            <li>
+                                <a href="#"> FAQs </a>
+                            </li>
+                            <li>
+                                <a href="#"> About us </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
 
+                    </div>
+                    <div class="col-1">
+                    </div>
                 </div>
-                <div class="col-1">
-                </div>
-            </div>
-        </footer>
-    </body>
-
+            </footer>
+        </body>
     </html>
 <?php } ?>
+
+<!-- authentication popup -->
+<?php function drawAuthenticationPopup() { ?>
+    <!-- Modal -->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- authentication popup header -->
+                <div class="row my-2">
+                    <div class="col active mx-2 text-center">
+                        <a href="#login" data-toggle="tab">Login</a>
+                    </div>
+                    <div class="col mx-2 text-center text-capitalize">
+                        <a href="#signup" data-toggle="tab">Sign up</a>
+                    </div>
+                </div>
+
+                <!-- modal body-->
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                    
+                        <div class="tab-pane fade active in" id="login">
+                            <form class="form-horizontal">
+                            <fieldset>
+                            <!-- Sign In Form -->
+                            <!-- Text input-->
+                            <div class="control-group">
+                            <label class="control-label" for="userid">Alias:</label>
+                            <div class="controls">
+                                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                            </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="control-group">
+                            <label class="control-label" for="passwordinput">Password:</label>
+                            <div class="controls">
+                                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                            </div>
+                            </div>
+
+                            <!-- Multiple Checkboxes (inline) -->
+                            <div class="control-group">
+                            <label class="control-label" for="rememberme"></label>
+                            <div class="controls">
+                                <label class="checkbox inline" for="rememberme-0">
+                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                Remember me
+                                </label>
+                            </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="control-group">
+                            <label class="control-label" for="signin"></label>
+                            <div class="controls">
+                                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                            </div>
+                            </div>
+                            </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup">
+                        
+                        <!-- Sign Up Form -->                       
+                        <form class="form-horizontal">
+                        <fieldset>
+                            <!-- Email: -->
+                            <div class="control-group">
+                                <label class="control-label" for="Email">Email:</label>
+                                <div class="controls">
+                                    <input id="Email" name="Email" class="form-control" type="text" placeholder="your@email.com" class="input-large" required="">
+                                </div>
+                            </div>
+                            
+                            <!-- Username: -->
+                            <div class="control-group">
+                                <label class="control-label" for="userid">Username:</label>
+                                <div class="controls">
+                                    <input id="userid" name="userid" class="form-control" type="text" placeholder="username" class="input-large" required="">
+                                </div>
+                            </div>
+                            
+                            <!-- Password input: -->
+                            <div class="control-group">
+                                <label class="control-label" for="password">Password:</label>
+                                <div class="controls">
+                                    <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                    <em>1-8 Characters</em>
+                                </div>
+                            </div>
+                            
+                            <!-- Text input: -->
+                            <div class="control-group">
+                                <label class="control-label" for="reenterpassword">Confirm Password:</label>
+                                <div class="controls">
+                                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                </div>
+                            </div>
+                    
+                            
+                            <!-- Signup Button -->
+                            <div class="control-group">
+                            <label class="control-label" for="confirmsignup"></label>
+                            <div class="controls">
+                                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                            </div>
+                            </div>
+                        </fieldset>
+                        </form>
+                    </div>
+                </div>  
+            
+            <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center>
+            </div>
+            
+        </div>
+    </div>
+<?php } ?> 
