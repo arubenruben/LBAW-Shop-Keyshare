@@ -147,4 +147,8 @@ header.navbar{
 #offerAddNewKeyContainer,#offerAddNewSaleContainer{
     font-size: 1.5em;
 }
-
+#loginLogo{
+    max-width: 2em;
+    max-height: 2em;
+    background-color: wheat;
+}

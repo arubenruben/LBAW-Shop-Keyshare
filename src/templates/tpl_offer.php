@@ -89,16 +89,33 @@ function drawOffer()
                                 <i class="fas fa-plus-circle ml-auto mb-auto mt-auto"></i>
                                 <span class="mt-auto mt-auto mb-auto mr-auto ml-3">Add New Sale</span>
                             </div>
-
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col">
                             <h3>Billing Details</h3>
-
+                            <div class="form-group mt-4">
+                                <label for="inputGameBillingEmail">
+                                    <h5>Billing Email</h5>
+                                </label>
+                                <div class="row">
+                                    <div class="col-8 mt-auto mb-auto">
+                                        <input type="email" class="form-control mt-auto mb-auto ml-3" id="inputGameBillingEmail" placeholder="Billing Email" value="up2000@fe.up.pt">
+                                    </div>
+                                    <div class="col-4 mt-auto mb-auto">
+                                        <img id="loginLogo" class="img-fluid" src="https://www.paypalobjects.com/webstatic/icon/pp258.png?01AD=3JXlaY30icDVvEQCh4JZU-i7mkkm-W9Z6vyRg8HQy96gcJahLG7n31Q&01RI=AC8F6687BF7C2EC&01NA=">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="form-group row mt-5">
+                        <label class="mt-auto mb-auto col-5 col-form-label">
+                            <h5>Potential Gains:</h5>
+                        </label>
+                        <input type="text" readonly class="form-control-plaintext col-2 mr-auto mt-auto mb-auto" id="inputGameBillingGains" value="10€">
+                        <button type="submit" class="btn btn-primary mb-2 ml-auto col-5 mt-auto mb-auto">Submit Offer</button>
                     </div>
                 </div>
             </div>
