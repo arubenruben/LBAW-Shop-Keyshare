@@ -1,5 +1,6 @@
 <!-- head -->
-<?php function drawHead($jsArray = null) { ?>
+<?php function drawHead($jsArray = null)
+{ ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -7,6 +8,14 @@
         <title>KeyShare</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- styles -->
+        <link rel="stylesheet" href="../styles/common.css">
+        <?php
+        if ($jsArray !== null) {
+            foreach ($jsArray as $jsFile) { ?>
+                <script src="<?= '../js/' . $jsFile ?>" defer></script>
+        <?php }
+        } ?>
         <!-- jquery -->
         <script defer src="../../assets/jquery/jquery.min.js"></script>
         <!-- fontawesome -->
@@ -16,26 +25,18 @@
         <!-- fontawesome -->
         <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
-        <!-- styles -->
-        <link rel="stylesheet" href="../styles/common.css">
-        <!-- fonts --> 
+        <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-        <?php
-        if ($jsArray !== null) {
-            foreach ($jsArray as $jsFile) { ?>
-                <script src=<?= $jsFile ?> defer></script>
-        <?php }
-        }
-        ?>
     </head>
 
     <body>
-        
-<?php } ?>
 
-<!-- header -->
-<?php  function drawHeader($type){ 
+    <?php } ?>
+
+    <!-- header -->
+    <?php function drawHeader($type)
+    {
         switch ($type) {
             case 0: ?>
                 <header class="navbar navbar-light bg-light fixed-top">
@@ -79,72 +80,78 @@
                         </div>
                     </div>
 
-                   <?php drawAuthenticationPopup(); ?>
+                    <?php drawAuthenticationPopup(); ?>
                 </header>
-        <?php
+                <div id="wrapper">
+                <?php
                 break;
             default: ?>
-                
+
 
             <?php
-            
+
 
                 break;
         }
-        ?>
+            ?>
 
-<?php } ?>
+        <?php } ?>
 
-<!-- navbar -->
-<?php function drawNavbar($type)
-    {
-        switch ($type) {
-                //Draw Homepage navbar
-            case 0: ?>
-
-
-
-        <?php
-                break;
+        <!-- navbar -->
+        <?php function drawNavbar($type)
+        {
+            switch ($type) {
+                    //Draw Homepage navbar
+                case 0: ?>
 
 
-            default:
 
-                break;
-        }
+            <?php
+                    break;
 
-        ?>
-<?php } ?>
 
-<!-- footer -->
-<?php function drawFooter() { ?>
-        <!-- Footer -->
-        <footer id="footerGeneric" class="row mt-auto">
-            <div class="row pt-3">
-                <div class="col-2">
-                </div>
-                <div class="col-7">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"> Contact </a>
-                        </li>
-                        <li>
-                            <a href="faq.php"> FAQs </a>
-                        </li>
-                        <li>
-                            <a href="#"> About us </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-2">
-                </div>
+                default:
+
+                    break;
+            }
+
+            ?>
+        <?php } ?>
+
+        <!-- footer -->
+        <?php function drawFooter()
+        { ?>
+            <!-- Footer -->
+            <footer id="footerGeneric" class="row mt-auto">
+                <div class="row pt-3">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-7">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#"> Contact </a>
+                            </li>
+                            <li>
+                                <a href="faq.php"> FAQs </a>
+                            </li>
+                            <li>
+                                <a href="#"> About us </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                    </div>
             </footer>
-        </body>
+            <!--This Div closes the container that mantains the footer at the bottom -->
+                </div>
+    </body>
+
     </html>
 <?php } ?>
 
 <!-- authentication popup -->
-<?php function drawAuthenticationPopup() { ?>
+<?php function drawAuthenticationPopup()
+{ ?>
     <!-- Modal -->
     <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -167,100 +174,100 @@
                         <div class="tab-pane fade active in" id="login">
                             <!-- Login In Form -->
                             <form class="form-horizontal">
-                            <fieldset>
-                                <!-- Username-->
-                                <div class="control-group">
-                                    <label class="control-label" for="userid">Username:</label>
-                                    <div class="controls">
-                                        <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                <fieldset>
+                                    <!-- Username-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Password input-->
-                                <div class="control-group">
-                                    <label class="control-label" for="passwordinput">Password:</label>
-                                    <div class="controls">
-                                        <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Multiple Checkboxes (inline) -->
-                                <div class="control-group">
-                                    <label class="control-label" for="rememberme"></label>
-                                    <div class="controls">
-                                        <label class="checkbox inline" for="rememberme-0">
-                                        <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
-                                        Remember me
-                                        </label>
+                                    <!-- Multiple Checkboxes (inline) -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-0">
+                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                Remember me
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Button -->
-                                <div class="control-group">
-                                    <label class="control-label" for="signin"></label>
-                                    <div class="controls">
-                                        <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
+                                </fieldset>
                             </form>
                         </div>
                         <!-- SIGNUP -->
                         <div class="tab-pane fade" id="signup">
-                            <!-- Sign Up Form -->                       
+                            <!-- Sign Up Form -->
                             <form class="form-horizontal">
-                            <fieldset>
-                                <!-- Email: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="Email">Email:</label>
-                                    <div class="controls">
-                                        <input id="Email" name="Email" class="form-control" type="text" placeholder="your@email.com" class="input-large" required="">
+                                <fieldset>
+                                    <!-- Email: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="your@email.com" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Username: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="userid">Username:</label>
-                                    <div class="controls">
-                                        <input id="userid" name="userid" class="form-control" type="text" placeholder="username" class="input-large" required="">
+
+                                    <!-- Username: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="userid" class="form-control" type="text" placeholder="username" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Password input: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="password">Password:</label>
-                                    <div class="controls">
-                                        <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
-                                        <em>1-8 Characters</em>
+
+                                    <!-- Password input: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                            <em>1-8 Characters</em>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Text input: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="reenterpassword">Confirm Password:</label>
-                                    <div class="controls">
-                                        <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+
+                                    <!-- Text input: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="reenterpassword">Confirm Password:</label>
+                                        <div class="controls">
+                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>         
-                                
-                                <!-- Signup Button -->
-                                <div class="control-group">
-                                    <label class="control-label" for="confirmsignup"></label>
-                                    <div class="controls">
-                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+
+                                    <!-- Signup Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
+                                </fieldset>
                             </form>
                         </div>
-                </div>  
-            
-            <div class="modal-footer">
-                <center>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </center>
+                    </div>
+
+                    <div class="modal-footer">
+                        <center>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </center>
+                    </div>
+
+                </div>
             </div>
-            
-        </div>
-    </div>
-<?php } ?> 
+        <?php } ?>

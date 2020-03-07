@@ -9,7 +9,6 @@
                 <a href="#" class="btn btn-orange font-weight-bold rounded-pill py-2 btn-block">Procceed to checkout</a>
             </div>
         </div>
-
         <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
             <!-- table header -->
             <div class="row">

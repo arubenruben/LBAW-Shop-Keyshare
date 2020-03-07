@@ -1,4 +1,5 @@
 @import "./constants.css";
+@import "./progress_bar.css";
 
 html{
     height: 100%;
@@ -147,4 +148,8 @@ header.navbar{
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
+}
+.cartProductImage{
+    
+
 }
