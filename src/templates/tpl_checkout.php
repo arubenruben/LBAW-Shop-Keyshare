@@ -18,7 +18,7 @@ function drawCheckoutFirstPage()
             ?>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary btn-lg ml-auto mr-5">Depois</button>
+            <button type="button" class="btn btn-primary btn-lg ml-auto mr-4">Depois</button>
         </div>
     </div>
 <?php
@@ -55,16 +55,53 @@ function drawCheckoutSecondPage()
 
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary btn-lg mr-auto mr-5">Antes</button>
-            <button type="button" class="btn btn-primary btn-lg ml-auto mr-5">Depois</button>
+            <button type="button" class="btn btn-primary btn-lg mr-auto ml-4">Antes</button>
+            <button type="button" class="btn btn-primary btn-lg ml-auto mr-4">Depois</button>
         </div>
     </div>
 <?php }
 
 function drawCheckoutThirdPage()
 { ?>
-
-
+    <div id="content" class="container">
+        <!--Only draw ProgressBar when is XL. Not responsive-->
+        <div class="row">
+            <h3>Confirm Your Order</h3>
+        </div>
+        <div class="row d-none d-xl-block">
+            <?php drawProgressBar(); ?>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Your Products</h4>
+                <div class="col">
+                    <?php
+                    drawCartProductReviewEntry();
+                    drawCartProductReviewEntry();
+                    drawCartProductReviewEntry();
+                    drawCartProductReviewEntry();
+                    ?>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <h4>Your Personal Information</h4>
+                <div class="col">
+                    <p>Name:Ruben Almeida</p>
+                    <p>Email:email@example.com</p>
+                    <p>Address:Heinrich-Heine-Straße,Berlin,Deutschland</p>
+                    <p>Zipcode:4000-000</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <button type="button" class="btn btn-primary btn-lg mr-auto ml-4">Antes</button>
+            <button type="button" class="btn btn-primary btn-lg ml-auto mr-4">Depois</button>
+        </div>
+    </div>
 
 <?php }
 

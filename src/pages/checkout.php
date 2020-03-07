@@ -6,6 +6,7 @@ drawHead();
 drawHeader(0);
 drawNavbar(0);
 //drawCheckoutFirstPage();
-drawCheckoutSecondPage();
+//drawCheckoutSecondPage();
+drawCheckoutThirdPage();
 drawFooter();
 
