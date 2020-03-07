@@ -108,7 +108,13 @@ header.navbar{
     -webkit-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+    background-color: var(--color-background-white);
+    padding: 0;
 }
 #side-btn:hover {
     background-color: var(--color-primary-light-blue);
+}
+.homepageProductCol{
+    margin-left: 0;
+    padding-left: 0;
 }

@@ -5,7 +5,7 @@ function drawHomepage()
 { ?>
 	<div id="wrapper">
 		<div id="content" class="container">
-			<div class="row mt-5">
+			<div class="row mt-4 mr-2 ml-2">
 				<div id="carouselExampleIndicators" class="carousel slide ml-auto mr-auto" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -46,31 +46,45 @@ function drawHomepage()
 					</div>
 				</div>
 			</div>
-			<div class="col">
+			<div class="col mb-5 homepageProductCol">
 				<div class="row justify-content-between flex-nowrap mt-4 ml-auto mr-auto">
-					<div class="card gameListItem h-100 mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 col-xl-2 h-100">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 col-xl-2 h-100">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-md-block d-none mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-md-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-xl-block d-none">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+						<div class="card-body">
+							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
+							<h5>$24.99</h5>
+						</div>
+					</div>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+						<div class="card-body">
+							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
+							<h5>$24.99</h5>
+						</div>
+					</div>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
@@ -93,43 +107,43 @@ function drawHomepage()
 			</div>
 			<div class="col mb-5">
 				<div class="row justify-content-between flex-nowrap mt-4 ml-auto mr-auto">
-					<div class="card gameListItem h-100 mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 col-xl-2 h-100">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 col-xl-2 h-100">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-md-block d-none mr-2">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-md-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-xl-block d-none">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-xl-block d-none">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
 						</div>
 					</div>
-					<div class="card gameListItem h-100 d-xl-block d-none">
-						<a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+					<div class="card gameListItem col-xs-6 col-sm-4 col-md-2 h-100 d-xl-block d-none">
+						<a href="#"><img class="card-img-top mt-3" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
 						<div class="card-body">
 							<h6 class="card-title"> <a href="#"> Star Wars Jedi: Fallen Order </a> </h6>
 							<h5>$24.99</h5>
