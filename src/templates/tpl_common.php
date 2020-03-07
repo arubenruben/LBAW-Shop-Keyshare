@@ -113,34 +113,29 @@
         }
 
         ?>
-    
-<?php } ?>
-    
-<!-- footer -->
-<?php function drawFooter() { ?>
-            <!-- Footer -->
-            <footer id="footerGeneric" class="row mt-auto">
-                <div class="row pt-3">
-                    <div class="col-2">
-                    </div>
-                    <div class="col-7">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#"> Contact </a>
-                            </li>
-                            <li>
-                                <a href="#"> FAQs </a>
-                            </li>
-                            <li>
-                                <a href="#"> About us </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-
-                    </div>
-                    <div class="col-1">
-                    </div>
+    <?php
+    }
+    function drawFooter()
+    { ?>
+        <!-- Footer -->
+        <footer id="footerGeneric" class="row mt-auto">
+            <div class="row pt-3">
+                <div class="col-2">
+                </div>
+                <div class="col-7">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#"> Contact </a>
+                        </li>
+                        <li>
+                            <a href="#"> FAQs </a>
+                        </li>
+                        <li>
+                            <a href="#"> About us </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2">
                 </div>
             </footer>
         </body>

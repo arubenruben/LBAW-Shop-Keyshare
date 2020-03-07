@@ -2,19 +2,23 @@
 
 html{
     height: 100%;
+    margin:0;
+    padding: 0;
 }
 body{
     font-family: var(--font-default-sans-serif), sans-serif;
     background-color: var(--color-background-white);
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
     height: 100%;
+    margin:0;
+    padding: 0;
 }
 #wrapper{
     min-height: 100%;
-    position: relative;
     background-color: var(--color-background-white);
+    position: relative;
+}
+#content{
+    padding-bottom: 20%;
 }
 footer#footerGeneric{
     width: 100%;
@@ -24,6 +28,7 @@ footer#footerGeneric{
     bottom: 0;
     left: 0;
     right: 0;
+    height: 9rem;
 }
 #sidebar{
     height: 100vh;
@@ -48,7 +53,7 @@ header.navbar{
 }
 #shoppingCartIcon{
     color:var(--color-interactive-orange);
-    margin-left: auto !;
+    margin-left: auto;
 }
 .headerIcon{
     font-size: 1.5rem;
@@ -70,6 +75,8 @@ header.navbar{
 }
 .gameListItem{
     max-width: 15em;
+}
+.card-img-top{
     max-width: 15em;
 }
 /* buttons css */ 
@@ -101,11 +108,19 @@ header.navbar{
     -webkit-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+    background-color: var(--color-background-white);
+    padding: 0;
 }
-
 .card:hover {
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
 }
 
+#side-btn:hover {
+    background-color: var(--color-primary-light-blue);
+}
+.homepageProductCol{
+    margin-left: 0;
+    padding-left: 0;
+}

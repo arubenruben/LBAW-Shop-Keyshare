@@ -5,6 +5,6 @@
 	//page
 	drawHead();
 	// drawHeader(0);
-	drawProductPage();
+	//drawProductPage();
 	drawFooter(); 
 ?>
