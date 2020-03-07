@@ -5,3 +5,4 @@
     drawHeader(0);
     drawNavbar(0);
     drawUserDetails();
+?>
