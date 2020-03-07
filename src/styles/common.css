@@ -72,6 +72,7 @@ header.navbar{
     max-width: 15em;
     max-width: 15em;
 }
+
 /* buttons css */ 
 .btn-orange {
     background-color: var(--color-interactive-orange);
@@ -79,6 +80,24 @@ header.navbar{
 .btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
+
+/* color css */
+.cl-orange {
+    color: var(--color-interactive-orange);
+}
+.cl-green {
+    color: var(--color-accent-green);
+}
+.cl-success {
+    color: var(--color-interactive-green-success);
+}
+.cl-insucess {
+    color: var(--color-interactive-red-fail);
+}
+.cl-white {
+    color: var(--color-background-white);
+}
+
 /* backgrounds css */
 .bg-orange {
     background-color: var(--color-interactive-orange);
@@ -95,6 +114,7 @@ header.navbar{
 .bg-white {
     background-color: var(--color-background-white);
 }
+
 /* cards css */
 .card {
     border-radius: 0;
@@ -102,10 +122,8 @@ header.navbar{
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
 }
-
 .card:hover {
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
 }
-
