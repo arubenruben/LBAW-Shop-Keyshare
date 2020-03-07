@@ -6,5 +6,4 @@
 	drawHead();
 	drawHeader(0);
 	drawHomepage();
-	drawFooter(); 
 ?>
