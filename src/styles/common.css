@@ -51,10 +51,6 @@ header.navbar{
 #myAccountIcon{
     color:var(--color-primary-light-blue);
 }
-#shoppingCartIcon{
-    color:var(--color-interactive-orange);
-    margin-left: auto;
-}
 .headerIcon{
     font-size: 1.5rem;
 }

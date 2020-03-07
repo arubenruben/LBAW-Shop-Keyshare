@@ -6,7 +6,7 @@ function drawHomepage()
 	<div id="wrapper">
 		<div id="content" class="container">
 			<!-- carousel -->
-			<div class="row mt-4 mr-2 ml-3">
+			<div class="row mr-2 ml-3">
 				<div id="carouselExampleIndicators" class="carousel slide ml-auto mr-auto" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

@@ -38,7 +38,7 @@
 <?php  function drawHeader($type){ 
         switch ($type) {
             case 0: ?>
-                <header class="navbar navbar-light bg-light">
+                <header class="navbar navbar-light bg-light fixed-top">
                     <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                         <a href="homepage.php">
                             <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
@@ -61,9 +61,10 @@
                     <div class="col-md-2 col-1 d-none d-md-block">
                         <div class="row">
                             <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
-                            <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
+                            <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                         </div>
                     </div>
+                    <!-- mobile -->
                     <div class="col-2 d-md-none d-xs-block">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -73,7 +74,7 @@
                         <div class="collapse" id="navbarToggleExternalContent">
                             <div class="ml-auto p-2">
                                 <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
-                                <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
+                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                             </div>
                         </div>
                     </div>
