@@ -66,6 +66,76 @@
             </div>
             
         </div>
+        <hr class="m-0">
+    </div>        
+<?php } ?>
 
-    </div>
+<?php function drawFeedbackPopup() { ?>
+<!-- Button trigger modal -->
+    <a class="btn" data-toggle="modal" data-target="#exampleModalLong">
+        Launch demo modal
+    </a>
+
+  	<!-- Modal -->
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+						<div class="row">
+							<div class="col">
+								<h4>bestseller439</h4>
+								<span>99% Positive Feedback | Sales: 1897</span> 
+							</div>
+						</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<!-- modal body -->
+				<div class="modal-body">
+					<div class="container-fluid">
+						<!-- feedback header -->
+						<div class="row">
+							<div class="col">
+								<div class="btn"> All reviews</div>
+							</div>
+							<div class="col">
+								<h8> <i class="fas fa-thumbs-up"></i>Positive reviews</h8>
+							</div>
+							<div class="col">
+								<h8> <i class="fas fa-thumbs-down"></i>Negative reviews</h8>
+							</div>
+						</div>
+						<!-- feedback ratings -->
+						<div class="row">
+							<div class="col">
+								<i class="fas fa-thumbs-down"></i>
+								<i class="fas fa-thumbs-up"></i>
+							</div>
+							<div class="col">
+								Mar 06, 2020
+							</div>
+							<div class="col">
+								key doesnt work
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<i class="fas fa-thumbs-up"></i>
+							</div>
+							<div class="col">
+								Mar 06, 2020
+							</div>
+							<div class="col">
+								key works
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Load More</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <?php } ?>

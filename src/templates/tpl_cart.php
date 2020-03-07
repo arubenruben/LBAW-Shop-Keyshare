@@ -36,8 +36,8 @@
                 <div class="col-md-2">
                     <div class="border-0 align-middle"><strong>$79.00</strong></div>
                 </div>
-                <div class="col-md-2">
-                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a></div>
+                <div class="col-md-2 pl-4">
+                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-insucess"></i></a></div>
                 </div>
             </div>
 
@@ -52,8 +52,8 @@
                 <div class="col-md-2">
                     <div class="border-0 align-middle"><strong>$79.00</strong></div>
                 </div>
-                <div class="col-md-2">
-                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a></div>
+                <div class="col-md-2 pl-4">
+                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-insucess"></i></a></div>
                 </div>
             </div>
 
@@ -65,11 +65,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2 ">
                     <div class="border-0 align-middle"><strong>$79.00</strong></div>
                 </div>
-                <div class="col-md-2">
-                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash"></i></a></div>
+                <div class="col-md-2 pl-4">
+                    <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-insucess"></i></a></div>
                 </div>
             </div>
         </div>

@@ -155,3 +155,7 @@ function drawHomepage()
 		<?php drawFooter() ?>
 	</div>
 <?php } ?>
+
+<!-- CAROUSEL: 3440x1440 -->
+<!-- PRODUCT HOMEPAGE: 3440x1440 -->
+<!-- LISTINGS: 1920*1080 -->
