@@ -5,6 +5,7 @@ include_once('../templates/tpl_checkout.php');
 drawHead();
 drawHeader(0);
 drawNavbar(0);
-drawCheckoutFirstPage();
+//drawCheckoutFirstPage();
+drawCheckoutSecondPage();
 drawFooter();
 
