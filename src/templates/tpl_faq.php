@@ -10,7 +10,7 @@
                     <div class="card my-2">
                         <div class="card-header p-2" id="faq1Q">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq1A" aria-expanded="false" aria-controls="faq1A">
+                                <button class="btn btn-link cl-orange2" type="button" data-toggle="collapse" data-target="#faq1A" aria-expanded="false" aria-controls="faq1A">
                                 How does this work?
                                 </button>
                             </h5>
@@ -26,7 +26,7 @@
                     <div class="card my-2">
                         <div class="card-header p-2" id="faq2Q">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq2A" aria-expanded="false" aria-controls="faq2A">
+                                <button class="btn btn-link cl-orange2" type="button" data-toggle="collapse" data-target="#faq2A" aria-expanded="false" aria-controls="faq2A">
                                 How does this work?
                                 </button>
                             </h5>
@@ -42,7 +42,7 @@
                     <div class="card my-2">
                         <div class="card-header p-2" id="faq3Q">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq3A" aria-expanded="false" aria-controls="faq3A">
+                                <button class="btn btn-link cl-orange2" type="button" data-toggle="collapse" data-target="#faq3A" aria-expanded="false" aria-controls="faq3A">
                                 How does this work?
                                 </button>
                             </h5>
@@ -58,7 +58,7 @@
                     <div class="card my-2">
                         <div class="card-header p-2" id="faq4Q">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq4A" aria-expanded="false" aria-controls="faq4A">
+                                <button class="btn btn-link cl-orange2" type="button" data-toggle="collapse" data-target="#faq4A" aria-expanded="false" aria-controls="faq4A">
                                 How does this work?
                                 </button>
                             </h5>
@@ -74,7 +74,7 @@
                     <div class="card my-2">
                         <div class="card-header p-2" id="faq5Q">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq5A" aria-expanded="false" aria-controls="faq5A">
+                                <button class="btn btn-link cl-orange2" type="button" data-toggle="collapse" data-target="#faq5A" aria-expanded="false" aria-controls="faq5A">
                                 How does this work?
                                 </button>
                             </h5>
