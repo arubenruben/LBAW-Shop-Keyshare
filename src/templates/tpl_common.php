@@ -8,16 +8,20 @@ function drawHead($jsArray = null)
         <title>KeyShare</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-        <script defer src="../assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jquery -->
+        <script defer src="../../assets/jquery/jquery.min.js"></script>
         <!-- fontawesome -->
-
-        <script src="../assets/fontawesome/js/fontawesome.min.js"></script>
-        <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+        <script defer src="../../assets/bootstrap/js/"></script>
+        <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+        <script defer src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- fontawesome -->
+        <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
+        <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
         <!-- styles -->
         <link rel="stylesheet" href="../styles/common.css">
+        <!-- fonts --> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
         <?php
         if ($jsArray !== null) {
             foreach ($jsArray as $jsFile) { ?>
@@ -37,7 +41,7 @@ function drawHead($jsArray = null)
                 <header class="navbar navbar-light bg-light">
                     <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                         <a href="#">
-                            <img class="img-fluid logo" src="../assets/images/logo/logo.png" />
+                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
                         </a>
                     </div>
                     <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
@@ -76,7 +80,11 @@ function drawHead($jsArray = null)
                 </header>
         <?php
                 break;
-            default:
+            default: ?>
+                
+
+            <?php
+            
 
                 break;
         }

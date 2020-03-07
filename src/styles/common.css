@@ -4,7 +4,7 @@ html{
     height: 100%;
 }
 body{
-    font-family: var(--default-sans-serif-font),Arial,sans-serif !important;
+    font-family: var(--font-default-sans-serif), sans-serif;
     background-color: var(--color-background-white);
     margin: 0px;
     border: 0px;
@@ -102,6 +102,10 @@ header.navbar{
     -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
     box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
 }
-#side-btn:hover {
-    background-color: var(--color-primary-light-blue);
+
+.card:hover {
+    -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
+    -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
+    box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
 }
+
