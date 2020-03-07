@@ -75,7 +75,6 @@ header.navbar{
 .card-img-top{
     max-width: 15em;
 }
-
 /* buttons css */ 
 .btn-orange {
     background-color: var(--color-interactive-orange);
@@ -83,7 +82,6 @@ header.navbar{
 .btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
-
 /* color css */
 .cl-orange {
     color: var(--color-interactive-orange);
@@ -106,7 +104,6 @@ header.navbar{
 .cl-white {
     color: var(--color-background-white);
 }
-
 /* backgrounds css */
 .bg-orange {
     background-color: var(--color-interactive-orange);
@@ -123,7 +120,6 @@ header.navbar{
 .bg-white {
     background-color: var(--color-background-white);
 }
-
 /* cards css */
 .card {
     border-radius: 0;
@@ -137,4 +133,18 @@ header.navbar{
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
+}
+/*Corrigir o Logo no GIMP tem muito blank space
+.logo{
+    min-height: 7em;
+    min-width: 10em;
+}
+*/
+#offerAddNewKeyContainer,#offerAddNewSaleContainer{
+    font-size: 1.5em;
+}
+#loginLogo{
+    max-width: 2em;
+    max-height: 2em;
+    background-color: wheat;
 }
