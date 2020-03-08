@@ -212,10 +212,12 @@ header.navbar{
     padding:0 !important;
 }
 .cardHomepage{
+    min-height: 18.9rem;
     height: fit-content !important;
     width: 15rem !important;
 }
 .cardProductList{
+    min-height: 18.9rem;
     height: fit-content !important;
     width: 21rem !important;
 }
