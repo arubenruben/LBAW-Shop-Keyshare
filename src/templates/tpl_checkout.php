@@ -104,7 +104,33 @@ function drawCheckoutThirdPage()
     </div>
 
 <?php }
-
+function drawCheckoutFourthPage($sucess = true)
+{ ?>
+    <div id="content" class="container">
+        <div class="col">
+            <!--Only draw ProgressBar when is XL. Not responsive-->
+            <div class="row d-none d-xl-block">
+                <?php drawProgressBar(); ?>
+            </div>
+            <div id="checkoutPlaceHolderTop" class="row"></div>
+            <div class="col text-center">
+                <?php
+                if ($sucess === true) { ?>
+                    <i id="checkoutStatusEmojiTrue" class="fas fa-check-circle mb-2"></i>
+                    <h3 id="checkoutStatusTitleTrue">Sucess</h3>
+                <?php
+                } else { ?>
+                    <i id="checkoutStatusEmojiFalse" class="fas fa-times-circle mb-2"></i>
+                    <h3 id="checkoutStatusTitle">Fail</h3>
+                <?php
+                }  ?>
+                <button type="button" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to My Account</button>
+            </div>
+            <div id="checkoutPlaceHolderBottom" class="row"></div>
+        </div>
+    </div>
+<?php
+}
 function drawProgressBar()
 { ?>
     <div class="progress-bar-wrapper">
