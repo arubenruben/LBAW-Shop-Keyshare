@@ -44,7 +44,7 @@
         switch ($type) {
             case 0: ?>
                 <div id="wrapper">
-                    <header class="navbar fixed-top">
+                    <header id="headerFixed" class="navbar">
                         <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                             <a href="homepage.php">
                                 <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
@@ -60,13 +60,14 @@
                         </div>
                         <div class="col-md-3 d-none d-md-block">
                             <div class="row">
-                                <a id="headerExploreButton" href="products_list.php" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
+                                <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
                                 <a id="headerSellButton" href="offer.php" class="btn btn-primary ml-3 pl-3 pr-3" role="button">Sell Now</a>
                             </div>
                         </div>
                         <div class="col-md-2 col-1 d-none d-md-block">
                             <div class="row">
-                                <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
+                                <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-block">
+                                <i class="fas fa-user headerIcon" data-toggle="modal" data-target=".bs-modal-sm"></i> Log in</button>
                                 <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                             </div>
                         </div>

@@ -2,23 +2,19 @@
 include_once('../templates/tpl_common.php');
 
 function drawUserDetails()
-{ ?>
-    <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
-        <li class="nav-item">
-            <a class="nav-link  active deco-none" href="user.php">Account</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
-        </li>
-    </ul>
-    <div id="content" class="container">
-        <div class="row mt-5">
+{ 
+    drawUserNavBar("account");
+    
+    
+    
+    ?>
+
+    
+    <div class="container">
+        <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-3">
                         <h4 class="text-center">Username</h4>
                     </div>
                 </div>
@@ -47,7 +43,7 @@ function drawUserDetails()
             </div>
             <div class="col-sm-7 ml-3 text-center border rounded-top-lg">
                 <div class="row">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 mt-3 text-center">
                         <h4 class="text-center">Account Details</h4>
                     </div>
                 </div>
@@ -97,21 +93,94 @@ function drawUserDetails()
             </div>
         </div>
     </div>
+    </div>
 <?php } ?>
 
+
+<?php function drawUserNavBar($page)
+{
+
+    switch ($page) {
+        case "account":
+
+?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+        <?php
+
+            break;
+
+        case "offers":
+
+        ?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+
+
+        <?php
+
+            break;
+
+
+        case "purchases":
+        ?>
+
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3 ">
+                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+    <?php
+            break;
+
+        default:
+            break;
+    }
+    ?>
+
+  
+
+<?php
+}
+
+?>
 <?php function drawUserOffers()
-{ ?>
-    <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
-        <li class="nav-item">
-            <a class="nav-link deco-none" href="user.php">Account</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active deco-none" href="userOffers.php">Offers(7)</a>
-        </li>
-    </ul>
+{ 
+    
+    
+    
+    
+    drawUserNavBar("offers");
+    
+    ?>
+    
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -296,18 +365,11 @@ function drawUserDetails()
 <?php } ?>
 
 <?php function drawUserPurchases()
-{ ?>
-    <ul class="nav nav-pills  justify-content-center p-2  bg-dark text-white">
-        <li class="nav-item">
-            <a class="nav-link deco-none" href="user.php">Account</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  active deco-none" href="userPurchasesPage.php">Purchases</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
-        </li>
-    </ul>
+{ 
+    drawUserNavBar("purchases");
+    
+    ?>
+  
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
