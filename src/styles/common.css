@@ -67,10 +67,6 @@ header.navbar{
     background-color: var(--color-primary-light-blue);
     border-style: none;
 }
-#footerGeneric{
-    background-color:var(--color-background-dark-blue) !important;
-}
-
 /* buttons css */ 
 .btn-orange {
     background-color: var(--color-interactive-orange);

@@ -1,6 +1,5 @@
 <!-- head -->
-<?php function drawHead($jsArray = null)
-{ ?>
+<?php function drawHead($jsArray = null) { ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -120,31 +119,49 @@
 
 <!-- footer -->
 <?php function drawFooter() { ?>
-                <!-- Footer -->
-                <footer id="footerGeneric" class="row mt-auto">
-                    <div class="row pt-3">
-                        <div class="col-2">
-                        </div>
-                        <div class="col-7">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="contact.php"> Contact </a>
-                                </li>
-                                <li>
-                                    <a href="faq.php"> FAQs </a>
-                                </li>
-                                <li>
-                                    <a href="about.php"> About us </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-2">
-                        </div>
-                </footer>
-            <!--This Div closes the container that mantains the footer at the bottom -->
-            </div>
-    </body>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div id="footer" class="container">
+                        <hr id="footer-line" class="mt-5">
+                        <div class="row">
+                            <div class="col mx-auto my-auto">
+                                <h5 class="title"> More </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="help.php"> Help </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php"> Contact </a>
+                                    </li>
+                                    <li>
+                                        <a href="about.php"> About us </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col mx-auto my-auto">
+                                <h5 class="title"> Shortcuts </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="help.php"> Homepage </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php"> All products </a>
+                                    </li>
+                                    <li>
+                                        <a href="about.php"> Profile </a>
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <div class="col d-flex justify-content-end align-items-end">
+                                <p>© Copyright 2020 Key Share. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </body>
     </html>
 <?php } ?>
 
