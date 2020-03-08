@@ -49,35 +49,35 @@
 				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 ">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">GTA V</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-sm-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/FIFA20/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">FIFA20</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA20</a></h6>
 						<h5 class="cl-orange2">$30</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/MINECRAFT/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">Minecraft</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Minecraft</a></h6>
 						<h5 class="cl-orange2">$19.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/CSGO/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">CSGO</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/FORZAHORIZON4/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">Forza Horizon 4</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Forza Horizon 4</a></h6>
 						<h5 class="cl-orange2">$10</h5>
 					</div>
 				</div>
@@ -102,35 +102,35 @@
 				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 ">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/ASSASSINSCREEDUNITY/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">Assassins Creed Unity</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Assassins Creed Unity</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-sm-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
 						<h5 class="cl-orange2">$30</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/CSGO/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">CSGO</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
 						<h5 class="cl-orange2">$19.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/MINECRAFT/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">Minecraft</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Minecraft</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
 				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
-						<h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">GTA V</a></h6>
+						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
 						<h5 class="cl-orange2">$10</h5>
 					</div>
 				</div>
