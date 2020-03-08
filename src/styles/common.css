@@ -156,7 +156,6 @@ header.navbar{
 
 /*Corrigir o Logo no GIMP tem muito blank space */
 .logo{
-    background-color: var(--color-background-dark-blue)!important;
 }
 #offerAddNewKeyContainer,#offerAddNewSaleContainer{
     font-size: 1.5em;
@@ -190,4 +189,16 @@ header.navbar{
 #checkoutStatusButton{
     background-color: gray;
     border-color: gray;
+}
+.showAllProductListSideBar{
+    margin:0;
+    padding:0 !important;
+    background-color: transparent !important;
+    border-style: none !important;
+    color: var(--color-background-dark-blue)!important;
+}
+.productListSideBarEntry{
+    margin: 0 !important;
+    padding:0 !important;
+    margin-top: 1em !important ;
 }
