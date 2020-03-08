@@ -1,5 +1,6 @@
-<?php function drawFAQ(){ ?>
-    <div id="content" class="container mt-5">
+<?php function drawFAQ()
+{ ?>
+    <div id="content" class="container">
         <div class="row text-center pt-5 md-12">
             <div class="col mb-5">
                 <h1> KeyShare FAQ</h1>
@@ -11,7 +12,7 @@
                         <div class="card-header p-2" id="faq1Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq1A" aria-expanded="false" aria-controls="faq1A">
-                                What is KeyShare?
+                                    What is KeyShare?
                                 </button>
                             </h5>
                         </div>
@@ -27,7 +28,7 @@
                         <div class="card-header p-2" id="faq2Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq2A" aria-expanded="false" aria-controls="faq2A">
-                                What payment methods can I use to make purchases on the KeyShare website?
+                                    What payment methods can I use to make purchases on the KeyShare website?
                                 </button>
                             </h5>
                         </div>
@@ -43,7 +44,7 @@
                         <div class="card-header p-2" id="faq3Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq3A" aria-expanded="false" aria-controls="faq3A">
-                                Why do I need to create an account on the KeyShare website?
+                                    Why do I need to create an account on the KeyShare website?
                                 </button>
                             </h5>
                         </div>
@@ -59,7 +60,7 @@
                         <div class="card-header p-2" id="faq4Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq4A" aria-expanded="false" aria-controls="faq4A">
-                                Do I need to pay any extra tax after making a purchase on the KeyShare website?
+                                    Do I need to pay any extra tax after making a purchase on the KeyShare website?
                                 </button>
                             </h5>
                         </div>
@@ -75,7 +76,7 @@
                         <div class="card-header p-2" id="faq5Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq5A" aria-expanded="false" aria-controls="faq5A">
-                                Do I have the right to a refund in case a product is not working?
+                                    Do I have the right to a refund in case a product is not working?
                                 </button>
                             </h5>
                         </div>
@@ -91,7 +92,7 @@
                         <div class="card-header p-2" id="faq6Q">
                             <h5>
                                 <button class="btn btn-link cl-orange2" data-toggle="collapse" data-target="#faq6A" aria-expanded="false" aria-controls="faq6A">
-                                Do I have access to the games I buy on the KeyShare website forever?
+                                    Do I have access to the games I buy on the KeyShare website forever?
                                 </button>
                             </h5>
                         </div>

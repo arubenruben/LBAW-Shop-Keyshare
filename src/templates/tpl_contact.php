@@ -1,5 +1,5 @@
 <?php function drawContact(){ ?>
-    <div class="container mt-5">
+    <div id="content" class="container mt-5">
         <div class="row text-center pt-5">
             <div class="col-8 ml-auto mr-auto">
                 <h1> Contact us</h1>

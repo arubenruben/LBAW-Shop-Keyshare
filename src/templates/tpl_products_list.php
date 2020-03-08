@@ -1,6 +1,6 @@
 <?php function drawProductList()
 { ?>
-    <div class="container-fluid">
+    <div id="content" class="container-fluid">
         <div class="row">
             <div id="sidebar" class="col-2 d-none d-md-block pt-4">
                 <div class="productSideBarEntry">

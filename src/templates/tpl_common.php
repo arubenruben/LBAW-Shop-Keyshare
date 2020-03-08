@@ -41,6 +41,7 @@
     {
         switch ($type) {
             case 0: ?>
+            <div id="wrapper">
                 <header class="navbar fixed-top">
                     <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                         <a href="homepage.php">
@@ -84,7 +85,7 @@
 
                     <?php drawAuthenticationPopup(); ?>
                 </header>
-                <div id="wrapper">
+                
                 <?php
                 break;
             default: ?>
@@ -125,8 +126,8 @@
         <?php function drawFooter()
         { ?>
             <!-- Footer -->
-            <footer id="footerGeneric" class="mt-5">
-                <div class="container mt-2">
+            <footer id="footerGeneric">
+                <div class="container">
                     <hr>
                     <div class="row">
                         <div class="col">

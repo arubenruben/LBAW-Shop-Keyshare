@@ -1,5 +1,5 @@
 <?php function drawCart() { ?>
-    <div id="cart" class="container" style="width: 80%">
+    <div id="content" class="container" style="width: 80%">
         <!-- Shopping cart header -->
         <div class="row mt-5 mb-2">
             <div class="col-md-8">

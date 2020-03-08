@@ -1,5 +1,5 @@
 <?php function drawAbout(){ ?>
-    <div id="container" class="container mt-5">
+    <div id="content" class="container">
         <div class="row pt-5">
             <div class="col-8 ml-auto mr-auto">
                 <h1 class="text-center"> About us</h1>
