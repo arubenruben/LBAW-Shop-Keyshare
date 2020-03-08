@@ -1,10 +1,10 @@
 <?php
 	//includes
 	include_once('../templates/tpl_common.php');
-	include_once('../templates/tpl_homepage.php');
+	include_once('../templates/tpl_about.php');
 	//page
 	drawHead();
 	drawHeader(0);
-	drawHomepage();
-	drawFooter();
+    drawAbout();
+    drawFooter();
 ?>

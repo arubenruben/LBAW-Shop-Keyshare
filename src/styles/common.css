@@ -1,4 +1,5 @@
 @import "./constants.css";
+@import "./progress_bar.css";
 
 html{
     height: 100%;
@@ -6,7 +7,7 @@ html{
     padding: 0;
 }
 body{
-    font-family: var(--font-default-sans-serif), sans-serif;
+    font-family: 'Montserrat' !important;
     background-color: var(--color-background-white);
     height: 100%;
     margin:0;
@@ -18,17 +19,10 @@ body{
     position: relative;
 }
 #content{
-    padding-bottom: 20%;
+    padding-bottom: 20rem;
 }
-footer#footerGeneric{
-    width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 9rem;
+footer{
+   
 }
 #sidebar{
     height: 100vh;
@@ -51,10 +45,6 @@ header.navbar{
 #myAccountIcon{
     color:var(--color-primary-light-blue);
 }
-#shoppingCartIcon{
-    color:var(--color-interactive-orange);
-    margin-left: auto;
-}
 .headerIcon{
     font-size: 1.5rem;
 }
@@ -70,16 +60,6 @@ header.navbar{
     background-color: var(--color-primary-light-blue);
     border-style: none;
 }
-#footerGeneric{
-    background-color:var(--color-background-dark-blue) !important;
-}
-.gameListItem{
-    max-width: 15em;
-}
-.card-img-top{
-    max-width: 15em;
-}
-
 /* buttons css */ 
 .btn-orange {
     background-color: var(--color-interactive-orange);
@@ -87,13 +67,18 @@ header.navbar{
 .btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
-
 /* color css */
 .cl-orange {
     color: var(--color-interactive-orange);
 }
+.cl-orange2 {
+    color: var(--color-interactive-orange2);
+}
 .cl-green {
     color: var(--color-accent-green);
+}
+.cl-blue {
+    color: var(--color-background-dark-blue);
 }
 .cl-success {
     color: var(--color-interactive-green-success);
@@ -104,7 +89,6 @@ header.navbar{
 .cl-white {
     color: var(--color-background-white);
 }
-
 /* backgrounds css */
 .bg-orange {
     background-color: var(--color-interactive-orange);
@@ -121,7 +105,6 @@ header.navbar{
 .bg-white {
     background-color: var(--color-background-white);
 }
-
 /* cards css */
 .card {
     border-radius: 0;
@@ -135,4 +118,68 @@ header.navbar{
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
+}
+
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
+/*Corrigir o Logo no GIMP tem muito blank space
+.logo{
+    min-height: 7em;
+    min-width: 10em;
+}
+*/
+#offerAddNewKeyContainer,#offerAddNewSaleContainer{
+    font-size: 1.5em;
+}
+#loginLogo{
+    max-width: 2em;
+    max-height: 2em;
+    background-color: wheat;
+}
+/*
+.cartProductImage{
+    
+
+}
+*/
+#checkoutPlaceHolderTop{
+    padding-top: 55%;
+}
+#checkoutStatusEmojiTrue{
+    color: var(--color-interactive-green-success);
+    font-size: 4.5em;
+}
+#checkoutStatusEmojiFalse{
+    color: var(--color-interactive-red-fail);
+    font-size: 4.5em;
+}
+#checkoutStatusTitle{
+    letter-spacing: 0.1em;
+    font-weight: bolder;
+    color: var(--color-primary-black);
+}
+#checkoutStatusButton{
+    background-color: gray;
+    border-color: gray;
 }

@@ -7,6 +7,14 @@
         <title>KeyShare</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- styles -->
+        <link rel="stylesheet" href="../styles/common.css">
+        <?php
+        if ($jsArray !== null) {
+            foreach ($jsArray as $jsFile) { ?>
+                <script src="<?= '../js/' . $jsFile ?>" defer></script>
+        <?php }
+        } ?>
         <!-- jquery -->
         <script defer src="../../assets/jquery/jquery.min.js"></script>
         <!-- fontawesome -->
@@ -16,126 +24,139 @@
         <!-- fontawesome -->
         <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
-        <!-- styles -->
-        <link rel="stylesheet" href="../styles/common.css">
-        <!-- fonts --> 
+        <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-        <?php
-        if ($jsArray !== null) {
-            foreach ($jsArray as $jsFile) { ?>
-                <script src=<?= $jsFile ?> defer></script>
-        <?php }
-        }
-        ?>
     </head>
 
     <body>
-        
+
 <?php } ?>
 
 <!-- header -->
-<?php  function drawHeader($type){ 
-        switch ($type) {
-            case 0: ?>
-                <header class="navbar navbar-light bg-light">
-                    <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
-                        <a href="homepage.php">
-                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
-                        </a>
+<?php function drawHeader($type)
+{
+    switch ($type) {
+        case 0: ?>
+            <header class="navbar navbar-light bg-light fixed-top">
+                <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
+                    <a href="homepage.php">
+                        <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                    </a>
+                </div>
+                <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
+                    <form class="form-inline">
+                        <div class="form-group mb-auto">
+                            <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="row">
+                        <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
+                        <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
                     </div>
-                    <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
-                        <form class="form-inline">
-                            <div class="form-group mb-auto">
-                                <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                            </div>
-                        </form>
+                </div>
+                <div class="col-md-2 col-1 d-none d-md-block">
+                    <div class="row">
+                        <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
+                        <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                     </div>
-                    <div class="col-md-3 d-none d-md-block">
-                        <div class="row">
-                            <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
-                            <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
+                </div>
+                <!-- mobile -->
+                <div class="col-2 d-md-none d-xs-block">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="pos-f-t">
+                    <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="ml-auto p-2">
+                            <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
+                            <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-2 col-1 d-none d-md-block">
-                        <div class="row">
-                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
-                            <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
-                        </div>
-                    </div>
-                    <div class="col-2 d-md-none d-xs-block">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="pos-f-t">
-                        <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="ml-auto p-2">
-                                <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
-                                <i id="shoppingCartIcon" class="fas fa-shopping-cart headerIcon"></i>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                   <?php drawAuthenticationPopup(); ?>
-                </header>
-        <?php
-                break;
-            default: ?>
-                
-
+                <?php drawAuthenticationPopup(); ?>
+            </header>
+            <div id="wrapper">
             <?php
-            
+            break;
+        default: ?>
 
-                break;
-        }
+
+        <?php
+
+
+            break;
+    }
         ?>
 
 <?php } ?>
 
 <!-- navbar -->
 <?php function drawNavbar($type)
-    {
-        switch ($type) {
-                //Draw Homepage navbar
-            case 0: ?>
+{
+    switch ($type) {
+            //Draw Homepage navbar
+        case 0: ?>
 
 
 
-        <?php
-                break;
-
-
-            default:
-
-                break;
-        }
-
-        ?>
     <?php
+            break;
+
+
+        default:
+
+            break;
     }
-    function drawFooter()
-    { ?>
-        <!-- Footer -->
-        <footer id="footerGeneric" class="row mt-auto">
-            <div class="row pt-3">
-                <div class="col-2">
-                </div>
-                <div class="col-7">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"> Contact </a>
-                        </li>
-                        <li>
-                            <a href="#"> FAQs </a>
-                        </li>
-                        <li>
-                            <a href="#"> About us </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-2">
+
+    ?>
+<?php } ?>
+
+<!-- footer -->
+<?php function drawFooter() { ?>
+            <!-- Footer -->
+            <footer>
+                <div id="footer" class="container">
+                    <hr id="footer-line" class="mt-5">
+                    <div class="row">
+                        <div class="col mx-auto my-auto">
+                            <h5 class="title"> More </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="faq.php"> Help </a>
+                                </li>
+                                <li>
+                                    <a href="contact.php"> Contact </a>
+                                </li>
+                                <li>
+                                    <a href="about.php"> About us </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col mx-auto my-auto">
+                            <h5 class="title"> Shortcuts </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="about.php"> Profile </a>
+                                </li>
+                                <li>
+                                    <a href="help.php"> Homepage </a>
+                                </li>
+                                <li>
+                                    <a href="contact.php"> All products </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col d-flex justify-content-end align-items-end">
+                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </body>
@@ -166,100 +187,102 @@
                         <div class="tab-pane fade active in" id="login">
                             <!-- Login In Form -->
                             <form class="form-horizontal">
-                            <fieldset>
-                                <!-- Username-->
-                                <div class="control-group">
-                                    <label class="control-label" for="userid">Username:</label>
-                                    <div class="controls">
-                                        <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                <fieldset>
+                                    <!-- Username-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Password input-->
-                                <div class="control-group">
-                                    <label class="control-label" for="passwordinput">Password:</label>
-                                    <div class="controls">
-                                        <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Multiple Checkboxes (inline) -->
-                                <div class="control-group">
-                                    <label class="control-label" for="rememberme"></label>
-                                    <div class="controls">
-                                        <label class="checkbox inline" for="rememberme-0">
-                                        <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
-                                        Remember me
-                                        </label>
+                                    <!-- Multiple Checkboxes (inline) -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-0">
+                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                Remember me
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Button -->
-                                <div class="control-group">
-                                    <label class="control-label" for="signin"></label>
-                                    <div class="controls">
-                                        <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
+                                </fieldset>
                             </form>
                         </div>
                         <!-- SIGNUP -->
                         <div class="tab-pane fade" id="signup">
-                            <!-- Sign Up Form -->                       
+                            <!-- Sign Up Form -->
                             <form class="form-horizontal">
-                            <fieldset>
-                                <!-- Email: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="Email">Email:</label>
-                                    <div class="controls">
-                                        <input id="Email" name="Email" class="form-control" type="text" placeholder="your@email.com" class="input-large" required="">
+                                <fieldset>
+                                    <!-- Email: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="your@email.com" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Username: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="userid">Username:</label>
-                                    <div class="controls">
-                                        <input id="userid" name="userid" class="form-control" type="text" placeholder="username" class="input-large" required="">
+
+                                    <!-- Username: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="userid" class="form-control" type="text" placeholder="username" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Password input: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="password">Password:</label>
-                                    <div class="controls">
-                                        <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
-                                        <em>1-8 Characters</em>
+
+                                    <!-- Password input: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                            <em>1-8 Characters</em>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Text input: -->
-                                <div class="control-group">
-                                    <label class="control-label" for="reenterpassword">Confirm Password:</label>
-                                    <div class="controls">
-                                        <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+
+                                    <!-- Text input: -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="reenterpassword">Confirm Password:</label>
+                                        <div class="controls">
+                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                        </div>
                                     </div>
-                                </div>         
-                                
-                                <!-- Signup Button -->
-                                <div class="control-group">
-                                    <label class="control-label" for="confirmsignup"></label>
-                                    <div class="controls">
-                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+
+                                    <!-- Signup Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
+                                </fieldset>
                             </form>
                         </div>
-                </div>  
-            
-            <div class="modal-footer">
-                <center>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </center>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+
             </div>
-            
         </div>
     </div>
-<?php } ?> 
+<?php } ?>

@@ -6,5 +6,5 @@
 	drawHead();
 	drawHeader(0);
 	drawProduct();
-	drawFooter(); 
+	drawFooter();
 ?>
