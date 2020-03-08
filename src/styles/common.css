@@ -95,7 +95,7 @@ header.navbar{
 .cl-success {
     color: var(--color-interactive-green-success);
 }
-.cl-insucess {
+.cl-fail {
     color: var(--color-interactive-red-fail);
 }
 .cl-white {

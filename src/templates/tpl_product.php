@@ -1,5 +1,7 @@
-<?php function drawProduct()
-{ ?>
+<?php
+include_once("../templates/tpl_feedback.php");
+
+function drawProduct() { ?>
     <div id="content" class="container mt-4">
         <div class="row ml-auto mr-auto">
             <div class="col-6">
@@ -20,115 +22,45 @@
                     of Los Santos, based on Los Angeles. </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col mt-3">
-                <div class="row ml-4">
-                    <div class="col-6">
-                        <div class="row">
-                            <h3>Offers: 2</h3>
-                        </div>
-                        <div class="row mt-1">
-                            <h4 class="mt-auto mb-auto">bestseller439</h4>
-                        </div>
-                        <div class="row">
-                            <p>Rating: <span class="font-weight-bold cl-success">99%</span>| <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys</p>
-                        </div>
-                    </div>
-                    <div class="col-2 mt-5 text-center">
-                        <h4>39.99 US$</h4>
-                    </div>
-                    <div class="col-4 mt-5 text-center">
-                        <button class="btn bg-interactive"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-                <div class="row mt-5 ml-4">
-                    <div class="col-6">
-                        <div class="row">
-                            <h4 class="mt-auto mb-auto">bestseller439</h4>
-                        </div>
-                        <div class="row">
-                            <p>Rating: <span class="font-weight-bold cl-success">99%</span>| <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys</p>
-                        </div>
-                    </div>
-                    <div class="col-2 mt-auto mb-auto text-center">
-                        <h4>39.99 US$</h4>
-                    </div>
-                    <div class="col-4 mt-auto mb-auto text-center">
-                        <button class="btn bg-interactive"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+        <div class="section mt-5">
+            <h3>Offers: 2</h3>
 
-<?php function drawFeedbackPopup()
-{ ?>
-    <!-- Button trigger modal -->
-    <a class="btn" data-toggle="modal" data-target="#exampleModalLong">
-        Launch demo modal
-    </a>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="row">
-                        <div class="col">
-                            <h4>bestseller439</h4>
-                            <span>99% Positive Feedback | Sales: 1897</span>
-                        </div>
-                    </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="row mt-4">
+                <div class="col-md-7" data-toggle="modal" data-target=".bd-modal-lg1">
+                    <h4>bestseller439</h4>
+                    <span>
+                        Rating: <span class="font-weight-bold cl-success">99%</span>
+                         | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys</span>
                 </div>
-                <!-- modal body -->
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <!-- feedback header -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="btn"> All reviews</div>
-                            </div>
-                            <div class="col">
-                                <h8> <i class="fas fa-thumbs-up"></i>Positive reviews</h8>
-                            </div>
-                            <div class="col">
-                                <h8> <i class="fas fa-thumbs-down"></i>Negative reviews</h8>
-                            </div>
-                        </div>
-                        <!-- feedback ratings -->
-                        <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-down"></i>
-                                <i class="fas fa-thumbs-up"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key doesnt work
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-up"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key works
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-2 mt-2">
+                    <span class="font-weight-bold">39.99 US$</span>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Load More</button>
+                <div class="col-md-3">
+                    <button class="btn bg-interactive"><i
+                            class="fas fa-shopping-cart"></i> Add to Cart</button>
                 </div>
+                <?php drawFeedbackPopup("1"); ?>
             </div>
+            <hr class="m-0">
+            <div class="row mt-4">
+                
+                <div class="col-md-7" data-toggle="modal" data-target=".bd-modal-lg2">
+                    <h4>worstseller712</h4>
+                    <span>
+                        Rating: <span class="font-weight-bold cl-fail">43%</span>
+                         | <i class="fas fa-shopping-cart"></i> 24 | Stock: 1 keys
+                    </span>
+                </div>
+                <div class="col-md-2 mt-2">
+                    <span class="font-weight-bold">49.99 US$</span>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn hv-interactive bg-interactive"><i
+                            class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+                <?php drawFeedbackPopup("2"); ?>
+            </div>
+            
         </div>
     </div>
 <?php } ?>

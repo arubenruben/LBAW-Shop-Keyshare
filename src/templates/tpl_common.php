@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- styles -->
         <link rel="stylesheet" href="../styles/common.css">
+        <link rel="stylesheet" href="../styles/feedback.css">
         <?php
         if ($jsArray !== null) {
             foreach ($jsArray as $jsFile) { ?>

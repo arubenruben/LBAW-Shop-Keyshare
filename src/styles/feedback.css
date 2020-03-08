@@ -1,0 +1,6 @@
+.active-border {
+    border-bottom: 0.2em solid var(--color-interactive-blue);
+}
+.inactive-border:hover {
+    border-bottom: 0.2em solid var(--color-primary-light-blue);
+}
