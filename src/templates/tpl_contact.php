@@ -1,7 +1,7 @@
 <?php function drawContact(){ ?>
     <div id="container" class="container mt-5">
         <div class="row text-center pt-5">
-            <div class="col">
+            <div class="col-8">
                 <h1> Contact us</h1>
                 <form>
                     <div class="row my-3 mx-2">
