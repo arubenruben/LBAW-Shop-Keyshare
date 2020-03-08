@@ -90,7 +90,7 @@
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
                     <div class="col-sm-12">
-                        <h4 class="text-center">Username</h4>
+                        <h4 class="text-center">Userdsfdsfsdfdsfsdfrwrrname</h4>
                     </div>
                 </div>
 
