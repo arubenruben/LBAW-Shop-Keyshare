@@ -14,13 +14,13 @@ body{
     padding: 0;
 }
 #wrapper{
-    padding-top: 20%;
     min-height: 100%;
     background-color: var(--color-background-white);
     position: relative;
 }
 #content{
-    padding-bottom: 5%;
+    padding-top: 20%;
+    padding-bottom: 25%;
 }
 footer#footerGeneric{
     width: 100%;
@@ -30,7 +30,7 @@ footer#footerGeneric{
     bottom: 0;
     left: 0;
     right: 0;
-    height: 5%;
+    max-height: 20%;
 }
 #sidebar{
     height: 100vh;
@@ -39,7 +39,6 @@ footer#footerGeneric{
 /*From template merge*/
 header.navbar{
     background-color: var(--color-background-dark-blue);
-    max-height: 20%;
 }
 .avatar-pic {
     width: 150px;
@@ -152,12 +151,10 @@ header.navbar{
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
 
-/*Corrigir o Logo no GIMP tem muito blank space
+/*Corrigir o Logo no GIMP tem muito blank space */
 .logo{
-    min-height: 7em;
-    min-width: 10em;
+    background-color: transparent !important;
 }
-*/
 #offerAddNewKeyContainer,#offerAddNewSaleContainer{
     font-size: 1.5em;
 }
@@ -168,7 +165,6 @@ header.navbar{
 }
 /*
 .cartProductImage{
-    
 
 }
 */

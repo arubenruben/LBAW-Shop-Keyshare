@@ -40,7 +40,7 @@
     {
         switch ($type) {
             case 0: ?>
-                <header class="navbar navbar-light bg-light fixed-top">
+                <header class="navbar fixed-top">
                     <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                         <a href="homepage.php">
                             <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
@@ -157,7 +157,7 @@
                             </ul>
                         </div>
                         <div class="col-2">
-                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
+
                         </div>
                     </div>
             </footer>
