@@ -1,5 +1,6 @@
 <!-- head -->
-<?php function drawHead($jsArray = null) { ?>
+<?php function drawHead($jsArray = null)
+{ ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -32,14 +33,15 @@
 
     <body>
 
-<?php } ?>
+    <?php
+} ?>
 
 <!-- header -->
 <?php function drawHeader($type)
 {
     switch ($type) {
         case 0: ?>
-            <header class="navbar navbar-light bg-light fixed-top">
+            <header class="navbar fixed-top">
                 <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                     <a href="homepage.php">
                         <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
@@ -95,7 +97,8 @@
     }
         ?>
 
-<?php } ?>
+    <?php
+} ?>
 
 <!-- navbar -->
 <?php function drawNavbar($type)
@@ -119,53 +122,55 @@
 <?php } ?>
 
 <!-- footer -->
-<?php function drawFooter() { ?>
-            <!-- Footer -->
-            <footer>
-                <div id="footer" class="container">
-                    <hr id="footer-line" class="mt-5">
-                    <div class="row">
-                        <div class="col mx-auto my-auto">
-                            <h5 class="title"> More </h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="faq.php"> Help </a>
-                                </li>
-                                <li>
-                                    <a href="contact.php"> Contact </a>
-                                </li>
-                                <li>
-                                    <a href="about.php"> About us </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col mx-auto my-auto">
-                            <h5 class="title"> Shortcuts </h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="about.php"> Profile </a>
-                                </li>
-                                <li>
-                                    <a href="help.php"> Homepage </a>
-                                </li>
-                                <li>
-                                    <a href="contact.php"> All products </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col d-flex justify-content-end align-items-end">
-                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
-                        </div>
+<?php function drawFooter()
+{ ?>
+        <!-- Footer -->
+        <footer id="footerGeneric" class="mt-5">
+            <div class="container mt-2">
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="title"> More </h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="faq.php"> Help </a>
+                            </li>
+                            <li>
+                                <a href="contact.php"> Contact </a>
+                            </li>
+                            <li>
+                                <a href="about.php"> About us </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h5 class="title"> Shortcuts </h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="about.php"> Profile </a>
+                            </li>
+                            <li>
+                                <a href="help.php"> Homepage </a>
+                            </li>
+                            <li>
+                                <a href="contact.php"> All products </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col justify-content-end align-items-end d-none d-md-flex d-lg-flex">
+                        <p>© Copyright 2020 Key Share. All rights reserved.</p>
                     </div>
                 </div>
-            </footer>
-        </body>
+        </footer>
+        <!--This Div closes the container that mantains the footer at the bottom -->
+    </div>
+    </body>
     </html>
 <?php } ?>
 
 <!-- authentication popup -->
-<?php function drawAuthenticationPopup() { ?>
+<?php function drawAuthenticationPopup()
+{ ?>
     <!-- Modal -->
     <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
