@@ -1,6 +1,5 @@
 <!-- head -->
-<?php function drawHead($jsArray = null)
-{ ?>
+<?php function drawHead($jsArray = null) { ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -32,126 +31,142 @@
 
     <body>
 
-    <?php } ?>
+<?php } ?>
 
-    <!-- header -->
-    <?php function drawHeader($type)
-    {
-        switch ($type) {
-            case 0: ?>
-                <header class="navbar navbar-light bg-light fixed-top">
-                    <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
-                        <a href="homepage.php">
-                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
-                        </a>
-                    </div>
-                    <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
-                        <form class="form-inline">
-                            <div class="form-group mb-auto">
-                                <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-3 d-none d-md-block">
-                        <div class="row">
-                            <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
-                            <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
+<!-- header -->
+<?php function drawHeader($type)
+{
+    switch ($type) {
+        case 0: ?>
+            <header class="navbar navbar-light bg-light fixed-top">
+                <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
+                    <a href="homepage.php">
+                        <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                    </a>
+                </div>
+                <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
+                    <form class="form-inline">
+                        <div class="form-group mb-auto">
+                            <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                         </div>
+                    </form>
+                </div>
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="row">
+                        <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
+                        <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
                     </div>
-                    <div class="col-md-2 col-1 d-none d-md-block">
-                        <div class="row">
-                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
+                </div>
+                <div class="col-md-2 col-1 d-none d-md-block">
+                    <div class="row">
+                        <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
+                        <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
+                    </div>
+                </div>
+                <!-- mobile -->
+                <div class="col-2 d-md-none d-xs-block">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="pos-f-t">
+                    <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="ml-auto p-2">
+                            <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
                             <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                         </div>
                     </div>
-                    <!-- mobile -->
-                    <div class="col-2 d-md-none d-xs-block">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="pos-f-t">
-                        <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="ml-auto p-2">
-                                <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
+                </div>
+
+                <?php drawAuthenticationPopup(); ?>
+            </header>
+            <div id="wrapper">
+            <?php
+            break;
+        default: ?>
+
+
+        <?php
+
+
+            break;
+    }
+        ?>
+
+<?php } ?>
+
+<!-- navbar -->
+<?php function drawNavbar($type)
+{
+    switch ($type) {
+            //Draw Homepage navbar
+        case 0: ?>
+
+
+
+    <?php
+            break;
+
+
+        default:
+
+            break;
+    }
+
+    ?>
+<?php } ?>
+
+<!-- footer -->
+<?php function drawFooter() { ?>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div id="footer" class="container">
+                        <hr id="footer-line" class="mt-5">
+                        <div class="row">
+                            <div class="col mx-auto my-auto">
+                                <h5 class="title"> More </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="help.php"> Help </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php"> Contact </a>
+                                    </li>
+                                    <li>
+                                        <a href="about.php"> About us </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col mx-auto my-auto">
+                                <h5 class="title"> Shortcuts </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="help.php"> Homepage </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php"> All products </a>
+                                    </li>
+                                    <li>
+                                        <a href="about.php"> Profile </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col d-flex justify-content-end align-items-end">
+                                <p>© Copyright 2020 Key Share. All rights reserved.</p>
                             </div>
                         </div>
                     </div>
-
-                    <?php drawAuthenticationPopup(); ?>
-                </header>
-                <div id="wrapper">
-                <?php
-                break;
-            default: ?>
-
-
-            <?php
-
-
-                break;
-        }
-            ?>
-
-        <?php } ?>
-
-        <!-- navbar -->
-        <?php function drawNavbar($type)
-        {
-            switch ($type) {
-                    //Draw Homepage navbar
-                case 0: ?>
-
-
-
-            <?php
-                    break;
-
-
-                default:
-
-                    break;
-            }
-
-            ?>
-        <?php } ?>
-
-        <!-- footer -->
-        <?php function drawFooter()
-        { ?>
-            <!-- Footer -->
-            <footer id="footerGeneric" class="row mt-auto">
-                <div class="row pt-3">
-                    <div class="col-2">
-                    </div>
-                    <div class="col-7">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#"> Contact </a>
-                            </li>
-                            <li>
-                                <a href="faq.php"> FAQs </a>
-                            </li>
-                            <li>
-                                <a href="#"> About us </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2">
-                    </div>
-            </footer>
-            <!--This Div closes the container that mantains the footer at the bottom -->
                 </div>
-    </body>
-
+            </footer>
+        </body>
     </html>
 <?php } ?>
 
 <!-- authentication popup -->
-<?php function drawAuthenticationPopup()
-{ ?>
+<?php function drawAuthenticationPopup() { ?>
     <!-- Modal -->
     <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -261,13 +276,15 @@
                             </form>
                         </div>
                     </div>
-
-                    <div class="modal-footer">
-                        <center>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </center>
-                    </div>
-
                 </div>
+
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+
             </div>
-        <?php } ?>
+        </div>
+    </div>
+<?php } ?>

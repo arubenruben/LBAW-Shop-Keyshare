@@ -7,7 +7,7 @@ html{
     padding: 0;
 }
 body{
-    font-family: var(--font-default-sans-serif), sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--color-background-white);
     height: 100%;
     margin:0;
@@ -66,15 +66,6 @@ header.navbar{
 #headerExploreButton {
     background-color: var(--color-primary-light-blue);
     border-style: none;
-}
-#footerGeneric{
-    background-color:var(--color-background-dark-blue) !important;
-}
-.gameListItem{
-    max-width: 15em;
-}
-.card-img-top{
-    max-width: 15em;
 }
 /* buttons css */ 
 .btn-orange {
@@ -135,6 +126,30 @@ header.navbar{
     -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
     box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
 }
+
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /*Corrigir o Logo no GIMP tem muito blank space
 .logo{
     min-height: 7em;
