@@ -202,13 +202,17 @@ header.navbar{
     padding:0 !important;
     margin-top: 1em !important ;
 }
-.cardHomepageImg{
+.cardHomepageImg,.cardProductListImg{
     height: 10rem !important;
     width: 100% !important;
     margin: 0 !important;
     padding:0 !important;
 }
 .cardHomepage{
-    height: 18rem !important;
+    height: fit-content !important;
     width: 15rem !important;
+}
+.cardProductList{
+    height: fit-content !important;
+    width: 21rem !important;
 }
