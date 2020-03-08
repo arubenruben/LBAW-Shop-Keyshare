@@ -124,8 +124,8 @@
 <?php function drawFooter()
 { ?>
         <!-- Footer -->
-        <footer id="footerGeneric">
-            <div class="container">
+        <footer id="footerGeneric" class="mt-5">
+            <div class="container mt-2">
                 <hr>
                 <div class="row">
                     <div class="col">
@@ -142,7 +142,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-7">
+                    <div class="col">
                         <h5 class="title"> Shortcuts </h5>
                         <ul class="list-unstyled">
                             <li>
@@ -156,7 +156,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col d-flex justify-content-end align-items-end d-sm-none d-md-flex">
+                    <div class="col justify-content-end align-items-end d-none d-md-flex d-lg-flex">
                         <p>© Copyright 2020 Key Share. All rights reserved.</p>
                     </div>
                 </div>

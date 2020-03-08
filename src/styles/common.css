@@ -69,10 +69,10 @@ header.navbar{
     border-style: none;
 }
 /* buttons css */ 
-.btn-orange {
+.btn.btn-orange {
     background-color: var(--color-interactive-orange);
 }
-.btn-orange:hover {
+.btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
 /* color css */

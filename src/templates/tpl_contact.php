@@ -1,5 +1,5 @@
 <?php function drawContact(){ ?>
-    <div id="container" class="container mt-5">
+    <div class="container mt-5">
         <div class="row text-center pt-5">
             <div class="col-8 ml-auto mr-auto">
                 <h1> Contact us</h1>
@@ -13,7 +13,7 @@
                     <div class="row my-3 mx-2">
                         <textarea class="form-control" rows="5" placeholder="message"></textarea>
                     </div>
-                    <button type="button" class="btn btn-orange"> Send </button>
+                    <button type="button" class="btn"> Send </button>
                 </form>
             </div>
         </div>
