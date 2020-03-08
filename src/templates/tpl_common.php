@@ -119,8 +119,7 @@
 <?php } ?>
 
 <!-- footer -->
-<?php function drawFooter()
-{ ?>
+<?php function drawFooter() { ?>
                 <!-- Footer -->
                 <footer id="footerGeneric" class="row mt-auto">
                     <div class="row pt-3">
@@ -129,13 +128,13 @@
                         <div class="col-7">
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="#"> Contact </a>
+                                    <a href="contact.php"> Contact </a>
                                 </li>
                                 <li>
                                     <a href="faq.php"> FAQs </a>
                                 </li>
                                 <li>
-                                    <a href="#"> About us </a>
+                                    <a href="about.php"> About us </a>
                                 </li>
                             </ul>
                         </div>
@@ -150,8 +149,7 @@
 <?php } ?>
 
 <!-- authentication popup -->
-<?php function drawAuthenticationPopup()
-{ ?>
+<?php function drawAuthenticationPopup() { ?>
     <!-- Modal -->
     <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -261,13 +259,15 @@
                             </form>
                         </div>
                     </div>
-
-                    <div class="modal-footer">
-                        <center>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </center>
-                    </div>
-
                 </div>
+
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+
             </div>
-        <?php } ?>
+        </div>
+    </div>
+<?php } ?>
