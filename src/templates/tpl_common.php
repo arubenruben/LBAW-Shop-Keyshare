@@ -121,42 +121,40 @@
 <?php function drawFooter() { ?>
             <!-- Footer -->
             <footer>
-                <div class="container">
-                    <div id="footer" class="container">
-                        <hr id="footer-line" class="mt-5">
-                        <div class="row">
-                            <div class="col mx-auto my-auto">
-                                <h5 class="title"> More </h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="help.php"> Help </a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.php"> Contact </a>
-                                    </li>
-                                    <li>
-                                        <a href="about.php"> About us </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col mx-auto my-auto">
-                                <h5 class="title"> Shortcuts </h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="help.php"> Homepage </a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.php"> All products </a>
-                                    </li>
-                                    <li>
-                                        <a href="about.php"> Profile </a>
-                                    </li>
-                                </ul>
-                            </div>
+                <div id="footer" class="container">
+                    <hr id="footer-line" class="mt-5">
+                    <div class="row">
+                        <div class="col mx-auto my-auto">
+                            <h5 class="title"> More </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="faq.php"> Help </a>
+                                </li>
+                                <li>
+                                    <a href="contact.php"> Contact </a>
+                                </li>
+                                <li>
+                                    <a href="about.php"> About us </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col mx-auto my-auto">
+                            <h5 class="title"> Shortcuts </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="about.php"> Profile </a>
+                                </li>
+                                <li>
+                                    <a href="help.php"> Homepage </a>
+                                </li>
+                                <li>
+                                    <a href="contact.php"> All products </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div class="col d-flex justify-content-end align-items-end">
-                                <p>© Copyright 2020 Key Share. All rights reserved.</p>
-                            </div>
+                        <div class="col d-flex justify-content-end align-items-end">
+                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
