@@ -19,8 +19,12 @@ body{
     position: relative;
 }
 #content{
-    padding-top: 20%;
-    padding-bottom: 25%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+header.navbar{
+    width: 100%;
+    padding:2rem;
 }
 footer#footerGeneric{
     width: 100%;
@@ -30,7 +34,7 @@ footer#footerGeneric{
     bottom: 0;
     left: 0;
     right: 0;
-    max-height: 20%;
+    padding:2rem;
 }
 #sidebar{
     height: 100vh;
@@ -153,7 +157,7 @@ header.navbar{
 
 /*Corrigir o Logo no GIMP tem muito blank space */
 .logo{
-    background-color: transparent !important;
+    background-color: var(--color-background-dark-blue)!important;
 }
 #offerAddNewKeyContainer,#offerAddNewSaleContainer{
     font-size: 1.5em;
