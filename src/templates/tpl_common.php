@@ -60,8 +60,8 @@
                         </div>
                         <div class="col-md-3 d-none d-md-block">
                             <div class="row">
-                                <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
-                                <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
+                                <a id="headerExploreButton" href="products_list.php" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
+                                <a id="headerSellButton" href="offer.php" class="btn btn-primary ml-3 pl-3 pr-3" role="button">Sell Now</a>
                             </div>
                         </div>
                         <div class="col-md-2 col-1 d-none d-md-block">
