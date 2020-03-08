@@ -25,6 +25,8 @@
         <script defer src="../../assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- fontawesome -->
         <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
+        <!--Required by Bootstrap for buttons -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -41,51 +43,51 @@
     {
         switch ($type) {
             case 0: ?>
-            <div id="wrapper">
-                <header class="navbar fixed-top">
-                    <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
-                        <a href="homepage.php">
-                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
-                        </a>
-                    </div>
-                    <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
-                        <form class="form-inline">
-                            <div class="form-group mb-auto">
-                                <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                <div id="wrapper">
+                    <header class="navbar fixed-top">
+                        <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
+                            <a href="homepage.php">
+                                <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                            </a>
+                        </div>
+                        <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
+                            <form class="form-inline">
+                                <div class="form-group mb-auto">
+                                    <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3 d-none d-md-block">
+                            <div class="row">
+                                <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
+                                <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="col-md-3 d-none d-md-block">
-                        <div class="row">
-                            <button id="headerExploreButton" type="button" class="btn btn-primary ml-auto mr-2 pl-3 pr-3 d-none d-lg-block">Explore</button>
-                            <button id="headerSellButton" type="button" class="btn btn-primary ml-2 pl-3 pr-3">Sell Now</button>
                         </div>
-                    </div>
-                    <div class="col-md-2 col-1 d-none d-md-block">
-                        <div class="row">
-                            <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
-                            <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
-                        </div>
-                    </div>
-                    <!-- mobile -->
-                    <div class="col-2 d-md-none d-xs-block">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="pos-f-t">
-                        <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="ml-auto p-2">
-                                <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
+                        <div class="col-md-2 col-1 d-none d-md-block">
+                            <div class="row">
+                                <i id="myAccountIcon" class="fas fa-user headerIcon ml-auto mr-5" data-toggle="modal" data-target=".bs-modal-sm"></i>
                                 <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
                             </div>
                         </div>
-                    </div>
+                        <!-- mobile -->
+                        <div class="col-2 d-md-none d-xs-block">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="pos-f-t">
+                            <div class="collapse" id="navbarToggleExternalContent">
+                                <div class="ml-auto p-2">
+                                    <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
+                                    <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-                    <?php drawAuthenticationPopup(); ?>
-                </header>
-                
+                        <?php drawAuthenticationPopup(); ?>
+                    </header>
+
                 <?php
                 break;
             default: ?>
