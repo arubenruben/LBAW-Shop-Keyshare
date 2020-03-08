@@ -150,13 +150,13 @@
                             <h5 class="title"> Shortcuts </h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="about.php"> Profile </a>
+                                    <a href="user.php"> Profile </a>
                                 </li>
                                 <li>
-                                    <a href="help.php"> Homepage </a>
+                                    <a href="homepage.php"> Homepage </a>
                                 </li>
                                 <li>
-                                    <a href="contact.php"> All products </a>
+                                    <a href="products_list.php"> All products </a>
                                 </li>
                             </ul>
                         </div>
