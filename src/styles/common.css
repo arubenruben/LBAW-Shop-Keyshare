@@ -7,7 +7,7 @@ html{
     padding: 0;
 }
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat' !important;
     background-color: var(--color-background-white);
     height: 100%;
     margin:0;
@@ -21,15 +21,8 @@ body{
 #content{
     padding-bottom: 20rem;
 }
-footer#footerGeneric{
-    width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 9rem;
+footer{
+   
 }
 #sidebar{
     height: 100vh;
