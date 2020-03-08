@@ -149,7 +149,29 @@ header.navbar{
     max-height: 2em;
     background-color: wheat;
 }
+/*
 .cartProductImage{
     
 
+}
+*/
+#checkoutPlaceHolderTop{
+    padding-top: 55%;
+}
+#checkoutStatusEmojiTrue{
+    color: var(--color-interactive-green-success);
+    font-size: 4.5em;
+}
+#checkoutStatusEmojiFalse{
+    color: var(--color-interactive-red-fail);
+    font-size: 4.5em;
+}
+#checkoutStatusTitle{
+    letter-spacing: 0.1em;
+    font-weight: bolder;
+    color: var(--color-primary-black);
+}
+#checkoutStatusButton{
+    background-color: gray;
+    border-color: gray;
 }
