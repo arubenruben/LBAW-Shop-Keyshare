@@ -44,7 +44,7 @@
         switch ($type) {
             case 0: ?>
                 <div id="wrapper">
-                    <header class="navbar fixed-top">
+                    <header class="navbar navbar-light fixed-top">
                         <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
                             <a href="homepage.php">
                                 <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
@@ -72,7 +72,7 @@
                         </div>
                         <!-- mobile -->
                         <div class="col-2 d-md-none d-xs-block">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>

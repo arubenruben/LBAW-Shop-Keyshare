@@ -203,13 +203,13 @@
                 <div>
                     <nav class="row justify-content-center mt-5" aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="product.php">1</a></li>
-                            <li class="page-item"><a class="page-link" href="product.php">2</a></li>
-                            <li class="page-item"><a class="page-link" href="product.php">3</a></li>
-                            <li class="page-item"><a class="page-link" href="product.php">4</a></li>
-                            <li class="page-item"><a class="page-link" href="product.php">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="product.php" aria-label="Next">
+                                <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
