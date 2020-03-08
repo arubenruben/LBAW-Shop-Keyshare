@@ -1,18 +1,20 @@
 @import "./constants.css";
 @import "./progress_bar.css";
-
-html{
+@import "./checkout.css";
+html {
     height: 100%;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
-body{
+
+body {
     font-family: 'Montserrat' !important;
     height: 100%;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
-#wrapper{
+
+#wrapper {
     min-height: 100%;
     background-color: var(--color-background-white);
     position: relative;
@@ -28,7 +30,7 @@ header.navbar{
 footer{
     position: absolute;
     width: 100%;
-    height: 11rem;
+    height: 12rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -39,34 +41,44 @@ footer{
     height: 100vh;
     background-color: var(--color-background-full-white);
 }
+
+
 /*From template merge*/
 header.navbar{
     background-color: var(--color-background-dark-blue);
 }
+
 .avatar-pic {
     width: 150px;
 }
+
 .accountDelete-button {
     margin-top: 50px;
 }
-#headerSearchIcon{
+
+#headerSearchIcon {
     color: var(--color-interactive-orange);
     font-size: 1.5rem;
 }
-#myAccountIcon{
-    color:var(--color-primary-light-blue);
+
+#myAccountIcon {
+    color: var(--color-primary-light-blue);
 }
-.headerIcon{
+
+.headerIcon {
     font-size: 1.5rem;
 }
+
 #offerPageSellButton {
     background-color: var(--color-interactive-orange);
     border-style: none;
 }
+
 #headerSellButton {
     background-color: var(--color-interactive-orange);
     border-style: none;
 }
+
 #headerExploreButton {
     background-color: var(--color-primary-light-blue);
     border-style: none;
@@ -78,94 +90,156 @@ header.navbar{
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
+
+
 /* color css */
+
 .cl-orange {
     color: var(--color-interactive-orange);
 }
+
 .cl-orange2 {
     color: var(--color-interactive-orange2);
 }
+
 .cl-green {
     color: var(--color-accent-green);
 }
+
 .cl-blue {
     color: var(--color-background-dark-blue);
 }
+
 .cl-success {
     color: var(--color-interactive-green-success);
 }
 .cl-fail {
     color: var(--color-interactive-red-fail);
 }
+
 .cl-white {
     color: var(--color-background-white);
 }
+
+
 /* backgrounds css */
+
 .bg-orange {
     background-color: var(--color-interactive-orange);
 }
+
 .bg-green {
     background-color: var(--color-accent-green);
 }
+
 .bg-success {
     background-color: var(--color-interactive-green-success);
 }
+
 .bg-insucess {
     background-color: var(--color-interactive-red-fail);
 }
+
 .bg-white {
     background-color: var(--color-background-white);
 }
+
+
 /* cards css */
+
 .card {
     border-radius: 0;
-    -webkit-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
-    -moz-box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
-    box-shadow: 0px 0px 12px 4px rgba(122,122,122,0.24);
+    -webkit-box-shadow: 0px 0px 12px 4px rgba(122, 122, 122, 0.24);
+    -moz-box-shadow: 0px 0px 12px 4px rgba(122, 122, 122, 0.24);
+    box-shadow: 0px 0px 12px 4px rgba(122, 122, 122, 0.24);
     background-color: var(--color-background-white);
     padding: 0;
 }
+
 .card:hover {
-    -webkit-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
-    -moz-box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.69);
-    box-shadow: 0px 0px 25px 13px rgba(105,105,105,0.3);
+    -webkit-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
+    -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
+    box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
 
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
 
 /*Corrigir o Logo no GIMP tem muito blank space */
 .logo{
-    background-color: var(--color-background-dark-blue)!important;
 }
 #offerAddNewKeyContainer,#offerAddNewSaleContainer{
     font-size: 1.5em;
 }
-#loginLogo{
+
+#loginLogo {
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
 }
+
+
 /*
 .cartProductImage{
 
@@ -174,20 +248,46 @@ header.navbar{
 #checkoutPlaceHolderTop{
     padding-top: 25%;
 }
-#checkoutStatusEmojiTrue{
+
+#checkoutStatusEmojiTrue {
     color: var(--color-interactive-green-success);
     font-size: 4.5em;
 }
-#checkoutStatusEmojiFalse{
+
+#checkoutStatusEmojiFalse {
     color: var(--color-interactive-red-fail);
     font-size: 4.5em;
 }
-#checkoutStatusTitle{
+
+#checkoutStatusTitle {
     letter-spacing: 0.1em;
     font-weight: bolder;
     color: var(--color-primary-black);
 }
-#checkoutStatusButton{
+
+#checkoutStatusButton {
     background-color: gray;
     border-color: gray;
+}
+.showAllProductListSideBar{
+    margin:0;
+    padding:0 !important;
+    background-color: transparent !important;
+    border-style: none !important;
+    color: var(--color-background-dark-blue)!important;
+}
+.productListSideBarEntry{
+    margin: 0 !important;
+    padding:0 !important;
+    margin-top: 1em !important ;
+}
+.cardHomepageImg{
+    height: 10rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding:0 !important;
+}
+.cardHomepage{
+    height: 18rem !important;
+    width: 15rem !important;
 }
