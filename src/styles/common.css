@@ -21,9 +21,9 @@ body{
 #content{
     padding-bottom: 20rem;
 }
-footer{
+/* footer{
    
-}
+} */
 #sidebar{
     height: 100vh;
     background-color: var(--color-background-full-white);
@@ -83,7 +83,7 @@ header.navbar{
 .cl-success {
     color: var(--color-interactive-green-success);
 }
-.cl-insucess {
+.cl-fail {
     color: var(--color-interactive-red-fail);
 }
 .cl-white {
