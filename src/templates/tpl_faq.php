@@ -1,7 +1,7 @@
 <?php function drawFAQ()
 { ?>
     <div id="content" class="container">
-        <div class="row text-center md-12">
+        <div class="row text-center pt-5 md-12">
             <div class="col mb-5">
                 <h1> KeyShare FAQ</h1>
             </div>
