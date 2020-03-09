@@ -5,6 +5,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
+	drawNavbar(0,'GTA V');
 	drawProduct();
 	drawFooter();
 ?>

@@ -270,7 +270,7 @@ header.navbar {
 }
 #navbar{
     position: relative;
-    min-height: 1rem;
+    min-height: 1.5rem;
 }
 #breadcrumbContainer{
     position: absolute;

@@ -50,7 +50,7 @@
                                 <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
-                        <div class="col-md-5 col-6 col-xl-6 my-auto">
+                        <div class="col-md-5 col-6 col-xl-6 my-auto d-none d-sm-block">
                             <form class="form-inline ">
                                 <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
                                 <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <!-- mobile -->
-                        <div class="col-2 d-md-none d-xs-block">
+                        <div class="col-2 col-xs-4 d-md-none d-xs-block">
                             <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -101,7 +101,7 @@
                 <?php
                 if (strcmp($pageName, '') == 0) { ?>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i>Home</a></li>
                     </ol>
                 <?php
                 } else { ?>
@@ -121,37 +121,50 @@
                     <nav id="navbar" class="nav">
                         <?php drawBreadcrumb($pageName); ?>
                         <div class="col-12 d-none d-sm-block">
-                            <div class="row text-center">
-                                <a class="nav-link active deco-none ml-auto" href="user.php">Account</a>
-                                <a class="nav-link deco-none" href="userPurchasesPage.php">Purchases</a>
-                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Offers(7)</a>
+                            <div class="row">
+                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
                             </div>
                         </div>
-
                     </nav>
-
                 <?php break;
                 case 1: ?>
-                    <nav id="navbar" class="nav justify-content-center">
-                        <a class="nav-link  active deco-none" href="user.php">Account</a>
-                        <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                    <nav id="navbar" class="nav">
+                        <?php drawBreadcrumb($pageName); ?>
+                        <div class="col-12 d-none d-sm-block">
+                            <div class="row">
+                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                            </div>
+                        </div>
                     </nav>
                 <?php
                     break;
                 case 2: ?>
-                    <nav id="navbar" class="nav justify-content-center">
-                        <a class="nav-link  deco-none" href="user.php">Account</a>
-                        <a class="nav-link  activedeco-none" href="userPurchasesPage.php">Purchases</a>
-                        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                    <nav id="navbar" class="nav">
+                        <?php drawBreadcrumb($pageName); ?>
+                        <div class="col-12 d-none d-sm-block">
+                            <div class="row">
+                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                            </div>
+                        </div>
                     </nav>
                 <?php
                     break;
                 case 3: ?>
-                    <nav id="navbar" class="nav justify-content-center">
-                        <a class="nav-link  deco-none" href="user.php">Account</a>
-                        <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                        <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                    <nav id="navbar" class="nav">
+                        <?php drawBreadcrumb($pageName); ?>
+                        <div class="col-12 d-none d-sm-block">
+                            <div class="row">
+                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                            </div>
+                        </div>
                     </nav>
                 <?php
                     break;

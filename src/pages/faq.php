@@ -4,7 +4,8 @@
 	include_once('../templates/tpl_faq.php');
 	//page
 	drawHead();
-	drawHeader(0); //-> se descomentar deixa de dar
+	drawHeader(0);
+	drawNavbar(0,'FAQ');
     drawFAQ();
     drawFooter();
 ?>
