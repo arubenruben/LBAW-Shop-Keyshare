@@ -46,7 +46,7 @@
 		</div>
 		<div class="col mb-5">
 			<div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-sm-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
