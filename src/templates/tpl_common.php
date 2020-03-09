@@ -96,18 +96,21 @@
     } ?>
 
         <?php function drawBreadcrumb($pageName = '')
-        {
-            if (strcmp($pageName, '') == 0) { ?>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
-                </ol>
-            <?php
-            } else { ?>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
-                </ol>
-            <?php } ?>
+        { ?>
+            <div id="breadcrumbContainer">
+                <?php
+                if (strcmp($pageName, '') == 0) { ?>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                    </ol>
+                <?php
+                } else { ?>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
+                    </ol>
+                <?php } ?>
+            </div>
         <?php } ?>
         <!-- navbar -->
         <?php function drawNavbar($type, $pageName = '')
@@ -115,26 +118,21 @@
             switch ($type) {
                     //Draw Homepage navbar
                 case 0: ?>
-                    <nav class="nav">
-                        <div class="col-1">
-                            <?php drawBreadcrumb($pageName); ?>
-                        </div>
-                        <div class="col-2">
-                        </div>
-                        <div class="col-6">
-                            <div class="row">
+                    <nav id="navbar" class="nav">
+                        <?php drawBreadcrumb($pageName); ?>
+                        <div class="col-12 d-none d-sm-block">
+                            <div class="row text-center">
                                 <a class="nav-link active deco-none ml-auto" href="user.php">Account</a>
                                 <a class="nav-link deco-none" href="userPurchasesPage.php">Purchases</a>
                                 <a class="nav-link deco-none mr-auto" href="userOffers.php">Offers(7)</a>
                             </div>
                         </div>
-                        <div class="col-3">
-                        </div>
+
                     </nav>
 
                 <?php break;
                 case 1: ?>
-                    <nav class="nav justify-content-center">
+                    <nav id="navbar" class="nav justify-content-center">
                         <a class="nav-link  active deco-none" href="user.php">Account</a>
                         <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
                         <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
@@ -142,7 +140,7 @@
                 <?php
                     break;
                 case 2: ?>
-                    <nav class="nav justify-content-center">
+                    <nav id="navbar" class="nav justify-content-center">
                         <a class="nav-link  deco-none" href="user.php">Account</a>
                         <a class="nav-link  activedeco-none" href="userPurchasesPage.php">Purchases</a>
                         <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
@@ -150,7 +148,7 @@
                 <?php
                     break;
                 case 3: ?>
-                    <nav class="nav justify-content-center">
+                    <nav id="navbar" class="nav justify-content-center">
                         <a class="nav-link  deco-none" href="user.php">Account</a>
                         <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
                         <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
@@ -261,7 +259,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Footer -->
             <footer id="footerGeneric">
                 <div class="container">
