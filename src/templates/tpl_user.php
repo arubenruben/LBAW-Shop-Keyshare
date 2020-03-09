@@ -408,206 +408,241 @@ function drawUserDetails()
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#myModal"> <i class="fas fa-user-slash" ></i> Report Seller</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
 
                                                 </div>
 
-                                                <div id="myModal" class="modal fade" role="dialog">
-                                                    <div class="modal-dialog">
-
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            
-                                                            </div>
-                                                            <div class="modal-body">
-                                                               
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
-                                            <td>
-                                                <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
-                                            </td>
-                                            <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
-
-                                            <td class="text-center">
-                                                <h5 class="font-weight-bold">33,90 €</h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
-                                            <td>
-                                                <h5 class="text-center">Fifa 20 (PC)<h5>
-                                            </td>
-                                            <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
-
-                                            <td class="text-center">
-                                                <h5 class="font-weight-bold">70,00 €</h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="100" /> </td>
-                                            <td>
-                                                <h5 class="text-center">Destiny 2 (PC)</h5>
-                                            </td>
-                                            <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
-
-                                            <td class="text-center">
-                                                <h5 class="font-weight-bold">124,90 €</h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
-                                            <td>
-                                                <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
-                                            </td>
-                                            <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
-
-                                            <td class="text-center">
-                                                <h5 class="font-weight-bold">33,90 €</h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
-                                            <td>
-                                                <h5 class="text-center">Fifa 20 (PC)</h5>
-                                            </td>
-                                            <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
-
-                                            <td class="text-center">
-                                                <h5 class="font-weight-bold">70,00 €</h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 text-center">
-                        <div class="mt-5 mb-5 accountDelete-button">
-                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
+                                <td>
+                                    <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
+                                </td>
+                                <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
+
+                                <td class="text-center">
+                                    <h5 class="font-weight-bold">33,90 €</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group-justified btn-group-lg">
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
+                                <td>
+                                    <h5 class="text-center">Fifa 20 (PC)<h5>
+                                </td>
+                                <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
+
+                                <td class="text-center">
+                                    <h5 class="font-weight-bold">70,00 €</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group-justified btn-group-lg">
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/pt/9/98/Destiny_2_capa.jpg" height="100" /> </td>
+                                <td>
+                                    <h5 class="text-center">Destiny 2 (PC)</h5>
+                                </td>
+                                <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
+
+                                <td class="text-center">
+                                    <h5 class="font-weight-bold">124,90 €</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group-justified btn-group-lg">
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/2711/271x377/star-wars-jedi-fallen-order-cover.jpg" height="100" /> </td>
+                                <td>
+                                    <h5 class="text-center">Star Wars jedi fallen order (PC)</h5>
+                                </td>
+                                <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
+
+                                <td class="text-center">
+                                    <h5 class="font-weight-bold">33,90 €</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group-justified btn-group-lg">
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><img class="img-fluid" src="https://s3.gaming-cdn.com/images/products/4502/271x377/fifa-20-cover.jpg" height="100" /> </td>
+                                <td>
+                                    <h5 class="text-center">Fifa 20 (PC)</h5>
+                                </td>
+                                <td class="text-center"> <img class="img-fluid" class="rounded-circle img-fluid mt-1" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="60" height="60"><a href="#">LockdownPT</a> <br> <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span></td>
+
+                                <td class="text-center">
+                                    <h5 class="font-weight-bold">70,00 €</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group-justified btn-group-lg">
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12 text-center">
+                    <div class="mt-5 mb-5 accountDelete-button">
+                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+    </div>
+
+
+<?php drawReportPopup();
+    drawGiveFeedbackPopup();
+} ?>
+
+<?php function drawReportPopup()
+{ ?>
+
+    <div id="modalReport" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Report Seller </h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="reportBorderInfo" class="col-6 text-left">
+                            <h5>Seller's Info</h5>
+                            <h6>Lockdownpt</h6>
+                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                        </div>
+
+                        <div class="col-6 text-right">
+                            <h5>Product in question</h5>
+                            <h6>Order Nº 14456666</h6>
+                            <h6>Price : 124,90€ </h6>
+
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <h6>Report Description</h6>
+                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
 <?php } ?>
 
-<?php function drawGiveFeedbackPopup($id)
+<?php function drawGiveFeedbackPopup()
 { ?>
 
-    <!-- Modal -->
-    <div class="modal fade bd-modal-lg<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+    <div id="modalGiveFeedback" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="row">
-                        <div class="col">
-                            <h4>bestseller439</h4>
-                            <p>Rating: <span class="font-weight-bold cl-success">99%</span> | <i class="fas fa-shopping-cart"></i> 1897 </p>
-                        </div>
-                    </div>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
+                    <h5 class="modal-title">Send Feedback</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-
-                <!-- modal body -->
                 <div class="modal-body">
-                    <!-- feedback header -->
-                    <div class="row font-weight-bold">
-                        <div class="col">
-                            <span class="active-border"> All reviews <span class="text-muted">2</span></span>
+                    <div class="row">
+                    <div id="reportBorderInfo" class="col-6 text-left">
+                            <h5>Seller's Info</h5>
+                            <h6>Lockdownpt</h6>
+                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                         </div>
-                        <div class="col">
-                            <span class="inactive-border"><i class="fas fa-thumbs-up cl-success"></i> Positive <span class="text-muted">1</span></span>
-                        </div>
-                        <div class="col">
-                            <span class="inactive-border"><i class="fas fa-thumbs-down cl-fail"></i> Negative <span class="text-muted">1</span></span>
-                        </div>
-                    </div>
-                    <hr class="mt-0">
-                    <div class="container-fluid">
-                        <!-- feedback ratings -->
-                        <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-down cl-fail"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key doesnt work
-                            </div>
-                        </div>
-                        <hr class="m-2">
-                        <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-up cl-success"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key works
-                            </div>
+
+                        <div class="col-6 text-right">
+                            <h5>Product in question</h5>
+                            <h6>Order Nº 14456666</h6>
+                            <h6>Price : 124,90€ </h6>
+
                         </div>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <h6>Evaluation</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div id="reportBorderInfo" class="col-6 text-center">
+                            <button class="btn btn-outline-success btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-up cl-success"></i> </button>
+                        </div>
+
+                        <div class="col-6 text-center">
+                        <button class="btn btn-outline-danger btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-down cl-fail"></i></button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h6>Comment</h6>
+                            <textarea class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" placeholder="Describe your experience with this seller" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
+                    </div>
+
+
+
+
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Load More</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
+
         </div>
     </div>
+
 <?php } ?>
