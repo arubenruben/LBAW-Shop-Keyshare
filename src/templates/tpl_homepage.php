@@ -46,35 +46,35 @@
 		</div>
 		<div class="col mb-5">
 			<div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-sm-block d-none cardHomepage">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2  cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
-				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-sm-block d-none cardHomepage">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 d-sm-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA20</a></h6>
 						<h5 class="cl-orange2">$30</h5>
 					</div>
 				</div>
-				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-md-block d-none cardHomepage">
+				<div class="card  col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2  d-md-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/MINECRAFT/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Minecraft</a></h6>
 						<h5 class="cl-orange2">$19.99</h5>
 					</div>
 				</div>
-				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-lg-block d-none cardHomepage">
-					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/WATCHDOGS/1.png"></a>
+				<div class="card  col-xl-2 d-xl-block d-none cardHomepage">
+					<a href=" product.php"><img class="card-img-top cardHomepageImg img-fluid " src="../../assets/images/games/WATCHDOGS/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
-				<div class="card  col-xs-8 col-sm-5 col-md-3 col-lg-2 col-xl-2 d-xl-block d-none cardHomepage">
+				<div class="card   col-xl-2 d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/FORZAHORIZON4/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Forza Horizon 4</a></h6>
@@ -99,41 +99,59 @@
 		</div>
 		<div class="col mb-5">
 			<div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardHomepage">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/ASSASSINSCREEDUNITY/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Assassins Creed Unity</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
-				<div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-sm-block d-none cardHomepage">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 d-sm-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
 						<h5 class="cl-orange2">$30</h5>
 					</div>
 				</div>
-				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
+				<div class="card col-xs-8 col-sm-5 col-md-3 col-lg-3 col-xl-2  d-md-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
 						<h5 class="cl-orange2">$19.99</h5>
 					</div>
 				</div>
-				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
+				<div class="card  col-xl-2 d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/MINECRAFT/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Minecraft</a></h6>
 						<h5 class="cl-orange2">$24.99</h5>
 					</div>
 				</div>
-				<div class="card col-xs-6 col-sm-4 col-md-2  d-xl-block d-none cardHomepage">
+				<div class="card  col-xl-2  d-xl-block d-none cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
 						<h5 class="cl-orange2">$10</h5>
 					</div>
 				</div>
+			</div>
+		</div>
+
+
+		<br>
+
+		<br>
+
+
+		<br>
+
+		<div class="card">
+			<div class="embed-responsive embed-responsive-16by9">
+				<img alt="Card image cap" class="card-img-top embed-responsive-item" src="img/butterPecan.jpg" />
+			</div>
+			<div class="card-block">
+				<h4 class="card-title">Butter Pecan</h4>
+				<p class="card-text">Roasted pecans, butter and vanilla come together to make this wonderful ice cream</p>
 			</div>
 		</div>
 	</div>

@@ -1,7 +1,6 @@
 @import "./constants.css";
 @import "./progress_bar.css";
 @import "./checkout.css";
-
 html {
     height: 100%;
     margin: 0;
@@ -169,17 +168,22 @@ background-color: transparent;
 
 
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
 #offerAddNewKeyContainer,
 #offerAddNewSaleContainer {
     font-size: 1.5em;
 }
+
 #loginLogo {
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
 }
+
+
 /*
 .cartProductImage{
 
@@ -225,22 +229,34 @@ background-color: transparent;
     border-style: none;
     color: var(--color-background-dark-blue);
 }
+
 .productListSideBarEntry {
     margin: 0;
     padding: 0;
     margin-top: 1em;
 }
-.cardHomepage .cardHomepageImg,.cardProductList .cardProductListImg {
+
+.cardProductList .cardProductListImg {
     height: 10rem;
 }
+
+.cardHomepage .cardHomepageImg {
+    object-fit: cover;
+    height: 10rem;
+}
+
+
 /* this makes sure the iamge on the card does not have padding left and right*/
+
 #content .card {
     padding-left: 0;
     padding-right: 0;
 }
-#navbarHamburguer{
+
+#navbarHamburguer {
     border-color: var(--color-interactive-orange);
 }
-#navbarHamburguer .navbar-toggler-icon{
+
+#navbarHamburguer .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(235,157,22, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
