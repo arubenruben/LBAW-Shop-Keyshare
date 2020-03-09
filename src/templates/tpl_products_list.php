@@ -2,7 +2,7 @@
 { ?>
     <div id="content" class="container-fluid">
         <div class="row">
-            <div id="sidebar" class="col-2 d-none d-lg-block">
+            <div id="sidebar" class="col-2 d-none d-lg-block mt-5">
                 <form>
                     <div class="col">
                         <section>
@@ -180,7 +180,7 @@
                     <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList ">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary"></a></h6>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                             <h5 class="cl-orange2">$40.99</h5>
                         </div>
                     </div>

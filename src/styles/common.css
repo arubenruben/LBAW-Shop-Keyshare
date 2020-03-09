@@ -7,8 +7,8 @@ html {
     padding: 0;
 }
 
-body {
-    font-family: 'Montserrat' !important;
+html body {
+    font-family: 'Montserrat';
     height: 100%;
     margin: 0;
     padding: 0;
@@ -168,82 +168,17 @@ header.navbar {
 
 
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/*Corrigir o Logo no GIMP tem muito blank space */
 
 #offerAddNewKeyContainer,
 #offerAddNewSaleContainer {
     font-size: 1.5em;
 }
-
 #loginLogo {
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
 }
-
-
 /*
 .cartProductImage{
 
@@ -282,45 +217,29 @@ header.navbar {
     border-color: gray;
 }
 
-.showAllProductListSideBar {
+#sidebar .showAllProductListSideBar {
     margin: 0;
-    padding: 0 !important;
-    background-color: transparent !important;
-    border-style: none !important;
-    color: var(--color-background-dark-blue)!important;
+    padding: 0;
+    background-color: transparent;
+    border-style: none;
+    color: var(--color-background-dark-blue);
 }
-
 .productListSideBarEntry {
-    margin: 0 !important;
-    padding: 0 !important;
-    margin-top: 1em !important;
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
 }
-
-.cardHomepageImg {
-    height: 10rem !important;
-    width: 100% !important;
+.cardHomepage .cardHomepageImg,.cardProductList .cardProductListImg {
+    height: 10rem;
 }
-
-
 /* this makes sure the iamge on the card does not have padding left and right*/
-
 #content .card {
     padding-left: 0;
     padding-right: 0;
 }
-
-.cardHomepage {
-    height: 18rem !important;
-    width: 15rem !important;
-}
-.cardProductList{
-    min-height: 18.9rem;
-    height: fit-content !important;
-    width: 21rem !important;
-}
-.navbar-toggler-icon{
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(235,157,22, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
-}
 #navbarHamburguer{
-    border-color: var(--color-interactive-orange) !important;
+    border-color: var(--color-interactive-orange);
+}
+#navbarHamburguer .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(235,157,22, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

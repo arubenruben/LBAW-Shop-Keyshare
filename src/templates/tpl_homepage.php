@@ -46,7 +46,7 @@
 		</div>
 		<div class="col mb-5">
 			<div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 ">
+				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
@@ -99,7 +99,7 @@
 		</div>
 		<div class="col mb-5">
 			<div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 ">
+				<div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardHomepage">
 					<a href="product.php"><img class="card-img-top cardHomepageImg img-fluid" src="../../assets/images/games/ASSASSINSCREEDUNITY/1.png"></a>
 					<div class="card-body">
 						<h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Assassins Creed Unity</a></h6>
