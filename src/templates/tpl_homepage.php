@@ -87,7 +87,7 @@
 		<div class="row mt-5 ml-3">
 			<div class="col">
 				<div class="row">
-					<h5 class="title"> Most Recents <a href="listings.php"><small class="ml-3"> See all</small></a></h5>
+					<h5 class="title"> Most Recents <a href="products_list.php"><small class="ml-3"> See all</small></a></h5>
 				</div>
 			</div>
 			<div class="col mr-4">
