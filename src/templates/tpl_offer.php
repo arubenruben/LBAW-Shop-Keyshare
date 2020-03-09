@@ -9,7 +9,7 @@ function drawOffer()
                 <h3>Choose Game</h3>
                 <div class="row">
                     <div class="col-5 mt-3">
-                        <img class="img-fluid productPageImgPreview" src="../../assets/images/gta-v.webp" />
+                        <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png"/>
                     </div>
                     <div class="col-7 mt-2">
                         <form action="#" method="GET">

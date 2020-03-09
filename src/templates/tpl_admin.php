@@ -1,7 +1,7 @@
 <?php function drawAdminStart() { ?>
 
     <section class="aboutus py-5" id="aboutus">
-        <div class="container-fluid">
+        <div id="content" class="container-fluid">
             <div class="row">
 
 <?php } ?>

@@ -5,7 +5,7 @@ function drawProduct() { ?>
     <div id="content" class="container mt-4">
         <div class="row ml-auto mr-auto">
             <div class="col-6">
-                <img class="img-fluid productPageImgPreview" src="../../assets/images/gta-v.webp" />
+                <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png"/>
             </div>
             <div class="col-6">
                 <h3>Grand Theft Auto V Rockstar Key</h3>

@@ -4,7 +4,7 @@
 	include_once('../templates/tpl_product.php');
 	//page
 	drawHead();
-	// drawHeader(0);
+	drawHeader(0);
 	drawProduct();
 	drawFooter();
 ?>
