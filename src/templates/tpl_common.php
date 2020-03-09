@@ -19,12 +19,12 @@
         } ?>
         <!-- jquery -->
         <script defer src="../../assets/jquery/jquery.min.js"></script>
-        <!-- fontawesome -->
-        <script defer src="../../assets/bootstrap/js/"></script>
+        <!-- bootstrap -->
         <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
         <script defer src="../../assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- fontawesome -->
         <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
+        <link rel="stylesheet" href="../../assets/fontawesome/css/all.min">
         <!--Required by Bootstrap for buttons -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
@@ -45,12 +45,12 @@
             case 0: ?>
                 <div id="wrapper">
                     <header id="headerFixed" class="navbar">
-                        <div class="col-md-2 col-3 col-xl-1 mt-auto mb-auto">
+                        <div class="col-4 col-md-2 col-xl-1 my-auto">
                             <a href="homepage.php">
-                                <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                                <img class="img-fluid" src="../../assets/images/logo/logo.png"/>
                             </a>
                         </div>
-                        <div class="col-md-5 col-6 col-xl-6 mt-auto mb-auto">
+                        <div class="col-md-5 col-6 col-xl-6 my-auto">
                             <form class="form-inline">
                                 <div class="form-group mb-auto">
                                     <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
@@ -161,7 +161,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col ml-auto mt-auto mb-auto">
+                        <div class="col ml-auto my-auto">
                             <p>© Copyright 2020 Key Share. All rights reserved.</p>
                         </div>
                     </div>

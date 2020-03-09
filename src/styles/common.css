@@ -21,8 +21,8 @@
     }
     
     #content {
-        padding-top: 0rem;
-        padding-bottom: 0rem;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     
     header.navbar {
@@ -174,8 +174,6 @@
     /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
     /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
     /*Corrigir o Logo no GIMP tem muito blank space */
-    
-    .logo {}
     
     #offerAddNewKeyContainer,
     #offerAddNewSaleContainer {
