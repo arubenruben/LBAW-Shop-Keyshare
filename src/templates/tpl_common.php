@@ -68,7 +68,7 @@
                             <div class="row">
                                 <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-block">
                                 <i class="fas fa-user headerIcon" data-toggle="modal" data-target=".bs-modal-sm"></i> Log in</button>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
+                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i></a>
                             </div>
                         </div>
                         <!-- mobile -->
