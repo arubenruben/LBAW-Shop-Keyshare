@@ -10,7 +10,7 @@ function drawUserDetails()
     ?>
 
     
-    <div class="container">
+    <div id="content" class="container">
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -93,7 +93,7 @@ function drawUserDetails()
             </div>
         </div>
     </div>
-    </div>
+
 <?php } ?>
 
 
