@@ -193,10 +193,9 @@
     
     #headerFixed {
         position: -webkit-sticky;
-        /* Safari */
         position: sticky;
         top: 0;
-        z-index: 999;
+        z-index: 1;
     }
     
     #checkoutPlaceHolderTop {
@@ -241,8 +240,12 @@
     .cardHomepageImg {
         height: 10rem !important;
         width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    }
+
+    /* this makes sure the iamge on the card does not have padding left and right*/
+    #content .card {
+        padding-left: 0;
+        padding-right: 0;
     }
     
     .cardHomepage {
