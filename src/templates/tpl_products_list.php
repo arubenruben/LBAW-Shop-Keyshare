@@ -98,104 +98,104 @@
                     <div class="btn-group ml-auto">
                         <button class="btn btn-secondary btn-sm dropdown-toggle pl-4 pt-2 pb-2 pr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order By</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Price</a>
+                            <a class="dropdown-item" href="product.php">Price</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Rating</a>
+                            <a class="dropdown-item" href="product.php">Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Release Date</a>
+                            <a class="dropdown-item" href="product.php">Release Date</a>
                         </div>
                     </div>
                 </div>
                 <!--First Row-->
                 <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto mt-5">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList d-sm-block d-none">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
+                            <h5 class="cl-orange2">$25.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-lg-block d-none">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-xl-block d-none cardProductList">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto mt-5">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
-                        <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
-                        </div>
-                    </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
-                        <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
-                        </div>
-                    </div>
-                    <div class="card col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-lg-block d-none">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
-                        <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
+                            <h5 class="cl-orange2">$26.99</h5>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto mt-5">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FORZAHORIZON4/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Forza Horizon 4</a></h6>
+                            <h5 class="cl-orange2">$20.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 d-sm-block d-none cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/MINECRAFT/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Minecraft</a></h6>
+                            <h5 class="cl-orange2">$19.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-lg-block d-none">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-xl-block d-none cardProductList">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
+                            <h5 class="cl-orange2">$18.99</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto mt-5">
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
+                        <div class="card-body">
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
+                            <h5 class="cl-orange2">$14.99</h5>
+                        </div>
+                    </div>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 d-sm-block d-none cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/ASSASSINSCREEDUNITY/1.png"></a>
+                        <div class="card-body">
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Assassins Creed Unity</a></h6>
+                            <h5 class="cl-orange2">$4.99</h5>
+                        </div>
+                    </div>
+                    <div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-xl-block d-none cardProductList">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
+                        <div class="card-body">
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
+                            <h5 class="cl-orange2">$70.99</h5>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto mt-5 mb-5">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary"></a></h6>
+                            <h5 class="cl-orange2">$40.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 h-100">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-2 d-sm-block d-none cardProductList ">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
+                            <h5 class="cl-orange2">$43.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-6 col-sm-4 col-md-4 h-100 col-xl-2 d-lg-block d-none">
-                        <a href="#"><img class="card-img-top" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQjo-dsEHtYUyuTPNn-PfW6roSHQeX9Lqp1lpBk5pOS5bOVTm1-&psig=AOvVaw06kRgRtzZeEZq60HXOw0lu&ust=1583502457922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIijz728g-gCFQAAAAAdAAAAABAF"></a>
+                    <div class="card col-xs-6 col-sm-4 col-md-4  col-xl-2 d-xl-block d-none cardProductList">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/GTAV/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary"> Star Wars Jedi: Fallen Order </a> </h6>
-                            <h5 class="cl-orange2">$24.99</h5>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a></h6>
+                            <h5 class="cl-orange2">$45.99</h5>
                         </div>
                     </div>
                 </div>
