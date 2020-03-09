@@ -13,7 +13,7 @@
                     <div class="row my-3 mx-2">
                         <textarea class="form-control" rows="5" placeholder="message"></textarea>
                     </div>
-                    <button type="button" class="btn"> Send </button>
+                    <button type="button" class="btn bg-success"> Send </button>
                 </form>
             </div>
         </div>

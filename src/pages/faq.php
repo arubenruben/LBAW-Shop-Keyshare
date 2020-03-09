@@ -5,15 +5,6 @@
 	//page
 	drawHead();
 	drawHeader(0); //-> se descomentar deixa de dar
-    //drawFAQ();
-    //drawFooter();
-?>
-
-
-
-
-<?php
-	//includes
-	include_once('../templates/tpl_common.php');
+    drawFAQ();
     drawFooter();
 ?>

@@ -26,10 +26,16 @@ function drawProduct() { ?>
                 <div class="col-8">
                     <h3>Offers: 2</h3>
                 </div>
-                <div class="col">
-                    Sort by:
-                    <label class="radio mx-2"><input type="radio" name="optradio" checked>Best price</label>
-                    <label class="radio"><input type="radio" name="optradio">Best rating</label>
+                <div class="row">
+                    <div class="col">Sort by:</div>
+                    <div class="custom-control custom-radio radio-inline mr-2">
+                        <input type="radio" class="custom-control-input" id="customRadio1" name="example1" value="customEx">
+                        <label class="custom-control-label" for="customRadio1">Best price</label>
+                    </div>
+                    <div class="custom-control custom-radio radio-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2" name="example1" value="customEx">
+                        <label class="custom-control-label" for="customRadio2">Best rating</label>
+                    </div>
                 </div>
             </div>
             <div class="row mt-4">

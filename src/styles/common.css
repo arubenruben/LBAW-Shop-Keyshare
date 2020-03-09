@@ -1,6 +1,7 @@
 @import "./constants.css";
 @import "./progress_bar.css";
 @import "./checkout.css";
+
 html {
     height: 100%;
     margin: 0;
