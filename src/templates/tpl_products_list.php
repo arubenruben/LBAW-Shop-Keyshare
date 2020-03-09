@@ -1,15 +1,9 @@
-<?php function drawProductList()
-{ ?>
+<?php function drawProductList() { ?>
     <div id="content" class="container">
         <div class="row">
-            <?php
-
-            productListingSideBar();
-
-            ?>
-
+            <?php productListingSideBar(); ?>
             <div class="col ml-auto mr-auto">
-                <!--Order By-->
+                <!--Sort By-->
                 <div class="row ml-1  mt-4 mr-1">
                     <div class="sideBarButton">
                     <button class="btn btn-secondary btn-sm pl-4 pt-2 pb-2 pr-4" type="button"> <i class="fas fa-filter"></i> Filters</button>
@@ -27,23 +21,23 @@
                     </div>
                 </div>
                 <!--First Row-->
-                <div class="row justify-content-between mr-auto ml-auto flex-wrap mt-2">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3  cardProductList">
+                <div class="row justify-content-between mx-auto flex-wrap mt-2">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3  cardProductList ">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                             <h5 class="cl-orange2">$25.99</h5>
                         </div>
                     </div>
-                    <div class="card col-md-3 col-lg-3 col-xl-3  d-sm-block d-none cardProductList">
-                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                             <h5 class="cl-orange2">$26.99</h5>
@@ -52,23 +46,23 @@
 
                 </div>
                 <!--Second Row-->
-                <div class="row justify-content-between mr-auto ml-auto flex-wrap mt-2">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3  cardProductList">
+                <div class="row justify-content-between mx-auto flex-wrap mt-2">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3 cardProductList ">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                             <h5 class="cl-orange2">$25.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xl-3  d-xl-block d-none cardProductList">
-                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                             <h5 class="cl-orange2">$26.99</h5>
@@ -77,23 +71,23 @@
 
                 </div>
                 <!--Third Row-->
-                <div class="row justify-content-between mr-auto ml-auto flex-wrap mt-2">
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3  cardProductList">
+                <div class="row justify-content-between mx-auto flex-wrap mt-2">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xs-12 col-sm-4 col-md-4 col-xl-3 cardProductList ">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                             <h5 class="cl-orange2">$25.99</h5>
                         </div>
                     </div>
-                    <div class="card col-xl-3  d-xl-block d-none cardProductList">
-                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                             <h5 class="cl-orange2">$26.99</h5>
@@ -123,12 +117,7 @@
     </div>
 <?php } ?>
 
-
-
-<?php function productListingSideBar()
-{
-
-?>
+<?php function productListingSideBar() { ?>
 
     <div id="sidebar" class="col-3 d-none d-lg-block mt-5">
         <form>
@@ -227,7 +216,4 @@
         </form>
     </div>
 
-<?php
-
-
-} ?>
+<?php } ?>
