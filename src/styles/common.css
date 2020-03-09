@@ -238,11 +238,17 @@ background-color: transparent;
 
 .cardProductList .cardProductListImg {
     height: 10rem;
+    object-fit: cover;
 }
 
 .cardHomepage .cardHomepageImg {
     object-fit: cover;
     height: 10rem;
+}
+
+#searchBar {
+    width: 70%;
+    max-width: 35rem;
 }
 
 

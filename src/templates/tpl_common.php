@@ -51,11 +51,9 @@
                             </a>
                         </div>
                         <div class="col-md-5 col-6 col-xl-6 my-auto">
-                            <form class="form-inline">
-                                <div class="form-group mb-auto">
+                            <form class="form-inline ">
                                     <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                                </div>
+                                    <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
                         <div class="col-md-3 d-none d-md-block">
