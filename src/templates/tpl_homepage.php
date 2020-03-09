@@ -2,7 +2,7 @@
 { ?>
 	<div id="content" class="container">
 		<!-- carousel -->
-		<div class="row mr-2 ml-3">
+		<div class="row mx-2 my-4">
 			<div id="carouselExampleIndicators" class="carousel slide ml-auto mr-auto" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -14,10 +14,10 @@
 						<a href="product.php"><img src="../../assets/images/games/carousel/1.png" class="d-block w-100"></a>
 					</div>
 					<div class="carousel-item">
-						<a href="product.php"><img src="../../assets/images/games/carousel/2.png" class="d-block w-100"></a>
+						<a href="product.php"><img src="../../assets/images/games/carousel/1.png" class="d-block w-100"></a>
 					</div>
 					<div class="carousel-item">
-						<a href="product.php"><img src="../../assets/images/games/carousel/3.png" class="d-block w-100"></a>
+						<a href="product.php"><img src="../../assets/images/games/carousel/1.png" class="d-block w-100"></a>
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<!-- most popular -->
-		<div class="row mt-5 ml-3">
+		<div class="row ml-3">
 			<div class="col">
 				<div class="row mt-2">
 					<h5 class="title"> Most Popular <a href="products_list.php"><small class="ml-3"> See all</small></a></h5>
