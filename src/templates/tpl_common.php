@@ -47,13 +47,13 @@
                     <header id="headerFixed" class="navbar">
                         <div class="col-4 col-md-2 col-xl-1 my-auto">
                             <a href="homepage.php">
-                                <img class="img-fluid" src="../../assets/images/logo/logo.png"/>
+                                <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
                         <div class="col-md-5 col-6 col-xl-6 my-auto">
                             <form class="form-inline ">
-                                    <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                    <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                                <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
                         <div class="col-md-3 d-none d-md-block">
@@ -84,44 +84,89 @@
                                 </div>
                             </div>
                         </div>
-
-                        
                     </header>
-
                 <?php
                 break;
             default: ?>
-
-
             <?php
-
-
                 break;
         }
             ?>
-
         <?php
     } ?>
 
+        <?php function drawBreadcrumb($pageName = '')
+        {
+            if (strcmp($pageName, '') == 0) { ?>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                </ol>
+            <?php
+            } else { ?>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
+                </ol>
+            <?php } ?>
+        <?php } ?>
         <!-- navbar -->
-        <?php function drawNavbar($type)
+        <?php function drawNavbar($type, $pageName = '')
         {
             switch ($type) {
                     //Draw Homepage navbar
                 case 0: ?>
+                    <nav class="nav">
+                        <div class="col-1">
+                            <?php drawBreadcrumb($pageName); ?>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <a class="nav-link active deco-none ml-auto" href="user.php">Account</a>
+                                <a class="nav-link deco-none" href="userPurchasesPage.php">Purchases</a>
+                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Offers(7)</a>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </nav>
 
-
-
-            <?php
+                <?php break;
+                case 1: ?>
+                    <nav class="nav justify-content-center">
+                        <a class="nav-link  active deco-none" href="user.php">Account</a>
+                        <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                    </nav>
+                <?php
                     break;
-
-
-                default:
-
+                case 2: ?>
+                    <nav class="nav justify-content-center">
+                        <a class="nav-link  deco-none" href="user.php">Account</a>
+                        <a class="nav-link  activedeco-none" href="userPurchasesPage.php">Purchases</a>
+                        <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                    </nav>
+                <?php
                     break;
-            }
+                case 3: ?>
+                    <nav class="nav justify-content-center">
+                        <a class="nav-link  deco-none" href="user.php">Account</a>
+                        <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                        <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                    </nav>
+                <?php
+                    break;
+                case 4: ?>
 
-            ?>
+                <?php
+                    break;
+                default: ?>
+
+            <?php break;
+            } ?>
+
+
         <?php } ?>
 
         <!-- footer -->
@@ -134,8 +179,8 @@
                         <!-- authentication popup header -->
                         <div class="bs-example bs-example-tabs">
                             <ul id="myTab" class="nav nav-tabs">
-                            <li class="active ml-auto mr-auto my-2"><a href="#signin" class="cl-orange" data-toggle="tab">Sign In</a></li>
-                            <li class="ml-auto mr-auto my-2"><a href="#signup" class="cl-orange" data-toggle="tab">Sign Up</U></a></li>
+                                <li class="active ml-auto mr-auto my-2"><a href="#signin" class="cl-orange" data-toggle="tab">Sign In</a></li>
+                                <li class="ml-auto mr-auto my-2"><a href="#signup" class="cl-orange" data-toggle="tab">Sign Up</U></a></li>
                             </ul>
                         </div>
                         <!-- modal body-->
@@ -143,68 +188,68 @@
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade active in" id="signin">
                                     <form class="form-horizontal">
-                                    <fieldset>
-                                        <!-- Sign In Form -->
-                                        <!-- Text input-->
-                                        <div class="control-group">
-                                            <label class="control-label" for="userid">Username:</label>
-                                            <div class="controls">
-                                                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                        <fieldset>
+                                            <!-- Sign In Form -->
+                                            <!-- Text input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="userid">Username:</label>
+                                                <div class="controls">
+                                                    <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- Password input-->
-                                        <div class="control-group mt-4 mb-2">
-                                            <label class="control-label" for="passwordinput">Password:</label>
-                                            <div class="controls">
-                                                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                            <!-- Password input-->
+                                            <div class="control-group mt-4 mb-2">
+                                                <label class="control-label" for="passwordinput">Password:</label>
+                                                <div class="controls">
+                                                    <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- Button -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="signin"></label>
-                                            <div class="controls text-center">
-                                                <button id="signin" name="signin" class="btn text-light btn-orange">Sign In</button>
+                                            <!-- Button -->
+                                            <div class="control-group">
+                                                <label class="control-label" for="signin"></label>
+                                                <div class="controls text-center">
+                                                    <button id="signin" name="signin" class="btn text-light btn-orange">Sign In</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </fieldset>
+                                        </fieldset>
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="signup">
                                     <form class="form-horizontal">
-                                    <fieldset>
-                                        <!-- Sign Up Form -->	
-                                        <!-- Text input-->
-                                        <div class="control-group">
-                                            <label class="control-label" for="userid">Username:</label>
-                                            <div class="controls">
-                                                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                        <fieldset>
+                                            <!-- Sign Up Form -->
+                                            <!-- Text input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="userid">Username:</label>
+                                                <div class="controls">
+                                                    <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <!-- Password input -->
-                                        <div class="control-group mt-4 mb-2">
-                                            <label class="control-label" for="passwordinput">Password:</label>
-                                            <div class="controls">
-                                                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Confirm Password input-->
-                                        <div class="control-group">
-                                        <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
-                                        <div class="controls">
-                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
-                                        </div>
-                                        </div>
 
-                                        <!-- Button -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="confirmsignup"></label>
-                                            <div class="controls text-center">
-                                                <button id="confirmsignup" name="confirmsignup" class="btn text-light btn-orange">Sign Up</button>
+                                            <!-- Password input -->
+                                            <div class="control-group mt-4 mb-2">
+                                                <label class="control-label" for="passwordinput">Password:</label>
+                                                <div class="controls">
+                                                    <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </fieldset>
+
+                                            <!-- Confirm Password input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                                <div class="controls">
+                                                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="control-group">
+                                                <label class="control-label" for="confirmsignup"></label>
+                                                <div class="controls text-center">
+                                                    <button id="confirmsignup" name="confirmsignup" class="btn text-light btn-orange">Sign Up</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
                                     </form>
                                 </div>
                             </div>
@@ -261,4 +306,3 @@
 
     </html>
 <?php } ?>
-

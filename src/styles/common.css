@@ -51,9 +51,6 @@ footer {
 
 header.navbar {
     background-color: var(--color-background-dark-blue);
-    /*
-background-color: transparent;
-*/
 }
 
 .avatar-pic {
