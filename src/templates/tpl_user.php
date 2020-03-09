@@ -2,14 +2,14 @@
 include_once('../templates/tpl_common.php');
 
 function drawUserDetails()
-{ 
+{
     drawUserNavBar("account");
-    
-    
-    
-    ?>
 
-    
+
+
+?>
+
+
     <div id="content" class="container">
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
@@ -165,22 +165,22 @@ function drawUserDetails()
     }
     ?>
 
-  
+
 
 <?php
 }
 
 ?>
 <?php function drawUserOffers()
-{ 
-    
-    
-    
-    
+{
+
+
+
+
     drawUserNavBar("offers");
-    
-    ?>
-    
+
+?>
+
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -239,6 +239,7 @@ function drawUserDetails()
                                                 <div class="btn-group-justified btn-group-lg">
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
+                                                    <?php  ?>
                                                 </div>
                                             </td>
                                         </tr>
@@ -365,11 +366,11 @@ function drawUserDetails()
 <?php } ?>
 
 <?php function drawUserPurchases()
-{ 
+{
     drawUserNavBar("purchases");
-    
-    ?>
-  
+
+?>
+
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -385,7 +386,7 @@ function drawUserDetails()
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="text-center"> Product Image </th>
+                                            <th scope="col" class="text-center">Product Image </th>
                                             <th scope="col" class="text-center">Product name</th>
                                             <th scope="col" class="text-center">Seller</th>
                                             <th scope="col" class="text-center">Price</th>
@@ -408,7 +409,28 @@ function drawUserDetails()
                                                 <div class="btn-group-justified btn-group-lg">
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#myModal"> <i class="fas fa-user-slash" ></i> Report Seller</button>
+
+                                                </div>
+
+                                                <div id="myModal" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            
+                                                            </div>
+                                                            <div class="modal-body">
+                                                               
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -512,6 +534,78 @@ function drawUserDetails()
                             <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php } ?>
+
+<?php function drawGiveFeedbackPopup($id)
+{ ?>
+
+    <!-- Modal -->
+    <div class="modal fade bd-modal-lg<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col">
+                            <h4>bestseller439</h4>
+                            <p>Rating: <span class="font-weight-bold cl-success">99%</span> | <i class="fas fa-shopping-cart"></i> 1897 </p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+
+                <!-- modal body -->
+                <div class="modal-body">
+                    <!-- feedback header -->
+                    <div class="row font-weight-bold">
+                        <div class="col">
+                            <span class="active-border"> All reviews <span class="text-muted">2</span></span>
+                        </div>
+                        <div class="col">
+                            <span class="inactive-border"><i class="fas fa-thumbs-up cl-success"></i> Positive <span class="text-muted">1</span></span>
+                        </div>
+                        <div class="col">
+                            <span class="inactive-border"><i class="fas fa-thumbs-down cl-fail"></i> Negative <span class="text-muted">1</span></span>
+                        </div>
+                    </div>
+                    <hr class="mt-0">
+                    <div class="container-fluid">
+                        <!-- feedback ratings -->
+                        <div class="row">
+                            <div class="col">
+                                <i class="fas fa-thumbs-down cl-fail"></i>
+                            </div>
+                            <div class="col">
+                                Mar 06, 2020
+                            </div>
+                            <div class="col">
+                                key doesnt work
+                            </div>
+                        </div>
+                        <hr class="m-2">
+                        <div class="row">
+                            <div class="col">
+                                <i class="fas fa-thumbs-up cl-success"></i>
+                            </div>
+                            <div class="col">
+                                Mar 06, 2020
+                            </div>
+                            <div class="col">
+                                key works
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Load More</button>
                 </div>
             </div>
         </div>
