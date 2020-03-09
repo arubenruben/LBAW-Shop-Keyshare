@@ -8,55 +8,56 @@
                         <section>
                             <h5 class="productSideBarTitle">Genres</h5>
                             <hr>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre1">
-                                <label class="form-check-label" for="checkBoxGenre1">Action</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre1">
+                                <label class="custom-control-label" for="checkBoxGenre1">Action</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre2">
-                                <label class="form-check-label" for="checkBoxGenre2">Sports</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre2">
+                                <label class="custom-control-label" for="checkBoxGenre2">Sports</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre3">
-                                <label class="form-check-label" for="checkBoxGenre3">Racing</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre3">
+                                <label class="custom-control-label" for="checkBoxGenre3">Racing</label>
                             </div>
+
                             <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseGenres" aria-expanded="false" aria-controls="collapseGenres">
                                 Show All
-                                <i class="fas fa-arrow-circle-down"></i>
+                                <i class="fas fa-caret-down"></i>
                             </button>
                             <div id="collapseGenres" class="collapse">
-                                <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                    <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre4">
-                                    <label class="form-check-label" for="checkBoxGenre4">Simulation</label>
+                                <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                    <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre4">
+                                    <label class="custom-control-label" for="checkBoxGenre4">Simulation</label>
                                 </div>
-                                <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                    <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre5">
-                                    <label class="form-check-label" for="checkBoxGenre5">Puzzle</label>
+                                <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                    <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre5">
+                                    <label class="custom-control-label" for="checkBoxGenre5">Puzzle</label>
                                 </div>
-                                <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                    <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxGenre6">
-                                    <label class="form-check-label" for="checkBoxGenre6">FPS</label>
+                                <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                    <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre6">
+                                    <label class="custom-control-label" for="checkBoxGenre6">FPS</label>
                                 </div>
                             </div>
                         </section>
                         <section class="mt-2">
                             <h5 class="productSideBarTitle">Platforms</h5>
                             <hr>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxPlatforms1">
-                                <label class="form-check-label" for="checkBoxPlatforms1">PC</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxPlatforms1">
+                                <label class="custom-control-label" for="checkBoxPlatforms1">PC</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxPlatforms2">
-                                <label class="form-check-label" for="checkBoxPlatforms2">PS4</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxPlatforms2">
+                                <label class="custom-control-label" for="checkBoxPlatforms2">PS4</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxPlatforms3">
-                                <label class="form-check-label" for="checkBoxPlatforms3">Xbox</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxPlatforms3">
+                                <label class="custom-control-label" for="checkBoxPlatforms3">Xbox</label>
                             </div>
                             <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapsePlatforms" aria-expanded="false" aria-controls="collapsePlatforms">
                                 Show All
-                                <i class="fas fa-arrow-circle-down"></i>
+                                <i class="fas fa-caret-down"></i>
                             </button>
                             <div id="collapsePlatforms" class="collapse">
                                 <div class="form-group form-check row ml-2 productListSideBarEntry">
@@ -76,17 +77,17 @@
                         <section class="mt-2">
                             <h5 class="productSideBarTitle">Categories</h5>
                             <hr>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxCategories1">
-                                <label class="form-check-label" for="checkBoxCategories1">Action</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories1">
+                                <label class="custom-control-label" for="checkBoxCategories1">Full Game</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxCategories2">
-                                <label class="form-check-label" for="checkBoxCategories2">Sports</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories2">
+                                <label class="custom-control-label" for="checkBoxCategories2">DLC</label>
                             </div>
-                            <div class="form-group form-check row ml-2 productListSideBarEntry">
-                                <input type="checkbox" class="form-check-input productListCheckbox" id="checkBoxCategories3">
-                                <label class="form-check-label" for="checkBoxCategories3">Racing</label>
+                            <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                                <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories3">
+                                <label class="custom-control-label" for="checkBoxCategories3">Skin</label>
                             </div>
                         </section>
                     </div>
@@ -96,7 +97,7 @@
                 <!--Order By-->
                 <div class="row mt-4 mr-1">
                     <div class="btn-group ml-auto">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle pl-4 pt-2 pb-2 pr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order By</button>
+                        <button class="btn btn-secondary btn-sm dropdown-toggle pl-4 pt-2 pb-2 pr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="product.php">Price</a>
                             <div class="dropdown-divider"></div>
