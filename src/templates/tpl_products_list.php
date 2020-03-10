@@ -123,13 +123,29 @@
         <form>
             <div class="col">
                 <section>
+                <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                        <h5 class="productSideBarTitle">Sort by<i class="fas fa-caret-down ml-1"></i></h5>
+                    </button>
+                    <div id="collapseOrder" class="collapse show">
+                        <div class="custom-control custom-radio row ml-2 productListSideBarEntry">
+                            <input type="radio" class="custom-control-input productListCheckbox" id="collapseOrder1">
+                            <label class="custom-control-label" for="collapseOrder1">Best price</label>
+                        </div>
+                        <div class="custom-control custom-radio row ml-2 productListSideBarEntry">
+                            <input type="radio" class="custom-control-input productListCheckbox" id="collapseOrder2">
+                            <label class="custom-control-label" for="collapseOrder2">Best Rating</label>
+                        </div>
+                    </div>
+                    <hr>
+                </section>
+                <section class="mt-4">
                     <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true" aria-controls="collapseGenres">
                         <h5 class="productSideBarTitle">Genres<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseGenres" class="collapse show">
                         <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
-                            <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre1">
-                            <label class="custom-control-label" for="checkBoxGenre1">Action</label>
+                            <input type="checkbox" class="custom-control-input productListCheckbox" id="collapseOrder1">
+                            <label class="custom-control-label" for="collapseOrder1">Action</label>
                         </div>
                         <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre2">
@@ -190,7 +206,6 @@
                     <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">
                         <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
-
                     <div id="collapseCategories" class="collapse show">
                         <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories1">
