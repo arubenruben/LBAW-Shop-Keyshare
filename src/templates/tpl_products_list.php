@@ -61,7 +61,7 @@
 
                     </div>
                     <!--Third Row-->
-                    <div class="row justify-content-between mx-auto flex-wrap mt-2">
+                    <div class="row justify-content-between mx-auto flex-wrap mt-2 mb-5 pb-5">
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                             <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
                             <div class="card-body">
@@ -86,7 +86,7 @@
 
                     </div>
                     <!--Paging-->
-                    <div>
+                    <div class="my-auto mx-auto">
                         <nav class="row justify-content-center mt-5" aria-label="Page navigation example">
                             <ul class="pagination">
                                 <li class="page-item">

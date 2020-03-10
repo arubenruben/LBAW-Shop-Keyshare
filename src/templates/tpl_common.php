@@ -45,15 +45,15 @@
             case 0: ?>
                 <div id="wrapper">
                     <header id="headerFixed" class="navbar">
-                        <div class="col-4 col-md-2 col-xl-1 my-auto">
+                        <div class="col-4 col-md-2 col-xl-1 my-0">
                             <a href="homepage.php">
                                 <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
-                        <div class="col-md-5 col-6 col-xl-6 my-auto d-none d-sm-block">
-                            <form class="form-inline ml-5">
-                                    <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                                    <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <div class="col-mx-5 col-6 col-xl-6 my-0 d-none d-sm-block">
+                            <form class="form-inline">
+                                <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                                <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
                         <div class="col-md-3 d-none d-md-block">
@@ -94,6 +94,7 @@
             ?>
         <?php
     } ?>
+
         <?php function drawBreadcrumb($pageName = '')
         { ?>
             <div id="breadcrumbContainer">
