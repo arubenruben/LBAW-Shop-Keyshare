@@ -227,7 +227,7 @@ header.navbar {
     color: var(--color-background-dark-blue);
 }
 
-.productListSideBarEntry {
+.productListSideBarEntry,.homepageNavbarEntry {
     margin: 0;
     padding: 0;
     margin-top: 1em;
@@ -275,8 +275,27 @@ header.navbar {
 #breadcrumbContainer{
     position: absolute;
     left: 1.5rem;
-    top: 0.5rem;
+    top: 0.1rem;
 }
 #breadcrumbContainer a{
     color: var(--color-primary-light-blue);
+}
+#navbar .showAllProductListSideBar {
+    background-color: transparent;
+    border-style: none;
+    color: var(--color-background-dark-blue);
+}
+#navbar .homepageDropdownButton{
+    border-color: transparent;
+    color:var(--color-background-dark-blue);
+    background-color: transparent;
+}
+#navbar .dropdown-menu{
+    background-color: var(--color-background-white);
+}
+#navbar .dropdown-item{
+    font-weight: bolder;
+}
+.homepageDropdownArrow{
+    color: var(--color-interactive-orange);
 }

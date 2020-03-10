@@ -59,7 +59,7 @@
                         <div class="col-md-3 d-none d-md-block">
                             <div class="row">
                                 <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
-                                <a id="headerSellButton" href="offer.php" class="btn btn-primary ml-3 pl-3 pr-3" role="button">Sell Now</a>
+                                <a id="headerSellButton" href="offer.php" class="btn btn-secondary ml-3 pl-3 pr-3" role="button">Sell Now</a>
                             </div>
                         </div>
                         <div class="col-md-2 col-1 d-none d-md-block">
@@ -72,7 +72,7 @@
                         </div>
                         <!-- mobile -->
                         <div class="col-2 col-xs-4 d-md-none d-xs-block">
-                            <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
@@ -118,13 +118,44 @@
             switch ($type) {
                     //Draw Homepage navbar
                 case 0: ?>
-                    <nav id="navbar" class="nav">
+                    <nav id="navbar" class="nav pt-3">
                         <?php drawBreadcrumb($pageName); ?>
-                        <div class="col-12 d-none d-sm-block">
+                        <div class="col-8 d-none d-sm-block ml-auto mr-auto">
                             <div class="row">
-                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                                <div class="dropdown show ml-auto">
+                                    <button class="btn btn-primary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="productSideBarTitle">Genres<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                                    </button>
+                                    <div id="collapseGenres" class="dropdown-menu">
+                                        <a class="dropdown-item" href="product.php">Action</a>
+                                        <a class="dropdown-item" href="product.php">Racing</a>
+                                        <a class="dropdown-item" href="product.php">Sports</a>
+                                        <a class="dropdown-item" href="product.php">Puzzle</a>
+                                        <a class="dropdown-item" href="product.php">FPS</a>
+                                        <a class="dropdown-item" href="product.php">Simulation</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown show">
+                                    <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <h5 class="productSideBarTitle">Platforms<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                                    </button>
+                                    <div id="collapsePlatforms" class="dropdown-menu">
+                                        <a class="dropdown-item" href="product.php">PC</a>
+                                        <a class="dropdown-item" href="product.php">PS4</a>
+                                        <a class="dropdown-item" href="product.php">Xbox</a>
+                                        <a class="dropdown-item" href="product.php">Nintendo</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown show mr-auto">
+                                    <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <h5 class="productSideBarTitle">Categories <i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                                    </button>
+                                    <div id="collapseCategories" class="dropdown-menu">
+                                        <a class="dropdown-item" href="product.php">Game</a>
+                                        <a class="dropdown-item" href="product.php">DCL</a>
+                                        <a class="dropdown-item" href="product.php">Patch</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </nav>
