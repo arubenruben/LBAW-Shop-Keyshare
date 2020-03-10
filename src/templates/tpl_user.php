@@ -15,7 +15,7 @@ function drawUserDetails()
                     <div class="col-sm-12 text-center">
                         <img class="rounded-circle img-fluid mt-3" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="250" height="250">
                         <form class="mt-3">
-                            <button type="button" class="btn btn-outline-primary"><i class="fas fa-camera-retro"></i> Upload</button>
+                            <button type="button" class="btn btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
                             <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                         </form>
                     </div>
@@ -27,7 +27,7 @@ function drawUserDetails()
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
-                        <button type="button" class="btn btn-primary btn-sm mt-2">See all feedback</button>
+                        <button type="button" class="btn btn-blue btn-sm mt-2">See all feedback</button>
                     </div>
                 </div>
             </div>
@@ -99,10 +99,10 @@ function drawUserDetails()
                     <div class="row ">
                         <div class="col-12">
                             <div class="table-responsive">
-                                <table class="table-responsive table-striped">
+                                <table class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="text-center"> Product Image </th>
+                                            <th scope="col" class="text-center">Product Image </th>
                                             <th scope="col" class="text-center">Product name</th>
                                             <th scope="col" class="text-center">Seller</th>
                                             <th scope="col" class="text-center">Price</th>
@@ -123,7 +123,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                 </div>
                                             </td>
@@ -140,7 +140,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     <?php  ?>
                                                 </div>
@@ -158,7 +158,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                 </div>
                                             </td>
@@ -208,7 +208,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -225,7 +225,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -242,7 +242,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -323,6 +323,17 @@ function drawUserDetails()
                                                     <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
+                                        </div>
+                                    <td class="align-middle"><strong>$79.00</strong></td>
+                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
+                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                                         </th>
                                         <td class="text-center align-middle">2020/07/10</td>
@@ -395,66 +406,35 @@ function drawUserDetails()
 
 <!-- user popups -->
 
-<?php function drawReportPopup()
+<?php function drawKeyPopup()
 { ?>
-
-    <div id="modalReport" class="modal fade" role="dialog">
+    <div id="modalSeeKey" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Report Seller </h5>
+                    <h5 class="modal-title">Key Info</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div id="reportBorderInfo" class="col-6 text-left">
-                            <h5>Seller's Info</h5>
-                            <h6>Lockdownpt</h6>
-                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
-                        </div>
-
-                        <div class="col-6 text-right">
-                            <h5>Product in question</h5>
-                            <h6>Order Nº 14456666</h6>
-                            <h6>Price : 124,90€ </h6>
-
-                        </div>
-
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <h6>Report Description</h6>
-                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
-                    </div>
-
+                    <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
                 </div>
             </div>
-
         </div>
     </div>
-
 <?php } ?>
 
 <?php function drawGiveFeedbackPopup()
 { ?>
-
     <div id="modalGiveFeedback" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Send Feedback</h5>
+                    <h5 class="modal-title">Give Feedback</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -462,37 +442,25 @@ function drawUserDetails()
                         <div id="reportBorderInfo" class="col-6 text-left">
                             <h5>Seller's Info</h5>
                             <h6>Lockdownpt</h6>
-                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                            <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                         </div>
-
                         <div class="col-6 text-right">
                             <h5>Product in question</h5>
                             <h6>Order Nº 14456666</h6>
                             <h6>Price : 124,90€ </h6>
-
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <h6>Evaluation</h6>
-                        </div>
-                    </div>
                     <div class="row mt-1">
-                        <div id="reportBorderInfo" class="col-6 text-center">
-                            <div class="btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary active">
-                                    <input type="checkbox" checked autocomplete="off"> Checked
-                                </label>
-                            </div>
-                            <button class="btn btn-outline-success btn-lg pl-5 pr-5">
-
-
-                                <i class="fas fa-thumbs-up cl-success"></i> </button>
-                        </div>
-
                         <div class="col-6 text-center">
-                            <button class="btn btn-outline-danger btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-down cl-fail"></i></button>
+                            <button class="btn btn-outline-success btn-lg px-5">
+                                <i class="fas fa-thumbs-up cl-success"></i> 
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-outline-danger btn-lg px-5"> 
+                                <i class="fas fa-thumbs-down cl-fail"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -501,23 +469,13 @@ function drawUserDetails()
                             <textarea class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" placeholder="Describe your experience with this seller" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
-                    </div>
-
-
-
-
-
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="col text-right"><button class="btn btn-blue"> Submit</button></div>
                 </div>
             </div>
-
         </div>
     </div>
-
 <?php } ?>
 
 
@@ -600,19 +558,36 @@ function drawUserDetails()
 
 <?php function drawKeyPopup()
 { ?>
-    <div id="modalSeeKey" class="modal fade" role="dialog">
+    <div id="modalReport" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Key Info</h5>
+                    <h5>Report Seller </h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
+                    <div class="row">
+                        <div id="reportBorderInfo" class="col-6 text-left">
+                            <u><h5>Seller's Info</h5></u>
+                            <h6>Lockdownpt</h6>
+                            <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <u><h5>Product in question</h5></u>
+                            <h6>Order Nº 14456666</h6>
+                            <h6>Price : 124,90€ </h6>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h6>Report Description</h6>
+                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
-                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                    <div class="col text-right"><button class="btn btn-blue">Submit</button></div>
                 </div>
             </div>
         </div>
