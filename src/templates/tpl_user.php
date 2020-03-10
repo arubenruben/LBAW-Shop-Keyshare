@@ -514,24 +514,3 @@ function drawUserDetails()
 
 
 
-
-<!-- <div class="btn-group-justified btn-group-lg">
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 text-center">
-                <div class="mt-5 mb-5 accountDelete-button">
-                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
