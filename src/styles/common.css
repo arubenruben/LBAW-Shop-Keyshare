@@ -320,21 +320,76 @@ header.navbar {
 .homepageDropdownArrow {
     color: var(--color-interactive-orange);
 }
-#cartProductsContainer{
+
+#cartProductsContainer {
     margin: 0;
     padding: 0;
 }
-#cartProductsContainer .cartImgPreview{
+
+#cartProductsContainer .cartImgPreview {
     width: 5rem;
     height: 5rem;
 }
-#cartContainerFirstRow,#cartContainerSecondRow{
+
+#cartContainerFirstRow,
+#cartContainerSecondRow {
     background-color: var(--color-background-white);
 }
-#total{
+
+#total {
     color: var(--color-accent-green);
 }
-#cartContainerFirstRow .proceedToCheckoutButton{
+
+#cartContainerFirstRow .proceedToCheckoutButton {
     background-color: var(--color-interactive-orange);
     border: none;
+}
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+
+#sideBarFilterResponsive .modal.left .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+#sideBarFilterResponsive .modal.left .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+#sideBarFilterResponsive .modal.left .modal-body {
+    padding: 15px 15px 80px;
+}
+
+
+/*Left*/
+
+#sideBarFilterResponsive .modal.left.fade .modal-dialog {
+    left: 0px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+#sideBarFilterResponsive .modal.left.fade.in .modal-dialog {
+    left: 0px;
 }
