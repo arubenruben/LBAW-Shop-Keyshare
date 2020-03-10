@@ -67,7 +67,7 @@
                                 <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i></a>
+                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i><span class="badge badge-secondary">4</span></a>
                             </div>
                         </div>
                         <!-- mobile -->
