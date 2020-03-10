@@ -1,3 +1,8 @@
 #reportBorderInfo {
-    border-right: 1px dashed black;
+    border-right: 1px dashed lightgrey;
+}
+
+.btn-feedback-pos:focus {
+    color: lightpink;
+    border: solid 1px green;
 }

@@ -383,136 +383,6 @@ function drawUserDetails()
 
 <!-- user popups -->
 
-<?php function drawReportPopup()
-{ ?>
-
-    <div id="modalReport" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Report Seller </h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div id="reportBorderInfo" class="col-6 text-left">
-                            <h5>Seller's Info</h5>
-                            <h6>Lockdownpt</h6>
-                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
-                        </div>
-
-                        <div class="col-6 text-right">
-                            <h5>Product in question</h5>
-                            <h6>Order Nº 14456666</h6>
-                            <h6>Price : 124,90€ </h6>
-
-                        </div>
-
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <h6>Report Description</h6>
-                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
-                    </div>
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-<?php } ?>
-
-<?php function drawGiveFeedbackPopup()
-{ ?>
-
-    <div id="modalGiveFeedback" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Send Feedback</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div id="reportBorderInfo" class="col-6 text-left">
-                            <h5>Seller's Info</h5>
-                            <h6>Lockdownpt</h6>
-                            <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
-                        </div>
-
-                        <div class="col-6 text-right">
-                            <h5>Product in question</h5>
-                            <h6>Order Nº 14456666</h6>
-                            <h6>Price : 124,90€ </h6>
-
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <h6>Evaluation</h6>
-                        </div>
-                    </div>
-                    <div class="row mt-1">
-                        <div id="reportBorderInfo" class="col-6 text-center">
-                            <div class="btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary active">
-                                    <input type="checkbox" checked autocomplete="off"> Checked
-                                </label>
-                            </div>
-                            <button class="btn btn-outline-success btn-lg pl-5 pr-5">
-
-
-                                <i class="fas fa-thumbs-up cl-success"></i> </button>
-                        </div>
-
-                        <div class="col-6 text-center">
-                            <button class="btn btn-outline-danger btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-down cl-fail"></i></button>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <h6>Comment</h6>
-                            <textarea class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" placeholder="Describe your experience with this seller" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
-                    </div>
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-<?php } ?>
-
-
 <?php function drawKeyPopup()
 { ?>
     <div id="modalSeeKey" class="modal fade" role="dialog">
@@ -532,4 +402,107 @@ function drawUserDetails()
             </div>
         </div>
     </div>
+<?php } ?>
+
+<?php function drawGiveFeedbackPopup()
+{ ?>
+    <div id="modalGiveFeedback" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Give Feedback</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="reportBorderInfo" class="col-6 text-left">
+                            <h5>Seller's Info</h5>
+                            <h6>Lockdownpt</h6>
+                            <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <h5>Product in question</h5>
+                            <h6>Order Nº 14456666</h6>
+                            <h6>Price : 124,90€ </h6>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-1">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-outline-success btn-lg px-5">
+                                <i class="fas fa-thumbs-up cl-success"></i> 
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-outline-danger btn-lg px-5"> 
+                                <i class="fas fa-thumbs-down cl-fail"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h6>Comment</h6>
+                            <textarea class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" placeholder="Describe your experience with this seller" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col text-left"><button class="btn btn-blue"> Submit</button></div>
+                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<?php function drawReportPopup()
+{ ?>
+    <div id="modalReport" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Report Seller </h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="reportBorderInfo" class="col-6 text-left">
+                            <u><h5>Seller's Info</h5></u>
+                            <h6>Lockdownpt</h6>
+                            <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <u><h5>Product in question</h5></u>
+                            <h6>Order Nº 14456666</h6>
+                            <h6>Price : 124,90€ </h6>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h6>Report Description</h6>
+                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col text-left"><button class="btn btn-blue">Submit</button></div>
+                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+  </label>
+</div>
 <?php } ?>
