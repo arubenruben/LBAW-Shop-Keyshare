@@ -1,23 +1,12 @@
 <?php function drawProductList() { ?>
     <div id="content" class="container">
-        <div class="row">
+        <div class="row mt-5">
             <?php productListingSideBar(); ?>
             <div class="col ml-auto mr-auto">
-                <!--Sort By-->
-                <div class="row ml-1  mt-4 mr-1">
+                <!--Filters -->
+                <div class="row ml-1 mr-1 d-none">
                     <div class="sideBarButton">
                     <button class="btn btn-secondary btn-sm pl-4 pt-2 pb-2 pr-4" type="button"> <i class="fas fa-filter"></i> Filters</button>
-                    </div>
-
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle pl-4 pt-2 pb-2 pr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="product.php">Price</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="product.php">Rating</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="product.php">Release Date</a>
-                        </div>
                     </div>
                 </div>
                 <!--First Row-->
@@ -118,12 +107,11 @@
 <?php } ?>
 
 <?php function productListingSideBar() { ?>
-
-    <div id="sidebar" class="col-3 d-none d-lg-block mt-5">
+    <div id="sidebar" class="col-3 d-none d-lg-block">
         <form>
             <div class="col">
                 <section>
-                <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
                         <h5 class="productSideBarTitle">Sort by<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseOrder" class="collapse show">
@@ -139,7 +127,7 @@
                     <hr>
                 </section>
                 <section class="mt-4">
-                    <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true" aria-controls="collapseGenres">
+                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true" aria-controls="collapseGenres">
                         <h5 class="productSideBarTitle">Genres<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseGenres" class="collapse show">
@@ -171,7 +159,7 @@
                     <hr>
                 </section>
                 <section class="mt-4">
-                    <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapsePlatforms" aria-expanded="true" aria-controls="collapsePlatforms">
+                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapsePlatforms" aria-expanded="true" aria-controls="collapsePlatforms">
                         <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapsePlatforms" class="collapse show">
@@ -203,7 +191,7 @@
                     <hr>
                 </section>
                 <section class="mt-4">
-                    <button class="btn btn-primary showAllProductListSideBar mt-4 mb-3 ml-2" type="button" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">
+                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">
                         <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseCategories" class="collapse show">

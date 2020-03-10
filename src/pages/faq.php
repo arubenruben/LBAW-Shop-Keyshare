@@ -5,7 +5,6 @@
 	//page
 	drawHead();
 	drawHeader(0);
-	drawNavbar(0,'FAQ');
     drawFAQ();
     drawFooter();
 ?>

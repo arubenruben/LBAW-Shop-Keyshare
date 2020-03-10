@@ -15,6 +15,10 @@ html body {
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p, i, span {
+    font-size:2vw;
+}
+
 #wrapper {
     min-height: 100%;
     background-color: var(--color-background-white);
@@ -64,11 +68,11 @@ header.navbar {
 
 #headerSearchIcon {
     color: var(--color-interactive-orange);
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
 }
 
 .headerIcon {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
 }
 
 #offerPageSellButton {
@@ -172,7 +176,7 @@ header.navbar {
 
 #offerAddNewKeyContainer,
 #offerAddNewSaleContainer {
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
 }
 
 #loginLogo {
@@ -201,12 +205,12 @@ header.navbar {
 
 #checkoutStatusEmojiTrue {
     color: var(--color-interactive-green-success);
-    font-size: 4.5em;
+    /*font-size: 4.5em;*/
 }
 
 #checkoutStatusEmojiFalse {
     color: var(--color-interactive-red-fail);
-    font-size: 4.5em;
+    /*font-size: 4.5em;*/
 }
 
 #checkoutStatusTitle {
