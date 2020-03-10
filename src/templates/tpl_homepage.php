@@ -2,7 +2,7 @@
 { ?>
 	<div id="content" class="container">
 		<!-- carousel -->
-		<div class="row mx-2 my-4">
+		<div class="row mx-3 my-4">
 			<div id="carouselExampleIndicators" class="carousel slide ml-auto mr-auto" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
