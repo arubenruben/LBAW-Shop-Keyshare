@@ -45,29 +45,33 @@
             case 0: ?>
                 <div id="wrapper">
                     <header id="headerFixed" class="navbar">
+                        <!-- logo -->
                         <div class="col-4 col-md-2 col-xl-1 my-0">
                             <a href="homepage.php">
                                 <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
-                        <div class="col-mx-5 col-6 col-xl-6 my-0 d-none d-sm-block">
+                        <!-- search bar -->
+                        <div class="col-md-5 col-6 col-xl-6 my-0 d-none d-sm-block">
                             <form class="form-inline">
                                 <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
                                 <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
+                        <!-- sell now -->
                         <div class="col-md-3 d-none d-md-block">
                             <div class="row">
                                 <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
                                 <a id="headerSellButton" href="offer.php" class="btn btn-secondary ml-3 pl-3 pr-3" role="button">Sell Now</a>
                             </div>
                         </div>
+                        <!-- profile & cart -->
                         <div class="col-md-2 col-1 d-none d-md-block">
-                            <div class="row">
-                                <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                            <div class="row flex-nowrap">
+                                <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-inline-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                                <a href="cart.php" class="d-inline-block"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
                         </div>
                         <!-- mobile -->

@@ -98,7 +98,7 @@ function drawUserDetails()
                     <div class="row ">
                         <div class="col-12">
                             <div class="table-responsive">
-                                <table class="table table-striped">
+                                <table class="table-responsive table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="text-center"> Product Image </th>
@@ -554,7 +554,6 @@ function drawUserDetails()
 { ?>
     <div id="modalSeeKey" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -563,14 +562,12 @@ function drawUserDetails()
                 </div>
                 <div class="modal-body">
                     <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
-
-
                     <div class="row">
-                        <div class="col text-right mt-3"><button class="btn btn-primary"> <i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
+                        <div class="col text-right mt-3">
+                            <button class="btn btn-primary"><i class="fas fa-clipboard"></i> Copy to clipboard</button>
+                        </div>
                     </div>
                 </div>
-
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
