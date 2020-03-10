@@ -262,7 +262,7 @@
             <div class="col-sm-12">
                 <div class="row ">
                     <div class="col-sm-12">
-                        <h3 class="text-left">Past purchases (10)</h3>
+                        <h3 class="text-left">Purchase History (10)</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -500,46 +500,43 @@
 <?php function drawUserNavBar($page) {
     switch ($page) {
         case "account": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+            <ul class="nav nav-tabs  justify-content-center p-2" style="border: none">
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="user.php">Account</a>
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers(7)</button></a>
                 </li>
             </ul>
         <?php
             break;
         case "offers": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+            <ul class="nav nav-tabs  justify-content-center p-2 cl-white text-white" style="border: none">
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue-full">Offers(7)</button></a>
                 </li>
             </ul>
-
-
-
         <?php
             break;
         case "purchases": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+            <ul class="nav nav-tabs  justify-content-center p-2 btn text-white" style="border: none">
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3 ">
-                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
+                    <a class="nav-link  btn-blue deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers(7)</button></a>
                 </li>
             </ul>
     <?php

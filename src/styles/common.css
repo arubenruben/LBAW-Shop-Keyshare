@@ -110,6 +110,11 @@ header.navbar {
     background-color: var(--color-background-dark-blue);
     color: white;
 }
+.btn.btn-blue-full {
+    background-color: var(--color-background-dark-blue);
+    color: white;
+
+}
 
 
 /* color css */
