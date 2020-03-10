@@ -22,12 +22,14 @@ function drawUserDetails()
                 </div>
                 <div class="row mt-4">
                     <div class="col-sm-12 text-center">
-                        <span class="mt-5"> 100 % positive feedback | 4000 <i class="fas fa-shopping-cart"></i></span>
+                    <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                     </div>
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
                         <button type="button" class="btn btn-blue btn-sm mt-2">See all feedback</button>
+                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-sm"><i class="fas fa-user-times"></i> Delete account</button>
+
                     </div>
                 </div>
             </div>
@@ -51,7 +53,7 @@ function drawUserDetails()
                                 <label for="description">Description</label>
                                 <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
                                 <div class="text-right mt-3">
-                                    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> Save changes</button>
+                                    <button type="button" class="btn btn-blue"><i class="fas fa-save"></i> Save changes</button>
                                 </div>
                             </div>
                             <div class="mb-3 mt">
@@ -60,21 +62,11 @@ function drawUserDetails()
                                 <input type="password" class="form-control userDetailsForm mb-1" placeholder="New password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
                                 <input type="password" class="form-control userDetailsForm mb-1" placeholder="Confirm new password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
                                 <div class="text-right mt-3">
-                                    <button type="button" class="btn btn-primary"><i class="fas fa-key"></i> Change password</button>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter your shipping address.
+                                    <button type="button" class="btn btn-blue"><i class="fas fa-key"></i> Change password</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-sm-12 text-center">
-                <div class="mt-5 mb-5 accountDelete-button">
-                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-md btn-danger"><i class="fas fa-user-times"></i> Delete account</button>
                 </div>
             </div>
         </div>
@@ -274,7 +266,7 @@ function drawUserDetails()
                         <h3 class="text-left">Past purchases (10)</h3>
                     </div>
                 </div>
-                <div class="row ">
+                <div class="row">
                     <div class="col">
                         <div class="table-responsive table-striped">
                             <table class="table mt-3">
@@ -562,7 +554,7 @@ function drawUserDetails()
                                 <h5>Seller's Info</h5>
                             </u>
                             <h6>Lockdownpt</h6>
-                            <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+                            <p><i class="fas fa-thumbs-up cl-success"></i><span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                         </div>
                         <div class="col-6 text-right">
                             <u>

@@ -30,9 +30,7 @@
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
     </head>
-
     <body>
 
     <?php
