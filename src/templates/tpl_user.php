@@ -407,7 +407,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> See key</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
 
@@ -524,6 +524,7 @@ function drawUserDetails()
 
 <?php drawReportPopup();
     drawGiveFeedbackPopup();
+    drawKeyPopup();
 } ?>
 
 <?php function drawReportPopup()
@@ -594,7 +595,7 @@ function drawUserDetails()
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                    <div id="reportBorderInfo" class="col-6 text-left">
+                        <div id="reportBorderInfo" class="col-6 text-left">
                             <h5>Seller's Info</h5>
                             <h6>Lockdownpt</h6>
                             <p>Rating: <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
@@ -619,7 +620,7 @@ function drawUserDetails()
                         </div>
 
                         <div class="col-6 text-center">
-                        <button class="btn btn-outline-danger btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-down cl-fail"></i></button>
+                            <button class="btn btn-outline-danger btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-down cl-fail"></i></button>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -644,5 +645,38 @@ function drawUserDetails()
 
         </div>
     </div>
+
+<?php } ?>
+
+
+<?php function drawKeyPopup()
+{ ?>
+
+    <div id="modalSeeKey" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your key for Destiny 2</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
+
+
+                    <div class="row">
+                        <div class="col text-right mt-3"><button class="btn btn-primary"> <i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <?php } ?>
