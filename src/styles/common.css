@@ -99,6 +99,18 @@ header.navbar {
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
+.btn.btn-blue {
+    background-color: white;
+    border: solid 1px var(--color-background-dark-blue);
+    color: var(--color-background-dark-blue);
+}
+
+.btn.btn-blue:hover {
+    background-color: white;
+    color: var(--color-background-dark-blue);
+    background-color: var(--color-background-dark-blue);
+    color: white;
+}
 
 
 /* color css */
