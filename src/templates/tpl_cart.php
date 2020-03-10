@@ -24,11 +24,13 @@
             </div>
             
             <!-- products in cart -->
+            <!-- product 1 -->
             <div class="row mt-3">
                 <div class="col-md-8">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                    <a href="product.php"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"></a>
                     <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">FIFA 19</a></h5><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span>
+                        <h5 class="mb-0"> <a href="product.php" class="text-dark d-inline-block align-middle text-decoration-none">FIFA 19</a></h5>
+                        <span class="text-muted font-weight-normal font-italic d-block" data-toggle="modal" data-target=".bd-modal-lg2">nightwalker123</span>
                     </div>
                 </div>
 
@@ -39,12 +41,15 @@
                     <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-fail"></i></a></div>
                 </div>
             </div>
+            <?php drawFeedbackPopup("1"); ?>
 
+            <!-- product 2 -->
             <div class="row mt-3">
                 <div class="col-md-8">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                    <a href=""></a><img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"></a>
                     <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">FIFA 19</a></h5><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span>
+                        <h5 class="mb-0"> <a href="product.php" class="text-dark d-inline-block align-middle text-decoration-none">FIFA 19</a></h5>
+                        <span class="text-muted font-weight-normal font-italic d-block" data-toggle="modal" data-target=".bd-modal-lg2">nightwalker123</span>
                     </div>
                 </div>
 
@@ -55,12 +60,15 @@
                     <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-fail"></i></a></div>
                 </div>
             </div>
+            <?php drawFeedbackPopup("2"); ?>
 
+            <!-- product 3 -->
             <div class="row mt-3">
                 <div class="col-md-8">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                    <a href="product.php"></a><img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"></a>
                     <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">FIFA 19</a></h5><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span>
+                        <h5 class="mb-0"> <a href="product.php" class="text-dark d-inline-block align-middle text-decoration-none">FIFA 19</a></h5>
+                        <span class="text-muted font-weight-normal font-italic d-block" data-toggle="modal" data-target=".bd-modal-lg2">nightwalker123</span>
                     </div>
                 </div>
 
@@ -71,6 +79,7 @@
                     <div class="border-0 align-middle"><a href="#" class="text-dark ml-4"><i class="fa fa-trash cl-fail"></i></a></div>
                 </div>
             </div>
+            <?php drawFeedbackPopup("3"); ?>
         </div>
   </div>
 

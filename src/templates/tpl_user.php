@@ -2,14 +2,7 @@
 include_once('../templates/tpl_common.php');
 
 function drawUserDetails()
-{
-    drawUserNavBar("account");
-
-
-
-?>
-
-
+{ ?>
     <div id="content" class="container">
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
@@ -18,7 +11,6 @@ function drawUserDetails()
                         <h4 class="text-center">Username</h4>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <img class="rounded-circle img-fluid mt-3" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="250" height="250">
@@ -28,13 +20,11 @@ function drawUserDetails()
                         </form>
                     </div>
                 </div>
-
                 <div class="row mt-4">
                     <div class="col-sm-12 text-center">
                         <span class="mt-5"> 100 % positive feedback | 4000 <i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
-
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
                         <button type="button" class="btn btn-primary btn-sm mt-2">See all feedback</button>
@@ -47,11 +37,9 @@ function drawUserDetails()
                         <h4 class="text-center">Account Details</h4>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <form class="needs-validation" novalidate="">
-
                             <div class="mb-3 mt-3">
                                 <label for="email">Email <span class="text-muted"></span></label>
                                 <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
@@ -78,9 +66,7 @@ function drawUserDetails()
                                     Please enter your shipping address.
                                 </div>
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -93,94 +79,10 @@ function drawUserDetails()
             </div>
         </div>
     </div>
-
-<?php } ?>
-
-
-<?php function drawUserNavBar($page)
-{
-
-    switch ($page) {
-        case "account":
-
-?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-        <?php
-
-            break;
-
-        case "offers":
-
-        ?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-
-
-        <?php
-
-            break;
-
-
-        case "purchases":
-        ?>
-
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3 ">
-                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-    <?php
-            break;
-
-        default:
-            break;
-    }
-    ?>
-
-
-
 <?php
-}
-
-?>
+} ?>
 <?php function drawUserOffers()
-{
-
-
-
-
-    drawUserNavBar("offers");
-
-?>
-
+{ ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -264,7 +166,6 @@ function drawUserDetails()
                                 </table>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-sm-12 text-center">
                         <div class="mt-5 mb-5 accountDelete-button">
@@ -349,9 +250,7 @@ function drawUserDetails()
                                     </table>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="col-sm-12 text-center">
                             <div class="mt-5 mb-5 accountDelete-button">
                                 <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (17) <i class="fas fa-angle-down"></i></button>
@@ -362,15 +261,9 @@ function drawUserDetails()
             </div>
         </div>
     </div>
-
 <?php } ?>
-
 <?php function drawUserPurchases()
-{
-    drawUserNavBar("purchases");
-
-?>
-
+{ ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -616,7 +509,15 @@ function drawUserDetails()
                     </div>
                     <div class="row mt-1">
                         <div id="reportBorderInfo" class="col-6 text-center">
-                            <button class="btn btn-outline-success btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-up cl-success"></i> </button>
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="checkbox" checked autocomplete="off"> Checked
+                                </label>
+                            </div>
+                            <button class="btn btn-outline-success btn-lg pl-5 pr-5"> 
+                                
+                            
+                            <i class="fas fa-thumbs-up cl-success"></i> </button>
                         </div>
 
                         <div class="col-6 text-center">
@@ -651,7 +552,6 @@ function drawUserDetails()
 
 <?php function drawKeyPopup()
 { ?>
-
     <div id="modalSeeKey" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -677,6 +577,4 @@ function drawUserDetails()
             </div>
         </div>
     </div>
-
-
 <?php } ?>
