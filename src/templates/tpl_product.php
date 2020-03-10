@@ -2,7 +2,7 @@
 include_once("../templates/tpl_feedback.php");
 
 function drawProduct() { ?>
-    <div id="content" class="container mt-4">
+    <div id="content" class="container pt-4 bg-white">
         <div class="row ml-auto mr-auto">
             <div class="col-6 p-0">
                 <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png"/>
@@ -47,8 +47,8 @@ function drawProduct() { ?>
                 </a>
             </div>
         </div>
-        <div class="section">
-            <div class="row my-5">
+        <div class="section" id="offersListing">
+            <div class="row my-3">
                 <div class="col-4">
                     <h3>Offers: 2</h3>
                 </div>
@@ -64,37 +64,37 @@ function drawProduct() { ?>
                     </div>
                 </div>
             </div>
-            <div class="row pt-2">
-                <div class="col-md-7 col-sm-12" data-toggle="modal" data-target=".bd-modal-lg1">
+            <div class="row my-3 py-1 mx-2 offer">
+                <div class="col-md-7 col-sm-12 px-1" data-toggle="modal" data-target=".bd-modal-lg1">
                     <h4>bestseller439</h4>
                     <span>
-                        Rating: <span class="font-weight-bold cl-success">99%</span>
+                        <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i> 99%</span>
                          | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys</span>
                 </div>
-                <div class="col-md-2 mt-2 text-sm-right">
+                <div class="col-md-2 my-auto text-sm-right">
                     <span class="font-weight-bold">39.99 US$</span>
                 </div>
-                <div class="col-md-3 text-sm-right">
-                    <button type="button" class="btn btn-orange mb-2" data-container="body" data-toggle="popover" title="Successfully added to the card" data-placement="bottom" data-content="Click <a class='' href='cart.php'>here</a> to go to your cart">
+                <div class="col-md-3 my-auto text-sm-right">
+                    <button type="button" class="btn btn-orange p-1 mb-2" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                 </div>
                 <?php drawFeedbackPopup("1"); ?>
             </div>
-            <hr class="m-0">
-            <div class="row pt-2">
-                <div class="col-md-7 col-sm-12" data-toggle="modal" data-target=".bd-modal-lg2">
+            <hr class="my-1">
+            <div class="row my-3 py-1 mx-2 offer">
+                <div class="col-md-7 col-sm-12 px-1" data-toggle="modal" data-target=".bd-modal-lg2">
                     <h4>worstseller712</h4>
                     <span>
-                        Rating: <span class="font-weight-bold cl-fail">43%</span>
+                        <span class="font-weight-bold cl-fail"><i class="fas fa-thumbs-down"></i> 43%</span>
                          | <i class="fas fa-shopping-cart"></i> 24 | Stock: 1 keys
                     </span>
                 </div>
-                <div class="col-md-2 mt-2 text-sm-right">
+                <div class="col-md-2 my-auto text-sm-right">
                     <span class="font-weight-bold">49.99 US$</span>
                 </div>
-                <div class="col-md-3 text-sm-right">
-                    <button type="button" class="btn btn-orange mb-2" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Successfully added to the card">
+                <div class="col-md-3 my-auto text-sm-right">
+                    <button type="button" class="btn btn-orange p-1 mb-2" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                 </div>
