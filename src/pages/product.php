@@ -3,7 +3,7 @@
 	include_once('../templates/tpl_common.php');
 	include_once('../templates/tpl_product.php');
 	//page
-	drawHead();
+	drawHead(['activate_popovers.js']);
 	drawHeader(0);
 	drawProduct();
 	drawFooter();

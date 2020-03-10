@@ -11,16 +11,12 @@
         <!-- styles -->
         <link rel="stylesheet" href="../styles/common.css">
         <link rel="stylesheet" href="../styles/feedback.css">
-        <?php
-        if ($jsArray !== null) {
-            foreach ($jsArray as $jsFile) { ?>
-                <script src="<?= '../js/' . $jsFile ?>" defer></script>
-        <?php }
-        } ?>
+        <link rel="stylesheet" href="../styles/product.css">
         <!-- jquery -->
         <script defer src="../../assets/jquery/jquery.min.js"></script>
         <!-- bootstrap -->
         <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+        <script defer src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script defer src="../../assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- fontawesome -->
         <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
@@ -30,6 +26,13 @@
         <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+        <?php
+        if ($jsArray !== null) {
+            foreach ($jsArray as $jsFile) { ?>
+                <script src="<?= '../js/' . $jsFile ?>" defer></script>
+        <?php }
+        } ?>
     </head>
     <body>
 
