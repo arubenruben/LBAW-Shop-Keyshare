@@ -180,15 +180,18 @@ header.navbar {
 
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
-#offerAddNewKeyContainer,
-#offerAddNewSaleContainer {
-    /*font-size: 1.5em;*/
+#offerAddNewKeyContainer,#offerAddNewSaleContainer {
+    font-size: 1.5em;
+    color:var(--color-interactive-orange);
 }
-
 #loginLogo {
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
+}
+#submitOfferButton{
+    background-color: var(--color-interactive-orange);
+    border: 0;
 }
 
 
@@ -335,12 +338,7 @@ header.navbar {
 #cartContainerSecondRow {
     background-color: var(--color-background-white);
 }
-
-#total {
-    color: var(--color-accent-green);
-}
-
-#cartContainerFirstRow .proceedToCheckoutButton {
+#cartContainerFirstRow .proceedToCheckoutButton{
     background-color: var(--color-interactive-orange);
     border: none;
 }
