@@ -15,7 +15,7 @@ function drawUserDetails()
                     <div class="col-sm-12 text-center">
                         <img class="rounded-circle img-fluid mt-3" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="250" height="250">
                         <form class="mt-3">
-                            <button type="button" class="btn btn-outline-primary"><i class="fas fa-camera-retro"></i> Upload</button>
+                            <button type="button" class="btn btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
                             <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                         </form>
                     </div>
@@ -27,7 +27,7 @@ function drawUserDetails()
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
-                        <button type="button" class="btn btn-primary btn-sm mt-2">See all feedback</button>
+                        <button type="button" class="btn btn-blue btn-sm mt-2">See all feedback</button>
                     </div>
                 </div>
             </div>
@@ -98,10 +98,10 @@ function drawUserDetails()
                     <div class="row ">
                         <div class="col-12">
                             <div class="table-responsive">
-                                <table class="table-responsive table-striped">
+                                <table class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="text-center"> Product Image </th>
+                                            <th scope="col" class="text-center">Product Image </th>
                                             <th scope="col" class="text-center">Product name</th>
                                             <th scope="col" class="text-center">Seller</th>
                                             <th scope="col" class="text-center">Price</th>
@@ -122,7 +122,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                 </div>
                                             </td>
@@ -139,7 +139,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     <?php  ?>
                                                 </div>
@@ -157,7 +157,7 @@ function drawUserDetails()
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                     <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                 </div>
                                             </td>
@@ -207,7 +207,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -224,7 +224,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -241,7 +241,7 @@ function drawUserDetails()
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group-justified btn-group-lg">
-                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block"><i class="fas fa-key"></i> Manage Keys</button>
+                                                        <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-blue btn-block"><i class="fas fa-key"></i> Manage Keys</button>
                                                         <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block"> <i class="fas fa-trash-alt"></i> Delete offer</button>
                                                     </div>
                                                 </td>
@@ -300,9 +300,10 @@ function drawUserDetails()
                                         </div>
                                     </th>
                                     <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
-                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                    <td class="align-middle"> 
+                                        <div class="btn-group-justified btn-group-md">
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                             <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                         </div>
                                     </td>
@@ -318,8 +319,8 @@ function drawUserDetails()
                                     </th>
                                     <td class="align-middle"><strong>$79.00</strong></td>
                                     <td class="align-middle"> <div class="btn-group-justified btn-group-md ">
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                             <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                         </div>
                                     </td>
@@ -334,8 +335,8 @@ function drawUserDetails()
                                         </div>
                                     <td class="align-middle"><strong>$79.00</strong></td>
                                     <td class="align-middle"> <div class="btn-group-justified btn-group-md">
-                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                             <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                         </div>
                                     </td>
@@ -344,11 +345,6 @@ function drawUserDetails()
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-12 text-center">
-            <div class="mt-5 mb-5 accountDelete-button">
-                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
             </div>
         </div>
     </div>
@@ -371,13 +367,13 @@ function drawUserDetails()
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Key Info</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
                 </div>
                 <div class="modal-footer">
-                    <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
-                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                    <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
                 </div>
             </div>
         </div>
@@ -428,8 +424,7 @@ function drawUserDetails()
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="col text-left"><button class="btn btn-blue"> Submit</button></div>
-                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                    <div class="col text-right"><button class="btn btn-blue"> Submit</button></div>
                 </div>
             </div>
         </div>
@@ -467,8 +462,7 @@ function drawUserDetails()
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="col text-left"><button class="btn btn-blue">Submit</button></div>
-                    <div class="col text-right"><button type="button" class="btn btn-blue" data-dismiss="modal">Close</button></div>
+                    <div class="col text-right"><button class="btn btn-blue">Submit</button></div>
                 </div>
             </div>
         </div>
