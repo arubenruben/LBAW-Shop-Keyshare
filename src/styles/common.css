@@ -300,3 +300,21 @@ header.navbar {
 .homepageDropdownArrow{
     color: var(--color-interactive-orange);
 }
+#cartProductsContainer{
+    margin: 0;
+    padding: 0;
+}
+#cartProductsContainer .cartImgPreview{
+    width: 5rem;
+    height: 5rem;
+}
+#cartContainerFirstRow,#cartContainerSecondRow{
+    background-color: var(--color-background-white);
+}
+#total{
+    color: var(--color-accent-green);
+}
+#cartContainerFirstRow .proceedToCheckoutButton{
+    background-color: var(--color-interactive-orange);
+    border: none;
+}
