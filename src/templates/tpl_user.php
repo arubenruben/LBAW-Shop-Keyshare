@@ -309,39 +309,8 @@ function drawUserDetails()
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="border-0 align-middle">
-                                            <div class="p-2">
-                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
-                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                            </div>
-                                        </div>
-                                    <td class="align-middle"><strong>$79.00</strong></td>
-                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
-                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                                        </th>
-                                        <td class="text-center align-middle">2020/07/10</td>
-                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
-                                        <td class="align-middle">
-                                            <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
@@ -360,8 +329,8 @@ function drawUserDetails()
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
@@ -380,8 +349,28 @@ function drawUserDetails()
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </th>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
@@ -392,7 +381,7 @@ function drawUserDetails()
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
 
@@ -454,11 +443,11 @@ function drawUserDetails()
                     <div class="row mt-1">
                         <div class="col-6 text-center">
                             <button class="btn btn-outline-success btn-lg px-5">
-                                <i class="fas fa-thumbs-up cl-success"></i> 
+                                <i class="fas fa-thumbs-up cl-success"></i>
                             </button>
                         </div>
                         <div class="col-6 text-center">
-                            <button class="btn btn-outline-danger btn-lg px-5"> 
+                            <button class="btn btn-outline-danger btn-lg px-5">
                                 <i class="fas fa-thumbs-down cl-fail"></i>
                             </button>
                         </div>
@@ -556,7 +545,7 @@ function drawUserDetails()
 ?>
 
 
-<?php function drawKeyPopup()
+<?php function drawReportPopup()
 { ?>
     <div id="modalReport" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -569,12 +558,16 @@ function drawUserDetails()
                 <div class="modal-body">
                     <div class="row">
                         <div id="reportBorderInfo" class="col-6 text-left">
-                            <u><h5>Seller's Info</h5></u>
+                            <u>
+                                <h5>Seller's Info</h5>
+                            </u>
                             <h6>Lockdownpt</h6>
                             <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                         </div>
                         <div class="col-6 text-right">
-                            <u><h5>Product in question</h5></u>
+                            <u>
+                                <h5>Product in question</h5>
+                            </u>
                             <h6>Order Nº 14456666</h6>
                             <h6>Price : 124,90€ </h6>
                         </div>
