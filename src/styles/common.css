@@ -15,10 +15,6 @@ html body {
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, i, span {
-    font-size:2vw;
-}
-
 #wrapper {
     min-height: 100%;
     background-color: var(--color-background-white);
@@ -28,6 +24,14 @@ h1, h2, h3, h4, h5, h6, p, i, span {
 #content {
     padding-top: 0rem;
     padding-bottom: 15rem;
+}
+
+#carouselArrowLeft {
+    z-index: 0;
+}
+
+#carouselArrowRight {
+    z-index: 0;
 }
 
 header.navbar {
@@ -68,11 +72,11 @@ header.navbar {
 
 #headerSearchIcon {
     color: var(--color-interactive-orange);
-    /*font-size: 1.5rem;*/
+    font-size: 1.5rem;
 }
 
 .headerIcon {
-    /*font-size: 1.5rem;*/
+    font-size: 1.5rem;
 }
 
 #offerPageSellButton {
@@ -127,9 +131,8 @@ header.navbar {
     color: var(--color-background-white);
 }
 
-.hv-orange {
-    
-}
+.hv-orange {}
+
 
 /* backgrounds css */
 
@@ -235,7 +238,8 @@ header.navbar {
     color: var(--color-background-dark-blue);
 }
 
-.productListSideBarEntry,.homepageNavbarEntry {
+.productListSideBarEntry,
+.homepageNavbarEntry {
     margin: 0;
     padding: 0;
     margin-top: 1em;
@@ -271,39 +275,48 @@ header.navbar {
 #navbarHamburguer .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(235,157,22, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-#navbar .breadcrumb{
+
+#navbar .breadcrumb {
     padding: 0;
     margin: 0;
     background-color: transparent;
 }
-#navbar{
+
+#navbar {
     position: relative;
     min-height: 1.5rem;
 }
-#breadcrumbContainer{
+
+#breadcrumbContainer {
     position: absolute;
     left: 1.5rem;
     top: 0.5rem;
 }
-#breadcrumbContainer a{
+
+#breadcrumbContainer a {
     color: var(--color-primary-light-blue);
 }
+
 #navbar .showAllProductListSideBar {
     background-color: transparent;
     border-style: none;
     color: var(--color-background-dark-blue);
 }
-#navbar .homepageDropdownButton{
+
+#navbar .homepageDropdownButton {
     border-color: transparent;
-    color:var(--color-background-dark-blue);
+    color: var(--color-background-dark-blue);
     background-color: transparent;
 }
-#navbar .dropdown-menu{
+
+#navbar .dropdown-menu {
     background-color: var(--color-background-white);
 }
-#navbar .dropdown-item{
+
+#navbar .dropdown-item {
     font-weight: bolder;
 }
-.homepageDropdownArrow{
+
+.homepageDropdownArrow {
     color: var(--color-interactive-orange);
 }
