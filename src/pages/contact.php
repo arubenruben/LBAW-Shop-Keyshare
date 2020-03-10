@@ -5,6 +5,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
+	drawNavbar(0,'Contact Us');
     drawContact();
     drawFooter();
 ?>

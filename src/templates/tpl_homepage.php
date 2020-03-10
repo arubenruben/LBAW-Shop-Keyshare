@@ -136,23 +136,5 @@
 				</div>
 			</div>
 		</div>
-
-
-		<br>
-
-		<br>
-
-
-		<br>
-
-		<div class="card">
-			<div class="embed-responsive embed-responsive-16by9">
-				<img alt="Card image cap" class="card-img-top embed-responsive-item" src="img/butterPecan.jpg" />
-			</div>
-			<div class="card-block">
-				<h4 class="card-title">Butter Pecan</h4>
-				<p class="card-text">Roasted pecans, butter and vanilla come together to make this wonderful ice cream</p>
-			</div>
-		</div>
 	</div>
 <?php } ?>
