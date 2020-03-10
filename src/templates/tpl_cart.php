@@ -4,12 +4,12 @@
     <div id="content" class="container">
         <div class="col-12 bg-white pb-5 my-5">
             <div id="cartContainerFirstRow" class="row flex-nowrap">
-                <h3 id="total" class="mr-auto my-auto cl-success">Total: $400</h3>
+                <h3 id="total" class="mr-auto my-auto cl-success mb-5">Total: $400</h3>
                 <a class="btn btn-primary ml-auto mt-auto mb-auto font-weight-bold rounded-pill proceedToCheckoutButton pl-5 pr-5" href="checkout1.php" role="button">Proceed to Checkout</a>
             </div>
-            <div class="row">
-                <div class="col my-3 mx-5">
-                    <div id="cartContainerSecondRow text-center" class="row pt-5 flex-nowrap bg-light">
+            <div class="row my-3 mx-5">
+                <div class="col">
+                    <div id="cartContainerSecondRow text-center" class="row flex-nowrap bg-light">
                         <div class="col col-md-8 text-uppercase">
                             <h5>Product</h5>
                         </div>
