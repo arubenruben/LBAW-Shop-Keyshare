@@ -1,8 +1,6 @@
-<?php
-function drawUserDetails()
+<?php function drawUserDetails()
 {
     drawUserNavBar("account"); ?>
-
     <div id="content" class="container">
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
@@ -71,11 +69,11 @@ function drawUserDetails()
             </div>
         </div>
     </div>
-<?php
-} ?>
+<?php } ?>
+
 <?php function drawUserOffers()
 {
-    drawUserNavBar("account"); ?>
+    drawUserNavBar("offers"); ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -255,6 +253,7 @@ function drawUserDetails()
         </div>
     </div>
 <?php } ?>
+
 <?php function drawUserPurchases()
 {
     drawUserNavBar("purchases") ?>
@@ -377,18 +376,15 @@ function drawUserDetails()
         </div>
     </div>
 
-
-
-<?php drawReportPopup();
-    drawFeedbackPopup("1");
-    drawGiveFeedbackPopup();
-    drawKeyPopup();
-} ?>
+    <?php drawReportPopup();
+        drawFeedbackPopup("1");
+        drawGiveFeedbackPopup();
+        drawKeyPopup(); ?>
+<?php } ?>
 
 <!-- user popups -->
 
-<?php function drawKeyPopup()
-{ ?>
+<?php function drawKeyPopup() { ?>
     <div id="modalSeeKey" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -408,8 +404,7 @@ function drawUserDetails()
     </div>
 <?php } ?>
 
-<?php function drawGiveFeedbackPopup()
-{ ?>
+<?php function drawGiveFeedbackPopup() { ?>
     <div id="modalGiveFeedback" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -459,84 +454,6 @@ function drawUserDetails()
     </div>
 <?php } ?>
 
-
-
-<?php function drawUserNavBar($page)
-{
-
-    switch ($page) {
-        case "account":
-
-?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-        <?php
-
-            break;
-
-        case "offers":
-
-        ?>
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-
-
-        <?php
-
-            break;
-
-
-        case "purchases":
-        ?>
-
-            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link   deco-none" href="user.php">Account</a>
-                </li>
-                <li class="nav-item mr-3 ml-3 ">
-                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
-                </li>
-            </ul>
-
-    <?php
-            break;
-
-        default:
-            break;
-    }
-    ?>
-
-
-
-<?php
-}
-
-?>
-
-
 <?php function drawReportPopup()
 { ?>
     <div id="modalReport" class="modal fade" role="dialog">
@@ -577,4 +494,57 @@ function drawUserDetails()
             </div>
         </div>
     </div>
+<?php } ?>
+
+<!-- user navbar -->
+<?php function drawUserNavBar($page) {
+    switch ($page) {
+        case "account": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+        <?php
+            break;
+        case "offers": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+
+
+        <?php
+            break;
+        case "purchases": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3 ">
+                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+    <?php
+            break;
+        default:
+            break;
+    } ?>
 <?php } ?>
