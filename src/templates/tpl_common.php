@@ -50,7 +50,7 @@
                                 <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
-                        <div class="col-md-5 col-6 col-xl-6 my-auto">
+                        <div class="col-md-5 col-6 col-xl-6 my-auto d-none d-sm-block">
                             <form class="form-inline ml-5">
                                     <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
                                     <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
