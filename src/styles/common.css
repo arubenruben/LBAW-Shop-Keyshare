@@ -99,6 +99,7 @@ header.navbar {
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
+
 .btn.btn-blue {
     background-color: inherit;
     border: solid 1px var(--color-background-dark-blue);
@@ -190,16 +191,19 @@ header.navbar {
 
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
-#offerAddNewKeyContainer,#offerAddNewSaleContainer {
+#offerAddNewKeyContainer,
+#offerAddNewSaleContainer {
     font-size: 1.5em;
-    color:var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
 }
+
 #loginLogo {
     max-width: 2em;
     max-height: 2em;
     background-color: wheat;
 }
-#submitOfferButton{
+
+#submitOfferButton {
     background-color: var(--color-interactive-orange);
     border: 0;
 }
@@ -266,6 +270,11 @@ header.navbar {
 .cardHomepage .cardHomepageImg {
     object-fit: cover;
     height: 10rem;
+}
+
+#userOffersTable .userOffersTableEntryImage {
+    object-fit: cover;
+    height: 5rem;
 }
 
 #searchBar {
@@ -348,7 +357,8 @@ header.navbar {
 #cartContainerSecondRow {
     background-color: var(--color-background-white);
 }
-#cartContainerFirstRow .proceedToCheckoutButton{
+
+#cartContainerFirstRow .proceedToCheckoutButton {
     background-color: var(--color-interactive-orange);
     border: none;
 }
