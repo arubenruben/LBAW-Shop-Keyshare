@@ -88,15 +88,16 @@
                 <div>
                     <nav class="row justify-content-center mt-5" aria-label="Page navigation example">
                         <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">4</a></li>
                             <li class="page-item"><a class="page-link" href="#">5</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
+                                <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
                     </nav>
@@ -111,47 +112,55 @@
         <form>
             <div class="col">
                 <section>
-                <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
                         <h5 class="productSideBarTitle">Sort by<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseOrder" class="collapse show">
-                        <div class="custom-control custom-radio row ml-2 productListSideBarEntry">
-                            <input type="radio" class="custom-control-input productListCheckbox" id="collapseOrder1">
-                            <label class="custom-control-label" for="collapseOrder1">Best price</label>
-                        </div>
-                        <div class="custom-control custom-radio row ml-2 productListSideBarEntry">
-                            <input type="radio" class="custom-control-input productListCheckbox" id="collapseOrder2">
-                            <label class="custom-control-label" for="collapseOrder2">Best Rating</label>
-                        </div>
+                    <div class="custom-control custom-radio productListSideBarEntry ml-3">
+                        <input type="radio" class="custom-control-input" id="SortBy1" name="example1">
+                        <label class="custom-control-label" for="SortBy1">Highest Price</label>
+                    </div>
+                    <div class="custom-control custom-radio productListSideBarEntry ml-3">
+                        <input type="radio" class="custom-control-input" id="SortBy2" name="example1">
+                        <label class="custom-control-label" for="SortBy2">Lowest Price</label>
+                    </div>
+                    <div class="custom-control custom-radio productListSideBarEntry ml-3">
+                        <input type="radio" class="custom-control-input" id="SortBy3" name="example1">
+                        <label class="custom-control-label" for="SortBy3">Most popular</label>
+                    </div>
+                    <div class="custom-control custom-radio productListSideBarEntry ml-3">
+                        <input type="radio" class="custom-control-input" id="SortBy4" name="example1">
+                        <label class="custom-control-label" for="SortBy4">Most recent</label>
+                    </div>    
                     </div>
                     <hr>
                 </section>
                 <section class="mt-4">
                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true" aria-controls="collapseGenres">
-                        <h5 class="productSideBarTitle">Genres<i class="fas fa-caret-down ml-1"></i></h5>
+                        <h5 class="productSideBarTitle pb-2">Genres<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseGenres" class="collapse show">
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
-                            <input type="checkbox" class="custom-control-input productListCheckbox" id="collapseOrder1">
-                            <label class="custom-control-label" for="collapseOrder1">Action</label>
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
+                            <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre1">
+                            <label class="custom-control-label" for="checkBoxGenre1">Action</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre2">
                             <label class="custom-control-label" for="checkBoxGenre2">Sports</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre3">
                             <label class="custom-control-label" for="checkBoxGenre3">Racing</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre4">
                             <label class="custom-control-label" for="checkBoxGenre4">Simulation</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre5">
                             <label class="custom-control-label" for="checkBoxGenre5">Puzzle</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxGenre6">
                             <label class="custom-control-label" for="checkBoxGenre6">FPS</label>
                         </div>
@@ -195,15 +204,15 @@
                         <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                     </button>
                     <div id="collapseCategories" class="collapse show">
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories1">
                             <label class="custom-control-label" for="checkBoxCategories1">Full Game</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories2">
                             <label class="custom-control-label" for="checkBoxCategories2">DLC</label>
                         </div>
-                        <div class="custom-control custom-checkbox row ml-2 productListSideBarEntry">
+                        <div class="custom-control custom-checkbox row ml-3 productListSideBarEntry">
                             <input type="checkbox" class="custom-control-input productListCheckbox" id="checkBoxCategories3">
                             <label class="custom-control-label" for="checkBoxCategories3">Skin</label>
                         </div>
