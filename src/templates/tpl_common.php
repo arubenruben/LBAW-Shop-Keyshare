@@ -94,7 +94,6 @@
             ?>
         <?php
     } ?>
-
         <?php function drawBreadcrumb($pageName = '')
         { ?>
             <div id="breadcrumbContainer">
