@@ -1,5 +1,48 @@
 <?php function drawCart() { ?>
-    <div id="content" class="container" style="width: 80%">
+    
+    <div id="content" class="container">
+        <div class="col-8">
+            <div class="row">
+                <h3>Total: $400</h3>
+                <a href="checkout1.php">Proceed to Checkout<i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <?php /*
+    <div id="content" class="container">
         <!-- Shopping cart header -->
         <div class="row mt-5 mb-2">
             <div class="col-md-8">
@@ -82,5 +125,6 @@
             <?php drawFeedbackPopup("3"); ?>
         </div>
   </div>
+  */ ?>
 
 <?php } ?>
