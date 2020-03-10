@@ -2,21 +2,21 @@
 { ?>
 
     <div id="content" class="container">
-        <div class="col-12 bg-white pb-5">
-            <div id="cartContainerFirstRow" class="row mt-4 flex-nowrap">
-                <h3 id="total" class="mr-auto mt-auto mb-auto">Total: $400</h3>
-                <a class="btn btn-primary ml-auto mt-auto mb-auto font-weight-bold rounded-pill proceedToCheckoutButton pl-5 pr-5" href="checkout1.php" role="button">Proceed to Checkout<i class="fas fa-shopping-cart"></i></a>
+        <div class="col-12 bg-white pb-5 my-5">
+            <div id="cartContainerFirstRow" class="row flex-nowrap">
+                <h3 id="total" class="mr-auto my-auto cl-success">Total: $400</h3>
+                <a class="btn btn-primary ml-auto mt-auto mb-auto font-weight-bold rounded-pill proceedToCheckoutButton pl-5 pr-5" href="checkout1.php" role="button">Proceed to Checkout</a>
             </div>
             <div class="row">
-                <div class="col">
-                    <div id="cartContainerSecondRow" class="row pt-5 flex-nowrap bg-light">
-                        <div class="col col-md-8">
+                <div class="col my-3 mx-5">
+                    <div id="cartContainerSecondRow text-center" class="row pt-5 flex-nowrap bg-light">
+                        <div class="col col-md-8 text-uppercase">
                             <h5>Product</h5>
                         </div>
-                        <div class="col col-md-2">
+                        <div class="col col-md-2 text-uppercase">
                             <h5>Price</h5>
                         </div>
-                        <div class="col col-md-1 mr-auto">
+                        <div class="col col-md-1 mr-auto text-uppercase">
                             <h5>Remove</h5>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ function drawCartEntry()
                 <div class="col col-md-6 mt-auto mb-auto flex-nowrap">
                     <h5>GTAV</h5>
                     <h6 class="text-muted font-italic d-inline-block">Bestseller439</h6> 
-                    <span class="mt-5"> 100% <i class="fas fa-thumbs-up"></i> | 4000 <i class="fas fa-shopping-cart"></i></span>
+                    <span class="ml-1"> 100% <i class="fas fa-thumbs-up cl-success"></i> | 4000 <i class="fas fa-shopping-cart"></i></span>
                 </div>
             </div>
         </div>
