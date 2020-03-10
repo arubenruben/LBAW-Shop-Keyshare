@@ -616,7 +616,15 @@ function drawUserDetails()
                     </div>
                     <div class="row mt-1">
                         <div id="reportBorderInfo" class="col-6 text-center">
-                            <button class="btn btn-outline-success btn-lg pl-5 pr-5"> <i class="fas fa-thumbs-up cl-success"></i> </button>
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="checkbox" checked autocomplete="off"> Checked
+                                </label>
+                            </div>
+                            <button class="btn btn-outline-success btn-lg pl-5 pr-5"> 
+                                
+                            
+                            <i class="fas fa-thumbs-up cl-success"></i> </button>
                         </div>
 
                         <div class="col-6 text-center">
