@@ -265,115 +265,95 @@ function drawUserDetails()
 <?php function drawUserPurchases()
 { ?>
     <div id="content" class="container mt-5">
-        <div class="row mt-5">
-            <div class="col-sm-12 usercontent-left">
+        <div class="row">
+            <div class="col-sm-12">
                 <div class="row ">
                     <div class="col-sm-12">
                         <h3 class="text-left">Past purchases (10)</h3>
                     </div>
                 </div>
-                <div class="container mt-4 mb-4">
-                    <div class="row ">
-                        <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="text-center">Product Details </th>
-                                            <th scope="col" class="text-center">Price</th>
-                                            <th scope="col" class="text-center">Options</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="row flex-nowrap">
-                                                    <div class="col col-md-2 ml-3 mt-auto mb-auto d-none d-md-block">
-                                                        <img class="img-fluid rounded shadow-sm float-left cartImgPreview" src="../../assets/images/games/GTAV/1.png">
-                                                    </div>
-                                                    <div class="col col-md-6 mt-auto mb-auto flex-nowrap">
-                                                        <h5>GTAV</h5>
-                                                        <h6 class="text-muted font-italic d-inline-block">Bestseller439</h6>
-                                                        <span class="ml-1"> 100% <i class="fas fa-thumbs-up cl-success"></i> | 4000 <i class="fas fa-shopping-cart"></i></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <h5>124,90 € </h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="row flex-nowrap">
-                                                    <div class="col col-md-2 ml-3 mt-auto mb-auto d-none d-md-block">
-                                                        <img class="img-fluid rounded shadow-sm float-left cartImgPreview" src="../../assets/images/games/GTAV/1.png">
-                                                    </div>
-                                                    <div class="col col-md-6 mt-auto mb-auto flex-nowrap">
-                                                        <h5>GTAV</h5>
-                                                        <h6 class="text-muted font-italic d-inline-block">Bestseller439</h6>
-                                                        <span class="ml-1"> 100% <i class="fas fa-thumbs-up cl-success"></i> | 4000 <i class="fas fa-shopping-cart"></i></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <h5>124,90 € </h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <div class="row flex-nowrap">
-                                                    <div class="col col-md-2 ml-3 mt-auto mb-auto d-none d-md-block">
-                                                        <img class="img-fluid rounded shadow-sm float-left cartImgPreview" src="../../assets/images/games/GTAV/1.png">
-                                                    </div>
-                                                    <div class="col col-md-6 mt-auto mb-auto flex-nowrap">
-                                                        <h5>GTAV</h5>
-                                                        <h6 class="text-muted font-italic d-inline-block">Bestseller439</h6>
-                                                        <span class="ml-1"> 100% <i class="fas fa-thumbs-up cl-success"></i> | 4000 <i class="fas fa-shopping-cart"></i></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <h5>124,90 € </h5>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="btn-group-justified btn-group-lg">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 text-center">
-                        <div class="mt-5 mb-5 accountDelete-button">
-                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
-                        </div>
+                <div class="row ">
+                    <div class="col"> 
+                        <div class="table-responsive table-striped">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Options</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="border-0 align-middle">
+                                        <div class="p-2">
+                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">FIFA 19</a></h5><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
+                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="border-0 align-middle">
+                                        <div class="p-2">
+                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic">zmax6t</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="align-middle"><strong>$79.00</strong></td>
+                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md ">
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="border-0 align-middle">
+                                        <div class="p-2">
+                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Grand Theft Auto V</a></h5><span class="text-muted font-weight-normal font-italic">bestseller654</span>
+                                            </div>
+                                        </div>
+                                    <td class="align-middle"><strong>$79.00</strong></td>
+                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
+                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-sm-12 text-center">
+            <div class="mt-5 mb-5 accountDelete-button">
+                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
+            </div>
+        </div>
     </div>
+    </div>
+
 
 
 <?php drawReportPopup();
@@ -421,10 +401,6 @@ function drawUserDetails()
                     <div class="row">
                         <div class="col text-right mt-3"><button class="btn btn-primary"> Submit</button></div>
                     </div>
-
-
-
-
 
                 </div>
                 <div class="modal-footer">
@@ -533,3 +509,29 @@ function drawUserDetails()
         </div>
     </div>
 <?php } ?>
+
+
+
+
+
+
+<!-- <div class="btn-group-justified btn-group-lg">
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key"></i> See key</button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-primary btn-block" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt"></i> Leave feedback</button>
+                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-outline-danger btn-block" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash"></i> Report Seller</button>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <div class="mt-5 mb-5 accountDelete-button">
+                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </div> -->
