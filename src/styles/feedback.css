@@ -1,5 +1,5 @@
 .active-border {
-    border-bottom: 0.2em solid var(--color-interactive-blue);
+    border-bottom: 0.2em solid var(--color-background-dark-blue);
 }
 .inactive-border:hover {
     border-bottom: 0.2em solid var(--color-primary-light-blue);

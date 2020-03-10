@@ -2,7 +2,7 @@
 include_once("../templates/tpl_feedback.php");
 
 function drawProduct() { ?>
-    <div id="content" class="container pt-4 bg-white">
+    <div id="content" class="container pt-4">
         <div class="row ml-auto mr-auto">
             <div class="col-6 p-0">
                 <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png"/>
@@ -47,11 +47,12 @@ function drawProduct() { ?>
                 </a>
             </div>
         </div>
-        <div class="section" id="offersListing">
+        <div id="offersListing" class="section bg-white pb-2">
             <div class="row my-3">
                 <div class="col-4">
                     <h3>Offers: 2</h3>
                 </div>
+                <!-- sort by -->
                 <div class="col-8 text-right">
                     <span>Sort by:</span>
                     <div class="d-inline custom-control custom-radio radio-inline mr-2">
@@ -66,7 +67,7 @@ function drawProduct() { ?>
             </div>
             <div class="row my-3 py-1 mx-2 offer">
                 <div class="col-md-7 col-sm-12 px-1" data-toggle="modal" data-target=".bd-modal-lg1">
-                    <h4>bestseller439</h4>
+                    <h4 style="cursor: pointer;">bestseller439</h4>
                     <span>
                         <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i> 99%</span>
                          | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys</span>
