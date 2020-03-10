@@ -275,7 +275,7 @@ header.navbar {
 #breadcrumbContainer{
     position: absolute;
     left: 1.5rem;
-    top: 0.1rem;
+    top: 0.5rem;
 }
 #breadcrumbContainer a{
     color: var(--color-primary-light-blue);

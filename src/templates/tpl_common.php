@@ -105,9 +105,12 @@
                     </ol>
                 <?php
                 } else { ?>
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb d-none d-md-inline-flex">
                         <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
+                    </ol>
+                    <ol class="breadcrumb d-md-none">
+                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i><?= $pageName ?></a></li>
                     </ol>
                 <?php } ?>
             </div>
