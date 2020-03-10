@@ -44,9 +44,8 @@
         switch ($type) {
             case 0: ?>
                 <div id="wrapper">
-                    <header id="headerFixed" class="navbar">
-                        <!-- logo -->
-                        <div class="col-4 col-md-2 col-xl-1 my-0">
+                    <header id="headerFixed" class="navbar" style="z-index: 20;">
+                        <div class="col-4 col-md-2 col-xl-1 my-auto">
                             <a href="homepage.php">
                                 <img class="img-fluid" src="../../assets/images/logo/logo.png" />
                             </a>

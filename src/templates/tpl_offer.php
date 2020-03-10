@@ -29,17 +29,17 @@ function drawOffer()
                 <div class="row">
                     <div class="col">
                         <h3>Insert Keys</h3>
-                        <div class="row ml-2 mt-2 flex-nowrap">
-                            <input type="text" class="form-control mt-auto mb-auto" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                            <i class="fas fa-times-circle mt-auto mb-auto ml-2"></i>
+                        <div class="row mt-2 px-2 flex-nowrap">
+                            <input type="text" class="form-control mt-auto mb-auto  d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
+                            <i class="fas fa-times-circle mt-auto mb-auto ml-2  d-inline-block"></i>
                         </div>
-                        <div class="row ml-2 mt-2 flex-nowrap">
-                            <input type="text" class="form-control mt-auto mb-auto" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                            <i class="fas fa-times-circle mt-auto mb-auto ml-2"></i>
+                        <div class="row mt-2 px-2 flex-nowrap">
+                            <input type="text" class="form-control mt-auto mb-auto  d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
+                            <i class="fas fa-times-circle mt-auto mb-auto ml-2  d-inline-block"></i>
                         </div>
-                        <div class="row ml-2 mt-2 flex-nowrap">
-                            <input type="text" class="form-control mt-auto mb-auto" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                            <i class="fas fa-times-circle mt-auto mb-auto ml-2"></i>
+                        <div class="row mt-2 px-2 flex-nowrap">
+                            <input type="text" class="form-control mt-auto mb-auto  d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
+                            <i class="fas fa-times-circle mt-auto mb-auto ml-2  d-inline-block"></i>
                         </div>
                         <div id="offerAddNewKeyContainer" class="row mt-4">
                             <i class="fas fa-plus-circle ml-auto mb-auto mt-auto"></i>
@@ -57,7 +57,7 @@ function drawOffer()
                                 <input type="text" class="form-control mt-auto mb-auto ml-3" id="inputGamePrice" placeholder="Price" value="10€">
                             </label>
                         </div>
-                        <table class="table mt-4 text-center">
+                        <table class="table table-responsive mt-4 text-center">
                             <thead>
                                 <tr>
                                     <th scope="col">Sale Nr</th>
