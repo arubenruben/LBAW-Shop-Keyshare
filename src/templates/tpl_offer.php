@@ -114,7 +114,7 @@ function drawOffer()
                         <h5>Potential Gains:</h5>
                     </label>
                     <input type="text" readonly class="form-control-plaintext col-2 mr-auto mt-auto mb-auto" id="inputGameBillingGains" value="10€">
-                    <button type="submit" class="btn btn-primary mb-2 ml-auto col-5 mt-auto mb-auto">Submit Offer</button>
+                    <button id="submitOfferButton" type="submit" class="btn btn-primary mb-2 ml-auto col-5 mt-auto mb-auto">Submit Offer</button>
                 </div>
             </div>
         </div>
