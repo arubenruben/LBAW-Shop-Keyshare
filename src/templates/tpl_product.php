@@ -13,7 +13,7 @@ function drawProduct() { ?>
                     <h6 class="title-price">Starting at:</h6>
                     <h4>US$ 39.99</h4>
                 </span>
-                <div class="d-md-none d-lg-inline">
+                <div class="d-none d-lg-inline">
                     <p>
                         Grand Theft Auto V is a action-adventure game developed by Rockstar North and published
                         by Rockstar Games. Set within the fictional state of San Andreas<span id="dots" class="collapse show demo1">...</span><span id="extraText"class="collapse demo1">, based on Southern
