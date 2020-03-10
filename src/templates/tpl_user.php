@@ -1,8 +1,8 @@
 <?php
-include_once('../templates/tpl_common.php');
-
 function drawUserDetails()
-{ ?>
+{
+    drawUserNavBar("account"); ?>
+
     <div id="content" class="container">
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
@@ -82,7 +82,8 @@ function drawUserDetails()
 <?php
 } ?>
 <?php function drawUserOffers()
-{ ?>
+{
+    drawUserNavBar("account"); ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -263,7 +264,8 @@ function drawUserDetails()
     </div>
 <?php } ?>
 <?php function drawUserPurchases()
-{ ?>
+{
+    drawUserNavBar("purchases") ?>
     <div id="content" class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
@@ -273,90 +275,120 @@ function drawUserDetails()
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col"> 
+                    <div class="col">
                         <div class="table-responsive table-striped">
-                        <table class="table mt-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="border-0 bg-light">
-                                        <div class="p-2 px-3 text-uppercase">Product Details</div>
-                                    </th>
-                                    <th scope="col" class="border-0 bg-light">
-                                        <div class="py-2 text-uppercase">Price</div>
-                                    </th>
-                                    <th scope="col" class="border-0 bg-light text-center">
-                                        <div class="py-2 text-uppercase">Options</div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="border-0 align-middle">
-                                        <div class="p-2">
-                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                            <div class="ml-3 d-inline-block align-middle">
-                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">FIFA 19</a></h5><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Date</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Price</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Options</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
-                                        </div>
-                                    </th>
-                                    <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
-                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="border-0 align-middle">
-                                        <div class="p-2">
-                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                            <div class="ml-3 d-inline-block align-middle">
-                                                <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic">zmax6t</span>
+
+                                        </th>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
-                                        </div>
-                                    </th>
-                                    <td class="align-middle"><strong>$79.00</strong></td>
-                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md ">
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="border-0 align-middle">
-                                        <div class="p-2">
-                                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                            <div class="ml-3 d-inline-block align-middle">
-                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Grand Theft Auto V</a></h5><span class="text-muted font-weight-normal font-italic">bestseller654</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
-                                        </div>
-                                    <td class="align-middle"><strong>$79.00</strong></td>
-                                    <td class="align-middle"> <div class="btn-group-justified btn-group-md">
-                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                            <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                                        </th>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </th>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </th>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-primary btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+           
         </div>
-        <div class="col-sm-12 text-center">
-            <div class="mt-5 mb-5 accountDelete-button">
-                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-lg btn-primary"><i class="fas fa-angle-down"></i> See more (4) <i class="fas fa-angle-down"></i></button>
-            </div>
-        </div>
-    </div>
     </div>
 
 
 
 <?php drawReportPopup();
+    drawFeedbackPopup("1");
     drawGiveFeedbackPopup();
     drawKeyPopup();
 } ?>
@@ -489,6 +521,83 @@ function drawUserDetails()
 <?php } ?>
 
 
+
+<?php function drawUserNavBar($page)
+{
+
+    switch ($page) {
+        case "account":
+
+?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+        <?php
+
+            break;
+
+        case "offers":
+
+        ?>
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  active deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+
+
+        <?php
+
+            break;
+
+
+        case "purchases":
+        ?>
+
+            <ul class="nav nav-tabs  justify-content-center p-2  bg-dark text-white">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link   deco-none" href="user.php">Account</a>
+                </li>
+                <li class="nav-item mr-3 ml-3 ">
+                    <a class="nav-link  active  deco-none" href="userPurchasesPage.php">Purchases</a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php">Offers(7)</a>
+                </li>
+            </ul>
+
+    <?php
+            break;
+
+        default:
+            break;
+    }
+    ?>
+
+
+
+<?php
+}
+
+?>
+
+
 <?php function drawKeyPopup()
 { ?>
     <div id="modalSeeKey" class="modal fade" role="dialog">
@@ -509,8 +618,3 @@ function drawUserDetails()
         </div>
     </div>
 <?php } ?>
-
-
-
-
-
