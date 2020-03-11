@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="table-responsive table-striped tableFixHead mt-3">
+                <div class="table-responsive table-striped mt-3">
                     <table id="userOffersTable" class="table p-0">
                         <thead>
                             <tr>
@@ -48,6 +48,51 @@
                 <h4>Total Price: 400,00$</h4>
             </div>
         </div>
+    </div>
+<?php } ?>
+
+<?php function drawCartCheckout()
+{ ?>
+    <div id="content" class="container mt-4 pb-0">
+        <div class="row">
+            <div class="col-sm-6 text-left">
+                
+                <h4>My Cart <span class="badge badge-secondary">7</span></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive table-striped  mt-3">
+                    <table id="userOffersTable" class="table p-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light text-center">
+                                    <div class="py-2 text-uppercase">Date</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light text-center">
+                                    <div class="py-2 text-uppercase">Price</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light text-center">
+                                    <div class="py-2 text-uppercase">Remove</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(); ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 <?php }
 
