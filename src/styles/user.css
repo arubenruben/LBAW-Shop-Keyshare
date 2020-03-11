@@ -15,3 +15,7 @@
     color: white;
     border: none;
 }
+
+.badge.marginBadge {
+    margin-left: 10px;
+}

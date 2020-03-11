@@ -2,6 +2,7 @@
 {
     drawOtherUserNavBar("account"); ?>
     <div id="content" class="container">
+        <?php drawFeedbackPopup("1"); ?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -21,7 +22,7 @@
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
-                        <button type="button" class="btn btn-blue btn-sm mt-2">See all feedback</button>
+                        <button type="button" data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm mt-2 ">See all feedback</button>
                     </div>
                 </div>
             </div>
@@ -55,26 +56,24 @@
 
 <?php } ?>
 
-<?php function drawUserOffers()
+<?php function drawOtherUserOffers()
 {
-    drawUserNavBar("offers"); ?>
+    drawOtherUserNavBar("offers"); ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
                 <div class="row px-3">
                     <div class="col-sm-9 " style=" display:flex;
     align-items: center;">
-                        <h4 class="text-left">Current Offers (4)</h4>
+                        <h4 class="text-left">lockdownpt Offers <span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
-                    <div class="col-sm-3">
-                        <button id="headerSellButton" type="button" class="btn p-2 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
-                    </div>
+
                 </div>
                 <div class="container mt-3 mb-3">
                     <div class="row ">
                         <div class="col-12">
-                            <div class="table-responsive table-striped">
-                                <table id="userOffersTable" class="table mt-3">
+                            <div class="table-responsive table-striped tableFixHead mt-3">
+                                <table id="userOffersTable" class="table p-0">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="border-0 bg-light">
@@ -98,7 +97,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (pc)</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (pc)</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -108,8 +107,7 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -118,7 +116,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -128,8 +126,64 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -138,7 +192,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (pc)</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (pc)</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -148,8 +202,7 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -158,7 +211,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (ps4)</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (ps4)</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -168,8 +221,7 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <a href="product.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -180,113 +232,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 usercontent-left mt-5">
-                    <div class="row px-3">
-                        <div class="col-sm-12">
-                            <h4 class="text-left">Past Offers (4)</h4>
-                        </div>
-                    </div>
-                    <div class="container mt-3 mb-3">
-                        <div class="row ">
-                            <div class="col-12">
-                                <div class="table-responsive table-striped">
-                                    <table id="userOffersTable" class="table mt-3">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" class="border-0 bg-light">
-                                                    <div class="p-2 px-3 text-uppercase">Product Details</div>
-                                                </th>
-                                                <th scope="col" class="border-0 bg-light text-center">
-                                                    <div class="py-2 text-uppercase">Start Date</div>
-                                                </th>
-                                                <th scope="col" class="border-0 bg-light text-center">
-                                                    <div class="py-2 text-uppercase">End Date</div>
-                                                </th>
-                                                <th scope="col" class="border-0 bg-light text-center">
-                                                    <div class="py-2 text-uppercase">Last Price</div>
-                                                </th>
-                                                <th scope="col" class="border-0 bg-light text-center">
-                                                    <div class="py-2 text-uppercase">Profit</div>
-                                                </th>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row" class="border-0 align-middle">
-                                                    <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (ps4)</span>
-                                                            <h6>Keys sold: 10</h6>
-                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center align-middle">2020/07/10</td>
-                                                <td class="text-center align-middle">2020/07/20</td>
-                                                <td class="text-center align-middle">$79.00</td>
-                                                <td class="text-center align-middle"><strong>$200.00</strong></td>
-
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="border-0 align-middle">
-                                                    <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (ps4)</span>
-                                                            <h6>Keys sold: 10</h6>
-                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center align-middle">2020/07/10</td>
-                                                <td class="text-center align-middle">2020/07/20</td>
-                                                <td class="text-center align-middle">$79.00</td>
-                                                <td class="text-center align-middle"><strong>$200.00</strong></td>
-
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="border-0 align-middle">
-                                                    <div class="p-2">
-                                                        <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
-                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (xbox one)</span>
-                                                            <h6>Keys sold: 10</h6>
-                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center align-middle">2020/07/10</td>
-                                                <td class="text-center align-middle">2020/07/20</td>
-                                                <td class="text-center align-middle">$79.00</td>
-                                                <td class="text-center align-middle"><strong>$200.00</strong></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="border-0 align-middle">
-                                                    <div class="p-2">
-                                                        <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
-                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> (pc)</span>
-                                                            <h6>Keys sold: 10</h6>
-                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center align-middle">2020/07/10</td>
-                                                <td class="text-center align-middle">2020/07/20</td>
-                                                <td class="text-center align-middle">$79.00</td>
-                                                <td class="text-center align-middle"><strong>$200.00</strong></td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -321,10 +267,10 @@
         case "account": ?>
             <ul class="nav nav-tabs  justify-content-center p-2" style="border: none">
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue-full active">LockdownPT</button></a>
+                    <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue-full active">lockdownpt</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="otherUserPage.php"><button class="btn btn-blue">Offers</button></a>
+                    <a class="nav-link deco-none" href="otherUserOffers.php"><button class="btn btn-blue">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
                 </li>
             </ul>
         <?php
@@ -332,15 +278,16 @@
         case "offers": ?>
             <ul class="nav nav-tabs  justify-content-center p-2 cl-white text-white" style="border: none">
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue">LockdownPT</button></a>
+                    <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue">lockdownpt</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Offers(7)</button></a>
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
                 </li>
             </ul>
-        <?php
+<?php
             break;
-    
+
         default:
             break;
-}} ?>
+    }
+} ?>

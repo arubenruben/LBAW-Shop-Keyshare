@@ -9,7 +9,7 @@
                         <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">99%</span> | <i class="fas fa-shopping-cart"></i> 1897 </p>
                     </div>
                     <div class="col m-auto">
-                        <a href="user.php" class="btn btn-blue"><i class="fas fa-user-alt"></i> View profile</a>
+                        <a href="otherUser.php" class="btn btn-blue"><i class="fas fa-user-alt"></i> View profile</a>
                     </div>
                     <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

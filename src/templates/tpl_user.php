@@ -11,7 +11,7 @@
                     <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge ml-1 badge-secondary">7</span></button></a>
                 </li>
             </ul>
         <?php
@@ -25,7 +25,7 @@
                     <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge badge-secondary">7</span></button></a>
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge ml-1 badge-secondary">7</span></button></a>
                 </li>
             </ul>
         <?php
@@ -39,7 +39,7 @@
                     <a class="nav-link  btn-blue deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge ml-1 badge-secondary">7</span></button></a>
                 </li>
             </ul>
     <?php
@@ -156,7 +156,7 @@
             <div class="col-sm-12 usercontent-left">
                 <div class="row px-3">
                     <div class="col-sm-9 " style=" display:flex; align-items: center;">
-                        <h4 class="text-left">Current Offers<span class="badge badge-secondary">4</span></h4>
+                        <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
                     <div class="col-sm-3">
                         <button id="headerSellButton" type="button" class="btn p-2 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
@@ -190,7 +190,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div>
                                                 </div>
@@ -210,7 +210,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div>
                                                 </div>
@@ -230,7 +230,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div>
                                                 </div>
@@ -250,7 +250,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -270,7 +270,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -290,7 +290,7 @@
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         <h6>Stock: 10 keys</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
@@ -315,7 +315,7 @@
                 <div class="col-sm-12 usercontent-left mt-5">
                     <div class="row px-3">
                         <div class="col-sm-12">
-                            <h4 class="text-left">Past Offers <span class="badge badge-secondary">4</span></h4>
+                            <h4 class="text-left">Past Offers <span class="badge ml-1 badge-secondary">4</span></h4>
                         </div>
                     </div>
                     <div class="container mt-3 mb-3">
@@ -483,7 +483,7 @@
             <div class="col-sm-12">
                 <div class="row ">
                     <div class="col-sm-12">
-                        <h4 class="text-left">Purchase History <span class="badge badge-secondary">4</span></h4>
+                        <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
                 </div>
                 <div class="row">
@@ -512,7 +512,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
                                         </td>
@@ -531,7 +531,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -551,7 +551,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -571,7 +571,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -591,7 +591,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 

@@ -86,7 +86,10 @@ header.navbar {
     border-style: none;
 }
 
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
+
+
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
 #offerAddNewKeyContainer,
@@ -119,6 +122,7 @@ header.navbar {
     top: 0;
     z-index: 1;
 }
+
 #checkoutStatusEmojiTrue {
     color: var(--color-interactive-green-success);
     /*font-size: 4.5em;*/
@@ -286,49 +290,62 @@ header.navbar {
 #sideBarFilterResponsive .modal.left.fade.in .modal-dialog {
     left: 0px;
 }
-#checkoutProductPreviewContainer .deleteButtonCheckout:hover{
+
+#checkoutProductPreviewContainer .deleteButtonCheckout:hover {
     background-color: var(--color-interactive-red-fail);
     transition-duration: 0.4s;
     border: none;
 }
-#checkoutButtonsContainer .checkoutNextButton{
+
+#checkoutButtonsContainer .checkoutNextButton {
     background-color: var(--color-interactive-green-success);
     border-color: transparent;
 }
-#checkoutButtonsContainer .checkoutBackButton{
+
+#checkoutButtonsContainer .checkoutBackButton {
     background-color: var(--color-primary-light-blue);
     border-color: transparent;
 }
-#checkoutPage4{
+
+#checkoutPage4 {
     font-size: 4em;
     height: 40vmax;
 }
-#formCheckout{
+
+#formCheckout {
     width: 80%;
 }
 
+
 /* buttons css */
+
 .btn.btn-orange {
     background-color: var(--color-interactive-orange);
 }
+
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
 }
+
 .btn.btn-blue {
     background-color: inherit;
     border: solid 1px var(--color-background-dark-blue);
     color: var(--color-background-dark-blue);
 }
+
 .btn.btn-blue:hover {
     background-color: var(--color-background-dark-blue);
     color: white;
 }
+
 .btn.btn-blue-full {
     background-color: var(--color-background-dark-blue);
     color: white;
 }
 
+
 /* cards css */
+
 .card {
     border-radius: 0;
     -webkit-box-shadow: 0px 0px 12px 4px rgba(122, 122, 122, 0.24);
@@ -337,29 +354,108 @@ header.navbar {
     background-color: var(--color-background-white);
     padding: 0;
 }
+
 .card:hover {
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
 
+
 /* color css */
-.cl-orange { color: var(--color-interactive-orange); }
-.cl-orange2 { color: var(--color-interactive-orange2); }
-.cl-green { color: var(--color-accent-green); }
-.cl-blue { color: var(--color-background-dark-blue); }
-.cl-success { color: var(--color-interactive-green-success); }
-.cl-fail { color: var(--color-interactive-red-fail); }
-.cl-white { color: var(--color-background-white); }
+
+.cl-orange {
+    color: var(--color-interactive-orange);
+}
+
+.cl-orange2 {
+    color: var(--color-interactive-orange2);
+}
+
+.cl-green {
+    color: var(--color-accent-green);
+}
+
+.cl-blue {
+    color: var(--color-background-dark-blue);
+}
+
+.cl-success {
+    color: var(--color-interactive-green-success);
+}
+
+.cl-fail {
+    color: var(--color-interactive-red-fail);
+}
+
+.cl-white {
+    color: var(--color-background-white);
+}
+
+
 /* backgrounds css */
-.bg-orange { background-color: var(--color-interactive-orange); }
-.bg-green { background-color: var(--color-accent-green); }
-.bg-success { background-color: var(--color-interactive-green-success); }
-.bg-insucess { background-color: var(--color-interactive-red-fail); }
-.bg-white { background-color: var(--color-background-white); }
+
+.bg-orange {
+    background-color: var(--color-interactive-orange);
+}
+
+.bg-green {
+    background-color: var(--color-accent-green);
+}
+
+.bg-success {
+    background-color: var(--color-interactive-green-success);
+}
+
+.bg-insucess {
+    background-color: var(--color-interactive-red-fail);
+}
+
+.bg-white {
+    background-color: var(--color-background-white);
+}
+
 
 /* scrollable table */
-.tableFixHead           { overflow-y: auto; height: 42rem; }
-.tableFixHead thead th  { position: sticky; top: 0; }
-.tableFixHead table     { border-collapse: collapse; width: 100%; height: 600px; }
-.tableFixHead th, td    { padding: 8px 16px; }
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 42rem;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+.tableFixHead table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 600px;
+}
+
+.tableFixHead th,
+td {
+    padding: 8px 16px;
+}
+
+.tableFixHeadOtherUserOffer {
+    overflow-y: auto;
+    height: 20rem;
+}
+
+.tableFixHeadOtherUserOffer thead th {
+    position: sticky;
+    top: 0;
+}
+
+.tableFixHeadOtherUserOffer table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 600px;
+}
+
+.tableFixHeadOtherUserOffer th,
+td {
+    padding: 8px 16px;
+}
