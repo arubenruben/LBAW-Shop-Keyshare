@@ -1,6 +1,4 @@
 <?php
-include_once("../templates/tpl_feedback.php");
-
 function drawProduct() { ?>
     <div id="content" class="container pt-4">
         <div class="row ml-auto mr-auto">
