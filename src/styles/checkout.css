@@ -1,6 +1,6 @@
     /* checkout page 1 */
     
-    #deleteButtonCheckout span {
+    .deleteButtonCheckout span {
         max-width: 0;
         -webkit-transition: max-width 1s;
         transition: max-width 1s;
@@ -11,7 +11,7 @@
     }
     
     @media only screen and (min-width: 800px) {
-        #deleteButtonCheckout:hover span {
+        .deleteButtonCheckout:hover span {
             max-width: 7rem;
         }
     }

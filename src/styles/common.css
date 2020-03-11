@@ -226,11 +226,6 @@ header.navbar {
     top: 0;
     z-index: 1;
 }
-
-#checkoutPlaceHolderTop {
-    padding-top: 25%;
-}
-
 #checkoutStatusEmojiTrue {
     color: var(--color-interactive-green-success);
     /*font-size: 4.5em;*/
@@ -248,8 +243,8 @@ header.navbar {
 }
 
 #checkoutStatusButton {
-    background-color: gray;
-    border-color: gray;
+    background-color: var(--color-interactive-green-success);
+    border-color: transparent;
 }
 
 #sidebar .showAllProductListSideBar {
@@ -414,4 +409,24 @@ header.navbar {
 
 #sideBarFilterResponsive .modal.left.fade.in .modal-dialog {
     left: 0px;
+}
+#checkoutProductPreviewContainer .deleteButtonCheckout:hover{
+    background-color: var(--color-interactive-red-fail);
+    transition-duration: 0.4s;
+    border: none;
+}
+#checkoutButtonsContainer .checkoutNextButton{
+    background-color: var(--color-interactive-green-success);
+    border-color: transparent;
+}
+#checkoutButtonsContainer .checkoutBackButton{
+    background-color: var(--color-primary-light-blue);
+    border-color: transparent;
+}
+#checkoutPage4{
+    font-size: 4em;
+    height: 40vmax;
+}
+#formCheckout{
+    width: 80%;
 }
