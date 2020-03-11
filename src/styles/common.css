@@ -219,12 +219,13 @@ header.navbar {
 
 }
 */
-
 #headerFixed {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1;
+    margin-right: 0;
+    margin-left: 0;
 }
 #checkoutStatusEmojiTrue {
     color: var(--color-interactive-green-success);
@@ -433,4 +434,14 @@ header.navbar {
 }
 #headerFixed .logo{
     max-height:4rem ;
+}
+#collapseContainer{
+    padding: 0 !important;
+    padding-top: 1rem !important;
+}
+#hamburguerContentNav{
+    background-color:var(--color-background-dark-blue);
+    margin: 0;
+    padding:0;
+    border-color: var(--color-interactive-orange);  
 }
