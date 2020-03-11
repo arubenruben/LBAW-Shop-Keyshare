@@ -445,3 +445,10 @@ header.navbar {
     padding:0;
     border-color: var(--color-interactive-orange);  
 }
+#hamburguerContentNav .headerIcon {
+    color: var(--color-interactive-orange); 
+}
+#hamburguerContentNav .navbarButton{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
+}

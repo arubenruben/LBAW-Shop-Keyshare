@@ -77,8 +77,7 @@
                         </div>
                         <!--Button Collapse -->
                         <div class="col d-xl-none text-right pos-f-t">
-                            <!--Medium -->
-                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto d-none d-sm-block" data-toggle="collapse" data-target="#hamburguerContentNav" data-target="#hamburguerContentNav" aria-controls="hamburguerContentNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto d-xl-none" data-toggle="collapse" data-target="#hamburguerContentNav" data-target="#hamburguerContentNav" aria-controls="hamburguerContentNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
@@ -89,17 +88,24 @@
                             <div class="col">
                                 <div class="row">
                                     <a class="mt-auto mb-auto ml-auto" href="products_list.php">
-                                        <i id="headerSearchIcon" class="fas fa-search"></i>
+                                        <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
                                     </a>
                                     <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="row">
-                                    <a href="products_list.php" class="btn btn-outline-light ml-auto" role="button">Explore</a>
-                                    <button class="btn btn-outline-light mt-auto mb-auto" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                        <i class="fas fa-user headerIcon"></i> Log in
+                                <div class="row justify-content-end">
+                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block ml-auto navbarButton" role="button">Explore</a>
+                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block ml-auto navbarButton" role="button">Sell Now</a>
+                                    <!--Button medium-->
+                                    <button class="btn btn-outline-light mt-auto mb-auto d-none d-md-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                        <i class="fas fa-user headerIcon d-none d-md-block"></i> Log in
                                     </button>
+                                    <!--Button small -->
+                                    <a class="btn mt-auto mb-auto d-md-none ml-5" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                        <i class="fas fa-user headerIcon d-md-none"></i>
+                                    </a>
+                                    <a href="cart.php" class="mt-auto mb-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                                 </div>
                             </div>
                         </div>
