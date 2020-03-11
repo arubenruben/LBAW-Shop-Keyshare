@@ -467,3 +467,7 @@ header.navbar {
 #shoppingCartIconHamburguer{
     font-size: 1em;
 }
+#headerFixed .navbarButton{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
+}

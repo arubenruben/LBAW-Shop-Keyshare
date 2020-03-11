@@ -47,75 +47,42 @@
             case 0: ?>
                 <div id="wrapper">
                     <header id="headerFixed" class="navbar row">
-                        <div class="col col-md-3 col-lg-3 mt-auto mb-auto">
+                        <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
                             <a href="homepage.php">
                                 <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
                             </a>
                         </div>
                         <!-- Search -->
-                        <div class="col-xl-6 d-none d-xl-block mt-auto mb-auto">
+                        <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
                             <form class="form-inline">
                                 <a class="ml-auto" href="products_list.php">
                                     <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
                                 </a>
+                                <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
                         <!--Buttons-->
                         <div class="col d-none d-xl-block mt-auto mb-auto">
-                            <div class="row">
-                                <a href="products_list.php" class="btn btn-outline-light" role="button">Explore</a>
-                                <button class="btn btn-outline-light mt-auto mb-auto " href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                            <div class="row justify-content-end">
+                                <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
+                                <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4 navbarButton" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
                             </div>
                         </div>
                         <!-- Cart icon -->
-                        <div class="col d-none d-xl-block mt-auto mb-auto">
+                        <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
                             <div class="row">
-                                <a href="cart.php" class="mt-auto mb-auto ml-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                                <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
-                        </div>
-                        <!--Button Collapse Medium -->
-                        <div class="col d-none d-lg-block d-xl-none text-right pos-f-t">
-                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto d-sm-none d-xl-none" data-toggle="collapse" data-target="#hamburguerContentNavMedium" data-target="#hamburguerContentNavMedium" aria-controls="hamburguerContentNavMedium" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                        </div>
+                        </div>                        
                         <!--Button Collapse Small -->
-                        <div class="col d-lg-none text-right pos-f-t">
+                        <div class="col d-xl-none text-right pos-f-t">
                             <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
-                    </header>
-                    <!-- Collapse Medium -->
-                    <div id="hamburguerContentNavMedium" class="collapse sticky-top pt-3 pb-3">
-                        <div class="row w-100">
-                            <div class="col ml-3">
-                                <div class="row">
-                                    <a class="mt-auto mb-auto ml-auto" href="products_list.php">
-                                        <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
-                                    </a>
-                                    <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row justify-content-end justify-content-lg-around">
-                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block lg-auto navbarButton" role="button">Explore</a>
-                                    <a href="products_list.php" class="btn btn-outline-light d-none d-lg-block lg-auto navbarButton" role="button">Sell Now</a>
-                                    <!--Button medium-->
-                                    <button class="btn btn-outline-light mt-auto mb-auto d-none d-xl-block navbarButton" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                        <i class="fas fa-user headerIcon d-none d-md-block"></i> Log in
-                                    </button>
-                                    <!--Button small -->
-                                    <a class="btn mt-auto mb-auto d-xl-none ml-5 mr-3" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                        <i class="fas fa-user headerIcon"></i>
-                                    </a>
-                                    <a href="cart.php" class="mt-auto mb-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </header>                   
                     <!--Collapse Small -->
                     <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
                         <div class="col w-100">
@@ -130,7 +97,7 @@
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
                                 <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
-                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>                            
+                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
                                 <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
                         </div>
