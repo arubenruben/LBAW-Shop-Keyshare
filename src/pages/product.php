@@ -6,6 +6,7 @@
 	//page
 	drawHead(['activate_popovers.js']);
 	drawHeader(0);
+	drawBreadcrumb('Product');
 	drawProduct();
 	drawFooter();
 ?>

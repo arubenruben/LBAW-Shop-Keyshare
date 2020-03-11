@@ -6,6 +6,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
+	drawBreadcrumb('My Cart');
 	drawCart();
 	drawFooter(); 
 ?>

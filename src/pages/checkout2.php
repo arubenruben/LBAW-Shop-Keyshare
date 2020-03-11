@@ -6,6 +6,7 @@
 
     drawHead();
     drawHeader(0);
+    drawBreadcrumb('Checkout');
     drawCheckoutSecondPage();
     drawFooter();
 ?>

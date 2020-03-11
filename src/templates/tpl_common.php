@@ -34,6 +34,7 @@
         <?php }
         } ?>
     </head>
+
     <body>
 
     <?php
@@ -45,50 +46,62 @@
     switch ($type) {
         case 0: ?>
             <div id="wrapper">
-                <header id="headerFixed" class="navbar" style="z-index: 20;">
-                    <div class="col-4 col-md-2 col-xl-1 my-auto">
+                <header id="headerFixed" class="navbar row">
+                    <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
                         <a href="homepage.php">
-                            <img class="img-fluid" src="../../assets/images/logo/logo.png" />
+                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
                         </a>
                     </div>
-                    <!-- search bar -->
-                    <div class="col-md-5 col-6 col-xl-6 my-0 d-none d-sm-block">
+                    <!-- Search -->
+                    <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
                         <form class="form-inline">
-                            <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
-                            <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <a class="ml-auto" href="products_list.php">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                            </a>
+                            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
                         </form>
                     </div>
-                    <!-- sell now -->
-                    <div class="col-md-3 d-none d-md-block">
-                        <div class="row">
-                            <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
-                            <a href="offer.php" class="btn btn-orange ml-3 pl-3 pr-3" role="button">Sell Now</a>
-                        </div>
-                    </div>
-                    <!-- profile & cart -->
-                    <div class="col-md-2 col-1 d-none d-md-block">
-                        <div class="row flex-nowrap">
-                            <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-inline-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                    <!--Buttons-->
+                    <div class="col d-none d-xl-block mt-auto mb-auto">
+                        <div class="row justify-content-end">
+                            <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
+                            <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4 navbarButton" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                 <i class="fas fa-user headerIcon"></i> Log in
                             </button>
-                            <a href="cart.php" class="d-inline-block"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i><span class="badge badge-secondary">3</span></a>
                         </div>
                     </div>
-                    <!-- mobile -->
-                    <div class="col-2 col-xs-4 d-md-none d-xs-block">
-                        <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Cart icon -->
+                    <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
+                        <div class="row">
+                            <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                        </div>
+                    </div>                        
+                    <!--Button Collapse Small -->
+                    <div class="col d-xl-none text-right pos-f-t">
+                        <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                    <div class="pos-f-t">
-                        <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="ml-auto p-2">
-                                <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
-                            </div>
+                </header>                   
+                <!--Collapse Small -->
+                <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
+                    <div class="col w-100">
+                        <div class="row">
+                            <a class="mt-auto mb-auto ml-auto" href="products_list.php">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                            </a>
+                            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="row flex-nowrap justify-content-around mt-3">
+                            <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                <i class="fas fa-user headerIcon"></i> Log in
+                            </button>
+                            <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
+                            <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
+                            <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                         </div>
                     </div>
-                </header>
+                </div>
             <?php
             break;
         default: ?>
@@ -99,7 +112,6 @@
     <?php
 } ?>
 
-<!-- breadcrumbs -->
 <?php function drawBreadcrumb($pageName = '')
 { ?>
     <div id="breadcrumbContainer">
@@ -285,21 +297,21 @@
                                         </div>
                                     </div>
 
-                                    <!-- Password input -->
-                                    <div class="control-group mt-4 mb-2">
-                                        <label class="control-label" for="passwordinput">Password:</label>
-                                        <div class="controls">
-                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
-                                        </div>
-                                    </div>
+                                            <!-- Password input -->
+                                            <div class="control-group mt-4 mb-2">
+                                                <label class="control-label" for="passwordinput">Password:</label>
+                                                <div class="controls">
+                                                    <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                                </div>
+                                            </div>
 
-                                    <!-- Confirm Password input-->
-                                    <div class="control-group">
-                                        <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
-                                        <div class="controls">
-                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
-                                        </div>
-                                    </div>
+                                            <!-- Confirm Password input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                                <div class="controls">
+                                                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                                </div>
+                                            </div>
 
                                     <!-- Button -->
                                     <div class="control-group">
@@ -325,53 +337,53 @@
                     <button type="button" class="btn btn-blue col" data-dismiss="modal">Close</button>
                 </div>
             </div>
-        </div>
-    </div>
-<?php } ?>
+        <?php } ?>
 
-<!-- footer + authentication modal-->
-<?php function drawFooter() { ?>
-    <?php drawAthenticationModal(); ?>
-    <!-- Footer -->
-    <footer id="footerGeneric">
-        <div class="container">
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <h5 class="title"> More </h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="faq.php"> Help </a>
-                        </li>
-                        <li>
-                            <a href="contact.php"> Contact </a>
-                        </li>
-                        <li>
-                            <a href="about.php"> About us </a>
-                        </li>
-                    </ul>
+        <!-- footer + authentication modal-->
+        <?php function drawFooter()
+        { ?>
+            <?php drawAthenticationModal(); ?>
+            <!-- Footer -->
+            <footer id="footerGeneric">
+                <div class="container">
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="title"> More </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="faq.php"> Help </a>
+                                </li>
+                                <li>
+                                    <a href="contact.php"> Contact </a>
+                                </li>
+                                <li>
+                                    <a href="about.php"> About us </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5 class="title"> Shortcuts </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="user.php"> Profile </a>
+                                </li>
+                                <li>
+                                    <a href="homepage.php"> Homepage </a>
+                                </li>
+                                <li>
+                                    <a href="products_list.php"> All products </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col ml-auto my-auto">
+                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
+                        </div>
+                    </div>
+            </footer>
+            <!--This Div closes the container that mantains the footer at the bottom -->
                 </div>
-                <div class="col">
-                    <h5 class="title"> Shortcuts </h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="user.php"> Profile </a>
-                        </li>
-                        <li>
-                            <a href="homepage.php"> Homepage </a>
-                        </li>
-                        <li>
-                            <a href="products_list.php"> All products </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col ml-auto my-auto">
-                    <p>© Copyright 2020 Key Share. All rights reserved.</p>
-                </div>
-            </div>
-    </footer>
-    <!--This Div closes the container that mantains the footer at the bottom -->
-        </div>
     </body>
+
     </html>
 <?php } ?>

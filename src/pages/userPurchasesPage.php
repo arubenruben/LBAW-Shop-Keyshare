@@ -5,6 +5,7 @@
 
     drawHead();
     drawHeader(0);
+    drawBreadcrumb('My Purchases');
     drawUserPurchases();
     drawFooter();
 ?>

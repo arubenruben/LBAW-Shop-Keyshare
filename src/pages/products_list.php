@@ -4,6 +4,7 @@
 
     drawHead();
     drawHeader(0);
+    drawBreadcrumb('Listings');
     drawProductList();
     drawFooter();
 ?>
