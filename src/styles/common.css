@@ -63,10 +63,6 @@ header.navbar {
     width: 150px;
 }
 
-.accountDelete-button {
-    margin-top: 50px;
-}
-
 #headerSearchIcon {
     color: var(--color-interactive-orange);
     font-size: 1.5rem;
@@ -103,18 +99,6 @@ header.navbar {
     max-height: 2em;
     background-color: wheat;
 }
-
-#submitOfferButton {
-    background-color: var(--color-interactive-orange);
-    border: 0;
-}
-
-
-/*
-.cartProductImage{
-
-}
-*/
 
 #headerFixed {
     position: -webkit-sticky;
@@ -321,10 +305,12 @@ header.navbar {
 
 .btn.btn-orange {
     background-color: var(--color-interactive-orange);
+    color: white;
 }
 
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
+    color: white;
 }
 
 .btn.btn-blue {

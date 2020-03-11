@@ -54,10 +54,9 @@
 {
     drawUserNavBar("account"); ?>
     <div id="content" class="container">
-    <?php drawConfirmDeleteAccountPopup();
-                            drawFeedbackPopup("1");
-                            //drawSaveChangesPopup(); 
-                            ?>
+    <?php drawConfirmDeleteAccountPopup(); 
+          drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
+     ?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -159,7 +158,7 @@
                         <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
                     <div class="col-sm-3">
-                        <button id="headerSellButton" type="button" class="btn p-2 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
+                        <button type="button" class="btn p-2 btn-sm btn-orange btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
                     </div>
                 </div>
                 <div class="container mt-3 mb-3">
@@ -200,8 +199,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -220,8 +219,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -240,8 +239,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -260,8 +259,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -280,8 +279,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -300,8 +299,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
-                                                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -520,9 +519,9 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -540,9 +539,9 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="../../assets/images/games/GTAV/1.png">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -560,9 +559,9 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -580,9 +579,9 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -600,9 +599,9 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -623,8 +622,6 @@
 <?php } ?>
 
 <!-- user popups -->
-
-
 <?php function drawConfirmDeleteAccountPopup()
 { ?>
     <div id="modalConfirm" class="modal fade" role="dialog">
@@ -701,12 +698,16 @@
                 <div class="modal-body">
                     <div class="row">
                         <div id="reportBorderInfo" class="col-6 text-left">
-                            <h5>Seller's Info</h5>
+                            <u>
+                                <h5>Seller's Info</h5>
+                            </u>
                             <h6>Lockdownpt</h6>
                             <p><i class="fas fa-thumbs-up cl-success"></i> <span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
                         </div>
                         <div class="col-6 text-right">
-                            <h5>Product in question</h5>
+                            <u>
+                                <h5>Product in question</h5>
+                            </u>
                             <h6>Order Nº 14456666</h6>
                             <h6>Price : 124,90€ </h6>
                         </div>

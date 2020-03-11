@@ -171,8 +171,8 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div class="mt-5 mb-5 accountDelete-button">
-                    <button type="button mt-5 mb-5 accountDelete-button" class="btn btn-md btn-danger"><i class="fas fa-user-times"></i> Delete account</button>
+                <div class="mt-5 mb-5 ">
+                    <button type="button mt-5 mb-5 " class="btn btn-md btn-danger"><i class="fas fa-user-times"></i> Delete account</button>
                 </div>
             </div>
         </div>
