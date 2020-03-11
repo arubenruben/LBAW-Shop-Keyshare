@@ -54,9 +54,9 @@
 {
     drawUserNavBar("account"); ?>
     <div id="content" class="container">
-    <?php drawConfirmDeleteAccountPopup(); 
-          drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
-     ?>
+        <?php drawConfirmDeleteAccountPopup();
+        drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
+        ?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
-                        <button type="button" data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm" >See all feedback</button>
+                        <button type="button" data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm">See all feedback</button>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                                 <button id="deleteAccountButton" data-toggle="modal" data-target="#modalConfirm" type="button" class="btn btn-sm btn-blue d-inline-block"><i class="fas fa-user-slash"></i> <span class="d-inline-block"> Delete Account</span></button>
                             </div>
 
-                        
+
                         </form>
                     </div>
                 </div>
@@ -158,7 +158,9 @@
                         <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
                     <div class="col-sm-3">
-                        <button type="button" class="btn p-2 btn-sm btn-orange btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
+                        <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
+
+
                     </div>
                 </div>
                 <div class="container mt-3 mb-3">
@@ -199,7 +201,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
@@ -219,7 +222,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
@@ -239,7 +243,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
@@ -259,7 +264,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
@@ -279,7 +285,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>
@@ -299,7 +306,8 @@
                                             <td class="text-center align-middle"><strong>$79.00</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></button>
+                                                    <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+
                                                     <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                                 </div>
                                             </td>

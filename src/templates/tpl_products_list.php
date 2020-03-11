@@ -219,9 +219,9 @@
                             <hr>
                         </section>
                         <section class="mt-4">
-                            <h5 class="productSideBarTitle">Max Price</h5>
-                            <label for="price-range">Value</label>
-                            <input type="range" class="custom-range" id="price-range" name="maxPrice">
+                            <h5 class="productSideBarTitle my-2 ml-3">Max Price</h5>
+                            <label for="price-range" class="my-2 ml-3">Value</label>
+                            <input type="range" class="custom-range my-2 mx-auto" id="price-range" name="maxPrice">
                         </section>
                     </div>
                 </form>
