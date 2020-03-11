@@ -76,7 +76,9 @@ li.section.visited.current:before {
 .status-bar-circle {
     width: 10%;
 }
+.status-bar-circle::before{
+}
 
 .status-bar-circle:first-of-type {
-    margin-left: 23em;
+    margin-left: 20em;
 }

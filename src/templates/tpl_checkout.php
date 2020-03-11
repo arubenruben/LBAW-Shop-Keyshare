@@ -17,7 +17,7 @@ function drawCheckoutFirstPage()
             drawCartProductReviewEntry();
             ?>
         </div>
-        <div id="checkoutButtonsContainer"class="row mt-5">
+        <div id="checkoutButtonsContainer" class="row mt-5">
             <div class="col text-right">
                 <h5> Subtotal (4 items) </h5>
                 <hr>
@@ -35,35 +35,37 @@ function drawCheckoutSecondPage()
 { ?>
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
-        <div class="row">
-            <h3>Your Info</h3>
-        </div>
-        <div class="row d-none d-xl-block">
-            <?php drawProgressBar2(); ?>
-        </div>
-        <div class="row">
-            <form>
-                <div class="form-group">
-                    <label for="checkoutInputName">Name</label>
-                    <input type="text" class="form-control" id="checkoutInputName" placeholder="Enter Your Name">
-                </div>
-                <div class="form-group">
-                    <label for="checkoutInputEmail">Email</label>
-                    <input type="email" class="form-control" id="checkoutInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
-                </div>
-                <div class="form-group">
-                    <label for="checkoutInputAddress">Address</label>
-                    <input type="text" class="form-control" id="checkoutInputAddress" placeholder="Enter Your Address">
-                </div>
-                <div class="form-group">
-                    <label for="checkoutInputZipcode">Zipcode</label>
-                    <input type="text" class="form-control" id="checkoutInputZipcode" placeholder="Enter Your Zipcode">
-                </div>
-            </form>
-        </div>
-        <div id="checkoutButtonsContainer" class="row">
-            <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
-            <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
+        <div class="col">
+            <div class="row">
+                <h3>Your Info</h3>
+            </div>
+            <div class="row d-none d-xl-block">
+                <?php drawProgressBar2(); ?>
+            </div>
+            <div class="row">
+                <form>
+                    <div class="form-group">
+                        <label for="checkoutInputName">Name</label>
+                        <input type="text" class="form-control" id="checkoutInputName" placeholder="Enter Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutInputEmail">Email</label>
+                        <input type="email" class="form-control" id="checkoutInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutInputAddress">Address</label>
+                        <input type="text" class="form-control" id="checkoutInputAddress" placeholder="Enter Your Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutInputZipcode">Zipcode</label>
+                        <input type="text" class="form-control" id="checkoutInputZipcode" placeholder="Enter Your Zipcode">
+                    </div>
+                </form>
+            </div>
+            <div id="checkoutButtonsContainer" class="row">
+                <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
+                <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 <?php }
@@ -72,47 +74,49 @@ function drawCheckoutThirdPage()
 { ?>
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
-        <div class="row">
-            <h3>Confirm Your Order</h3>
-        </div>
-        <div class="row d-none d-xl-block">
-            <?php drawProgressBar3(); ?>
-        </div>
-        <div id="checkoutProductPreviewContainer" class="row">
-            <div class="col">
-                <h4>Your Products</h4>
+        <div class="col">
+            <div class="row">
+                <h3>Confirm Your Order</h3>
+            </div>
+            <div class="row d-none d-xl-block">
+                <?php drawProgressBar3(); ?>
+            </div>
+            <div id="checkoutProductPreviewContainer" class="row">
                 <div class="col">
-                    <?php
-                    drawCartProductReviewEntry();
-                    drawCartProductReviewEntry();
-                    drawCartProductReviewEntry();
-                    drawCartProductReviewEntry();
-                    ?>
+                    <h4>Your Products</h4>
+                    <div class="col">
+                        <?php
+                        drawCartProductReviewEntry();
+                        drawCartProductReviewEntry();
+                        drawCartProductReviewEntry();
+                        drawCartProductReviewEntry();
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>Your Personal Information</h4>
-                <p>Name:Ruben Almeida</p>
-                <p>Email:email@example.com</p>
-                <p>Address:Heinrich-Heine-Straße,Berlin,Deutschland</p>
-                <p>Zipcode:4000-000</p>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Your Personal Information</h4>
+                    <p>Name:Ruben Almeida</p>
+                    <p>Email:email@example.com</p>
+                    <p>Address:Heinrich-Heine-Straße,Berlin,Deutschland</p>
+                    <p>Zipcode:4000-000</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <h4>Pricing</h4>
+                    <h5> Subtotal (4 items) </h5>
+                    <span>
+                        <h5> Total price: <h3>120 €</h3>
+                        </h5>
+                    </span>
+                </div>
             </div>
-            <div class="col-sm-6 text-right">
-                <h4>Pricing</h4>
-                <h5> Subtotal (4 items) </h5>
-                <span>
-                    <h5> Total price: <h3>120 €</h3>
-                    </h5>
-                </span>
+            <hr>
+            <div id="checkoutButtonsContainer" class="row">
+                <a href="checkout2.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Infos</span></a>
+                <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
             </div>
-        </div>
-        <hr>
-        <div id="checkoutButtonsContainer" class="row">
-            <a href="checkout2.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Infos</span></a>
-            <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
         </div>
 
 
@@ -196,8 +200,6 @@ function drawProgressBar3()
             </ul>
         </div>
     <?php }
-
-
 
 function drawProgressBar4()
 { ?>
