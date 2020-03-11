@@ -3,11 +3,12 @@
     <div id="content" class="container mt-5">
         <div class="row">
             <div class="col-sm-6 text-left">
+                
                 <h4>My Cart <span class="badge badge-secondary">7</span></h4>
             </div>
 
             <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-orange">Proceed to checkout</button>
+                <a href="checkout1.php" class="btn btn-orange" role="button"><span class="d-none d-md-inline-block"> Proceed to checkout </span></a>
             </div>
         </div>
         <div class="row">
