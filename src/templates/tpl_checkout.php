@@ -4,7 +4,7 @@ function drawCheckoutFirstPage()
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
         <div class="col">
-            <div class="row">
+            <div class="row mt-5">
                 <h3>Your Info</h3>
             </div>
             <div class="row d-none d-xl-block pt-4">
