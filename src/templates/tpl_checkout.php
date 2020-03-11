@@ -3,44 +3,12 @@ function drawCheckoutFirstPage()
 { ?>
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
-        <div class="row">
-            <h3>Review Your Products</h3>
-        </div>
-        <div class="row d-none d-xl-block pt-4">
-            <?php drawProgressBar1(); ?>
-        </div>
-        <div id="checkoutProductPreviewContainer" class="col">
-            <?php
-            drawCartProductReviewEntry();
-            drawCartProductReviewEntry();
-            drawCartProductReviewEntry();
-            drawCartProductReviewEntry();
-            ?>
-        </div>
-        <div id="checkoutButtonsContainer" class="row mt-5">
-            <div class="col text-right">
-                <h5> Subtotal (4 items) </h5>
-                <hr>
-                <span>
-                    <h5> Total price: <h3>120 €</h3>
-                    </h5>
-                </span>
-                <a href="checkout2.php" class="btn btn-primary btn-lg mt-5 checkoutNextButton " role="button"> <span class="d-none d-md-inline">Your Info</span><i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </div>
-<?php
-}
-function drawCheckoutSecondPage()
-{ ?>
-    <div id="content" class="container">
-        <!--Only draw ProgressBar when is XL. Not responsive-->
         <div class="col">
             <div class="row">
                 <h3>Your Info</h3>
             </div>
             <div class="row d-none d-xl-block pt-4">
-                <?php drawProgressBar2(); ?>
+                <?php drawProgressBar1(); ?>
             </div>
             <div class="row mt-3 mb-5 ml-2">
                 <form id="formCheckout">
@@ -70,15 +38,14 @@ function drawCheckoutSecondPage()
                     </h5>
                 </span>
                 <div id="checkoutButtonsContainer" class="row mt-5">
-                    <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
-                    <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="checkout2.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </div>
 <?php }
 
-function drawCheckoutThirdPage()
+function drawCheckoutSecondPage()
 { ?>
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
@@ -87,7 +54,7 @@ function drawCheckoutThirdPage()
                 <h3>Confirm Your Order</h3>
             </div>
             <div class="row d-none d-xl-block pt-4">
-                <?php drawProgressBar3(); ?>
+                <?php drawProgressBar2(); ?>
             </div>
             <div id="checkoutProductPreviewContainer" class="row">
                 <div class="col">
@@ -122,18 +89,18 @@ function drawCheckoutThirdPage()
             </div>
             <hr>
             <div id="checkoutButtonsContainer" class="row">
-                <a href="checkout2.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Infos</span></a>
-                <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
+                <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
+                <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     <?php }
-function drawCheckoutFourthPage($sucess = true)
+function drawCheckoutThirdPage($sucess = true)
 { ?>
         <div id="content" class="container">
             <div class="col my-auto">
                 <!--Only draw ProgressBar when is XL. Not responsive-->
                 <div class="row d-none d-xl-block pt-4">
-                    <?php drawProgressBar4(); ?>
+                    <?php drawProgressBar3(); ?>
                 </div>
                 <div id="checkoutPage4" class="row">
                     <div class="col text-center mt-auto mb-auto">
@@ -158,16 +125,18 @@ function drawProgressBar1()
 { ?>
         <div class="progress-bar-wrapper">
             <div class="status-bar">
-                <!--  <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>-->
+                <!--
+                <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>
+            -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Review Your Products</li>
-                <li class="section  status-bar-circle">Your Info</li>
+                <li class="section visited current status-bar-circle">Your Info</li>
                 <li class="section status-bar-circle">Confirm Your Order</li>
                 <li class="section status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
+
 
 function drawProgressBar2()
 { ?>
@@ -178,14 +147,12 @@ function drawProgressBar2()
             -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Review Your Products</li>
                 <li class="section visited current status-bar-circle">Your Info</li>
-                <li class="section status-bar-circle">Confirm Your Order</li>
+                <li class="section visited current status-bar-circle">Confirm Your Order</li>
                 <li class="section status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
-
 
 function drawProgressBar3()
 { ?>
@@ -196,32 +163,12 @@ function drawProgressBar3()
             -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Review Your Products</li>
-                <li class="section visited current status-bar-circle">Your Info</li>
-                <li class="section visited current status-bar-circle">Confirm Your Order</li>
-                <li class="section status-bar-circle">Transaction Complete</li>
-            </ul>
-        </div>
-    <?php }
-
-function drawProgressBar4()
-{ ?>
-        <div class="progress-bar-wrapper">
-            <div class="status-bar">
-                <!--
-                <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>
-            -->
-            </div>
-            <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Review Your Products</li>
                 <li class="section visited current status-bar-circle">Your Info</li>
                 <li class="section visited current status-bar-circle">Confirm Your Order</li>
                 <li class="section visited current status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
-
-
 
 function drawCartProductReviewEntry()
 { ?>
