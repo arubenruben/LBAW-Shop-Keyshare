@@ -416,3 +416,16 @@ header.navbar {
 #sideBarFilterResponsive .modal.left.fade.in .modal-dialog {
     left: 0px;
 }
+#checkoutProductPreviewContainer .deleteButtonCheckout:hover{
+    background-color: var(--color-interactive-red-fail);
+    transition-duration: 0.4s;
+    border: none;
+}
+#checkoutButtonsContainer .checkoutNextButton{
+    background-color: var(--color-interactive-green-success);
+    border-color: transparent;
+}
+#checkoutButtonsContainer .checkoutBackButton{
+    background-color: var(--color-primary-light-blue);
+    border-color: transparent;
+}
