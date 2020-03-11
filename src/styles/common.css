@@ -100,11 +100,24 @@ header.navbar {
     background-color: wheat;
 }
 
+#submitOfferButton {
+    background-color: var(--color-interactive-orange);
+    border: 0;
+}
+
+
+/*
+.cartProductImage{
+
+}
+*/
 #headerFixed {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 #checkoutStatusEmojiTrue {
@@ -444,4 +457,43 @@ td {
 .tableFixHeadOtherUserOffer th,
 td {
     padding: 8px 16px;
+}
+#headerFixed .logo{
+    max-height:4rem ;
+}
+#collapseContainer{
+    padding: 0 !important;
+    padding-top: 1rem !important;
+}
+#hamburguerContentNavMedium,#hamburguerContentNavSmall{
+    background-color:var(--color-background-dark-blue);
+    margin: 0;
+    padding:0;
+    border-color: var(--color-interactive-orange);  
+}
+#hamburguerContentNavMedium .headerIcon ,#hamburguerContentNavSmall .headerIcon {
+    color: var(--color-interactive-orange); 
+}
+#hamburguerContentNavMedium .navbarButton,#hamburguerContentNavSmall .navbarButton{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
+    height:3rem;
+    width: 6rem;
+}
+#hamburguerContentNavMedium .navbarButtonSmall,#hamburguerContentNavSmall .navbarButtonSmall{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
+    height:2rem;
+    width: 6rem;
+    font-size: 0.8em;
+}
+#hamburguerContentNavSmall .headerIcon{
+    font-size: 0.8em;
+}
+#shoppingCartIconHamburguer{
+    font-size: 1em;
+}
+#headerFixed .navbarButton{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
 }
