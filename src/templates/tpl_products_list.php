@@ -4,18 +4,9 @@
         <div class="row mt-5">
             <?php productListingSideBar(); ?>
             <div class="col ml-auto mr-auto">
-                <div class="row">
-                    <div class="row justify-content-between mx-auto flex-wrap mt-2 d-lg-none flex-nowrap">
-                        <div class="sideBarButton col-md-3  cardProductList my-2 mx-auto d-inline-block">
-                            <button class="btn btn-secondary btn-sm pl-4 py-2 pr-4 " type="button"  data-toggle="modal" data-target="#myModal"> <i class="fas fa-filter"></i> Filters</button>
-                        </div>
-
-                        <div class="sideBarButton col-md-3 cardProductList my-2 mx-auto d-inline-block ">
-                            <button class="btn btn-secondary  invisible btn-sm pl-4 py-2 pr-4 disabled" type="button" > <i class="fas fa-filter"></i> Filters</button>
-                        </div>
-
-                        <div class="sideBarButton col-md-3   cardProductList my-2 mx-auto d-inline-block">
-                            <button class="btn btn-secondary  invisible btn-sm pl-4 py-2 pr-4 disabled" type="button"> <i class="fas fa-filter"></i> Filters</button>
+                    <div class="row mt-2 d-lg-none ">
+                        <div class="col-sm-5 col-md-4">
+                            <button class="btn btn-small px-5 btn-secondary" type="button" data-toggle="modal" data-target="#myModal"> <div class="flex-nowrap" ><i class="fas fa-filter d-inline-block"></i> <div class="d-inline-block">Filters </div></div></button>
                         </div>
                     </div>
                     <!--First Row-->
@@ -111,7 +102,7 @@
                             </ul>
                         </nav>
                     </div>
-                </div>
+               
                 <div id="sideBarFilterResponsive">
                     <?php drawFilterSideBar(); ?>
                 </div>
