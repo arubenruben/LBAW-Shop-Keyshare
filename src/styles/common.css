@@ -431,3 +431,6 @@ header.navbar {
 #formCheckout{
     width: 80%;
 }
+#headerFixed .logo{
+    max-height:4rem ;
+}

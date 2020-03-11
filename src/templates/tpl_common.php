@@ -45,49 +45,48 @@
     switch ($type) {
         case 0: ?>
             <div id="wrapper">
-                <header id="headerFixed" class="navbar" style="z-index: 20;">
-                    <div class="col-4 col-md-2 col-xl-1 my-auto">
+                <header id="headerFixed" class="navbar row">
+                    <div class="col mt-auto mb-auto">
                         <a href="homepage.php">
-                            <img class="img-fluid" src="../../assets/images/logo/logo.png" />
+                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
                         </a>
                     </div>
-                    <!-- search bar -->
-                    <div class="col-md-5 col-6 col-xl-6 my-0 d-none d-sm-block">
+                    <div class="col-sm-4 d-none d-md-block mt-auto mb-auto">
                         <form class="form-inline">
-                            <i id="headerSearchIcon" class="fas fa-search d-none d-sm-block mr-2"></i>
+                            <a href="products_list.php">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                            </a>
                             <input id="searchBar" class="form-control" type="search" placeholder="Search" aria-label="Search">
                         </form>
                     </div>
-                    <!-- sell now -->
-                    <div class="col-md-3 d-none d-md-block">
+                    <div class="col d-none d-md-block mt-auto mb-auto">
                         <div class="row">
-                            <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
-                            <a id="headerSellButton" href="offer.php" class="btn btn-secondary ml-3 pl-3 pr-3" role="button">Sell Now</a>
+                            <a href="products_list.php" class="btn btn-outline-light" role="button">Explore</a>
+                            <a id="headerSellButton" href="offer.php" class="btn btn-secondary" role="button">Sell Now</a>
                         </div>
                     </div>
-                    <!-- profile & cart -->
-                    <div class="col-md-2 col-1 d-none d-md-block">
-                        <div class="row flex-nowrap">
-                            <button class="btn btn-outline-light ml-auto mr-5 pl-3 pr-3 d-none d-lg-inline-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                    <div class="col d-none d-md-block mt-auto mb-auto">
+                        <div class="row">
+                            <button class="btn btn-outline-light mt-auto mb-auto " href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                 <i class="fas fa-user headerIcon"></i> Log in
                             </button>
-                            <a href="cart.php" class="d-inline-block"><i class="fas fa-shopping-cart headerIcon mr-2 mt-2 cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                            <a href="cart.php" class="mt-auto mb-auto ml-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                         </div>
                     </div>
-                    <!-- mobile -->
-                    <div class="col-2 col-xs-4 d-md-none d-xs-block">
+                     <!-- mobile -->
+                     <div class="col d-md-none text-right">
                         <button id="navbarHamburguer" class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
                     <div class="pos-f-t">
                         <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="ml-auto p-2">
+                            <div class="p-2">
                                 <i id="myAccountIcon" class="fas fa-user headerIcon"></i>
-                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon m-auto cl-orange"></i></a>
+                                <a href="cart.php"><i class="fas fa-shopping-cart headerIcon cl-orange"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </header>
             <?php
             break;
