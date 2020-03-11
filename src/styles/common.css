@@ -306,9 +306,11 @@ header.navbar {
 /* buttons css */
 .btn.btn-orange {
     background-color: var(--color-interactive-orange);
+    color: white;
 }
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
+    color: white;
 }
 .btn.btn-blue {
     background-color: inherit;

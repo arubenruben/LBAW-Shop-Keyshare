@@ -1,11 +1,9 @@
 <?php 
+    include_once('../templates/tpl_common.php');
+    include_once('../templates/tpl_offer.php');
 
-include_once('../templates/tpl_common.php');
-include_once('../templates/tpl_offer.php');
-
-drawHead();
-drawHeader(0);
-drawNavbar(0,'Offer');
-drawOffer();
-drawFooter();
+    drawHead();
+    drawHeader(0);
+    drawOffer();
+    drawFooter();
 ?>
