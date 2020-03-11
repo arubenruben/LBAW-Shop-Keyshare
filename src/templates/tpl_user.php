@@ -83,7 +83,7 @@
                         <h4 class="text-left">Current Offers (4)</h4>
                     </div>
                     <div class="col-sm-3">
-                        <button id="headerSellButton" type="button" class="btn p-3 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
+                        <button id="headerSellButton" type="button" class="btn p-2 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
                     </div>
                 </div>
                 <div class="container mt-3 mb-3">
@@ -195,7 +195,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 usercontent-left">
+                
+                <div class="col-sm-12 usercontent-left mt-5">
                     <div class="row px-3">
                         <div class="col-sm-12">
                             <h4 class="text-left">Past Offers (4)</h4>
