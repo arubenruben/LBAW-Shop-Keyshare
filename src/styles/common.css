@@ -424,7 +424,10 @@ header.navbar {
     background-color: var(--color-primary-light-blue);
     border-color: transparent;
 }
-#checkoutButtonsContainer{
+#checkoutPage4{
     font-size: 4em;
     height: 50vmax;
+}
+#formCheckout{
+    width: 80%;
 }

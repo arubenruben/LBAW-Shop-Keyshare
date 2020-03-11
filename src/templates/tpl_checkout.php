@@ -42,29 +42,37 @@ function drawCheckoutSecondPage()
             <div class="row d-none d-xl-block pt-4">
                 <?php drawProgressBar2(); ?>
             </div>
-            <div class="row">
-                <form>
+            <div class="row mt-3 mb-5 ml-2">
+                <form id="formCheckout">
                     <div class="form-group">
                         <label for="checkoutInputName">Name</label>
-                        <input type="text" class="form-control" id="checkoutInputName" placeholder="Enter Your Name">
+                        <input type="text" class="form-control checkoutInput" id="checkoutInputName" placeholder="Enter Your Name">
                     </div>
                     <div class="form-group">
                         <label for="checkoutInputEmail">Email</label>
-                        <input type="email" class="form-control" id="checkoutInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                        <input type="email" class="form-control checkoutInput" id="checkoutInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
                     </div>
                     <div class="form-group">
                         <label for="checkoutInputAddress">Address</label>
-                        <input type="text" class="form-control" id="checkoutInputAddress" placeholder="Enter Your Address">
+                        <input type="text" class="form-control checkoutInput" id="checkoutInputAddress" placeholder="Enter Your Address">
                     </div>
                     <div class="form-group">
                         <label for="checkoutInputZipcode">Zipcode</label>
-                        <input type="text" class="form-control" id="checkoutInputZipcode" placeholder="Enter Your Zipcode">
+                        <input type="text" class="form-control checkoutInput" id="checkoutInputZipcode" placeholder="Enter Your Zipcode">
                     </div>
                 </form>
             </div>
-            <div id="checkoutButtonsContainer" class="row">
-                <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
-                <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
+            <div class="col text-right">
+                <h5> Subtotal (4 items) </h5>
+                <hr>
+                <span>
+                    <h5> Total price: <h3>120 €</h3>
+                    </h5>
+                </span>
+                <div id="checkoutButtonsContainer" class="row mt-5">
+                    <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
+                    <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -127,7 +135,7 @@ function drawCheckoutFourthPage($sucess = true)
                 <div class="row d-none d-xl-block pt-4">
                     <?php drawProgressBar4(); ?>
                 </div>
-                <div id="checkoutButtonsContainer" class="row">
+                <div id="checkoutPage4" class="row">
                     <div class="col text-center mt-auto mb-auto">
                         <?php
                         if ($sucess === true) { ?>
