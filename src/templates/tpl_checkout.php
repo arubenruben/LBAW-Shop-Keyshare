@@ -57,17 +57,7 @@ function drawCheckoutSecondPage()
                 <?php drawProgressBar2(); ?>
             </div>
             <div id="checkoutProductPreviewContainer" class="row">
-                <div class="col">
-                    <h4>Your Products</h4>
-                    <div class="col">
-                        <?php
-                        drawCartProductReviewEntry();
-                        drawCartProductReviewEntry();
-                        drawCartProductReviewEntry();
-                        drawCartProductReviewEntry();
-                        ?>
-                    </div>
-                </div>
+                <?php drawCart(); ?>
             </div>
             <hr>
             <div class="row">
@@ -170,29 +160,3 @@ function drawProgressBar3()
             </ul>
         </div>
     <?php }
-
-function drawCartProductReviewEntry()
-{ ?>
-        <hr>
-        <div class="row">
-            <div class="col-3">
-                <img class="img-fluid cartProductImage" src="../../assets/images/games/GTAV/1.png" />
-            </div>
-            <div class="col-5 mt-auto mb-auto">
-                <div class="row">
-                    <h5>Grand Theft Auto V</h5>
-                </div>
-                <div class="row">
-                    <p>BestSeller:Rating: <span class="font-weight-bold cl-success">99%</span>| <i class="fas fa-shopping-cart"></i>1897</p>
-                </div>
-            </div>
-            <div class="col-2 mt-auto mb-auto">
-                <h6>Price:</h6>
-                <h6>30€</h6>
-            </div>
-            <div class="col-2 mt-auto mb-auto ml-auto">
-                <button type="button" class="btn btn-dark deleteButtonCheckout"><i class="fa fa-trash "></i><span> Delete </span></button>
-            </div>
-        </div>
-        <hr>
-    <?php } ?>

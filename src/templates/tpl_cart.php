@@ -11,7 +11,6 @@
                 <a href="checkout1.php" class="btn btn-orange" role="button"><span class="d-none d-md-inline-block"> Proceed to checkout </span></a>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-12">
                 <div class="table-responsive table-striped tableFixHead mt-3">
@@ -44,14 +43,11 @@
                 </div>
             </div>
         </div>
-
         <div class="row mt-4">
             <div class="col text-right">
                 <h4>Total Price: 400,00$</h4>
             </div>
         </div>
-
-        
     </div>
 <?php }
 
