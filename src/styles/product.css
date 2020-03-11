@@ -1,3 +1,7 @@
 #offersListing .offer:hover{
     box-shadow: 0 0 8px grey;
 }
+
+#offersListing .seller{
+    cursor: pointer;
+}

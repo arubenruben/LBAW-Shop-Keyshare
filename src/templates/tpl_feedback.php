@@ -3,14 +3,15 @@
     <div class="modal fade bd-modal-lg<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <div class="row">
-                        <div class="col">
-                            <h4>bestseller439</h4>
-                            <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">99%</span> | <i class="fas fa-shopping-cart"></i> 1897 </p>
-                        </div>
+                <div class="modal-header justify-content-around">
+                    <div class="col">
+                        <h4>bestseller439</h4>
+                        <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">99%</span> | <i class="fas fa-shopping-cart"></i> 1897 </p>
                     </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div class="col m-auto">
+                        <a href="user.php" class="btn btn-blue"><i class="fas fa-user-alt"></i> View profile</a>
+                    </div>
+                    <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -20,13 +21,13 @@
                     <!-- feedback header -->
                     <div class="row font-weight-bold">
                         <div class="col mb-2">
-                            <span class="active-border"> All reviews <span class="badge badge-secondary">2</span></span>
+                            <span class="active-border pb-1"> All reviews <span class="badge badge-secondary">2</span></span>
                         </div>
                         <div class="col mb-2">
-                            <span class="inactive-border"><i class="fas fa-thumbs-up cl-success"></i> Positive <span class="badge badge-secondary">1</span></span>
+                            <span class="inactive-border pb-1"><i class="fas fa-thumbs-up cl-success"></i> Positive <span class="badge badge-secondary">1</span></span>
                         </div>
                         <div class="col mb-1">
-                            <span class="inactive-border"><i class="fas fa-thumbs-down cl-fail"></i> Negative <span class="badge badge-secondary">1</span></span>
+                            <span class="inactive-border pb-1"><i class="fas fa-thumbs-down cl-fail"></i> Negative <span class="badge badge-secondary">1</span></span>
                         </div>
                     </div>
                     <hr class="mt-0">
