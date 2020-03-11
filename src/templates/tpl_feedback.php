@@ -34,15 +34,9 @@
                     <div class="container-fluid">
                         <!-- feedback ratings -->
                         <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-down cl-fail"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key doesnt work
-                            </div>
+                            <div class="col"> <i class="fas fa-thumbs-down cl-fail"></i> </div>
+                            <div class="col"> Mar 06, 2020 </div>
+                            <div class="col"> key doesnt work </div>
                         </div>
                         <hr class="m-2">
                         <div class="row">
