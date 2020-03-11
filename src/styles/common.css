@@ -63,10 +63,6 @@ header.navbar {
     width: 150px;
 }
 
-.accountDelete-button {
-    margin-top: 50px;
-}
-
 #headerSearchIcon {
     color: var(--color-interactive-orange);
     font-size: 1.5rem;

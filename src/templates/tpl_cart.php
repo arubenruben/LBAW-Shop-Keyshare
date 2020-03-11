@@ -1,34 +1,132 @@
 <?php function drawCart()
 { ?>
+    <div id="content" class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row ">
+                    <div class="col-sm-12">
+                        <h4 class="text-left">My Cart <span class="badge badge-secondary">7</span></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive table-striped tableFixHead mt-3">
+                            <table id="userOffersTable" class="table p-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Date</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Price</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Remove</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
 
-    <div id="content" class="container">
-        <div class="col-12  pb-5 my-5">
-            <div id="cartContainerFirstRow" class="row flex-nowrap">
-                <h3 id="total" class="mr-auto my-auto cl-success mb-5">Total: $400</h3>
-                <a class="btn btn-primary ml-auto mt-auto mb-auto font-weight-bold rounded-pill proceedToCheckoutButton pl-5 pr-5" href="checkout1.php" role="button">Proceed to Checkout</a>
-            </div>
-            <div class="row my-5 mx-5 bg-white p-5">
-                <div class="col-12 p-0">
-                    <div id="cartContainerSecondRow" class="row  bg-light">
-                        <div class="col-7 text-uppercase">
-                            <h5>Product</h5>
-                        </div>
-                        <div class="col-3 text-uppercase">
-                            <h5>Price</h5>
-                        </div>
-                        <div class="col-2 text-uppercase">
-                            <h5>Remove</h5>
+                                        </td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="../../assets/images/games/GTAV/1.png">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+
+                                        </td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <?php
-                    drawCartEntry();
-                    drawCartEntry();
-                    drawCartEntry();
-                    ?>
                 </div>
             </div>
+
         </div>
-    </div
+    </div>
 <?php }
 
 function drawCartEntry()
