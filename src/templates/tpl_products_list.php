@@ -237,20 +237,20 @@
                             </button>
                             <div id="collapseOrder1" class="collapse show">
                                 <div class="custom-control custom-radio my-2 ml-3">
-                                    <input type="radio" class="custom-control-input" id="SortBy11" name="example11">
-                                    <label class="custom-control-label" for="SortBy1">Highest Price</label>
+                                    <input type="radio" class="custom-control-input" id="SortBy11" name="sort">
+                                    <label class="custom-control-label" for="SortBy11">Highest Price</label>
                                 </div>
                                 <div class="custom-control custom-radio my-2 ml-3">
-                                    <input type="radio" class="custom-control-input" id="SortBy21" name="example11">
-                                    <label class="custom-control-label" for="SortBy2">Lowest Price</label>
+                                    <input type="radio" class="custom-control-input" id="SortBy22" name="sort">
+                                    <label class="custom-control-label" for="SortBy22">Lowest Price</label>
                                 </div>
                                 <div class="custom-control custom-radio my-2 ml-3">
-                                    <input type="radio" class="custom-control-input" id="SortBy31" name="example11">
-                                    <label class="custom-control-label" for="SortBy3">Most popular</label>
+                                    <input type="radio" class="custom-control-input" id="SortBy33" name="sort">
+                                    <label class="custom-control-label" for="SortBy33">Most popular</label>
                                 </div>
                                 <div class="custom-control custom-radio my-2 ml-3">
-                                    <input type="radio" class="custom-control-input" id="SortBy41" name="example11">
-                                    <label class="custom-control-label" for="SortBy4">Most recent</label>
+                                    <input type="radio" class="custom-control-input" id="SortBy44" name="sort">
+                                    <label class="custom-control-label" for="SortBy44">Most recent</label>
                                 </div>
                             </div>
                             <hr>
@@ -261,28 +261,28 @@
                             </button>
                             <div id="collapseGenres1" class="collapse show">
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre11">
-                                    <label class="custom-control-label" for="checkBoxGenre1">Action</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre11" name="genreAction">
+                                    <label class="custom-control-label" for="checkBoxGenre11">Action</label>
                                 </div>
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre21">
-                                    <label class="custom-control-label" for="checkBoxGenre2">Sports</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre22" name="genreSports">
+                                    <label class="custom-control-label" for="checkBoxGenre22">Sports</label>
                                 </div>
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre31">
-                                    <label class="custom-control-label" for="checkBoxGenre3">Racing</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre33" name="genreRacing">
+                                    <label class="custom-control-label" for="checkBoxGenre33">Racing</label>
                                 </div>
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre41">
-                                    <label class="custom-control-label" for="checkBoxGenre4">Simulation</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre44" name="genreSimulation">
+                                    <label class="custom-control-label" for="checkBoxGenre44">Simulation</label>
                                 </div>
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre51">
-                                    <label class="custom-control-label" for="checkBoxGenre5">Puzzle</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre55" name="genrePuzzle">
+                                    <label class="custom-control-label" for="checkBoxGenre55">Puzzle</label>
                                 </div>
                                 <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre61">
-                                    <label class="custom-control-label" for="checkBoxGenre6">FPS</label>
+                                    <input type="checkbox" class="custom-control-input" id="checkBoxGenre66" name="genreFPS">
+                                    <label class="custom-control-label" for="checkBoxGenre66">FPS</label>
                                 </div>
                             </div>
                             <hr>
@@ -292,29 +292,29 @@
                                 <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i></h5>
                             </button>
                             <div id="collapsePlatforms1" class="collapse show">
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms11">
-                                    <label class="custom-control-label" for="checkBoxPlatforms1">PC</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms11" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms11">PC</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms21">
-                                    <label class="custom-control-label" for="checkBoxPlatforms2">PS4</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms22" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms22">PS4</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms31">
-                                    <label class="custom-control-label" for="checkBoxPlatforms3">Nintendo</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms33" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms33">Nintendo</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms41">
-                                    <label class="custom-control-label" for="checkBoxPlatforms4">Wii</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms44" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms44">Wii</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms51">
-                                    <label class="custom-control-label" for="checkBoxPlatforms5">Xbox</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms55" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms55">Xbox</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxPlatforms61">
-                                    <label class="custom-control-label" for="checkBoxPlatforms6">Xbox</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxPlatforms66" name="platform">
+                                    <label class="custom-control-label" for="checkBoxPlatforms66">Xbox</label>
                                 </div>
                             </div>
                             <hr>
@@ -324,17 +324,17 @@
                                 <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                             </button>
                             <div id="collapseCategories1" class="collapse show">
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxCategories11">
-                                    <label class="custom-control-label" for="checkBoxCategories1">Full Game</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxCategories11" name="category">
+                                    <label class="custom-control-label" for="checkBoxCategories11">Full Game</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxCategories21">
-                                    <label class="custom-control-label" for="checkBoxCategories2">DLC</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxCategories22" name="category">
+                                    <label class="custom-control-label" for="checkBoxCategories22">DLC</label>
                                 </div>
-                                <div class="custom-control custom-checkbox row ml-3 my-2">
-                                    <input type="checkbox" class="custom-control-input" id="checkBoxCategories31">
-                                    <label class="custom-control-label" for="checkBoxCategories3">Skin</label>
+                                <div class="custom-control custom-radio row ml-3 my-2">
+                                    <input type="radio" class="custom-control-input" id="checkBoxCategories33" name="category">
+                                    <label class="custom-control-label" for="checkBoxCategories33">Skin</label>
                                 </div>
                             </div>
                             <hr>
