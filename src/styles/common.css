@@ -439,16 +439,31 @@ header.navbar {
     padding: 0 !important;
     padding-top: 1rem !important;
 }
-#hamburguerContentNav{
+#hamburguerContentNavMedium,#hamburguerContentNavSmall{
     background-color:var(--color-background-dark-blue);
     margin: 0;
     padding:0;
     border-color: var(--color-interactive-orange);  
 }
-#hamburguerContentNav .headerIcon {
+#hamburguerContentNavMedium .headerIcon ,#hamburguerContentNavSmall .headerIcon {
     color: var(--color-interactive-orange); 
 }
-#hamburguerContentNav .navbarButton{
+#hamburguerContentNavMedium .navbarButton,#hamburguerContentNavSmall .navbarButton{
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
+    height:3rem;
+    width: 6rem;
+}
+#hamburguerContentNavMedium .navbarButtonSmall,#hamburguerContentNavSmall .navbarButtonSmall{
+    border-color: var(--color-interactive-orange);
+    color: var(--color-interactive-orange);
+    height:2rem;
+    width: 6rem;
+    font-size: 0.8em;
+}
+#hamburguerContentNavSmall .headerIcon{
+    font-size: 0.8em;
+}
+#shoppingCartIconHamburguer{
+    font-size: 1em;
 }

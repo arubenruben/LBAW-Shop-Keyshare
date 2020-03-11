@@ -75,17 +75,23 @@
                                 <a href="cart.php" class="mt-auto mb-auto ml-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
                         </div>
-                        <!--Button Collapse -->
-                        <div class="col d-xl-none text-right pos-f-t">
-                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto d-xl-none" data-toggle="collapse" data-target="#hamburguerContentNav" data-target="#hamburguerContentNav" aria-controls="hamburguerContentNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <!--Button Collapse Medium -->
+                        <div class="col d-none d-lg-block d-xl-none text-right pos-f-t">
+                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto d-sm-none d-xl-none" data-toggle="collapse" data-target="#hamburguerContentNavMedium" data-target="#hamburguerContentNavMedium" aria-controls="hamburguerContentNavMedium" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <!--Button Collapse Small -->
+                        <div class="col d-lg-none text-right pos-f-t">
+                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
                     </header>
                     <!-- Collapse Medium -->
-                    <div id="hamburguerContentNav" class="collapse sticky-top pt-3 pb-3">
+                    <div id="hamburguerContentNavMedium" class="collapse sticky-top pt-3 pb-3">
                         <div class="row w-100">
-                            <div class="col">
+                            <div class="col ml-3">
                                 <div class="row">
                                     <a class="mt-auto mb-auto ml-auto" href="products_list.php">
                                         <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
@@ -94,19 +100,38 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="row justify-content-end">
-                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block ml-auto navbarButton" role="button">Explore</a>
-                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block ml-auto navbarButton" role="button">Sell Now</a>
+                                <div class="row justify-content-end justify-content-lg-around">
+                                    <a href="products_list.php" class="btn btn-outline-light d-none d-sm-block lg-auto navbarButton" role="button">Explore</a>
+                                    <a href="products_list.php" class="btn btn-outline-light d-none d-lg-block lg-auto navbarButton" role="button">Sell Now</a>
                                     <!--Button medium-->
-                                    <button class="btn btn-outline-light mt-auto mb-auto d-none d-md-block" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                    <button class="btn btn-outline-light mt-auto mb-auto d-none d-xl-block navbarButton" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                         <i class="fas fa-user headerIcon d-none d-md-block"></i> Log in
                                     </button>
                                     <!--Button small -->
-                                    <a class="btn mt-auto mb-auto d-md-none ml-5" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                        <i class="fas fa-user headerIcon d-md-none"></i>
+                                    <a class="btn mt-auto mb-auto d-xl-none ml-5 mr-3" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                        <i class="fas fa-user headerIcon"></i>
                                     </a>
                                     <a href="cart.php" class="mt-auto mb-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Collapse Small -->
+                    <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
+                        <div class="col w-100">
+                            <div class="row">
+                                <a class="mt-auto mb-auto ml-auto" href="products_list.php">
+                                    <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                                </a>
+                                <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                            <div class="row flex-nowrap justify-content-around mt-3">
+                                <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                    <i class="fas fa-user headerIcon"></i> Log in
+                                </button>
+                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
+                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>                            
+                                <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
                         </div>
                     </div>
