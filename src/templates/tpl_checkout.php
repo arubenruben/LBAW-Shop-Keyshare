@@ -25,7 +25,7 @@ function drawCheckoutFirstPage()
                     <h5> Total price: <h3>120 €</h3>
                     </h5>
                 </span>
-                <a href="checkout2.php" class="btn btn-primary btn-lg mt-5 checkoutNextButton " role="button"> <span class="d-none d-md-inline">Next </span><i class="fas fa-arrow-right"></i></a>
+                <a href="checkout2.php" class="btn btn-primary btn-lg mt-5 checkoutNextButton " role="button"> <span class="d-none d-md-inline">Your Info</span><i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -62,8 +62,8 @@ function drawCheckoutSecondPage()
             </form>
         </div>
         <div id="checkoutButtonsContainer" class="row">
-            <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Previous </span></a>
-            <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Next </span> <i class="fas fa-arrow-right"></i></a>
+            <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"> </i> <span class="d-none d-md-inline">Review Your Products</span></a>
+            <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Confirm Your Order</span> <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 <?php }
@@ -110,10 +110,9 @@ function drawCheckoutThirdPage()
             </div>
         </div>
         <hr>
-
         <div id="checkoutButtonsContainer" class="row">
-            <a href="checkout2.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Previous </span></a>
-            <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Next </span> <i class="fas fa-arrow-right"></i></a>
+            <a href="checkout2.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Infos</span></a>
+            <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
         </div>
 
 
@@ -154,10 +153,10 @@ function drawProgressBar1()
                 <!--  <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>-->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Request Submitted</li>
-                <li class="section  status-bar-circle">Received Responses</li>
-                <li class="section status-bar-circle">Negotiation Done</li>
-                <li class="section status-bar-circle">Hired Professional</li>
+                <li class="section visited current status-bar-circle">Review Your Products</li>
+                <li class="section  status-bar-circle">Your Info</li>
+                <li class="section status-bar-circle">Confirm Your Order</li>
+                <li class="section status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
@@ -171,10 +170,10 @@ function drawProgressBar2()
             -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Request Submitted</li>
-                <li class="section visited current status-bar-circle">Received Responses</li>
-                <li class="section status-bar-circle">Negotiation Done</li>
-                <li class="section status-bar-circle">Hired Professional</li>
+                <li class="section visited current status-bar-circle">Review Your Products</li>
+                <li class="section visited current status-bar-circle">Your Info</li>
+                <li class="section status-bar-circle">Confirm Your Order</li>
+                <li class="section status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
@@ -189,10 +188,10 @@ function drawProgressBar3()
             -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle">Request Submitted</li>
-                <li class="section visited current status-bar-circle">Received Responses</li>
-                <li class="section visited current status-bar-circle">Negotiation Done</li>
-                <li class="section status-bar-circle">Hired Professional</li>
+                <li class="section visited current status-bar-circle">Review Your Products</li>
+                <li class="section visited current status-bar-circle">Your Info</li>
+                <li class="section visited current status-bar-circle">Confirm Your Order</li>
+                <li class="section status-bar-circle">Transaction Complete</li>
 
             </ul>
         </div>
@@ -210,9 +209,9 @@ function drawProgressBar4()
             </div>
             <ul class="progress-bar-adapted">
                 <li class="section visited current status-bar-circle"></li>
-                <li class="section visited current status-bar-circle">Received Responses</li>
-                <li class="section visited current status-bar-circle">Negotiation Done</li>
-                <li class="section visited current status-bar-circle">Hired Professional</li>
+                <li class="section visited current status-bar-circle">Your Info</li>
+                <li class="section visited current status-bar-circle">Confirm Your Order</li>
+                <li class="section visited current status-bar-circle">Transaction Complete</li>
             </ul>
         </div>
     <?php }
