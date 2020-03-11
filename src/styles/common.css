@@ -255,7 +255,6 @@ header.navbar {
     color: var(--color-background-dark-blue);
 }
 
-.productListSideBarEntry,
 .homepageNavbarEntry {
     margin: 0;
     padding: 0;
