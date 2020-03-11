@@ -90,7 +90,8 @@ function drawCheckoutSecondPage()
             <hr>
             <div id="checkoutButtonsContainer" class="row">
                 <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
-                <a href="checkout3.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
+                  <button id="paypalButton" type="button" class="btn btn-md btn-outline-primary p-0 flex-nowrap"><img src="../../assets/images/paypal/paypalCheckout.png" class="p-0" height="40"></button>
+                <a href="checkout3.php" class="btn btn-outline-dark btn-lg ml-auto mr-4 "><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     <?php }
