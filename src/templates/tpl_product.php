@@ -47,7 +47,7 @@ function drawProduct() { ?>
                 </a>
             </div>
         </div>
-        <div id="offersListing" class="section bg-white p-2">
+        <div id="offersListing" class="section p-2 mt-2 bg-white">
             <div class="row my-3">
                 <div class="col-4">
                     <h3>Offers: 2</h3>
