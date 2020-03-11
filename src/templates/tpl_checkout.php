@@ -6,7 +6,7 @@ function drawCheckoutFirstPage()
         <div class="row">
             <h3>Review Your Products</h3>
         </div>
-        <div class="row d-none d-xl-block">
+        <div class="row d-none d-xl-block pt-4">
             <?php drawProgressBar1(); ?>
         </div>
         <div id="checkoutProductPreviewContainer" class="col">
@@ -39,7 +39,7 @@ function drawCheckoutSecondPage()
             <div class="row">
                 <h3>Your Info</h3>
             </div>
-            <div class="row d-none d-xl-block">
+            <div class="row d-none d-xl-block pt-4">
                 <?php drawProgressBar2(); ?>
             </div>
             <div class="row">
@@ -78,7 +78,7 @@ function drawCheckoutThirdPage()
             <div class="row">
                 <h3>Confirm Your Order</h3>
             </div>
-            <div class="row d-none d-xl-block">
+            <div class="row d-none d-xl-block pt-4">
                 <?php drawProgressBar3(); ?>
             </div>
             <div id="checkoutProductPreviewContainer" class="row">
@@ -118,38 +118,34 @@ function drawCheckoutThirdPage()
                 <a href="checkout4.php" class="btn btn-primary btn-lg ml-auto mr-4 checkoutNextButton"><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-
-
     <?php }
 function drawCheckoutFourthPage($sucess = true)
 { ?>
         <div id="content" class="container">
-            <div class="col">
+            <div class="col my-auto">
                 <!--Only draw ProgressBar when is XL. Not responsive-->
-                <div class="row d-none d-xl-block">
+                <div class="row d-none d-xl-block pt-4">
                     <?php drawProgressBar4(); ?>
                 </div>
-                <div id="checkoutPlaceHolderTop" class="row"></div>
-                <div id="checkoutButtonsContainer" class="col text-center">
-                    <?php
-                    if ($sucess === true) { ?>
-                        <i id="checkoutStatusEmojiTrue" class="fas fa-check-circle mb-2"></i>
-                        <h3 id="checkoutStatusTitleTrue">Sucess</h3>
-                    <?php
-                    } else { ?>
-                        <i id="checkoutStatusEmojiFalse" class="fas fa-times-circle mb-2"></i>
-                        <h3 id="checkoutStatusTitle">Fail</h3>
-                    <?php
-                    }  ?>
-                    <a href="user.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to My Account</a>
+                <div id="checkoutButtonsContainer" class="row">
+                    <div class="col text-center mt-auto mb-auto">
+                        <?php
+                        if ($sucess === true) { ?>
+                            <i id="checkoutStatusEmojiTrue" class="fas fa-check-circle mb-2"></i>
+                            <h1 id="checkoutStatusTitleTrue">Sucess</h1>
+                        <?php
+                        } else { ?>
+                            <i id="checkoutStatusEmojiFalse" class="fas fa-times-circle mb-2"></i>
+                            <h3 id="checkoutStatusTitle">Fail</h3>
+                        <?php
+                        }  ?>
+                        <a href="user.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to My Account</a>
+                    </div>
                 </div>
-                <div id="checkoutPlaceHolderBottom" class="row"></div>
             </div>
         </div>
     <?php
 }
-
-
 function drawProgressBar1()
 { ?>
         <div class="progress-bar-wrapper">
@@ -196,7 +192,6 @@ function drawProgressBar3()
                 <li class="section visited current status-bar-circle">Your Info</li>
                 <li class="section visited current status-bar-circle">Confirm Your Order</li>
                 <li class="section status-bar-circle">Transaction Complete</li>
-
             </ul>
         </div>
     <?php }
@@ -210,7 +205,7 @@ function drawProgressBar4()
             -->
             </div>
             <ul class="progress-bar-adapted">
-                <li class="section visited current status-bar-circle"></li>
+                <li class="section visited current status-bar-circle">Review Your Products</li>
                 <li class="section visited current status-bar-circle">Your Info</li>
                 <li class="section visited current status-bar-circle">Confirm Your Order</li>
                 <li class="section visited current status-bar-circle">Transaction Complete</li>
