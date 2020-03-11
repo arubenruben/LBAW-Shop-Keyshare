@@ -6,7 +6,7 @@ function drawOffer()
     <div id="content" class="container">
         <div class="row mt-5">
             <div class="col">
-                <h3>Choose Game</h3>
+                <h3>Choose a Game</h3>
                 <div class="row">
                     <div class="col-5 mt-3">
                         <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png" />
