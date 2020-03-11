@@ -4,7 +4,7 @@ function drawCheckoutFirstPage()
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
         <div class="col">
-            <div class="row mt-5">
+            <div class="row mt-5 px-3">
                 <h3>Your Info</h3>
             </div>
             <div class="row d-none d-xl-block pt-4">
@@ -47,17 +47,17 @@ function drawCheckoutFirstPage()
 
 function drawCheckoutSecondPage()
 { ?>
-    <div id="content" class="container">
+    <div id="content" class="container mt-5">
         <!--Only draw ProgressBar when is XL. Not responsive-->
         <div class="col">
-            <div class="row">
+            <div class="row px-3">
                 <h3>Confirm Your Order</h3>
             </div>
             <div class="row d-none d-xl-block pt-4">
                 <?php drawProgressBar2(); ?>
             </div>
-            <div id="checkoutProductPreviewContainer" class="row">
-                <?php drawCart(); ?>
+            <div id="checkoutProductPreviewContainer mb-0" class="row">
+                <?php drawCartCheckout(); ?>
             </div>
             <hr>
             <div class="row">
@@ -79,9 +79,9 @@ function drawCheckoutSecondPage()
             </div>
             <hr>
             <div id="checkoutButtonsContainer" class="row">
-                <a href="checkout1.php" class="btn btn-primary btn-lg mr-auto ml-4 checkoutBackButton"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
-                  <button id="paypalButton" type="button" class="btn btn-md btn-outline-primary p-0 flex-nowrap"><img src="../../assets/images/paypal/paypalCheckout.png" class="p-0" height="40"></button>
-                <a href="checkout3.php" class="btn btn-outline-dark btn-lg ml-auto mr-4 "><span class="d-none d-md-inline">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i></a>
+                <a href="checkout1.php" class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
+                  <a id="paypalButton"  href="checkout3.php" role="button" class="btn btn-lg px-4  btn-outline-primary">  <img src="../../assets/images/paypal/paypalLogo.png" height="25"> <strong class="mr-2 d-none d-sm-inline-block" style="color: black; ">Pay with Paypal</strong> </a>
+    
             </div>
         </div>
     <?php }
