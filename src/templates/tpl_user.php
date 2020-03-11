@@ -1,3 +1,55 @@
+<!-- user navbar -->
+<?php function drawUserNavBar($page)
+{
+    switch ($page) {
+        case "account": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2" style="border: none">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
+                </li>
+            </ul>
+        <?php
+            break;
+        case "offers": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2 cl-white text-white" style="border: none">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge badge-secondary">7</span></button></a>
+                </li>
+            </ul>
+        <?php
+            break;
+        case "purchases": ?>
+            <ul class="nav nav-tabs  justify-content-center p-2 btn text-white" style="border: none">
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link  btn-blue deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
+                </li>
+                <li class="nav-item mr-3 ml-3">
+                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
+                </li>
+            </ul>
+    <?php
+            break;
+        default:
+            break;
+    } ?>
+<?php } ?>
+
+<!-- user tabs -->
 <?php function drawUserDetails()
 {
     drawUserNavBar("account"); ?>
@@ -546,7 +598,6 @@
 <?php } ?>
 
 <!-- user popups -->
-
 <?php function drawKeyPopup()
 { ?>
     <div id="modalSeeKey" class="modal fade" role="dialog">
@@ -659,55 +710,4 @@
             </div>
         </div>
     </div>
-<?php } ?>
-
-<!-- user navbar -->
-<?php function drawUserNavBar($page)
-{
-    switch ($page) {
-        case "account": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2" style="border: none">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
-                </li>
-            </ul>
-        <?php
-            break;
-        case "offers": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2 cl-white text-white" style="border: none">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge badge-secondary">7</span></button></a>
-                </li>
-            </ul>
-        <?php
-            break;
-        case "purchases": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2 btn text-white" style="border: none">
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="user.php"><button class="btn btn-blue">Account</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link  btn-blue deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
-                </li>
-                <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary">7</span></button></a>
-                </li>
-            </ul>
-    <?php
-            break;
-        default:
-            break;
-    } ?>
 <?php } ?>
