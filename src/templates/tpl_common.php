@@ -227,15 +227,15 @@
             <div class="modal-content">
                 <!-- authentication popup header -->
                 <div class="bs-example bs-example-tabs">
-                    <ul id="myTab" class="nav nav-tabs">
-                        <li class="active ml-auto mr-auto my-2"><a href="#signin" class="cl-orange" data-toggle="tab">Sign In</a></li>
-                        <li class="ml-auto mr-auto my-2"><a href="#signup" class="cl-orange" data-toggle="tab">Sign Up</U></a></li>
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li class="active ml-auto mr-auto my-2"><a href="#signin" class="nav-link cl-orange" data-toggle="tab" role="tab" aria-controls="signin" aria-selected="true">Sign In</a></li>
+                        <li class="ml-auto mr-auto my-2"><a href="#signup" class="nav-link cl-orange" data-toggle="tab" role="tab" aria-controls="signup" aria-selected="false">Sign Up</U></a></li>
                     </ul>
                 </div>
                 <!-- modal body-->
                 <div class="modal-body">
                     <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="signin">
+                        <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin">
                             <form class="form-horizontal">
                                 <fieldset>
                                     <!-- Sign In Form -->
@@ -263,7 +263,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                        <div class="tab-pane fade" id="signup">
+                        <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
                             <form class="form-horizontal">
                                 <fieldset>
                                     <!-- Sign Up Form -->
