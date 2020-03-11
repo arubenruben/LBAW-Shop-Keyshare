@@ -62,7 +62,7 @@
                     <div class="col-md-3 d-none d-md-block">
                         <div class="row">
                             <a href="products_list.php" class="btn btn-outline-light ml-auto mr-2 pl-3 pr-3 d-none d-lg-block" role="button">Explore</a>
-                            <a id="headerSellButton" href="offer.php" class="btn btn-secondary ml-3 pl-3 pr-3" role="button">Sell Now</a>
+                            <a href="offer.php" class="btn btn-orange ml-3 pl-3 pr-3" role="button">Sell Now</a>
                         </div>
                     </div>
                     <!-- profile & cart -->

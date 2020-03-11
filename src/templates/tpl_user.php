@@ -158,7 +158,7 @@
                         <h4 class="text-left">Current Offers<span class="badge badge-secondary">4</span></h4>
                     </div>
                     <div class="col-sm-3">
-                        <button id="headerSellButton" type="button" class="btn p-2 btn-sm btn btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
+                        <button type="button" class="btn p-2 btn-sm btn-orange btn-block text-white"><i class="fas fa-plus"></i> Add offer</button>
                     </div>
                 </div>
                 <div class="container mt-3 mb-3">

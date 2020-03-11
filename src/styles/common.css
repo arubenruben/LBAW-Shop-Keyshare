@@ -77,11 +77,6 @@ header.navbar {
     border-style: none;
 }
 
-#headerSellButton {
-    background-color: var(--color-interactive-orange);
-    border-style: none;
-}
-
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 /* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
 
@@ -96,18 +91,6 @@ header.navbar {
     max-height: 2em;
     background-color: wheat;
 }
-
-#submitOfferButton {
-    background-color: var(--color-interactive-orange);
-    border: 0;
-}
-
-
-/*
-.cartProductImage{
-
-}
-*/
 
 #headerFixed {
     position: -webkit-sticky;
