@@ -32,16 +32,12 @@
 		</div>
 		<!-- most popular -->
 		<div class="row ml-3">
-			<div class="col">
-				<div class="row mt-2">
-					<h5 class="title"> Most Popular <a href="products_list.php"><small class="ml-3"> See all</small></a></h5>
-				</div>
+			<div class="col-8 pl-0">
+                <h5 class="title"> Most Popular <a href="products_list.php"><small class="ml-3 d-inline-block"> See all</small></a></h5>
 			</div>
-			<div class="col mr-4">
-				<div class="row">
-					<button id="side-btn" type="button" class="btn btn-light rounded-circle ml-auto" onclick="blur();"><i class="fas fa-angle-left"></i></button>
-					<button id="side-btn1" type="button" class="btn btn-light rounded-circle" onclick="blur();"><i class="fas fa-angle-right"></i></button>
-				</div>
+			<div class="col-4 pl-0 d-flex justify-content-end my-auto mw-100 mh-100">
+                <button id="side-btn" type="button" class="btn btn-light rounded-circle" onclick="blur();"><i class="fas fa-angle-left"></i></button>
+                <button id="side-btn1" type="button" class="btn btn-light rounded-circle" onclick="blur();"><i class="fas fa-angle-right"></i></button>
 			</div>
 		</div>
 		<div class="col mb-5">
@@ -85,16 +81,12 @@
 		</div>
 		<!-- most recent -->
 		<div class="row mt-5 ml-3">
-			<div class="col">
-				<div class="row">
-					<h5 class="title"> Most Recents <a href="products_list.php"><small class="ml-3"> See all</small></a></h5>
-				</div>
+        <div class="col-8 pl-0">
+                <h5 class="title"> Most Recents <a href="products_list.php"><small class="ml-3 d-inline-block"> See all</small></a></h5>
 			</div>
-			<div class="col mr-4">
-				<div class="row">
-					<button id="side-btn" type="button" class="btn btn-light rounded-circle ml-auto" onclick="blur();"><i class="fas fa-angle-left"></i></button>
-					<button id="side-btn1" type="button" class="btn btn-light rounded-circle" onclick="blur();"><i class="fas fa-angle-right"></i></button>
-				</div>
+			<div class="col-4 pl-0 d-flex justify-content-end my-auto mw-100 mh-100">
+                <button id="side-btn" type="button" class="btn btn-light rounded-circle ml-auto" onclick="blur();"><i class="fas fa-angle-left"></i></button>
+                <button id="side-btn1" type="button" class="btn btn-light rounded-circle" onclick="blur();"><i class="fas fa-angle-right"></i></button>
 			</div>
 		</div>
 		<div class="col mb-5">
