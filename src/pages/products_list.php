@@ -4,7 +4,7 @@
 
     drawHead();
     drawHeader(0);
-    drawBreadcrumb('Listings');
+    drawNavbar(4,'Search Results');
     drawProductList();
     drawFooter();
 ?>

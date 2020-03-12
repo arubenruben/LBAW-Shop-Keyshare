@@ -4,7 +4,7 @@
 
     drawHead();
     drawHeader(0);
-    drawBreadcrumb('My Offers');
+    drawNavbar(4,'My Offers');
     drawUserOffers();
     drawFooter();
 ?>

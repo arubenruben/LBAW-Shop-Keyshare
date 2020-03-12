@@ -6,7 +6,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
-	drawBreadcrumb('My Cart');
+	drawNavbar(4,'Cart');
 	drawCart();
 	drawFooter(); 
 ?>

@@ -5,7 +5,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
-	drawBreadcrumb('Contact us');
+	drawNavbar(4,'Contact');
     drawContact();
     drawFooter();
 ?>

@@ -5,7 +5,7 @@
     
     drawHead(['activate_popovers.js']);
     drawHeader(0);
-    drawBreadcrumb('User Profile');
+    drawNavbar(4,'Ruben Almeida');
     drawOtherUserDetails();
     drawFooter();
 ?>

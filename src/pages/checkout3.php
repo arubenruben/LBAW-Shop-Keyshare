@@ -4,7 +4,7 @@
     
     drawHead();
     drawHeader(0);
-    drawBreadcrumb('Checkout');
+    drawNavbar(4,'Checkout');
     drawCheckoutThirdPage();
     drawFooter();
 ?>
