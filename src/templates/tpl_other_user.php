@@ -63,12 +63,11 @@
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
                 <div class="row px-3">
-                    <div class="col-sm-9 " style=" display:flex;
-    align-items: center;">
+                    <div class="col-sm-9 " style=" display:flex; align-items: center;">
                         <h4 class="text-left">lockdownpt Offers <span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
-
                 </div>
+
                 <div class="container mt-3 mb-3">
                     <div class="row ">
                         <div class="col-12">
@@ -231,8 +230,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -281,7 +278,7 @@
                     <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue">lockdownpt</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
+                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full active">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
                 </li>
             </ul>
 <?php
