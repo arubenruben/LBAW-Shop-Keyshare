@@ -6,7 +6,7 @@
                 <h4>My Cart <span class="badge badge-secondary align-left">7</span></h4>
             </div>
             <div class="col-6 text-right">
-                <a class="btn btn-orange deleteButtonCheckout align-right" href="checkout1.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Checkout </span></a>
+                <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="checkout1.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-money-check-alt"></i> <span> Checkout</span></a>
             </div>
 
             <div class="col-sm-6 text-right">

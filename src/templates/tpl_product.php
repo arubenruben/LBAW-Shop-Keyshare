@@ -58,7 +58,7 @@
                                     <div class="py-2 text-uppercase">Price</div>
                                 </th>
                                 <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-2 text-uppercase">Add to Cart</div>
+                                    <div class="py-3 text-uppercase"></div>
                                 </th>
                             </tr>
                         </thead>
