@@ -46,6 +46,7 @@
         </div>
 
         <div class="row" id="offersListing">
+             <?php drawFeedbackPopup(1); ?>
             <div class="col-sm-12">
                 <div class="table-responsive table-striped mt-3">
                     <table id="userOffersTable" class="table p-0">
@@ -81,7 +82,7 @@
     <tr class="offer">
         <td scope="row" class="border-0 align-middle">
             <div class="p-2 m-0" data-toggle="modal" data-target=".bd-modal-lg<?=$id?>">
-                <?php drawFeedbackPopup($id); ?>
+
                 <h4 class="seller">bestseller439</h4>
                 <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i> 99%</span>
                     | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys
