@@ -49,6 +49,9 @@
     } ?>
 <?php } ?>
 
+<!-- GITLAB É ESTUPIDO -->
+
+
 <!-- user tabs -->
 <?php function drawUserDetails()
 {
