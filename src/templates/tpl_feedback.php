@@ -15,7 +15,6 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <!-- modal body -->
                 <div class="modal-body">
                     <!-- feedback header -->

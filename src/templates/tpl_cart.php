@@ -3,7 +3,6 @@
     <div id="content" class="container mt-5">
         <div class="row">
             <div class="col-sm-6 text-left">
-                
                 <h4>My Cart <span class="badge badge-secondary">7</span></h4>
             </div>
 
@@ -56,7 +55,6 @@
     <div id="content" class="container mt-4 pb-0">
         <div class="row">
             <div class="col-sm-6 text-left">
-                
                 <h4>My Cart <span class="badge badge-secondary">7</span></h4>
             </div>
         </div>
