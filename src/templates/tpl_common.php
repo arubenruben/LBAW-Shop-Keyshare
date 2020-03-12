@@ -65,7 +65,8 @@
                         <div class="col d-none d-xl-block mt-auto mb-auto">
                             <div class="row justify-content-end">
                                 <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
-                                <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4 navbarButton" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                <a id="sellNowButtonNavbar"href="products_list.php" class="btn btn-outline-light navbarButton pl-4 pr-4" role="button">Sell Now</a>
+                                <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
                             </div>
@@ -97,7 +98,7 @@
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
                                 <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
-                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
+                                <a id="sellNowButtonNavbar" href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
                                 <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                             </div>
                         </div>
