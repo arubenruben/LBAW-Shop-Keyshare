@@ -3,7 +3,7 @@
 {
     switch ($page) {
         case "account": ?>
-            <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap" style="border: none">
+            <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                 <li class="nav-item">
                     <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
                 </li>
@@ -17,29 +17,29 @@
         <?php
             break;
         case "offers": ?>
-            <ul class="nav nav-tabs justify-content-between p-2 cl-white text-white" style="border: none">
+            <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2" href="user.php"><button class="btn btn-blue">Account</button></a>
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue">Account</button></a>
                 </li>
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue active">Purchases</button></a>
                 </li>
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge d-none d-sm-inline-block badge-secondary">7</span></button></a>
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                 </li>
             </ul>
         <?php
             break;
         case "purchases": ?>
-            <ul class="nav nav-tabs  justify-content-center p-2 btn text-white" style="border: none">
-                <li class="nav-item mr-3 ml-3 navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2" href="user.php"><button class="btn btn-blue">Account</button></a>
+            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-2 btn text-white">
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue">Account</button></a>
                 </li>
-                <li class="nav-item mr-3 ml-3 navUserItem">
-                    <a class="nav-link  btn-blue deco-none ml-2 mr-2" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
                 </li>
-                <li class="nav-item mr-3 ml-3 navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge ml-1 d-none d-sm-inline-block badge-secondary">7</span></button></a>
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue active">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                 </li>
             </ul>
     <?php
