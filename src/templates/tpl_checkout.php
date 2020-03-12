@@ -1,5 +1,4 @@
-<?php
-function drawCheckoutFirstPage()
+<?php function drawCheckoutFirstPage()
 { ?>
     <div id="content" class="container">
         <!--Only draw ProgressBar when is XL. Not responsive-->
