@@ -82,12 +82,6 @@ header.navbar {
     border-style: none;
 }
 
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
 #offerAddNewKeyContainer,
 #offerAddNewSaleContainer {
     font-size: 1.5em;
@@ -105,12 +99,6 @@ header.navbar {
     border: 0;
 }
 
-
-/*
-.cartProductImage{
-
-}
-*/
 #headerFixed {
     position: -webkit-sticky;
     position: sticky;
@@ -313,7 +301,6 @@ header.navbar {
     width: 80%;
 }
 
-
 /* buttons css */
 
 .btn.btn-orange {
@@ -358,7 +345,6 @@ header.navbar {
     }
 }
 
-
 /* cards css */
 
 .card {
@@ -375,7 +361,6 @@ header.navbar {
     -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
-
 
 /* color css */
 
@@ -407,7 +392,6 @@ header.navbar {
     color: var(--color-background-white);
 }
 
-
 /* backgrounds css */
 
 .bg-orange {
@@ -429,7 +413,6 @@ header.navbar {
 .bg-white {
     background-color: var(--color-background-white);
 }
-
 
 /* scrollable table */
 

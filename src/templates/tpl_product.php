@@ -88,7 +88,7 @@
                 </span>
             </div>
         </td>
-        <td class="text-center"><strong>$39.00</strong></td>
+        <td class="text-center align-middle"><strong>$39.00</strong></td>
         <td class="text-center align-middle">
             <div class="btn-group-justified">
             <button class="btn btn-orange animationButton" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Add to Cart </span></button>
