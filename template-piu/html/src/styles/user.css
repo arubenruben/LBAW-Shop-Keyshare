@@ -1,0 +1,21 @@
+#reportBorderInfo {
+    border-right: 1px dashed lightgrey;
+}
+
+#paypalButton:hover {
+    background-color: orange;
+}
+
+#paypalButton:default {
+    border: blue;
+}
+
+#deleteAccountButton:hover {
+    background-color: var(--color-interactive-red-fail);
+    color: white;
+    border: none;
+}
+
+.badge.marginBadge {
+    margin-left: 10px;
+}
