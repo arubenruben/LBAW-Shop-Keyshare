@@ -1,0 +1,29 @@
+:root{
+    
+    /*Fonts*/
+    --font-default-sans-serif: 'Montserrat';
+    --font-default-serif:'Arvo';
+    
+    /*Colors*/
+
+    /*primaries*/
+    --color-primary-light-blue: #A2A6AA;
+    --color-primary-black:#171717;
+
+    /*accent*/
+    --color-accent-green:#65AA8E;
+    
+    /*interactive*/
+    --color-interactive-orange:#EB9D16;
+    --color-interactive-orange2:#E0920B;
+    --color-interactive-red-fail:#FF5A5F;
+    --color-interactive-green-success:#2cc36d;
+    --color-interactive-blue:#007bff;
+    
+    /*background*/
+    /*Header+Navbar*/
+    --color-background-dark-blue:#15303A;
+    /*Main background*/
+    --color-background-white:#EDF1F2;
+
+}
