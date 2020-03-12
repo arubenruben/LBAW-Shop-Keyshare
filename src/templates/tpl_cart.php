@@ -3,10 +3,10 @@
     <div id="content" class="container mt-5">
         <div class="row">
             <div class="col-6 text-left">
-                    <h4>My Cart <span class="badge badge-secondary align-left">7</span></h4>
+                <h4>My Cart <span class="badge badge-secondary align-left">7</span></h4>
             </div>
             <div class="col-6 text-right">
-                <button class="btn btn-orange deleteButtonCheckout align-right" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Checkout </span></button>
+                <a class="btn btn-orange deleteButtonCheckout align-right" href="checkout1.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Checkout </span></a>
             </div>
 
             <div class="col-sm-6 text-right">
@@ -103,7 +103,7 @@ function drawCartEntry()
             <div class="p-2">
                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                 <div class="ml-3 d-inline-block align-middle">
-                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
             </div>
         </td>
