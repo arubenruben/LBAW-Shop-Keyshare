@@ -298,7 +298,6 @@ header.navbar {
     background-color: var(--color-interactive-orange);
     color: white;
 }
-
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
     color: white;
@@ -309,7 +308,6 @@ header.navbar {
     border: solid 1px var(--color-background-dark-blue);
     color: var(--color-background-dark-blue);
 }
-
 .btn.btn-blue:hover {
     background-color: var(--color-background-dark-blue);
     color: white;
@@ -317,6 +315,16 @@ header.navbar {
 
 .btn.btn-blue-full {
     background-color: var(--color-background-dark-blue);
+    color: white;
+}
+
+.btn.btn-red {
+    background-color: inherit;
+    border: solid 1px var(--color-interactive-red-fail);
+    color: var(--color-interactive-red-fail);
+}
+.btn.btn-red:hover {
+    background-color: var(--color-interactive-red-fail);
     color: white;
 }
 
@@ -472,8 +480,6 @@ td {
 
 #hamburguerContentNavMedium .navbarButton,
 #hamburguerContentNavSmall .navbarButton {
-    border-color: var(--color-interactive-orange);
-    color: var(--color-interactive-orange);
     height: 3rem;
     width: 6rem;
 }
@@ -491,13 +497,6 @@ td {
 
 #shoppingCartIconHamburguer {
     font-size: 1em;
-}
-
-#sellNowButtonNavbar.navbarButton,
-#sellNowButtonNavbar.navbarButtonSmall {
-    background-color: var(--color-interactive-orange);
-    color: white;
-    border: none;
 }
 
 li.section.visited.current.status-bar-circle:before {
