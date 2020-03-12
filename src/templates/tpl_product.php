@@ -58,7 +58,7 @@
                                     <div class="py-2 text-uppercase">Price</div>
                                 </th>
                                 <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-2 text-uppercase">Remove</div>
+                                    <div class="py-3 text-uppercase"></div>
                                 </th>
                             </tr>
                         </thead>
@@ -90,7 +90,7 @@
         <td class="text-center align-middle"><strong>$39.00</strong></td>
         <td class="text-center align-middle">
             <div class="btn-group-justified">
-            <button class="btn btn-orange animationButton" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Add to Cart </span></button>
+            <button class="btn btn-orange" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </td>
     </tr>
