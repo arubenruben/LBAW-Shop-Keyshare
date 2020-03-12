@@ -507,3 +507,6 @@ li.section.visited.current.status-bar-circle:before {
 li.section.status-bar-circle:before {
     z-index: 0;
 }
+#userNavbar .userNavbarItem{
+    padding: 0;
+}
