@@ -65,7 +65,7 @@
                         <div class="col d-none d-xl-block mt-auto mb-auto">
                             <div class="row justify-content-end">
                                 <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
-                                <a id="sellNowButtonNavbar"href="products_list.php" class="btn btn-outline-light navbarButton pl-4 pr-4" role="button">Sell Now</a>
+                                <a href="products_list.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
                                 <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                     <i class="fas fa-user headerIcon"></i> Log in
                                 </button>
