@@ -128,10 +128,6 @@
                                 <span class="invisible">Easter egg</span>
                             </div>
 
-                            <div class="mb-5 mt-5 text-center">
-                                <span class="invisible">Easter egg</span>
-                            </div>
-
                             <div class="mb-5 mt-5 text-center flex-nowrap">
                                 <button id="deleteAccountButton" data-toggle="modal" data-target="#modalConfirm" type="button" class="btn btn-sm btn-blue d-inline-block"><i class="fas fa-user-slash"></i> <span class="d-inline-block"> Delete Account</span></button>
                             </div>
