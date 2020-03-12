@@ -386,4 +386,10 @@
         </div>
     </body>
     </html>
+<?php } 
+
+function drawAdminFooter() { ?>
+    
+    
+    
 <?php } ?>
