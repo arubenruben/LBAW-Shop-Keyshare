@@ -15,3 +15,7 @@
             max-width: 7rem;
         }
     }
+    
+    .checkout1 .status-bar-circle:first-of-type {
+        margin-left: 18em;
+    }

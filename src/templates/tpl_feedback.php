@@ -11,7 +11,7 @@
                     <div class="col m-auto">
                         <a href="otherUser.php" class="btn btn-blue"><i class="fas fa-user-alt"></i> View profile</a>
                     </div>
-                    <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
+                    <button class="close m-0" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-blue">Load More</button>
+                    <button class="btn btn-blue">Load More</button>
                 </div>
             </div>
         </div>

@@ -120,7 +120,7 @@
                                 <label for="">Paypal</label>
                                 <div class="text-right mt-0 flex-nowrap">
                                     <input type="password" class="form-control userDetailsForm mb-3 d-inline-block" placeholder="Paypal Email - None" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
-                                    <button id="paypalButton" type="button" class="btn btn-md px-4 py-1 btn-outline-primary"><img src="../../assets/images/paypal/paypal.png" height="25"></button>
+                                    <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"><img src="../../assets/images/paypal/paypal.png" height="23"></button>
                                 </div>
                             </div>
 
@@ -646,7 +646,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i>Yes</button></div>
-                    <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-times mr-2"></i>Cancel</button></div>
+                    <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Cancel</button></div>
                 </div>
             </div>
         </div>

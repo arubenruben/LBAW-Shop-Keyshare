@@ -22,7 +22,7 @@
                 </div>
                 <div class="row mt-2 mb-5">
                     <div class="col-sm-12 text-center">
-                        <button type="button" data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm mt-2 ">See all feedback</button>
+                        <button data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm mt-2 ">See all feedback</button>
                     </div>
                 </div>
             </div>
@@ -249,7 +249,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirm changes?</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-footer">
                     <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i>Yes</button></div>
