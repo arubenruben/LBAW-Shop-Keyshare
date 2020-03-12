@@ -292,11 +292,6 @@ header.navbar {
     border-color: transparent;
 }
 
-#checkoutPage4 {
-    font-size: 4em;
-    height: 40vmax;
-}
-
 
 /* buttons css */
 
@@ -342,6 +337,7 @@ header.navbar {
     }
 }
 
+
 /* cards css */
 
 .card {
@@ -358,6 +354,7 @@ header.navbar {
     -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
+
 
 /* color css */
 
@@ -389,6 +386,7 @@ header.navbar {
     color: var(--color-background-white);
 }
 
+
 /* backgrounds css */
 
 .bg-orange {
@@ -410,6 +408,7 @@ header.navbar {
 .bg-white {
     background-color: var(--color-background-white);
 }
+
 
 /* scrollable table */
 
@@ -471,14 +470,18 @@ td {
     padding: 0;
     border-color: var(--color-interactive-orange);
 }
-#hamburguerContentNavMedium .navbarButton,#hamburguerContentNavSmall .navbarButton{
+
+#hamburguerContentNavMedium .navbarButton,
+#hamburguerContentNavSmall .navbarButton {
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
     height: 3rem;
     width: 6rem;
 }
-#hamburguerContentNavMedium .navbarButtonSmall,#hamburguerContentNavSmall .navbarButtonSmall{
-    height:2rem;
+
+#hamburguerContentNavMedium .navbarButtonSmall,
+#hamburguerContentNavSmall .navbarButtonSmall {
+    height: 2rem;
     width: 6rem;
     font-size: 0.8em;
 }
@@ -490,7 +493,9 @@ td {
 #shoppingCartIconHamburguer {
     font-size: 1em;
 }
-#sellNowButtonNavbar.navbarButton,#sellNowButtonNavbar.navbarButtonSmall{
+
+#sellNowButtonNavbar.navbarButton,
+#sellNowButtonNavbar.navbarButtonSmall {
     background-color: var(--color-interactive-orange);
     color: white;
     border: none;
