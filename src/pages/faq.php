@@ -5,7 +5,7 @@
 	//page
 	drawHead();
 	drawHeader(0);
-	drawBreadcrumb('Help');
+	drawNavbar(4,'FAQ');
     drawFAQ();
     drawFooter();
 ?>

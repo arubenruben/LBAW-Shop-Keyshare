@@ -2,13 +2,14 @@
 { ?>
     <div id="content" class="container mt-5">
         <div class="row">
-            <div class="col-sm-6 text-left">
-                
-                <h4>My Cart <span class="badge badge-secondary">7</span></h4>
+            <div class="col-6 text-left">
+                    <h4>My Cart <span class="badge badge-secondary align-left">7</span></h4>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-orange animationButton align-right" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-shopping-cart"></i> <span> Checkout </span></button>
             </div>
 
             <div class="col-sm-6 text-right">
-                <a href="checkout1.php" class="btn btn-orange" role="button"><span class="d-none d-md-inline-block"> Proceed to checkout </span></a>
             </div>
         </div>
         <div class="row">
@@ -56,7 +57,6 @@
     <div id="content" class="container mt-4 pb-0">
         <div class="row">
             <div class="col-sm-6 text-left">
-                
                 <h4>My Cart <span class="badge badge-secondary">7</span></h4>
             </div>
         </div>
@@ -111,7 +111,7 @@ function drawCartEntry()
         <td class="text-center align-middle"><strong>$79.00</strong></td>
         <td class="align-middle">
             <div class="btn-group-justified btn-group-md">
-                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                <button class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
             </div>
         </td>
     </tr>

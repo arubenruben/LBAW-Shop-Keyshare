@@ -82,12 +82,6 @@ header.navbar {
     border-style: none;
 }
 
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
-
-/* meter isto noutra pag css visto que common e sp para o que tem em todas as pasgs */
-
 #offerAddNewKeyContainer,
 #offerAddNewSaleContainer {
     font-size: 1.5em;
@@ -104,13 +98,6 @@ header.navbar {
     background-color: var(--color-interactive-orange);
     border: 0;
 }
-
-
-/*
-.cartProductImage{
-
-}
-*/
 
 #headerFixed {
     position: -webkit-sticky;
@@ -289,7 +276,7 @@ header.navbar {
     left: 0px;
 }
 
-#checkoutProductPreviewContainer .deleteButtonCheckout:hover {
+#checkoutProductPreviewContainer .animationButton:hover {
     background-color: var(--color-interactive-red-fail);
     transition-duration: 0.4s;
     border: none;
@@ -339,6 +326,21 @@ header.navbar {
     color: white;
 }
 
+.animationButton span {
+    max-width: 0;
+    -webkit-transition: max-width 1s;
+    transition: max-width 1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 800px) {
+    .animationButton:hover span {
+        max-width: 7rem;
+    }
+}
 
 /* cards css */
 
@@ -356,7 +358,6 @@ header.navbar {
     -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
-
 
 /* color css */
 
@@ -388,7 +389,6 @@ header.navbar {
     color: var(--color-background-white);
 }
 
-
 /* backgrounds css */
 
 .bg-orange {
@@ -410,7 +410,6 @@ header.navbar {
 .bg-white {
     background-color: var(--color-background-white);
 }
-
 
 /* scrollable table */
 
@@ -472,25 +471,14 @@ td {
     padding: 0;
     border-color: var(--color-interactive-orange);
 }
-
-#hamburguerContentNavMedium .headerIcon,
-#hamburguerContentNavSmall .headerIcon {
-    color: var(--color-interactive-orange);
-}
-
-#hamburguerContentNavMedium .navbarButton,
-#hamburguerContentNavSmall .navbarButton {
+#hamburguerContentNavMedium .navbarButton,#hamburguerContentNavSmall .navbarButton{
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
     height: 3rem;
     width: 6rem;
 }
-
-#hamburguerContentNavMedium .navbarButtonSmall,
-#hamburguerContentNavSmall .navbarButtonSmall {
-    border-color: var(--color-interactive-orange);
-    color: var(--color-interactive-orange);
-    height: 2rem;
+#hamburguerContentNavMedium .navbarButtonSmall,#hamburguerContentNavSmall .navbarButtonSmall{
+    height:2rem;
     width: 6rem;
     font-size: 0.8em;
 }
@@ -502,10 +490,10 @@ td {
 #shoppingCartIconHamburguer {
     font-size: 1em;
 }
-
-#headerFixed .navbarButton {
-    border-color: var(--color-interactive-orange);
-    color: var(--color-interactive-orange);
+#sellNowButtonNavbar.navbarButton,#sellNowButtonNavbar.navbarButtonSmall{
+    background-color: var(--color-interactive-orange);
+    color: white;
+    border: none;
 }
 
 li.section.visited.current.status-bar-circle:before {

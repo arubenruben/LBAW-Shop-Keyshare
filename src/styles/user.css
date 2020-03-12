@@ -11,7 +11,7 @@
 }
 
 #deleteAccountButton:hover {
-    background-color: red;
+    background-color: var(--color-interactive-red-fail);
     color: white;
     border: none;
 }

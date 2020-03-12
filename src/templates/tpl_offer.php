@@ -1,8 +1,4 @@
-<?php
-include_once('../templates/tpl_common.php');
-
-function drawOffer()
-{ ?>
+<?php function drawOffer(){ ?>
     <div id="content" class="container">
         <div class="row mt-5">
             <div class="col">
