@@ -646,7 +646,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i>Yes</button></div>
-                    <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-times mr-2"></i>Cancel</button></div>
+                    <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Cancel</button></div>
                 </div>
             </div>
         </div>

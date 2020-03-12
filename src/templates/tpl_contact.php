@@ -13,7 +13,7 @@
                     <div class="row my-3 mx-2">
                         <textarea class="form-control" rows="5" placeholder="message"></textarea>
                     </div>
-                    <button type="button" class="btn btn-outline-dark ml-auto mr-2 pl-3 pr-3"> Send </button>
+                    <button class="btn btn-outline-dark ml-auto mr-2 pl-3 pr-3"> Send </button>
                 </form>
             </div>
         </div>

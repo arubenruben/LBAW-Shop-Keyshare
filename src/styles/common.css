@@ -288,7 +288,7 @@ header.navbar {
     left: 0px;
 }
 
-#checkoutProductPreviewContainer .deleteButtonCheckout:hover {
+#checkoutProductPreviewContainer .animationButton:hover {
     background-color: var(--color-interactive-red-fail);
     transition-duration: 0.4s;
     border: none;
@@ -340,6 +340,22 @@ header.navbar {
 .btn.btn-blue-full {
     background-color: var(--color-background-dark-blue);
     color: white;
+}
+
+.animationButton span {
+    max-width: 0;
+    -webkit-transition: max-width 1s;
+    transition: max-width 1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 800px) {
+    .animationButton:hover span {
+        max-width: 7rem;
+    }
 }
 
 
