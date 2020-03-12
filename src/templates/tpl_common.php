@@ -40,199 +40,199 @@
     <?php
 } ?>
 
-    <!-- header -->
-    <?php function drawHeader($type)
-    {
-        switch ($type) {
-            case 0: ?>
-                <div id="wrapper">
-                    <header id="headerFixed" class="navbar row">
-                        <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
-                            <a href="homepage.php">
-                                <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+<!-- header -->
+<?php function drawHeader($type)
+{
+    switch ($type) {
+        case 0: ?>
+            <div id="wrapper">
+                <header id="headerFixed" class="navbar row">
+                    <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
+                        <a href="homepage.php">
+                            <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                        </a>
+                    </div>
+                    <!-- Search -->
+                    <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
+                        <form class="form-inline">
+                            <a class="ml-auto" href="products_list.php">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
                             </a>
-                        </div>
-                        <!-- Search -->
-                        <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
-                            <form class="form-inline">
-                                <a class="ml-auto" href="products_list.php">
-                                    <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
-                                </a>
-                                <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
-                            </form>
-                        </div>
-                        <!--Buttons-->
-                        <div class="col d-none d-xl-block mt-auto mb-auto">
-                            <div class="row justify-content-end">
-                                <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
-                                <a href="products_list.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
-                                <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                    <i class="fas fa-user headerIcon"></i> Log in
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Cart icon -->
-                        <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
-                            <div class="row">
-                                <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
-                            </div>
-                        </div>
-                        <!--Button Collapse Small -->
-                        <div class="col d-xl-none text-right pos-f-t">
-                            <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                    <!--Buttons-->
+                    <div class="col d-none d-xl-block mt-auto mb-auto">
+                        <div class="row justify-content-end">
+                            <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
+                            <a href="products_list.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
+                            <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                <i class="fas fa-user headerIcon"></i> Log in
                             </button>
                         </div>
-                    </header>
-                    <!--Collapse Small -->
-                    <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
-                        <div class="col w-100">
-                            <div class="row">
-                                <a class="mt-auto mb-auto ml-auto" href="products_list.php">
-                                    <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
-                                </a>
-                                <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                    <!-- Cart icon -->
+                    <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
+                        <div class="row">
+                            <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                        </div>
+                    </div>
+                    <!--Button Collapse Small -->
+                    <div class="col d-xl-none text-right pos-f-t">
+                        <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </header>
+                <!--Collapse Small -->
+                <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
+                    <div class="col w-100">
+                        <div class="row">
+                            <a class="mt-auto mb-auto ml-auto" href="products_list.php">
+                                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
+                            </a>
+                            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="row flex-nowrap justify-content-around mt-3">
+                            <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                                <i class="fas fa-user headerIcon"></i> Log in
+                            </button>
+                            <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
+                            <a id="sellNowButtonNavbar" href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
+                            <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            break;
+        default: ?>
+        <?php
+            break;
+    }
+        ?>
+    <?php
+} ?>
+
+<?php function drawBreadcrumb($pageName = '')
+{ ?>
+    <div id="breadcrumbContainer">
+        <?php
+        if (strcmp($pageName, '') == 0) { ?>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            </ol>
+        <?php
+        } else { ?>
+            <ol class="breadcrumb d-none d-md-inline-flex">
+                <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
+            </ol>
+            <ol class="breadcrumb d-md-none">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i><?= $pageName ?></a></li>
+            </ol>
+        <?php } ?>
+    </div>
+<?php } ?>
+
+<!-- navbar -->
+<?php function drawNavbar($type, $pageName = '')
+{
+    switch ($type) {
+            //Draw Homepage navbar
+        case 0: ?>
+            <nav id="navbar" class="nav pt-3">
+                <?php drawBreadcrumb($pageName); ?>
+                <div class="col-8 d-none d-sm-block ml-auto mr-auto">
+                    <div class="row">
+                        <div class="dropdown show ml-auto">
+                            <button class="btn btn-primary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <h5 class="productSideBarTitle">Genres<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                            </button>
+                            <div id="collapseGenres" class="dropdown-menu">
+                                <a class="dropdown-item" href="product.php">Action</a>
+                                <a class="dropdown-item" href="product.php">Racing</a>
+                                <a class="dropdown-item" href="product.php">Sports</a>
+                                <a class="dropdown-item" href="product.php">Puzzle</a>
+                                <a class="dropdown-item" href="product.php">FPS</a>
+                                <a class="dropdown-item" href="product.php">Simulation</a>
                             </div>
-                            <div class="row flex-nowrap justify-content-around mt-3">
-                                <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
-                                    <i class="fas fa-user headerIcon"></i> Log in
-                                </button>
-                                <a href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
-                                <a id="sellNowButtonNavbar" href="products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
-                                <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                        </div>
+                        <div class="dropdown show">
+                            <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                <h5 class="productSideBarTitle">Platforms<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                            </button>
+                            <div id="collapsePlatforms" class="dropdown-menu">
+                                <a class="dropdown-item" href="product.php">PC</a>
+                                <a class="dropdown-item" href="product.php">PS4</a>
+                                <a class="dropdown-item" href="product.php">Xbox</a>
+                                <a class="dropdown-item" href="product.php">Nintendo</a>
+                            </div>
+                        </div>
+                        <div class="dropdown show mr-auto">
+                            <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                <h5 class="productSideBarTitle">Categories <i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
+                            </button>
+                            <div id="collapseCategories" class="dropdown-menu">
+                                <a class="dropdown-item" href="product.php">Game</a>
+                                <a class="dropdown-item" href="product.php">DCL</a>
+                                <a class="dropdown-item" href="product.php">Patch</a>
                             </div>
                         </div>
                     </div>
-                <?php
-                break;
-            default: ?>
-            <?php
-                break;
-        }
-            ?>
+                </div>
+            </nav>
+        <?php break;
+        case 1: ?>
+            <nav id="navbar" class="nav">
+                <?php drawBreadcrumb($pageName); ?>
+                <div class="col-12 d-none d-sm-block">
+                    <div class="row">
+                        <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                    </div>
+                </div>
+            </nav>
         <?php
+            break;
+        case 2: ?>
+            <nav id="navbar" class="nav">
+                <?php drawBreadcrumb($pageName); ?>
+                <div class="col-12 d-none d-sm-block">
+                    <div class="row">
+                        <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                    </div>
+                </div>
+            </nav>
+        <?php
+            break;
+        case 3: ?>
+            <nav id="navbar" class="nav">
+                <?php drawBreadcrumb($pageName); ?>
+                <div class="col-12 d-none d-sm-block">
+                    <div class="row">
+                        <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
+                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                    </div>
+                </div>
+            </nav>
+        <?php
+            break;
+        case 4: ?>
+            <nav id="navbar" class="nav">
+                <?php drawBreadcrumb($pageName); ?>                        
+        </nav>
+        <?php
+            break;
+        default: ?>
+
+    <?php break;
     } ?>
 
-        <?php function drawBreadcrumb($pageName = '')
-        { ?>
-            <div id="breadcrumbContainer">
-                <?php
-                if (strcmp($pageName, '') == 0) { ?>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i>Home</a></li>
-                    </ol>
-                <?php
-                } else { ?>
-                    <ol class="breadcrumb d-none d-md-inline-flex">
-                        <li class="breadcrumb-item"><a href="homepage.php"><i class="fas fa-home"></i>Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><?= $pageName ?></li>
-                    </ol>
-                    <ol class="breadcrumb d-md-none">
-                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i><?= $pageName ?></a></li>
-                    </ol>
-                <?php } ?>
-            </div>
-        <?php } ?>
-
-        <!-- navbar -->
-        <?php function drawNavbar($type, $pageName = '')
-        {
-            switch ($type) {
-                    //Draw Homepage navbar
-                case 0: ?>
-                    <nav id="navbar" class="nav pt-3">
-                        <?php drawBreadcrumb($pageName); ?>
-                        <div class="col-8 d-none d-sm-block ml-auto mr-auto">
-                            <div class="row">
-                                <div class="dropdown show ml-auto">
-                                    <button class="btn btn-primary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <h5 class="productSideBarTitle">Genres<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
-                                    </button>
-                                    <div id="collapseGenres" class="dropdown-menu">
-                                        <a class="dropdown-item" href="product.php">Action</a>
-                                        <a class="dropdown-item" href="product.php">Racing</a>
-                                        <a class="dropdown-item" href="product.php">Sports</a>
-                                        <a class="dropdown-item" href="product.php">Puzzle</a>
-                                        <a class="dropdown-item" href="product.php">FPS</a>
-                                        <a class="dropdown-item" href="product.php">Simulation</a>
-                                    </div>
-                                </div>
-                                <div class="dropdown show">
-                                    <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                        <h5 class="productSideBarTitle">Platforms<i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
-                                    </button>
-                                    <div id="collapsePlatforms" class="dropdown-menu">
-                                        <a class="dropdown-item" href="product.php">PC</a>
-                                        <a class="dropdown-item" href="product.php">PS4</a>
-                                        <a class="dropdown-item" href="product.php">Xbox</a>
-                                        <a class="dropdown-item" href="product.php">Nintendo</a>
-                                    </div>
-                                </div>
-                                <div class="dropdown show mr-auto">
-                                    <button class="btn btn-secondary homepageDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                        <h5 class="productSideBarTitle">Categories <i class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
-                                    </button>
-                                    <div id="collapseCategories" class="dropdown-menu">
-                                        <a class="dropdown-item" href="product.php">Game</a>
-                                        <a class="dropdown-item" href="product.php">DCL</a>
-                                        <a class="dropdown-item" href="product.php">Patch</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                <?php break;
-                case 1: ?>
-                    <nav id="navbar" class="nav">
-                        <?php drawBreadcrumb($pageName); ?>
-                        <div class="col-12 d-none d-sm-block">
-                            <div class="row">
-                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
-                            </div>
-                        </div>
-                    </nav>
-                <?php
-                    break;
-                case 2: ?>
-                    <nav id="navbar" class="nav">
-                        <?php drawBreadcrumb($pageName); ?>
-                        <div class="col-12 d-none d-sm-block">
-                            <div class="row">
-                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
-                            </div>
-                        </div>
-                    </nav>
-                <?php
-                    break;
-                case 3: ?>
-                    <nav id="navbar" class="nav">
-                        <?php drawBreadcrumb($pageName); ?>
-                        <div class="col-12 d-none d-sm-block">
-                            <div class="row">
-                                <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                                <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                                <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
-                            </div>
-                        </div>
-                    </nav>
-                <?php
-                    break;
-                case 4: ?>
-                 <nav id="navbar" class="nav">
-                        <?php drawBreadcrumb($pageName); ?>                        
-                </nav>
-                <?php
-                    break;
-                default: ?>
-
-            <?php break;
-            } ?>
-
-        <?php } ?>
+<?php } ?>
 
 <!-- authentication modal -->
 <?php function drawAthenticationModal()

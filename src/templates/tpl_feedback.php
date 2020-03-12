@@ -18,41 +18,73 @@
                 <!-- modal body -->
                 <div class="modal-body">
                     <!-- feedback header -->
-                    <div class="row font-weight-bold">
-                        <div class="col mb-2">
-                            <span class="active-border pb-1"> All reviews <span class="badge badge-secondary">2</span></span>
-                        </div>
-                        <div class="col mb-2">
-                            <span class="inactive-border pb-1"><i class="fas fa-thumbs-up cl-success"></i> Positive <span class="badge badge-secondary">1</span></span>
-                        </div>
-                        <div class="col mb-1">
-                            <span class="inactive-border pb-1"><i class="fas fa-thumbs-down cl-fail"></i> Negative <span class="badge badge-secondary">1</span></span>
-                        </div>
-                    </div>
+                    <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        </li>
+                    </ul>
                     <hr class="mt-0">
-                    <div class="container-fluid">
-                        <!-- feedback ratings -->
-                        <div class="row">
-                            <div class="col"> <i class="fas fa-thumbs-down cl-fail"></i> </div>
-                            <div class="col"> Mar 06, 2020 </div>
-                            <div class="col"> key doesnt work </div>
-                        </div>
-                        <hr class="m-2">
-                        <div class="row">
-                            <div class="col">
-                                <i class="fas fa-thumbs-up cl-success"></i>
-                            </div>
-                            <div class="col">
-                                Mar 06, 2020
-                            </div>
-                            <div class="col">
-                                key works
-                            </div>
+                    <div class="col">
+                        <div class="table-responsive tableFixHead mt-3">
+                            <table class="table p-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="p-2 px-3 text-uppercase">Feedback</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Date</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Comment</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle">2020/07/10</td>
+                                        <td class="text-center align-middle"><strong>Great product</strong></td>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-blue">Load More</button>
                 </div>
             </div>
         </div>
