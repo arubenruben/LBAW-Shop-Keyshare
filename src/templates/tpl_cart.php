@@ -33,12 +33,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(1); ?>
+                            <?php drawCartEntry(2); ?>
+                            <?php drawCartEntry(3); ?>
+                            <?php drawCartEntry(4); ?>
+                            <?php drawCartEntry(5); ?>
+                            <?php drawCartEntry(6); ?>
                         </tbody>
                     </table>
                 </div>
@@ -81,12 +81,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
-                            <?php drawCartEntry(); ?>
+                            <?php drawCartEntry(1); ?>
+                            <?php drawCartEntry(2); ?>
+                            <?php drawCartEntry(3); ?>
+                            <?php drawCartEntry(4); ?>
+                            <?php drawCartEntry(5); ?>
+                            <?php drawCartEntry(6); ?>
                         </tbody>
                     </table>
                 </div>
@@ -96,15 +96,16 @@
     </div>
 <?php }
 
-function drawCartEntry()
+function drawCartEntry($id)
 { ?>
     <tr>
         <td scope="row" class="border-0 align-middle">
             <div class="p-2">
                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                 <div class="ml-3 d-inline-block align-middle">
-                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
-                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg<?=$id?>" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                    <?php drawFeedbackPopup($id); ?>
+                </div>
             </div>
         </td>
         <td class="text-center align-middle">2020/07/10</td>

@@ -63,12 +63,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php drawProductOffer(); ?>
-                            <?php drawProductOffer(); ?>
-                            <?php drawProductOffer(); ?>
-                            <?php drawProductOffer(); ?>
-                            <?php drawProductOffer(); ?>
-                            <?php drawProductOffer(); ?>
+                            <?php drawProductOffer(1); ?>
+                            <?php drawProductOffer(2); ?>
+                            <?php drawProductOffer(3); ?>
+                            <?php drawProductOffer(4); ?>
+                            <?php drawProductOffer(5); ?>
+                            <?php drawProductOffer(6); ?>
                         </tbody>
                     </table>
                 </div>
@@ -77,15 +77,14 @@
     </div>
 <?php } ?>
 
-<?php function drawProductOffer() { ?>
+<?php function drawProductOffer($id) { ?>
     <tr class="offer">
         <td scope="row" class="border-0 align-middle">
-            <div class="p-2" data-toggle="modal" data-target=".bd-modal-lg1">
+            <div class="p-2 m-0" data-toggle="modal" data-target=".bd-modal-lg<?=$id?>">
+                <?php drawFeedbackPopup($id); ?>
                 <h4 class="seller">bestseller439</h4>
-                <span>
-                    <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i> 99%</span>
-                        | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys
-                </span>
+                <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i> 99%</span>
+                    | <i class="fas fa-shopping-cart"></i> 1897 | Stock: 10 keys
             </div>
         </td>
         <td class="text-center align-middle"><strong>$39.00</strong></td>
