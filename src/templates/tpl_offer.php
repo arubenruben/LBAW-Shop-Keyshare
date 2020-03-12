@@ -22,18 +22,18 @@
                             <h3>Insert Keys</h3>
                             <div class="row mt-2 px-2 flex-nowrap">
                                 <input type="text" class="form-control mt-auto mx-auto d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                                <button class="btn btn-danger ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
+                                <button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
                             </div>
                             <div class="row mt-2 px-2 flex-nowrap">
                                 <input type="text" class="form-control mt-auto mx-auto d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                                <button class="btn btn-danger ml-2"><i class="fas fa-times-circle my-auto d-inline-block"></i></button>
+                                <button class="btn btn-red ml-2"><i class="fas fa-times-circle my-auto d-inline-block"></i></button>
                             </div>
                             <div class="row mt-2 px-2 flex-nowrap">
                                 <input type="text" class="form-control mt-auto mx-auto d-inline-block" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                                <button class="btn btn-danger ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
+                                <button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
                             </div>
                             <div class="row mt-2 px-2 flex-nowrap">
-                                <button class="btn btn-blue">
+                                <button class="btn btn-blue text-center">
                                     <i class="fas fa-plus-circle ml-auto mb-auto mt-auto"></i>
                                     <span class="my-auto mr-auto ml-3">Add New Key</span>
                                 </button>
@@ -62,14 +62,14 @@
                                         <td>2020/03/15</td>
                                         <td>2020/03/20</td>
                                         <td>40%</td>
-                                        <td><i class="fas fa-times-circle"></i></td>
+                                        <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>2020/04/15</td>
                                         <td>2020/05/20</td>
                                         <td>30%</td>
-                                        <td><i class="fas fa-times-circle"></i></td>
+                                        <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
                                     </tr>
                                 </tbody>
                             </table>
