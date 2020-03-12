@@ -9,5 +9,5 @@
     drawAdminInterface();
     drawAdminSkeletonTable();
     drawAdminEnd();
-	drawFooter(); 
+	drawAdminFooter(); 
 ?>

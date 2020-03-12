@@ -64,7 +64,7 @@ function drawAdminHomePage() { ?>
 function drawAdminSkeletonTable() { ?>
 
     <h3>Products</h3>
-    <div class="table-responsive table-striped tableFixHead mt-3">
+    <div class="table-responsive table-striped mt-3">
     <table id="userOffersTable" class="table p-0">
         <thead>
             <tr>

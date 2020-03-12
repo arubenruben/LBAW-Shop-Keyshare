@@ -390,6 +390,8 @@
 
 function drawAdminFooter() { ?>
     
+    </body>
+</html>
     
     
 <?php } ?>

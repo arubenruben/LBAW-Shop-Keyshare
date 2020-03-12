@@ -9,5 +9,5 @@
     drawAdminInterface();
     drawAdminHomePage();
     drawAdminEnd();
-	drawFooter(); 
+	drawAdminFooter(); 
 ?>
