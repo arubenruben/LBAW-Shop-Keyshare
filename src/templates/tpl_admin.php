@@ -8,7 +8,7 @@
 
 <?php function drawAdminInterface() { ?>
 
-    <div class="col-md-3">
+    <div class="col-md-3 mt-4">
         <div class="card">
             <div class="">
                 <!-- <h4 class="pl-3 py-2">Categories</h4> -->
@@ -43,17 +43,17 @@ function drawAdminEnd() { ?>
 
 function drawAdminHomePage() { ?>
 
-    <div class="card mb-4">
+    <div class="card my-4">
         <h4 class="pl-3 py-2">Tasks to be done:</h4>
         <p class="pl-5 py-2">Unseen Reports: 2</p>
         <p class="pl-5 py-2">Active Reports: 5</p>
     </div>
-    <div class="card mb-4">
+    <div class="card my-4">
         <h4 class="pl-3 py-2">Daily Statistics</h4>
         <p class="pl-5 py-2">Transactions made: 51</p>
         <p class="pl-5 py-2">Money made: 200 US$</p>
     </div>
-    <div class="card mb-4">
+    <div class="card my-4">
         <h4 class="pl-3 py-2">Monthly Statistics</h4>
         <p class="pl-5 py-2">Transactions made: 782</p>
         <p class="pl-5 py-2">Money made: 3491 US$</p>
