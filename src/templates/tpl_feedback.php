@@ -20,13 +20,13 @@
                     <!-- feedback header -->
                     <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                         <li class="nav-item">
-                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">All reviews<span class="badge badge-secondary d-none d-sm-inline-block ml-2">14</span></button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-green"><i class="fas fa-thumbs-up"></i>Positive<span class="badge badge-secondary d-none d-sm-inline-block ml-2">13</span></button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-red"><i class="fas fa-thumbs-down"></i>Negative<span class="badge badge-secondary d-none d-sm-inline-block ml-2">1</span></button></a>
                         </li>
                     </ul>
                     <hr class="mt-0">
@@ -48,37 +48,37 @@
                                 </thead>
                                 <tbody class="bg-white">
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></td>
+                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
                                         <td class="text-center align-middle">2020/07/10</td>
                                         <td class="text-center align-middle"><strong>Great product</strong></td>
                                 </tbody>

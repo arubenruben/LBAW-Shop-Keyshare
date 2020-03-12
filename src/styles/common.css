@@ -327,6 +327,15 @@ header.navbar {
     background-color: var(--color-interactive-red-fail);
     color: white;
 }
+.btn.btn-green {
+    background-color: inherit;
+    border: solid 1px var(--color-interactive-green-success);
+    color: var(--color-interactive-green-success);
+}
+.btn.btn-green:hover {
+    background-color: var(--color-interactive-green-success);
+    color: white;
+}
 
 .animationButton span {
     max-width: 0;
