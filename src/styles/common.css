@@ -111,6 +111,7 @@ header.navbar {
 
 }
 */
+
 #headerFixed {
     position: -webkit-sticky;
     position: sticky;
@@ -309,10 +310,6 @@ header.navbar {
     height: 40vmax;
 }
 
-#formCheckout {
-    width: 80%;
-}
-
 
 /* buttons css */
 
@@ -458,42 +455,63 @@ td {
 td {
     padding: 8px 16px;
 }
-#headerFixed .logo{
-    max-height:4rem ;
+
+#headerFixed .logo {
+    max-height: 4rem;
 }
-#collapseContainer{
+
+#collapseContainer {
     padding: 0 !important;
     padding-top: 1rem !important;
 }
-#hamburguerContentNavMedium,#hamburguerContentNavSmall{
-    background-color:var(--color-background-dark-blue);
+
+#hamburguerContentNavMedium,
+#hamburguerContentNavSmall {
+    background-color: var(--color-background-dark-blue);
     margin: 0;
-    padding:0;
-    border-color: var(--color-interactive-orange);  
+    padding: 0;
+    border-color: var(--color-interactive-orange);
 }
-#hamburguerContentNavMedium .headerIcon ,#hamburguerContentNavSmall .headerIcon {
-    color: var(--color-interactive-orange); 
+
+#hamburguerContentNavMedium .headerIcon,
+#hamburguerContentNavSmall .headerIcon {
+    color: var(--color-interactive-orange);
 }
-#hamburguerContentNavMedium .navbarButton,#hamburguerContentNavSmall .navbarButton{
+
+#hamburguerContentNavMedium .navbarButton,
+#hamburguerContentNavSmall .navbarButton {
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
-    height:3rem;
+    height: 3rem;
     width: 6rem;
 }
-#hamburguerContentNavMedium .navbarButtonSmall,#hamburguerContentNavSmall .navbarButtonSmall{
+
+#hamburguerContentNavMedium .navbarButtonSmall,
+#hamburguerContentNavSmall .navbarButtonSmall {
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
-    height:2rem;
+    height: 2rem;
     width: 6rem;
     font-size: 0.8em;
 }
-#hamburguerContentNavSmall .headerIcon{
+
+#hamburguerContentNavSmall .headerIcon {
     font-size: 0.8em;
 }
-#shoppingCartIconHamburguer{
+
+#shoppingCartIconHamburguer {
     font-size: 1em;
 }
-#headerFixed .navbarButton{
+
+#headerFixed .navbarButton {
     border-color: var(--color-interactive-orange);
     color: var(--color-interactive-orange);
+}
+
+li.section.visited.current.status-bar-circle:before {
+    z-index: 0;
+}
+
+li.section.status-bar-circle:before {
+    z-index: 0;
 }
