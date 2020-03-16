@@ -4,6 +4,6 @@
 
     drawHead();
     drawHeader(0);
-    drawReportPage("user");
+    drawReportPage("admin");
     drawFooter();
 ?>
