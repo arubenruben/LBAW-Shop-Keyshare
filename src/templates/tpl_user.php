@@ -5,13 +5,16 @@
         case "account": ?>
             <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">Account</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue-full active">Account</button></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue">Purchases</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                 </li>
             </ul>
         <?php
@@ -19,27 +22,50 @@
         case "offers": ?>
             <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue">Account</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
                 </li>
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue active">Purchases</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue active">Purchases</button></a>
                 </li>
                 <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports </button></a>
                 </li>
             </ul>
         <?php
             break;
         case "purchases": ?>
-            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-2 btn text-white">
+            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-3 flex-nowrap">
                 <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue">Account</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
                 </li>
                 <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-blue-full">Purchases</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue-full">Purchases</button></a>
                 </li>
                 <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-blue active">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue active">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                </li>
+            </ul>
+        <?php
+            break;
+        case "reports": ?>
+            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-3 flex-nowrap">
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
+                </li>
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
+                </li>
+                <li class="nav-item navUserItem">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue ">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue-full  active">Reports</button></a>
                 </li>
             </ul>
     <?php
@@ -513,7 +539,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
                                         </td>
@@ -532,7 +558,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -552,7 +578,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -572,7 +598,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -592,7 +618,7 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
 
@@ -622,6 +648,343 @@
     drawGiveFeedbackPopup();
     drawKeyPopup(); ?>
 <?php } ?>
+
+<?php function drawUserReports()
+{
+
+    drawUserNavBar("reports") ?>
+    <div id="content" class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-sm-12 usercontent-left">
+                <div class="row px-3">
+                    <div class="col-sm-9 " style=" display:flex; align-items: center;">
+                        <h4 class="text-left">My Reports<span class="badge ml-1 badge-secondary">1</span></h4>
+                    </div>
+
+                </div>
+                <div class="container mt-3 mb-3">
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class="table-responsive table-striped tableFixHead mt-3">
+                                <table id="userOffersTable" class="table p-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="p-2 px-3 text-uppercase">Product Bought</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="p-2 px-3 text-uppercase">Buy date</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="py-2 text-uppercase">Report Date</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="py-2 text-uppercase">Options</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <div class="flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle">2020/07/15</td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 usercontent-left mt-5">
+                    <div class="row px-3">
+                        <div class="col-sm-12">
+                            <h4 class="text-left">Reports against me<span class="badge ml-1 badge-secondary">2</span></h4>
+                        </div>
+                    </div>
+                    <div class="container mt-3 mb-3">
+                        <div class="row ">
+                            <div class="col-12">
+                                <div class="table-responsive table-striped tableFixHead mt-3 mt-3">
+                                    <table id="userOffersTable" class="table p-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="border-0 bg-light">
+                                                    <div class="p-2 px-3 text-uppercase">Product Sold</div>
+                                                </th>
+                                                <th scope="col" class="border-0 bg-light text-center">
+                                                    <div class="py-2 text-uppercase">Report Date</div>
+                                                </th>
+                                                <th scope="col" class="border-0 bg-light text-center">
+                                                    <div class="py-2 text-uppercase">Reporter</div>
+                                                </th>
+                                                <th scope="col" class="border-0 bg-light text-center">
+                                                    <div class="py-2 text-uppercase">Options</div>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="border-0 align-middle">
+                                                    <div class="p-2">
+                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                            <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                    </div>
+
+                                                </th>
+                                                <td class="text-center align-middle">2020/07/10</td>
+                                                <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group-justified btn-group-md">
+                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php drawReportPopup();
+    drawFeedbackPopup("1");
+    drawGiveFeedbackPopup();
+    drawKeyPopup(); ?>
+
+<?php
+} ?>
 
 <!-- user popups -->
 <?php function drawConfirmDeleteAccountPopup()
@@ -672,9 +1035,14 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Key Info</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header row">
+                    <div class="col-6">
+                        <span class="flex-nowrap"> <i class="fas fa-key d-inline-block"></i>
+                            <h5 class="d-inline-block">Key info </h5><span>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
@@ -693,9 +1061,14 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Give Feedback</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header row">
+                    <div class="col-6">
+                        <span class="flex-nowrap"> <i class="far fa-comment-alt d-inline-block"></i>
+                            <h5 class="d-inline-block">Leave feedback </h5><span>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -742,15 +1115,46 @@
     </div>
 <?php } ?>
 
+<?php function drawModalConfirmBan()
+{ ?>
+    <div id="modalConfirmBan" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header row">
+                    <div class="col-6">
+                        <span class="flex-nowrap"> <i class="fas fa-key d-inline-block"></i>
+                            <h5 class="d-inline-block">Key info </h5><span>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="YYYY-XXXX-YYYY-XXXX" readonly></input>
+                </div>
+                <div class="modal-footer">
+                    <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
 <?php function drawReportPopup()
 { ?>
     <div id="modalReport" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5>Report Seller </h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header row">
+                    <div class="col-6">
+                        <span class="flex-nowrap"> <i class="fas fa-user-slash d-inline-block"></i>
+                            <h5 class="d-inline-block">Report Seller </h5><span>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -783,3 +1187,206 @@
         </div>
     </div>
 <?php } ?>
+
+
+<?php function drawReportPage($type)
+{
+?>
+    <div id="content" class="container">
+        <div class="row mt-4">
+            <div class="col-11 col-md-4">
+                <h4> Report Page </h4>
+            </div>
+        </div>
+        <div class="row  justify-content-center justify-content-md-start">
+            <div class="col-11 col-md-4 mt-4 border rounded-top">
+                <div class="row border">
+                    <div class="col">
+                        <h5 class="mt-1 mb-1 "> Report Details </h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                        <?php
+                        if ($type == "admin") {
+                        ?>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h6><u>Admin Options</u></h6>
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <div class="btn-group-justified btn-group-md pl-2 pt-2">
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger  btn-sm btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirmBan"> <span> Ban Buyer </span></button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger   btn-sm btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirmBan"> <span>Ban Seller</span> </button>
+                                                <button type="button mt-5 mb-5 " class="btn btn-outline-success  btn-sm btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirmArquive"> <span> Arquive Report </span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php
+                        }
+
+                        ?>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <h6><u>Report Status</u></h6>
+                                <h6 class="pl-2 pt-2">In Process </h6>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <h6><u> Product in question</u></h6>
+                                <div class="pl-2 pt-2">
+                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-smuserOffersTableEntryImage">
+                                    <div class="ml-1 align-middle flex-nowrap">
+                                        <h6 class="mb-0 d-inline"><a href="#" class="text-dark">NBA 2K16</a></h6><span class="text-muted font-italic d-inline"> [PS4]</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4 mb-4">
+                            <div class="col">
+                                <h6><u>Intervenients</u></h6>
+
+                                <div class="row mt-2 pl-2 pt-2">
+                                    <div class="col incoming_msg_img_inter">
+                                        <div class="incoming_msg_img_inter"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> <span class="d-inline-block">LockdownPT (admin) <span>
+                                    </div>
+                                </div>
+                                <div class="row mt-2  pl-2 pt-2">
+                                    <div class="col">
+                                        <div class="incoming_msg_img_inter"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> <span class="d-inline.block">nightwalker (seller) </span>
+                                    </div>
+                                </div>
+                                <div class="row mt-2  pl-2 pt-2">
+                                    <div class="col">
+                                        <div class="incoming_msg_img_inter"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil "> </div> <span class="d-inline.block"> sterillium (buyer) </span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-11 col-md-8  mt-4 border rounded-top">
+                <div class="row border">
+                    <div class="col">
+                        <h5 class="mt-1 mb-1"> Messaging </h5>
+                    </div>
+                </div>
+
+                <div class="msg_history ">
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>Test which is a new approach to have all
+                                    solutions</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Test which is a new approach to have all
+                                solutions</p>
+                            <span class="time_date"> 11:01 AM | June 9</span>
+                        </div>
+                    </div>
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>Test, which is a new approach to have</p>
+                                <span class="time_date"> 11:01 AM | Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Apollo University, Delhi, India Test</p>
+                            <span class="time_date"> 11:01 AM | Today</span>
+                        </div>
+                    </div>
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>We work directly with our designers and suppliers,
+                                    and sell direct to you, which means quality, exclusive
+                                    products, at a price anyone can afford.</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>We work directly with our designers and suppliers,
+                                    and sell direct to you, which means quality, exclusive
+                                    products, at a price anyone can afford.</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>We work directly with our designers and suppliers,
+                                    and sell direct to you, which means quality, exclusive
+                                    products, at a price anyone can afford.</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Apollo University, Delhi, India Test</p>
+                            <span class="time_date"> 11:01 AM | Today</span>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Apollo University, Delhi, India Test</p>
+                            <span class="time_date"> 11:01 AM | Today</span>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Apollo University, Delhi, India Test</p>
+                            <span class="time_date"> 11:01 AM | Today</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="type_msg  border rounded-top">
+                    <div class="input_msg_write">
+                        <input type="text" class="write_msg" placeholder="Type a message" />
+                        <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+<?php
+
+} ?>
