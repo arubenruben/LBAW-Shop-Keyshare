@@ -4,10 +4,6 @@
 	include_once('../templates/tpl_admin.php');
 	//page
 	drawHead();
-    drawHeaderAdmin(0);
-    drawAdminStart();
-    drawAdminInterface();
-    drawAdminHomePage();
-    drawAdminEnd();
+    drawAdminLogin();
 	drawAdminFooter(); 
 ?>
