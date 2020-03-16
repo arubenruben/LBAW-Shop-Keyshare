@@ -6,7 +6,7 @@ This artefact contais the specification of the actors and their user stories, it
 
 
 ## 1. Actors
-![](https://i.imgur.com/Wu96gY4.png)
+![](https://i.imgur.com/QjOgXho.jpg)
 
 
 ###### Picture 1: Diagram identifying actors and their relationships.
@@ -17,8 +17,8 @@ This artefact contais the specification of the actors and their user stories, it
 |User| Generic user. Has access to public information such as products on discount, sellers reviews and feedback.| n/a|
 |Unauthenticated User| Has the ability to sign up and login into the website.| n/a|
 |Authenticated User| Is capable of logging out, managing their personal account information and buy and sell products.| nightwalker739 |
-|Buyer| Has the ability to buy, review and report sellers of purchased products. | nightwalker739|
-|Seller| Is capable of listing products for sale. | nightwalker739|
+|Active User| Is a user with full rights in the platform, he can buy and sell products without any restriction.| nightwalker739 |
+|Buyer| Has the ability, review and report sellers of his purchased products.| nightwalker739|
 |Banned User| Is banned from making new transactions, whether it is selling or buying, but still has access to past transactions' details.| trustlessuser123|
 |Administrator| Has the capacity to delete offensive reviews, update products' details, block certain users from selling and buying games, add games to the database, manage the reports made by users. | admin |
 |API User| External user that has the possibility to obtain and change information on the website using GET and POST HTTP requests.| External User|
@@ -74,69 +74,63 @@ This artefact contais the specification of the actors and their user stories, it
 
 ###### Table 4: Authenticated User's user stories
 
+### 2.5. Active User
+
+| Identifier |Name| Priority | Description|
+| ---------- | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|US26|Sell Product|High|As active user, I want to place an offer for a given product that I chose from the ones available in the website's database, so that I am able to sell it.|
+|US27|Active Offers|Medium|As active user, I want to see the products that I am currently selling, so that I can keep track of the offer's state.|
+|US28|Update Offer|Medium|As active user, I want to update my product's price, so that I can better compete with other sellers.|
+|US29|Exclude Offer|Medium|As active user, I want to remove a previously published offer, so that I am no longer selling the product.|
+|US24| Checkout Cart|Medium| As a active user, I want to be able to checkout my cart, so that I buy all the items in the shopping cart at once.|
+|US30|Reply to Reports|Low|As active user, I want to be able to reply to reports made against me, so that I can handle the situation and explain my motives to buyer and administrator.|
+|US31|Batch Sell|Low| As active user, I want to sell multiple keys of a product at the same time, so that selling multiple keys for the same product is much quicker and easier.|
+|US32|Product Discount|Low|As active user, I want to make discounts to my offers, so that it lowers the offers' price during a period of time.|
+|US36| Transactions using Paypal |Low| As a active user, I want to be able to make transactions using PayPal, so that I use a secure payment method.|
+###### Table 5: Active User's user stories
+
 ### 2.4. Buyer
 
 | Identifier |Name| Priority | Description|
 | ---------- | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|US22|Report Transaction Problem|Medium|As a buyer, I want to be able to report a problem with a key I bought, so that the seller and administrators are made aware of the situation.|
-|US23|Transaction Feedback|Medium| As an authenticated user, I want to be able to give feedback to the Seller of a product I bought.|
-|US24| Checkout Cart|Medium| As a buyer, I want to be able to checkout my cart, so that I buy all the items in the shopping cart at once.|
-|US25| Pay Transactions using PayPal |Low| As a buyer, I want to be able to buy using PayPal, so that I use a secure payment method.|
-
-
+|US37|Report Transaction Problem|Medium|As a buyer, I want to be able to report a problem with a key I bought, so that the seller and administrators are made aware of the situation.|
+|US38|Transaction Feedback|Medium| As an authenticated user, I want to be able to give feedback to the Seller of a product I bought.|
 # Encaixar isto aqui
 
 
+###### Table 6: Buyer's user stories
 
-
-###### Table 5: Buyer's user stories
-
-### 2.5. Seller
-
-| Identifier |Name| Priority | Description|
-| ---------- | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|US26|Sell Product|High|As a seller, I want to place an offer for a given product that I chose from the ones available in the website's database, so that I am able to sell it.|
-|US27|Active Offers|Medium|As a seller, I want to see the products that I am currently selling, so that I can keep track of the offer's state.|
-|US28|Update Offer|Medium|As a seller, I want to update my product's price, so that I can better compete with other sellers.|
-|US29|Exclude Offer|Medium|As a seller, I want to remove a previously published offer, so that I am no longer selling the product.|
-|US30|Reply to Reports|Low|As a seller, I want to be able to reply to reports made against me, so that I can handle the situation and explain my motives to buyer and administrator.|
-|US31|Batch Sell|Low| As a seller, I want to sell multiple keys of a product at the same time, so that selling multiple keys for the same product is much quicker and easier.|
-|US32|Product Discount|Low|As a seller, I want to make discounts to my offers, so that it lowers the offers' price during a period of time.|
-|US33|Receive payments using PayPal |Low| As a seller, I want to be able to use PayPal to receive my income, so that I use a secure payment method.|
-# Responder aos reports
-
-###### Table 6: Seller's user stories
 
 ### 2.5 Banned User
 | Identifier | Name| Priority | Description|
 | ---------- | ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-|US34|Unban appeal|Low| As a banned user, I want to appeal to the administrator of the website, so that my ban can be lifted.|
+|US39|Unban appeal|Low| As a banned user, I want to appeal to the administrator of the website, so that my ban can be lifted.|
 
-###### Table 6: Banned User's user stories
+###### Table 7: Banned User's user stories
 
 ### 2.6. Administrator
 
 |Identifier | Name| Priority | Description|
 | ---------- | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-|US35|Add a Product| High | As an admin, I want to be able to add products to the database, so that I can keep the product's list always updated. |
-|US36|Admin Login | High | As an admin, I want to be able to sign in, so that I get administrative privileges|
-|US37|Admin Sign Out | High | As an admin, I want to be able to sign out, so that I'm no longer logged in.|
-|US38|Product Search | Medium| As an admin, I want to be able to search for games by name, so that I can quickly access them.|
-|US39|User Search | Medium| As an admin, I want to be able to search for users by name, so that I can quickly access them.|
-|US40|User Ban| Medium| As an admin, I want to be able to block users, so that I can keep scammers away from the website|
-|US41|Product Edit| Medium| As an admin, I want to be able to edit products in the database, so that the I can change each product information.|
-|US42|Product Delete| Medium| As an admin, I want to be able to delete products in the database, so that that a faulty product entry in the database is removed.|
-|US43|Access to Users' Reports|Medium| As an admin, I want to able to manage reports from users, so that I am able to take action and make the commmunity happier.|
-|US44|Review Delete|Low|As an admin, I want to be able to delete offensive reviews, so that I can keep the order and respect on the website.|
-|US45|Manage Game Categories|Low|As an admin, I want to be able to add, edit and remove a product category, so that I can better specify a game's category.|
-|US46|Manage Gaming Platforms|Low|As an admin, I want to be able to add, edit and remove a gaming platform, so that I can better specify a game's platform.|
-|US47|Manage Game Genres|Low|As an admin, I want to be able to add, edit and remove a product genre, so that I can better specify a game's genre.|
-|US48|Manage FAQ|Low| As an admin, I want to be able to add, edit and remove a question of the FAQ, so that the FAQ is kept up-to-date.|
-|US49|Check Transactions|Low|As an admin, I want to be able to see all transactions, so that I can keep track of the website's activity. |
-|US50|Remove User Ban|Low|As an admin, I want to be able to unban a user, so that the user can buy and sell products again. |
-|US51|Manage ban lift appeals|Low| As an admin, I want to be able to see all appeals made by banned users, so that I review their requests and issue a response.|
+|US40Add a Product| High | As an admin, I want to be able to add products to the database, so that I can keep the product's list always updated. |
+|US41|Admin Login | High | As an admin, I want to be able to sign in, so that I get administrative privileges|
+|US42|Admin Sign Out | High | As an admin, I want to be able to sign out, so that I'm no longer logged in.|
+|US43|Product Search | Medium| As an admin, I want to be able to search for games by name, so that I can quickly access them.|
+|US44|User Search | Medium| As an admin, I want to be able to search for users by name, so that I can quickly access them.|
+|US45|User Ban| Medium| As an admin, I want to be able to block users, so that I can keep scammers away from the website|
+|US46|Product Edit| Medium| As an admin, I want to be able to edit products in the database, so that the I can change each product information.|
+|US47|Product Delete| Medium| As an admin, I want to be able to delete products in the database, so that that a faulty product entry in the database is removed.|
+|US48|Access to Users' Reports|Medium| As an admin, I want to able to manage reports from users, so that I am able to take action and make the commmunity happier.|
+|US49|Review Delete|Low|As an admin, I want to be able to delete offensive reviews, so that I can keep the order and respect on the website.|
+|US50|Manage Game Categories|Low|As an admin, I want to be able to add, edit and remove a product category, so that I can better specify a game's category.|
+|US51|Manage Gaming Platforms|Low|As an admin, I want to be able to add, edit and remove a gaming platform, so that I can better specify a game's platform.|
+|US52|Manage Game Genres|Low|As an admin, I want to be able to add, edit and remove a product genre, so that I can better specify a game's genre.|
+|US53|Manage FAQ|Low| As an admin, I want to be able to add, edit and remove a question of the FAQ, so that the FAQ is kept up-to-date.|
+|US54|Check Transactions|Low|As an admin, I want to be able to see all transactions, so that I can keep track of the website's activity. |
+|US55|Remove User Ban|Low|As an admin, I want to be able to unban a user, so that the user can buy and sell products again. |
+|US56|Manage ban lift appeals|Low| As an admin, I want to be able to see all appeals made by banned users, so that I review their requests and issue a response.|
 
-###### Table 7: Admin's user stories
+###### Table 8: Admin's user stories
 
 
 ### 2.7. API User
@@ -148,7 +142,7 @@ This artefact contais the specification of the actors and their user stories, it
 |US54|Sell a Product|Low| As an API user I want to be able to put an item on discount, so that I can sell that product.|
 |US55|Buy a Product|Low| As an API user, I want to buy an offer of a product, so that I own the product.|
 
-###### Table 8: API user's user stories
+###### Table 9: API user's user stories
 
 
 ## A1. Annex: Supplementary requirements
@@ -167,7 +161,7 @@ This artefact contais the specification of the actors and their user stories, it
 |BR06| Product Deletion| When administrator deletes a product. If there is any trasanction completed associated with that product, the user must keep access to the bought key.|
 |BR07|Age Restriction| User must be at least 18 years old to create an account.|
 |BR08|Key Uniqueness| All redemption keys must be unique and so, when entered in the database and to make sure they are, they will be tested against all other keys in the database.|
-|BR09|Transaction Fee| All transactions will impose a 5% fee as commission.|
+|BR9|Transaction Fee| All transactions will impose a 5% fee as commission.|
 |BR10|Payment Method| All transactions will be made using PayPal.|
 |BR11|Offer Discount Date| When setting a discount date for a product it must be greater than the current date.|
 |BR12|Review Date| The date of a review must be after the product's transaction date.|
@@ -177,7 +171,7 @@ This artefact contais the specification of the actors and their user stories, it
 |BR16|Seller Report|A report made by an user will start a conversation with seller where the administrator can also participate. Administrator will only intervene if necessary.|
 
 
-###### Table 9: Business rules
+###### Table 10: Business rules
 
 ### A1.2. Technical requirements
 | Identifier | Name| Description|
@@ -194,7 +188,7 @@ This artefact contais the specification of the actors and their user stories, it
 |TR10|Scalability| The system must be prepared to handle an increase in the number of visitors, offers and transactions.|
 |TR11|Ethics| The system must respect the ethical principles in software development. Furthermore data privacy must be guaranteed as well as a community free of offensive reviews.|
 
-###### Table 10: Technical Requirements 
+###### Table 11: Technical Requirements 
 
 The most important technical requirements for this project are:
 * **Security** - Since all products sold on the website are redemption keys a security failure will potentially lead to a catastrophic loss of revenue and costumer trust.
@@ -208,7 +202,7 @@ The most important technical requirements for this project are:
 | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 |C01| Deadline | The system should be ready to be used at the end of the second semester|
 
-###### Table 11: Restrictions
+###### Table 12: Restrictions
 
 
 ## Revision history
