@@ -879,8 +879,8 @@ m                                    <textarea class="form-control userDetailsFo
                                             <?php if($type != "banned"){?>
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-<?php }?>
-                    
+                                            <?php }?>
+                                                            
                                             </div>
                                         </td>
                                     </tr>
