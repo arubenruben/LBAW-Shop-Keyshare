@@ -21,7 +21,6 @@
 function drawAdminLogin()
 { ?>
         <div id="wrapper" class="row align-items-center">
-
             <div class="col-9 col-sm-8 col-md-5 col-lg-3 mx-auto p-4" style="background-color: white; border-radius: 5px;">
 
                 <div class="row">
@@ -67,17 +66,16 @@ function drawAdminInterfaceContent()
             <ul class="list-unstyled">
                 <li><a href="admin_home.php" class="list-group-item bg-active">Dashboard </a> </li>
                 <li><a href="admin_product_page.php " class="list-group-item"> Products </a> </li>
-                <li><a href="" class="list-group-item"> Categories </a> </li>
-                <li><a href="" class="list-group-item"> Genres </a> </li>
-                <li><a href="" class="list-group-item"> Platforms </a> </li>
-                <li><a href="" class="list-group-item"> Users </a> </li>
-                <li><a href="" class="list-group-item"> Reports </a> </li>
+                <li><a href="admin_categories_edit.php" class="list-group-item"> Categories </a> </li>
+                <li><a href="admin_genres_edit.php" class="list-group-item"> Genres </a> </li>
+                <li><a href="admin_platforms_edit.php" class="list-group-item"> Platforms </a> </li>
+                <li><a href="admin_users_edit.php" class="list-group-item"> Users </a> </li>
+                <li><a href="admin_reports_edit.php" class="list-group-item"> Reports </a> </li>
                 <li><a href="" class="list-group-item"> Transactions </a> </li>
                 <li><a href="" class="list-group-item"> Reviews </a> </li>
                 <li><a href="" class="list-group-item"> FAQ </a> </li>
             </ul>
         </div>
-
         <?php }
     function drawAdminInterface($type)
     {
@@ -286,24 +284,12 @@ function drawAdminInterfaceContent()
                 </tbody>
             <?php
                 break;
-                //Table Add/Edit product
+                //Table Categories Page 
             case 1: ?>
                 <thead>
                     <tr>
-                        <th scope="col" class="border-0 bg-light">
-                            <div class="p-2 px-3 text-uppercase">Image</div>
-                        </th>
                         <th scope="col" class="border-0 bg-light text-center">
-                            <div class="py-2 text-uppercase">Name</div>
-                        </th>
-                        <th scope="col" class="border-0 bg-light text-center">
-                            <div class="py-2 text-uppercase">Categories</div>
-                        </th>
-                        <th scope="col" class="border-0 bg-light text-center">
-                            <div class="py-2 text-uppercase">Genres</div>
-                        </th>
-                        <th scope="col" class="border-0 bg-light text-center">
-                            <div class="py-2 text-uppercase">Platform</div>
+                            <div class="p-2 px-3 text-uppercase">Categories</div>
                         </th>
                         <th scope="col" class="border-0 bg-light text-center">
                             <div class="py-2 text-uppercase">Actions</div>
@@ -312,77 +298,46 @@ function drawAdminInterfaceContent()
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row" class="border-0 text-center align-middle">
-                            <img src="../../assets/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
+                        <td class="align-middle text-center">
+                            <h5>Game</h5>
                         </td>
-                        <td class="text-center align-middle">GTA V</td>
-                        <td class="text-center align-middle">Game</td>
-                        <td class="text-center align-middle">Action Open World</td>
-                        <td class="text-center align-middle">PC</td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="offer.php" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Product </span>
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Category</span>
                                 </a>
                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Product </span>
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Category</span>
                                 </button>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td scope="row" class="border-0 text-center align-middle">
-                            <img src="../../assets/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
+                        <td class="align-middle text-center">
+                            <h5>DLC</h5>
                         </td>
-                        <td class="text-center align-middle">GTA V</td>
-                        <td class="text-center align-middle">Game</td>
-                        <td class="text-center align-middle">Action Open World</td>
-                        <td class="text-center align-middle">PC</td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="offer.php" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Product </span>
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Category</span>
                                 </a>
                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Product </span>
+                                    <i class="fas fa-trash-alt"></i> <span>Delete Category</span>
                                 </button>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td scope="row" class="border-0 text-center align-middle">
-                            <img src="../../assets/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
+                        <td class="align-middle text-center">
+                            <h5>Patch</h5>
                         </td>
-                        <td class="text-center align-middle">GTA V</td>
-                        <td class="text-center align-middle">Game</td>
-                        <td class="text-center align-middle">Action Open World</td>
-                        <td class="text-center align-middle">PC</td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="offer.php" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Product </span>
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Category</span>
                                 </a>
                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Product </span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="border-0 text-center align-middle">
-                            <img src="../../assets/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
-                        </td>
-                        <td class="text-center align-middle">GTA V</td>
-                        <td class="text-center align-middle">Game</td>
-                        <td class="text-center align-middle">Action Open World</td>
-                        <td class="text-center align-middle">PC</td>
-                        <td class="align-middle">
-                            <div class="btn-group-justified btn-group-md">
-                                <a href="offer.php" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Product </span>
-                                </a>
-                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Product </span>
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Category</span>
                                 </button>
                             </div>
                         </td>
@@ -390,10 +345,395 @@ function drawAdminInterfaceContent()
                 </tbody>
             <?php
                 break;
-
+                //Table Genres Page
             case 2: ?>
-
-
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Genres</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Action</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Genres</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Genres</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Simulation</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Genres</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span>Delete Genres</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Racing</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Genres</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Genres</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php
+                break;
+                //Table Platforms Page
+            case 3: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Platforms</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>PC</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Platforms</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Platforms</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>PS4</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Platforms</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span>Delete Platforms</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Xbox</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Platforms</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Platforms</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php
+                break;
+                //Table Users
+            case 4: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Photo</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Users</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php
+                break;
+                //Banned Users
+            case 5: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Photo</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Users</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-success btn-block flex-nowrap">
+                                    <i class="fas fa-user-check"></i> <span class="d-none d-md-inline-block">Ban Lift</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-success btn-block flex-nowrap">
+                                    <i class="fas fa-user-check"></i> <span class="d-none d-md-inline-block">Ban Lift</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-success btn-block flex-nowrap">
+                                    <i class="fas fa-user-check"></i> <span class="d-none d-md-inline-block">Ban Lift</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Lockdownpt</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-success btn-block flex-nowrap">
+                                    <i class="fas fa-user-check"></i> <span class="d-none d-md-inline-block">Ban Lift</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php
+                break;
+            case 6: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Users</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Report</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Status</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt is a fake</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Closed</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt is a fake</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Closed</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt is a fake</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Closed</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt is a fake</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Closed</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt is a fake</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Closed</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
             <?php
                 break;
         }
@@ -401,16 +741,59 @@ function drawAdminInterfaceContent()
     function drawAdminTableName($type)
     {
         switch ($type) {
-
+                //Products Table
             case 0: ?>
                 <div class="row justify-content-between flex-nowrap">
                     <h3 class="ml-3">Products</h3>
-                    <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add Product</span></a>
+                    <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
+                </div>
+            <?php
+                break;
+                //Categories Table
+            case 1: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">Categories</h3>
+                    <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Category</span></a>
+                </div>
+            <?php
+                break;
+                //Genres Table
+            case 2: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">Genres</h3>
+                    <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Genres</span></a>
+                </div>
+            <?php
+                break;
+                //Platform Table
+            case 3: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">Platform</h3>
+                    <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Platforms</span></a>
+                </div>
+            <?php
+                break;
+                //User Table
+            case 4: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">Users</h3>
+                    <a href="admin_banned_users_edit.php" class="btn btn-blue mr-3" role="button"><i class="mr-1 fas fa-user-times"></i><span class="d-none d-md-inline-block">View Banned Users</span></a>
+                </div>
+            <?php
+                break;
+                //Banned Users Table
+            case 5: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">Banned Users</h3>
+                </div>
+            <?php
+                break;
+                //View Reports
+            case 6: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">View Reports</h3>
                 </div>
         <?php
-                break;
-
-            case 1:
                 break;
         } ?>
     <?php
@@ -419,9 +802,7 @@ function drawAdminInterfaceContent()
     function drawAdminTable($type = 0)
     { ?>
         <div class="col mt-3">
-
             <?php drawAdminTableName($type); ?>
-
             <div class="table-responsive table-striped tableFixHead mt-3">
                 <table id="userOffersTable" class="table p-0">
                     <?php drawAdminTableContent($type); ?>
@@ -472,7 +853,9 @@ function drawAdminInterfaceContent()
                     </div>
                     <hr>
                     <div class="form-group col mb-auto mr-auto">
-                        <label for="gameGenres"><h5>Genres</h5></label>
+                        <label for="gameGenres">
+                            <h5>Genres</h5>
+                        </label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres</button>
@@ -486,7 +869,9 @@ function drawAdminInterfaceContent()
                         </div>
                     </div>
                     <div class="form-group col mb-auto mr-auto mt-4">
-                        <label for="gamePlatforms"><h5>Platforms</h5></label>
+                        <label for="gamePlatforms">
+                            <h5>Platforms</h5>
+                        </label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Platforms</button>
@@ -500,7 +885,9 @@ function drawAdminInterfaceContent()
                         </div>
                     </div>
                     <div class="form-group col mb-auto mr-auto mt-4">
-                        <label for="gameCategories"><h5>Categories</h5></label>
+                        <label for="gameCategories">
+                            <h5>Categories</h5>
+                        </label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
@@ -512,7 +899,7 @@ function drawAdminInterfaceContent()
                             </div>
                             <input id="gameCategories" type="text" class="form-control" aria-label="Text input with dropdown button" value="Game">
                         </div>
-                    </div>            
+                    </div>
                 </form>
                 <div class="row flex-nowrap justify-content-between mt-5">
                     <a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>

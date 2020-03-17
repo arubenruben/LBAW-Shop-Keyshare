@@ -543,3 +543,7 @@ li.section.status-bar-circle:before {
 #uploadPhotoProduct{
     max-width: 20em;
 }
+.adminUserTableImage{
+    max-width: 5em;
+    max-height: 5em;
+}
