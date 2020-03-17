@@ -537,3 +537,9 @@ li.section.status-bar-circle:before {
     background-color: var(--color-interactive-orange);
     border: none;
 }
+.btnAdminProduct{
+    min-width: 8em;
+}
+#uploadPhotoProduct{
+    max-width: 20em;
+}

@@ -452,9 +452,9 @@ function drawAdminInterfaceContent()
                 <h3>Add/Edit Product</h3>
                 <form>
                     <div class="row">
-                        <div class="col text-center align-middle">
+                        <div class="col align-middle">
                             <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png" />
-                            <button type="button" class="btn btn-primary btn-block text-white bg-orange mt-2">Upload File</button>
+                            <button id="uploadPhotoProduct" type="button" class="btn btn-primary btn-block text-white bg-orange mt-2 ml-auto mr-auto">Upload File</button>
                         </div>
                         <div class="form-group col mb-auto mr-auto">
                             <label for="gameName">Game Name</label>
@@ -471,27 +471,53 @@ function drawAdminInterfaceContent()
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="gamePlatforms">Choose Game Platforms</label>
-                            <input type="text" id="gamePlatforms" value="PC,PS4,PSP">
-                        </div>                        
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="gameGenres">Choose Game Genres</label>
-                            <input type="text" id="gameGenres" value="Action,Sports,Racing,Simulation">
-                        </div>                        
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="gameCategories">Choose Game Categories</label>
-                            <input id="gameCategories" value="Action,Sports,Racing,Simulation"> 
+                    <div class="form-group col mb-auto mr-auto">
+                        <label for="gameGenres"><h5>Genres</h5></label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item">Action</a>
+                                    <a class="dropdown-item">Simulation</a>
+                                    <a class="dropdown-item">Racing</a>
+                                </div>
+                            </div>
+                            <input id="gameGenres" type="text" class="form-control" aria-label="Text input with dropdown button" value="Action,Simulation,Racing">
                         </div>
-                    </div>                    
-                </form>    
+                    </div>
+                    <div class="form-group col mb-auto mr-auto mt-4">
+                        <label for="gamePlatforms"><h5>Platforms</h5></label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Platforms</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item">PC</a>
+                                    <a class="dropdown-item">PS4</a>
+                                    <a class="dropdown-item">Xbox</a>
+                                </div>
+                            </div>
+                            <input id="gamePlatforms" type="text" class="form-control" aria-label="Text input with dropdown button" value="PC,Xbox">
+                        </div>
+                    </div>
+                    <div class="form-group col mb-auto mr-auto mt-4">
+                        <label for="gameCategories"><h5>Categories</h5></label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item">Game</a>
+                                    <a class="dropdown-item">DLC</a>
+                                    <a class="dropdown-item">Patch</a>
+                                </div>
+                            </div>
+                            <input id="gameCategories" type="text" class="form-control" aria-label="Text input with dropdown button" value="Game">
+                        </div>
+                    </div>            
+                </form>
+                <div class="row flex-nowrap justify-content-between mt-5">
+                    <a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>
+                    <a href="admin_home.php" class="btn bg-orange mr-4 text-white" role="button">Publish Product</a>
+                </div>
             </div>
 
         <?php } ?>
