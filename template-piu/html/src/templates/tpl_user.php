@@ -52,7 +52,7 @@
 <!-- user tabs -->
 <?php function drawUserDetails()
 {
-    drawUserNavBar("account"); ?>
+    drawUserNavBar("account", "banned"); ?>
     <div id="content" class="container">
         <?php drawConfirmDeleteAccountPopup();
         drawFeedbackPopup("1"); //drawSaveChangesPopup(); 

@@ -5,6 +5,6 @@
     drawHead();
     drawHeader(0);
     drawNavbar(4,'My Offers«');
-    drawUserReports("normal");
+    drawUserReports("banned");
     drawFooter();
 ?>

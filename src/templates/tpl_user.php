@@ -1,71 +1,158 @@
 <!-- user navbar -->
-<?php function drawUserNavBar($page)
+<?php function drawUserNavBar($page, $typeUser)
 {
     switch ($page) {
         case "account": ?>
             <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue-full active">Account</button></a>
+                    <?php if($typeUser == "banned"){?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUser.php"><button class="btn btnMediaSmall btn-blue-full active">Account</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue-full active">Account</button></a>
+                    <?php } ?>
+                
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
+                    <?php } ?>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php } ?>
+
+
+            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php } ?>
                 </li>
             </ul>
         <?php
             break;
         case "offers": ?>
-            <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
-                <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
-                </li>
-                <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue active">Purchases</button></a>
-                </li>
-                <li class="nav-item  navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+           <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
+                <li class="nav-item">
+                    <?php if($typeUser == "banned"){?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUser.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php } ?>
+                
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports </button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php } ?>
                 </li>
             </ul>
         <?php
             break;
         case "purchases": ?>
-            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-3 flex-nowrap">
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
-                </li>
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue-full">Purchases</button></a>
-                </li>
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue active">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+             <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
+                <li class="nav-item">
+                    <?php if($typeUser == "banned"){?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUser.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php } ?>
+                
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue-full">Purchases</button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue-full">Purchases</button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall-full btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall-full btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <?php } ?>
                 </li>
             </ul>
         <?php
             break;
         case "reports": ?>
-            <ul id="userNavbar" class="nav nav-tabs  justify-content-center p-3 flex-nowrap">
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue">Account</button></a>
-                </li>
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
-                </li>
-                <li class="nav-item navUserItem">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue ">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+           <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
+                <li class="nav-item">
+                    <?php if($typeUser == "banned"){?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUser.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user.php"><button class="btn btnMediaSmall btn-blue active">Account</button></a>
+                    <?php } ?>
+                
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue-full  active">Reports</button></a>
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php }
+                    else{?>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <?php } ?>
+                </li>
+                <li class="nav-item">
+                <?php if($typeUser == "banned"){?>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
+                    <?php }
+                    else{?>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
+                    <?php } ?>
                 </li>
             </ul>
     <?php
@@ -76,13 +163,21 @@
 <?php } ?>
 
 <!-- user tabs -->
-<?php function drawUserDetails()
+<?php function drawUserDetails($type)
 {
-    drawUserNavBar("account"); ?>
+    drawUserNavBar("account", $type); ?>
     <div id="content" class="container">
         <?php drawConfirmDeleteAccountPopup();
         drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
         ?>
+         <?php if($type == "banned"){?>    
+            <div class="row mt-5 mb-5">
+                        <div class="col-7 text-center mx-auto mt-3">
+                           <h5 style="color:red"> You are currently banned. Some functionalities are disabled. </h5>
+                
+                        </div>
+                </div>
+            <?php }?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -118,19 +213,39 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
+                     
                         <form class="needs-validation" novalidate="">
                             <div class="mb-3 mt-3 text-left">
                                 <label for="email">Email <span class="text-muted"></span></label>
-                                <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+                                <?php if($type == "banned"){?>
+                                <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
+                                <?php }
+                                else{?>
+                                    <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+                               <?php } ?>
+                            
+
                                 <div class="invalid-feedback">
                                     Please enter a valid email.
                                 </div>
                             </div>
                             <div class="mb-3 text-left">
                                 <label for="description">Description</label>
-                                <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
+                                <?php if($type == "banned"){?>
+                                    <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" disabled></textarea>
+                                <?php }
+                                else{?>
+m                                    <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
+                               <?php } ?>
+                                    
                                 <div class="text-right mt-3">
+                                <?php if($type == "banned"){?>
+                                    <button type="button" class="btn btn-sm btn-blue" disabled><i class="fas fa-save"></i> Save changes</button>
+                                <?php }
+                                else{?>
                                     <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-save"></i> Save changes</button>
+                               <?php } ?>
+                                   
                                 </div>
                             </div>
                             <div class="mb-3 mt-0 text-left">
@@ -146,7 +261,13 @@
                                 <label for="">Paypal</label>
                                 <div class="text-right mt-0 flex-nowrap">
                                     <input type="password" class="form-control userDetailsForm mb-3 d-inline-block" placeholder="Paypal Email - None" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
+                                    <?php if($type == "banned"){?>
+                                        <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary" disabled><img src="../../assets/images/paypal/paypal.png" height="23"></button>
+                                <?php }
+                                else{?>
                                     <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"><img src="../../assets/images/paypal/paypal.png" height="23"></button>
+                               <?php } ?>
+                                   
                                 </div>
                             </div>
 
@@ -167,22 +288,197 @@
 
 <?php } ?>
 
-<?php function drawUserOffers()
+<?php function drawUserOffers($type)
 {
-    drawUserNavBar("offers"); ?>
+    drawUserNavBar("offers", $type); ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
+            <?php if($type == "banned"){?>    
+            <div class="row mb-5">
+                        <div class="col-7 text-center mx-auto mt-3">
+                           <h5 style="color:red"> You are currently banned. You can't add offers and all your current offers are disabled. </h5>
+                
+                        </div>
+                </div>
+            <?php }?>
                 <div class="row px-3">
                     <div class="col-sm-9 " style=" display:flex; align-items: center;">
                         <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
+
                     <div class="col-sm-3">
-                        <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
+
+
+                        <?php if ($type == "banned") { ?>
+                            <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white disabled" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
+                        <?php } else { ?>
+                            <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white " role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
+                        <?php } ?>
+
+
 
 
                     </div>
                 </div>
+                <?php if($type == "banned"){?>
+                <div class="container mt-3 mb-3">
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class="table-responsive table-striped tableFixHead mt-3">
+                                <table id="userOffersTable" class="table p-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="py-2 text-uppercase">Start Date</div>
+                                            </th>
+
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="py-2 text-uppercase">Current Price</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light text-center">
+                                                <div class="py-2 text-uppercase">Options</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div>
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div>
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div>
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div><!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        <h6>Stock: 10 keys</h6>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+
+                                            </th>
+                                            <td class="text-center align-middle">2020/07/10</td>
+                                            <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                        
+
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php }
+                else{ ?>
                 <div class="container mt-3 mb-3">
                     <div class="row ">
                         <div class="col-12">
@@ -338,6 +634,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
 
                 <div class="col-sm-12 usercontent-left mt-5">
                     <div class="row px-3">
@@ -502,12 +799,20 @@
     </div>
 <?php } ?>
 
-<?php function drawUserPurchases()
+<?php function drawUserPurchases($type)
 {
-    drawUserNavBar("purchases") ?>
+    drawUserNavBar("purchases", $type) ?>
     <div id="content" class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
+            <?php if($type == "banned"){?>    
+            <div class="row mb-5">
+                        <div class="col-7 text-center mx-auto mt-3">
+                           <h5 style="color:red"> You are currently banned. You can't leave feedback or report Sellers. </h5>
+                
+                        </div>
+                </div>
+            <?php }?>
                 <div class="row ">
                     <div class="col-sm-12">
                         <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">4</span></h4>
@@ -548,8 +853,10 @@
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <?php if($type != "banned"){?>
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php }?>
                                             </div>
                                         </td>
                                     </tr>
@@ -567,9 +874,13 @@
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="../../assets/images/games/GTAV/1.png">
-                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            
+                                            <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                            <?php if($type != "banned"){?>
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                 <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+<?php }?>
+                    
                                             </div>
                                         </td>
                                     </tr>
@@ -588,8 +899,10 @@
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php if($type!="banned"){ ?>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php } ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -608,8 +921,10 @@
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php if($type!="banned"){ ?>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php } ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -628,8 +943,10 @@
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
                                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php if($type!="banned"){ ?>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php } ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -649,10 +966,10 @@
     drawKeyPopup(); ?>
 <?php } ?>
 
-<?php function drawUserReports()
+<?php function drawUserReports($type)
 {
 
-    drawUserNavBar("reports") ?>
+    drawUserNavBar("reports", $type) ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
             <div class="col-sm-12 usercontent-left">
@@ -1388,5 +1705,7 @@
     </div>
 
 <?php
+
+
 
 } ?>

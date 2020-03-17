@@ -6,6 +6,6 @@
     drawHead(['activate_popovers.js']);
     drawHeader(0);
     drawNavbar(4,'My Account');
-    drawUserDetails('normal');
+    drawUserDetails("banned");
     drawFooter();
 ?>

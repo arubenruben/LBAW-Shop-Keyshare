@@ -6,6 +6,6 @@
     drawHead();
     drawHeader(0);
     drawNavbar(4,'My Purchases');
-    drawUserPurchases();
+    drawUserPurchases('normal');
     drawFooter();
 ?>
