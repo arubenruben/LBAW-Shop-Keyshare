@@ -71,8 +71,8 @@ function drawAdminInterfaceContent()
                 <li><a href="admin_platforms_edit.php" class="list-group-item"> Platforms </a> </li>
                 <li><a href="admin_users_edit.php" class="list-group-item"> Users </a> </li>
                 <li><a href="admin_reports_edit.php" class="list-group-item"> Reports </a> </li>
-                <li><a href="" class="list-group-item"> Transactions </a> </li>
-                <li><a href="" class="list-group-item"> Reviews </a> </li>
+                <li><a href="admin_transaction_edit.php" class="list-group-item"> Transactions </a> </li>
+                <li><a href="admin_review_edit.php" class="list-group-item"> Reviews </a> </li>
                 <li><a href="" class="list-group-item"> FAQ </a> </li>
             </ul>
         </div>
@@ -625,6 +625,7 @@ function drawAdminInterfaceContent()
                 </tbody>
             <?php
                 break;
+                //Reports Table
             case 6: ?>
                 <thead>
                     <tr>
@@ -655,7 +656,7 @@ function drawAdminInterfaceContent()
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                <a href="admin_report_page.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                     <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -673,7 +674,7 @@ function drawAdminInterfaceContent()
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                <a href="admin_report_page.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                     <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -691,7 +692,7 @@ function drawAdminInterfaceContent()
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                <a href="admin_report_page.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                     <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -709,7 +710,7 @@ function drawAdminInterfaceContent()
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                <a href="admin_report_page.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                     <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -727,12 +728,353 @@ function drawAdminInterfaceContent()
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="reportPage.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                <a href="admin_report_page.php" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                     <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </td>
                     </tr>
+                </tbody>
+            <?php
+                break;
+                //Transactions Table
+            case 7: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Transactions Id</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Seller</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Buyer</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Total Price</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPT</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>55€</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPT</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>55€</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPT</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>55€</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPT</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>55€</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
+                                    <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php
+                break;
+                //Reviews Table
+            case 8: ?>
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="p-2 px-3 text-uppercase">Review Id</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Author</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Target</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                            <div class="py-2 text-uppercase">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                      <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                      <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                      <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>                 
                 </tbody>
             <?php
                 break;
@@ -792,6 +1134,19 @@ function drawAdminInterfaceContent()
             case 6: ?>
                 <div class="row justify-content-between flex-nowrap">
                     <h3 class="ml-3">View Reports</h3>
+                </div>
+            <?php
+                break;
+
+            case 7: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">View Transactions</h3>
+                </div>
+            <?php
+                break;
+            case 8: ?>
+                <div class="row justify-content-between flex-nowrap">
+                    <h3 class="ml-3">View Reviews</h3>
                 </div>
         <?php
                 break;
