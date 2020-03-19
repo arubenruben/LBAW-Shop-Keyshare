@@ -167,25 +167,17 @@
 {
     drawUserNavBar("account", $type); ?>
     <div id="content" class="container">
-        <?php drawConfirmDeleteAccountPopup();
-        drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
+        <?php 
+            drawConfirmDeleteAccountPopup();
+            drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
         ?>
-         <?php if($type == "banned"){?>    
+        <?php if($type == "banned"){?>    
             <div class="row mt-5 mb-2">
-                        <div class="col-7 text-center mx-auto mt-3">
-                           <h5 style="color:red"> You are currently banned. Some functionalities are disabled. </h5>
-                        </div>
-                </div>
-
-                <div class="row mb-5">
-                        <div class="col-3 text-center mx-auto mt-3">
-                        <button type="button" class="btn btn-lg btn-blue mt-2 "  data-toggle="modal" data-target="#modalAppeal">Appeal</button>
-                        </div>
-                </div>
-
-             
-
-            <?php }?>
+                <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
+                    You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+                </div>  
+            </div>
+        <?php }?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
                 <div class="row ">
@@ -243,7 +235,7 @@
                                     <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" disabled></textarea>
                                 <?php }
                                 else{?>
-m                                    <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
+                                    <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
                                <?php } ?>
                                     
                                 <div class="text-right mt-3">
@@ -293,40 +285,31 @@ m                                    <textarea class="form-control userDetailsFo
             <?php drawAppealPopup() ?>
         </div>
     </div>
-
 <?php } ?>
 
 <?php function drawUserOffers($type)
 {
     drawUserNavBar("offers", $type); ?>
     <div id="content" class="container mt-5">
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-sm-12 usercontent-left">
             <?php if($type == "banned"){?>    
-            <div class="row mb-5">
-                        <div class="col-7 text-center mx-auto mt-3">
-                           <h5 style="color:red"> You are currently banned. You can't add offers and all your current offers are disabled. </h5>
-                
-                        </div>
+                <div class="row mb-2">
+                    <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
+                        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+                    </div>
                 </div>
             <?php }?>
                 <div class="row px-3">
                     <div class="col-sm-9 " style=" display:flex; align-items: center;">
                         <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary">4</span></h4>
                     </div>
-
                     <div class="col-sm-3">
-
-
                         <?php if ($type == "banned") { ?>
                             <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white disabled" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
                         <?php } else { ?>
                             <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white " role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
                         <?php } ?>
-
-
-
-
                     </div>
                 </div>
                 <?php if($type == "banned"){?>
@@ -814,11 +797,10 @@ m                                    <textarea class="form-control userDetailsFo
         <div class="row">
             <div class="col-sm-12">
             <?php if($type == "banned"){?>    
-            <div class="row mb-5">
-                        <div class="col-7 text-center mx-auto mt-3">
-                           <h5 style="color:red"> You are currently banned. You can't leave feedback or report Sellers. </h5>
-                
-                        </div>
+                <div class="row mb-2">
+                    <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
+                        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+                    </div>
                 </div>
             <?php }?>
                 <div class="row ">
@@ -882,13 +864,11 @@ m                                    <textarea class="form-control userDetailsFo
                                         <td class="text-center align-middle"><strong>$79.00</strong></td>
                                         <td class="align-middle">
                                             <div class="../../assets/images/games/GTAV/1.png">
-                                            
-                                            <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                            <?php if($type != "banned"){?>
-                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
-                                            <?php }?>
-                                                            
+                                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                <?php if($type != "banned"){?>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                <?php }?>
                                             </div>
                                         </td>
                                     </tr>
@@ -968,15 +948,16 @@ m                                    <textarea class="form-control userDetailsFo
         </div>
     </div>
 
-    <?php drawReportPopup();
-    drawFeedbackPopup("1");
-    drawGiveFeedbackPopup();
-    drawKeyPopup(); ?>
+    <?php 
+        drawReportPopup();
+        drawFeedbackPopup("1");
+        drawGiveFeedbackPopup();
+        drawKeyPopup(); 
+    ?>
 <?php } ?>
 
 <?php function drawUserReports($type)
 {
-
     drawUserNavBar("reports", $type) ?>
     <div id="content" class="container mt-5">
         <div class="row mt-5">
@@ -985,7 +966,6 @@ m                                    <textarea class="form-control userDetailsFo
                     <div class="col-sm-9 " style=" display:flex; align-items: center;">
                         <h4 class="text-left">My Reports<span class="badge ml-1 badge-secondary">1</span></h4>
                     </div>
-
                 </div>
                 <div class="container mt-3 mb-3">
                     <div class="row ">
@@ -1303,13 +1283,13 @@ m                                    <textarea class="form-control userDetailsFo
         </div>
     </div>
 
-    <?php drawReportPopup();
-    drawFeedbackPopup("1");
-    drawGiveFeedbackPopup();
-    drawKeyPopup(); ?>
-
-<?php
-} ?>
+    <?php
+        drawReportPopup();
+        drawFeedbackPopup("1");
+        drawGiveFeedbackPopup();
+        drawKeyPopup(); 
+    ?>
+<?php } ?>
 
 <!-- user popups -->
 <?php function drawConfirmDeleteAccountPopup()
@@ -1484,7 +1464,7 @@ m                                    <textarea class="form-control userDetailsFo
                 <div class="modal-body">
                 <div class="row mt-1">
                         <div class="col">
-                            <h5>An admin will acess your situation after you submit an appeal, please be as self explanitory as possible in the comment section</h5>
+                            <h5>An admin will access your situation after you submit an appeal, please be as self explanitory as possible in the comment section</h5>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -1549,10 +1529,8 @@ m                                    <textarea class="form-control userDetailsFo
     </div>
 <?php } ?>
 
-
-<?php function drawReportPage($type)
-{
-?>
+<?php function drawReportPage($type) 
+{ ?>
     <div id="content" class="container">
         <div class="row mt-4">
             <div class="col-11 col-md-4">
@@ -1748,8 +1726,4 @@ m                                    <textarea class="form-control userDetailsFo
         </div>
     </div>
 
-<?php
-
-
-
-} ?>
+<?php } ?>

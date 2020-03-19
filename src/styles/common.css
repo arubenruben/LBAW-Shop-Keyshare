@@ -377,6 +377,12 @@ header.navbar {
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
 
+/* objects */
+
+.hoverable:hover {
+    cursor: pointer;
+}
+
 
 /* color css */
 
