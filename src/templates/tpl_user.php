@@ -171,12 +171,20 @@
         drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
         ?>
          <?php if($type == "banned"){?>    
-            <div class="row mt-5 mb-5">
+            <div class="row mt-5 mb-2">
                         <div class="col-7 text-center mx-auto mt-3">
                            <h5 style="color:red"> You are currently banned. Some functionalities are disabled. </h5>
-                
                         </div>
                 </div>
+
+                <div class="row mb-5">
+                        <div class="col-3 text-center mx-auto mt-3">
+                        <button type="button" class="btn btn-lg btn-blue mt-2 "  data-toggle="modal" data-target="#modalAppeal">Appeal</button>
+                        </div>
+                </div>
+
+             
+
             <?php }?>
         <div class="row mt-2">
             <div class="col-sm-4 usercontent-left  border rounded-top">
@@ -282,7 +290,7 @@ m                                    <textarea class="form-control userDetailsFo
                     </div>
                 </div>
             </div>
-
+            <?php drawAppealPopup() ?>
         </div>
     </div>
 
@@ -1452,6 +1460,42 @@ m                                    <textarea class="form-control userDetailsFo
                 </div>
                 <div class="modal-footer">
                     <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<?php function drawAppealPopup()
+{ ?>
+    <div id="modalAppeal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header row">
+                    <div class="col-6">
+                        <span class="flex-nowrap">
+                            <h5 class="d-inline-block">Appeal</h5><span>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                <div class="row mt-1">
+                        <div class="col">
+                            <h5>An admin will acess your situation after you submit an appeal, please be as self explanitory as possible in the comment section</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h6>Appeal Coment</h6>
+                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col text-right"><button class="btn btn-blue">Submit</button></div>
                 </div>
             </div>
         </div>
