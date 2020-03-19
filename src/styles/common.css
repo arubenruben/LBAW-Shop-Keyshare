@@ -436,6 +436,9 @@ header.navbar {
 .bg-white {
     background-color: var(--color-background-white);
 }
+.bg-dark-blue{
+    background-color: var(--color-background-dark-blue);
+}
 
 
 /* scrollable table */
@@ -530,4 +533,23 @@ li.section.status-bar-circle:before {
 
 #userNavbar .userNavbarItem {
     padding: 0;
+}
+.adminTableImagePreview{
+    max-height: 10rem;
+    max-width: 10rem;
+}
+ 
+#content .bg-orange{
+    background-color: var(--color-interactive-orange);
+    border: none;
+}
+.btnAdminProduct{
+    min-width: 8em;
+}
+#uploadPhotoProduct{
+    max-width: 20em;
+}
+.adminUserTableImage{
+    max-width: 5em;
+    max-height: 5em;
 }

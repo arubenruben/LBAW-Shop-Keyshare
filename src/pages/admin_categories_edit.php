@@ -6,8 +6,8 @@
 	drawHead();
 	drawHeaderAdmin(0);
     drawAdminStart();
-    drawAdminInterface(0);
-    drawAdminHomePage();
+    drawAdminInterface(1);
+    drawAdminTable(1);
     drawAdminEnd();
 	drawAdminFooter(); 
 ?>
