@@ -1340,12 +1340,12 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header row">
-                    <div class="col-6">
+                <div class="modal-header row mx-0">
+                    <div class="col-9 col-md-6">
                         <span class="flex-nowrap"> <i class="fas fa-key d-inline-block"></i>
                             <h5 class="d-inline-block">Key info </h5><span>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-3 col-md-6 text-right">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                 </div>
@@ -1366,12 +1366,12 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header row">
-                    <div class="col-6">
+                <div class="modal-header row mx-0">
+                <div class="col-9 col-md-6">
                         <span class="flex-nowrap"> <i class="far fa-comment-alt d-inline-block"></i>
                             <h5 class="d-inline-block">Leave feedback </h5><span>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-9 col-md-6 text-right">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                 </div>
@@ -1426,12 +1426,12 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header row">
-                    <div class="col-6">
+                <div class="modal-header row mx-0">
+                <div class="col-9 col-md-6">
                         <span class="flex-nowrap"> <i class="fas fa-key d-inline-block"></i>
                             <h5 class="d-inline-block">Key info </h5><span>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-9 col-md-6 text-right">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                 </div>
@@ -1452,12 +1452,12 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header row">
-                    <div class="col-6">
+                <div class="modal-header row mx-0">
+                <div class="col-9 col-md-6">
                         <span class="flex-nowrap">
                             <h5 class="d-inline-block">Appeal</h5><span>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-9 col-md-6 text-right">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                 </div>
@@ -1488,12 +1488,12 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header row">
-                    <div class="col-6">
+                <div class="modal-header row mx-0">
+                <div class="col-9 col-md-6">
                         <span class="flex-nowrap"> <i class="fas fa-user-slash d-inline-block"></i>
                             <h5 class="d-inline-block">Report Seller </h5><span>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-9 col-md-6 text-right">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                 </div>
