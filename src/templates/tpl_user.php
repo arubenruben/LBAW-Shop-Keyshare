@@ -102,10 +102,10 @@
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall-full btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall-full btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
