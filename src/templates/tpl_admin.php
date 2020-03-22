@@ -1,23 +1,16 @@
 <!-- header -->
-<?php function drawHeaderAdmin($type)
-{
-    switch ($type) {
-        case 0: ?>
-            <div id="wrapper">
-                <header id="headerFixed" class="navbar row justify-content-between">
-                    <a href="admin_home.php" class="btn btn-outline-light navbarButton d-none d-md-block" role="button">Dashboard</a>
-                    <a href="admin_home.php">
-                        <img class="img-fluid logo mx-auto" src="../../assets/images/logo/logo.png" />
-                    </a>
-                    <a href="homepage.php" class="btn btn-outline-light navbarButton" role="button">Logout</a>
-                </header>
-            <?php
-            break;
-        default: ?>
-        <?php
-            break;
-    }
-} ?>
+<?php function drawHeaderAdmin()
+{ ?>
+
+    <div id="wrapper">
+        <header id="headerFixed" class="navbar row justify-content-between">
+            <a href="admin_home.php" class="btn btn-outline-light navbarButton d-none d-md-block" role="button">Dashboard</a>
+            <a href="admin_home.php">
+                <img class="img-fluid logo mx-auto" src="../../assets/images/logo/logo.png" />
+            </a>
+            <a href="homepage.php" class="btn btn-outline-light navbarButton" role="button">Logout</a>
+        </header>
+<?php } ?>
 
 <!-- login -->
 <?php function drawAdminLogin()
@@ -62,41 +55,48 @@
     </div>
 <?php } ?>
 
+<?php function drawAdminStart()
+{ ?>
+    <main>
+        <div id="content" class="container-fluid">
+            <div class="row ">
+<?php } ?>
+
+<?php function drawAdminInterface($type=1)
+{
+    switch ($type) {
+        case 0: ?>
+            <div class="col-sm-3 mt-4">
+                <?php drawAdminSidebar(); ?>
+            </div>
+
+        <?php
+            break;
+            //Dashboard instead of stack vertically, disappear
+        case 1: ?>
+            <div class="col-3 d-none d-lg-block mt-4">
+                <?php drawAdminSidebar(); ?>
+            </div>
+    <?php break; } ?>
+<?php } ?>
+
 <!-- sidebar -->
-<?php function drawAdminInterfaceContent()
+<?php function drawAdminSidebar()
 { ?>
     <div class="card">
         <ul class="list-unstyled">
-            <li><a href="admin_home.php" class="list-group-item bg-active">Dashboard </a> </li>
-            <li><a href="admin_product_page.php " class="list-group-item"> Products </a> </li>
-            <li><a href="admin_categories_edit.php" class="list-group-item"> Categories </a> </li>
-            <li><a href="admin_genres_edit.php" class="list-group-item"> Genres </a> </li>
-            <li><a href="admin_platforms_edit.php" class="list-group-item"> Platforms </a> </li>
-            <li><a href="admin_users_edit.php" class="list-group-item"> Users </a> </li>
-            <li><a href="admin_reports_edit.php" class="list-group-item"> Reports </a> </li>
-            <li><a href="admin_transaction_edit.php" class="list-group-item"> Transactions </a> </li>
-            <li><a href="admin_review_edit.php" class="list-group-item"> Reviews </a> </li>
-            <li><a href="" class="list-group-item"> FAQ </a> </li>
+            <li><a href="admin.php" class="list-group-item bg-active">Dashboard </a> </li>
+            <li><a href="admin.php?page=0" class="list-group-item"> Products </a> </li>
+            <li><a href="admin.php?page=1" class="list-group-item"> Categories </a> </li>
+            <li><a href="admin.php?page=2" class="list-group-item"> Genres </a> </li>
+            <li><a href="admin.php?page=3" class="list-group-item"> Platforms </a> </li>
+            <li><a href="admin.php?page=4" class="list-group-item"> Users </a> </li>
+            <li><a href="admin.php?page=6" class="list-group-item"> Reports </a> </li>
+            <li><a href="admin.php?page=7" class="list-group-item"> Transactions </a> </li>
+            <li><a href="admin.php?page=8" class="list-group-item"> Reviews </a> </li>
+            <li><a href="admin.php?page=9" class="list-group-item"> FAQ </a> </li>
         </ul>
     </div>
-<?php } ?>
-
-<?php function drawAdminInterface($type)
-{
-        switch ($type) {
-            case 0: ?>
-                <div class="col-sm-3 mt-4">
-                    <?php drawAdminInterfaceContent(); ?>
-                </div>
-
-            <?php
-                break;
-                //Dashboard instead of stack vertically, disappear
-            case 1: ?>
-                <div class="col-3 d-none d-lg-block mt-4">
-                    <?php drawAdminInterfaceContent(); ?>
-                </div>
-        <?php break; } ?>
 <?php } ?>
 
 <!-- tab homepage -->
@@ -121,81 +121,8 @@
     </div>
 <?php } ?>
 
-<!-- tab title -->
-<?php function drawAdminTableName($type)
-{
-    switch ($type) {
-            //Products Table
-        case 0: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Products</h3>
-                <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
-            </div>
-        <?php
-            break;
-            //Categories Table
-        case 1: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Categories</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Category</span></a>
-            </div>
-        <?php
-            break;
-            //Genres Table
-        case 2: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Genres</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Genres</span></a>
-            </div>
-        <?php
-            break;
-            //Platform Table
-        case 3: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Platform</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Platforms</span></a>
-            </div>
-        <?php
-            break;
-            //User Table
-        case 4: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Users</h3>
-                <a href="admin_banned_users_edit.php" class="btn btn-blue mr-3" role="button"><i class="mr-1 fas fa-user-times"></i><span class="d-none d-md-inline-block">View Banned Users</span></a>
-            </div>
-        <?php
-            break;
-            //Banned Users Table
-        case 5: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Banned Users</h3>
-            </div>
-        <?php
-            break;
-            //View Reports
-        case 6: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">View Reports</h3>
-            </div>
-        <?php
-            break;
-        case 7: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">View Transactions</h3>
-            </div>
-        <?php
-            break;
-        case 8: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">View Reviews</h3>
-            </div>
-    <?php
-            break;
-    } ?>
-<?php } ?>
-
 <!-- tab table -->
-<?php function drawAdminTable($type = 0)
+<?php function drawAdminTable($type=10)
 { ?>
     <div class="col mt-3">
         <?php drawAdminTableName($type); ?>
@@ -207,8 +134,85 @@
     </div>
 <?php } ?>
 
+<!-- tab title -->
+<?php function drawAdminTableName($type=10)
+{
+    switch ($type) {
+        //Products Table
+        case 0: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Products</h3>
+                <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
+            </div>
+        <?php break;
+        //Categories Table
+        case 1: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Categories</h3>
+                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Category</span></a>
+            </div>
+        <?php break;
+        //Genres Table
+        case 2: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Genres</h3>
+                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Genres</span></a>
+            </div>
+        <?php break;
+        //Platform Table
+        case 3: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Platform</h3>
+                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Platforms</span></a>
+            </div>
+        <?php break;
+        //Normal Users Table
+        case 4: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Users</h3>
+                <a href="admin_banned_users_edit.php" class="btn btn-blue mr-3" role="button"><i class="mr-1 fas fa-user-times"></i><span class="d-none d-md-inline-block">View Banned Users</span></a>
+            </div>
+        <?php break;
+        //Banned Users Table
+        case 5: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Banned Users</h3>
+            </div>
+        <?php break;
+        //Reports Table
+        case 6: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">View Reports</h3>
+            </div>
+        <?php break;
+        //Transactions Table
+        case 7: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">View Transactions</h3>
+            </div>
+        <?php break;
+        //Reviews Table
+        case 8: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">View Reviews</h3>
+            </div>
+        <?php break;
+        // FAQ Table
+        case 9: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">View FAQ</h3>
+            </div>
+        <?php break;
+        default: ?>
+            <div class="row justify-content-between flex-nowrap">
+                <h3 class="ml-3">Dashboard</h3>
+            </div>
+        <?php break;
+    } ?>
+<?php } ?>
+
 <!-- tab table content -->
-<?php function drawAdminTableContent($type=9)
+<?php function drawAdminTableContent($type=10)
 {
     switch ($type) {
         //Table Product Page
@@ -694,6 +698,51 @@
             <?php } ?>      
             </tbody>
         <?php break;
+        //FAQ Table
+        case 9: 
+            drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); ?>
+            <thead>
+                <tr>
+                    <th scope="col" class="border-0 bg-light text-center">
+                        <div class="p-2 px-3 text-uppercase">Review Id</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Author</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Target</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Actions</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php for($counter = 0; $counter < 12; $counter++) { ?>
+                <tr>
+                    <td class="align-middle text-center">
+                        <h5>#1</h5>
+                    </td>
+                    <td class="align-middle text-center">
+                        <h5>LockdownPt</h5>
+                    </td>
+                    <td class="align-middle text-center">
+                        <h5>Ruben Almeida</h5>
+                    </td>
+                    <td class="align-middle">
+                        <div class="btn-group-justified btn-group-md">
+                            <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                            </a>
+                            <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
+                                <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr> 
+            <?php } ?>      
+            </tbody>
+        <?php break;
         //Admin Dashboard
         default: 
             drawAdminHomePage();
@@ -701,12 +750,6 @@
     } ?>
 <?php } ?>
 
-<?php function drawAdminStart()
-{ ?>
-    <main>
-        <div id="content" class="container-fluid">
-            <div class="row ">
-<?php } ?>
 
 <?php function drawAdminEnd()
 { ?>
