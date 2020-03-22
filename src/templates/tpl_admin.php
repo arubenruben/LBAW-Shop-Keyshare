@@ -179,7 +179,7 @@
         <?php break;
         //Categories Table
         case 1: 
-            drawAddPropertyModal("Add Category", "New Category:")?>
+            drawAddPropertyModal("Add Category", "New Category:") ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Categories</h3>
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
@@ -241,9 +241,14 @@
             </div>
         <?php break;
         // FAQ Table
-        case 9: ?>
+        case 9: 
+            drawAddPropertyModal("Add FAQ", "New Question:") ?>
             <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">View FAQ</h3>
+                <h3 class="ml-3">View FAQ</h3> 
+                <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
+                    <i class="mr-1 fas fa-plus"></i> 
+                    <span class="d-none d-md-inline-block">Add FAQ</span>
+                </button>
             </div>
         <?php break;
         default: ?>
