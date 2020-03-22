@@ -174,6 +174,7 @@
         case 0: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Products</h3>
+                <input class="form-control col-5 sm" type="search" placeholder="Search" aria-label="Search">
                 <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
             </div>
         <?php break;
@@ -182,6 +183,7 @@
             drawAddPropertyModal("Add Category", "New Category:") ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Categories</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Category</span>
@@ -193,6 +195,7 @@
             drawAddPropertyModal("Add Genre", "New Genre:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Genres</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Genre</span>
@@ -204,6 +207,7 @@
             drawAddPropertyModal("Add Platform", "New Platform:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Platform</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Platform</span>
@@ -214,18 +218,14 @@
         case 4: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Users</h3>
-            </div>
-        <?php break;
-        //Banned Users Table -> retirar e dps mudar
-        case 5: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Banned Users</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
             </div>
         <?php break;
         //Reports Table
         case 6: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View Reports</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
             </div>
         <?php break;
         //Transactions Table
