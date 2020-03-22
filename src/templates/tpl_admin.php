@@ -206,7 +206,6 @@
         case 4: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Users</h3>
-                <a href="admin_banned_users_edit.php" class="btn btn-blue mr-3" role="button"><i class="mr-1 fas fa-user-times"></i><span class="d-none d-md-inline-block">View Banned Users</span></a>
             </div>
         <?php break;
         //Banned Users Table
@@ -404,39 +403,79 @@
         <?php break;
         //Normal Users
         case 4: ?>
-            <thead>
-                <tr>
-                    <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Photo</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Users</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Actions</div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php for ($counter = 0; $counter < 5; $counter++) {
-                    drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); ?>
-                    <tr>
-                        <td class="align-middle text-center">
-                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>Lockdownpt</h5>
-                        </td>
-                        <td class="align-middle">
-                            <div class="btn-group-justified btn-group-md">
-                                <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
-                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
+            <h5> Normal Users </h5>
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="p-2 px-3 text-uppercase">Photo</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="p-2 px-3 text-uppercase">Users</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Actions</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php for ($counter = 0; $counter < 5; $counter++) {
+                                    drawConfirmModal("Are you sure you want to ban this user?", "By banning this user you will be depriving him of certain privileges", 0); ?>
+                                    <tr>
+                                        <td class="align-middle text-center">
+                                            <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <h5>Lockdownpt</h5>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm0">
+                                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                            </table>
+                                </div>
+
+                                <div class="table-responsive table-striped tableFixHead">
+                                    <h5> Banned Users </h5>
+                            <table id="userOffersTable" class="table p-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="p-2 px-3 text-uppercase">Photo</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="p-2 px-3 text-uppercase">Users</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Actions</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php for ($counter = 0; $counter < 5; $counter++) {
+                                        drawConfirmModal("Are you sure you want unban this user?", "By unbanning this user you will be giving him certain privileges". 1); ?>
+                                        <tr>
+                                            <td class="align-middle text-center">
+                                                <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <h5>Lockdownpt</h5>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="btn-group-justified btn-group-md">
+                                                    <button type="button mt-5 mb-5 " class="btn btn-green btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm1">
+                                                        <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Unban User</span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
         <?php break;
         //Banned Users
         case 5: ?>
@@ -901,11 +940,10 @@
         </div><!-- modal -->
     </div>
 <?php } ?>
-
-<!-- generic confirm modal -->
-<?php function drawConfirmModal($title, $message = null) 
+<?php function drawConfirmModal($title, $message = null, $id="")
 { ?>
-    <div id="modalConfirm" class="modal fade" role="dialog">
+
+    <div id=<?="modalConfirm" . $id ?> class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
