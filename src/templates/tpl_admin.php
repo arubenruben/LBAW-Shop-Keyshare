@@ -317,7 +317,7 @@
                 <?php for ($counter = 0; $counter < 5; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>Game</h5>
+                            <h6>Game</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
@@ -351,7 +351,7 @@
                 <?php for ($counter = 0; $counter < 5; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>Action</h5>
+                            <h6>Action</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
@@ -385,7 +385,7 @@
                     drawEditPropertyModal("Edit Platform", "PC"); ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>PC</h5>
+                            <h6>PC</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
@@ -403,7 +403,7 @@
         <?php break;
         //Normal Users
         case 4: ?>
-            <h5> Normal Users </h5>
+            <h6> Normal Users </h6>
                             <thead>
                                 <tr>
                                     <th scope="col" class="border-0 bg-light text-center">
@@ -425,7 +425,7 @@
                                             <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
                                         </td>
                                         <td class="align-middle text-center">
-                                            <h5>Lockdownpt</h5>
+                                            <h6>Lockdownpt</h6>
                                         </td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
@@ -441,7 +441,7 @@
                                 </div>
 
                                 <div class="table-responsive table-striped tableFixHead">
-                                    <h5> Banned Users </h5>
+                                    <h6> Banned Users </h6>
                             <table id="userOffersTable" class="table p-0">
                                 <thead>
                                     <tr>
@@ -464,12 +464,12 @@
                                                 <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <h5>Lockdownpt</h5>
+                                                <h6>Lockdownpt</h6>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
                                                     <button type="button mt-5 mb-5 " class="btn btn-green btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm1">
-                                                        <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Unban User</span>
+                                                        <i class="fas fa-check"></i><span class="d-none d-md-inline-block">Unban User</span>
                                                     </button>
                                                 </div>
                                             </td>
@@ -499,7 +499,7 @@
                             <img src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" class="img-fluid adminUserTableImage">
                         </td>
                         <td class="align-middle text-center">
-                            <h5>Lockdownpt</h5>
+                            <h6>Lockdownpt</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
@@ -533,13 +533,13 @@
             <tbody>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPt is a fake</h5>
+                        <h6>LockdownPt is a fake</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Closed</h5>
+                        <h6>Closed</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -551,13 +551,13 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPt is a fake</h5>
+                        <h6>LockdownPt is a fake</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Closed</h5>
+                        <h6>Closed</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -569,13 +569,13 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPt is a fake</h5>
+                        <h6>LockdownPt is a fake</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Closed</h5>
+                        <h6>Closed</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -587,13 +587,13 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPt is a fake</h5>
+                        <h6>LockdownPt is a fake</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Closed</h5>
+                        <h6>Closed</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -605,13 +605,13 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPt is a fake</h5>
+                        <h6>LockdownPt is a fake</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Closed</h5>
+                        <h6>Closed</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -647,16 +647,16 @@
             <tbody>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>#1</h5>
+                        <h6>#1</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPT</h5>
+                        <h6>LockdownPT</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>55€</h5>
+                        <h6>55€</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -668,16 +668,16 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>#1</h5>
+                        <h6>#1</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPT</h5>
+                        <h6>LockdownPT</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>55€</h5>
+                        <h6>55€</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -689,16 +689,16 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>#1</h5>
+                        <h6>#1</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPT</h5>
+                        <h6>LockdownPT</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>55€</h5>
+                        <h6>55€</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -710,16 +710,16 @@
                 </tr>
                 <tr>
                     <td class="align-middle text-center">
-                        <h5>#1</h5>
+                        <h6>#1</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>LockdownPT</h5>
+                        <h6>LockdownPT</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>Ruben Almeida</h5>
+                        <h6>Ruben Almeida</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h5>55€</h5>
+                        <h6>55€</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
@@ -733,8 +733,8 @@
         <?php break;
         //Reviews Table
         case 8:
-            drawConfirmModal("Are you sure you want to delete this?", "This seeller is ugly"); 
-            drawConfirmModal("Review Details", "This seeller is ugly"); ?> 
+            drawViewPropertyModal("Review Details", "This seeller is ugly", 1); 
+            drawConfirmModal("Are you sure ...?", "By delting this..."); ?> 
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
@@ -756,17 +756,17 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>05 March 2018</h5>
+                            <h6>05 March 2018</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h5>LockdownPt</h5>
+                            <h6>LockdownPt</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h5>Ruben Almeida</h5>
+                            <h6>Ruben Almeida</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit">
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalView">
                                     <i class="fas fa-info-circle"></i> <span class="d-none d-md-inline-block">View Details</span>
                                 </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
@@ -801,13 +801,13 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>05 March 2018</h5>
+                            <h6>05 March 2018</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h5>LockdownPt</h5>
+                            <h6>LockdownPt</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h5>Ruben Almeida</h5>
+                            <h6>Ruben Almeida</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
@@ -865,7 +865,7 @@
             <hr>
             <div class="form-group col mb-auto mr-auto">
                 <label for="gameGenres">
-                    <h5>Genres</h5>
+                    <h6>Genres</h6>
                 </label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -881,7 +881,7 @@
             </div>
             <div class="form-group col mb-auto mr-auto mt-4">
                 <label for="gamePlatforms">
-                    <h5>Platforms</h5>
+                    <h6>Platforms</h6>
                 </label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -897,7 +897,7 @@
             </div>
             <div class="form-group col mb-auto mr-auto mt-4">
                 <label for="gameCategories">
-                    <h5>Categories</h5>
+                    <h6>Categories</h6>
                 </label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -940,19 +940,20 @@
         </div><!-- modal -->
     </div>
 <?php } ?>
+
+<!-- generic confirm modal -->
 <?php function drawConfirmModal($title, $message = null, $id="")
 { ?>
-
-    <div id=<?="modalConfirm" . $id ?> class="modal fade" role="dialog">
+    <div id=<?="modalConfirm".$id ?> class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><?= $title ?></h5>
+                    <h6 class="modal-title"><?= $title ?></h6>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-left">
-                    <span> <?= $message ?></span>
+                    <span><?= $message ?></span>
                 </div>
                 <div class="modal-footer">
                     <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i> Confirm </button></div>
@@ -971,7 +972,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><?= $title ?></h5>
+                    <h6 class="modal-title"><?= $title ?></h6>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-left">
@@ -995,7 +996,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><?= $title ?></h5>
+                    <h6 class="modal-title"><?= $title ?></h6>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-left">
@@ -1004,6 +1005,28 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i> Confirm </button></div>
+                    <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<!-- generic view property modal -->
+<?php function drawViewPropertyModal($title, $message = null) 
+{ ?>
+    <div id="modalView" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title"><?= $title ?></h6>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-left">
+                    <span> <?= $message ?></span>
+                </div>
+                <div class="modal-footer">
                     <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button></div>
                 </div>
             </div>
