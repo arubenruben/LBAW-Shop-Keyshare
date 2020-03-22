@@ -126,19 +126,19 @@
 
 <?php function drawAdminHomePage()
 { ?>
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-12 col-md-12 col-lg-9 mt-4">
 
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Tasks to be done:</h4>
             <p class="pl-5 py-2">Unseen Reports: 2</p>
             <p class="pl-5 py-2">Active Reports: 5</p>
         </div>
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Daily Statistics</h4>
             <p class="pl-5 py-2">Transactions made: 51</p>
             <p class="pl-5 py-2">Money made: 200 US$</p>
         </div>
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Monthly Statistics</h4>
             <p class="pl-5 py-2">Transactions made: 782</p>
             <p class="pl-5 py-2">Money made: 3491 US$</p>
@@ -148,7 +148,15 @@
 
 <!-- tab table -->
 <?php function drawAdminTable($type = 10)
-{ ?>
+{ 
+    if( $type == 10){
+        ?>
+            <?php drawAdminTableContent($type); ?>
+
+    <?php    
+    }
+    else{ ?>
+    
     <div class="col mt-4">
         <div class="table-responsive table-striped tableFixHead">
             <table id="userOffersTable" class="table p-0">
@@ -156,7 +164,7 @@
             </table>
         </div>
     </div>
-<?php } ?>
+<?php }} ?>
 
 <!-- tab title -->
 <?php function drawAdminTableName($type = 10)
