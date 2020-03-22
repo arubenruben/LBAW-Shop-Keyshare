@@ -694,12 +694,14 @@
         <?php break;
         //Reviews Table
         case 8:
-            drawConfirmModal("Are you sure you want to delete this?", "This seeller is ugly"); ?> 
+            drawConfirmModal("Are you sure you want to delete this?", "This seeller is ugly"); 
+            drawConfirmModal("Review Details", "This seeller is ugly"); ?> 
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Review Id</div>
+                        <div class="p-2 px-3 text-uppercase">Date</div>
                     </th>
+                    
                     <th scope="col" class="border-0 bg-light text-center">
                         <div class="py-2 text-uppercase">Author</div>
                     </th>
@@ -715,7 +717,7 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>#1</h5>
+                            <h5>05 March 2018</h5>
                         </td>
                         <td class="align-middle text-center">
                             <h5>LockdownPt</h5>
@@ -725,6 +727,9 @@
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit">
+                                    <i class="fas fa-info-circle"></i> <span class="d-none d-md-inline-block">View Details</span>
+                                </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
                                     <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
                                 </button>
@@ -740,7 +745,7 @@
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Review Id</div>
+                        <div class="py-2 text-uppercase">Date</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
                         <div class="py-2 text-uppercase">Author</div>
@@ -757,7 +762,7 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h5>#1</h5>
+                            <h5>05 March 2018</h5>
                         </td>
                         <td class="align-middle text-center">
                             <h5>LockdownPt</h5>
