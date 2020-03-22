@@ -133,7 +133,7 @@ function drawCheckoutThirdPage($sucess = true)
                         <h3 id="checkoutStatusTitle">Fail</h3>
                     <?php
                     }  ?>
-                    <a href="userPurchasesPage.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
+                    <a href="user_purchases.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
                 </div>
 
             

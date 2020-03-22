@@ -18,15 +18,15 @@
                     <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_purchases.php"><button class="btn btnMediaSmall btn-blue">Purchases</button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php } ?>
 
 
@@ -34,10 +34,10 @@
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php }
                     else{?>
-                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php } ?>
                 </li>
             </ul>
@@ -59,23 +59,23 @@
                     <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_purchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_offers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_offers.php"><button class="btn btnMediaSmall btn-blue-full">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php }
                     else{?>
-                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php } ?>
                 </li>
             </ul>
@@ -97,23 +97,23 @@
                     <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue-full">Purchases</button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue-full">Purchases</button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_purchases.php"><button class="btn btnMediaSmall  btn-blue-full">Purchases</button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php }
                     else{?>
-                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_reports.php"><button class="btn btnMediaSmall btn-blue">Reports</button></a>
                     <?php } ?>
                 </li>
             </ul>
@@ -135,23 +135,23 @@
                     <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserPurchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userPurchasesPage.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_purchases.php"><button class="btn btnMediaSmall  btn-blue">Purchases</button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php }
                     else{?>
-                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userOffers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
+                        <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_offers.php"><button class="btn btnMediaSmall btn-blue">Offers<span class="badge badge-secondary d-none d-sm-inline-block ml-2">7</span></button></a>
                     <?php } ?>
                 </li>
                 <li class="nav-item">
                 <?php if($typeUser == "banned"){?>
-                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="bannedUserReports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
+                    <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="banneduser_reports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
                     <?php }
                     else{?>
-                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="userReports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
+                         <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="user_reports.php"><button class="btn btnMediaSmall btn-blue-full">Reports</button></a>
                     <?php } ?>
                 </li>
             </ul>
@@ -1011,7 +1011,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1030,7 +1030,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1049,7 +1049,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1068,7 +1068,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1087,7 +1087,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1106,7 +1106,7 @@
                                             <td class="text-center align-middle">2020/07/15</td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                    <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1160,7 +1160,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1179,7 +1179,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1198,7 +1198,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1217,7 +1217,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1236,7 +1236,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1255,7 +1255,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 
@@ -1274,7 +1274,7 @@
                                                 <td class="text-center align-middle"><a href="otherUser.php" class="text-muted font-weight-normal font-italic">zmax6t</a></td>
                                                 <td class="align-middle">
                                                     <div class="btn-group-justified btn-group-md">
-                                                        <a href="reportPage.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="report.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     </div>
                                                 </td>
 

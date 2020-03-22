@@ -267,7 +267,7 @@
                     <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue-full active">lockdownpt</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="otherUserOffers.php"><button class="btn btn-blue">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
+                    <a class="nav-link deco-none" href="otheruser_offers.php"><button class="btn btn-blue">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
                 </li>
             </ul>
         <?php
@@ -278,7 +278,7 @@
                     <a class="nav-link deco-none" href="otherUser.php"><button class="btn btn-blue">lockdownpt</button></a>
                 </li>
                 <li class="nav-item mr-3 ml-3">
-                    <a class="nav-link deco-none" href="userPurchasesPage.php"><button class="btn btn-blue-full active">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
+                    <a class="nav-link deco-none" href="user_purchases.php"><button class="btn btn-blue-full active">Offers <span class="badge ml-1 badge-secondary">4</span></button></a>
                 </li>
             </ul>
 <?php

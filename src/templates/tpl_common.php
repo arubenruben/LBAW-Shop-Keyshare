@@ -273,8 +273,8 @@
                 <div class="col-12 d-none d-sm-block">
                     <div class="row">
                         <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                        <a class="nav-link deco-none" href="user_purchases.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="user_offers.php">Categories</a>
                     </div>
                 </div>
             </nav>
@@ -286,8 +286,8 @@
                 <div class="col-12 d-none d-sm-block">
                     <div class="row">
                         <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                        <a class="nav-link deco-none" href="user_purchases.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="user_offers.php">Categories</a>
                     </div>
                 </div>
             </nav>
@@ -299,8 +299,8 @@
                 <div class="col-12 d-none d-sm-block">
                     <div class="row">
                         <a class="nav-link active deco-none ml-auto" href="user.php">Genres</a>
-                        <a class="nav-link deco-none" href="userPurchasesPage.php">Platform</a>
-                        <a class="nav-link deco-none mr-auto" href="userOffers.php">Categories</a>
+                        <a class="nav-link deco-none" href="user_purchases.php">Platform</a>
+                        <a class="nav-link deco-none mr-auto" href="user_offers.php">Categories</a>
                     </div>
                 </div>
             </nav>
