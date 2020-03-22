@@ -7,7 +7,7 @@
 	drawHeaderAdmin(0);
     drawAdminStart();
     drawAdminInterface(0);
-    drawAdminHomePage();
+    drawAdminTableContent();
     drawAdminEnd();
 	drawAdminFooter(); 
 ?>
