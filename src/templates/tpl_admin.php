@@ -788,17 +788,16 @@
         <?php break;
         //FAQ Table
         case 9:
-            drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); ?>
+            drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); 
+            drawEditPropertyModal("Edit Question", "What payment methods can I use to make purchases on the KeyShare website?", "1");
+            drawEditPropertyModal("Edit Answer", "It works using the Bootstrap 4 collapse component with cards to make a vertical accordion that expands and collapses as questions are toggled.", "2"); ?>
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Date</div>
+                        <div class="py-2 text-uppercase">Question</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Author</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Target</div>
+                        <div class="py-2 text-uppercase">Answer</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
                         <div class="py-2 text-uppercase">Actions</div>
@@ -809,21 +808,21 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h6>05 March 2018</h6>
+                            <h6>What payment methods can I use to make purchases on the KeyShare website?</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h6>LockdownPt</h6>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h6>Ruben Almeida</h6>
+                            <h6>It works using the Bootstrap 4 collapse component with cards to make a vertical accordion that expands and collapses as questions are toggled.</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
-                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit1">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Question</span>
+                                </button>
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit2">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Answer</span>
+                                </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete FAQ</span>
                                 </button>
                             </div>
                         </td>
@@ -973,9 +972,9 @@
 <?php } ?>
 
 <!-- generic edit property modal -->
-<?php function drawEditPropertyModal($title, $message = null) 
+<?php function drawEditPropertyModal($title, $message = null, $id="") 
 { ?>
-    <div id="modalEdit" class="modal fade" role="dialog">
+    <div id=<?="modalEdit".$id ?> class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
