@@ -166,7 +166,6 @@
     <div id="content" class="container">
         <?php 
             drawConfirmDeleteAccountPopup();
-            drawFeedbackPopup("1"); //drawSaveChangesPopup(); 
         ?>
         <?php if($type == "banned"){?>    
             <div class="row mt-5 mb-2">
@@ -947,7 +946,6 @@
 
     <?php 
         drawReportPopup();
-        drawFeedbackPopup("1");
         drawGiveFeedbackPopup();
         drawKeyPopup(); 
     ?>
@@ -1289,7 +1287,6 @@
 
     <?php
         drawReportPopup();
-        drawFeedbackPopup("1");
         drawGiveFeedbackPopup();
         drawKeyPopup(); 
     ?>
