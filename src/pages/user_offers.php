@@ -3,7 +3,7 @@
     include_once('../templates/tpl_user.php');
 
     drawHead();
-    drawHeader(0);
+    drawHeader(1);
     drawNavbar(4,'My Offers');
     drawUserOffers('normal');
     drawFooter();

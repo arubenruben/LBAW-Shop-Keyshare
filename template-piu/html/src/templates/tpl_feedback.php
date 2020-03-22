@@ -32,10 +32,10 @@
                             <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user.php"><button class="btn btn-blue-full active">All reviews<span class="badge badge-secondary d-none d-sm-inline-block ml-2">14</span></button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userPurchasesPage.php"><button class="btn btn-green"><i class="fas fa-thumbs-up"></i>Positive<span class="badge badge-secondary d-none d-sm-inline-block ml-2">13</span></button></a>
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user_purchases.php"><button class="btn btn-green"><i class="fas fa-thumbs-up"></i>Positive<span class="badge badge-secondary d-none d-sm-inline-block ml-2">13</span></button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="userOffers.php"><button class="btn btn-red"><i class="fas fa-thumbs-down"></i>Negative<span class="badge badge-secondary d-none d-sm-inline-block ml-2">1</span></button></a>
+                            <a class="nav-link deco-none ml-2 mr-2 userNavbarItem" href="user_offers.php"><button class="btn btn-red"><i class="fas fa-thumbs-down"></i>Negative<span class="badge badge-secondary d-none d-sm-inline-block ml-2">1</span></button></a>
                         </li>
                     </ul>
                     <hr class="mt-0">

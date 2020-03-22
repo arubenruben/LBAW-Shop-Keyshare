@@ -4,8 +4,8 @@
     include_once('../templates/tpl_feedback.php');
     
     drawHead(['activate_popovers.js']);
-    drawHeader(0);
+    drawHeader(1);
     drawNavbar(4,'My Account');
-    drawUserDetails();
+    drawUserDetails('normal');
     drawFooter();
 ?>
