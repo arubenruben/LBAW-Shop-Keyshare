@@ -4,10 +4,10 @@
 	include_once('../templates/tpl_admin.php');
 	//page
 	drawHead();
-	drawHeaderAdmin(0);
-    drawAdminStart();
-    drawAdminInterface(1);
-    drawAdminProductEdition();
-    drawAdminEnd();
+		drawHeaderAdmin(0);
+		drawAdminStart();
+		drawAdminInterface(1);
+		drawAdminProductEdition();
+		drawAdminEnd();
 	drawAdminFooter(); 
 ?>

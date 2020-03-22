@@ -4,8 +4,8 @@
 
     <div id="wrapper">
         <header id="headerFixed" class="navbar row justify-content-between">
-            <a href="admin_home.php" class="btn btn-outline-light navbarButton d-none d-md-block" role="button">Dashboard</a>
-            <a href="admin_home.php">
+            <a href="admin.php" class="btn btn-outline-light navbarButton d-none d-md-block" role="button">Dashboard</a>
+            <a href="admin.php">
                 <img class="img-fluid logo mx-auto" src="../../assets/images/logo/logo.png" />
             </a>
             <a href="homepage.php" class="btn btn-outline-light navbarButton" role="button">Logout</a>
@@ -46,7 +46,7 @@
                     <div class="control-group">
                         <label class="control-label" for="signin"></label>
                         <div class="controls text-center">
-                            <a href="admin_home.php" id="signin" name="signin" class="btn text-light btn-orange" role="button">Sign In</a>
+                            <a href="admin.php" id="signin" name="signin" class="btn text-light btn-orange" role="button">Sign In</a>
                         </div>
                     </div>
                 </fieldset>
