@@ -393,26 +393,3 @@
         </body>
     </html>
 <?php } ?>
-
-<!-- generic confirm modal -->
-<?php function drawConfirmModal($title, $message = null) 
-{ ?>
-    <div id="modalConfirm" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><?= $title ?></h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body text-left">
-                    <span> <?= $message ?></span>
-                </div>
-                <div class="modal-footer">
-                    <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i> Confirm </button></div>
-                    <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button></div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>

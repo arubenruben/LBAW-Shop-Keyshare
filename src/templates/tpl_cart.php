@@ -116,7 +116,7 @@ function drawCartEntry($id)
         <td class="text-center align-middle"><strong>$79.00</strong></td>
         <td class="align-middle">
             <div class="btn-group-justified btn-group-md">
-                <button class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                <button class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
             </div>
         </td>
     </tr>
