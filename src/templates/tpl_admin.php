@@ -233,6 +233,11 @@ function drawAdminStart($type)
                                 <h3 class="ml-3">View FAQ</h3>
                             </div>
                         <?php break;
+                        case 20: ?>
+                            <div class="row justify-content-between flex-nowrap">
+                                <h3 class="ml-3">Dashboard</h3>
+                            </div>
+                        <?php break;
                         default: ?>
                             <div class="row justify-content-between flex-nowrap">
                                 <h3 class="ml-3">Dashboard</h3>
