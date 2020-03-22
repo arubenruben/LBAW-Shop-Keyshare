@@ -357,7 +357,7 @@
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Edit Genre</span>
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Genre</span>
                                 </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
                                     <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Genre</span>
@@ -391,7 +391,7 @@
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
                                 <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Edit Platform</span>
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Platform</span>
                                 </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
                                     <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Platform</span>
