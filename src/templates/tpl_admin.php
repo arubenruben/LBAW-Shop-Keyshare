@@ -20,50 +20,61 @@
 }
 function drawAdminLogin()
 { ?>
-        <div id="wrapper" class="row align-items-center">
-            <div class="col-9 col-sm-8 col-md-5 col-lg-3 mx-auto p-4" style="background-color: white; border-radius: 5px;">
+        <div id="wrapper">
+            <div class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-sm-10 col-md-5 col-lg-5 p-4" style="background-color: white; border-radius: 5px;">
 
-                <div class="row">
-                    <div class="col text-center mb-4">
-                        <h4> Administrator Login </h4>
+                        <div class="row">
+                            <div class="col text-center mb-4">
+                                <h4> Administrator Login </h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center ">
+                                <img class="img-fluid logo " src="../../assets/images/logo/logo.png" />
+                            </div>
+                        </div>
+
+
+                        <form class="form-horizontal mt-5">
+                            <fieldset>
+                                <!-- Sign In Form -->
+                                <!-- Text input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="userid">Username:</label>
+                                    <div class="controls">
+                                        <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                    </div>
+                                </div>
+                                <!-- Password input-->
+                                <div class="control-group mt-4 mb-2">
+                                    <label class="control-label" for="passwordinput">Password:</label>
+                                    <div class="controls">
+                                        <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="signin"></label>
+                                    <div class="controls text-center">
+                                        <a href="admin_home.php" id="signin" name="signin" class="btn text-light btn-orange" role="button">Sign In</a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-                <img class="img-fluid logo " src="../../assets/images/logo/logo.png" />
-
-                <form class="form-horizontal mt-5">
-                    <fieldset>
-                        <!-- Sign In Form -->
-                        <!-- Text input-->
-                        <div class="control-group">
-                            <label class="control-label" for="userid">Username:</label>
-                            <div class="controls">
-                                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
-                            </div>
-                        </div>
-                        <!-- Password input-->
-                        <div class="control-group mt-4 mb-2">
-                            <label class="control-label" for="passwordinput">Password:</label>
-                            <div class="controls">
-                                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
-                            </div>
-                        </div>
-                        <!-- Button -->
-                        <div class="control-group">
-                            <label class="control-label" for="signin"></label>
-                            <div class="controls text-center">
-                                <a href="admin_home.php" id="signin" name="signin" class="btn text-light btn-orange" role="button">Sign In</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
             </div>
+
         </div>
     <?php
 }
 function drawAdminInterfaceContent()
 { ?>
         <div class="card">
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" style="margin: 0">
                 <li><a href="admin_home.php" class="list-group-item bg-active">Dashboard </a> </li>
                 <li><a href="admin_product_page.php " class="list-group-item"> Products </a> </li>
                 <li><a href="admin_categories_edit.php" class="list-group-item"> Categories </a> </li>
@@ -77,11 +88,14 @@ function drawAdminInterfaceContent()
             </ul>
         </div>
         <?php }
+
     function drawAdminInterface($type)
     {
+        ?>
+        <?php
         switch ($type) {
             case 0: ?>
-                <div class="col-sm-3 mt-4">
+                <div class="col-sm-3 d-none d-md-block mt-4">
                     <?php drawAdminInterfaceContent(); ?>
                 </div>
 
@@ -93,6 +107,15 @@ function drawAdminInterfaceContent()
                 <div class="col-3 d-none d-lg-block mt-4">
                     <?php drawAdminInterfaceContent(); ?>
                 </div>
+            <?php
+                break;
+            case 2:
+            ?>
+                <div id="sidebar" class="col" style="padding: 0">
+                    <?php drawAdminInterfaceContent() ?>;
+                </div>
+
+
 
         <?php break;
         } ?>
@@ -100,7 +123,8 @@ function drawAdminInterfaceContent()
     }
     function drawAdminHomePage()
     { ?>
-        <div class="col-sm-9">
+        <div class="col-sm-12 col-md-9">
+    
             <div class="card my-4">
                 <h4 class="pl-3 py-2">Tasks to be done:</h4>
                 <p class="pl-5 py-2">Unseen Reports: 2</p>
@@ -117,7 +141,7 @@ function drawAdminInterfaceContent()
                 <p class="pl-5 py-2">Money made: 3491 US$</p>
             </div>
         </div>
-        <?php
+        <?php 
     }
 
     function drawAdminTableContent($type)
@@ -885,7 +909,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -906,7 +930,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -927,70 +951,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>  
-                      <tr>
-                        <td class="align-middle text-center">
-                            <h5>#1</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>LockdownPt</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>Ruben Almeida</h5>
-                        </td>
-                        <td class="align-middle">
-                            <div class="btn-group-justified btn-group-md">
-                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
-                                </a>
-                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>  
-                      <tr>
-                        <td class="align-middle text-center">
-                            <h5>#1</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>LockdownPt</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>Ruben Almeida</h5>
-                        </td>
-                        <td class="align-middle">
-                            <div class="btn-group-justified btn-group-md">
-                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
-                                </a>
-                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>  
-                      <tr>
-                        <td class="align-middle text-center">
-                            <h5>#1</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>LockdownPt</h5>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h5>Ruben Almeida</h5>
-                        </td>
-                        <td class="align-middle">
-                            <div class="btn-group-justified btn-group-md">
-                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
-                                </a>
-                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -1011,7 +972,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -1032,7 +993,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -1053,7 +1014,7 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td class="align-middle text-center">
                             <h5>#1</h5>
@@ -1074,7 +1035,70 @@ function drawAdminInterfaceContent()
                                 </button>
                             </div>
                         </td>
-                    </tr>                 
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle text-center">
+                            <h5>#1</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>LockdownPt</h5>
+                        </td>
+                        <td class="align-middle text-center">
+                            <h5>Ruben Almeida</h5>
+                        </td>
+                        <td class="align-middle">
+                            <div class="btn-group-justified btn-group-md">
+                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
+                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-outline-danger btn-block flex-nowrap">
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             <?php
                 break;
@@ -1150,15 +1174,16 @@ function drawAdminInterfaceContent()
                 </div>
         <?php
                 break;
+                default:
+            break;
         } ?>
     <?php
     }
 
     function drawAdminTable($type = 0)
     { ?>
-        <div class="col mt-3">
-            <?php drawAdminTableName($type); ?>
-            <div class="table-responsive table-striped tableFixHead mt-3">
+        <div class="col mt-4">
+            <div class="table-responsive table-striped tableFixHead">
                 <table id="userOffersTable" class="table p-0">
                     <?php drawAdminTableContent($type); ?>
                 </table>
@@ -1166,18 +1191,30 @@ function drawAdminInterfaceContent()
         </div>
     <?php
     }
-    function drawAdminStart()
+    function drawAdminStart($type)
     { ?>
         <main>
-            <div id="content" class="container-fluid">
+
+            <div id="content" class="container">
+                <div class="row mt-4 d-block d-md-none">
+                    <div class="col-sm-12 text-center">
+                    <button data-toggle="modal" data-target="#myModal" class="btn btn-blue btn-md mt-2 ">Admin Options</button>
+                    </div>
+                 </div>
+                 <div class="row mt-4 justify-content-between justify-content-md-end">
+                    <div class="col-12 col-md-9"><?php
+                        drawAdminTableName($type);?>
+                    </div>
+                 </div>
                 <div class="row ">
-                <?php
+                <?php drawAdminSideBarModal();
             }
             function drawAdminEnd()
             { ?>
                 </div>
             </div>
             </div>
+
             </main>
         <?php }
 
@@ -1262,4 +1299,26 @@ function drawAdminInterfaceContent()
                 </div>
             </div>
 
+        <?php } ?>
+
+        <?php function drawAdminSideBarModal()
+        { ?>
+            <!-- Modal -->
+            <div id="sideBarFilterResponsive">
+            <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body" style="padding: 0">
+                            <?php drawAdminInterface(2); ?>
+                        </div>
+
+                    </div><!-- modal-content -->
+                </div><!-- modal-dialog -->
+            </div><!-- modal -->
+            </div>
         <?php } ?>

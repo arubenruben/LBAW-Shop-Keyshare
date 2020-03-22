@@ -3,6 +3,7 @@
 @import "./checkout.css";
 @import "./user.css";
 @import "./report.css";
+@import "./common.css";
 html {
     height: 100%;
     margin: 0;
@@ -377,6 +378,7 @@ header.navbar {
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
 }
 
+
 /* objects */
 
 .hoverable:hover {
@@ -436,7 +438,8 @@ header.navbar {
 .bg-white {
     background-color: var(--color-background-white);
 }
-.bg-dark-blue{
+
+.bg-dark-blue {
     background-color: var(--color-background-dark-blue);
 }
 
@@ -534,22 +537,26 @@ li.section.status-bar-circle:before {
 #userNavbar .userNavbarItem {
     padding: 0;
 }
-.adminTableImagePreview{
+
+.adminTableImagePreview {
     max-height: 10rem;
     max-width: 10rem;
 }
- 
-#content .bg-orange{
+
+#content .bg-orange {
     background-color: var(--color-interactive-orange);
     border: none;
 }
-.btnAdminProduct{
+
+.btnAdminProduct {
     min-width: 8em;
 }
-#uploadPhotoProduct{
+
+#uploadPhotoProduct {
     max-width: 20em;
 }
-.adminUserTableImage{
+
+.adminUserTableImage {
     max-width: 5em;
     max-height: 5em;
 }

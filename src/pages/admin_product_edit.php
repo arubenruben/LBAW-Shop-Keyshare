@@ -5,7 +5,7 @@
 	//page
 	drawHead();
 	drawHeaderAdmin(0);
-    drawAdminStart();
+    drawAdminStart(NULL);
     drawAdminInterface(1);
     drawAdminProductEdition();
     drawAdminEnd();
