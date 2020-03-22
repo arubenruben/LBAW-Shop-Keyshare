@@ -14,9 +14,9 @@
 <?php function drawAdminLogin()
 { ?>
     <div id="wrapper">
-        <div class="container">
-            <div class="row justify-content-center ">
-                <div class="col-12 col-sm-10 col-md-5 col-lg-5 p-4" style="background-color: white; border-radius: 5px;">
+        <div class="container vh-100">
+            <div class="row justify-content-center vh-100">
+                <div class="col-12 col-sm-10 col-md-5 col-lg-5 p-4 my-auto" style="background-color: white; border-radius: 5px;">
 
                     <div class="row">
                         <div class="col text-center mb-4">
