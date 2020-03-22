@@ -7,7 +7,10 @@
     drawHead();
     drawHeader(0);
     drawNavbar(4,'Checkout');
-    drawCheckoutSecondPage();
+    if(isset($_GET['page']))
+        drawCheckout($_GET['page']);
+    else
+        drawCheckout();
     drawFooter();
 ?>
 
