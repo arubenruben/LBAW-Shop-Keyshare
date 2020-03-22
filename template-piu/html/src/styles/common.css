@@ -2,6 +2,8 @@
 @import "./progress_bar.css";
 @import "./checkout.css";
 @import "./user.css";
+@import "./report.css";
+@import "./common.css";
 html {
     height: 100%;
     margin: 0;
@@ -298,6 +300,7 @@ header.navbar {
     background-color: var(--color-interactive-orange);
     color: white;
 }
+
 .btn.btn-orange:hover {
     background-color: var(--color-interactive-orange2);
     color: white;
@@ -308,6 +311,7 @@ header.navbar {
     border: solid 1px var(--color-background-dark-blue);
     color: var(--color-background-dark-blue);
 }
+
 .btn.btn-blue:hover {
     background-color: var(--color-background-dark-blue);
     color: white;
@@ -323,15 +327,18 @@ header.navbar {
     border: solid 1px var(--color-interactive-red-fail);
     color: var(--color-interactive-red-fail);
 }
+
 .btn.btn-red:hover {
     background-color: var(--color-interactive-red-fail);
     color: white;
 }
+
 .btn.btn-green {
     background-color: inherit;
     border: solid 1px var(--color-interactive-green-success);
     color: var(--color-interactive-green-success);
 }
+
 .btn.btn-green:hover {
     background-color: var(--color-interactive-green-success);
     color: white;
@@ -369,6 +376,13 @@ header.navbar {
     -webkit-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     -moz-box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.69);
     box-shadow: 0px 0px 25px 13px rgba(105, 105, 105, 0.3);
+}
+
+
+/* objects */
+
+.hoverable:hover {
+    cursor: pointer;
 }
 
 
@@ -423,6 +437,10 @@ header.navbar {
 
 .bg-white {
     background-color: var(--color-background-white);
+}
+
+.bg-dark-blue {
+    background-color: var(--color-background-dark-blue);
 }
 
 
@@ -515,6 +533,30 @@ li.section.visited.current.status-bar-circle:before {
 li.section.status-bar-circle:before {
     z-index: 0;
 }
-#userNavbar .userNavbarItem{
+
+#userNavbar .userNavbarItem {
     padding: 0;
+}
+
+.adminTableImagePreview {
+    max-height: 10rem;
+    max-width: 10rem;
+}
+
+#content .bg-orange {
+    background-color: var(--color-interactive-orange);
+    border: none;
+}
+
+.btnAdminProduct {
+    min-width: 8em;
+}
+
+#uploadPhotoProduct {
+    max-width: 20em;
+}
+
+.adminUserTableImage {
+    max-width: 5em;
+    max-height: 5em;
 }

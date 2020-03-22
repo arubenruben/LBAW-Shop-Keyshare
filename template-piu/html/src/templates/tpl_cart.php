@@ -6,7 +6,7 @@
                 <h4>My Cart <span class="badge badge-secondary align-left">7</span></h4>
             </div>
             <div class="col-6 text-right">
-                <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="checkout1.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-money-check-alt"></i> <span> Checkout</span></a>
+                <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="checkout.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-none d-md-inline"> Checkout</span></a>
             </div>
             <div class="col-sm-6 text-right">
             </div>
@@ -46,6 +46,11 @@
         <div class="row mt-4">
             <div class="col text-right">
                 <h4>Total Price: 400,00$</h4>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-right">
+            <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="checkout.php" role="button" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline"> Checkout</span></a>
             </div>
         </div>
     </div>
@@ -111,7 +116,7 @@ function drawCartEntry($id)
         <td class="text-center align-middle"><strong>$79.00</strong></td>
         <td class="align-middle">
             <div class="btn-group-justified btn-group-md">
-                <button class="btn btn-outline-danger btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
+                <button class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"> <i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block"> Delete </span></button>
             </div>
         </td>
     </tr>

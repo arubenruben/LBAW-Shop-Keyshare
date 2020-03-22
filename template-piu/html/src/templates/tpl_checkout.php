@@ -17,7 +17,6 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm-8  border">
-
                         <form id="formCheckout">
                             <div class="form-group">
                                 <label for="checkoutInputName">Name</label>
@@ -38,7 +37,6 @@
                         </form>
                     </div>
                     <div class="col-sm-3  ml-1 text-right border d-md-inline d-block ">
-
                         <div style="margin-top: 50%; margin-bottom: 50%;" class="flec-nowrap">
                             <div>
                                 <h5 class="d-inline"> Subtotal </h5>
@@ -54,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 col-sm-11 ml-1 mt-5 text-right p-0">
-                        <a href="checkout2.php" class="btn btn-blue btn-lg mr-auto ml-4"> <span class="d-none d-md-inline">Confirm Order</span> <i class="fas fa-arrow-right"></i></a>
+                        <a href="checkout.php?page=2" class="btn btn-blue btn-lg mr-auto ml-4"> <span class="d-none d-md-inline">Confirm Order</span> <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -97,12 +95,13 @@ function drawCheckoutSecondPage()
             </div>
             <hr>
             <div id="checkoutButtonsContainer" class="row">
-                <a href="checkout1.php" class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
-                <a id="paypalButton" href="checkout3.php" role="button" class="btn btn-lg px-4  btn-outline-primary"> <img src="../../assets/images/paypal/paypalLogo.png" height="25"> <strong class="mr-2 d-none d-sm-inline-block" style="color: black; ">Pay with Paypal</strong> </a>
+                <a href="checkout.php" class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
+                <a id="paypalButton" href="checkout.php?page=3" role="button" class="btn btn-lg px-4  btn-outline-primary"> <img src="../../assets/images/paypal/paypalLogo.png" height="25"> <strong class="mr-2 d-none d-sm-inline-block" style="color: black; ">Pay with Paypal</strong> </a>
 
             </div>
         </div>
-    <?php }
+<?php }
+
 function drawCheckoutThirdPage($sucess = true)
 { ?>
 
@@ -133,7 +132,7 @@ function drawCheckoutThirdPage($sucess = true)
                         <h3 id="checkoutStatusTitle">Fail</h3>
                     <?php
                     }  ?>
-                    <a href="homepage.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to Homepage</a>
+                    <a href="user_purchases.php" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
                 </div>
 
             
@@ -145,6 +144,24 @@ function drawCheckoutThirdPage($sucess = true)
     </div>
 <?php
 }
+
+function drawCheckout($part=1) {
+    switch($part) {
+        case 1:
+            drawCheckoutFirstPage();
+            break;
+        case 2:
+            drawCheckoutSecondPage();
+            break;
+        case 3:
+            drawCheckoutThirdPage($sucess = true);
+            break;
+        default:
+            drawCheckoutFirstPage();
+            break;
+    }
+}
+
 function drawProgressBar1()
 { ?>
     <div class="progress-bar-wrapper">
@@ -160,7 +177,6 @@ function drawProgressBar1()
         </ul>
     </div>
 <?php }
-
 
 function drawProgressBar2()
 { ?>
