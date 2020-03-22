@@ -162,66 +162,78 @@
 <?php function drawAdminTableName($type = 10)
 {
     switch ($type) {
-            //Products Table
+        //Products Table
         case 0: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Products</h3>
                 <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
             </div>
         <?php break;
-            //Categories Table
-        case 1: ?>
+        //Categories Table
+        case 1: 
+            drawAddPropertyModal("Add Category", "New Category:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Categories</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Category</span></a>
+                <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
+                    <i class="mr-1 fas fa-plus"></i> 
+                    <span class="d-none d-md-inline-block">Add Category</span>
+                </button>
             </div>
         <?php break;
-            //Genres Table
-        case 2: ?>
+        //Genres Table
+        case 2: 
+            drawAddPropertyModal("Add Genre", "New Genre:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Genres</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Genres</span></a>
+                <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
+                    <i class="mr-1 fas fa-plus"></i> 
+                    <span class="d-none d-md-inline-block">Add Genre</span>
+                </button>            
             </div>
         <?php break;
-            //Platform Table
-        case 3: ?>
+        //Platform Table
+        case 3: 
+            drawAddPropertyModal("Add Platform", "New Platform:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Platform</h3>
-                <a href="#" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Platforms</span></a>
+                <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
+                    <i class="mr-1 fas fa-plus"></i> 
+                    <span class="d-none d-md-inline-block">Add Platform</span>
+                </button>                 
             </div>
         <?php break;
-            //Normal Users Table
+        //Normal Users Table
         case 4: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Users</h3>
                 <a href="admin_banned_users_edit.php" class="btn btn-blue mr-3" role="button"><i class="mr-1 fas fa-user-times"></i><span class="d-none d-md-inline-block">View Banned Users</span></a>
             </div>
         <?php break;
-            //Banned Users Table
+        //Banned Users Table
         case 5: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Banned Users</h3>
             </div>
         <?php break;
-            //Reports Table
+        //Reports Table
         case 6: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View Reports</h3>
             </div>
         <?php break;
-            //Transactions Table
+        //Transactions Table
         case 7: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View Transactions</h3>
             </div>
         <?php break;
-            //Reviews Table
+        //Reviews Table
         case 8: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View Reviews</h3>
             </div>
         <?php break;
-            // FAQ Table
+        // FAQ Table
         case 9: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View FAQ</h3>
@@ -908,10 +920,34 @@
     </div>
 <?php } ?>
 
-<!-- generic add property modal -->
+<!-- generic edit property modal -->
 <?php function drawEditPropertyModal($title, $message = null) 
 { ?>
     <div id="modalEdit" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><?= $title ?></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-left">
+                    <span> <?= $message ?></span>
+                    <input type="text" class="form-control mt-2" placeholder="Enter new value"></input>
+                </div>
+                <div class="modal-footer">
+                    <div class="col text-left"><button class="btn btn-blue"><i class="fas fa-check mr-2"></i> Confirm </button></div>
+                    <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<!-- generic add property modal -->
+<?php function drawAddPropertyModal($title, $message = null) 
+{ ?>
+    <div id="modalAdd" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
