@@ -126,19 +126,19 @@
 
 <?php function drawAdminHomePage()
 { ?>
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-12 col-md-12 col-lg-9 mt-4">
 
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Tasks to be done:</h4>
             <p class="pl-5 py-2">Unseen Reports: 2</p>
             <p class="pl-5 py-2">Active Reports: 5</p>
         </div>
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Daily Statistics</h4>
             <p class="pl-5 py-2">Transactions made: 51</p>
             <p class="pl-5 py-2">Money made: 200 US$</p>
         </div>
-        <div class="card my-4">
+        <div class="card mb-4">
             <h4 class="pl-3 py-2">Monthly Statistics</h4>
             <p class="pl-5 py-2">Transactions made: 782</p>
             <p class="pl-5 py-2">Money made: 3491 US$</p>
@@ -148,7 +148,15 @@
 
 <!-- tab table -->
 <?php function drawAdminTable($type = 10)
-{ ?>
+{ 
+    if( $type == 10){
+        ?>
+            <?php drawAdminTableContent($type); ?>
+
+    <?php    
+    }
+    else{ ?>
+    
     <div class="col mt-4">
         <div class="table-responsive table-striped tableFixHead">
             <table id="userOffersTable" class="table p-0">
@@ -156,7 +164,7 @@
             </table>
         </div>
     </div>
-<?php } ?>
+<?php }} ?>
 
 <!-- tab title -->
 <?php function drawAdminTableName($type = 10)
@@ -166,14 +174,16 @@
         case 0: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Products</h3>
+                <input class="form-control col-5 sm" type="search" placeholder="Search" aria-label="Search">
                 <a href="admin_product_edit.php" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block">Add Product</span></a>
             </div>
         <?php break;
         //Categories Table
         case 1: 
-            drawAddPropertyModal("Add Category", "New Category:")?>
+            drawAddPropertyModal("Add Category", "New Category:") ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Categories</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Category</span>
@@ -185,6 +195,7 @@
             drawAddPropertyModal("Add Genre", "New Genre:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Genres</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Genre</span>
@@ -196,6 +207,7 @@
             drawAddPropertyModal("Add Platform", "New Platform:")?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Platform</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
                 <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
                     <i class="mr-1 fas fa-plus"></i> 
                     <span class="d-none d-md-inline-block">Add Platform</span>
@@ -206,18 +218,14 @@
         case 4: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Users</h3>
-            </div>
-        <?php break;
-        //Banned Users Table
-        case 5: ?>
-            <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">Banned Users</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
             </div>
         <?php break;
         //Reports Table
         case 6: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">View Reports</h3>
+                <input class="form-control col-5" type="search" placeholder="Search" aria-label="Search">
             </div>
         <?php break;
         //Transactions Table
@@ -233,9 +241,14 @@
             </div>
         <?php break;
         // FAQ Table
-        case 9: ?>
+        case 9: 
+            drawAddPropertyModal("Add FAQ", "New Question:") ?>
             <div class="row justify-content-between flex-nowrap">
-                <h3 class="ml-3">View FAQ</h3>
+                <h3 class="ml-3">View FAQ</h3> 
+                <button href="#" class="btn btn-orange text-white mr-3" data-toggle="modal" data-target="#modalAdd"> 
+                    <i class="mr-1 fas fa-plus"></i> 
+                    <span class="d-none d-md-inline-block">Add FAQ</span>
+                </button>
             </div>
         <?php break;
         default: ?>
@@ -780,17 +793,16 @@
         <?php break;
         //FAQ Table
         case 9:
-            drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); ?>
+            drawConfirmModal("Are you sure you want to delete this?", "By deleting this ..."); 
+            drawEditPropertyModal("Edit Question", "What payment methods can I use to make purchases on the KeyShare website?", "1");
+            drawEditPropertyModal("Edit Answer", "It works using the Bootstrap 4 collapse component with cards to make a vertical accordion that expands and collapses as questions are toggled.", "2"); ?>
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Date</div>
+                        <div class="py-2 text-uppercase">Question</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Author</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Target</div>
+                        <div class="py-2 text-uppercase">Answer</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
                         <div class="py-2 text-uppercase">Actions</div>
@@ -801,21 +813,21 @@
                 <?php for ($counter = 0; $counter < 12; $counter++) { ?>
                     <tr>
                         <td class="align-middle text-center">
-                            <h6>05 March 2018</h6>
+                            <h6>What payment methods can I use to make purchases on the KeyShare website?</h6>
                         </td>
                         <td class="align-middle text-center">
-                            <h6>LockdownPt</h6>
-                        </td>
-                        <td class="align-middle text-center">
-                            <h6>Ruben Almeida</h6>
+                            <h6>It works using the Bootstrap 4 collapse component with cards to make a vertical accordion that expands and collapses as questions are toggled.</h6>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group-justified btn-group-md">
-                                <a href="#" class="btn btn-blue btn-block flex-nowrap">
-                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Review</span>
-                                </a>
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit1">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Question</span>
+                                </button>
+                                <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalEdit2">
+                                    <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block">Edit Answer</span>
+                                </button>
                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalConfirm">
-                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete Review</span>
+                                    <i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block">Delete FAQ</span>
                                 </button>
                             </div>
                         </td>
@@ -965,9 +977,9 @@
 <?php } ?>
 
 <!-- generic edit property modal -->
-<?php function drawEditPropertyModal($title, $message = null) 
+<?php function drawEditPropertyModal($title, $message = null, $id="") 
 { ?>
-    <div id="modalEdit" class="modal fade" role="dialog">
+    <div id=<?="modalEdit".$id ?> class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
