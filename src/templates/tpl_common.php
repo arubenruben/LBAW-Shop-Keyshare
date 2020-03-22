@@ -125,39 +125,42 @@
                 <div class="col d-none d-xl-block mt-auto mb-auto">
                     <div class="row justify-content-end">
                         <a href="products_list.php" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton" role="button">Explore</a>
-                        <a href="products_list.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
+                        <a href="offer.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
+                          <!-- User Image -->
+                        <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../../assets/images/profile/default.jpg" width="25" class="img-header rounded-circle" alt=""> LockdownPT
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="user.php">My Profile</a>
+                            <a class="dropdown-item" href="user_purchases.php">My Purchases</a>
+                            <a class="dropdown-item" href="user_offers.php">My Offers</a>
+                            <a class="dropdown-item" href="user_reports.php">Reports</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../pages/homepage.php">Log out</a>
+                        </div>
                     </div>
+                
                 </div>
-                <!-- Cart icon -->
-                <div class="col d-none col-xl-1 d-xl-block mt-auto mb-auto">
-                    <div class="row">
-                        <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
-                    </div>
-                </div>
-                <!-- User Image -->
-                <button class="col d-none col-xl-1 d-xl-block mt-auto mb-auto btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user" aria-hidden="true"></i>
-                </button>
 
-                <div class="dropdown-menu dropdown-menu-right w-auto" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item d-flex">
-                        <img src="../../assets/images/profile/default.jpg" width="40" class="img-header" alt="">
-                        <p class="pl-3 my-auto">lockdownpt<span class="badge badge-light"></span></p>
-                    </div>
 
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="user.php">My Profile</a>
-                    <a class="dropdown-item" href="my_content.php">My Purchase</a>
-                    <a class="dropdown-item" href="my_favorites.php">My Offers</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../pages/main_page.php">Log out</a>
-                </div>
+              
                 <!--Button Collapse Small -->
                 <div class="col d-xl-none text-right pos-f-t">
                     <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#hamburguerContentNavSmall" data-target="#hamburguerContentNavSmall" aria-controls="hamburguerContentNavSmall" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
+
+
+                <!-- Cart icon -->
+                <div class="col d-none col-xl-1 d-xl-block mt-auto mb-auto">
+                    <div class="row">
+                        <a href="cart.php" class="mt-auto mb-auto ml-auto mr-3"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                    </div>
+                </div>
+               
             </header>
             <!--Collapse Small -->
             <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
@@ -170,10 +173,10 @@
                     </div>
                     <div class="row flex-nowrap justify-content-around mt-3">
                         <a href="products_list.php" class="mt-auto mb-auto btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
-                        <a id="sellNowButtonNavbar" href="products_list.php" class="mt-auto mb-auto btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
+                        <a id="sellNowButtonNavbar" href="products_list.php" class="mt-auto mb-auto btn btn-orange navbarButtonSmall" role="button">Sell Now</a>
                         <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButtonHB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user" aria-hidden="true"></i>
+                        <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButtonHB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../../assets/images/profile/default.jpg" width="20" class="img-header rounded-circle" alt="">
                         </button>
                         <div class="dropdown-menu dropdown-menu-right w-auto" aria-labelledby="dropdownMenuButtonHB">
                             <div class="dropdown-item d-flex">
@@ -182,10 +185,11 @@
                             </div>
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="user.php">My Profile</a>
-                            <a class="dropdown-item" href="my_content.php">My Purchase</a>
-                            <a class="dropdown-item" href="my_favorites.php">My Offers</a>
-                            <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="user.php">My Profile</a>
+                    <a class="dropdown-item" href="user_purchases.php">My Purchases</a>
+                    <a class="dropdown-item" href="user_offers.php">My Offers</a>
+                    <a class="dropdown-item" href="user_reports.php">Reports</a>
+                    <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../pages/main_page.php">Log out</a>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
     include_once('../templates/tpl_feedback.php');
 
     drawHead();
-    drawHeader(0);
+    drawHeader(1);
     drawNavbar(4,'My Purchases');
     drawUserPurchases('normal');
     drawFooter();
