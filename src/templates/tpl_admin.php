@@ -216,7 +216,7 @@
                 <h3 class="ml-3">Users</h3>
             </div>
         <?php break;
-        //Banned Users Table
+        //Banned Users Table -> retirar e dps mudar
         case 5: ?>
             <div class="row justify-content-between flex-nowrap">
                 <h3 class="ml-3">Banned Users</h3>
