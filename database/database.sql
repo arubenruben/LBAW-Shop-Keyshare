@@ -88,7 +88,7 @@ CREATE TABLE regular_user (
     rating >= 0
     AND rating <= 100
   ),
-  CONSTRAINT birthdate_ck CHECK (age(birth_date) >= '18 years')
+  CONSTRAINT birthdate_ck CHECK (date_part('year',age(birth_date)) >= '18 years')
 );
 
 DROP TABLE IF EXISTS offer_product CASCADE;
