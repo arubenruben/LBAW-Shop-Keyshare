@@ -44,7 +44,7 @@ CREATE TABLE deleted_product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   description TEXT,
-  id_category integer  REFERENCES category(id) ON DELETE SET NULL ON UPDATE CASCADE, 
+  id_category integer REFERENCES category(id) ON DELETE SET NULL ON UPDATE CASCADE, 
   id_platform integer NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   id_image integer DEFAULT 1 NOT NULL REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
@@ -52,21 +52,17 @@ CREATE TABLE deleted_product (
 DROP TABLE IF EXISTS active_product_has_genre CASCADE;
 
 CREATE TABLE active_product_has_genre (
-  id_genre integer NOT NULL,
-  id_active_product integer NOT NULL,
-  PRIMARY KEY (id_genre, id_active_product),
-  FOREIGN KEY (id_genre) REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (id_active_product) REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE
+  id_genre integer NOT NULL REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  id_active_product integer NOT NULL REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (id_genre, id_active_product)
 );
 
 DROP TABLE IF EXISTS deleted_product_has_genre CASCADE;
 
 CREATE TABLE deleted_product_has_genre (
-  id_genre integer,
-  id_deleted_product integer,
-  PRIMARY KEY (id_genre, id_deleted_product),
-  FOREIGN KEY (id_genre) REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (id_deleted_product) REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE
+  id_genre integer REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  id_deleted_product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (id_genre, id_deleted_product)
 );
 
 DROP TABLE IF EXISTS regular_user CASCADE;
@@ -80,27 +76,26 @@ CREATE TABLE regular_user (
   rating integer NOT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
-  id_image integer NOT NULL DEFAULT 0,
+  id_image integer NOT NULL DEFAULT 0 REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   
-  FOREIGN KEY (id_image) REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-
   CONSTRAINT rating_ck CHECK (
     rating >= 0
     AND rating <= 100
   ),
-  CONSTRAINT birthdate_ck CHECK (date_part('year',age(birth_date)) >= '18 years')
+  CONSTRAINT birthdate_ck CHECK (date_part('year',age(birth_date)) >= 18)
 );
 
-DROP TABLE IF EXISTS offer_product CASCADE;
+DROP TABLE IF EXISTS offer CASCADE;
 
-CREATE TABLE offer_product (
+CREATE TABLE offer (
   id serial PRIMARY KEY,
   price REAL NOT NULL,
   init_date date NOT NULL DEFAULT now(),
   final_date date,
   profit REAL DEFAULT 0,
-  id_platform integer NOT NULL REFERENCES platform(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  id_regular_user integer REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  
+  id_platform integer NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  id_regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   id_active_product integer REFERENCES active_product(id) ON DELETE SET NULL ON UPDATE CASCADE, 
   id_deleted_product integer REFERENCES deleted_product(id) ON DELETE SET NULL ON UPDATE CASCADE, 
   
@@ -129,14 +124,14 @@ CREATE TABLE discount (
   rate integer NOT NULL,
   start_date date NOT NULL,
   end_date date NOT NULL,
-  id_active_offer integer NOT NULL REFERENCES offer_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  id_offer integer NOT NULL REFERENCES offer(id) ON DELETE CASCADE ON UPDATE CASCADE,
   
-  CONSTRAINT start_date_ck CHECK (start_date >= CURRENT_date),
+  CONSTRAINT start_date_ck CHECK (start_date >= now()),
   CONSTRAINT end_date_ck CHECK (end_date > start_date),
   CONSTRAINT rate_ck CHECK (
     (
       (rate >= 0)
-      OR (rate <= 100)
+      AND (rate <= 100)
     )
   )
 );
@@ -144,9 +139,7 @@ CREATE TABLE discount (
 DROP TABLE IF EXISTS banned_user CASCADE;
 
 CREATE TABLE banned_user (
-  id_regular_user serial,
-  PRIMARY KEY (id_regular_user),
-  FOREIGN KEY (id_regular_user) REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE
+  id_regular_user serial PRIMARY KEY REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS "admin" CASCADE;
@@ -163,12 +156,11 @@ CREATE TABLE "admin" (
 DROP TABLE IF EXISTS ban_appeal CASCADE;
 
 CREATE TABLE ban_appeal (
-  id_banned_user integer,
-  id_admin integer,
+  id_banned_user integer PRIMARY KEY REFERENCES banned_user(id_regular_user) ON DELETE CASCADE ON UPDATE CASCADE,
+  id_admin integer REFERENCES "admin"(id) ON DELETE SET NULL ON UPDATE CASCADE,
   ban_appeal TEXT NOT NULL,
   date date NOT NULL DEFAULT now(),
-  FOREIGN KEY (id_banned_user) REFERENCES banned_user(id_regular_user) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (id_admin) REFERENCES "admin"(id) ON DELETE SET NULL ON UPDATE CASCADE,
+
   CONSTRAINT date_ck CHECK(date <= now())
 );
 
@@ -178,7 +170,8 @@ CREATE TABLE "order" (
   id serial PRIMARY KEY,
   order_number integer NOT NULL UNIQUE,
   date date NOT NULL DEFAULT now(),
-  id_regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,  
+  id_regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
+
   CONSTRAINT date_ck CHECK(date <= now())
 );
 
@@ -187,7 +180,7 @@ DROP TABLE IF EXISTS "key" CASCADE;
 CREATE TABLE "key" (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
-  id_offer integer REFERENCES offer_product(id) ON DELETE RESTRICT ON UPDATE CASCADE
+  id_offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS feedback CASCADE;
