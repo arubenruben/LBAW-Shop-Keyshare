@@ -44,7 +44,7 @@ CREATE TABLE deleted_product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   description TEXT,
-  id_category integer NOT NULL REFERENCES category(id) ON DELETE SET NULL ON UPDATE CASCADE, 
+  id_category integer  REFERENCES category(id) ON DELETE SET NULL ON UPDATE CASCADE, 
   id_platform integer NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   id_image integer DEFAULT 1 NOT NULL REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
@@ -212,8 +212,8 @@ CREATE TABLE report (
   description TEXT NOT NULL,
   title TEXT NOT NULL,
   id_key integer NOT NULL UNIQUE REFERENCES "key"(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  reporter integer NOT NULL REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  reportee integer NOT NULL REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  reporter integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  reportee integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
 
   CONSTRAINT user_ck CHECK(reporter <> reportee),
   CONSTRAINT date_ck CHECK(date <= now())
