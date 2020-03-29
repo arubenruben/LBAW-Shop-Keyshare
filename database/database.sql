@@ -1,33 +1,47 @@
 
+DROP TABLE IF EXISTS faq CASCADE;
+DROP TABLE IF EXISTS about_us CASCADE;
+DROP TABLE IF EXISTS cart_has_offer CASCADE;
+DROP TABLE IF EXISTS cart CASCADE;
+DROP TABLE IF EXISTS order_has_key CASCADE;
+DROP TABLE IF EXISTS message CASCADE;
+DROP TABLE IF EXISTS report CASCADE;
+DROP TABLE IF EXISTS feedback CASCADE;
+DROP TABLE IF EXISTS key CASCADE;
+DROP TABLE IF EXISTS user_order CASCADE;
+DROP TABLE IF EXISTS admin CASCADE;
+DROP TABLE IF EXISTS ban_appeal CASCADE;
+DROP TABLE IF EXISTS banned_user CASCADE;
+DROP TABLE IF EXISTS discount CASCADE;
+DROP TABLE IF EXISTS offer CASCADE;
+DROP TABLE IF EXISTS regular_user CASCADE;
+DROP TABLE IF EXISTS deleted_product_has_genre CASCADE;
+DROP TABLE IF EXISTS active_product_has_genre CASCADE;
+DROP TABLE IF EXISTS deleted_product CASCADE;
+DROP TABLE IF EXISTS active_product CASCADE;
+DROP TABLE IF EXISTS image CASCADE;
+DROP TABLE IF EXISTS platform CASCADE;
+DROP TABLE IF EXISTS genre CASCADE;
 DROP TABLE IF EXISTS category CASCADE;
-
 CREATE TABLE category (
   id serial PRIMARY KEY,
   "name" TEXT NOT NULL UNIQUE
 );
-
-DROP TABLE IF EXISTS genre CASCADE;
 
 CREATE TABLE genre (
   id serial PRIMARY KEY,
   "name" TEXT NOT NULL UNIQUE
 );
 
-DROP TABLE IF EXISTS platform CASCADE;
-
 CREATE TABLE platform (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE
 );
 
-DROP TABLE IF EXISTS "image" CASCADE;
-
-CREATE TABLE "image" (
+CREATE TABLE image (
   id serial PRIMARY KEY,
   url TEXT NOT NULL UNIQUE
 );
-
-DROP TABLE IF EXISTS active_product CASCADE;
 
 CREATE TABLE active_product (
   id serial PRIMARY KEY,
@@ -38,8 +52,6 @@ CREATE TABLE active_product (
   id_image integer DEFAULT 1 NOT NULL REFERENCES "image" (id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS deleted_product CASCADE;
-
 CREATE TABLE deleted_product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
@@ -49,23 +61,17 @@ CREATE TABLE deleted_product (
   id_image integer DEFAULT 1 NOT NULL REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS active_product_has_genre CASCADE;
-
 CREATE TABLE active_product_has_genre (
   id_genre integer NOT NULL REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
   id_active_product integer NOT NULL REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (id_genre, id_active_product)
 );
 
-DROP TABLE IF EXISTS deleted_product_has_genre CASCADE;
-
 CREATE TABLE deleted_product_has_genre (
   id_genre integer REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
   id_deleted_product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (id_genre, id_deleted_product)
 );
-
-DROP TABLE IF EXISTS regular_user CASCADE;
 
 CREATE TABLE regular_user (
   id serial PRIMARY KEY,
@@ -84,8 +90,6 @@ CREATE TABLE regular_user (
   ),
   CONSTRAINT birthdate_ck CHECK (date_part('year',age(birth_date)) >= 18)
 );
-
-DROP TABLE IF EXISTS offer CASCADE;
 
 CREATE TABLE offer (
   id serial PRIMARY KEY,
@@ -118,7 +122,6 @@ CREATE TABLE offer (
   )
 );
 
-DROP TABLE IF EXISTS discount CASCADE;
 CREATE TABLE discount (
   id serial PRIMARY KEY,
   rate integer NOT NULL,
@@ -136,13 +139,9 @@ CREATE TABLE discount (
   )
 );
 
-DROP TABLE IF EXISTS banned_user CASCADE;
-
 CREATE TABLE banned_user (
   id_regular_user serial PRIMARY KEY REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-DROP TABLE IF EXISTS "admin" CASCADE;
 
 CREATE TABLE "admin" (
   id serial PRIMARY KEY,
@@ -153,8 +152,6 @@ CREATE TABLE "admin" (
   id_image integer NOT NULL DEFAULT 0 REFERENCES "image"(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS ban_appeal CASCADE;
-
 CREATE TABLE ban_appeal (
   id_banned_user integer PRIMARY KEY REFERENCES banned_user(id_regular_user) ON DELETE CASCADE ON UPDATE CASCADE,
   id_admin integer REFERENCES "admin"(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -163,8 +160,6 @@ CREATE TABLE ban_appeal (
 
   CONSTRAINT date_ck CHECK(date <= now())
 );
-
-DROP TABLE IF EXISTS "order" CASCADE;
 
 CREATE TABLE "order" (
   id serial PRIMARY KEY,
@@ -175,15 +170,11 @@ CREATE TABLE "order" (
   CONSTRAINT date_ck CHECK(date <= now())
 );
 
-DROP TABLE IF EXISTS "key" CASCADE;
-
 CREATE TABLE "key" (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
   id_offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
-
-DROP TABLE IF EXISTS feedback CASCADE;
 
 CREATE TABLE feedback (
   id serial PRIMARY KEY,
@@ -192,8 +183,6 @@ CREATE TABLE feedback (
   id_regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   id_key integer NOT NULL REFERENCES "key"(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
-
-DROP TABLE IF EXISTS report CASCADE;
 
 CREATE TABLE report (
   id serial PRIMARY KEY,
@@ -206,8 +195,6 @@ CREATE TABLE report (
   CONSTRAINT user_ck CHECK(reporter <> reportee),
   CONSTRAINT date_ck CHECK(date <= now())
 );
-
-DROP TABLE IF EXISTS "message" CASCADE;
 
 CREATE TABLE "message" (
   id serial PRIMARY KEY,
@@ -229,8 +216,6 @@ CREATE TABLE "message" (
   )
 );
 
-DROP TABLE IF EXISTS order_has_key CASCADE;
-
 CREATE TABLE order_has_key (
   id_key integer PRIMARY KEY REFERENCES "key"(id) ON DELETE RESTRICT ON UPDATE CASCADE ,
   id_order integer NOT NULL REFERENCES "order"(id) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -238,14 +223,10 @@ CREATE TABLE order_has_key (
   CONSTRAINT price_ck CHECK(price > 0)
 );
 
-DROP TABLE IF EXISTS cart CASCADE;
-
 CREATE TABLE cart (
   id serial PRIMARY KEY,
   id_regular_user integer UNIQUE  REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-DROP TABLE IF EXISTS cart_has_offer CASCADE;
 
 CREATE TABLE cart_has_offer (
   id_cart serial PRIMARY KEY,
@@ -254,14 +235,10 @@ CREATE TABLE cart_has_offer (
   FOREIGN KEY (id_offer) REFERENCES "offer"(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS about_us CASCADE;
-
 CREATE TABLE about_us (
   id serial PRIMARY KEY,
   description TEXT NOT NULL
 );
-
-DROP TABLE IF EXISTS faq CASCADE;
 
 CREATE TABLE faq (
   id serial PRIMARY KEY,
