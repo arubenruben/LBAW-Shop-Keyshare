@@ -16,6 +16,8 @@ DROP TABLE IF EXISTS offer CASCADE;
 DROP TABLE IF EXISTS regular_user CASCADE;
 DROP TABLE IF EXISTS deleted_product_has_genre CASCADE;
 DROP TABLE IF EXISTS active_product_has_genre CASCADE;
+DROP TABLE IF EXISTS deleted_product_has_platform CASCADE;
+DROP TABLE IF EXISTS active_product_has_platform CASCADE;
 DROP TABLE IF EXISTS deleted_product CASCADE;
 DROP TABLE IF EXISTS active_product CASCADE;
 DROP TABLE IF EXISTS image CASCADE;
@@ -74,14 +76,14 @@ CREATE TABLE deleted_product_has_genre (
 
 CREATE TABLE active_product_has_platform(
   platform integer REFERENCES platform(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  product integer REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (platform,product)
+  active_product integer REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (platform,active_product)
 );
 
 CREATE TABLE deleted_product_has_platform(
   platform integer REFERENCES platform(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE ,
-  PRIMARY KEY (platform,product)
+  deleted_product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE ,
+  PRIMARY KEY (platform,deleted_product)
 );
 
 CREATE TABLE regular_user (
@@ -183,7 +185,7 @@ CREATE TABLE orders (
 
 CREATE TABLE keys (
   id serial PRIMARY KEY,
-  key TEXT NOT NULL UNIQUE,
+  keys TEXT NOT NULL UNIQUE,
   offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -192,7 +194,7 @@ CREATE TABLE feedback (
   evaluation boolean NOT NULL,
   comment TEXT,
   regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  key integer NOT NULL REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE
+  keys integer NOT NULL REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE report (
@@ -200,7 +202,7 @@ CREATE TABLE report (
   date date NOT NULL DEFAULT now(),
   description TEXT NOT NULL,
   title TEXT NOT NULL,
-  key integer NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  keys integer NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   reporter integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   reportee integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT user_ck CHECK(reporter <> reportee),
@@ -228,16 +230,16 @@ CREATE TABLE message (
 );
 
 CREATE TABLE order_has_key (
-  key integer PRIMARY KEY REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE ,
-  order integer NOT NULL REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  keys integer PRIMARY KEY REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE ,
+  orders integer NOT NULL REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   price REAL NOT NULL,
   CONSTRAINT price_ck CHECK(price > 0)
 );
 
 CREATE TABLE cart (
-  user  integer REFERENCES regular_user ON DELETE CASCADE ON UPDATE CASCADE,
-  offer integer REFERENCES offer ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY (user,offer)	
+  id serial PRIMARY KEY,
+  regular_user integer NOT NULL REFERENCES regular_user ON DELETE CASCADE ON UPDATE CASCADE,
+  offer integer NOT NULL REFERENCES offer ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE about_us (
