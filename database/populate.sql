@@ -1,5 +1,29 @@
 
-
+DELETE FROM faq;
+DELETE FROM about_us;
+DELETE FROM cart;
+DELETE FROM order_has_key;
+DELETE FROM message;
+DELETE FROM report;
+DELETE FROM feedback;
+DELETE FROM key;
+DELETE FROM admin;
+DELETE FROM ban_appeal;
+DELETE FROM banned_user;
+DELETE FROM discount;
+DELETE FROM offer;
+DELETE FROM regular_user;
+DELETE FROM deleted_product_has_genre;
+DELETE FROM active_product_has_genre;
+DELETE FROM deleted_product_has_platform;
+DELETE FROM active_product_has_platform;
+DELETE FROM deleted_product;
+DELETE FROM active_product;
+DELETE FROM image;
+DELETE FROM platform;
+DELETE FROM genre;
+DELETE FROM category;
+DELETE FROM orders;
 
 INSERT INTO category(id,name)
     VALUES(0,'GAME');
