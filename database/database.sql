@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS order_has_key CASCADE;
 DROP TABLE IF EXISTS message CASCADE;
 DROP TABLE IF EXISTS report CASCADE;
 DROP TABLE IF EXISTS feedback CASCADE;
-DROP TABLE IF EXISTS keys CASCADE;
-DROP TABLE IF EXISTS "admin" CASCADE;
+DROP TABLE IF EXISTS key CASCADE;
+DROP TABLE IF EXISTS admin CASCADE;
 DROP TABLE IF EXISTS ban_appeal CASCADE;
 DROP TABLE IF EXISTS banned_user CASCADE;
 DROP TABLE IF EXISTS discount CASCADE;
@@ -91,7 +91,7 @@ CREATE TABLE regular_user (
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
   description TEXT,
-  "password" TEXT NOT NULL,
+  password TEXT NOT NULL,
   rating integer NOT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
@@ -156,7 +156,7 @@ CREATE TABLE banned_user (
   regular_user integer PRIMARY KEY REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE "admin" (
+CREATE TABLE admin (
   id serial PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
@@ -167,7 +167,7 @@ CREATE TABLE "admin" (
 
 CREATE TABLE ban_appeal (
   banned_user integer PRIMARY KEY REFERENCES banned_user(regular_user) ON DELETE CASCADE ON UPDATE CASCADE,
-  "admin" integer REFERENCES "admin"(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  admin integer REFERENCES admin(id) ON DELETE SET NULL ON UPDATE CASCADE,
   ban_appeal TEXT NOT NULL,
   date date NOT NULL DEFAULT now(),
 
@@ -183,9 +183,9 @@ CREATE TABLE orders (
   CONSTRAINT date_ck CHECK(date <= now())
 );
 
-CREATE TABLE keys (
+CREATE TABLE key (
   id serial PRIMARY KEY,
-  keys TEXT NOT NULL UNIQUE,
+  key TEXT NOT NULL UNIQUE,
   offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -194,7 +194,7 @@ CREATE TABLE feedback (
   evaluation boolean NOT NULL,
   comment TEXT,
   regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  keys integer NOT NULL REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE
+  key integer NOT NULL REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE report (
@@ -202,7 +202,7 @@ CREATE TABLE report (
   date date NOT NULL DEFAULT now(),
   description TEXT NOT NULL,
   title TEXT NOT NULL,
-  keys integer NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  key integer NOT NULL UNIQUE REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   reporter integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   reportee integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT user_ck CHECK(reporter <> reportee),
@@ -214,23 +214,23 @@ CREATE TABLE message (
   date date NOT NULL DEFAULT now(),
   description TEXT NOT NULL,
   regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  "admin" integer REFERENCES "admin"(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  admin integer REFERENCES admin(id) ON DELETE SET NULL ON UPDATE CASCADE,
   report integer NOT NULL REFERENCES report(id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT date_ck CHECK(date <= now()),
   CONSTRAINT user_type_ck CHECK(
     (
       regular_user is NULL
-      and "admin" is NOT NULL
+      and admin is NOT NULL
     )
     or (
       regular_user is NOT NULL
-      and "admin" is NULL
+      and admin is NULL
     )
   )
 );
 
 CREATE TABLE order_has_key (
-  keys integer PRIMARY KEY REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE ,
+  key integer PRIMARY KEY REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE ,
   orders integer NOT NULL REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   price REAL NOT NULL,
   CONSTRAINT price_ck CHECK(price > 0)
