@@ -175,8 +175,7 @@ CREATE TABLE message (
   admin INTEGER REFERENCES admin(id) ON DELETE SET NULL ON UPDATE CASCADE,
     report INTEGER NOT NULL REFERENCES report(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT date_ck CHECK(date <= now()),
-    CONSTRAINT user_type_ck CHECK(regular_user IS NULL AND admin IS NOT NULL ) OR (regular_user IS NOT NULL AND admin IS NULL)
-    )
+    CONSTRAINT user_type_ck CHECK((regular_user IS NULL AND admin IS NOT NULL ) OR (regular_user IS NOT NULL AND admin IS NULL))
 );
 
 CREATE TABLE cart (
