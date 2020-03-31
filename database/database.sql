@@ -64,14 +64,14 @@ CREATE TABLE regular_user (
   rating integer NOT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
-  image integer NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE
-  SET
-    DEFAULT ON UPDATE CASCADE,
-    CONSTRAINT rating_ck CHECK (
-      rating >= 0
+  image integer NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  number_sells_done integer NOT NULL DEFAULT 0,
+  
+  CONSTRAINT rating_ck CHECK (
+    rating >= 0
       AND rating <= 100
-    ),
-    CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18)
+  ),
+  CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18)
 );
 CREATE TABLE offer (
   id serial PRIMARY KEY,
