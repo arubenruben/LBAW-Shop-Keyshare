@@ -129,6 +129,7 @@ CREATE TABLE key (
   price REAL NOT NULL,
   offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  
   CONSTRAINT price_ck CHECK(price > 0)
 );
 
