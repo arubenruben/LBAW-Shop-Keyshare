@@ -1,24 +1,26 @@
-DELETE FROM faq;
-DELETE FROM about_us;
-DELETE FROM cart;
-DELETE FROM message;
-DELETE FROM report;
-DELETE FROM feedback;
-DELETE FROM key;
-DELETE FROM admin;
-DELETE FROM ban_appeal;
-DELETE FROM banned_user;
-DELETE FROM discount;
-DELETE FROM offer;
-DELETE FROM regular_user;
-DELETE FROM product_has_genre;
-DELETE FROM product_has_platform;
-DELETE FROM product;
-DELETE FROM image;
-DELETE FROM platform;
-DELETE FROM genre;
-DELETE FROM category;
-DELETE FROM orders;
+TRUNCATE about_us, 
+admin, 
+ban_appeal, 
+banned_user, 
+cart, 
+category, 
+discount, 
+faq, 
+feedback, 
+genre, 
+image, 
+key, 
+message, 
+offer, 
+orders, 
+platform, 
+product, 
+product_has_genre, 
+product_has_platform, 
+regular_user, 
+report;
+
+
 
 INSERT INTO category(id,name) VALUES(0,'GAME');
 INSERT INTO category(id,name) VALUES(1,'1');
