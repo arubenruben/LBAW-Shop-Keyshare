@@ -1,4 +1,3 @@
-
 DELETE FROM faq;
 DELETE FROM about_us;
 DELETE FROM cart;
