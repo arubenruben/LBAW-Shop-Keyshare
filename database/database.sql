@@ -132,16 +132,14 @@ CREATE TABLE orders (
   id serial PRIMARY KEY,
   order_number integer NOT NULL UNIQUE,
   date date NOT NULL DEFAULT now(),
-  regular_user integer REFERENCES regular_user(id) ON DELETE
-  SET
-    NULL ON UPDATE CASCADE,
-    CONSTRAINT date_ck CHECK(date <= now())
+  regular_user integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,CONSTRAINT date_ck CHECK(date <= now())
 );
 CREATE TABLE key (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
   price REAL NOT NULL,
   offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  orders integer REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT price_ck CHECK(price > 0)
 );
 CREATE TABLE feedback (
