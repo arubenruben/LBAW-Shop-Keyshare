@@ -21,7 +21,6 @@ regular_user,
 report;
 
 
-
 INSERT INTO category(id,name) VALUES(0,'GAME');
 INSERT INTO category(id,name) VALUES(1,'1');
 INSERT INTO category(id,name) VALUES(2,'PATCH');
@@ -54,156 +53,120 @@ INSERT INTO platform(id,name) VALUES(8,'XBOX 360');
 INSERT INTO image(id,url)VALUES(0,'user.png');
 INSERT INTO image(id,url)VALUES(1,'product.png');
 
-
-
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(0,'GTA V','Grand Theft Auto V for PC will take full advantage of the power of PC to deliver across-the-board enhancements including increased resolution and graphical detail, denser traffic, greater draw distances, upgraded AI, new wildlife, and advanced weather and damage effects for the ultimate open world experience. Grand Theft Auto V for PC features the all-new First Person Mode, giving players the chance to explore the incredibly detailed world of Los Santos and Blaine County in an entirely new way across both Story Mode and Grand Theft Auto Online.Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets and fading celebrities, once the envy of the Western world, now struggling to stay afloat in an era of economic uncertainty and cheap reality TV. Amidst the turmoil, three very different criminals risk everything in a series of daring and dangerous heists that could set them up for life.The biggest, most dynamic and most diverse open world ever created and now packed with layers of new detail, Grand Theft Auto V blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.Grand Theft Auto V for PC also includes Grand Theft Auto Online, the ever-evolving Grand Theft Auto universe. Explore the vast world or rise through the criminal ranks by banding together to complete Jobs for cash, purchase properties, vehicles and character upgrades, compete in traditional competitive',0,1,FALSE,'2018-12-15 06:42:26');
 INSERT INTO product_has_genre(genre,product)VALUES(0,0);
 INSERT INTO product_has_genre(genre,product)VALUES(6,0);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,0);
 INSERT INTO product_has_platform(platform,product)VALUES(1,0);
 INSERT INTO product_has_platform(platform,product)VALUES(4,0);
 INSERT INTO product_has_platform(platform,product)VALUES(3,0);
 
-
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(1,'Red Dead Redemption 2','America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.From the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,1);
 INSERT INTO product_has_genre(genre,product)VALUES(6,1);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,1);
 INSERT INTO product_has_platform(platform,product)VALUES(1,1);
 INSERT INTO product_has_platform(platform,product)VALUES(4,1);
 INSERT INTO product_has_platform(platform,product)VALUES(3,1);
 
-
-
-
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(2,'PAYDAY 2','GPAYDAY 2 is an 0-packed, four-player 9 6 that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, Wolf and Chains - as they descend on Washington DC for an epic crime spree. The new CRIMENET network offers a huge range of dynamic contracts, and players are free to choose anything from small-time convenience store hits or kidnappings, to big league cyber-crime or emptying out major bank vaults for that epic PAYDAY. While in DC, why not participate in the local community, and run a few political errands?Up to four friends 9erate on the hits, and as the crew progresses the jobs become bigger, better and more rewarding. Along with earning more money and becoming a legendary criminal comes a new character customization and crafting system that lets crews build and customize their own guns and gear.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,2);
 INSERT INTO product_has_genre(genre,product)VALUES(6,2);
 INSERT INTO product_has_genre(genre,product)VALUES(5,2);
 INSERT INTO product_has_genre(genre,product)VALUES(10,2);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,2);
 
-
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(3,'Rocket League','What do soccer and cars have in common? Neither of them are as cool as Rocket League. This one-of-a-kind competition lets you drive a custom vehicle in a revamped soccer arena. Roll up the walls, do sick tricks, and try to smash the ball into your opponents goal. Rocket League is a hugely popular game from a tiny studio. They started out on PS3 with Supersonic Acrobatic Rocket-Powered Battle Cars in 2008 and have leveled up their game in the years since then. The latest game from the designers at Psyonix was nominated for hundreds of awards in 2015 when it released including Game of the Year! Critics love it, fans cant stop playing it. So the only question is: why dont you have it already? Buy Rocket League today and boost into 0!',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,3);
 INSERT INTO product_has_genre(genre,product)VALUES(7,3);
 INSERT INTO product_has_genre(genre,product)VALUES(9,3);
 INSERT INTO product_has_genre(genre,product)VALUES(10,3);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,3);
 INSERT INTO product_has_platform(platform,product)VALUES(1,3);
 INSERT INTO product_has_platform(platform,product)VALUES(3,3);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(4,'Battlefield V','With Battlefield V, the series goes back to its roots in a never-before-seen portrayal of World War 2. Take on physical, all-out multiplayer with your squad in modes like the vast Grand Operations and the cooperative Combined Arms, or witness human drama set against global combat in the single player War Stories. As you fight in epic, unexpected locations across the globe, enjoy the richest and most immersive Battlefield yet.World War 2 as youve never seen it before Get ready to immerse yourself in iconic World War 2 0 - from paratrooper assaults to tank warfare. Charge into pivotal battles in the early days of the war for an experience unlike any other. This isnt the World War 2 youve come to expect - this is Battlefield V. Customize your soldiersYour journey through the world of Battlefield V starts with your Company - where every soldier is unique. Create and customize soldiers,weapons and vehicles, from the way they look to how they play.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,4);
 INSERT INTO product_has_genre(genre,product)VALUES(7,4);
 INSERT INTO product_has_genre(genre,product)VALUES(10,4);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,4);
 INSERT INTO product_has_platform(platform,product)VALUES(1,4);
 INSERT INTO product_has_platform(platform,product)VALUES(3,4);
 
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(5,'Battlefield 4','Take 0 and rise above the chaos in Battlefield 4. This FPS from Electronic Arts is part of a genre-defining series that fans love and critics praise. In BF4 you can experience a new level of reality. Good soldiers are needed on the frontlines to lead the way. Immerse yourself in an epic single player story that puts you in the heat of the battle. The intense graphics and completely destructible environment make this Battlefield feel incredible. Master your weapons and take the fight online with great multiplayer capability. Buy it and see for yourself.FeaturesControl the battle - You decide how things happen in Battlefield 4. This game is designed to be totally interactive, allowing you more choices than in any previous Battlefield game. Explosives, bullets, and collisions have a serious impact on the environment. You can take down a building, or unleash a flood on your enemies. Even the car alarms work! When you play Battlefield 4 you re not just seeing destruction, you re experiencing it first-hand. Get creative with your strategy and experience a new way of gaming. Youve played 6s before, but this game is about strategy and tactics more than just holding down the trigger. Are you smart enough to survive the war of tomorrow?Fight for the future - Battlefield 4 offers an exciting single player campaign which takes place in the not-so-distant future. The world powers are at eachothers throats and your elite squad, the Tombstone, must work to restore balance. Make use of high-tech explosives, guns, and surveillance gear to stay one step ahead of your enemies. There are four main classes with multiple specializations to choose from. Are you a support focused player? A friendly medic? Or a deadly sniper? If you like to blow things up, try the Engineers toolkit. The future of war is waiting for you. Find your place in Battlefield.Battle anywhere - Take the fight to the skies or to the seas. Battlefield 4 offers you the opportunity to engage in naval combat, pilot planes, and drive tanks. Vehicles are an awesome feature of both the campaign and online gameplay. Get behind the wheel of every combat vehicle you can imagine. Different scenarios come with unique challenges, and special ways to blow stuff up! Play through the campaign on your own and then take your skills online. Multiplayer in BF4 is strategic and intense. There are tons of other players online that you can learn from and get to know. Don t worry about getting bored because there are tons of expansion packs to pick up. Once you get into Battlefield 4, you ll keep coming back for more. Buy it today and add a game to your library that you wont ever forget.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,5);
 INSERT INTO product_has_genre(genre,product)VALUES(7,5);
 INSERT INTO product_has_genre(genre,product)VALUES(10,5);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,5);
 INSERT INTO product_has_platform(platform,product)VALUES(1,5);
 INSERT INTO product_has_platform(platform,product)VALUES(3,5);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(6,'FIFA 20','Play the beautiful game the way you want with various forms of 3v3, 4v4, and 5v5 both with and without walls, as well as Professional Futsal. Or, take your unique player through the VOLTA Story Mode culminating in the VOLTA World Championship in Buenos Aires. Find out more about VOLTA Football in FIFA 20 here. Experience the new Football Intelligence system which unlocks an unprecedented platform of football realism, putting you at the centre of every match in FIFA 20.Authentic Game Flow gives players more awareness of time, space, and positioning, putting greater emphasis on your play. You ll also have more control over the Decisive Moments that decide the outcome of games in both attack and defence with a Set Piece Refresh, Controlled Tackling, and Composed Finishing. Finally, the Ball Physics System offers new shot trajectories, more realistic tackle inter0s, and physics-driven behaviour, elevating gameplay to a new level of realism.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(1,6);
 INSERT INTO product_has_genre(genre,product)VALUES(8,6);
 INSERT INTO product_has_genre(genre,product)VALUES(10,6);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,6);
 INSERT INTO product_has_platform(platform,product)VALUES(1,6);
 INSERT INTO product_has_platform(platform,product)VALUES(3,6);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(7,' F1 2019','The official videogame of the 2019 FIA FORMULA ONE WORLD CHAMPIONSHIP™, F1® 2019 challenges you to Defeat your Rivals in the most ambitious F1® game in Codemasters’ history.F1® 2019 features all the official teams, drivers and all 21 circuits from the 2019 season. This year sees the inclusion of F2™ with players being able to complete the 2018 season with the likes of George Russell, Lando Norris and Alexander Albon.With greater emphasis on graphical fidelity, the environments have been significantly enhanced, and the tracks come to life like never before. Night races have been completely overhauled creating vastly improved levels of realism and the upgraded F1® broadcast sound and visuals add further realism to all aspects of the race weekend.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(1,7);
 INSERT INTO product_has_genre(genre,product)VALUES(7,7);
 INSERT INTO product_has_genre(genre,product)VALUES(10,7);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,7);
 INSERT INTO product_has_platform(platform,product)VALUES(1,7);
 INSERT INTO product_has_platform(platform,product)VALUES(3,7);
     
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(8,'DIRT RALLY','GDiRT Rally is the most authentic and thrilling rally game ever made, road-tested over 80 million miles by the DiRT community. It perfectly captures that white knuckle feeling of racing on the edge as you hurtle along dangerous roads at breakneck speed, knowing that one crash could irreparably harm your stage time. DiRT Rally also includes officially licensed World Rallycross content, allowing you to experience the breathless, high-speed thrills of some of the world’s fastest off-road cars as you trade paint with other drivers at some of the series’ best-loved circuits, in both singleplayer and high-intensity multiplayer races.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(1,8);
 INSERT INTO product_has_genre(genre,product)VALUES(7,8);
 INSERT INTO product_has_genre(genre,product)VALUES(10,8);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,8);
 INSERT INTO product_has_platform(platform,product)VALUES(1,8);
 INSERT INTO product_has_platform(platform,product)VALUES(3,8);
 
 INSERT INTO product(id,name,description,category,image,deleted,launch_date)VALUES(9,'Project CARS 2','THE ULTIMATE DRIVER JOURNEY! Project CARS 2 delivers the soul of motor racing in the world’s most beautiful, authentic, and technically-advanced racing game.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(1,9);
 INSERT INTO product_has_genre(genre,product)VALUES(7,9);
 INSERT INTO product_has_genre(genre,product)VALUES(10,9);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,9);
 INSERT INTO product_has_platform(platform,product)VALUES(1,9);
 INSERT INTO product_has_platform(platform,product)VALUES(3,9);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date) VALUES(10,'Pro Cycling Manager 2019','Manage your own team of professional cyclists in the new 2019 season. Take the lead in over 200 races and 600 stages around the world and try to win legendary races like La Vuelta and the Tour de France. Manage, negotiate contracts and land new sponsors, plan your training and strategy, and execute your tactics during races to pedal your way to victory!Pull on the jersey of a professional cyclist and pursue your career to become a champion in Pro Cyclist mode. Compete against or team up with your friends in Online mode with up to 16 players. Solo or online, be the best to take your team to the top.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(1,10);
 INSERT INTO product_has_genre(genre,product)VALUES(7,10);
 INSERT INTO product_has_genre(genre,product)VALUES(10,10);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,10);
 INSERT INTO product_has_platform(platform,product)VALUES(1,10);
 INSERT INTO product_has_platform(platform,product)VALUES(3,10);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(11,'Mount & Blade II','The horns sound, the ravens gather. An empire is torn by civil war. Beyond its borders, new kingdoms rise. Gird on your sword, don your armour, summon your followers and ride forth to win glory on the battlefields of Calradia. Establish your hegemony and create a new world out of the ashes of the old. Mount & Blade II: Bannerlord is the eagerly awaited sequel to the acclaimed medieval combat simulator and role-playing game Mount & Blade: Warband. Set 200 years before, it expands both the detailed fighting system and the world of Calradia. Bombard mountain fastnesses with siege engines, establish secret criminal empires in the back alleys of cities, or charge into the thick of chaotic battles in your quest for power.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,11);
 INSERT INTO product_has_genre(genre,product)VALUES(5,11);
 INSERT INTO product_has_genre(genre,product)VALUES(11,11);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,11);
 INSERT INTO product_has_platform(platform,product)VALUES(1,11);
 INSERT INTO product_has_platform(platform,product)VALUES(3,11);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(12,'Age of Empires II: Definitive Edition','Age of Empires II: Definitive Edition celebrates the 20th anniversary of one of the most popular strategy games ever with stunning 4K Ultra HD graphics, a new and fully remastered soundtrack, and brand-new content, “The Last Khans” with 3 new campaigns and 4 new civilizations.Explore all the original campaigns like never before as well as the best-selling expansions, spanning over 200 hours of gameplay and 1,000 years of human history. Head online to challenge other players with 35 different civilizations in your quest for world domination throughout the ages. Choose your path to greatness with this definitive remaster to one of the most beloved strategy games of all time.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,12);
 INSERT INTO product_has_genre(genre,product)VALUES(5,12);
 INSERT INTO product_has_genre(genre,product)VALUES(11,12);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,12);
 INSERT INTO product_has_platform(platform,product)VALUES(1,12);
 INSERT INTO product_has_platform(platform,product)VALUES(3,12);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(13,'Cities: Skylines','Cities: Skylines is a modern take on the classic city 5. The game introduces new game play elements to realize the thrill and hardships of creating and maintaining a real city whilst expanding on some well-established tropes of the city building experience. From the makers of the Cities in Motion franchise, the game boasts a fully realized transport system. It also includes the ability to mod the game to suit your play style as a fine counter balance to the layered and challenging 5. You’re only limited by your imagination, so take control and reach for the sky!',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product)VALUES(0,13);
 INSERT INTO product_has_genre(genre,product)VALUES(5,13);
 INSERT INTO product_has_genre(genre,product)VALUES(11,13);
-
 INSERT INTO product_has_platform(platform,product)VALUES(0,13);
 INSERT INTO product_has_platform(platform,product)VALUES(1,13);
 INSERT INTO product_has_platform(platform,product)VALUES(3,13);
 
-
 INSERT INTO product(id,name,description,category,image,deleted, launch_date) VALUES(14,'Europa Universalis IV','Fulfill your quest for global domination! Paradox Development Studio is back with the fourth installment of the award-winning Europa Universalis series. The empire building game Europa Universalis IV gives you control of a nation to guide through the years in order to create a dominant global empire. Rule your nation through the centuries, with unparalleled freedom, depth and historical accuracy. True exploration, trade, warfare and diplomacy will be brought to life in this epic title rife with rich strategic and tactical depth.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,14);
 INSERT INTO product_has_genre(genre,product) VALUES(5,14);
 INSERT INTO product_has_genre(genre,product) VALUES(11,14);
@@ -212,58 +175,49 @@ INSERT INTO product_has_platform(platform,product) VALUES(1,14);
 INSERT INTO product_has_platform(platform,product) VALUES(3,14);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(15,'Civilization V','Become Ruler of the World by establishing and leading a civilization from the dawn of man into the space age: Wage war, conduct diplomacy, discover new technologies, go head-to-head with some of history’s greatest leaders and build the most powerful empire the world has ever known.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,15);
 INSERT INTO product_has_genre(genre,product) VALUES(5,15);
 INSERT INTO product_has_genre(genre,product) VALUES(11,15);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,15);
 INSERT INTO product_has_platform(platform,product) VALUES(1,15);
 INSERT INTO product_has_platform(platform,product) VALUES(3,15);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(16,'Watch Dogs 2','The sequel to Watch Dogs has been announced, and is now right around the corner. Buy the game today to immerse yourself in the world of hackers mixed with a little violence to help you achieve your sought after goal. From the makers of the Best 0/2 Game of 2013 from the E3 Game Critics Awards, Watch Dogs, we are presented with Watch Dogs 2, a sequel which will see gameplay take place in a different city, San Francisco.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,16);
 INSERT INTO product_has_genre(genre,product) VALUES(5,16);
 INSERT INTO product_has_genre(genre,product) VALUES(11,16);
 INSERT INTO product_has_platform(platform,product) VALUES(0,16);
 INSERT INTO product_has_platform(platform,product) VALUES(1,16);
 INSERT INTO product_has_platform(platform,product) VALUES(3,16);
-INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(17,'Assassins Creed Brotherhood','Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.It’s time to join the Brotherhood.',0,1,FALSE,'2018-12-15 06:42:26');
 
+INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(17,'Assassins Creed Brotherhood','Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.It’s time to join the Brotherhood.',0,1,FALSE,'2018-12-15 06:42:26');
 INSERT INTO product_has_genre(genre,product) VALUES(0,17);
 INSERT INTO product_has_genre(genre,product) VALUES(5,17);
 INSERT INTO product_has_genre(genre,product) VALUES(11,17);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,17);
 INSERT INTO product_has_platform(platform,product) VALUES(1,17);
 INSERT INTO product_has_platform(platform,product) VALUES(3,17);
-INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(18,'Minecraft','Explore randomly generated worlds and build amazing things from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off the dangerous mobs. Craft, create, and explore alone, or with friends on mobile devices or Windows 10. Millions of crafters around the world have smashed billions of blocks - now you can join in the fun on Windows 10! ',0,1,FALSE,'2018-12-15 06:42:26');
 
+INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(18,'Minecraft','Explore randomly generated worlds and build amazing things from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off the dangerous mobs. Craft, create, and explore alone, or with friends on mobile devices or Windows 10. Millions of crafters around the world have smashed billions of blocks - now you can join in the fun on Windows 10! ',0,1,FALSE,'2018-12-15 06:42:26');
 INSERT INTO product_has_genre(genre,product) VALUES(0,18);
 INSERT INTO product_has_genre(genre,product) VALUES(5,18);
 INSERT INTO product_has_genre(genre,product) VALUES(11,18);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,18);
 INSERT INTO product_has_platform(platform,product) VALUES(1,18);
 INSERT INTO product_has_platform(platform,product) VALUES(3,18);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(19,'The Crew 2','The newest iteration in the revolutionary franchise, The Crew® 2 captures the thrill of the American motorsports spirit in one of the most exhilarating open worlds ever created. Welcome to Motornation, a huge, varied, 0-packed, and beautiful playground built for motorsports throughout the entire US of A. Enjoy unrestrained exploration on ground, sea, and sky. From coast to coast, street and pro racers, off-road explorers, and freestylers gather and compete in all kinds of disciplines. Join them in high-octane contests and share every glorious moment with the world.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(7,19);
 INSERT INTO product_has_genre(genre,product) VALUES(5,19);
 INSERT INTO product_has_genre(genre,product) VALUES(11,19);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,19);
 INSERT INTO product_has_platform(platform,product) VALUES(1,19);
 INSERT INTO product_has_platform(platform,product) VALUES(3,19);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(20,'Assassin s Creed Unity','Paris, 1789. The French Revolution turns a once-magnificent city into a place of terror and chaos. Its cobblestone streets run red with the blood of commoners who dared to rise up against the oppressive aristocracy. As the nation tears itself apart, a young man named Arno will embark on an extraordinary journey to expose the true powers behind the Revolution. His pursuit will throw him into the middle of a ruthless struggle for the fate of a nation, and transform him into a true Master Assassin. Introducing Assassin s Creed Unity, the next-gen evolution of the blockbuster franchise powered by an all-new game engine. From the storming of the Bastille to the execution of King Louis XVI, experience the French Revolution as never before, and help the people of France carve an entirely new destiny.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,20);
 INSERT INTO product_has_genre(genre,product) VALUES(5,20);
 INSERT INTO product_has_genre(genre,product) VALUES(11,20);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,20);
 INSERT INTO product_has_platform(platform,product) VALUES(1,20);
 INSERT INTO product_has_platform(platform,product) VALUES(3,20);
@@ -273,59 +227,45 @@ INSERT INTO product_has_genre(genre,product) VALUES(0,21);
 INSERT INTO product_has_genre(genre,product) VALUES(5,21);
 INSERT INTO product_has_genre(genre,product) VALUES(11,21);
 INSERT INTO product_has_genre(genre,product) VALUES(6,21);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,21);
 INSERT INTO product_has_platform(platform,product) VALUES(7,21);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(22,'The Elder Scrolls V',' true, full-length open-world game for VR has arrived from award-winning developers, Bethesda Game Studios. Skyrim VR reimagines the complete epic fantasy masterpiece with an unparalleled sense of scale, depth, and immersion. From battling ancient dragons to exploring rugged mountains and more, Skyrim VR brings to life a complete open world for you to experience any way you choose. Skyrim VR includes the critically-acclaimed core game and official add-ons – Dawnguard, Hearthfire, and Dragonborn. Dragons, long lost to the passages of the Elder Scrolls, have returned to Tamriel and the future of the Empire hangs in the balance. As Dragonborn, the prophesied hero born with the power of The Voice, you are the only one who can stand amongst them.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,22);
 INSERT INTO product_has_genre(genre,product) VALUES(11,22);
 INSERT INTO product_has_genre(genre,product) VALUES(2,22);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,22);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(23,'Witcher 3','The Witcher 3: Wild Hunt Game of the Year edition brings together the base game and all the additional content released to date. Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community. Become a professional monster slayer and embark on an 2 of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world 2 along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests.',0,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,23);
 INSERT INTO product_has_genre(genre,product) VALUES(11,23);
 INSERT INTO product_has_genre(genre,product) VALUES(2,23);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,23);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(24,'The Sims 4 - Cats & Dogs 1','Create a variety of cats and dogs, add them to your Sims’ homes to forever change their lives and care for neighbourhood pets as a veterinarian with The Sims™ 4 Cats & Dogs. The powerful new Create A Pet tool lets you personalise cats and dogs, each with their own unique appearances, distinct behaviours and for the first time, expressive outfits! These wonderful, lifelong companions will change your Sims’ lives in new and special ways. Treat animal ailments as a veterinarian and run your own clinic in a beautiful coastal world where there’s so much for your Sims and their pets to discover.',1,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(11,24);
 INSERT INTO product_has_genre(genre,product) VALUES(2,24);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,24);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(25,'Euro Truck Simulator 2 - Vive la France' , 'Vive la France ! is a large map expansion add-on for Euro Truck Simulator 2. Make your way through broad boulevards of industrial cities and narrow streets of rural hamlets. Enjoy French outdoors with its diverse looks and disparate vegetation from north to south. Discover famous landmarks, deliver to expansive industrial areas, navigate complex intersections and interchanges, enjoy visually unique roundabouts inspired by real locations. Transport a variety of new cargo to service new local French companies as well as connecting the region to the rest of Europe.',1,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,25);
 INSERT INTO product_has_genre(genre,product) VALUES(11,25);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,25);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date)VALUES(26,'Europa Universalis IV - Wealth of Nations Expansion','Wealth of Nations is the second expansion for the critically praised strategy game Europa Universalis IV, focusing on trade and how to make the wealth of the world flow into your coffers. The expansion allows you to create trade conflicts in secret, steal from your competitors with the use of privateers, use peace treaties to gain trade power and create a new trade capital to strengthen your grasp over trade. The age of exploration is brought to life in this epic game of trade, diplomacy, warfare and exploration by Paradox Development Studio, the Masters of Strategy. Europa Universalis IV gives you control of a nation to rule an empire that lasts through the ages.',1,1,FALSE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,26);
 INSERT INTO product_has_genre(genre,product) VALUES(5,26);
 INSERT INTO product_has_genre(genre,product) VALUES(11,26);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,26);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date) VALUES(27,'DRAGON BALL FighterZ','DRAGON BALL FighterZ is born from what makes the DRAGON BALL series so loved and famous: endless spectacular fights with its all-powerful fighters.',0,1,TRUE,'2018-12-15 06:42:26');
 INSERT INTO product_has_genre(genre,product) VALUES(0,27);
 INSERT INTO product_has_genre(genre,product) VALUES(12,27);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,27);
 
 INSERT INTO product(id,name,description,category,image,deleted, launch_date) VALUES(28,'Shenmue I & II','Originally released for the Dreamcast in 2000 and 2001, Shenmue I & II is an open world action 2 combining jujitsu combat, investigative sleuthing, RPG elements, and memorable mini-games. It pioneered many aspects of modern gaming, including open world city exploration, and was the game that coined the Quick Time Event (QTE). It was one of the first games with a persistent open world, where day cycles to night, weather changes, shops open and close and NPCs go about their business all on their own schedules. Its engrossing epic story and living world created a generation of passionate fans, and the game consistently makes the list of “greatest games of all time”.',0,1,TRUE,'2018-12-15 06:42:26');
-
 INSERT INTO product_has_genre(genre,product) VALUES(0,28);
 INSERT INTO product_has_genre(genre,product) VALUES(12,28);
-
 INSERT INTO product_has_platform(platform,product) VALUES(0,28);
 
 insert into regular_user (id, username, email, description, password, rating, birth_date, paypal, image, number_sells_done) values (1, 'sboyn0', 'lfosberry0@biglobe.ne.jp', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 54, '1972-05-27 23:11:07', 'iaudiss0@irs.gov', 0, 40142);
@@ -660,7 +600,6 @@ INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
 VALUES(53,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
 INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
 VALUES(54,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-
 
 INSERT INTO orders (id, order_number, date, regular_user) values (1, 1, '2017-05-16 14:27:19', 70);
 INSERT INTO orders (id, order_number, date, regular_user) values (2, 2, '2016-08-02 12:46:12', 26);
@@ -1465,8 +1404,6 @@ INSERT INTO feedback (id, evaluation, comment, regular_user, key) values (98, tr
 INSERT INTO feedback (id, evaluation, comment, regular_user, key) values (99, false, 'integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 36, 151);
 INSERT INTO feedback (id, evaluation, comment, regular_user, key) values (100, true, 'donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis', 96, 146);
 
-
-
 INSERT INTO report(id,date,description,title,key,reporter,reportee) VALUES(0,'2020-03-30','This is a report','Key dont work',1,2,3);
 INSERT INTO report(id,date,description,title,key,reporter,reportee) VALUES(1,'2020-03-30','This is a report','Key dont work',2,3,2);
 INSERT INTO report(id,date,description,title,key,reporter,reportee) VALUES(2,'2020-03-30','This is a report','Key dont work',3,10,11);
@@ -1537,5 +1474,3 @@ INSERT INTO FAQ(id, question,answer) VALUES(3,'DO I NEED TO PAY ANY EXTRA TAX AF
 INSERT INTO FAQ(id, question,answer) VALUES(4,'DO I HABE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','FAQ REPLY');
 INSERT INTO FAQ(id, question,answer) VALUES(5,'WHAT IS keyHARE?','FAQ REPLY');
 INSERT INTO FAQ(id, question,answer) VALUES(6,'DO I HAVE ACCESS TO THE GAMES I BUY ON THE keyHARE WEBISTE FOREVER?','FAQ REPLY');
-
-
