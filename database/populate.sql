@@ -13,620 +13,320 @@ DELETE FROM banned_user;
 DELETE FROM discount;
 DELETE FROM offer;
 DELETE FROM regular_user;
-DELETE FROM deleted_product_has_genre;
-DELETE FROM active_product_has_genre;
-DELETE FROM deleted_product_has_platform;
-DELETE FROM active_product_has_platform;
-DELETE FROM deleted_product;
-DELETE FROM active_product;
+DELETE FROM product_has_genre;
+DELETE FROM product_has_platform;
+DELETE FROM product;
 DELETE FROM image;
 DELETE FROM platform;
 DELETE FROM genre;
 DELETE FROM category;
 DELETE FROM orders;
 
-INSERT INTO category(id,name)
-    VALUES(0,'GAME');
-INSERT INTO category(id,name)
-    VALUES(1,'1');
-INSERT INTO category(id,name)
-    VALUES(2,'PATCH');
-INSERT INTO category(id,name)
-    VALUES(3,'EXPANSION');
+INSERT INTO category(id,name) VALUES(0,'GAME');
+INSERT INTO category(id,name) VALUES(1,'1');
+INSERT INTO category(id,name) VALUES(2,'PATCH');
+INSERT INTO category(id,name) VALUES(3,'EXPANSION');
 
-INSERT INTO genre(id,name)
-    VALUES(0,'ACTION');
-INSERT INTO genre(id,name)
-    VALUES(1,'SPORT');
-INSERT INTO genre(id,name)
-    VALUES(2,'ADVENTURE');
-INSERT INTO genre(id,name)
-    VALUES(3,'PUZZLE');
-INSERT INTO genre(id,name)
-    VALUES(4,'FPS');
-INSERT INTO genre(id,name)
-    VALUES(5,'SIMULATION');
-INSERT INTO genre(id,name)
-    VALUES(6,'SHOOTER');
-INSERT INTO genre(id,name)
-    VALUES(7,'RACING');
-INSERT INTO genre(id,name)
-    VALUES(8,'FOOTBALL');
-INSERT INTO genre(id,name)
-    VALUES(9,'CO-OP');
-INSERT INTO genre(id,name)
-    VALUES(10,'MULTIPLAYER');
-INSERT INTO genre(id,name)
-    VALUES(11,'OPEN-WORLD');
-INSERT INTO genre(id,name)
-    VALUES(12,'ANIME');
+INSERT INTO genre(id,name) VALUES(0,'ACTION');
+INSERT INTO genre(id,name) VALUES(1,'SPORT');
+INSERT INTO genre(id,name) VALUES(2,'ADVENTURE');
+INSERT INTO genre(id,name) VALUES(3,'PUZZLE');
+INSERT INTO genre(id,name) VALUES(4,'FPS');
+INSERT INTO genre(id,name) VALUES(5,'SIMULATION');
+INSERT INTO genre(id,name) VALUES(6,'SHOOTER');
+INSERT INTO genre(id,name) VALUES(7,'RACING');
+INSERT INTO genre(id,name) VALUES(8,'FOOTBALL');
+INSERT INTO genre(id,name) VALUES(9,'CO-OP');
+INSERT INTO genre(id,name) VALUES(10,'MULTIPLAYER');
+INSERT INTO genre(id,name) VALUES(11,'OPEN-WORLD');
+INSERT INTO genre(id,name) VALUES(12,'ANIME');
 
-INSERT INTO platform(id,name)
-    VALUES(0,'PC');
-INSERT INTO platform(id,name)
-    VALUES(1,'PS4');
-INSERT INTO platform(id,name)
-    VALUES(2,'NINTENDO');
-INSERT INTO platform(id,name)
-    VALUES(3,'XBOX ONE');
-INSERT INTO platform(id,name)
-    VALUES(4,'PS3');
-INSERT INTO platform(id,name)
-    VALUES(5,'MAC');
-INSERT INTO platform(id,name)
-    VALUES(6,'Android');
-INSERT INTO platform(id,name)
-    VALUES(7,'PS2');
-INSERT INTO platform(id,name)
-    VALUES(8,'XBOX 360');
+INSERT INTO platform(id,name) VALUES(0,'PC');
+INSERT INTO platform(id,name) VALUES(1,'PS4');
+INSERT INTO platform(id,name) VALUES(2,'NINTENDO');
+INSERT INTO platform(id,name) VALUES(3,'XBOX ONE');
+INSERT INTO platform(id,name) VALUES(4,'PS3');
+INSERT INTO platform(id,name) VALUES(5,'MAC');
+INSERT INTO platform(id,name) VALUES(6,'Android');
+INSERT INTO platform(id,name) VALUES(7,'PS2');
+INSERT INTO platform(id,name) VALUES(8,'XBOX 360');
 
-INSERT INTO image(id,url)
-    VALUES(0,'user.png');
-INSERT INTO image(id,url)
-    VALUES(1,'product.png');
+INSERT INTO image(id,url)VALUES(0,'user.png');
+INSERT INTO image(id,url)VALUES(1,'product.png');
 
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(0,'GTA V','Grand Theft Auto V for PC will take full advantage of the power of PC to deliver across-the-board enhancements including increased resolution and graphical detail, denser traffic, greater draw distances, upgraded AI, new wildlife, and advanced weather and damage effects for the ultimate open world experience. Grand Theft Auto V for PC features the all-new First Person Mode, giving players the chance to explore the incredibly detailed world of Los Santos and Blaine County in an entirely new way across both Story Mode and Grand Theft Auto Online.
-Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets and fading celebrities, once the envy of the Western world, now struggling to stay afloat in an era of economic uncertainty and cheap reality TV. Amidst the turmoil, three very different criminals risk everything in a series of daring and dangerous heists that could set them up for life.
-The biggest, most dynamic and most diverse open world ever created and now packed with layers of new detail, Grand Theft Auto V blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.
-Grand Theft Auto V for PC also includes Grand Theft Auto Online, the ever-evolving Grand Theft Auto universe. Explore the vast world or rise through the criminal ranks by banding together to complete Jobs for cash, purchase properties, vehicles and character upgrades, compete in traditional competitive',
-0,1
-);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,0);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(6,0);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(0,'GTA V','Grand Theft Auto V for PC will take full advantage of the power of PC to deliver across-the-board enhancements including increased resolution and graphical detail, denser traffic, greater draw distances, upgraded AI, new wildlife, and advanced weather and damage effects for the ultimate open world experience. Grand Theft Auto V for PC features the all-new First Person Mode, giving players the chance to explore the incredibly detailed world of Los Santos and Blaine County in an entirely new way across both Story Mode and Grand Theft Auto Online.Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets and fading celebrities, once the envy of the Western world, now struggling to stay afloat in an era of economic uncertainty and cheap reality TV. Amidst the turmoil, three very different criminals risk everything in a series of daring and dangerous heists that could set them up for life.The biggest, most dynamic and most diverse open world ever created and now packed with layers of new detail, Grand Theft Auto V blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.Grand Theft Auto V for PC also includes Grand Theft Auto Online, the ever-evolving Grand Theft Auto universe. Explore the vast world or rise through the criminal ranks by banding together to complete Jobs for cash, purchase properties, vehicles and character upgrades, compete in traditional competitive',0,1,FALSE);
+INSERT INTO product_has_genre(genre,product)VALUES(0,0);
+INSERT INTO product_has_genre(genre,product)VALUES(6,0);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,0);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,0);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(4,0);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,0);
+INSERT INTO product_has_platform(platform,product)VALUES(0,0);
+INSERT INTO product_has_platform(platform,product)VALUES(1,0);
+INSERT INTO product_has_platform(platform,product)VALUES(4,0);
+INSERT INTO product_has_platform(platform,product)VALUES(3,0);
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(1,'Red Dead Redemption 2','America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.
-From the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(1,'Red Dead Redemption 2','America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.From the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,1);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(6,1);
+INSERT INTO product_has_genre(genre,product)VALUES(0,1);
+INSERT INTO product_has_genre(genre,product)VALUES(6,1);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,1);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,1);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(4,1);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,1);
+INSERT INTO product_has_platform(platform,product)VALUES(0,1);
+INSERT INTO product_has_platform(platform,product)VALUES(1,1);
+INSERT INTO product_has_platform(platform,product)VALUES(4,1);
+INSERT INTO product_has_platform(platform,product)VALUES(3,1);
 
 
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(2,'PAYDAY 2','GPAYDAY 2 is an 0-packed, four-player 9 6 that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, Wolf and Chains - as they descend on Washington DC for an epic crime spree. The new CRIMENET network offers a huge range of dynamic contracts, and players are free to choose anything from small-time convenience store hits or kidnappings, to big league cyber-crime or emptying out major bank vaults for that epic PAYDAY. While in DC, why not participate in the local community, and run a few political errands?
-Up to four friends 9erate on the hits, and as the crew progresses the jobs become bigger, better and more rewarding. Along with earning more money and becoming a legendary criminal comes a new character customization and crafting system that lets crews build and customize their own guns and gear.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(2,'PAYDAY 2','GPAYDAY 2 is an 0-packed, four-player 9 6 that once again lets gamers don the masks of the original PAYDAY crew - Dallas, Hoxton, Wolf and Chains - as they descend on Washington DC for an epic crime spree. The new CRIMENET network offers a huge range of dynamic contracts, and players are free to choose anything from small-time convenience store hits or kidnappings, to big league cyber-crime or emptying out major bank vaults for that epic PAYDAY. While in DC, why not participate in the local community, and run a few political errands?Up to four friends 9erate on the hits, and as the crew progresses the jobs become bigger, better and more rewarding. Along with earning more money and becoming a legendary criminal comes a new character customization and crafting system that lets crews build and customize their own guns and gear.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,2);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(6,2);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,2);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,2);
+INSERT INTO product_has_genre(genre,product)VALUES(0,2);
+INSERT INTO product_has_genre(genre,product)VALUES(6,2);
+INSERT INTO product_has_genre(genre,product)VALUES(5,2);
+INSERT INTO product_has_genre(genre,product)VALUES(10,2);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,2);
+INSERT INTO product_has_platform(platform,product)VALUES(0,2);
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(3,'Rocket League','What do soccer and cars have in common? Neither of them are as cool as Rocket League. This one-of-a-kind competition lets you drive a custom vehicle in a revamped soccer arena. Roll up the walls, do sick tricks, and try to smash the ball into your opponents goal. Rocket League is a hugely popular game from a tiny studio. They started out on PS3 with Supersonic Acrobatic Rocket-Powered Battle Cars in 2008 and have leveled up their game in the years since then. The latest game from the designers at Psyonix was nominated for hundreds of awards in 2015 when it released including Game of the Year! Critics love it, fans cant stop playing it. So the only question is: why dont you have it already? Buy Rocket League today and boost into 0!',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(3,'Rocket League','What do soccer and cars have in common? Neither of them are as cool as Rocket League. This one-of-a-kind competition lets you drive a custom vehicle in a revamped soccer arena. Roll up the walls, do sick tricks, and try to smash the ball into your opponents goal. Rocket League is a hugely popular game from a tiny studio. They started out on PS3 with Supersonic Acrobatic Rocket-Powered Battle Cars in 2008 and have leveled up their game in the years since then. The latest game from the designers at Psyonix was nominated for hundreds of awards in 2015 when it released including Game of the Year! Critics love it, fans cant stop playing it. So the only question is: why dont you have it already? Buy Rocket League today and boost into 0!',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,3);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,3);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(9,3);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,3);
+INSERT INTO product_has_genre(genre,product)VALUES(0,3);
+INSERT INTO product_has_genre(genre,product)VALUES(7,3);
+INSERT INTO product_has_genre(genre,product)VALUES(9,3);
+INSERT INTO product_has_genre(genre,product)VALUES(10,3);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,3);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,3);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,3);
+INSERT INTO product_has_platform(platform,product)VALUES(0,3);
+INSERT INTO product_has_platform(platform,product)VALUES(1,3);
+INSERT INTO product_has_platform(platform,product)VALUES(3,3);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(4,'Battlefield V','With Battlefield V, the series goes back to its roots in a never-before-seen portrayal of World War 2. Take on physical, all-out multiplayer with your squad in modes like the vast Grand Operations and the cooperative Combined Arms, or witness human drama set against global combat in the single player War Stories. As you fight in epic, unexpected locations across the globe, enjoy the richest and most immersive Battlefield yet.World War 2 as youve never seen it before
-Get ready to immerse yourself in iconic World War 2 0 - from paratrooper assaults to tank warfare. Charge into pivotal battles in the early days of the war for an experience unlike any other. This isnt the World War 2 youve come to expect - this is Battlefield V.
-Customize your soldiers
-Your journey through the world of Battlefield V starts with your Company - where every soldier is unique. Create and customize soldiers,weapons and vehicles, from the way they look to how they play.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(4,'Battlefield V','With Battlefield V, the series goes back to its roots in a never-before-seen portrayal of World War 2. Take on physical, all-out multiplayer with your squad in modes like the vast Grand Operations and the cooperative Combined Arms, or witness human drama set against global combat in the single player War Stories. As you fight in epic, unexpected locations across the globe, enjoy the richest and most immersive Battlefield yet.World War 2 as youve never seen it before Get ready to immerse yourself in iconic World War 2 0 - from paratrooper assaults to tank warfare. Charge into pivotal battles in the early days of the war for an experience unlike any other. This isnt the World War 2 youve come to expect - this is Battlefield V. Customize your soldiersYour journey through the world of Battlefield V starts with your Company - where every soldier is unique. Create and customize soldiers,weapons and vehicles, from the way they look to how they play.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,4);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,4);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,4);
+INSERT INTO product_has_genre(genre,product)VALUES(0,4);
+INSERT INTO product_has_genre(genre,product)VALUES(7,4);
+INSERT INTO product_has_genre(genre,product)VALUES(10,4);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,4);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,4);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,4);
+INSERT INTO product_has_platform(platform,product)VALUES(0,4);
+INSERT INTO product_has_platform(platform,product)VALUES(1,4);
+INSERT INTO product_has_platform(platform,product)VALUES(3,4);
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(5,'Battlefield 4','Take 0 and rise above the chaos in Battlefield 4. This FPS from Electronic Arts is part of a genre-defining series that fans love and critics praise. In BF4 you can experience a new level of reality. Good soldiers are needed on the frontlines to lead the way. Immerse yourself in an epic single player story that puts you in the heat of the battle. The intense graphics and completely destructible environment make this Battlefield feel incredible. Master your weapons and take the fight online with great multiplayer capability. Buy it and see for yourself.
-Features
-Control the battle - You decide how things happen in Battlefield 4. This game is designed to be totally interactive, allowing you more choices than in any previous Battlefield game. Explosives, bullets, and collisions have a serious impact on the environment. You can take down a building, or unleash a flood on your enemies. Even the car alarms work! When you play Battlefield 4 you re not just seeing destruction, you re experiencing it first-hand. Get creative with your strategy and experience a new way of gaming. Youve played 6s before, but this game is about strategy and tactics more than just holding down the trigger. Are you smart enough to survive the war of tomorrow?
-Fight for the future - Battlefield 4 offers an exciting single player campaign which takes place in the not-so-distant future. The world powers are at eachothers throats and your elite squad, the Tombstone, must work to restore balance. Make use of high-tech explosives, guns, and surveillance gear to stay one step ahead of your enemies. There are four main classes with multiple specializations to choose from. Are you a support focused player? A friendly medic? Or a deadly sniper? If you like to blow things up, try the Engineers toolkit. The future of war is waiting for you. Find your place in Battlefield.
-Battle anywhere - Take the fight to the skies or to the seas. Battlefield 4 offers you the opportunity to engage in naval combat, pilot planes, and drive tanks. Vehicles are an awesome feature of both the campaign and online gameplay. Get behind the wheel of every combat vehicle you can imagine. Different scenarios come with unique challenges, and special ways to blow stuff up! Play through the campaign on your own and then take your skills online. Multiplayer in BF4 is strategic and intense. There are tons of other players online that you can learn from and get to know. Don t worry about getting bored because there are tons of expansion packs to pick up. Once you get into Battlefield 4, you ll keep coming back for more. Buy it today and add a game to your library that you wont ever forget.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(5,'Battlefield 4','Take 0 and rise above the chaos in Battlefield 4. This FPS from Electronic Arts is part of a genre-defining series that fans love and critics praise. In BF4 you can experience a new level of reality. Good soldiers are needed on the frontlines to lead the way. Immerse yourself in an epic single player story that puts you in the heat of the battle. The intense graphics and completely destructible environment make this Battlefield feel incredible. Master your weapons and take the fight online with great multiplayer capability. Buy it and see for yourself.FeaturesControl the battle - You decide how things happen in Battlefield 4. This game is designed to be totally interactive, allowing you more choices than in any previous Battlefield game. Explosives, bullets, and collisions have a serious impact on the environment. You can take down a building, or unleash a flood on your enemies. Even the car alarms work! When you play Battlefield 4 you re not just seeing destruction, you re experiencing it first-hand. Get creative with your strategy and experience a new way of gaming. Youve played 6s before, but this game is about strategy and tactics more than just holding down the trigger. Are you smart enough to survive the war of tomorrow?Fight for the future - Battlefield 4 offers an exciting single player campaign which takes place in the not-so-distant future. The world powers are at eachothers throats and your elite squad, the Tombstone, must work to restore balance. Make use of high-tech explosives, guns, and surveillance gear to stay one step ahead of your enemies. There are four main classes with multiple specializations to choose from. Are you a support focused player? A friendly medic? Or a deadly sniper? If you like to blow things up, try the Engineers toolkit. The future of war is waiting for you. Find your place in Battlefield.Battle anywhere - Take the fight to the skies or to the seas. Battlefield 4 offers you the opportunity to engage in naval combat, pilot planes, and drive tanks. Vehicles are an awesome feature of both the campaign and online gameplay. Get behind the wheel of every combat vehicle you can imagine. Different scenarios come with unique challenges, and special ways to blow stuff up! Play through the campaign on your own and then take your skills online. Multiplayer in BF4 is strategic and intense. There are tons of other players online that you can learn from and get to know. Don t worry about getting bored because there are tons of expansion packs to pick up. Once you get into Battlefield 4, you ll keep coming back for more. Buy it today and add a game to your library that you wont ever forget.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,5);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,5);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,5);
+INSERT INTO product_has_genre(genre,product)VALUES(0,5);
+INSERT INTO product_has_genre(genre,product)VALUES(7,5);
+INSERT INTO product_has_genre(genre,product)VALUES(10,5);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,5);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,5);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,5);
+INSERT INTO product_has_platform(platform,product)VALUES(0,5);
+INSERT INTO product_has_platform(platform,product)VALUES(1,5);
+INSERT INTO product_has_platform(platform,product)VALUES(3,5);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(6,'FIFA 20','Play the beautiful game the way you want with various forms of 3v3, 4v4, and 5v5 both with and without walls, as well as Professional Futsal. Or, take your unique player through the VOLTA Story Mode culminating in the VOLTA World Championship in Buenos Aires. Find out more about VOLTA Football in FIFA 20 here. Experience the new Football Intelligence system which unlocks an unprecedented platform of football realism, putting you at the centre of every match in FIFA 20.
-Authentic Game Flow gives players more awareness of time, space, and positioning, putting greater emphasis on your play. You ll also have more control over the Decisive Moments that decide the outcome of games in both attack and defence with a Set Piece Refresh, Controlled Tackling, and Composed Finishing. Finally, the Ball Physics System offers new shot trajectories, more realistic tackle inter0s, and physics-driven behaviour, elevating gameplay to a new level of realism.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(6,'FIFA 20','Play the beautiful game the way you want with various forms of 3v3, 4v4, and 5v5 both with and without walls, as well as Professional Futsal. Or, take your unique player through the VOLTA Story Mode culminating in the VOLTA World Championship in Buenos Aires. Find out more about VOLTA Football in FIFA 20 here. Experience the new Football Intelligence system which unlocks an unprecedented platform of football realism, putting you at the centre of every match in FIFA 20.Authentic Game Flow gives players more awareness of time, space, and positioning, putting greater emphasis on your play. You ll also have more control over the Decisive Moments that decide the outcome of games in both attack and defence with a Set Piece Refresh, Controlled Tackling, and Composed Finishing. Finally, the Ball Physics System offers new shot trajectories, more realistic tackle inter0s, and physics-driven behaviour, elevating gameplay to a new level of realism.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(1,6);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(8,6);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,6);
+INSERT INTO product_has_genre(genre,product)VALUES(1,6);
+INSERT INTO product_has_genre(genre,product)VALUES(8,6);
+INSERT INTO product_has_genre(genre,product)VALUES(10,6);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,6);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,6);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,6);
+INSERT INTO product_has_platform(platform,product)VALUES(0,6);
+INSERT INTO product_has_platform(platform,product)VALUES(1,6);
+INSERT INTO product_has_platform(platform,product)VALUES(3,6);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(7,' F1 2019','The official videogame of the 2019 FIA FORMULA ONE WORLD CHAMPIONSHIP™, F1® 2019 challenges you to Defeat your Rivals in the most ambitious F1® game in Codemasters’ history.
-F1® 2019 features all the official teams, drivers and all 21 circuits from the 2019 season. This year sees the inclusion of F2™ with players being able to complete the 2018 season with the likes of George Russell, Lando Norris and Alexander Albon.
-With greater emphasis on graphical fidelity, the environments have been significantly enhanced, and the tracks come to life like never before. Night races have been completely overhauled creating vastly improved levels of realism and the upgraded F1® broadcast sound and visuals add further realism to all aspects of the race weekend.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(7,' F1 2019','The official videogame of the 2019 FIA FORMULA ONE WORLD CHAMPIONSHIP™, F1® 2019 challenges you to Defeat your Rivals in the most ambitious F1® game in Codemasters’ history.F1® 2019 features all the official teams, drivers and all 21 circuits from the 2019 season. This year sees the inclusion of F2™ with players being able to complete the 2018 season with the likes of George Russell, Lando Norris and Alexander Albon.With greater emphasis on graphical fidelity, the environments have been significantly enhanced, and the tracks come to life like never before. Night races have been completely overhauled creating vastly improved levels of realism and the upgraded F1® broadcast sound and visuals add further realism to all aspects of the race weekend.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(1,7);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,7);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,7);
+INSERT INTO product_has_genre(genre,product)VALUES(1,7);
+INSERT INTO product_has_genre(genre,product)VALUES(7,7);
+INSERT INTO product_has_genre(genre,product)VALUES(10,7);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,7);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,7);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,7);
+INSERT INTO product_has_platform(platform,product)VALUES(0,7);
+INSERT INTO product_has_platform(platform,product)VALUES(1,7);
+INSERT INTO product_has_platform(platform,product)VALUES(3,7);
     
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(8,'DIRT RALLY','GDiRT Rally is the most authentic and thrilling rally game ever made, road-tested over 80 million miles by the DiRT community. It perfectly captures that white knuckle feeling of racing on the edge as you hurtle along dangerous roads at breakneck speed, knowing that one crash could irreparably harm your stage time. DiRT Rally also includes officially licensed World Rallycross content, allowing you to experience the breathless, high-speed thrills of some of the world’s fastest off-road cars as you trade paint with other drivers at some of the series’ best-loved circuits, in both singleplayer and high-intensity multiplayer races.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(8,'DIRT RALLY','GDiRT Rally is the most authentic and thrilling rally game ever made, road-tested over 80 million miles by the DiRT community. It perfectly captures that white knuckle feeling of racing on the edge as you hurtle along dangerous roads at breakneck speed, knowing that one crash could irreparably harm your stage time. DiRT Rally also includes officially licensed World Rallycross content, allowing you to experience the breathless, high-speed thrills of some of the world’s fastest off-road cars as you trade paint with other drivers at some of the series’ best-loved circuits, in both singleplayer and high-intensity multiplayer races.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(1,8);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,8);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,8);
+INSERT INTO product_has_genre(genre,product)VALUES(1,8);
+INSERT INTO product_has_genre(genre,product)VALUES(7,8);
+INSERT INTO product_has_genre(genre,product)VALUES(10,8);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,8);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,8);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,8);
+INSERT INTO product_has_platform(platform,product)VALUES(0,8);
+INSERT INTO product_has_platform(platform,product)VALUES(1,8);
+INSERT INTO product_has_platform(platform,product)VALUES(3,8);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(9,'Project CARS 2','THE ULTIMATE DRIVER JOURNEY! Project CARS 2 delivers the soul of motor racing in the world’s most beautiful, authentic, and technically-advanced racing game.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(9,'Project CARS 2','THE ULTIMATE DRIVER JOURNEY! Project CARS 2 delivers the soul of motor racing in the world’s most beautiful, authentic, and technically-advanced racing game.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(1,9);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,9);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,9);
+INSERT INTO product_has_genre(genre,product)VALUES(1,9);
+INSERT INTO product_has_genre(genre,product)VALUES(7,9);
+INSERT INTO product_has_genre(genre,product)VALUES(10,9);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,9);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,9);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,9);
+INSERT INTO product_has_platform(platform,product)VALUES(0,9);
+INSERT INTO product_has_platform(platform,product)VALUES(1,9);
+INSERT INTO product_has_platform(platform,product)VALUES(3,9);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(10,'Pro Cycling Manager 2019','Manage your own team of professional cyclists in the new 2019 season. Take the lead in over 200 races and 600 stages around the world and try to win legendary races like La Vuelta and the Tour de France. Manage, negotiate contracts and land new sponsors, plan your training and strategy, and execute your tactics during races to pedal your way to victory!
-Pull on the jersey of a professional cyclist and pursue your career to become a champion in Pro Cyclist mode. Compete against or team up with your friends in Online mode with up to 16 players. Solo or online, be the best to take your team to the top.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted) VALUES(10,'Pro Cycling Manager 2019','Manage your own team of professional cyclists in the new 2019 season. Take the lead in over 200 races and 600 stages around the world and try to win legendary races like La Vuelta and the Tour de France. Manage, negotiate contracts and land new sponsors, plan your training and strategy, and execute your tactics during races to pedal your way to victory!Pull on the jersey of a professional cyclist and pursue your career to become a champion in Pro Cyclist mode. Compete against or team up with your friends in Online mode with up to 16 players. Solo or online, be the best to take your team to the top.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(1,10);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,10);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(10,10);
+INSERT INTO product_has_genre(genre,product)VALUES(1,10);
+INSERT INTO product_has_genre(genre,product)VALUES(7,10);
+INSERT INTO product_has_genre(genre,product)VALUES(10,10);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,10);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,10);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,10);
+INSERT INTO product_has_platform(platform,product)VALUES(0,10);
+INSERT INTO product_has_platform(platform,product)VALUES(1,10);
+INSERT INTO product_has_platform(platform,product)VALUES(3,10);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(11,'Mount & Blade II','The horns sound, the ravens gather. An empire is torn by civil war. Beyond its borders, new kingdoms rise. Gird on your sword, don your armour, summon your followers and ride forth to win glory on the battlefields of Calradia. Establish your hegemony and create a new world out of the ashes of the old. Mount & Blade II: Bannerlord is the eagerly awaited sequel to the acclaimed medieval combat simulator and role-playing game Mount & Blade: Warband. Set 200 years before, it expands both the detailed fighting system and the world of Calradia. Bombard mountain fastnesses with siege engines, establish secret criminal empires in the back alleys of cities, or charge into the thick of chaotic battles in your quest for power.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(11,'Mount & Blade II','The horns sound, the ravens gather. An empire is torn by civil war. Beyond its borders, new kingdoms rise. Gird on your sword, don your armour, summon your followers and ride forth to win glory on the battlefields of Calradia. Establish your hegemony and create a new world out of the ashes of the old. Mount & Blade II: Bannerlord is the eagerly awaited sequel to the acclaimed medieval combat simulator and role-playing game Mount & Blade: Warband. Set 200 years before, it expands both the detailed fighting system and the world of Calradia. Bombard mountain fastnesses with siege engines, establish secret criminal empires in the back alleys of cities, or charge into the thick of chaotic battles in your quest for power.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,11);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,11);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,11);
+INSERT INTO product_has_genre(genre,product)VALUES(0,11);
+INSERT INTO product_has_genre(genre,product)VALUES(5,11);
+INSERT INTO product_has_genre(genre,product)VALUES(11,11);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,11);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,11);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,11);
+INSERT INTO product_has_platform(platform,product)VALUES(0,11);
+INSERT INTO product_has_platform(platform,product)VALUES(1,11);
+INSERT INTO product_has_platform(platform,product)VALUES(3,11);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(12,'Age of Empires II: Definitive Edition','Age of Empires II: Definitive Edition celebrates the 20th anniversary of one of the most popular strategy games ever with stunning 4K Ultra HD graphics, a new and fully remastered soundtrack, and brand-new content, “The Last Khans” with 3 new campaigns and 4 new civilizations.Explore all the original campaigns like never before as well as the best-selling expansions, spanning over 200 hours of gameplay and 1,000 years of human history. Head online to challenge other players with 35 different civilizations in your quest for world domination throughout the ages. Choose your path to greatness with this definitive remaster to one of the most beloved strategy games of all time.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(12,'Age of Empires II: Definitive Edition','Age of Empires II: Definitive Edition celebrates the 20th anniversary of one of the most popular strategy games ever with stunning 4K Ultra HD graphics, a new and fully remastered soundtrack, and brand-new content, “The Last Khans” with 3 new campaigns and 4 new civilizations.Explore all the original campaigns like never before as well as the best-selling expansions, spanning over 200 hours of gameplay and 1,000 years of human history. Head online to challenge other players with 35 different civilizations in your quest for world domination throughout the ages. Choose your path to greatness with this definitive remaster to one of the most beloved strategy games of all time.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,12);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,12);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,12);
+INSERT INTO product_has_genre(genre,product)VALUES(0,12);
+INSERT INTO product_has_genre(genre,product)VALUES(5,12);
+INSERT INTO product_has_genre(genre,product)VALUES(11,12);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,12);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,12);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,12);
+INSERT INTO product_has_platform(platform,product)VALUES(0,12);
+INSERT INTO product_has_platform(platform,product)VALUES(1,12);
+INSERT INTO product_has_platform(platform,product)VALUES(3,12);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(13,'Cities: Skylines','Cities: Skylines is a modern take on the classic city 5. The game introduces new game play elements to realize the thrill and hardships of creating and maintaining a real city whilst expanding on some well-established tropes of the city building experience. From the makers of the Cities in Motion franchise, the game boasts a fully realized transport system. It also includes the ability to mod the game to suit your play style as a fine counter balance to the layered and challenging 5. You’re only limited by your imagination, so take control and reach for the sky!',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(13,'Cities: Skylines','Cities: Skylines is a modern take on the classic city 5. The game introduces new game play elements to realize the thrill and hardships of creating and maintaining a real city whilst expanding on some well-established tropes of the city building experience. From the makers of the Cities in Motion franchise, the game boasts a fully realized transport system. It also includes the ability to mod the game to suit your play style as a fine counter balance to the layered and challenging 5. You’re only limited by your imagination, so take control and reach for the sky!',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,13);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,13);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,13);
+INSERT INTO product_has_genre(genre,product)VALUES(0,13);
+INSERT INTO product_has_genre(genre,product)VALUES(5,13);
+INSERT INTO product_has_genre(genre,product)VALUES(11,13);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,13);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,13);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,13);
+INSERT INTO product_has_platform(platform,product)VALUES(0,13);
+INSERT INTO product_has_platform(platform,product)VALUES(1,13);
+INSERT INTO product_has_platform(platform,product)VALUES(3,13);
 
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(14,'Europa Universalis IV','Fulfill your quest for global domination! Paradox Development Studio is back with the fourth installment of the award-winning Europa Universalis series. The empire building game Europa Universalis IV gives you control of a nation to guide through the years in order to create a dominant global empire. Rule your nation through the centuries, with unparalleled freedom, depth and historical accuracy. True exploration, trade, warfare and diplomacy will be brought to life in this epic title rife with rich strategic and tactical depth.',
-0,1
-);
+INSERT INTO product(id,name,description,category,image,deleted) VALUES(14,'Europa Universalis IV','Fulfill your quest for global domination! Paradox Development Studio is back with the fourth installment of the award-winning Europa Universalis series. The empire building game Europa Universalis IV gives you control of a nation to guide through the years in order to create a dominant global empire. Rule your nation through the centuries, with unparalleled freedom, depth and historical accuracy. True exploration, trade, warfare and diplomacy will be brought to life in this epic title rife with rich strategic and tactical depth.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,14);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,14);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,14);
+INSERT INTO product_has_genre(genre,product) VALUES(0,14);
+INSERT INTO product_has_genre(genre,product) VALUES(5,14);
+INSERT INTO product_has_genre(genre,product) VALUES(11,14);
+INSERT INTO product_has_platform(platform,product) VALUES(0,14);
+INSERT INTO product_has_platform(platform,product) VALUES(1,14);
+INSERT INTO product_has_platform(platform,product) VALUES(3,14);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,14);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,14);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,14);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(15,'Civilization V','Become Ruler of the World by establishing and leading a civilization from the dawn of man into the space age: Wage war, conduct diplomacy, discover new technologies, go head-to-head with some of history’s greatest leaders and build the most powerful empire the world has ever known.',0,1,FALSE);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(15,'Civilization V','Become Ruler of the World by establishing and leading a civilization from the dawn of man into the space age: Wage war, conduct diplomacy, discover new technologies, go head-to-head with some of history’s greatest leaders and build the most powerful empire the world has ever known.',
-0,1
-);
+INSERT INTO product_has_genre(genre,product) VALUES(0,15);
+INSERT INTO product_has_genre(genre,product) VALUES(5,15);
+INSERT INTO product_has_genre(genre,product) VALUES(11,15);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,15);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,15);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,15);
+INSERT INTO product_has_platform(platform,product) VALUES(0,15);
+INSERT INTO product_has_platform(platform,product) VALUES(1,15);
+INSERT INTO product_has_platform(platform,product) VALUES(3,15);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,15);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,15);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,15);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(16,'Watch Dogs 2','The sequel to Watch Dogs has been announced, and is now right around the corner. Buy the game today to immerse yourself in the world of hackers mixed with a little violence to help you achieve your sought after goal. From the makers of the Best 0/2 Game of 2013 from the E3 Game Critics Awards, Watch Dogs, we are presented with Watch Dogs 2, a sequel which will see gameplay take place in a different city, San Francisco.',0,1,FALSE);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(16,'Watch Dogs 2','The sequel to Watch Dogs has been announced, and is now right around the corner. Buy the game today to immerse yourself in the world of hackers mixed with a little violence to help you achieve your sought after goal. From the makers of the Best 0/2 Game of 2013 from the E3 Game Critics Awards, Watch Dogs, we are presented with Watch Dogs 2, a sequel which will see gameplay take place in a different city, San Francisco.',
-0,1
-);
+INSERT INTO product_has_genre(genre,product) VALUES(0,16);
+INSERT INTO product_has_genre(genre,product) VALUES(5,16);
+INSERT INTO product_has_genre(genre,product) VALUES(11,16);
+INSERT INTO product_has_platform(platform,product) VALUES(0,16);
+INSERT INTO product_has_platform(platform,product) VALUES(1,16);
+INSERT INTO product_has_platform(platform,product) VALUES(3,16);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(17,'Assassins Creed Brotherhood','Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.It’s time to join the Brotherhood.',0,1,FALSE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,16);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,16);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,16);
+INSERT INTO product_has_genre(genre,product) VALUES(0,17);
+INSERT INTO product_has_genre(genre,product) VALUES(5,17);
+INSERT INTO product_has_genre(genre,product) VALUES(11,17);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,16);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,16);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,16);
+INSERT INTO product_has_platform(platform,product) VALUES(0,17);
+INSERT INTO product_has_platform(platform,product) VALUES(1,17);
+INSERT INTO product_has_platform(platform,product) VALUES(3,17);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(18,'Minecraft','Explore randomly generated worlds and build amazing things from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off the dangerous mobs. Craft, create, and explore alone, or with friends on mobile devices or Windows 10. Millions of crafters around the world have smashed billions of blocks - now you can join in the fun on Windows 10! ',0,1,FALSE);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(17,'Assassins Creed Brotherhood','Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.
-And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.
-It’s time to join the Brotherhood.',
-0,1
-);
+INSERT INTO product_has_genre(genre,product) VALUES(0,18);
+INSERT INTO product_has_genre(genre,product) VALUES(5,18);
+INSERT INTO product_has_genre(genre,product) VALUES(11,18);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,17);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,17);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,17);
+INSERT INTO product_has_platform(platform,product) VALUES(0,18);
+INSERT INTO product_has_platform(platform,product) VALUES(1,18);
+INSERT INTO product_has_platform(platform,product) VALUES(3,18);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,17);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,17);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,17);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(19,'The Crew 2','The newest iteration in the revolutionary franchise, The Crew® 2 captures the thrill of the American motorsports spirit in one of the most exhilarating open worlds ever created. Welcome to Motornation, a huge, varied, 0-packed, and beautiful playground built for motorsports throughout the entire US of A. Enjoy unrestrained exploration on ground, sea, and sky. From coast to coast, street and pro racers, off-road explorers, and freestylers gather and compete in all kinds of disciplines. Join them in high-octane contests and share every glorious moment with the world.',0,1,FALSE);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(18,'Minecraft','Explore randomly generated worlds and build amazing things from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off the dangerous mobs. Craft, create, and explore alone, or with friends on mobile devices or Windows 10. Millions of crafters around the world have smashed billions of blocks - now you can join in the fun on Windows 10! ',
-0,1
-);
+INSERT INTO product_has_genre(genre,product) VALUES(7,19);
+INSERT INTO product_has_genre(genre,product) VALUES(5,19);
+INSERT INTO product_has_genre(genre,product) VALUES(11,19);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,18);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,18);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,18);
+INSERT INTO product_has_platform(platform,product) VALUES(0,19);
+INSERT INTO product_has_platform(platform,product) VALUES(1,19);
+INSERT INTO product_has_platform(platform,product) VALUES(3,19);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,18);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,18);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,18);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(20,'Assassin s Creed Unity','Paris, 1789. The French Revolution turns a once-magnificent city into a place of terror and chaos. Its cobblestone streets run red with the blood of commoners who dared to rise up against the oppressive aristocracy. As the nation tears itself apart, a young man named Arno will embark on an extraordinary journey to expose the true powers behind the Revolution. His pursuit will throw him into the middle of a ruthless struggle for the fate of a nation, and transform him into a true Master Assassin. Introducing Assassin s Creed Unity, the next-gen evolution of the blockbuster franchise powered by an all-new game engine. From the storming of the Bastille to the execution of King Louis XVI, experience the French Revolution as never before, and help the people of France carve an entirely new destiny.',0,1,FALSE);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(19,'The Crew 2','The newest iteration in the revolutionary franchise, The Crew® 2 captures the thrill of the American motorsports spirit in one of the most exhilarating open worlds ever created. Welcome to Motornation, a huge, varied, 0-packed, and beautiful playground built for motorsports throughout the entire US of A. Enjoy unrestrained exploration on ground, sea, and sky. From coast to coast, street and pro racers, off-road explorers, and freestylers gather and compete in all kinds of disciplines. Join them in high-octane contests and share every glorious moment with the world.',
-0,1
-);
+INSERT INTO product_has_genre(genre,product) VALUES(0,20);
+INSERT INTO product_has_genre(genre,product) VALUES(5,20);
+INSERT INTO product_has_genre(genre,product) VALUES(11,20);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(7,19);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,19);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,19);
+INSERT INTO product_has_platform(platform,product) VALUES(0,20);
+INSERT INTO product_has_platform(platform,product) VALUES(1,20);
+INSERT INTO product_has_platform(platform,product) VALUES(3,20);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,19);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,19);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,19);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(21,'Grand Theft Auto III','The sprawling crime epic that changed open-world games forever.Welcome to Liberty City. Where it all began. The critically acclaimed blockbuster Grand Theft Auto III brings to life the dark and seedy underworld of Liberty City. With a massive and diverse open world, a wild cast of characters from every walk of life and the freedom to explore at will, Grand Theft Auto III puts the dark, intriguing and ruthless world of crime at your fingertips.With stellar voice acting, a darkly comic storyline, a stunning soundtrack and revolutionary open-world gameplay, Grand Theft Auto III is the game that defined the open world genre for a generation.',0,1,FALSE);
+INSERT INTO product_has_genre(genre,product) VALUES(0,21);
+INSERT INTO product_has_genre(genre,product) VALUES(5,21);
+INSERT INTO product_has_genre(genre,product) VALUES(11,21);
+INSERT INTO product_has_genre(genre,product) VALUES(6,21);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(20,'Assassin s Creed Unity','Paris, 1789. The French Revolution turns a once-magnificent city into a place of terror and chaos. Its cobblestone streets run red with the blood of commoners who dared to rise up against the oppressive aristocracy. As the nation tears itself apart, a young man named Arno will embark on an extraordinary journey to expose the true powers behind the Revolution. His pursuit will throw him into the middle of a ruthless struggle for the fate of a nation, and transform him into a true Master Assassin. Introducing Assassin s Creed Unity, the next-gen evolution of the blockbuster franchise powered by an all-new game engine. From the storming of the Bastille to the execution of King Louis XVI, experience the French Revolution as never before, and help the people of France carve an entirely new destiny.',
-0,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,21);
+INSERT INTO product_has_platform(platform,product) VALUES(7,21);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,20);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,20);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,20);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(22,'The Elder Scrolls V',' true, full-length open-world game for VR has arrived from award-winning developers, Bethesda Game Studios. Skyrim VR reimagines the complete epic fantasy masterpiece with an unparalleled sense of scale, depth, and immersion. From battling ancient dragons to exploring rugged mountains and more, Skyrim VR brings to life a complete open world for you to experience any way you choose. Skyrim VR includes the critically-acclaimed core game and official add-ons – Dawnguard, Hearthfire, and Dragonborn. Dragons, long lost to the passages of the Elder Scrolls, have returned to Tamriel and the future of the Empire hangs in the balance. As Dragonborn, the prophesied hero born with the power of The Voice, you are the only one who can stand amongst them.',0,1,FALSE);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,20);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(1,20);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(3,20);
+INSERT INTO product_has_genre(genre,product) VALUES(0,22);
+INSERT INTO product_has_genre(genre,product) VALUES(11,22);
+INSERT INTO product_has_genre(genre,product) VALUES(2,22);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(21,'Grand Theft Auto III','The sprawling crime epic that changed open-world games forever.
-Welcome to Liberty City. Where it all began. The critically acclaimed blockbuster Grand Theft Auto III brings to life the dark and seedy underworld of Liberty City. With a massive and diverse open world, a wild cast of characters from every walk of life and the freedom to explore at will, Grand Theft Auto III puts the dark, intriguing and ruthless world of crime at your fingertips.
-With stellar voice acting, a darkly comic storyline, a stunning soundtrack and revolutionary open-world gameplay, Grand Theft Auto III is the game that defined the open world genre for a generation.',
-0,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,22);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,21);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,21);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,21);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(6,21);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(23,'Witcher 3','The Witcher 3: Wild Hunt Game of the Year edition brings together the base game and all the additional content released to date. Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community. Become a professional monster slayer and embark on an 2 of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world 2 along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests.',0,1,FALSE);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,21);
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(7,21);
+INSERT INTO product_has_genre(genre,product) VALUES(0,23);
+INSERT INTO product_has_genre(genre,product) VALUES(11,23);
+INSERT INTO product_has_genre(genre,product) VALUES(2,23);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(22,'The Elder Scrolls V',' true, full-length open-world game for VR has arrived from award-winning developers, Bethesda Game Studios. Skyrim VR reimagines the complete epic fantasy masterpiece with an unparalleled sense of scale, depth, and immersion. From battling ancient dragons to exploring rugged mountains and more, Skyrim VR brings to life a complete open world for you to experience any way you choose. Skyrim VR includes the critically-acclaimed core game and official add-ons – Dawnguard, Hearthfire, and Dragonborn. Dragons, long lost to the passages of the Elder Scrolls, have returned to Tamriel and the future of the Empire hangs in the balance. As Dragonborn, the prophesied hero born with the power of The Voice, you are the only one who can stand amongst them.',
-0,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,23);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,22);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,22);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(2,22);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(24,'The Sims 4 - Cats & Dogs 1','Create a variety of cats and dogs, add them to your Sims’ homes to forever change their lives and care for neighbourhood pets as a veterinarian with The Sims™ 4 Cats & Dogs. The powerful new Create A Pet tool lets you personalise cats and dogs, each with their own unique appearances, distinct behaviours and for the first time, expressive outfits! These wonderful, lifelong companions will change your Sims’ lives in new and special ways. Treat animal ailments as a veterinarian and run your own clinic in a beautiful coastal world where there’s so much for your Sims and their pets to discover.',1,1,FALSE);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,22);
+INSERT INTO product_has_genre(genre,product) VALUES(11,24);
+INSERT INTO product_has_genre(genre,product) VALUES(2,24);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(23,'Witcher 3','The Witcher 3: Wild Hunt Game of the Year edition brings together the base game and all the additional content released to date. Includes the Hearts of Stone and Blood & Wine expansions, which offer a massive 50 hours of additional storytelling as well as new features and new areas that expand the explorable world by over a third! Affords access to all additional content released so far, including weapons, armor, side quests, game modes and new GWENT cards! Features all technical and visual updates as well as a new user interface completely redesigned on the basis of feedback from members of the Witcher Community. Become a professional monster slayer and embark on an 2 of epic proportions! Upon its release, The Witcher 3: Wild Hunt became an instant classic, claiming over 250 Game of the Year awards. Now you can enjoy this huge, over 100-hour long, open-world 2 along with both its story-driven expansions worth an extra 50 hours of gameplay. This edition includes all additional content - new weapons, armor, companion outfits, new game mode and side quests.',
-0,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,24);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,23);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,23);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(2,23);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(25,'Euro Truck Simulator 2 - Vive la France' , 'Vive la France ! is a large map expansion add-on for Euro Truck Simulator 2. Make your way through broad boulevards of industrial cities and narrow streets of rural hamlets. Enjoy French outdoors with its diverse looks and disparate vegetation from north to south. Discover famous landmarks, deliver to expansive industrial areas, navigate complex intersections and interchanges, enjoy visually unique roundabouts inspired by real locations. Transport a variety of new cargo to service new local French companies as well as connecting the region to the rest of Europe.',1,1,FALSE);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,23);
+INSERT INTO product_has_genre(genre,product) VALUES(0,25);
+INSERT INTO product_has_genre(genre,product) VALUES(11,25);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(24,'The Sims 4 - Cats & Dogs 1','Create a variety of cats and dogs, add them to your Sims’ homes to forever change their lives and care for neighbourhood pets as a veterinarian with The Sims™ 4 Cats & Dogs. The powerful new Create A Pet tool lets you personalise cats and dogs, each with their own unique appearances, distinct behaviours and for the first time, expressive outfits! These wonderful, lifelong companions will change your Sims’ lives in new and special ways. Treat animal ailments as a veterinarian and run your own clinic in a beautiful coastal world where there’s so much for your Sims and their pets to discover.',
-1,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,25);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,24);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(2,24);
+INSERT INTO product(id,name,description,category,image,deleted)VALUES(26,'Europa Universalis IV - Wealth of Nations Expansion','Wealth of Nations is the second expansion for the critically praised strategy game Europa Universalis IV, focusing on trade and how to make the wealth of the world flow into your coffers. The expansion allows you to create trade conflicts in secret, steal from your competitors with the use of privateers, use peace treaties to gain trade power and create a new trade capital to strengthen your grasp over trade. The age of exploration is brought to life in this epic game of trade, diplomacy, warfare and exploration by Paradox Development Studio, the Masters of Strategy. Europa Universalis IV gives you control of a nation to rule an empire that lasts through the ages.',1,1,FALSE);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,24);
+INSERT INTO product_has_genre(genre,product) VALUES(0,26);
+INSERT INTO product_has_genre(genre,product) VALUES(5,26);
+INSERT INTO product_has_genre(genre,product) VALUES(11,26);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(25,'Euro Truck Simulator 2 - Vive la France' , 'Vive la France ! is a large map expansion add-on for Euro Truck Simulator 2. Make your way through broad boulevards of industrial cities and narrow streets of rural hamlets. Enjoy French outdoors with its diverse looks and disparate vegetation from north to south. Discover famous landmarks, deliver to expansive industrial areas, navigate complex intersections and interchanges, enjoy visually unique roundabouts inspired by real locations. Transport a variety of new cargo to service new local French companies as well as connecting the region to the rest of Europe.',
-1,1
-);
+INSERT INTO product_has_platform(platform,product) VALUES(0,26);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,25);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,25);
+INSERT INTO product(id,name,description,category,image,deleted) VALUES(27,'DRAGON BALL FighterZ','DRAGON BALL FighterZ is born from what makes the DRAGON BALL series so loved and famous: endless spectacular fights with its all-powerful fighters.',0,1,TRUE);
+INSERT INTO product_has_genre(genre,product) VALUES(0,27);
+INSERT INTO product_has_genre(genre,product) VALUES(12,27);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,25);
+INSERT INTO product_has_platform(platform,product) VALUES(0,27);
 
-INSERT INTO active_product(id,name,description,category,image)
-    VALUES(26,'Europa Universalis IV - Wealth of Nations Expansion','Wealth of Nations is the second expansion for the critically praised strategy game Europa Universalis IV, focusing on trade and how to make the wealth of the world flow into your coffers. The expansion allows you to create trade conflicts in secret, steal from your competitors with the use of privateers, use peace treaties to gain trade power and create a new trade capital to strengthen your grasp over trade. The age of exploration is brought to life in this epic game of trade, diplomacy, warfare and exploration by Paradox Development Studio, the Masters of Strategy. Europa Universalis IV gives you control of a nation to rule an empire that lasts through the ages.',
-1,1
-);
+INSERT INTO product(id,name,description,category,image,deleted) VALUES(28,'Shenmue I & II','Originally released for the Dreamcast in 2000 and 2001, Shenmue I & II is an open world action 2 combining jujitsu combat, investigative sleuthing, RPG elements, and memorable mini-games. It pioneered many aspects of modern gaming, including open world city exploration, and was the game that coined the Quick Time Event (QTE). It was one of the first games with a persistent open world, where day cycles to night, weather changes, shops open and close and NPCs go about their business all on their own schedules. Its engrossing epic story and living world created a generation of passionate fans, and the game consistently makes the list of “greatest games of all time”.',0,1,TRUE);
 
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(0,26);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(5,26);
-INSERT INTO active_product_has_genre(genre,active_product)
-    VALUES(11,26);
+INSERT INTO product_has_genre(genre,product) VALUES(0,28);
+INSERT INTO product_has_genre(genre,product) VALUES(12,28);
 
-INSERT INTO active_product_has_platform(platform,active_product)
-    VALUES(0,26);
-
-INSERT INTO deleted_product(id,name,description,category,image)
-    VALUES(0,'DRAGON BALL FighterZ','DRAGON BALL FighterZ is born from what makes the DRAGON BALL series so loved and famous: endless spectacular fights with its all-powerful fighters.',
-0,1
-);
-
-INSERT INTO deleted_product_has_genre(genre,deleted_product)
-    VALUES(0,0);
-INSERT INTO deleted_product_has_genre(genre,deleted_product)
-    VALUES(12,0);
-
-INSERT INTO deleted_product_has_platform(platform,deleted_product)
-    VALUES(0,0);
-
-INSERT INTO deleted_product(id,name,description,category,image)
-    VALUES(1,'Shenmue I & II','Originally released for the Dreamcast in 2000 and 2001, Shenmue I & II is an open world action 2 combining jujitsu combat, investigative sleuthing, RPG elements, and memorable mini-games. It pioneered many aspects of modern gaming, including open world city exploration, and was the game that coined the Quick Time Event (QTE). It was one of the first games with a persistent open world, where day cycles to night, weather changes, shops open and close and NPCs go about their business all on their own schedules. Its engrossing epic story and living world created a generation of passionate fans, and the game consistently makes the list of “greatest games of all time”.',
-0,1
-);
-
-INSERT INTO deleted_product_has_genre(genre,deleted_product)
-    VALUES(0,1);
-INSERT INTO deleted_product_has_genre(genre,deleted_product)
-    VALUES(12,1);
-
-INSERT INTO deleted_product_has_platform(platform,deleted_product)
-    VALUES(0,1);
+INSERT INTO product_has_platform(platform,product) VALUES(0,28);
 
 INSERT INTO regular_user (id, username, email, description, password, rating, birth_date, paypal, image) values (0, 'nightwalker739', 'nightwalker@sapo.pt', 'Hello. Welcome to my Profile', 'f92a28de31af85d8811c080cf077ba6ac53cd2b8', 90, '1990-06-07', 'isidworth0@hc360.com', 0);
 INSERT INTO regular_user (id, username, email, description, password, rating, birth_date, paypal, image) values (1, 'trustlessuser123', 'sdjokic0@phoca.cz', 'Hello. Welcome to my Profile', 'f92a28de31af85d8811c080cf077ba6ac53cd2b8', 90, '1990-06-07', 'isidworth0@hc360.com', 0);
@@ -749,207 +449,207 @@ INSERT INTO banned_user(regular_user) VALUES (55);
 INSERT INTO banned_user(regular_user) VALUES (56);
 INSERT INTO banned_user(regular_user) VALUES (57);
 
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (1, 56.6, '2019-09-05 10:40:29', '2020-07-10 18:11:40', 52.3, 3, 53, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (2, 49.51, '2019-12-01 09:08:30', '2020-10-08 15:36:08', 23.0, 7, 54, 18, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (3, 58.32, '2020-02-09 08:10:38', '2020-08-20 15:08:07', 30.16, 4, 94, 2, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (4, 92.12, '2019-10-23 04:11:59', '2020-07-16 13:37:21', 72.38, 6, 89, 22, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (5, 67.11, '2019-11-23 10:51:26', '2020-05-12 10:39:12', 7.79, 6, 50, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (6, 99.98, '2020-03-26 15:34:07', '2020-07-06 23:41:08', 74.12, 3, 72, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (7, 66.59, '2019-12-01 01:45:54', '2020-12-28 02:36:59', 59.56, 4, 52, 24, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (8, 98.26, '2019-05-21 17:15:01', '2020-10-06 23:31:52', 42.81, 5, 42, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (9, 66.16, '2019-07-12 15:04:58', '2020-06-22 03:34:25', 17.8, 7, 33, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (10, 73.04, '2019-07-06 02:07:58', '2020-11-23 20:00:36', 80.2, 2, 26, 22, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (11, 67.2, '2019-08-15 04:07:02', '2020-05-21 10:42:28', 87.3, 5, 71, 18, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (12, 30.48, '2019-11-08 12:20:41', '2020-08-04 20:14:32', 31.96, 3, 72, 11, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (13, 59.91, '2019-04-02 18:15:35', '2020-09-21 15:55:15', 52.1, 2, 69, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (14, 7.33, '2019-07-14 06:35:26', '2020-06-02 14:25:09', 94.73, 0, 56, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (15, 52.57, '2019-06-20 23:47:36', '2020-10-01 17:09:06', 28.46, 5, 34, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (16, 14.13, '2020-01-26 05:10:22', '2020-12-14 01:30:59', 22.78, 5, 75, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (17, 56.48, '2019-09-29 14:21:04', '2020-09-26 11:13:34', 67.45, 7, 94, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (18, 28.74, '2019-06-30 20:55:29', '2020-07-11 08:11:00', 99.79, 0, 50, 24, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (19, 72.67, '2019-05-14 16:15:02', '2020-07-24 10:12:33', 65.58, 0, 49, 13, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (20, 54.5, '2020-02-19 10:21:23', '2020-09-18 23:24:25', 95.93, 1, 85, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (21, 59.77, '2020-02-15 08:37:05', '2020-05-22 02:47:46', 10.97, 5, 2, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (22, 80.05, '2019-12-07 01:21:36', '2020-05-26 19:42:23', 63.01, 2, 100, 4, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (23, 1.39, '2020-01-23 19:01:27', '2020-05-08 05:53:31', 2.31, 8, 34, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (24, 80.41, '2020-01-18 05:20:51', '2020-10-19 13:19:57', 37.49, 8, 22, 13, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (25, 2.35, '2019-12-08 22:11:43', '2020-11-06 05:30:58', 88.74, 6, 18, 13, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (26, 91.87, '2019-12-16 10:31:42', '2020-10-12 02:43:24', 80.94, 5, 53, 9, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (27, 28.84, '2019-11-04 01:33:05', '2020-08-22 22:59:39', 87.33, 1, 51, 3, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (28, 92.1, '2019-08-11 18:21:39', '2020-06-21 07:07:16', 91.82, 5, 96, 1, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (29, 53.53, '2019-10-01 20:40:38', '2020-07-12 23:37:01', 1.45, 0, 63, 22, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (30, 56.38, '2019-09-21 17:38:57', '2020-11-11 05:44:30', 80.52, 2, 58, 20, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (31, 41.75, '2020-02-21 07:02:26', '2020-07-30 16:22:30', 4.33, 4, 24, 14, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (32, 33.8, '2019-12-06 16:11:18', '2020-09-01 16:33:13', 58.17, 8, 68, 16, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (33, 60.97, '2019-08-15 03:56:04', '2020-10-01 08:35:34', 22.4, 3, 71, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (34, 6.67, '2019-06-30 08:45:59', '2020-12-10 01:19:06', 56.07, 7, 71, 0, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (35, 81.13, '2019-09-28 19:54:37', '2020-09-15 21:16:41', 50.12, 0, 30, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (36, 58.28, '2020-02-26 22:58:02', '2020-08-28 09:55:39', 50.59, 7, 18, 7, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (37, 56.96, '2019-10-16 08:03:24', '2020-12-17 13:18:22', 57.59, 3, 75, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (38, 19.06, '2020-01-14 23:53:54', '2020-05-28 03:28:34', 32.81, 8, 83, 20, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (39, 2.77, '2019-10-06 15:32:53', '2020-09-08 12:24:19', 89.36, 7, 38, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (40, 81.27, '2020-01-02 02:32:16', '2020-08-18 05:22:17', 9.74, 3, 10, 3, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (41, 59.5, '2020-03-06 20:33:20', '2020-05-09 09:05:03', 84.94, 5, 9, 12, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (42, 91.12, '2019-09-19 01:08:13', '2020-12-12 15:54:05', 53.52, 4, 46, 26, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (43, 87.39, '2019-04-25 10:32:10', '2020-08-26 19:04:52', 10.13, 1, 98, 11, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (44, 95.85, '2020-01-25 11:14:13', '2020-12-29 07:45:53', 90.35, 8, 52, 19, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (45, 5.67, '2019-10-15 04:46:02', '2020-10-19 20:53:01', 90.35, 2, 91, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (46, 5.24, '2019-04-11 12:07:12', '2020-05-07 16:38:59', 89.16, 3, 90, 16, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (47, 68.35, '2020-01-19 23:46:05', '2020-07-16 23:02:36', 13.03, 4, 96, 1, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (48, 23.6, '2019-04-22 19:08:52', '2020-12-13 15:03:16', 33.48, 4, 63, 1, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (49, 85.02, '2019-07-28 02:43:29', '2020-09-22 08:52:54', 29.2, 0, 59, 6, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (50, 68.96, '2019-12-14 18:46:12', '2020-12-07 14:16:25', 88.91, 3, 76, 9, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (51, 92.81, '2019-11-27 05:12:13', '2020-12-14 04:49:09', 88.46, 5, 48, 4, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (52, 92.24, '2019-11-28 02:47:30', '2020-12-10 02:34:36', 11.03, 1, 73, 16, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (53, 45.72, '2019-09-08 23:54:00', '2020-05-05 14:17:12', 30.26, 3, 72, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (54, 58.94, '2019-05-28 16:19:12', '2020-08-19 08:18:19', 17.65, 8, 38, 13, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (55, 68.35, '2020-03-18 05:14:04', '2020-08-13 14:22:09', 97.81, 5, 97, 26, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (56, 53.58, '2019-12-31 12:00:55', '2020-05-07 18:34:21', 64.57, 2, 97, 20, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (57, 8.0, '2019-07-11 22:37:30', '2020-05-02 11:25:00', 41.58, 4, 49, 13, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (58, 7.49, '2019-05-13 18:16:36', '2020-10-15 02:14:17', 15.42, 7, 60, 10, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (59, 81.86, '2019-06-11 16:14:53', '2020-09-07 11:04:02', 91.32, 0, 65, 18, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (60, 25.5, '2020-01-16 00:35:20', '2020-11-26 02:35:11', 48.12, 8, 48, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (61, 45.04, '2019-09-03 07:16:55', '2020-09-05 08:44:15', 64.63, 6, 49, NULL, 1);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (62, 62.29, '2019-07-24 01:10:27', '2020-08-19 08:37:58', 88.38, 6, 60, NULL, 0);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (63, 19.06, '2019-04-06 02:54:18', '2020-09-22 11:31:24', 26.79, 3, 95, 7, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (64, 36.84, '2020-02-21 05:54:03', '2020-09-14 10:51:05', 51.24, 3, 7, 7, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (65, 11.66, '2019-09-06 12:22:04', '2020-12-01 19:55:25', 59.39, 2, 40, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (66, 81.14, '2019-07-09 04:46:21', '2020-10-04 16:39:43', 68.19, 6, 13, 2, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (67, 51.83, '2020-01-06 16:27:19', '2020-08-19 00:36:28', 57.78, 3, 65, 26, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (68, 67.37, '2019-05-21 23:32:35', '2020-08-24 16:15:57', 97.02, 2, 9, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (69, 21.24, '2020-02-14 10:06:19', '2020-12-27 17:24:35', 68.08, 8, 56, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (70, 56.3, '2020-02-01 14:06:11', '2020-07-30 00:29:27', 44.91, 6, 97, 20, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (71, 8.92, '2019-09-01 21:09:35', '2020-06-22 00:47:01', 21.19, 1, 50, 26, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (72, 46.16, '2020-02-09 12:49:56', '2020-08-24 05:03:26', 5.34, 4, 1, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (73, 59.01, '2019-09-29 07:42:21', '2020-07-16 19:06:18', 84.02, 2, 28, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (74, 34.78, '2019-09-28 20:58:29', '2020-12-24 15:22:27', 45.72, 5, 36, 3, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (75, 24.01, '2019-12-05 23:54:56', '2020-05-03 17:09:30', 65.02, 4, 97, 2, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (76, 45.82, '2019-09-23 04:47:49', '2020-12-05 09:47:28', 28.16, 2, 67, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (77, 98.05, '2019-08-13 05:53:18', '2020-09-12 10:20:24', 77.85, 3, 87, 22, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (78, 93.28, '2019-10-31 09:47:27', '2020-08-15 21:38:45', 60.93, 6, 11, 26, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (79, 92.42, '2019-05-25 17:30:07', '2020-12-01 01:36:44', 2.21, 6, 9, 15, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (80, 65.56, '2020-01-29 23:04:46', '2020-05-08 05:26:38', 61.35, 5, 100, 0, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (81, 92.01, '2019-08-01 09:43:15', '2020-08-23 08:59:51', 15.48, 6, 68, 7, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (82, 70.82, '2019-09-01 20:30:09', '2020-08-26 21:45:43', 12.1, 6, 50, 3, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (83, 2.9, '2019-07-19 18:13:57', '2020-05-21 11:21:49', 18.03, 5, 18, 3, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (84, 77.55, '2020-02-11 00:18:25', '2020-05-19 09:25:50', 50.93, 0, 46, 5, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (85, 83.81, '2019-04-19 02:49:28', '2020-09-05 17:04:56', 91.55, 2, 44, 8, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (86, 65.22, '2019-07-30 15:45:51', '2020-09-08 13:29:01', 46.61, 0, 45, 16, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (87, 62.78, '2020-01-22 02:22:29', '2020-06-12 15:30:31', 92.81, 8, 26, 4, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (88, 67.75, '2020-02-10 23:18:13', '2020-10-01 19:00:05', 56.29, 5, 36, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (89, 72.76, '2020-02-07 02:35:36', '2020-08-24 19:54:52', 8.57, 1, 49, 21, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (90, 39.7, '2019-10-01 09:43:09', '2020-10-20 00:51:42', 62.16, 3, 39, 1, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (91, 70.32, '2019-07-06 17:46:44', '2020-07-31 07:36:56', 28.81, 3, 4, 15, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (92, 47.24, '2019-06-22 01:46:54', '2020-05-01 16:36:41', 96.37, 3, 80, 0, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (93, 37.64, '2020-03-11 00:52:28', '2020-12-30 17:19:43', 33.65, 8, 81, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (94, 90.46, '2019-12-14 09:21:14', '2020-09-01 05:03:45', 46.72, 7, 94, 16, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (95, 19.22, '2019-08-06 23:54:45', '2020-09-19 22:10:11', 85.56, 8, 93, 17, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (96, 83.58, '2019-09-30 04:55:15', '2020-09-08 19:35:42', 19.0, 3, 64, 7, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (97, 8.71, '2019-11-18 18:35:44', '2020-06-19 04:42:20', 50.19, 0, 32, 24, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (98, 81.98, '2020-01-10 03:58:43', '2020-05-24 18:35:53', 19.59, 7, 9, 11, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (99, 84.13, '2019-06-16 06:21:15', '2020-12-12 02:28:30', 22.16, 5, 9, 12, null);
-insert into offer (id, price, init_date, final_date, profit, platform, seller, active_product, deleted_product) values (100, 56.44, '2020-01-25 19:48:33', '2020-08-13 06:54:45', 92.65, 4, 75, 9, null);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (1, 56.6, '2019-09-05 10:40:29', '2020-07-10 18:11:40', 52.3, 3, 53, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (2, 49.51, '2019-12-01 09:08:30', '2020-10-08 15:36:08', 23.0, 7, 54, 18);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (3, 58.32, '2020-02-09 08:10:38', '2020-08-20 15:08:07', 30.16, 4, 94, 2);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (4, 92.12, '2019-10-23 04:11:59', '2020-07-16 13:37:21', 72.38, 6, 89, 22);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (5, 67.11, '2019-11-23 10:51:26', '2020-05-12 10:39:12', 7.79, 6, 50, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (6, 99.98, '2020-03-26 15:34:07', '2020-07-06 23:41:08', 74.12, 3, 72, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (7, 66.59, '2019-12-01 01:45:54', '2020-12-28 02:36:59', 59.56, 4, 52, 24);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (8, 98.26, '2019-05-21 17:15:01', '2020-10-06 23:31:52', 42.81, 5, 42, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (9, 66.16, '2019-07-12 15:04:58', '2020-06-22 03:34:25', 17.8, 7, 33, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (10, 73.04, '2019-07-06 02:07:58', '2020-11-23 20:00:36', 80.2, 2, 26, 22);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (11, 67.2, '2019-08-15 04:07:02', '2020-05-21 10:42:28', 87.3, 5, 71, 18);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (12, 30.48, '2019-11-08 12:20:41', '2020-08-04 20:14:32', 31.96, 3, 72, 11);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (13, 59.91, '2019-04-02 18:15:35', '2020-09-21 15:55:15', 52.1, 2, 69, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (14, 7.33, '2019-07-14 06:35:26', '2020-06-02 14:25:09', 94.73, 0, 56, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (15, 52.57, '2019-06-20 23:47:36', '2020-10-01 17:09:06', 28.46, 5, 34, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (16, 14.13, '2020-01-26 05:10:22', '2020-12-14 01:30:59', 22.78, 5, 75, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (17, 56.48, '2019-09-29 14:21:04', '2020-09-26 11:13:34', 67.45, 7, 94, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (18, 28.74, '2019-06-30 20:55:29', '2020-07-11 08:11:00', 99.79, 0, 50, 24);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (19, 72.67, '2019-05-14 16:15:02', '2020-07-24 10:12:33', 65.58, 0, 49, 13);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (20, 54.5, '2020-02-19 10:21:23', '2020-09-18 23:24:25', 95.93, 1, 85, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (21, 59.77, '2020-02-15 08:37:05', '2020-05-22 02:47:46', 10.97, 5, 2, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (22, 80.05, '2019-12-07 01:21:36', '2020-05-26 19:42:23', 63.01, 2, 100, 4);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (23, 1.39, '2020-01-23 19:01:27', '2020-05-08 05:53:31', 2.31, 8, 34, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (24, 80.41, '2020-01-18 05:20:51', '2020-10-19 13:19:57', 37.49, 8, 22, 13);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (25, 2.35, '2019-12-08 22:11:43', '2020-11-06 05:30:58', 88.74, 6, 18, 13);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (26, 91.87, '2019-12-16 10:31:42', '2020-10-12 02:43:24', 80.94, 5, 53, 9);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (27, 28.84, '2019-11-04 01:33:05', '2020-08-22 22:59:39', 87.33, 1, 51, 3);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (28, 92.1, '2019-08-11 18:21:39', '2020-06-21 07:07:16', 91.82, 5, 96, 1);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (29, 53.53, '2019-10-01 20:40:38', '2020-07-12 23:37:01', 1.45, 0, 63, 22);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (30, 56.38, '2019-09-21 17:38:57', '2020-11-11 05:44:30', 80.52, 2, 58, 20);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (31, 41.75, '2020-02-21 07:02:26', '2020-07-30 16:22:30', 4.33, 4, 24, 14);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (32, 33.8, '2019-12-06 16:11:18', '2020-09-01 16:33:13', 58.17, 8, 68, 16);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (33, 60.97, '2019-08-15 03:56:04', '2020-10-01 08:35:34', 22.4, 3, 71, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (34, 6.67, '2019-06-30 08:45:59', '2020-12-10 01:19:06', 56.07, 7, 71, 0);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (35, 81.13, '2019-09-28 19:54:37', '2020-09-15 21:16:41', 50.12, 0, 30, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (36, 58.28, '2020-02-26 22:58:02', '2020-08-28 09:55:39', 50.59, 7, 18, 7);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (37, 56.96, '2019-10-16 08:03:24', '2020-12-17 13:18:22', 57.59, 3, 75, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (38, 19.06, '2020-01-14 23:53:54', '2020-05-28 03:28:34', 32.81, 8, 83, 20);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (39, 2.77, '2019-10-06 15:32:53', '2020-09-08 12:24:19', 89.36, 7, 38, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (40, 81.27, '2020-01-02 02:32:16', '2020-08-18 05:22:17', 9.74, 3, 10, 3);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (41, 59.5, '2020-03-06 20:33:20', '2020-05-09 09:05:03', 84.94, 5, 9, 12);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (42, 91.12, '2019-09-19 01:08:13', '2020-12-12 15:54:05', 53.52, 4, 46, 26);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (43, 87.39, '2019-04-25 10:32:10', '2020-08-26 19:04:52', 10.13, 1, 98, 11);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (44, 95.85, '2020-01-25 11:14:13', '2020-12-29 07:45:53', 90.35, 8, 52, 19);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (45, 5.67, '2019-10-15 04:46:02', '2020-10-19 20:53:01', 90.35, 2, 91, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (46, 5.24, '2019-04-11 12:07:12', '2020-05-07 16:38:59', 89.16, 3, 90, 16);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (47, 68.35, '2020-01-19 23:46:05', '2020-07-16 23:02:36', 13.03, 4, 96, 1);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (48, 23.6, '2019-04-22 19:08:52', '2020-12-13 15:03:16', 33.48, 4, 63, 1);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (49, 85.02, '2019-07-28 02:43:29', '2020-09-22 08:52:54', 29.2, 0, 59, 6);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (50, 68.96, '2019-12-14 18:46:12', '2020-12-07 14:16:25', 88.91, 3, 76, 9);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (51, 92.81, '2019-11-27 05:12:13', '2020-12-14 04:49:09', 88.46, 5, 48, 4);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (52, 92.24, '2019-11-28 02:47:30', '2020-12-10 02:34:36', 11.03, 1, 73, 16);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (53, 45.72, '2019-09-08 23:54:00', '2020-05-05 14:17:12', 30.26, 3, 72, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (54, 58.94, '2019-05-28 16:19:12', '2020-08-19 08:18:19', 17.65, 8, 38, 13);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (55, 68.35, '2020-03-18 05:14:04', '2020-08-13 14:22:09', 97.81, 5, 97, 26);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (56, 53.58, '2019-12-31 12:00:55', '2020-05-07 18:34:21', 64.57, 2, 97, 20);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (57, 8.0, '2019-07-11 22:37:30', '2020-05-02 11:25:00', 41.58, 4, 49, 13);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (58, 7.49, '2019-05-13 18:16:36', '2020-10-15 02:14:17', 15.42, 7, 60, 10);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (59, 81.86, '2019-06-11 16:14:53', '2020-09-07 11:04:02', 91.32, 0, 65, 18);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (60, 25.5, '2020-01-16 00:35:20', '2020-11-26 02:35:11', 48.12, 8, 48, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (61, 45.04, '2019-09-03 07:16:55', '2020-09-05 08:44:15', 64.63, 6, 49, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (62, 62.29, '2019-07-24 01:10:27', '2020-08-19 08:37:58', 88.38, 6, 60, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (63, 19.06, '2019-04-06 02:54:18', '2020-09-22 11:31:24', 26.79, 3, 95, 7);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (64, 36.84, '2020-02-21 05:54:03', '2020-09-14 10:51:05', 51.24, 3, 7, 7);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (65, 11.66, '2019-09-06 12:22:04', '2020-12-01 19:55:25', 59.39, 2, 40, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (66, 81.14, '2019-07-09 04:46:21', '2020-10-04 16:39:43', 68.19, 6, 13, 2);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (67, 51.83, '2020-01-06 16:27:19', '2020-08-19 00:36:28', 57.78, 3, 65, 26);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (68, 67.37, '2019-05-21 23:32:35', '2020-08-24 16:15:57', 97.02, 2, 9, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (69, 21.24, '2020-02-14 10:06:19', '2020-12-27 17:24:35', 68.08, 8, 56, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (70, 56.3, '2020-02-01 14:06:11', '2020-07-30 00:29:27', 44.91, 6, 97, 20);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (71, 8.92, '2019-09-01 21:09:35', '2020-06-22 00:47:01', 21.19, 1, 50, 26);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (72, 46.16, '2020-02-09 12:49:56', '2020-08-24 05:03:26', 5.34, 4, 1, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (73, 59.01, '2019-09-29 07:42:21', '2020-07-16 19:06:18', 84.02, 2, 28, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (74, 34.78, '2019-09-28 20:58:29', '2020-12-24 15:22:27', 45.72, 5, 36, 3);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (75, 24.01, '2019-12-05 23:54:56', '2020-05-03 17:09:30', 65.02, 4, 97, 2);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (76, 45.82, '2019-09-23 04:47:49', '2020-12-05 09:47:28', 28.16, 2, 67, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (77, 98.05, '2019-08-13 05:53:18', '2020-09-12 10:20:24', 77.85, 3, 87, 22);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (78, 93.28, '2019-10-31 09:47:27', '2020-08-15 21:38:45', 60.93, 6, 11, 26);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (79, 92.42, '2019-05-25 17:30:07', '2020-12-01 01:36:44', 2.21, 6, 9, 15);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (80, 65.56, '2020-01-29 23:04:46', '2020-05-08 05:26:38', 61.35, 5, 100, 0);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (81, 92.01, '2019-08-01 09:43:15', '2020-08-23 08:59:51', 15.48, 6, 68, 7);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (82, 70.82, '2019-09-01 20:30:09', '2020-08-26 21:45:43', 12.1, 6, 50, 3);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (83, 2.9, '2019-07-19 18:13:57', '2020-05-21 11:21:49', 18.03, 5, 18, 3);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (84, 77.55, '2020-02-11 00:18:25', '2020-05-19 09:25:50', 50.93, 0, 46, 5);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (85, 83.81, '2019-04-19 02:49:28', '2020-09-05 17:04:56', 91.55, 2, 44, 8);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (86, 65.22, '2019-07-30 15:45:51', '2020-09-08 13:29:01', 46.61, 0, 45, 16);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (87, 62.78, '2020-01-22 02:22:29', '2020-06-12 15:30:31', 92.81, 8, 26, 4);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (88, 67.75, '2020-02-10 23:18:13', '2020-10-01 19:00:05', 56.29, 5, 36, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (89, 72.76, '2020-02-07 02:35:36', '2020-08-24 19:54:52', 8.57, 1, 49, 21);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (90, 39.7, '2019-10-01 09:43:09', '2020-10-20 00:51:42', 62.16, 3, 39, 1);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (91, 70.32, '2019-07-06 17:46:44', '2020-07-31 07:36:56', 28.81, 3, 4, 15);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (92, 47.24, '2019-06-22 01:46:54', '2020-05-01 16:36:41', 96.37, 3, 80, 0);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (93, 37.64, '2020-03-11 00:52:28', '2020-12-30 17:19:43', 33.65, 8, 81, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (94, 90.46, '2019-12-14 09:21:14', '2020-09-01 05:03:45', 46.72, 7, 94, 16);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (95, 19.22, '2019-08-06 23:54:45', '2020-09-19 22:10:11', 85.56, 8, 93, 17);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (96, 83.58, '2019-09-30 04:55:15', '2020-09-08 19:35:42', 19.0, 3, 64, 7);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (97, 8.71, '2019-11-18 18:35:44', '2020-06-19 04:42:20', 50.19, 0, 32, 24);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (98, 81.98, '2020-01-10 03:58:43', '2020-05-24 18:35:53', 19.59, 7, 9, 11);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (99, 84.13, '2019-06-16 06:21:15', '2020-12-12 02:28:30', 22.16, 5, 9, 12);
+insert into offer (id, price, init_date, final_date, profit, platform, seller, product) values (100, 56.44, '2020-01-25 19:48:33', '2020-08-13 06:54:45', 92.65, 4, 75, 9);
 
-insert into discount (id, rate, start_date, end_date, offer) values (1, 40, '2020-03-31 00:00:00', '2020-05-13 14:55:39', 36);
-insert into discount (id, rate, start_date, end_date, offer) values (2, 5, '2020-03-31 00:00:00', '2020-09-29 11:08:42', 67);
-insert into discount (id, rate, start_date, end_date, offer) values (3, 70, '2020-03-31 00:00:00', '2020-11-21 02:21:55', 16);
-insert into discount (id, rate, start_date, end_date, offer) values (4, 79, '2020-03-31 00:00:00', '2020-06-22 04:46:03', 65);
-insert into discount (id, rate, start_date, end_date, offer) values (5, 22, '2020-03-31 00:00:00', '2020-11-26 14:48:17', 98);
-insert into discount (id, rate, start_date, end_date, offer) values (6, 90, '2020-03-31 00:00:00', '2020-05-19 03:03:38', 19);
-insert into discount (id, rate, start_date, end_date, offer) values (7, 48, '2020-03-31 00:00:00', '2020-06-12 08:10:40', 84);
-insert into discount (id, rate, start_date, end_date, offer) values (8, 83, '2020-03-31 00:00:00', '2020-04-27 02:19:07', 90);
-insert into discount (id, rate, start_date, end_date, offer) values (9, 84, '2020-03-31 00:00:00', '2020-08-14 00:27:07', 24);
-insert into discount (id, rate, start_date, end_date, offer) values (10, 2, '2020-03-31 00:00:00', '2020-12-24 04:55:42', 80);
-insert into discount (id, rate, start_date, end_date, offer) values (11, 36, '2020-03-31 00:00:00', '2020-12-02 00:55:35', 7);
-insert into discount (id, rate, start_date, end_date, offer) values (12, 21, '2020-03-31 00:00:00', '2020-09-17 04:46:07', 22);
-insert into discount (id, rate, start_date, end_date, offer) values (13, 69, '2020-03-31 00:00:00', '2020-06-10 04:34:23', 89);
-insert into discount (id, rate, start_date, end_date, offer) values (14, 67, '2020-03-31 00:00:00', '2020-07-28 09:33:40', 72);
-insert into discount (id, rate, start_date, end_date, offer) values (15, 26, '2020-03-31 00:00:00', '2020-11-14 23:57:19', 59);
-insert into discount (id, rate, start_date, end_date, offer) values (16, 55, '2020-03-31 00:00:00', '2020-12-18 07:33:00', 21);
-insert into discount (id, rate, start_date, end_date, offer) values (17, 49, '2020-03-31 00:00:00', '2020-04-17 01:15:35', 30);
-insert into discount (id, rate, start_date, end_date, offer) values (18, 20, '2020-03-31 00:00:00', '2020-05-03 22:23:38', 16);
-insert into discount (id, rate, start_date, end_date, offer) values (19, 17, '2020-03-31 00:00:00', '2020-07-11 00:03:17', 14);
-insert into discount (id, rate, start_date, end_date, offer) values (20, 53, '2020-03-31 00:00:00', '2020-12-10 15:49:34', 33);
-insert into discount (id, rate, start_date, end_date, offer) values (21, 19, '2020-03-31 00:00:00', '2020-06-07 21:05:48', 64);
-insert into discount (id, rate, start_date, end_date, offer) values (22, 16, '2020-03-31 00:00:00', '2020-08-17 21:58:00', 24);
-insert into discount (id, rate, start_date, end_date, offer) values (23, 5, '2020-03-31 00:00:00', '2020-07-22 06:46:26', 77);
-insert into discount (id, rate, start_date, end_date, offer) values (24, 20, '2020-03-31 00:00:00', '2020-04-16 22:19:44', 15);
-insert into discount (id, rate, start_date, end_date, offer) values (25, 15, '2020-03-31 00:00:00', '2020-12-24 01:24:19', 56);
-insert into discount (id, rate, start_date, end_date, offer) values (26, 5, '2020-03-31 00:00:00', '2020-12-10 06:46:03', 30);
-insert into discount (id, rate, start_date, end_date, offer) values (27, 77, '2020-03-31 00:00:00', '2020-05-20 00:09:31', 53);
-insert into discount (id, rate, start_date, end_date, offer) values (28, 47, '2020-03-31 00:00:00', '2020-04-24 16:59:16', 1);
-insert into discount (id, rate, start_date, end_date, offer) values (29, 3, '2020-03-31 00:00:00', '2020-12-04 22:01:34', 90);
-insert into discount (id, rate, start_date, end_date, offer) values (30, 100, '2020-03-31 00:00:00', '2020-10-06 04:50:07', 91);
-insert into discount (id, rate, start_date, end_date, offer) values (31, 7, '2020-03-31 00:00:00', '2020-05-22 02:09:55', 31);
-insert into discount (id, rate, start_date, end_date, offer) values (32, 19, '2020-03-31 00:00:00', '2020-04-27 11:30:30', 90);
-insert into discount (id, rate, start_date, end_date, offer) values (33, 96, '2020-03-31 00:00:00', '2020-11-12 15:02:46', 70);
-insert into discount (id, rate, start_date, end_date, offer) values (34, 7, '2020-03-31 00:00:00', '2020-09-17 05:33:47', 27);
-insert into discount (id, rate, start_date, end_date, offer) values (35, 59, '2020-03-31 00:00:00', '2020-07-17 22:43:08', 12);
-insert into discount (id, rate, start_date, end_date, offer) values (36, 37, '2020-03-31 00:00:00', '2020-12-24 10:55:43', 13);
-insert into discount (id, rate, start_date, end_date, offer) values (37, 34, '2020-03-31 00:00:00', '2020-09-14 08:49:48', 8);
-insert into discount (id, rate, start_date, end_date, offer) values (38, 92, '2020-03-31 00:00:00', '2020-06-21 11:36:47', 87);
-insert into discount (id, rate, start_date, end_date, offer) values (39, 79, '2020-03-31 00:00:00', '2020-11-27 17:30:41', 77);
-insert into discount (id, rate, start_date, end_date, offer) values (40, 14, '2020-03-31 00:00:00', '2020-05-22 23:44:41', 64);
-insert into discount (id, rate, start_date, end_date, offer) values (41, 39, '2020-03-31 00:00:00', '2020-10-22 18:29:57', 66);
-insert into discount (id, rate, start_date, end_date, offer) values (42, 42, '2020-03-31 00:00:00', '2020-05-28 17:03:54', 83);
-insert into discount (id, rate, start_date, end_date, offer) values (43, 44, '2020-03-31 00:00:00', '2020-09-07 11:27:26', 19);
-insert into discount (id, rate, start_date, end_date, offer) values (44, 90, '2020-03-31 00:00:00', '2020-08-03 08:28:08', 95);
-insert into discount (id, rate, start_date, end_date, offer) values (45, 55, '2020-03-31 00:00:00', '2020-12-28 22:24:43', 51);
-insert into discount (id, rate, start_date, end_date, offer) values (46, 4, '2020-03-31 00:00:00', '2020-12-03 04:07:49', 95);
-insert into discount (id, rate, start_date, end_date, offer) values (47, 35, '2020-03-31 00:00:00', '2020-12-19 21:52:10', 2);
-insert into discount (id, rate, start_date, end_date, offer) values (48, 59, '2020-03-31 00:00:00', '2020-10-30 20:16:52', 100);
-insert into discount (id, rate, start_date, end_date, offer) values (49, 92, '2020-03-31 00:00:00', '2020-07-14 15:33:07', 48);
-insert into discount (id, rate, start_date, end_date, offer) values (50, 93, '2020-03-31 00:00:00', '2020-10-05 04:03:22', 98);
-insert into discount (id, rate, start_date, end_date, offer) values (51, 97, '2020-03-31 00:00:00', '2020-11-22 23:53:12', 75);
-insert into discount (id, rate, start_date, end_date, offer) values (52, 6, '2020-03-31 00:00:00', '2020-08-02 23:25:49', 94);
-insert into discount (id, rate, start_date, end_date, offer) values (53, 1, '2020-03-31 00:00:00', '2020-06-16 02:46:36', 1);
-insert into discount (id, rate, start_date, end_date, offer) values (54, 28, '2020-03-31 00:00:00', '2020-08-30 01:45:22', 54);
-insert into discount (id, rate, start_date, end_date, offer) values (55, 64, '2020-03-31 00:00:00', '2020-12-22 18:16:28', 93);
-insert into discount (id, rate, start_date, end_date, offer) values (56, 64, '2020-03-31 00:00:00', '2020-05-23 12:48:34', 39);
-insert into discount (id, rate, start_date, end_date, offer) values (57, 59, '2020-03-31 00:00:00', '2020-09-18 02:59:05', 70);
-insert into discount (id, rate, start_date, end_date, offer) values (58, 66, '2020-03-31 00:00:00', '2020-12-07 09:08:32', 16);
-insert into discount (id, rate, start_date, end_date, offer) values (59, 44, '2020-03-31 00:00:00', '2020-08-25 00:08:25', 85);
-insert into discount (id, rate, start_date, end_date, offer) values (60, 38, '2020-03-31 00:00:00', '2020-08-30 14:02:53', 33);
-insert into discount (id, rate, start_date, end_date, offer) values (61, 61, '2020-03-31 00:00:00', '2020-06-22 23:57:22', 33);
-insert into discount (id, rate, start_date, end_date, offer) values (62, 44, '2020-03-31 00:00:00', '2020-12-12 17:29:20', 42);
-insert into discount (id, rate, start_date, end_date, offer) values (63, 43, '2020-03-31 00:00:00', '2020-08-04 12:27:18', 11);
-insert into discount (id, rate, start_date, end_date, offer) values (64, 89, '2020-03-31 00:00:00', '2020-11-29 06:40:48', 24);
-insert into discount (id, rate, start_date, end_date, offer) values (65, 25, '2020-03-31 00:00:00', '2020-08-30 15:27:47', 66);
-insert into discount (id, rate, start_date, end_date, offer) values (66, 34, '2020-03-31 00:00:00', '2020-08-11 14:20:03', 28);
-insert into discount (id, rate, start_date, end_date, offer) values (67, 84, '2020-03-31 00:00:00', '2020-05-07 00:56:17', 44);
-insert into discount (id, rate, start_date, end_date, offer) values (68, 84, '2020-03-31 00:00:00', '2020-05-07 14:09:38', 88);
-insert into discount (id, rate, start_date, end_date, offer) values (69, 69, '2020-03-31 00:00:00', '2020-05-06 03:00:21', 10);
-insert into discount (id, rate, start_date, end_date, offer) values (70, 66, '2020-03-31 00:00:00', '2020-12-19 08:13:58', 9);
-insert into discount (id, rate, start_date, end_date, offer) values (71, 99, '2020-03-31 00:00:00', '2020-06-01 02:46:14', 36);
-insert into discount (id, rate, start_date, end_date, offer) values (72, 23, '2020-03-31 00:00:00', '2020-12-23 17:05:14', 36);
-insert into discount (id, rate, start_date, end_date, offer) values (73, 29, '2020-03-31 00:00:00', '2020-07-25 07:10:31', 55);
-insert into discount (id, rate, start_date, end_date, offer) values (74, 71, '2020-03-31 00:00:00', '2020-10-31 00:21:16', 65);
-insert into discount (id, rate, start_date, end_date, offer) values (75, 48, '2020-03-31 00:00:00', '2020-06-07 14:01:23', 32);
-insert into discount (id, rate, start_date, end_date, offer) values (76, 10, '2020-03-31 00:00:00', '2020-05-13 20:15:29', 1);
-insert into discount (id, rate, start_date, end_date, offer) values (77, 18, '2020-03-31 00:00:00', '2020-07-08 20:01:57', 52);
-insert into discount (id, rate, start_date, end_date, offer) values (78, 40, '2020-03-31 00:00:00', '2020-05-18 22:36:15', 48);
-insert into discount (id, rate, start_date, end_date, offer) values (79, 63, '2020-03-31 00:00:00', '2020-07-12 13:26:40', 61);
-insert into discount (id, rate, start_date, end_date, offer) values (80, 95, '2020-03-31 00:00:00', '2020-08-03 12:57:26', 94);
-insert into discount (id, rate, start_date, end_date, offer) values (81, 12, '2020-03-31 00:00:00', '2020-10-31 20:57:00', 92);
-insert into discount (id, rate, start_date, end_date, offer) values (82, 57, '2020-03-31 00:00:00', '2020-12-27 17:29:36', 67);
-insert into discount (id, rate, start_date, end_date, offer) values (83, 44, '2020-03-31 00:00:00', '2020-05-01 17:19:23', 91);
-insert into discount (id, rate, start_date, end_date, offer) values (84, 20, '2020-03-31 00:00:00', '2020-05-18 00:10:10', 50);
-insert into discount (id, rate, start_date, end_date, offer) values (85, 45, '2020-03-31 00:00:00', '2020-10-09 07:28:34', 26);
-insert into discount (id, rate, start_date, end_date, offer) values (86, 70, '2020-03-31 00:00:00', '2020-06-19 20:27:29', 88);
-insert into discount (id, rate, start_date, end_date, offer) values (87, 72, '2020-03-31 00:00:00', '2020-12-27 21:31:53', 43);
-insert into discount (id, rate, start_date, end_date, offer) values (88, 11, '2020-03-31 00:00:00', '2020-10-08 20:24:57', 8);
-insert into discount (id, rate, start_date, end_date, offer) values (89, 7, '2020-03-31 00:00:00', '2020-08-08 17:53:04', 78);
-insert into discount (id, rate, start_date, end_date, offer) values (90, 82, '2020-03-31 00:00:00', '2020-04-28 15:53:33', 87);
-insert into discount (id, rate, start_date, end_date, offer) values (91, 81, '2020-03-31 00:00:00', '2020-07-12 09:56:16', 82);
-insert into discount (id, rate, start_date, end_date, offer) values (92, 97, '2020-03-31 00:00:00', '2020-10-02 12:56:37', 93);
-insert into discount (id, rate, start_date, end_date, offer) values (93, 3, '2020-03-31 00:00:00', '2020-10-09 05:33:00', 57);
-insert into discount (id, rate, start_date, end_date, offer) values (94, 77, '2020-03-31 00:00:00', '2020-12-23 13:46:50', 13);
-insert into discount (id, rate, start_date, end_date, offer) values (95, 60, '2020-03-31 00:00:00', '2020-12-11 14:48:39', 5);
-insert into discount (id, rate, start_date, end_date, offer) values (96, 61, '2020-03-31 00:00:00', '2020-04-26 23:15:41', 66);
-insert into discount (id, rate, start_date, end_date, offer) values (97, 89, '2020-03-31 00:00:00', '2020-09-12 19:14:27', 93);
-insert into discount (id, rate, start_date, end_date, offer) values (98, 100, '2020-03-31 00:00:00', '2020-10-29 06:37:25', 79);
-insert into discount (id, rate, start_date, end_date, offer) values (99, 75, '2020-03-31 00:00:00', '2020-07-22 03:14:46', 49);
-insert into discount (id, rate, start_date, end_date, offer) values (100, 48, '2020-03-31 00:00:00', '2020-06-03 01:57:13', 26);
+insert into discount (id, rate, start_date, end_date, offer) values (1, 40, '2020-04-01 23:59:00', '2020-05-13 14:55:39', 36);
+insert into discount (id, rate, start_date, end_date, offer) values (2, 5, '2020-04-01 23:59:00', '2020-09-29 11:08:42', 67);
+insert into discount (id, rate, start_date, end_date, offer) values (3, 70, '2020-04-01 23:59:00', '2020-11-21 02:21:55', 16);
+insert into discount (id, rate, start_date, end_date, offer) values (4, 79, '2020-04-01 23:59:00', '2020-06-22 04:46:03', 65);
+insert into discount (id, rate, start_date, end_date, offer) values (5, 22, '2020-04-01 23:59:00', '2020-11-26 14:48:17', 98);
+insert into discount (id, rate, start_date, end_date, offer) values (6, 90, '2020-04-01 23:59:00', '2020-05-19 03:03:38', 19);
+insert into discount (id, rate, start_date, end_date, offer) values (7, 48, '2020-04-01 23:59:00', '2020-06-12 08:10:40', 84);
+insert into discount (id, rate, start_date, end_date, offer) values (8, 83, '2020-04-01 23:59:00', '2020-04-27 02:19:07', 90);
+insert into discount (id, rate, start_date, end_date, offer) values (9, 84, '2020-04-01 23:59:00', '2020-08-14 00:27:07', 24);
+insert into discount (id, rate, start_date, end_date, offer) values (10, 2, '2020-04-01 23:59:00', '2020-12-24 04:55:42', 80);
+insert into discount (id, rate, start_date, end_date, offer) values (11, 36, '2020-04-01 23:59:00', '2020-12-02 00:55:35', 7);
+insert into discount (id, rate, start_date, end_date, offer) values (12, 21, '2020-04-01 23:59:00', '2020-09-17 04:46:07', 22);
+insert into discount (id, rate, start_date, end_date, offer) values (13, 69, '2020-04-01 23:59:00', '2020-06-10 04:34:23', 89);
+insert into discount (id, rate, start_date, end_date, offer) values (14, 67, '2020-04-01 23:59:00', '2020-07-28 09:33:40', 72);
+insert into discount (id, rate, start_date, end_date, offer) values (15, 26, '2020-04-01 23:59:00', '2020-11-14 23:57:19', 59);
+insert into discount (id, rate, start_date, end_date, offer) values (16, 55, '2020-04-01 23:59:00', '2020-12-18 07:33:00', 21);
+insert into discount (id, rate, start_date, end_date, offer) values (17, 49, '2020-04-01 23:59:00', '2020-04-17 01:15:35', 30);
+insert into discount (id, rate, start_date, end_date, offer) values (18, 20, '2020-04-01 23:59:00', '2020-05-03 22:23:38', 16);
+insert into discount (id, rate, start_date, end_date, offer) values (19, 17, '2020-04-01 23:59:00', '2020-07-11 00:03:17', 14);
+insert into discount (id, rate, start_date, end_date, offer) values (20, 53, '2020-04-01 23:59:00', '2020-12-10 15:49:34', 33);
+insert into discount (id, rate, start_date, end_date, offer) values (21, 19, '2020-04-01 23:59:00', '2020-06-07 21:05:48', 64);
+insert into discount (id, rate, start_date, end_date, offer) values (22, 16, '2020-04-01 23:59:00', '2020-08-17 21:58:00', 24);
+insert into discount (id, rate, start_date, end_date, offer) values (23, 5, '2020-04-01 23:59:00', '2020-07-22 06:46:26', 77);
+insert into discount (id, rate, start_date, end_date, offer) values (24, 20, '2020-04-01 23:59:00', '2020-04-16 22:19:44', 15);
+insert into discount (id, rate, start_date, end_date, offer) values (25, 15, '2020-04-01 23:59:00', '2020-12-24 01:24:19', 56);
+insert into discount (id, rate, start_date, end_date, offer) values (26, 5, '2020-04-01 23:59:00', '2020-12-10 06:46:03', 30);
+insert into discount (id, rate, start_date, end_date, offer) values (27, 77, '2020-04-01 23:59:00', '2020-05-20 00:09:31', 53);
+insert into discount (id, rate, start_date, end_date, offer) values (28, 47, '2020-04-01 23:59:00', '2020-04-24 16:59:16', 1);
+insert into discount (id, rate, start_date, end_date, offer) values (29, 3, '2020-04-01 23:59:00', '2020-12-04 22:01:34', 90);
+insert into discount (id, rate, start_date, end_date, offer) values (30, 100, '2020-04-01 23:59:00', '2020-10-06 04:50:07', 91);
+insert into discount (id, rate, start_date, end_date, offer) values (31, 7, '2020-04-01 23:59:00', '2020-05-22 02:09:55', 31);
+insert into discount (id, rate, start_date, end_date, offer) values (32, 19, '2020-04-01 23:59:00', '2020-04-27 11:30:30', 90);
+insert into discount (id, rate, start_date, end_date, offer) values (33, 96, '2020-04-01 23:59:00', '2020-11-12 15:02:46', 70);
+insert into discount (id, rate, start_date, end_date, offer) values (34, 7, '2020-04-01 23:59:00', '2020-09-17 05:33:47', 27);
+insert into discount (id, rate, start_date, end_date, offer) values (35, 59, '2020-04-01 23:59:00', '2020-07-17 22:43:08', 12);
+insert into discount (id, rate, start_date, end_date, offer) values (36, 37, '2020-04-01 23:59:00', '2020-12-24 10:55:43', 13);
+insert into discount (id, rate, start_date, end_date, offer) values (37, 34, '2020-04-01 23:59:00', '2020-09-14 08:49:48', 8);
+insert into discount (id, rate, start_date, end_date, offer) values (38, 92, '2020-04-01 23:59:00', '2020-06-21 11:36:47', 87);
+insert into discount (id, rate, start_date, end_date, offer) values (39, 79, '2020-04-01 23:59:00', '2020-11-27 17:30:41', 77);
+insert into discount (id, rate, start_date, end_date, offer) values (40, 14, '2020-04-01 23:59:00', '2020-05-22 23:44:41', 64);
+insert into discount (id, rate, start_date, end_date, offer) values (41, 39, '2020-04-01 23:59:00', '2020-10-22 18:29:57', 66);
+insert into discount (id, rate, start_date, end_date, offer) values (42, 42, '2020-04-01 23:59:00', '2020-05-28 17:03:54', 83);
+insert into discount (id, rate, start_date, end_date, offer) values (43, 44, '2020-04-01 23:59:00', '2020-09-07 11:27:26', 19);
+insert into discount (id, rate, start_date, end_date, offer) values (44, 90, '2020-04-01 23:59:00', '2020-08-03 08:28:08', 95);
+insert into discount (id, rate, start_date, end_date, offer) values (45, 55, '2020-04-01 23:59:00', '2020-12-28 22:24:43', 51);
+insert into discount (id, rate, start_date, end_date, offer) values (46, 4, '2020-04-01 23:59:00', '2020-12-03 04:07:49', 95);
+insert into discount (id, rate, start_date, end_date, offer) values (47, 35, '2020-04-01 23:59:00', '2020-12-19 21:52:10', 2);
+insert into discount (id, rate, start_date, end_date, offer) values (48, 59, '2020-04-01 23:59:00', '2020-10-30 20:16:52', 100);
+insert into discount (id, rate, start_date, end_date, offer) values (49, 92, '2020-04-01 23:59:00', '2020-07-14 15:33:07', 48);
+insert into discount (id, rate, start_date, end_date, offer) values (50, 93, '2020-04-01 23:59:00', '2020-10-05 04:03:22', 98);
+insert into discount (id, rate, start_date, end_date, offer) values (51, 97, '2020-04-01 23:59:00', '2020-11-22 23:53:12', 75);
+insert into discount (id, rate, start_date, end_date, offer) values (52, 6, '2020-04-01 23:59:00', '2020-08-02 23:25:49', 94);
+insert into discount (id, rate, start_date, end_date, offer) values (53, 1, '2020-04-01 23:59:00', '2020-06-16 02:46:36', 1);
+insert into discount (id, rate, start_date, end_date, offer) values (54, 28, '2020-04-01 23:59:00', '2020-08-30 01:45:22', 54);
+insert into discount (id, rate, start_date, end_date, offer) values (55, 64, '2020-04-01 23:59:00', '2020-12-22 18:16:28', 93);
+insert into discount (id, rate, start_date, end_date, offer) values (56, 64, '2020-04-01 23:59:00', '2020-05-23 12:48:34', 39);
+insert into discount (id, rate, start_date, end_date, offer) values (57, 59, '2020-04-01 23:59:00', '2020-09-18 02:59:05', 70);
+insert into discount (id, rate, start_date, end_date, offer) values (58, 66, '2020-04-01 23:59:00', '2020-12-07 09:08:32', 16);
+insert into discount (id, rate, start_date, end_date, offer) values (59, 44, '2020-04-01 23:59:00', '2020-08-25 00:08:25', 85);
+insert into discount (id, rate, start_date, end_date, offer) values (60, 38, '2020-04-01 23:59:00', '2020-08-30 14:02:53', 33);
+insert into discount (id, rate, start_date, end_date, offer) values (61, 61, '2020-04-01 23:59:00', '2020-06-22 23:57:22', 33);
+insert into discount (id, rate, start_date, end_date, offer) values (62, 44, '2020-04-01 23:59:00', '2020-12-12 17:29:20', 42);
+insert into discount (id, rate, start_date, end_date, offer) values (63, 43, '2020-04-01 23:59:00', '2020-08-04 12:27:18', 11);
+insert into discount (id, rate, start_date, end_date, offer) values (64, 89, '2020-04-01 23:59:00', '2020-11-29 06:40:48', 24);
+insert into discount (id, rate, start_date, end_date, offer) values (65, 25, '2020-04-01 23:59:00', '2020-08-30 15:27:47', 66);
+insert into discount (id, rate, start_date, end_date, offer) values (66, 34, '2020-04-01 23:59:00', '2020-08-11 14:20:03', 28);
+insert into discount (id, rate, start_date, end_date, offer) values (67, 84, '2020-04-01 23:59:00', '2020-05-07 00:56:17', 44);
+insert into discount (id, rate, start_date, end_date, offer) values (68, 84, '2020-04-01 23:59:00', '2020-05-07 14:09:38', 88);
+insert into discount (id, rate, start_date, end_date, offer) values (69, 69, '2020-04-01 23:59:00', '2020-05-06 03:00:21', 10);
+insert into discount (id, rate, start_date, end_date, offer) values (70, 66, '2020-04-01 23:59:00', '2020-12-19 08:13:58', 9);
+insert into discount (id, rate, start_date, end_date, offer) values (71, 99, '2020-04-01 23:59:00', '2020-06-01 02:46:14', 36);
+insert into discount (id, rate, start_date, end_date, offer) values (72, 23, '2020-04-01 23:59:00', '2020-12-23 17:05:14', 36);
+insert into discount (id, rate, start_date, end_date, offer) values (73, 29, '2020-04-01 23:59:00', '2020-07-25 07:10:31', 55);
+insert into discount (id, rate, start_date, end_date, offer) values (74, 71, '2020-04-01 23:59:00', '2020-10-31 00:21:16', 65);
+insert into discount (id, rate, start_date, end_date, offer) values (75, 48, '2020-04-01 23:59:00', '2020-06-07 14:01:23', 32);
+insert into discount (id, rate, start_date, end_date, offer) values (76, 10, '2020-04-01 23:59:00', '2020-05-13 20:15:29', 1);
+insert into discount (id, rate, start_date, end_date, offer) values (77, 18, '2020-04-01 23:59:00', '2020-07-08 20:01:57', 52);
+insert into discount (id, rate, start_date, end_date, offer) values (78, 40, '2020-04-01 23:59:00', '2020-05-18 22:36:15', 48);
+insert into discount (id, rate, start_date, end_date, offer) values (79, 63, '2020-04-01 23:59:00', '2020-07-12 13:26:40', 61);
+insert into discount (id, rate, start_date, end_date, offer) values (80, 95, '2020-04-01 23:59:00', '2020-08-03 12:57:26', 94);
+insert into discount (id, rate, start_date, end_date, offer) values (81, 12, '2020-04-01 23:59:00', '2020-10-31 20:57:00', 92);
+insert into discount (id, rate, start_date, end_date, offer) values (82, 57, '2020-04-01 23:59:00', '2020-12-27 17:29:36', 67);
+insert into discount (id, rate, start_date, end_date, offer) values (83, 44, '2020-04-01 23:59:00', '2020-05-01 17:19:23', 91);
+insert into discount (id, rate, start_date, end_date, offer) values (84, 20, '2020-04-01 23:59:00', '2020-05-18 00:10:10', 50);
+insert into discount (id, rate, start_date, end_date, offer) values (85, 45, '2020-04-01 23:59:00', '2020-10-09 07:28:34', 26);
+insert into discount (id, rate, start_date, end_date, offer) values (86, 70, '2020-04-01 23:59:00', '2020-06-19 20:27:29', 88);
+insert into discount (id, rate, start_date, end_date, offer) values (87, 72, '2020-04-01 23:59:00', '2020-12-27 21:31:53', 43);
+insert into discount (id, rate, start_date, end_date, offer) values (88, 11, '2020-04-01 23:59:00', '2020-10-08 20:24:57', 8);
+insert into discount (id, rate, start_date, end_date, offer) values (89, 7, '2020-04-01 23:59:00', '2020-08-08 17:53:04', 78);
+insert into discount (id, rate, start_date, end_date, offer) values (90, 82, '2020-04-01 23:59:00', '2020-04-28 15:53:33', 87);
+insert into discount (id, rate, start_date, end_date, offer) values (91, 81, '2020-04-01 23:59:00', '2020-07-12 09:56:16', 82);
+insert into discount (id, rate, start_date, end_date, offer) values (92, 97, '2020-04-01 23:59:00', '2020-10-02 12:56:37', 93);
+insert into discount (id, rate, start_date, end_date, offer) values (93, 3, '2020-04-01 23:59:00', '2020-10-09 05:33:00', 57);
+insert into discount (id, rate, start_date, end_date, offer) values (94, 77, '2020-04-01 23:59:00', '2020-12-23 13:46:50', 13);
+insert into discount (id, rate, start_date, end_date, offer) values (95, 60, '2020-04-01 23:59:00', '2020-12-11 14:48:39', 5);
+insert into discount (id, rate, start_date, end_date, offer) values (96, 61, '2020-04-01 23:59:00', '2020-04-26 23:15:41', 66);
+insert into discount (id, rate, start_date, end_date, offer) values (97, 89, '2020-04-01 23:59:00', '2020-09-12 19:14:27', 93);
+insert into discount (id, rate, start_date, end_date, offer) values (98, 100, '2020-04-01 23:59:00', '2020-10-29 06:37:25', 79);
+insert into discount (id, rate, start_date, end_date, offer) values (99, 75, '2020-04-01 23:59:00', '2020-07-22 03:14:46', 49);
+insert into discount (id, rate, start_date, end_date, offer) values (100, 48, '2020-04-01 23:59:00', '2020-06-03 01:57:13', 26);
 
 INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
 VALUES(1,0,'I M NOT A SCAMMER', '2020-02-25 02:03:17');

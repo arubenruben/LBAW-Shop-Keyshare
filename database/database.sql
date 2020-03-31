@@ -13,12 +13,9 @@ DROP TABLE IF EXISTS banned_user CASCADE;
 DROP TABLE IF EXISTS discount CASCADE;
 DROP TABLE IF EXISTS offer CASCADE;
 DROP TABLE IF EXISTS regular_user CASCADE;
-DROP TABLE IF EXISTS deleted_product_has_genre CASCADE;
-DROP TABLE IF EXISTS active_product_has_genre CASCADE;
-DROP TABLE IF EXISTS deleted_product_has_platform CASCADE;
-DROP TABLE IF EXISTS active_product_has_platform CASCADE;
-DROP TABLE IF EXISTS deleted_product CASCADE;
-DROP TABLE IF EXISTS active_product CASCADE;
+DROP TABLE IF EXISTS product_has_genre CASCADE;
+DROP TABLE IF EXISTS product_has_platform CASCADE;
+DROP TABLE IF EXISTS product CASCADE;
 DROP TABLE IF EXISTS image CASCADE;
 DROP TABLE IF EXISTS platform CASCADE;
 DROP TABLE IF EXISTS genre CASCADE;
@@ -45,44 +42,25 @@ CREATE TABLE image (
   url TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE active_product (
+CREATE TABLE product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   description TEXT,
   category integer REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
-  image integer DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE
+  image integer DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  deleted boolean NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE deleted_product (
-  id serial PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE,
-  description TEXT,
-  category integer REFERENCES category(id) ON DELETE SET NULL ON UPDATE CASCADE, 
-  image integer DEFAULT 1 NOT NULL REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
-);
-
-CREATE TABLE active_product_has_genre (
+CREATE TABLE product_has_genre (
   genre integer NOT NULL REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  active_product integer NOT NULL REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (genre, active_product)
+  product integer NOT NULL REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (genre, product)
 );
 
-CREATE TABLE deleted_product_has_genre (
-  genre integer REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  deleted_product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (genre, deleted_product)
-);
-
-CREATE TABLE active_product_has_platform(
+CREATE TABLE product_has_platform(
   platform integer REFERENCES platform(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  active_product integer REFERENCES active_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (platform,active_product)
-);
-
-CREATE TABLE deleted_product_has_platform(
-  platform integer REFERENCES platform(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  deleted_product integer REFERENCES deleted_product(id) ON DELETE CASCADE ON UPDATE CASCADE ,
-  PRIMARY KEY (platform,deleted_product)
+  product integer REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (platform,product)
 );
 
 CREATE TABLE regular_user (
@@ -112,8 +90,7 @@ CREATE TABLE offer (
   
   platform integer NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   seller integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  active_product integer REFERENCES active_product(id) ON DELETE SET NULL ON UPDATE CASCADE, 
-  deleted_product integer REFERENCES deleted_product(id) ON DELETE SET NULL ON UPDATE CASCADE, 
+  product integer REFERENCES product(id) ON DELETE SET NULL ON UPDATE CASCADE, 
   
   CONSTRAINT price_ck CHECK (price > 0),
   CONSTRAINT init_date_ck CHECK (init_date <= now()),
@@ -121,17 +98,7 @@ CREATE TABLE offer (
     (final_date is NULL)
     or (final_date >= init_date)
   ),
-  CONSTRAINT profit_ck CHECK (profit >= 0),
-  CONSTRAINT product_type_ck CHECK(
-    (
-      active_product is NULL
-      and deleted_product is NOT NULL
-    )
-    or (
-      active_product is NOT NULL
-      and deleted_product is NULL
-    )
-  )
+  CONSTRAINT profit_ck CHECK (profit >= 0)
 );
 
 CREATE TABLE discount (
