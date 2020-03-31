@@ -16,7 +16,11 @@ $$
     where p.deleted = false;
  END; $$ 
  LANGUAGE plpgsql;
-
-
-
  ---------------------
+
+
+
+select *
+from product join offer on product.id=offer.product join discount on offer.id=discount.offer join platform on offer.platform=platform.id join regular_user as seller on seller.id=offer.seller
+where final_date IS NULL and  product.name= 'Grand Theft Auto III'
+group by product.name, seller.id

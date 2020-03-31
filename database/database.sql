@@ -40,13 +40,10 @@ CREATE TABLE product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   description TEXT,
-  category integer REFERENCES category (id) ON DELETE
-  SET
-    NULL ON UPDATE CASCADE,
-    image integer DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE
-  SET
-    DEFAULT ON UPDATE CASCADE,
-    deleted boolean NOT NULL DEFAULT FALSE
+  category integer REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
+  image integer DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  deleted boolean NOT NULL DEFAULT FALSE,
+  launch_date date NOT NULL 
 );
 CREATE TABLE product_has_genre (
   genre integer NOT NULL REFERENCES genre(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -67,14 +64,14 @@ CREATE TABLE regular_user (
   rating integer NOT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
-  image integer NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE
-  SET
-    DEFAULT ON UPDATE CASCADE,
-    CONSTRAINT rating_ck CHECK (
-      rating >= 0
+  image integer NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  number_sells_done integer NOT NULL DEFAULT 0,
+  
+  CONSTRAINT rating_ck CHECK (
+    rating >= 0
       AND rating <= 100
-    ),
-    CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18)
+  ),
+  CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18)
 );
 CREATE TABLE offer (
   id serial PRIMARY KEY,
@@ -83,18 +80,15 @@ CREATE TABLE offer (
   final_date date,
   profit REAL DEFAULT 0,
   platform integer NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  seller integer REFERENCES regular_user(id) ON DELETE
-  SET
-    NULL ON UPDATE CASCADE,
-    product integer REFERENCES product(id) ON DELETE
-  SET
-    NULL ON UPDATE CASCADE,
-    CONSTRAINT price_ck CHECK (price > 0),
-    CONSTRAINT init_date_ck CHECK (init_date <= now()),
-    CONSTRAINT final_date_ck CHECK (
-      (final_date is NULL)
-      or (final_date >= init_date)
-    ),
+  seller integer REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  product integer REFERENCES product(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  
+  CONSTRAINT price_ck CHECK (price > 0),
+  CONSTRAINT init_date_ck CHECK (init_date <= now()),
+  CONSTRAINT final_date_ck CHECK (
+    (final_date is NULL)
+    or (final_date >= init_date)
+  ),
     CONSTRAINT profit_ck CHECK (profit >= 0)
 );
 CREATE TABLE discount (
