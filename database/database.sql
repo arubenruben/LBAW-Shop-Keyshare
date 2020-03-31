@@ -30,7 +30,8 @@ CREATE TABLE product (
   description TEXT,
   category INTEGER REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
   image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-  deleted boolean NOT NULL DEFAULT FALSE
+  deleted boolean NOT NULL DEFAULT FALSE,
+  launch_date DATE NOT NULL
 );
 
 CREATE TABLE product_has_genre (
