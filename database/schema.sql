@@ -52,7 +52,7 @@ CREATE TABLE regular_user (
   email TEXT NOT NULL UNIQUE,
   description TEXT,
   password TEXT NOT NULL,
-  rating INTEGER NOT NULL,
+  rating INTEGER DEFAULT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
   image INTEGER NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
