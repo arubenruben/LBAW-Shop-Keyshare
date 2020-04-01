@@ -77,7 +77,7 @@ CREATE TABLE offer (
   CONSTRAINT init_date_ck CHECK (init_date <= now()),
   CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
   CONSTRAINT profit_ck CHECK (profit >= 0),
-  CONSTRAINT stock_ck CHECK (stock > 0)
+  CONSTRAINT stock_ck CHECK (stock >= 0)
 );
 
 CREATE TABLE discount (
