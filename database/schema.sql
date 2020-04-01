@@ -77,7 +77,7 @@ CREATE TABLE offer (
   CONSTRAINT init_date_ck CHECK (init_date <= now()),
   CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
   CONSTRAINT profit_ck CHECK (profit >= 0),
-  CONSTRAINT stock_ck CHECK (stock > 0)
+  CONSTRAINT stock_ck CHECK (stock >= 0)
 );
 
 CREATE TABLE discount (
@@ -128,7 +128,7 @@ CREATE TABLE key (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
   price REAL NOT NULL,
-  offer integer REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   
   CONSTRAINT price_ck CHECK(price > 0)
