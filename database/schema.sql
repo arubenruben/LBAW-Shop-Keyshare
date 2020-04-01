@@ -50,7 +50,7 @@ CREATE TABLE regular_user (
   id serial PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
-  description TEXT,
+  description TEXT DEFAULT NULL,
   password TEXT NOT NULL,
   rating INTEGER DEFAULT NULL,
   birth_date date NOT NULL,
