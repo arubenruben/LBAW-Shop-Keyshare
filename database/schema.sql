@@ -87,7 +87,8 @@ CREATE TABLE discount (
   end_date date NOT NULL,
   offer INTEGER NOT NULL REFERENCES offer(id) ON DELETE CASCADE ON UPDATE CASCADE,
   
-  CONSTRAINT start_date_ck CHECK (start_date >= now()),
+  --   TODO:
+--   CONSTRAINT start_date_ck CHECK (start_date >= now()),
   CONSTRAINT end_date_ck CHECK (end_date > start_date),
   CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
