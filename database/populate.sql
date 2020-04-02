@@ -1,3 +1,6 @@
+-----------------------------------------
+-- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
+-----------------------------------------
 TRUNCATE about_us, 
 admin, 
 ban_appeal, 
@@ -20,6 +23,9 @@ product_has_platform,
 regular_user, 
 report;
 
+-----------------------------------------
+-- Populate the database
+-----------------------------------------
 
 INSERT INTO category(id,name) VALUES(0,'GAME');
 INSERT INTO category(id,name) VALUES(1,'1');
