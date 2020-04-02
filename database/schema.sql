@@ -65,7 +65,7 @@ CREATE TABLE regular_user (
 CREATE TABLE offer (
   id serial PRIMARY KEY,
   price REAL NOT NULL,
-  init_date date NOT NULL DEFAULT now(),
+  init_date date NOT NULL DEFAULT NOW(),
   final_date date,
   profit REAL DEFAULT 0,
   platform INTEGER NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -74,7 +74,7 @@ CREATE TABLE offer (
   stock INTEGER NOT NULL DEFAULT 1,
     
   CONSTRAINT price_ck CHECK (price > 0),
-  CONSTRAINT init_date_ck CHECK (init_date <= now()),
+  CONSTRAINT init_date_ck CHECK (init_date <= NOW()),
   CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
   CONSTRAINT profit_ck CHECK (profit >= 0),
   CONSTRAINT stock_ck CHECK (stock >= 0)
@@ -88,7 +88,7 @@ CREATE TABLE discount (
   offer INTEGER NOT NULL REFERENCES offer(id) ON DELETE CASCADE ON UPDATE CASCADE,
   
   --   TODO:
---   CONSTRAINT start_date_ck CHECK (start_date >= now()),
+--   CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
   CONSTRAINT end_date_ck CHECK (end_date > start_date),
   CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
@@ -110,18 +110,17 @@ CREATE TABLE ban_appeal (
   banned_user INTEGER PRIMARY KEY REFERENCES banned_user(regular_user) ON DELETE CASCADE ON UPDATE CASCADE,
   admin INTEGER REFERENCES admin(id) ON DELETE SET NULL ON UPDATE CASCADE,
   ban_appeal TEXT NOT NULL,
-  date date NOT NULL DEFAULT now(),
+  date date NOT NULL DEFAULT NOW(),
   
-  CONSTRAINT date_ck CHECK(date <= now())
+  CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE orders (
-  id serial PRIMARY KEY,
-  order_number INTEGER NOT NULL UNIQUE,
-  date date NOT NULL DEFAULT now(),
+  order_number serial PRIMARY KEY,
+  date DATE NOT NULL DEFAULT NOW(),
   buyer INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
     
-  CONSTRAINT date_ck CHECK(date <= now())
+  CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE key (
@@ -138,14 +137,14 @@ CREATE TABLE feedback (
   id serial PRIMARY KEY,
   evaluation boolean NOT NULL,
   comment TEXT,
-  evaluation_date DATE NOT NULL DEFAULT NOW(),
+  evaluation_date DATE NOT NULL DEFAULT NOW() CONSTRAINT fb_date_ck CHECK(evaluation_date <= NOW()),
   buyer INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   key INTEGER NOT NULL REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE report (
   id serial PRIMARY KEY,
-  date date NOT NULL DEFAULT now(),
+  date date NOT NULL DEFAULT NOW(),
   description TEXT NOT NULL,
   title TEXT NOT NULL,
   key INTEGER NOT NULL UNIQUE REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -153,19 +152,19 @@ CREATE TABLE report (
   reportee INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   
   CONSTRAINT user_ck CHECK(reporter <> reportee),
-  CONSTRAINT date_ck CHECK(date <= now())
+  CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE message (
   id serial PRIMARY KEY,
-  date date NOT NULL DEFAULT now(),
+  date date NOT NULL DEFAULT NOW(),
   description TEXT NOT NULL,
   regular_user INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  
+
   admin INTEGER REFERENCES admin(id) ON DELETE SET NULL ON UPDATE CASCADE,
-    report INTEGER NOT NULL REFERENCES report(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT date_ck CHECK(date <= now()),
-    CONSTRAINT user_type_ck CHECK((regular_user IS NULL AND admin IS NOT NULL ) OR (regular_user IS NOT NULL AND admin IS NULL))
+  report INTEGER NOT NULL REFERENCES report(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT date_ck CHECK(date <= NOW()),
+  CONSTRAINT user_type_ck CHECK((regular_user IS NULL AND admin IS NOT NULL ) OR (regular_user IS NOT NULL AND admin IS NULL))
 );
 
 CREATE TABLE cart (
