@@ -193,6 +193,7 @@ CREATE TABLE faq (
   answer TEXT NOT NULL
 );
 
+
 -----------------------------------------
 -- INDEXES
 -----------------------------------------
@@ -257,7 +258,7 @@ BEGIN
     WHERE 
         product.id = product_has_genre.product 
         AND genre.id = product_has_genre.genre
-        AND list[i] = categories.name;
+        AND genre.name =  any(list);
 END $$ LANGUAGE plpgsql;
 
 
@@ -346,11 +347,11 @@ FOR EACH ROW
 EXECUTE PROCEDURE user_num_sales();
 
 --TRIGGER 4
-DROP FUNCTION IF EXISTS seller_num_reviews(INTEGER) CASCADE;
-CREATE OR REPLACE FUNCTION seller_num_reviews(key_var INTEGER)
+DROP FUNCTION IF EXISTS seller_num_reviews(integer) CASCADE;
+CREATE OR REPLACE FUNCTION seller_num_reviews(key_var integer)
 RETURNS INTEGER AS $num_reviews$
 DECLARE
-    num_reviews INTEGER;
+    num_reviews integer;
 BEGIN
     SELECT COUNT(u.id) into num_reviews
     FROM key k, offer o, regular_user u
@@ -365,9 +366,9 @@ DROP FUNCTION IF EXISTS update_seller_feedback() CASCADE;
 CREATE OR REPLACE FUNCTION update_seller_feedback()
 RETURNS TRIGGER AS $$
 DECLARE
-    num_reviews INTEGER;
+    num_reviews integer;
     total_feedback float;
-    bool_aux BOOLEAN;
+    bool_aux boolean;
 BEGIN
     num_reviews := seller_num_reviews(NEW.key);
 
@@ -412,7 +413,7 @@ BEGIN
     IF NOT EXISTS (
         SELECT *
         FROM orders o, key k
-        WHERE NEW.key = k.id and k.orders = o.id 
+        WHERE NEW.key = k.id and k.order = o.id 
             and o.regular_user = NEW.regular_user
     )
     THEN RAISE EXCEPTION 'Cannot review a product that you did not buy';
@@ -451,7 +452,7 @@ DROP FUNCTION IF EXISTS update_product_stock() CASCADE;
 CREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 DECLARE
-    stock_var INTEGER;
+    stock_var integer;
 BEGIN
     UPDATE offer
     SET offer.stock = stock - 1
@@ -471,7 +472,7 @@ DROP FUNCTION IF EXISTS delete_from_cart() CASCADE;
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
 DECLARE
-    deleted_var BOOLEAN;
+    deleted_var boolean;
 BEGIN
     deleted_var:=NEW.deleted;
     IF deleted_var THEN
@@ -511,3 +512,5 @@ BEFORE INSERT OR UPDATE
 ON product
 FOR EACH ROW 
 EXECUTE PROCEDURE product_name_tsvector();
+
+
