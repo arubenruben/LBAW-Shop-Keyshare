@@ -38,8 +38,9 @@ CREATE TABLE product (
   description TEXT,
   category INTEGER REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
   image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-  deleted boolean NOT NULL DEFAULT FALSE,
-  launch_date DATE NOT NULL
+  deleted BOOLEAN NOT NULL DEFAULT FALSE,
+  launch_date DATE NOT NULL,
+  num_sells INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE product_has_genre (
@@ -138,12 +139,12 @@ CREATE TABLE key (
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
-  CONSTRAINT price_ck CHECK(price > 0)
+  CONSTRAINT price_ck CHECK(priceSold > 0)
 );
 
 CREATE TABLE feedback (
   id serial PRIMARY KEY,
-  evaluation boolean NOT NULL,
+  evaluation BOOLEAN NOT NULL,
   comment TEXT,
   evaluation_date DATE NOT NULL DEFAULT NOW() CONSTRAINT fb_date_ck CHECK(evaluation_date <= NOW()),
   buyer INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -345,11 +346,11 @@ FOR EACH ROW
 EXECUTE PROCEDURE user_num_sales();
 
 --TRIGGER 4
-DROP FUNCTION IF EXISTS seller_num_reviews(integer) CASCADE;
-CREATE OR REPLACE FUNCTION seller_num_reviews(key_var integer)
+DROP FUNCTION IF EXISTS seller_num_reviews(INTEGER) CASCADE;
+CREATE OR REPLACE FUNCTION seller_num_reviews(key_var INTEGER)
 RETURNS INTEGER AS $num_reviews$
 DECLARE
-    num_reviews integer;
+    num_reviews INTEGER;
 BEGIN
     SELECT COUNT(u.id) into num_reviews
     FROM key k, offer o, regular_user u
@@ -364,9 +365,9 @@ DROP FUNCTION IF EXISTS update_seller_feedback() CASCADE;
 CREATE OR REPLACE FUNCTION update_seller_feedback()
 RETURNS TRIGGER AS $$
 DECLARE
-    num_reviews integer;
+    num_reviews INTEGER;
     total_feedback float;
-    bool_aux boolean;
+    bool_aux BOOLEAN;
 BEGIN
     num_reviews := seller_num_reviews(NEW.key);
 
@@ -450,7 +451,7 @@ DROP FUNCTION IF EXISTS update_product_stock() CASCADE;
 CREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 DECLARE
-    stock_var integer;
+    stock_var INTEGER;
 BEGIN
     UPDATE offer
     SET offer.stock = stock - 1
@@ -470,7 +471,7 @@ DROP FUNCTION IF EXISTS delete_from_cart() CASCADE;
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
 DECLARE
-    deleted_var boolean;
+    deleted_var BOOLEAN;
 BEGIN
     deleted_var:=NEW.deleted;
     IF deleted_var THEN
