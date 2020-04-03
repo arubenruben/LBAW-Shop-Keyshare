@@ -123,8 +123,8 @@ CREATE TABLE ban_appeal (
   CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
-CREATE TABLE order (
-  order_number serial PRIMARY KEY,
+CREATE TABLE orders (
+  number serial PRIMARY KEY,
   date DATE NOT NULL DEFAULT NOW(),
   buyer INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
     
@@ -136,7 +136,7 @@ CREATE TABLE key (
   key TEXT NOT NULL UNIQUE,
   priceSold REAL NOT NULL,
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  order integer REFERENCES order(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
   CONSTRAINT price_ck CHECK(price > 0)
 );
@@ -320,7 +320,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS product_num_sales_tg ON key CASCADE;
 CREATE TRIGGER product_num_sales_tg
-AFTER UPDATE OF order ON key
+AFTER UPDATE OF orders ON key
 FOR EACH ROW 
 EXECUTE PROCEDURE product_num_sales();
 
@@ -340,7 +340,7 @@ CREATE OR REPLACE FUNCTION user_num_sales() RETURNS TRIGGER AS $example_table$
 $example_table$ LANGUAGE plpgsql;
 
 CREATE TRIGGER user_num_sales_tg
-AFTER UPDATE OF order ON key
+AFTER UPDATE OF orders ON key
 FOR EACH ROW 
 EXECUTE PROCEDURE user_num_sales();
 
@@ -410,8 +410,8 @@ RETURNS TRIGGER AS $$
 BEGIN
     IF NOT EXISTS (
         SELECT *
-        FROM order o, key k
-        WHERE NEW.key = k.id and k.order = o.id 
+        FROM orders o, key k
+        WHERE NEW.key = k.id and k.orders = o.id 
             and o.regular_user = NEW.regular_user
     )
     THEN RAISE EXCEPTION 'Cannot review a product that you did not buy';
@@ -439,9 +439,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS delete_cart_after_purchase_tg ON order CASCADE;
+DROP TRIGGER IF EXISTS delete_cart_after_purchase_tg ON orders CASCADE;
 CREATE TRIGGER delete_cart_after_purchase_tg AFTER INSERT OR UPDATE 
-ON order
+ON orders
 FOR EACH ROW 
 EXECUTE PROCEDURE delete_cart_after_purchase();
 
@@ -454,14 +454,14 @@ DECLARE
 BEGIN
     UPDATE offer
     SET offer.stock = stock - 1
-    WHERE offer.id IN (SELECT distinct offer FROM key WHERE order = NEW.id);        
+    WHERE offer.id IN (SELECT distinct offer FROM key WHERE orders = NEW.id);        
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS update_product_stock_tg ON order CASCADE;
+DROP TRIGGER IF EXISTS update_product_stock_tg ON orders CASCADE;
 CREATE TRIGGER update_product_stock_tg AFTER INSERT OR UPDATE 
-ON order
+ON orders
 FOR EACH ROW 
 EXECUTE PROCEDURE update_product_stock();
 
