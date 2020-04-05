@@ -139,7 +139,7 @@ CREATE TABLE key (
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
-  CONSTRAINT price_ck CHECK(priceSold > 0)
+  CONSTRAINT price_ck CHECK(price_sold > 0)
 );
 
 CREATE TABLE feedback (
