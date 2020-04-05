@@ -68,7 +68,8 @@ CREATE TABLE regular_user (
   num_sells INTEGER NOT NULL DEFAULT 0,
 
   CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
-  CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18)
+  CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18),
+  CONSTRAINT num_sells_ck CHECK (num_sells >= 0)
 );
 
 CREATE TABLE offer (
@@ -135,7 +136,7 @@ CREATE TABLE orders (
 CREATE TABLE key (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
-  price_sold REAL NOT NULL,
+  price_sold REAL DEFAULT NULL,
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
