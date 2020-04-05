@@ -141,7 +141,7 @@ CREATE TABLE key (
   orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
   CONSTRAINT price_ck CHECK(price_sold > 0),
-  CONSTRAINT sold_key_ck CHECK((price_sold IS NULL AND order IS NULL) or (price_sold IS NOT NULL AND order IS NOT NULL))
+  CONSTRAINT sold_key_ck CHECK((price_sold IS NULL AND orders IS NULL) or (price_sold IS NOT NULL AND orders IS NOT NULL))
   
 );
 
