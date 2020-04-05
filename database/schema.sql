@@ -135,7 +135,7 @@ CREATE TABLE orders (
 CREATE TABLE key (
   id serial PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
-  priceSold REAL NOT NULL,
+  price_sold REAL NOT NULL,
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   orders integer REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
   
