@@ -35,6 +35,7 @@ CREATE TABLE product (
   id serial PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   name_tsvector tsvector,
+  weight_tsvector  INTEGER DEFAULT 0,
   description TEXT,
   category INTEGER REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
   image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
