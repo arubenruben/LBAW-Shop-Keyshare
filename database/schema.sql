@@ -84,9 +84,7 @@ CREATE TABLE offer (
   platform INTEGER NOT NULL REFERENCES platform(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   seller INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   product INTEGER REFERENCES product(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  stock INTEGER NOT NULL DEFAULT 1,
-  deleted BOOLEAN NOT NULL DEFAULT FALSE,
-    
+  stock INTEGER NOT NULL DEFAULT 1,    
   CONSTRAINT price_ck CHECK (price > 0),
   CONSTRAINT init_date_ck CHECK (init_date <= NOW()),
   CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
