@@ -128,7 +128,7 @@ CREATE TABLE ban_appeal (
 );
 
 CREATE TABLE orders (
-  number serial PRIMARY KEY,
+  number SERIAL PRIMARY KEY,
   date DATE NOT NULL DEFAULT NOW(),
   buyer INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
     
