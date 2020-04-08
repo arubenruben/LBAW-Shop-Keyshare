@@ -39,8 +39,8 @@ EXECUTE PROCEDURE update_product_tsvector();
 CREATE OR REPLACE FUNCTION insert_user_tsvector()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
-	NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') || 
+    NEW.name_tsvector := to_tsvector(NEW.username || coalesce(NEW.description, ''));
+	NEW.weight_tsvector := setweight(to_tsvector(NEW.username), 'A') || 
 			setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
@@ -57,8 +57,8 @@ EXECUTE PROCEDURE insert_user_tsvector();
 CREATE OR REPLACE FUNCTION update_user_tsvector()
 RETURNS TRIGGER AS $$
 BEGIN
-	NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
-	NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') || 
+	NEW.name_tsvector := to_tsvector(NEW.username || coalesce(NEW.description, ''));
+	NEW.weight_tsvector := setweight(to_tsvector(NEW.username), 'A') || 
 		setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
@@ -349,6 +349,7 @@ AFTER UPDATE OF deleted ON offer
 FOR EACH ROW
 WHEN(NEW.deleted=TRUE OR NEW.stock=0)
 EXECUTE PROCEDURE update_offer_date_end();
+
 
 -- trigger 15
 CREATE OR REPLACE FUNCTION check_discount_date_overlap()
