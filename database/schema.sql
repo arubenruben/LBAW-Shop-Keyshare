@@ -12,27 +12,27 @@ GRANT ALL ON SCHEMA public TO public;
 -----------------------------------------
 
 CREATE TABLE category (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE genre (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE platform (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE image (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   url TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE product (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE product_has_platform(
 );
 
 CREATE TABLE regular_user (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
   description TEXT DEFAULT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE regular_user (
 );
 
 CREATE TABLE offer (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   price REAL NOT NULL,
   init_date date NOT NULL DEFAULT NOW(),
   final_date date,
@@ -93,7 +93,7 @@ CREATE TABLE offer (
 );
 
 CREATE TABLE discount (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   rate INTEGER NOT NULL,
   start_date date NOT NULL,
   end_date date NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE banned_user (
 );
 
 CREATE TABLE admin (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
   description TEXT,
@@ -136,7 +136,7 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE key (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   key TEXT NOT NULL UNIQUE,
   price_sold REAL DEFAULT NULL,
   offer integer NOT NULL REFERENCES offer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -148,7 +148,7 @@ CREATE TABLE key (
 );
 
 CREATE TABLE feedback (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   evaluation BOOLEAN NOT NULL,
   comment TEXT,
   evaluation_date DATE NOT NULL DEFAULT NOW() CONSTRAINT fb_date_ck CHECK(evaluation_date <= NOW()),
@@ -157,7 +157,7 @@ CREATE TABLE feedback (
 );
 
 CREATE TABLE report (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   date date NOT NULL DEFAULT NOW(),
   description TEXT NOT NULL,
   title TEXT NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE report (
 );
 
 CREATE TABLE message (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   date date NOT NULL DEFAULT NOW(),
   description TEXT NOT NULL,
   regular_user INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -182,18 +182,18 @@ CREATE TABLE message (
 );
 
 CREATE TABLE cart (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   buyer INTEGER NOT NULL REFERENCES regular_user(id) ON DELETE CASCADE ON UPDATE CASCADE,
   offer INTEGER NOT NULL REFERENCES offer(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE about_us (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   description TEXT NOT NULL
 );
 
 CREATE TABLE faq (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   question TEXT NOT NULL,
   answer TEXT NOT NULL
 );
