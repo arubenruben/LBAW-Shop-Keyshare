@@ -39,9 +39,9 @@ EXECUTE PROCEDURE update_product_tsvector();
 CREATE OR REPLACE FUNCTION insert_user_tsvector()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.name_tsvector := to_tsvector(NEW.username || coalesce(NEW.description, ''));
-	NEW.weight_tsvector := setweight(to_tsvector(NEW.username), 'A') || 
-			setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
+    NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
+    NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') || 
+        setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -57,9 +57,9 @@ EXECUTE PROCEDURE insert_user_tsvector();
 CREATE OR REPLACE FUNCTION update_user_tsvector()
 RETURNS TRIGGER AS $$
 BEGIN
-	NEW.name_tsvector := to_tsvector(NEW.username || coalesce(NEW.description, ''));
-	NEW.weight_tsvector := setweight(to_tsvector(NEW.username), 'A') || 
-		setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
+    NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
+    NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') || 
+        setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -68,7 +68,7 @@ DROP TRIGGER IF EXISTS update_user_tsvector_tg ON regular_user;
 CREATE TRIGGER update_user_tsvector_tg 
 BEFORE UPDATE ON regular_user
 FOR EACH ROW 
-WHEN(NEW.username <> OLD.username or NEW.description <> OLD.description)
+WHEN (NEW.username <> OLD.username or NEW.description <> OLD.description)
 EXECUTE PROCEDURE update_user_tsvector();
 
 
@@ -79,7 +79,7 @@ DECLARE
     sells INTEGER;
     product_id INTEGER;
 BEGIN
-    SELECT COUNT(p.id), product.id 
+    SELECT COUNT(product.id), product.id 
     INTO sells, product_id
     FROM offer JOIN product ON product.id = offer.product        
     WHERE offer.id = NEW.offer
@@ -95,7 +95,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS product_num_sales_tg ON key CASCADE;
 CREATE TRIGGER product_num_sales_tg
-AFTER UPDATE OF orders ON key
+AFTER INSERT OR UPDATE OF orders ON key
 FOR EACH ROW 
 EXECUTE PROCEDURE product_num_sells();
 
@@ -127,7 +127,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS user_num_sells_tg ON key CASCADE;
 CREATE TRIGGER user_num_sells_tg
-AFTER UPDATE OF orders ON key
+AFTER INSERT OR UPDATE OF orders ON key
 FOR EACH ROW 
 EXECUTE PROCEDURE user_num_sells();
 
@@ -178,7 +178,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedback CASCADE;
 CREATE TRIGGER update_seller_feedback_tg 
-AFTER INSERT ON feedback
+AFTER INSERT OR UPDATE OR DELETE ON feedback
 FOR EACH ROW 
 EXECUTE PROCEDURE update_seller_feedback();
 
@@ -189,11 +189,11 @@ RETURNS TRIGGER AS $$
 BEGIN
     IF NOT EXISTS (
         SELECT *
-        FROM orders o JOIN key k ON o.id = k.orders
+        FROM orders AS o JOIN key AS k ON o.buyer = k.orders
         WHERE NEW.key = k.id
-        AND o.regular_user = NEW.regular_user
-    )
-    THEN RAISE EXCEPTION 'Cannot review a product that you did not buy';
+        AND o.buyer = NEW.buyer
+    ) THEN 
+        RAISE EXCEPTION 'Cannot review a product that you did not buy';
     END IF;
     RETURN NEW;
 END;
@@ -209,6 +209,8 @@ EXECUTE PROCEDURE check_user_bought_product();
 
 -- trigger 9
 CREATE OR REPLACE FUNCTION update_product_stock()
+RETURNS TRIGGER AS $$
+DECLARECREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 DECLARE
     stock_quantity INTEGER;
@@ -234,7 +236,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_product_stock_tg ON key CASCADE;
 CREATE TRIGGER update_product_stock_tg 
-AFTER UPDATE OF orders ON key
+AFTER INSERT OR UPDATE OF orders ON key
 FOR EACH ROW 
 EXECUTE PROCEDURE update_product_stock();
 
@@ -273,10 +275,10 @@ BEGIN
     seller_id := (
         SELECT offer.seller
         FROM offer 
-        WHERE offer.id=NEW.offer
+        WHERE offer.id = NEW.offer
     );
                 
-    IF seller_id = NEW.regular_user THEN
+    IF seller_id = NEW.buyer THEN
         RAISE EXCEPTION 'You cannot buy product that you are already selling!';
     END IF;
     
@@ -303,9 +305,9 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS delete_keys_from_canceled_offers_tg ON offer CASCADE;
 CREATE TRIGGER delete_keys_from_canceled_offers_tg 
-AFTER UPDATE OF deleted ON offer
+AFTER UPDATE OF final_date ON offer
 FOR EACH ROW 
-WHEN(NEW.deleted = TRUE)
+WHEN(NEW.final_date IS NOT NULL)
 EXECUTE PROCEDURE delete_keys_from_canceled_offers();
 
 
@@ -345,9 +347,9 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_offer_date_end_tg ON offer CASCADE;
 CREATE TRIGGER update_offer_date_end_tg 
-AFTER UPDATE OF deleted ON offer
+AFTER UPDATE OF final_date ON offer
 FOR EACH ROW
-WHEN(NEW.deleted=TRUE OR NEW.stock=0)
+WHEN(NEW.final_date IS NOT NULL OR NEW.stock=0)
 EXECUTE PROCEDURE update_offer_date_end();
 
 
