@@ -1380,22 +1380,22 @@
 
 
 
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',1,2,3);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',2,3,2);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',3,10,11);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',4,10,12);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',5,14,13);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',6,44,32);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',7,22,33);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',8,25,35);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',10,26,36);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',12,27,37);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',15,28,38);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',16,21,31);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',22,21,32);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',33,23,37);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',45,28,38);
-    INSERT INTO report(date,description,title,key,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',56,55,56);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',1, true,2,3);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',2, true,3,2);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',3, true,10,11);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',4, true,10,12);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',5, true,14,13);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',6, true,44,32);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',7, true,22,33);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',8, true,25,35);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',10, true,26,36);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',12, true,27,37);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',15, true,28,38);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',16, true,21,31);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',22, true,21,32);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',33, true,23,37);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',45, true,28,38);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',56, true,55,56);
 
     INSERT INTO message(date,description,regular_user,admin,report) VALUES('2019-05-05','Scammer',1,null,1);
     INSERT INTO message(date,description,regular_user,admin,report) VALUES('2019-05-05','Scammer',2,null,2);
