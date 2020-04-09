@@ -41,7 +41,8 @@ CREATE TABLE product (
   image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
   launch_date DATE NOT NULL,
-  num_sells INTEGER NOT NULL DEFAULT 0
+  num_sells INTEGER NOT NULL DEFAULT 0,
+    CONSTRAINT num_sells_chk CHECK (num_sells >= 0)
 );
 
 CREATE TABLE product_has_genre (
