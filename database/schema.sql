@@ -42,7 +42,7 @@ CREATE TABLE product (
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
   launch_date DATE NOT NULL,
   num_sells INTEGER NOT NULL DEFAULT 0,
-    CONSTRAINT num_sells_chk CHECK (num_sells >= 0)
+  CONSTRAINT num_sells_chk CHECK (num_sells >= 0)
 );
 
 CREATE TABLE product_has_genre (
@@ -162,6 +162,7 @@ CREATE TABLE report (
   date date NOT NULL DEFAULT NOW(),
   description TEXT NOT NULL,
   title TEXT NOT NULL,
+  status BOOLEAN NOT NULL,
   key INTEGER NOT NULL UNIQUE REFERENCES key(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   reporter INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
   reportee INTEGER REFERENCES regular_user(id) ON DELETE SET NULL ON UPDATE CASCADE,
