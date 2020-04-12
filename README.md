@@ -20,10 +20,24 @@
 [<img src="/docs/res/answer.png">](/docs/res/answer.png) 
 
 ## Development
+### APIs
+* [Google API](https://developers.google.com/identity/protocols/OAuth2)
+* [Paypal Sandbox](https://developers.google.com/identity/protocols/OAuth2)
+
+### Framework/Libraries
+* [Laravel](https://laravel.com/)
+* [Vue](https://)
+* [Bootstrap](https://)
+* Minor Javascript helper libraries
 
 ### Technologies 
-* C++
-* [GraphViewer](https://github.com/STEMS-group/GraphViewer)
+* PHP
+* HTML
+* CSS
+* JavaScript
+* PostgreSQL
+* PgAdmin
+* Docker
 
 ## How to Run
 ### Install dependencies and compile assets
@@ -40,5 +54,6 @@ $ php artisan optimize
 $ docker-compose up
 $ php artisan serve
 ```
+
 
 **Disclaimer** - This repository was created for educational purposes and we do not take any responsibility for anything related to its content. You are free to use any code or algorithm you find, but do so at your own risk.
