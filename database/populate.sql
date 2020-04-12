@@ -273,6 +273,8 @@
     INSERT INTO product_has_genre(genre,product) VALUES(13,29);
     INSERT INTO product_has_platform(platform,product) VALUES(1,29);
 
+    INSERT INTO regular_user (username, email, description, password, rating, birth_date, paypal, image, num_sells) values ('nightwalker739', 'nightwalker739@gmail.com', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 54, '1972-05-27 23:11:07', 'nightwalker739@gmail.com', 1, 0);
+    INSERT INTO regular_user (username, email, description, password, rating, birth_date, paypal, image, num_sells) values ('trustlessuser123', 'trustlessuser123@gmail.com', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 54, '1972-05-27 23:11:07', 'nightwalker739@gmail.com', 1, 0);
     INSERT INTO regular_user (username, email, description, password, rating, birth_date, paypal, image, num_sells) values ('sboyn0', 'lfosberry0@biglobe.ne.jp', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 54, '1972-05-27 23:11:07', 'iaudiss0@irs.gov', 1, 40142);
     INSERT INTO regular_user (username, email, description, password, rating, birth_date, paypal, image, num_sells) values ('ejenicke1', 'jwindous1@google.co.uk', 'ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 37, '1960-02-21 12:48:14', 'jlapping1@ted.com', 1, 49772);
     INSERT INTO regular_user (username, email, description, password, rating, birth_date, paypal, image, num_sells) values ('pkabos2', 'bhance2@weibo.com', 'gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem', 'a6ebd0a08deeed3b41c91bea84c249bad40e64e2', 6, '1969-02-06 05:56:16', 'aspinetti2@china.com.cn', 1, 804);
@@ -392,9 +394,12 @@
     INSERT INTO banned_user(regular_user) VALUES (55);
     INSERT INTO banned_user(regular_user) VALUES (56);
     INSERT INTO banned_user(regular_user) VALUES (57);
+    INSERT INTO banned_user(regular_user) VALUES (2);
+    
+    
+    
     
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (308.98, '2019-06-17 16:30:33', null, null, 2, 94, 12, 47);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (288.01, '2019-11-16 02:58:19', null, null, 3, 50, 11, 47);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (23.4, '2019-08-05 00:05:43', null, null, 2, 98, 10, 96);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (201.72, '2020-02-27 20:26:32', null, null, 5, 22, 25, 75);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (907.84, '2019-08-07 11:05:46', null, null, 1, 25, 3, 50);
@@ -404,7 +409,6 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (201.25, '2019-12-03 20:56:41', '2020-12-29 07:28:13', 593.43, 3, 48, 5, 52);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (668.14, '2019-05-30 14:55:28', '2020-09-24 20:03:04', 509.44, 2, 94, 10, 4);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (826.8, '2019-11-29 07:19:25', '2020-09-08 02:51:51', 885.41, 8, 33, 20, 62);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (581.01, '2020-01-26 04:33:40', '2020-11-27 13:06:19', 462.05, 8, 38, 28, 54);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (550.04, '2020-02-25 05:13:31', '2020-05-30 17:53:02', 968.84, 1, 24, 6, 37);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (576.32, '2019-10-27 00:50:02', '2020-05-14 12:14:10', 757.09, 3, 91, 11, 81);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (647.14, '2020-04-07 21:02:32', '2020-10-14 19:00:27', 873.67, 3, 34, 13, 100);
@@ -419,9 +423,7 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (424.17, '2019-12-13 09:21:34', '2020-10-08 13:37:32', 81.32, 6, 41, 6, 25);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (910.99, '2019-05-26 06:05:24', '2020-07-14 05:32:16', 246.1, 4, 52, 21, 83);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (577.29, '2019-10-31 02:16:20', '2020-06-20 17:25:48', 228.09, 1, 25, 18, 88);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (220.32, '2019-11-23 12:41:03', '2020-10-20 10:26:32', 59.78, 8, 35, 28, 44);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (298.07, '2020-03-11 08:52:00', '2020-06-29 22:03:18', 999.32, 9, 2, 23, 1);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (920.6, '2020-03-15 23:55:33', '2020-06-18 09:41:29', 747.89, 9, 89, 28, 60);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (420.82, '2020-01-17 01:44:13', '2020-05-31 16:48:01', 291.46, 8, 12, 18, 62);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (187.16, '2019-10-31 17:37:24', '2020-10-01 00:51:03', 990.82, 1, 81, 7, 83);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (639.52, '2019-08-18 14:36:02', '2020-05-20 05:25:08', 945.87, 7, 8, 25, 32);
@@ -436,9 +438,7 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (425.32, '2019-09-02 08:08:16', '2020-08-08 06:00:22', 609.0, 8, 67, 21, 20);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (662.04, '2019-06-16 02:19:24', '2020-12-10 19:01:40', 503.15, 6, 47, 23, 53);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (471.4, '2019-08-30 16:21:11', '2020-06-04 07:02:33', 240.51, 5, 40, 22, 87);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (182.08, '2019-04-19 08:35:00', '2020-10-29 20:39:02', 931.78, 6, 39, 29, 49);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (32.79, '2019-11-24 02:06:53', '2020-10-14 04:59:18', 852.95, 4, 62, 7, 83);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (166.79, '2019-07-10 12:06:32', '2020-11-17 13:32:31', 433.44, 8, 87, 28, 28);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (329.6, '2019-11-02 09:58:27', '2020-08-08 13:04:56', 825.94, 4, 32, 26, 20);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (199.9, '2019-09-12 05:26:13', '2020-07-01 06:24:54', 496.96, 7, 61, 10, 27);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (744.21, '2019-05-06 09:36:50', '2020-09-11 23:09:37', 338.35, 6, 33, 6, 76);
@@ -459,7 +459,6 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (515.28, '2019-08-02 21:58:53', '2020-12-14 13:40:13', 237.4, 9, 85, 10, 20);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (175.69, '2019-10-26 10:35:13', '2020-11-02 10:02:10', 934.9, 1, 60, 27, 97);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (111.11, '2019-10-29 04:37:38', '2020-05-25 19:38:23', 112.32, 4, 51, 20, 69);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (405.12, '2019-12-24 09:38:57', '2020-12-24 09:49:47', 345.3, 9, 79, 28, 62);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (591.97, '2019-06-22 22:56:26', '2020-12-24 20:39:29', 777.04, 8, 84, 19, 7);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (61.94, '2020-02-15 16:51:38', '2020-06-23 00:55:02', 382.66, 1, 34, 9, 6);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (479.87, '2020-01-14 01:38:55', '2020-12-21 02:35:24', 948.4, 9, 27, 26, 27);
@@ -469,10 +468,8 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (980.96, '2019-09-20 19:05:04', '2020-08-10 07:07:15', 98.21, 4, 11, 1, 74);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (53.34, '2019-10-11 15:59:10', '2020-09-23 19:17:39', 96.49, 6, 99, 4, 4);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (599.42, '2019-09-25 05:45:37', '2020-07-13 11:39:11', 396.38, 7, 37, 26, 14);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (881.99, '2019-06-16 03:11:54', '2020-07-01 02:59:36', 758.86, 6, 84, 29, 82);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (690.43, '2019-10-27 23:11:26', '2020-09-02 20:23:47', 406.23, 6, 55, 17, 41);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (475.48, '2019-07-06 18:18:24', '2020-08-23 08:14:41', 397.78, 7, 37, 13, 41);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (2.5, '2019-10-30 17:17:29', '2020-06-22 06:53:25', 129.08, 9, 23, 29, 9);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (571.81, '2019-11-18 14:40:36', '2020-09-28 07:29:57', 572.89, 2, 22, 3, 50);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (825.42, '2019-05-15 03:59:29', '2020-12-07 04:26:41', 689.94, 3, 41, 15, 50);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (78.92, '2020-03-03 14:11:53', '2020-05-28 19:28:00', 395.08, 5, 64, 23, 52);
@@ -482,9 +479,7 @@
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (417.24, '2020-03-16 14:55:48', '2020-08-13 12:23:36', 649.78, 2, 93, 25, 69);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (782.13, '2019-10-25 21:16:20', '2020-11-15 00:14:10', 546.88, 8, 58, 15, 89);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (422.28, '2019-11-12 07:20:57', '2020-06-24 18:43:27', 163.9, 6, 40, 12, 9);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (702.19, '2019-09-10 11:56:17', '2020-11-17 16:31:26', 101.05, 3, 65, 29, 54);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (882.51, '2019-06-23 23:39:40', '2020-08-15 19:55:30', 342.35, 6, 7, 25, 80);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (130.37, '2019-04-10 10:45:26', '2020-11-10 04:28:53', 945.27, 9, 52, 29, 44);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (556.6, '2020-01-16 08:40:23', '2020-10-27 06:52:01', 328.85, 9, 59, 17, 31);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (254.03, '2019-11-13 09:59:04', '2020-07-22 14:39:00', 610.29, 9, 54, 14, 91);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (794.08, '2019-04-09 03:20:42', '2020-12-12 10:39:28', 573.33, 9, 48, 6, 35);
@@ -498,7 +493,6 @@
     INSERT INTO discount (rate, start_date, end_date, offer) values (5, '2020-04-01 23:59:00', '2020-09-29 11:08:42', 67);
     INSERT INTO discount (rate, start_date, end_date, offer) values (70, '2020-04-01 23:59:00', '2020-11-21 02:21:55', 16);
     INSERT INTO discount (rate, start_date, end_date, offer) values (79, '2020-04-01 23:59:00', '2020-06-22 04:46:03', 65);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (22, '2020-04-01 23:59:00', '2020-11-26 14:48:17', 98);
     INSERT INTO discount (rate, start_date, end_date, offer) values (90, '2020-04-01 23:59:00', '2020-05-19 03:03:38', 19);
     INSERT INTO discount (rate, start_date, end_date, offer) values (48, '2020-04-01 23:59:00', '2020-06-12 08:10:40', 84);
     INSERT INTO discount (rate, start_date, end_date, offer) values (83, '2020-04-01 23:59:00', '2020-04-27 02:19:07', 90);
@@ -1391,10 +1385,10 @@
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',10, true,26,36);
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',12, true,27,37);
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',15, true,28,38);
-    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',16, true,21,31);
-    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',22, true,21,32);
-    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',33, true,23,37);
-    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',45, true,28,38);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',16, false,21,31);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',22, false,21,32);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',33, false,23,37);
+    INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',45, false,28,38);
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',56, true,55,56);
 
     INSERT INTO message(date,description,regular_user,admin,report) VALUES('2019-05-05','Scammer',1,null,1);
