@@ -1,4 +1,4 @@
-    -----------------------------------------
+ -----------------------------------------
     -- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
     -----------------------------------------
     TRUNCATE about_us RESTART IDENTITY CASCADE; 
@@ -384,20 +384,6 @@
     INSERT INTO admin (username, email, description, password, image) values ( 'bskelington4', 'zpawfoot4@4shared.com', 'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
     INSERT INTO admin (username, email, description, password, image) values ( 'hdurran5', 'ccolliford5@godaddy.com', 'habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
     INSERT INTO admin (username, email, description, password, image) values ( 'pvankov6', 'ngrisdale6@tumblr.com', 'et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-
-    INSERT INTO banned_user(regular_user) VALUES (1);
-    INSERT INTO banned_user(regular_user) VALUES (50);
-    INSERT INTO banned_user(regular_user) VALUES (51);
-    INSERT INTO banned_user(regular_user) VALUES (52);
-    INSERT INTO banned_user(regular_user) VALUES (53);
-    INSERT INTO banned_user(regular_user) VALUES (54);
-    INSERT INTO banned_user(regular_user) VALUES (55);
-    INSERT INTO banned_user(regular_user) VALUES (56);
-    INSERT INTO banned_user(regular_user) VALUES (57);
-    INSERT INTO banned_user(regular_user) VALUES (2);
-    
-    
-    
     
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (308.98, '2019-06-17 16:30:33', null, null, 2, 94, 12, 47);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (23.4, '2019-08-05 00:05:43', null, null, 2, 98, 10, 96);
@@ -495,7 +481,6 @@
     INSERT INTO discount (rate, start_date, end_date, offer) values (79, '2020-04-01 23:59:00', '2020-06-22 04:46:03', 65);
     INSERT INTO discount (rate, start_date, end_date, offer) values (90, '2020-04-01 23:59:00', '2020-05-19 03:03:38', 19);
     INSERT INTO discount (rate, start_date, end_date, offer) values (48, '2020-04-01 23:59:00', '2020-06-12 08:10:40', 84);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (83, '2020-04-01 23:59:00', '2020-04-27 02:19:07', 90);
     INSERT INTO discount (rate, start_date, end_date, offer) values (84, '2020-04-01 23:59:00', '2020-08-14 00:27:07', 24);
     INSERT INTO discount (rate, start_date, end_date, offer) values (2, '2020-04-01 23:59:00', '2020-12-24 04:55:42', 80);
     INSERT INTO discount (rate, start_date, end_date, offer) values (36, '2020-04-01 23:59:00', '2020-12-02 00:55:35', 7);
@@ -513,7 +498,6 @@
     INSERT INTO discount (rate, start_date, end_date, offer) values (15, '2020-04-01 23:59:00', '2020-12-24 01:24:19', 56);
     INSERT INTO discount (rate, start_date, end_date, offer) values (77, '2020-04-01 23:59:00', '2020-05-20 00:09:31', 53);
     INSERT INTO discount (rate, start_date, end_date, offer) values (47, '2020-04-01 23:59:00', '2020-04-24 16:59:16', 1);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (100, '2020-04-01 23:59:00', '2020-10-06 04:50:07', 91);
     INSERT INTO discount (rate, start_date, end_date, offer) values (7, '2020-04-01 23:59:00', '2020-05-22 02:09:55', 31);
     INSERT INTO discount (rate, start_date, end_date, offer) values (96, '2020-04-01 23:59:00', '2020-11-12 15:02:46', 70);
     INSERT INTO discount (rate, start_date, end_date, offer) values (7, '2020-04-01 23:59:00', '2020-09-17 05:33:47', 27);
@@ -532,37 +516,21 @@
     INSERT INTO discount (rate, start_date, end_date, offer) values (48, '2020-04-01 23:59:00', '2020-06-07 14:01:23', 32);
     INSERT INTO discount (rate, start_date, end_date, offer) values (18, '2020-04-01 23:59:00', '2020-07-08 20:01:57', 52);
     INSERT INTO discount (rate, start_date, end_date, offer) values (63, '2020-04-01 23:59:00', '2020-07-12 13:26:40', 61);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (12, '2020-04-01 23:59:00', '2020-10-31 20:57:00', 92);
     INSERT INTO discount (rate, start_date, end_date, offer) values (20, '2020-04-01 23:59:00', '2020-05-18 00:10:10', 50);
     INSERT INTO discount (rate, start_date, end_date, offer) values (45, '2020-04-01 23:59:00', '2020-10-09 07:28:34', 26);
     INSERT INTO discount (rate, start_date, end_date, offer) values (72, '2020-04-01 23:59:00', '2020-12-27 21:31:53', 43);
     INSERT INTO discount (rate, start_date, end_date, offer) values (7, '2020-04-01 23:59:00', '2020-08-08 17:53:04', 78);
     INSERT INTO discount (rate, start_date, end_date, offer) values (39, '2020-04-01 23:59:00', '2020-10-22 18:29:57', 66);
     INSERT INTO discount (rate, start_date, end_date, offer) values (42, '2020-04-01 23:59:00', '2020-05-28 17:03:54', 83);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (90, '2020-04-01 23:59:00', '2020-08-03 08:28:08', 95);
     INSERT INTO discount (rate, start_date, end_date, offer) values (55, '2020-04-01 23:59:00', '2020-12-28 22:24:43', 51);
     INSERT INTO discount (rate, start_date, end_date, offer) values (35, '2020-04-01 23:59:00', '2020-12-19 21:52:10', 2);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (59, '2020-04-01 23:59:00', '2020-10-30 20:16:52', 100);
     INSERT INTO discount (rate, start_date, end_date, offer) values (92, '2020-04-01 23:59:00', '2020-07-14 15:33:07', 48);
     INSERT INTO discount (rate, start_date, end_date, offer) values (97, '2020-04-01 23:59:00', '2020-11-22 23:53:12', 75);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (6, '2020-04-01 23:59:00', '2020-08-02 23:25:49', 94);
     INSERT INTO discount (rate, start_date, end_date, offer) values (28, '2020-04-01 23:59:00', '2020-08-30 01:45:22', 54);
-    INSERT INTO discount (rate, start_date, end_date, offer) values (64, '2020-04-01 23:59:00', '2020-12-22 18:16:28', 93);
     INSERT INTO discount (rate, start_date, end_date, offer) values (64, '2020-04-01 23:59:00', '2020-05-23 12:48:34', 39);
     INSERT INTO discount (rate, start_date, end_date, offer) values (44, '2020-04-01 23:59:00', '2020-08-25 00:08:25', 85);
 
    
-    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
-    VALUES(1,1,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
-    VALUES(51,2,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
-    VALUES(52,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
-    VALUES(53,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
-    VALUES(54,5,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-
     INSERT INTO orders (date, buyer) values ( '2017-05-16 14:27:19', 70);
     INSERT INTO orders (date, buyer) values ( '2016-08-02 12:46:12', 26);
     INSERT INTO orders (date, buyer) values ( '2012-02-10 17:32:29', 2);
@@ -1069,13 +1037,10 @@
     INSERT INTO key (key,price_sold, offer, orders) values ('1NpTmLmEK6R1A9nSJJhkBc9YAm8p4nR5a2', 76.37, 89, 328);
     INSERT INTO key (key,price_sold, offer, orders) values ('1H9AGALeqJcWV8fqyhRfFbKtA55ynNkPeT', 68.95, 18, 264);
     INSERT INTO key (key,price_sold, offer, orders) values ('12hnBAtrsRDzpXgsb1CBkcArcWQEbnJtmF', 92.7, 52, 208);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1PFi6v74NExGh3zQvCrJtAsLXobFxSmbF7', 41.96, 93, 199);
     INSERT INTO key (key,price_sold, offer, orders) values ('1DvqY42DoLYxxFjcdNB4nwp5NWzgUGTfrS', 43.07, 18, 301);
     INSERT INTO key (key,price_sold, offer, orders) values ('1Ed7YLJ4tDDsop3o1iBTg9NUQouMmQHERQ', 59.98, 79, 353);
     INSERT INTO key (key,price_sold, offer, orders) values ('13ZwAgu5qza6GnN8JKS93ap9gUo85hZ2xY', 41.48, 64, 88);
     INSERT INTO key (key,price_sold, offer, orders) values ('1KaFRxEXeB98pRGsBenWPQSr4XAUT9LkqS', 70.11, 36, 166);
-    INSERT INTO key (key,price_sold, offer, orders) values ('18Qpqehj3Pxm4oS8ZwecQ2HiVLkFtPgQvU', 29.37, 96, 313);
-    INSERT INTO key (key,price_sold, offer, orders) values ('13Bymbtnb7kQFaiYVFdtm2X5VTkJk5VANb', 56.6, 93, 348);
     INSERT INTO key (key,price_sold, offer, orders) values ('19dLZN3Fx2qcZEAxjG1xK2vFJqu2CP9diU', 61.49, 87, 374);
     INSERT INTO key (key,price_sold, offer, orders) values ('1FvJyAeZA7TTLZ6EChwtJL2a66fHf2zthv', 96.4, 53, 267);
     INSERT INTO key (key,price_sold, offer, orders) values ('121ddJozBHFrsDMriJm5gkbnT1MDZaijEc', 19.14, 61, 117);
@@ -1090,8 +1055,7 @@
     INSERT INTO key (key,price_sold, offer, orders) values ('18Hx6V2bwFAvJk8MRV1rrhr3z2HRMUbxYs', 83.59, 7, 463);
     INSERT INTO key (key,price_sold, offer, orders) values ('13HTz4JgbHBDZDLCTwMyLNqZo681TQRZzA', 99.58, 14, 468);
     INSERT INTO key (key,price_sold, offer, orders) values ('194rDoXhCyCzzievoFqtvev8evmAVXZWk4', 64.03, 18, 155);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1FiiKpAqfjpRzcWgLPkLiNQ4k5HqdkzQf6', 40.13, 31, 109);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1CYhYyrbPBKSdGMLTpLMMwHPSoUDWhK6u9', 17.99, 90, 435);
+    INSERT INTO key (key,price_sold, offer, orders) values ('1FiiKpAqfjpRzcWgLPkLiNQ4k5HqdkzQf6', 40.13, 31, 109); 
     INSERT INTO key (key,price_sold, offer, orders) values ('1Fcv4T1zRBGGAo8e9JEW2taEDRkSa3tpn9', 35.59, 63, 66);
     INSERT INTO key (key,price_sold, offer, orders) values ('18rV56wqkDbnycdZT5Vyv9UyiWXZxbPLHP', 64.51, 58, 40);
     INSERT INTO key (key,price_sold, offer, orders) values ('1HMAvcdYtnXVp76hTUKcLH85KfhPUeRYXd', 96.38, 22, 102);
@@ -1102,20 +1066,14 @@
     INSERT INTO key (key,price_sold, offer, orders) values ('1GF14gWnumFv2PTn63rxNmw61JC2uhRGk1', 49.45, 43, 305);
     INSERT INTO key (key,price_sold, offer, orders) values ('14bsaE3Qgtspv9iHfTeShBkdmuJRHYFUvt', 94.24, 64, 331);
     INSERT INTO key (key,price_sold, offer, orders) values ('16GAefTpXMDG3R5CuyR4TBLjwAj5j9dD6k', 29.21, 59, 328);
-    INSERT INTO key (key,price_sold, offer, orders) values ('19fjKGpB34yDQ2Jd1GdzZtmETpQ2mtSZAW', 75.28, 93, 332);
     INSERT INTO key (key,price_sold, offer, orders) values ('1GdmgEnRAMMY7rbjMS5Amp6Pb9CcWpBgPW', 19.62, 59, 475);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1GtsfuPorpW5jdj9u31VQudrgQ3UYuvhvh', 50.75, 98, 21);
     INSERT INTO key (key,price_sold, offer, orders) values ('1MDw49uAoDrrWvnoXqShCqMmCu4bXviqr2', 25.53, 22, 6);
-    INSERT INTO key (key,price_sold, offer, orders) values ('13A3erLif13HoxonWHosAzirS3gQEKmS5B', 47.26, 94, 360);
     INSERT INTO key (key,price_sold, offer, orders) values ('1DfqW9HKQwThNzQPMtWXNEqkmPy5pheaEv', 5.96, 50, 17);
     INSERT INTO key (key,price_sold, offer, orders) values ('1KcSkvjX4FAJFLNN6ra73LQnKshhd7iF2v', 81.35, 13, 304);
-    INSERT INTO key (key,price_sold, offer, orders) values ('12jSfutzRYofZhdzmzpaEUE1fhym2WYBFg', 66.34, 93, 169);
     INSERT INTO key (key,price_sold, offer, orders) values ('1CrGcojMb3YxmKHWn8nw2ULBESCq1XYftf', 44.51, 86, 57);
-    INSERT INTO key (key,price_sold, offer, orders) values ('18FbWFkNR8cVqDkyihzhrKB5xE3YRpUFBV', 66.29, 99, 240);
     INSERT INTO key (key,price_sold, offer, orders) values ('1HhdFUkEmhwFPLYDTo2xr9wwKPQFopKmwX', 18.28, 39, 414);
     INSERT INTO key (key,price_sold, offer, orders) values ('1AbmnDbffWYLR6gvFpCemzMB5Fv5JypxER', 47.75, 55, 309);
     INSERT INTO key (key,price_sold, offer, orders) values ('163DUF5oKiasK5MAUdWrM8SWGPkF7scuUk', 46.8, 31, 478);
-    INSERT INTO key (key,price_sold, offer, orders) values ('17ZwjTsi1ARQ4qdFgYNkC2ZS1T9AfzdMWf', 71.84, 93, 268);
     INSERT INTO key (key,price_sold, offer, orders) values ('12ZLdjb4o7HbeE3fRj2oJoQ6hLvW7u1Zw8', 51.66, 37, 359);
     INSERT INTO key (key,price_sold, offer, orders) values ('1PW1pjvmWG2EzLrvt7b75CorpCgt2QKg5Y', 41.58, 40, 184);
     INSERT INTO key (key,price_sold, offer, orders) values ('1AKetBwzvadd7FS1Pf1iBTy83jpzDGZwir', 39.32, 81, 500);
@@ -1124,7 +1082,6 @@
     INSERT INTO key (key,price_sold, offer, orders) values ('1HdxiqSZaUiX2T6Sy8yghNBrRq3v7T1Bsd', 73.78, 10, 261);
     INSERT INTO key (key,price_sold, offer, orders) values ('15qpyuc4LkTBcugJpviGgvyVYatZNMMYq3', 83.66, 43, 347);
     INSERT INTO key (key,price_sold, offer, orders) values ('1JrxKcfaRqU26TmPfxexcW3dnR5op1cG81', 25.96, 31, 120);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1KYPMsHQMCjaHe42QNPNCepienNjFEMZsb', 60.27, 90, 192);
     INSERT INTO key (key,price_sold, offer, orders) values ('1HDeweXAKiDSTEpNDkxGJyecUD1ogmrme2', 44.32, 82, 338);
     INSERT INTO key (key,price_sold, offer, orders) values ('17dYSF17aw5pQACfgoTz5tVeprLU8eZKHK', 47.7, 66, 301);
     INSERT INTO key (key,price_sold, offer, orders) values ('1B5Hs8qmH6YDs6YYXgENLvHRZJkYNrsGgU', 33.75, 52, 270);
@@ -1148,7 +1105,6 @@
     INSERT INTO key (key,price_sold, offer, orders) values ('1AsMMuHbgQcTm4fKqQ8qzaHAZMy9woUwjk', 99.06, 42, 124);
     INSERT INTO key (key,price_sold, offer, orders) values ('1DVNaij8L9zSjQkwLpAfokokkKdfvDTXs2', 96.52, 32, 328);
     INSERT INTO key (key,price_sold, offer, orders) values ('1Cc8Q4jCgtaw4XgjsAWpUQsk3x2XsyXpuA', 48.6, 3, 344);
-    INSERT INTO key (key,price_sold, offer, orders) values ('1Aaxz9Zmje61A51354ueQjgiF4HQg4STo3', 86.47, 91, 44);
     INSERT INTO key (key,price_sold, offer, orders) values ('1CirAFCBJFDL3bZ29QJd4eVALRf85BaXfk', 76.83, 34, 132);
     INSERT INTO key (key,price_sold, offer, orders) values ('1DEkmm5P8ch89THDmi7eQ4mbz4uttDg99U', 38.61, 46, 371);
     INSERT INTO key (key,price_sold, offer, orders) values ('12i9Wr4nxufuHZcuXzoHQy1K8NVZFXapTj', 96.8, 54, 139);
@@ -1171,7 +1127,6 @@
     INSERT INTO key (key, offer) values ('1NR3zsWi2N8DejAjyB3h9vwdyWzfuAjWcp', 30);
     INSERT INTO key (key, offer) values ('1BCb3vkvfBHsv3evn1Dp2nWjESjd7WyJTP', 27);
     INSERT INTO key (key, offer) values ('16PMra44krg9XYYKdnyo2gs7RTTJzn3cAt', 87);
-    INSERT INTO key (key, offer) values ('1HUyzuFoZ7TWE5SqC3xGMCVQDzb7tpw53S', 94);
     INSERT INTO key (key, offer) values ('1BPMAaqHa3FTN4rYiNbK73sA4qPWfFRu6L', 26);
     INSERT INTO key (key, offer) values ('1NAZUzdLSzgq6sRCimTvk7amoXgvsjh54x', 16);
     INSERT INTO key (key, offer) values ('1LgvEuyTVW1Laraamf3e4Q7ofpV9m8WR9E', 40);
@@ -1182,7 +1137,6 @@
     INSERT INTO key (key, offer) values ('16ZFatxG79WJK2hAKEmUEMxLv8kuzzHFVu', 13);
     INSERT INTO key (key, offer) values ('16rePfo2xotXVB499qsqCTFWz6ti24UGoH', 65);
     INSERT INTO key (key, offer) values ('1Er73VCQnx5QWSBfECyeMMt9azkXAFutsM', 26);
-    INSERT INTO key (key, offer) values ('1PVU3T4rMK7JhwF5BQTxX1hoCcYVSHjXQT', 94);
     INSERT INTO key (key, offer) values ('12SH13C6pEsoxBg25fBHVWMG9iuFoZwF8G', 30);
     INSERT INTO key (key, offer) values ('1KsuaqiZQmfFqKqHrcFBYhZX5DjSWKJw76', 37);
     INSERT INTO key (key, offer) values ('14yzcrYoA85GPV59J3dwezRME7bsf4jJc5', 21);
@@ -1191,43 +1145,33 @@
     INSERT INTO key (key, offer) values ('14nZtH65SEtGBNG3pJWjr9nKLkrUgbwacC', 44);
     INSERT INTO key (key, offer) values ('15rodmJFzEFgeWaUEGkm3LjYstnXcLjd7z', 37);
     INSERT INTO key (key, offer) values ('1CPAsTQRKnCQypR4NCcKhwQwteRSy1wh48', 23);
-    INSERT INTO key (key, offer) values ('1GPWwa67jU32W3BN1XtFj1LePWyA3qRz6C', 100);
     INSERT INTO key (key, offer) values ('16YinoyGjSSTxcrwYvsv7fm4oby4BKhpqn', 10);
-    INSERT INTO key (key, offer) values ('1KdsfhDj6NbcQafrWjBMzAfi1571296TMD', 90);
     INSERT INTO key (key, offer) values ('1NqrZ9goTyAg9YJf86piwYeScgYD5toUUU', 2);
     INSERT INTO key (key, offer) values ('1QDLdhgep99zyqBkqvts3TxijimztXVjJz', 66);
     INSERT INTO key (key, offer) values ('16Bs84c8c9GvFogJ2wn9AadT13h4fefdpv', 46);
-    INSERT INTO key (key, offer) values ('1KVdnQVGsVQdoiC5iem9aFjtRLkRcz5Kz3', 93);
     INSERT INTO key (key, offer) values ('1NPZTdPSsJpx7A26aUBwE65BnUfF4S4Vis', 6);
-    INSERT INTO key (key, offer) values ('1HrvKkiE2iy1biGGJssPvkPdzzFG22SrjU', 99);
     INSERT INTO key (key, offer) values ('196eTSQT7San2i7Uf5QVt9KdDd2ecd9GQ1', 39);
     INSERT INTO key (key, offer) values ('1HDFynzFpKt8n2h6xfD31G1NFJg5QHKqQh', 9);
     INSERT INTO key (key, offer) values ('12TkNjQH3PUtisi8Uzrfr4wMucLFVjwYc2', 45);
     INSERT INTO key (key, offer) values ('19T3CGHCMAsN6yar1jfNHpzLMXcyS7ECqa', 8);
     INSERT INTO key (key, offer) values ('15k54GtVthBxosNEx21RZVRGZ6yUk3sfWE', 17);
     INSERT INTO key (key, offer) values ('127yMCZz64juiUJdzjZoqWXgHzfpiGrYrH', 79);
-    INSERT INTO key (key, offer) values ('169EfTMo7RBnWdZ4Y4XwGdDo1tVFg6mTg1', 97);
-    INSERT INTO key (key, offer) values ('1HEfSprMoesHfhWsSv1s9rZjfbcByWWxJ2', 94);
     INSERT INTO key (key, offer) values ('12Q2LCbNjrRswqtNechuAx8T6orzTpXBAK', 36);
     INSERT INTO key (key, offer) values ('1LUJrQwLap23qQxfRUFraVTqYepS7yfhUZ', 11);
     INSERT INTO key (key, offer) values ('12inWwYjTo9LpmAFTykGkHarJrVX7tcB4M', 67);
     INSERT INTO key (key, offer) values ('17oRFhhREYuJxw4HWRvaj5VhbmFRXYh8NB', 68);
     INSERT INTO key (key, offer) values ('1GV78YGzLa8ALcFAufSG8uJmimHBGTHeKa', 84);
-    INSERT INTO key (key, offer) values ('1MMsb4KUZEd5LA5PoZWhfz6AQRy4a4Q3Nm', 99);
     INSERT INTO key (key, offer) values ('1GJ3FKz9G4Nub5nViS29NbawbK8JkeMV7B', 87);
     INSERT INTO key (key, offer) values ('1GpRMYXbtuFmDuffrnixbmWfY93h8vxCxy', 6);
     INSERT INTO key (key, offer) values ('1KU6gmjVAdH1jMwVseDogRwTDN4QQKmKRH', 49);
     INSERT INTO key (key, offer) values ('1BGJD366R4NAiGR3HVECh78eWLriuvmF7F', 85);
     INSERT INTO key (key, offer) values ('12SKuWq3ZeLPowVnkXakgGSEYDtPg3CvNw', 13);
     INSERT INTO key (key, offer) values ('1DufxcpBsvupD8f1678GrB9w6JB6tE9Ly4', 81);
-    INSERT INTO key (key, offer) values ('16KZQcfaRrhmjGbiDPRHewyqm6kRkYM5dH', 97);
     INSERT INTO key (key, offer) values ('1HkbsEyYHRzd8L4ux4jhM1k8TFtmtuCREZ', 74);
     INSERT INTO key (key, offer) values ('151LyqbzYbygSbfj9eiL3k2yGDriap7m84', 55);
     INSERT INTO key (key, offer) values ('19Hn15AvWSj1YUe7Gy2wYNnejT7XnjFaEj', 16);
     INSERT INTO key (key, offer) values ('1ya8CkhgKZHJXX3AD69NYHvW6o8buEbWE', 15);
-    INSERT INTO key (key, offer) values ('149JGhhbrnfR4DY7Ft2xLRbZvGwqqcF9hM', 95);
     INSERT INTO key (key, offer) values ('12VKu8umgjgPH372B7PWBo6LqeJmjH8ork', 2);
-    INSERT INTO key (key, offer) values ('1J8YqMJEocqoY9qd12nJP2mRoSgoqL9i95', 95);
     INSERT INTO key (key, offer) values ('17fhwfS7WSF6by1QkwBYgjU2WsjJgegcqg', 11);
     INSERT INTO key (key, offer) values ('16KCs6gtpmF26WP8LL8fi8z7m5NAwabc3V', 80);
     INSERT INTO key (key, offer) values ('1B2xxKqScrocaQW9W2kNUkc6SiLsXonRNC', 84);
@@ -1239,13 +1183,11 @@
     INSERT INTO key (key, offer) values ('1CM5jWaSbiEy28ecf42big8FKb9eKGQ1Gx', 29);
     INSERT INTO key (key, offer) values ('1GCuUziFNJ1ED76mKZVaFAbjS4b9weE6HQ', 24);
     INSERT INTO key (key, offer) values ('1NyUzNyBwadHp7X5iGvHuWPnkKRGTfpF6h', 76);
-    INSERT INTO key (key, offer) values ('19QqW1cpk5Lgncz6Qq2u3m8JEQpufNwAG5', 93);
     INSERT INTO key (key, offer) values ('19FPHXJspUUeXqREHMTW52xPRf8dY4g8PT', 7);
     INSERT INTO key (key, offer) values ('1BEg6tz4oXf9SbXQsSQpSNuxuEktmrQJXj', 59);
     INSERT INTO key (key, offer) values ('1BamTqnEkswNeUuqKPNtBWYuAqdPeXR2Q9', 54);
     INSERT INTO key (key, offer) values ('14SYUzEfVDM3UQsaGbRZy67U9373AFwzEg', 73);
     INSERT INTO key (key, offer) values ('1McRiNftxBD12Kcz53vqB7ncnanQCixsk6', 83);
-    INSERT INTO key (key, offer) values ('15TKhFgkuCECeyvY5pUhSE5U7Y2m1b3szZ', 93);
     INSERT INTO key (key, offer) values ('1C8ie4P4Exh4tdqRYp34TGVgBdV79qyXm', 84);
     INSERT INTO key (key, offer) values ('1MY72e59uR5hvD3irjS6bjhA3Btd74ferS', 10);
     INSERT INTO key (key, offer) values ('1GZFjctdsXPAWburw47BUBk4yReha7sa9B', 89);
@@ -1258,121 +1200,24 @@
     INSERT INTO key (key, offer) values ('1JSHikBryukYh6v4VCNg7sq6oN9yZJDwUj', 59);
     INSERT INTO key (key, offer) values ('16kDCmTVuqbdL3ZJR8J2AkcWedFV9hxXKp', 50);
     INSERT INTO key (key, offer) values ('1CNVqYixNhcmP3tGHTGnAcn993zsHDq43j', 14);
-    INSERT INTO key (key, offer) values ('167w6kgjRNM5EmSSZozYDpJcAHF3rjKC6w', 100);
-    INSERT INTO key (key, offer) values ('1EfFQmwR4syXCezpfXQqjEegPC8ygEqJP6', 95);
+    
+    
     INSERT INTO key (key, offer) values ('1KiQPzUmBtFiZvPGTWnsjCr6y2Ea17ESqu', 68);
     INSERT INTO key (key, offer) values ('1bUL6FQxpNovJSVBiBMED5EDFaGmXsyk4', 64);
     INSERT INTO key (key, offer) values ('13n8a2e4hV1mzSAP2KyKEdZ9gKudAjxtXA', 20);
-    INSERT INTO key (key, offer) values ('18BB8xfQyiam8oTPE193NF9G9FP6vpSCKv', 90);
+   
 
-
-
-
-
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam', 2, 1);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 24, 2);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam', 51, 3);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum', 68, 4);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam', 89, 5);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 30, 6);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor', 30, 7);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum', 37, 8);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue', 45, 9);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices', 82, 10);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis', 64, 11);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium', 71, 12);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan', 30, 13);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac', 82, 14);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia', 79, 15);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis', 8, 16);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in', 45, 17);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam', 62, 18);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae', 45, 19);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam', 63, 20);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque', 54, 21);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi', 72, 22);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel', 11, 23);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt', 88, 24);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam', 17, 25);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel', 17, 26);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue', 60, 27);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in', 34, 28);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin', 25, 29);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac', 47, 30);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra', 34, 31);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede', 73, 32);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'lectus suspendisse potenti in eleifend quam a odio in hac', 60, 33);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat', 71, 34);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus', 84, 35);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac', 78, 36);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at', 61, 37);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula', 79, 38);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam', 33, 39);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna', 8, 40);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed', 92, 41);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet', 80, 42);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis', 97, 43);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus', 6, 44);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis', 27, 45);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia', 64, 46);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus', 79, 47);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit', 51, 48);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus', 37, 49);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec', 38, 50);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy', 13, 51);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis', 41, 52);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt', 61, 53);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a', 19, 54);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor', 27, 55);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque', 26, 56);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros', 96, 57);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique', 74, 58);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec', 9, 59);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 30, 60);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor', 8, 61);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc', 36, 63);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non', 82, 64);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean', 36, 65);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus', 28, 66);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'fusce congue diam id ornare imperdiet sapien urna pretium nisl', 39, 67);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida', 29, 68);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur', 65, 69);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque', 38, 70);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac', 35, 71);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum', 46, 72);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat', 44, 73);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante', 58, 74);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis', 33, 75);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 80, 76);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a', 68, 77);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at', 85, 78);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum', 64, 79);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer', 90, 80);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum', 82, 81);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem', 63, 82);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 87, 83);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum', 23, 84);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra', 68, 85);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo', 4, 86);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus', 10, 87);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in', 52, 88);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla', 6, 89);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 48, 90);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci', 8, 91);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst', 45, 92);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra', 19, 93);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor', 90, 94);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae', 87, 95);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi', 17, 96);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et', 50, 97);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac', 39, 98);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus', 60, 99);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 36, 100);
-    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis', 96, 101);
-
-
-
-
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam', 40, 1);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 54, 2);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam', 70, 3);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum', 15, 4);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam', 94, 5);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 62, 6);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor', 86, 7);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (true, 'curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum', 19, 8);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue', 9, 9);
+    INSERT INTO feedback (evaluation, comment, buyer, key) values (false, 'consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices', 25, 10);
+    
 
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',1, true,2,3);
     INSERT INTO report(date,description,title,key,status,reporter,reportee) VALUES('2020-03-30','This is a report','Key dont work',2, true,3,2);
@@ -1434,6 +1279,31 @@
     INSERT INTO cart(buyer, offer) VALUES(16,8);
     INSERT INTO cart(buyer, offer) VALUES(16,9);
     INSERT INTO cart(buyer, offer) VALUES(16,10);
+
+    
+    INSERT INTO banned_user(regular_user) VALUES (1);
+    INSERT INTO banned_user(regular_user) VALUES (50);
+    INSERT INTO banned_user(regular_user) VALUES (51);
+    INSERT INTO banned_user(regular_user) VALUES (52);
+    INSERT INTO banned_user(regular_user) VALUES (53);
+    INSERT INTO banned_user(regular_user) VALUES (54);
+    INSERT INTO banned_user(regular_user) VALUES (55);
+    INSERT INTO banned_user(regular_user) VALUES (56);
+    INSERT INTO banned_user(regular_user) VALUES (57);
+    INSERT INTO banned_user(regular_user) VALUES (2);
+    
+       INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
+    VALUES(1,1,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
+    VALUES(51,2,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
+    VALUES(52,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
+    VALUES(53,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+    INSERT INTO ban_appeal(banned_user,admin,ban_appeal,date)
+    VALUES(54,5,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+
+    
 
     INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
 
