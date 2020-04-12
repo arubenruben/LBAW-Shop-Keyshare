@@ -202,14 +202,11 @@ CREATE TABLE faq (
 
 ----------------------------------------
 --Materialized Views
-
-DROP MATERIALIZED VIEW IF EXISTS active_products;
 CREATE MATERIALIZED VIEW active_products AS 
     SELECT product.id AS product_id
 	FROM product
     WHERE product.deleted = FALSE;
 
-DROP MATERIALIZED VIEW IF EXISTS active_offers;
 CREATE MATERIALIZED VIEW active_offers AS 
     SELECT offer.id AS offer_id
 	FROM offer
@@ -225,30 +222,17 @@ CREATE MATERIALIZED VIEW active_offers AS
 
 -- Performance Indices
 
-DROP INDEX IF EXISTS
 CREATE INDEX offer_product_idx ON offer (product);
-
-DROP INDEX IF EXISTS
 CREATE INDEX offer_seller_idx ON offer (seller);
-
-DROP INDEX IF EXISTS
-CREATE INDEX offer_product_idx ON discount (offer);
-
-DROP INDEX IF EXISTS
+CREATE INDEX disocunt_offer_idx ON discount (offer);
 CREATE INDEX key_offer_idx ON key (offer);
-
-DROP INDEX IF EXISTS
-CREATE INDEX key_offer_idx ON discount (start_date, end_date);
-
-DROP INDEX IF EXISTS
+CREATE INDEX discount_date_idx ON discount (start_date, end_date);
 CREATE INDEX cart_buyer_idx ON cart (buyer);
 
-DROP INDEX IF EXISTS product_name_idx;
 CREATE INDEX product_name_idx 
 ON product
 USING GIST(name_tsvector);
 
-DROP INDEX IF EXISTS user_username_idx;
 CREATE INDEX user_username_idx 
 ON regular_user
 USING GIST (name_tsvector);
@@ -260,6 +244,23 @@ USING GIST (name_tsvector);
 -----------------------------------------
 -- UDFs and TRIGGERS
 -----------------------------------------
+
+DROP FUNCTION IF EXISTS get_seller_through_key(integer) CASCADE;
+CREATE OR REPLACE FUNCTION get_seller_through_key(key_id integer)
+RETURNS INTEGER AS $seller_id$
+DECLARE
+    seller_id integer;
+BEGIN
+    SELECT u.id INTO seller_id
+    FROM key k JOIN offer o ON k.offer = o.id
+    JOIN regular_user u ON o.seller = u.id
+    WHERE k.id = key_id;
+	
+    RETURN seller_id;
+END;
+$seller_id$ LANGUAGE plpgsql;
+
+
 
 CREATE OR REPLACE FUNCTION insert_product_tsvector()
 RETURNS TRIGGER AS $$
@@ -439,9 +440,8 @@ RETURNS TRIGGER AS $$
 BEGIN
     IF NOT EXISTS (
         SELECT *
-        FROM orders AS o JOIN key AS k ON o.buyer = k.orders
-        WHERE NEW.key = k.id
-        AND o.buyer = NEW.buyer
+        FROM orders AS o JOIN key AS k ON o.number = k.orders
+        WHERE NEW.key = k.id AND o.buyer = NEW.buyer
     ) THEN 
         RAISE EXCEPTION 'Cannot review a product that you did not buy';
     END IF;
@@ -461,12 +461,12 @@ RETURNS TRIGGER AS $$
 DECLARE
     stock_quantity INTEGER;
 BEGIN
-    stock_quantity := ( 
-        SELECT COUNT(key.id)
-        FROM key
-        WHERE key.orders IS NULL AND key.offer = NEW.offer
-        GROUP BY(key.id)
-    );
+  
+    SELECT COUNT(key.id) into stock_quantity
+    FROM key
+    WHERE key.orders IS NULL AND key.offer = NEW.offer
+    GROUP BY(key.id);
+
 	
     IF stock_quantity IS NULL THEN
         stock_quantity := 0;
@@ -662,18 +662,18 @@ RETURNS TRIGGER AS $$
 DECLARE
     rate REAL;
     offer_profit REAL;
-BEGIN
-    FOREACH rate IN ARRAY TG_ARGV LOOP
-        SELECT SUM(key.price_sold) into offer_profit
-        FROM key
-        WHERE key.offer = NEW.offer
-            AND key.price_sold IS NOT NULL
-        GROUP BY key.offer;
 
-        UPDATE offer
-        SET profit = rate * offer_profit
-        WHERE id = NEW.offer;
-    END LOOP;
+BEGIN
+
+    SELECT SUM(key.price_sold) into offer_profit
+    FROM key
+    WHERE key.offer = NEW.offer
+        AND key.price_sold IS NOT NULL
+    GROUP BY key.offer;
+
+    UPDATE offer
+    SET profit = profit + offer_profit
+    WHERE id = NEW.offer;
     
     RETURN NEW;
 END;
@@ -683,7 +683,7 @@ DROP TRIGGER IF EXISTS update_offer_profit_tg ON key CASCADE;
 CREATE TRIGGER update_offer_profit_tg 
 AFTER INSERT OR DELETE OR UPDATE OF price_sold ON key
 FOR EACH ROW
-EXECUTE PROCEDURE update_offer_profit($rate);
+EXECUTE PROCEDURE update_offer_profit();
 
 CREATE OR REPLACE FUNCTION verify_banned_user_offer()
 RETURNS TRIGGER AS $$
