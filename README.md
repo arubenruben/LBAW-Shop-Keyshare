@@ -21,23 +21,9 @@
 
 ## Development
 
-### APIs
-* [Google API](https://developers.google.com/identity/protocols/OAuth2)
-
-### Framework/Libraries
-* [Laravel](https://laravel.com/)
-* [Vue](https://vuejs.org/)
-* [Laravel Socialite](https://laravel.com/docs/5.5/socialite)
-* [Pusher](https://pusher.com/)
-* [TinyMCE](https://www.tinymce.com/)
-* Minor Javascript helper libraries
-
 ### Technologies 
-* PHP
-* HTML
-* CSS
-* JavaScript
-* PostgreSQL
+* C++
+* [GraphViewer](https://github.com/STEMS-group/GraphViewer)
 
 ## How to Run
 ### Install dependencies and compile assets
