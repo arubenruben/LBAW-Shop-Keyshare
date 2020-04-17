@@ -17,5 +17,12 @@ class Key extends Model
      *
      * @var string
      */
-    protected $table = 'key';   
+    protected $table = 'key';  
+    
+    /**
+     * 
+     */
+    public function order(){
+        return $this->belongsTo('App\orders', 'orders');
+    }
 }

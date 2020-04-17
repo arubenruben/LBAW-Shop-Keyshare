@@ -18,4 +18,12 @@ class Orders extends Model
      * @var string
      */
     protected $table = 'orders';   
+
+      /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'number';
+    
 }
