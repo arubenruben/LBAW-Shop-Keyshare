@@ -20,14 +20,14 @@ class Product extends Model
      * The image this product has
      */
     public function image() {
-        return $this->hasOne('App\Image', 'image');
+        return $this->belongsTo('App\Image', 'image');
     }
 
     /**
      * The category this product has
      */
     public function category() {
-        return $this->hasOne('App\Category', 'category');
+        return $this->belongsTo('App\Category', 'category');
     }
 
     /**
