@@ -27,16 +27,12 @@ Route::put('register', 'Auth\RegisterController@register');
 
 // User
 Route::get('user/{id}', 'UserController@show');
+Route::post('user/{id}', 'UserController@update');
 Route::delete('user/{id}', 'UserController@delete');
 Route::get('user/{id}/purchase', 'UserController@showPurchases');
 Route::get('user/{id}/offer', 'UserController@showOffers');
 Route::get('user/{id}/report', 'UserController@showReports');
-Route::post('user/{id}/description', 'UserController@updateDescription');
-Route::post('user/{id}/password', 'UserController@updatePassword');
-Route::post('user/{id}/image', 'UserController@updateImage');
 Route::delete('user/{id}/image', 'UserController@deleteImage');
-Route::post('user/{id}/email', 'UserController@updateEmail');
-Route::post('user/{id}/paypal', 'UserController@updatePayPal');
 
 // Cards
 Route::get('cards', 'CardController@list');
