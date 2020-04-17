@@ -40,27 +40,51 @@ class User extends Authenticatable
      * The offers the user has
      */
     public function offer(){
-        return $this->hasMany('App\Offer');
+        return $this->hasMany('App\Offer', 'seller');
     }
 
     
     /**
-     * The offers the user has
+     * The cart entries the user has
      */
     public function cart(){
-        return $this->hasMany('App\cart');
+        return $this->hasMany('App\Cart', 'buyer');
     }
 
-
-
-       /**
-     * The model's default values for attributes.
-     *
-     * @var array
+    /**
+     * The feedbacks the user has given
      */
-    protected $attributes = [
-        'image' => 0,
-        'num_sells' => 0,
-    ];
+    public function feedback(){
+        return $this->hasMany('App\Feedback', 'buyer');
+    }
+
+    /**
+     * The orders the user has purchased
+     */
+    public function orders(){
+        return $this->hasMany('App\Orders', 'buyer');
+    }
+
+    /**
+     * The reports the user has given
+     */
+    public function reportee(){
+        return $this->hasMany('App\Report', 'reportee');
+    }
+
+    /**
+     * The reports given to the user
+     */
+    public function reporter(){
+        return $this->hasMany('App\Report', 'reporter');
+    }
+
+    /**
+     * The messages the user writes
+    */
+    public function message(){
+        return $this->hasMany('App\Message', 'regular_user');
+    }
+
 
 }
