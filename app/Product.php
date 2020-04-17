@@ -19,28 +19,28 @@ class Product extends Model
     /**
      * The image this product has
      */
-    public function product() {
+    public function image() {
         return $this->hasOne('App\Image', 'image');
     }
 
     /**
-     * The platform this offer is associated with
+     * The category this product has
+     */
+    public function category() {
+        return $this->hasOne('App\Category', 'category');
+    }
+
+    /**
+     * The platforms this offer is associated with
      */
     public function platforms() {
-        return $this->hasManyThrough('App\Platform', 'App\ProductHasPlatform', 'product');
+        return $this->belongsToMany('App\Platform', 'product_has_platform', 'product', 'platform');
     }
 
     /**
-     * Keys this offer has
+     * The genres this offer is associated with
      */
-    public function keys() {
-        return $this->hasMany('App\Key', 'offer');
-    }
-
-    /**
-     * Discounts this offer has
-     */
-    public function discounts() {
-        return $this->hasMany('App\Discount', 'offer');
+    public function genres() {
+        return $this->belongsToMany('App\Genre', 'product_has_genre', 'product', 'genre');
     }
 }

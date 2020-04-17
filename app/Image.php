@@ -17,12 +17,5 @@ class Image extends Model
      *
      * @var string
      */
-    protected $table = 'image';  
-
-    /**
-     * 
-     */
-    
-    
-
+    protected $table = 'image';
 }

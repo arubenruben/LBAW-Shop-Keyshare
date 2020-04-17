@@ -3,19 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
 class Platform extends Model
 {
-    use Notifiable;
-
-    // Don't add create and update timestamps in database.
-    public $timestamps  = false;
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'platform';   
+    protected $table = 'platform';
+
+    // Don't add create and update timestamps in database.
+    public $timestamps  = false;
 }

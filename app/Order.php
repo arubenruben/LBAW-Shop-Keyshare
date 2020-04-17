@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Feedback extends Model
+class Order extends Model
 {
     use Notifiable;
 
@@ -17,19 +17,19 @@ class Feedback extends Model
      *
      * @var string
      */
-    protected $table = 'feedback';
+    protected $table = 'orders';
 
     /**
-     * The buyer that is evaluating
+     * The user this offer belongs to
      */
-    public function buyer(){
+    public function buyer() {
         return $this->belongsTo('App\User', 'buyer');
     }
 
     /**
-     * The key the buyer is referring to
+     * The keys this offer has
      */
-    public function key(){
-        return $this->belongsTo('App\Key', 'key');
+    public function keys() {
+        return $this->hasMany('App\Key', 'orders');
     }
 }
