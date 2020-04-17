@@ -13,12 +13,18 @@ class User extends Authenticatable
     public $timestamps  = false;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'regular_user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
     ];
 
     /**
@@ -27,13 +33,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
-    /**
-     * The cards this user owns.
+       /**
+     * The model's default values for attributes.
+     *
+     * @var array
      */
-     public function cards() {
-      return $this->hasMany('App\Card');
-    }
+    protected $attributes = [
+        'image' => 0,
+        'num_sells' => 0,
+    ];
+
 }
