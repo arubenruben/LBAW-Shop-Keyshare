@@ -36,6 +36,23 @@ class User extends Authenticatable
         'password'
     ];
 
+    /**
+     * The offers the user has
+     */
+    public function offer(){
+        return $this->hasMany('App\Offer');
+    }
+
+    
+    /**
+     * The offers the user has
+     */
+    public function cart(){
+        return $this->hasMany('App\cart');
+    }
+
+
+
        /**
      * The model's default values for attributes.
      *
