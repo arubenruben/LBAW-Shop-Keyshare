@@ -18,4 +18,18 @@ class Cart extends Model
      * @var string
      */
     protected $table = 'cart';   
+
+    /**
+     * the user this cart entries belongs to
+     */
+    public function user(){
+        return $this->belongsTo('App\User', 'buyer');
+    }
+
+    /**
+     * the offer this cart is realted to 
+     */
+    public function offer(){
+        return $this->belongsTo('App\Offer', 'offer');
+    }
 }

@@ -17,5 +17,19 @@ class Feedback extends Model
      *
      * @var string
      */
-    protected $table = 'feedback';   
+    protected $table = 'feedback';
+
+    /**
+     * The buyer that is evaluating
+     */
+    public function buyer(){
+        return $this->belongsTo('App\User', 'buyer');
+    }
+
+    /**
+     * The key the buyer is referring to
+     */
+    public function key(){
+        return $this->belongsTo('App\Key', 'key');
+    }
 }

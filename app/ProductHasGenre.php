@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class AboutUs extends Model
+class ProductHasGenre extends Model
 {
     use Notifiable;
 
@@ -17,5 +17,5 @@ class AboutUs extends Model
      *
      * @var string
      */
-    protected $table = 'about_us';   
+    protected $table = 'product_has_genre';   
 }
