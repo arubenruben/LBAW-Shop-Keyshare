@@ -20,9 +20,18 @@ class Key extends Model
     protected $table = 'key';  
     
     /**
-     * 
+     * The offer the key is related to 
      */
-    public function order(){
-        return $this->belongsTo('App\orders', 'orders');
+    public function offer(){
+        return $this->belongsTo('App\Offer', 'offer');
     }
+
+    /**
+     * The offer the key is related to 
+     */
+    public function report(){
+        return $this->hasOne('App\Report', 'key');
+    }
+
+
 }

@@ -41,10 +41,10 @@ class Report extends Model
     }
 
     /**
-     * 
+     * The key that the report is related to
      */
     public function Key(){
-        return $this->hasOne('App\Key', 'key');
+        return $this->belongsTo('App\Key', 'key');
     }
     
 }
