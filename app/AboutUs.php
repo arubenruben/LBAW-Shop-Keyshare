@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class BannedUser extends Model
+class AboutUs extends Model
 {
     use Notifiable;
 
