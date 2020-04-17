@@ -85,4 +85,11 @@ class User extends Authenticatable
     public function message(){
         return $this->hasMany('App\Message', 'regular_user');
     }
+
+    /**
+     * User has one profile image
+     */
+    public function image(){
+        return $this->hasOne('App\Image', 'image');
+    }
 }

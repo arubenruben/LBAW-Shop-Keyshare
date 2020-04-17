@@ -19,6 +19,13 @@ class Order extends Model
      */
     protected $table = 'orders';
 
+      /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'number';
+
     /**
      * The user this offer belongs to
      */
