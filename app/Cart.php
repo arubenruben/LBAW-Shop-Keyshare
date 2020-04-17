@@ -22,14 +22,14 @@ class Cart extends Model
     /**
      * the user this cart entries belongs to
      */
-    public function user(){
+    public function user() {
         return $this->belongsTo('App\User', 'buyer');
     }
 
     /**
      * the offer this cart is realted to 
      */
-    public function offer(){
+    public function offer() {
         return $this->belongsTo('App\Offer', 'offer');
     }
 }
