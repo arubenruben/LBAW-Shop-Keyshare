@@ -41,7 +41,7 @@ class UserEditRequest extends FormRequest
 
     public function messages() {
         return [
-
+            'email.required' => 'Before submitting, please write an email'
         ];
     }
 }
