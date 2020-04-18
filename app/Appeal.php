@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Key extends Model
+class Appeal extends Model
 {
     use Notifiable;
 
@@ -17,19 +17,19 @@ class Key extends Model
      *
      * @var string
      */
-    protected $table = 'key';  
-    
+    protected $table = 'ban_appeal';
+
     /**
-     * The offer the key is related to 
+     * Banned User that made the appeal
      */
-    public function offer(){
-        return $this->belongsTo('App\Offer', 'offer');
+    public function user() {
+        return $this->belongsTo('App\BannedUser', 'banned_user');
     }
 
     /**
-     * The report the key is related to
+     * Admin that responded to the appeal
      */
-    public function report(){
-        return $this->hasOne('App\Report', 'key');
+    public function admin() {
+        return $this->belongsTo('App\Admin', 'admin');
     }
 }

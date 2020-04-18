@@ -36,14 +36,14 @@ class Report extends Model
     /**
      * The messages the users wrote on the report page
      */
-    public function message(){
+    public function messages(){
         return $this->hasMany('App\Message', 'report');
     }
 
     /**
      * The key that the report is related to
      */
-    public function Key(){
+    public function key(){
         return $this->belongsTo('App\Key', 'key');
     }
     

@@ -258,10 +258,10 @@
                                 <div class="text-right mt-0 flex-nowrap">
                                     <input type="password" class="form-control userDetailsForm mb-3 d-inline-block" placeholder="Paypal Email - None" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
                                     <?php if($type == "banned"){?>
-                                        <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary" disabled><img src="../../assets/images/paypal/paypal.png" height="23"></button>
+                                        <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary" disabled><img src="../../../public/images/paypal/paypal.png" height="23"></button>
                                 <?php }
                                 else{?>
-                                    <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"><img src="../../assets/images/paypal/paypal.png" height="23"></button>
+                                    <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"><img src="../../../public/images/paypal/paypal.png" height="23"></button>
                                <?php } ?>
                                    
                                 </div>
@@ -335,7 +335,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -356,7 +356,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -377,7 +377,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -398,7 +398,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -419,7 +419,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -440,7 +440,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -492,7 +492,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -513,7 +513,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -534,7 +534,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -555,7 +555,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -576,7 +576,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -597,7 +597,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                         <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         <h6>Stock: 10 keys</h6>
@@ -658,7 +658,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -675,7 +675,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -692,7 +692,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -709,7 +709,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -726,7 +726,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -743,7 +743,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [XBOX One]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -759,7 +759,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
                                                             <h6>Keys sold: 10</h6>
@@ -828,7 +828,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -849,7 +849,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -871,7 +871,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="../../assets/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
+                                                <img src="../../../public/images/games/FIFA20/1.png" alt="" width="150" class="img-fluid rounded d-none d-sm-inline shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -893,7 +893,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                <img src="../../../public/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -915,7 +915,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="../../assets/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
+                                                <img src="../../../public/images/games/MINECRAFT/1.png" alt="" width="150" class="img-fluid d-none d-sm-inline rounded shadow-sm userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">zmax6t</a>
                                                 </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -994,7 +994,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1013,7 +1013,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1032,7 +1032,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1051,7 +1051,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1070,7 +1070,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1089,7 +1089,7 @@
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <div class="flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
@@ -1144,7 +1144,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1163,7 +1163,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1182,7 +1182,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1201,7 +1201,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1220,7 +1220,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1239,7 +1239,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1258,7 +1258,7 @@
                                             <tr>
                                                 <th scope="row" class="border-0 align-middle">
                                                     <div class="p-2">
-                                                        <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                        <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                         <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                             <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
                                                         </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
@@ -1583,7 +1583,7 @@
                             <div class="col">
                                 <h6><u> Product in question</u></h6>
                                 <div class="pl-2 pt-2">
-                                    <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-smuserOffersTableEntryImage">
+                                    <img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-smuserOffersTableEntryImage">
                                     <div class="ml-1 align-middle flex-nowrap">
                                         <h6 class="mb-0 d-inline"><a href="#" class="text-dark">NBA 2K16</a></h6><span class="text-muted font-italic d-inline"> [PS4]</span>
                                     </div>

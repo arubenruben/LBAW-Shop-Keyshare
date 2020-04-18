@@ -17,6 +17,19 @@ class BannedUser extends Model
      *
      * @var string
      */
-    protected $table = 'banned_user';   
-    
+    protected $table = 'banned_user';
+
+    /**
+     * User account that is banned
+     */
+    public function user() {
+        return $this->belongsTo('App\User', 'regular_user');
+    }
+
+    /**
+     * The appeal linked to this user
+     */
+    public function appeal() {
+        return $this->hasOne('App\BanAppeal', 'banned_user');
+    }
 }

@@ -13,21 +13,21 @@
                     <!--First Row-->
                     <div class="row justify-content-between mx-auto flex-wrap mt-2">
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                                 <h5 class="cl-orange2">$24.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/CSGO/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                                 <h5 class="cl-orange2">$25.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../../public/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                                 <h5 class="cl-orange2">$26.99</h5>
@@ -38,21 +38,21 @@
                     <!--Second Row-->
                     <div class="row justify-content-between mx-auto flex-wrap mt-2">
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                                 <h5 class="cl-orange2">$24.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/CSGO/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                                 <h5 class="cl-orange2">$25.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../../public/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                                 <h5 class="cl-orange2">$26.99</h5>
@@ -63,21 +63,21 @@
                     <!--Third Row-->
                     <div class="row justify-content-between mx-auto flex-wrap mt-2">
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/FIFA20/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">FIFA 20</a></h6>
                                 <h5 class="cl-orange2">$24.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../assets/images/games/CSGO/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/CSGO/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a></h6>
                                 <h5 class="cl-orange2">$25.99</h5>
                             </div>
                         </div>
                         <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../assets/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                            <a href="product.php"><img class="card-img-top cardProductListImg img" src="../../../public/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                             <div class="card-body">
                                 <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars Jedi Fallen Order</a></h6>
                                 <h5 class="cl-orange2">$26.99</h5>
