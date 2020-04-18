@@ -9,21 +9,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- styles -->
-        <link rel="stylesheet" href="../styles/common.css">
-        <link rel="stylesheet" href="../styles/feedback.css">
-        <link rel="stylesheet" href="../styles/product.css">
+        <link rel="stylesheet" href="../../../public/css/common.css">
+        <link rel="stylesheet" href="../../../public/css/feedback.css">
+        <link rel="stylesheet" href="../../../public/css/product.css">
         <!-- jquery -->
-        <script defer src="../../assets/jquery/jquery.min.js"></script>
+        <script defer src="../../../resources/assets/jquery/jquery.min.js"></script>
         <!-- bootstrap -->
-        <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-        <script defer src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="../../../resources/assets/bootstrap/css/bootstrap.min.css">
+        <script defer src="../../../resources/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- <script defer src="../../assets/bootstrap/js/bootstrap.min.js"></script> -->
         <!-- fontawesome -->
-        <script src="../../assets/fontawesome/js/fontawesome.min.js"></script>
-        <link rel="stylesheet" href="../../assets/fontawesome/css/all.min">
+        <script src="../../../public/fontawesome/js/fontawesome.min.js"></script>
+        <link rel="stylesheet" href="../../../public/fontawesome/css/all.min">
         <!--Required by Bootstrap for buttons -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../../../public/fontawesome/css/all.min.css">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -49,7 +49,7 @@
             <header id="headerFixed" class="navbar row">
                 <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
                     <a href="homepage.php">
-                        <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                        <img class="img-fluid logo" src="../../../public/images/logo/logo.png" />
                     </a>
                 </div>
                 <!-- Search -->
@@ -109,7 +109,7 @@
             <header id="headerFixed" class="navbar row">
                 <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
                     <a href="homepage.php">
-                        <img class="img-fluid logo" src="../../assets/images/logo/logo.png" />
+                        <img class="img-fluid logo" src="../../../public/images/logo/logo.png" />
                     </a>
                 </div>
                 <!-- Search -->
@@ -128,7 +128,7 @@
                         <a href="offer.php" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
                           <!-- User Image -->
                         <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../../assets/images/profile/default.jpg" width="25" class="img-header rounded-circle" alt=""> LockdownPT
+                        <img src="../../../public/images/profile/default.jpg" width="25" class="img-header rounded-circle" alt=""> LockdownPT
                         </button>
                         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
                             <div class="dropdown-divider"></div>
@@ -176,11 +176,11 @@
                         <a id="sellNowButtonNavbar" href="products_list.php" class="mt-auto mb-auto btn btn-orange navbarButtonSmall" role="button">Sell Now</a>
                         <a id="shoppingCartIconHamburguer" href="cart.php" class="mt-auto mb-auto"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
                         <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButtonHB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../../assets/images/profile/default.jpg" width="20" class="img-header rounded-circle" alt="">
+                        <img src="../../../public/images/profile/default.jpg" width="20" class="img-header rounded-circle" alt="">
                         </button>
                         <div class="dropdown-menu dropdown-menu-right w-auto" aria-labelledby="dropdownMenuButtonHB">
                             <div class="dropdown-item d-flex">
-                                <img src="../../assets/images/profile/default.jpg" width="40" class="img-header" alt="">
+                                <img src="../../../public/images/profile/default.jpg" width="40" class="img-header" alt="">
                                 <p class="pl-3 my-auto">lockdownpt<span class="badge badge-light"></span></p>
                             </div>
 

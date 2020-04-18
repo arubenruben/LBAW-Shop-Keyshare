@@ -5,7 +5,7 @@
         <header id="headerFixed" class="navbar row justify-content-between">
             <a href="admin.php" class="btn btn-outline-light navbarButton d-none d-md-block" role="button">Dashboard</a>
             <a href="admin.php">
-                <img class="img-fluid logo mx-auto" src="../../assets/images/logo/logo.png" />
+                <img class="img-fluid logo mx-auto" src="../../../public/images/logo/logo.png" />
             </a>
             <a href="homepage.php" class="btn btn-outline-light navbarButton" role="button">Logout</a>
         </header>
@@ -26,7 +26,7 @@
 
                     <div class="row">
                         <div class="col text-center ">
-                            <img class="img-fluid logo " src="../../assets/images/logo/logo.png" />
+                            <img class="img-fluid logo " src="../../../public/images/logo/logo.png" />
                         </div>
                     </div>
 
@@ -292,7 +292,7 @@
                 <?php for ($counter = 0; $counter < 5; $counter++) { ?>
                     <tr>
                         <td scope="row" class="border-0 text-center align-middle">
-                            <img src="../../assets/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
+                            <img src="../../../public/images/games/GTAV/1.png" class="img-fluid rounded shadow-sm adminTableImagePreview">
                         </td>
                         <td class="text-center align-middle">GTA V</td>
                         <td class="text-center align-middle">Game</td>
@@ -857,7 +857,7 @@
         <form>
             <div class="row">
                 <div class="col align-middle">
-                    <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png" />
+                    <img class="img-fluid productPageImgPreview" src="../../../public/images/games/GTAV/1.png" />
                     <button id="uploadPhotoProduct" type="button" class="btn btn-primary btn-block text-white bg-orange mt-2 ml-auto mr-auto">Upload File</button>
                 </div>
                 <div class="form-group col mb-auto mr-auto">

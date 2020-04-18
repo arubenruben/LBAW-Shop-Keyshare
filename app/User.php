@@ -13,12 +13,18 @@ class User extends Authenticatable
     public $timestamps  = false;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'regular_user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
     ];
 
     /**
@@ -27,13 +33,63 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
     /**
-     * The cards this user owns.
+     * The offers the user has
      */
-     public function cards() {
-      return $this->hasMany('App\Card');
+    public function offer(){
+        return $this->hasMany('App\Offer', 'seller');
+    }
+
+    
+    /**
+     * The cart entries the user has
+     */
+    public function cart(){
+        return $this->hasMany('App\Cart', 'buyer');
+    }
+
+    /**
+     * The feedbacks the user has given
+     */
+    public function feedback(){
+        return $this->hasMany('App\Feedback', 'buyer');
+    }
+
+    /**
+     * The orders the user has purchased
+     */
+    public function orders(){
+        return $this->hasMany('App\Orders', 'buyer');
+    }
+
+    /**
+     * The reports the user has given
+     */
+    public function reportee(){
+        return $this->hasMany('App\Report', 'reportee');
+    }
+
+    /**
+     * The reports given to the user
+     */
+    public function reporter(){
+        return $this->hasMany('App\Report', 'reporter');
+    }
+
+    /**
+     * The messages the user writes
+    */
+    public function message(){
+        return $this->hasMany('App\Message', 'regular_user');
+    }
+
+    /**
+     * User has one profile image
+     */
+    public function image(){
+        return $this->belongsTo('App\Image', 'image');
     }
 }

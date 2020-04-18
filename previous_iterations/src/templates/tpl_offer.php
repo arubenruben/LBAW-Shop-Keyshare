@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-5 mt-3 my-auto d-none d-md-block">
-                <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png" />
+                <img class="img-fluid productPageImgPreview" src="../../../public/images/games/GTAV/1.png" />
             </div>
             <div class="col-12 col-md-7 mt-2">
 
@@ -135,8 +135,8 @@
                     <div class="input-group">
                         <input type="email" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="up2000@fe.up.pt" disabled>
                         <span class="input-group-btn">
-                            <button id="paypalButton" class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../assets/images/paypal/paypal.png" height="26"></button>
-                            <button id="paypalButton" class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../assets/images/paypal/paypalLogo.png" height="26"></button>
+                            <button id="paypalButton" class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../../public/images/paypal/paypal.png" height="26"></button>
+                            <button id="paypalButton" class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../../public/images/paypal/paypalLogo.png" height="26"></button>
                         </span>
                     </div>
 

@@ -2,7 +2,7 @@
     <div id="content" class="container pt-4">
         <div class="row ml-auto mr-auto">
             <div class="col-5 p-0">
-                <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png"/>
+                <img class="img-fluid productPageImgPreview" src="../../../public/images/games/GTAV/1.png"/>
             </div>
             <div class="col-6">
                 <h3>Grand Theft Auto V Rockstar Key</h3>

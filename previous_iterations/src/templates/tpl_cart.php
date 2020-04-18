@@ -105,7 +105,7 @@ function drawCartEntry($id)
     <tr>
         <td scope="row" class="border-0 align-middle">
             <div class="p-2">
-                <a href="product.php"><img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage"></a>
+                <a href="product.php"><img src="../../../public/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage"></a>
                 <div class="ml-3 d-inline-block align-middle">
                     <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">NBA 2K16</a></h5><a href="#" data-toggle="modal" data-target=".bd-modal-lg<?=$id?>" class="text-muted font-weight-normal font-italic">zmax6t</a>
                     <?php drawFeedbackPopup($id); ?>
