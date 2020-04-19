@@ -14,7 +14,7 @@
         <link href="{{ asset('css/common.css') }}" rel="stylesheet">
         <link href="{{ asset('css/feedback.css') }}" rel="stylesheet">
         <link href="{{ asset('css/product.css') }}" rel="stylesheet">
-        <link href="{{ asset('bootstrap/css/bootstrap.min.css.css') }}" rel="stylesheet">
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
         <!-- fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
             // Fix for Firefox autofocus CSS bug
             // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
         </script>
-        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+        <script src="{{ asset('jquery/jquery.slim.js') }}" defer></script>
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
         <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/active_popovers.js') }}" defer></script>
+        <script src="{{ asset('popper/popper.min.js') }}"></script>
+        <script src="{{ asset('js/activate_popovers.js') }}" defer></script>
         <script src="{{ asset('js/progress_bar.js') }}" defer></script>
         <script src="{{ asset('js/progress_bar_draw.js') }}" defer></script>
 
@@ -135,16 +135,16 @@
                                                 <!-- Sign In Form -->
                                                 <!-- Text input-->
                                                 <div class="control-group">
-                                                    <label class="control-label" for="userid">Username:</label>
+                                                    <label class="control-label" for="usernameLogIn">Username:</label>
                                                     <div class="controls">
-                                                        <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                                        <input required="" id="usernameLogIn" name="usernameLogIn" type="text" class="form-control" placeholder="username" class="input-medium" required="">
                                                     </div>
                                                 </div>
                                                 <!-- Password input-->
                                                 <div class="control-group mt-4 mb-2">
-                                                    <label class="control-label" for="passwordinput">Password:</label>
+                                                    <label class="control-label" for="passwordLogIn">Password:</label>
                                                     <div class="controls">
-                                                        <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                                        <input required="" id="passwordLogIn" name="passwordLogIn" class="form-control" type="password" placeholder="********" class="input-medium">
                                                     </div>
                                                 </div>
                                                 <!-- Button -->
@@ -171,16 +171,16 @@
                                                 <!-- Sign Up Form -->
                                                 <!-- Username -->
                                                 <div class="control-group">
-                                                    <label class="control-label" for="userid">Username:</label>
+                                                    <label class="control-label" for="usernameSignUp">Username:</label>
                                                     <div class="controls">
-                                                        <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="username" class="input-medium" required="">
+                                                        <input required="" id="usernameSignUp" name="usernameSignUp" type="text" class="form-control" placeholder="username" class="input-medium" required="">
                                                     </div>
                                                 </div>
                                                 <!-- Password input -->
                                                 <div class="control-group mt-4 mb-2">
-                                                    <label class="control-label" for="passwordinput">Password:</label>
+                                                    <label class="control-label" for="passwordSignUp">Password:</label>
                                                     <div class="controls">
-                                                        <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                                        <input required="" id="passwordSignUp" name="passwordSignUp" class="form-control" type="password" placeholder="********" class="input-medium">
                                                     </div>
                                                 </div>
                                                 <!-- Confirm Password input-->
