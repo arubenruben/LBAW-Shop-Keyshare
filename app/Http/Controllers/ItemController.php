@@ -14,7 +14,7 @@ class ItemController extends Controller
   /**
    * Creates a new item.
    *
-   * @param  int  $card_id
+   * @param  int $card_id
    * @param  Request request containing the description
    * @return Response
    */
