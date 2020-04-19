@@ -186,9 +186,3 @@
         </div>
     </div>
 </div>
-
-<?php
-drawReportPopup();
-drawGiveFeedbackPopup();
-drawKeyPopup();
-?>
