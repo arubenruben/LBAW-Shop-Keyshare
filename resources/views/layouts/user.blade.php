@@ -109,7 +109,7 @@
                         @if (Auth::check())
                             <a id="sellNowButtonNavbar" href="{{ url('/offer') }}products_list.php" class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
                         @endif
-                        <a id="shoppingCartIconHamburguer" href="{{ url('/cart') }}" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary">3</span></a>
+                        <a id="shoppingCartIconHamburguer" href="{{ url('/cart') }}" class="mt-auto mb-auto mr-2"><i class="fas fa-shopping-cart headerIcon cl-orange"></i><span class="badge badge-secondary"></span></a>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                                     <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin">
                                         <form class="form-horizontal">
                                             <fieldset>
-                                                <!-- Sign In Form -->
+                                                <!-- Log in Form -->
                                                 <!-- Text input-->
                                                 <div class="control-group">
                                                     <label class="control-label" for="usernameLogIn">Username:</label>
