@@ -32,9 +32,10 @@ class UserController extends Controller
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $purchases = $this->getPurchases(Auth::id());
+        $orders = Auth::user()->orders()->sortBy('date');
+        $isBanned = Auth::user()->banned();
 
-        return view('pages.user.purchases', ['purchases' => $purchases]);
+        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned]);
     }
 
     public function showOffers($username) {
@@ -127,12 +128,6 @@ class UserController extends Controller
 
         Auth::user()->image = '0';
         Auth::user()->save();
-    }
-
-    public function getPurchases($id) {
-        $user = User::find($id);
-
-        return $user->orders();
     }
 
     public function getOffers($id, $curr=true) {
