@@ -47,14 +47,14 @@ class User extends Authenticatable
      * The active offers the user has
      */
     public function activeOffers(){
-        return $this->hasMany('App\Offer', 'seller')->whereNotNull('final_date');
+        return $this->hasMany('App\Offer', 'seller')->whereNull('final_date');
     }
 
     /**
      * The past offers the user has
      */
     public function pastOffers(){
-        return $this->hasMany('App\Offer', 'seller')->whereNull('final_date');
+        return $this->hasMany('App\Offer', 'seller')->whereNotNull('final_date');
     }
 
     /**

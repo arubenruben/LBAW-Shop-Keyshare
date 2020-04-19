@@ -3,7 +3,7 @@
         <div class="col-sm-12 usercontent-left">
             <div class="row px-3">
                 <div class="col-sm-9 " style=" display:flex; align-items: center;">
-                    <h4 class="text-left">{{ $user->name}} <span class="badge ml-1 badge-secondary">4</span></h4>
+                    <h4 class="text-left">{{ $user->username }} Offers<span class="badge ml-1 badge-secondary">{{$currOffers->count()}}</span></h4>
                 </div>
             </div>
             <div class="container mt-3 mb-3">
@@ -29,7 +29,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($currentOffers as $currentOffer)
+                                @foreach($currOffers as $currentOffer)
                                 <tr>
                                     <th scope="row" class="border-0 align-middle">
                                         <div class="p-2">

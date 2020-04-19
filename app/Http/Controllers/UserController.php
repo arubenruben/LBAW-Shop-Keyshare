@@ -47,7 +47,7 @@ class UserController extends Controller
         $canEdit = true;
 
         try {
-            $this->authorize('edit', $user->id);
+            //$this->authorize('edit', $user->id);
         } catch (AuthorizationException $e) {
             $canEdit = false;
         }
@@ -55,7 +55,7 @@ class UserController extends Controller
         $pastOffers = $user->pastOffers();
         $currOffers = $user->activeOffers();
 
-        return view('pages.user.offers', ['pastOffers' => $pastOffers,
+        return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
             'currOffers' => $currOffers, 'canEdit' => $canEdit]);
     }
 
