@@ -12,9 +12,13 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function show($username) {
+    public function getUser($username){
         $user_id = DB::table('regular_user')->select('id')->where('username', '=', $username)->first()->id;
-        $user = User::findOrFail($user_id);
+        return User::findOrFail($user_id);
+    }
+    public function show($username) {
+
+        $user = $this->getUser($username);
 
         try {
             $this->authorize('ownUser', $user->id);
@@ -39,7 +43,7 @@ class UserController extends Controller
     }
 
     public function showOffers($username) {
-        $user = DB::table('regular_user')->where('username', $username);
+        $user = $this->getUser($username);
         $canEdit = true;
 
         try {
@@ -48,8 +52,8 @@ class UserController extends Controller
             $canEdit = false;
         }
 
-        $pastOffers = $this->getOffers($user->id, false);
-        $currOffers = $this->getOffers($user->id, true);
+        $pastOffers = $user->offers()->
+            $currOffers = $user->offers()->
 
         return view('pages.user.offers', ['pastOffers' => $pastOffers,
             'currOffers' => $currOffers, 'canEdit' => $canEdit]);
