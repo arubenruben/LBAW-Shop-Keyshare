@@ -38,3 +38,6 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::get('cards', 'CardController@list');
 Route::get('cards/{id}', 'CardController@show');
 
+// Products
+Route::get('product/{id}/{platform}', 'ProductController@show');
+
