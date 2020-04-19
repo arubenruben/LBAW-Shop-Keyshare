@@ -18,8 +18,7 @@
                         @else
                             $role = '':
                         @endif
-                        <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white {{@if($user->banned())}}" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
-                        <a href="offer.php" class="btn p-2 btn-sm btn-orange btn-block text-white " role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
+                        <a href="{{url('user/'.$user->id.'/offer')}}" class="btn p-2 btn-sm btn-orange btn-block text-white {{ $user->banned() ? 'disabled' : ''}}" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
                     </div>
                 </div>
 
@@ -51,23 +50,20 @@
                                             <div class="p-2">
                                                 <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                    <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PC]</span>
-                                                    <h6>Stock: 10 keys</h6>
-                                                </div>
+                                                    <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform()->name}}]]</span>
+                                                    <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
-
                                         </th>
-                                        <td class="text-center align-middle">2020/07/10</td>
-                                        <td class="text-center align-middle"><strong>$79.00</strong></td>
+                                        <td class="text-center align-middle">{{$currentOffer->start_date}}</td>
+                                        <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <a href="offer.php" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
-
+                                                <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
                                                 <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                             </div>
                                         </td>
                                     </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -108,22 +104,22 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach()
+                                        @foreach($pastOffers as $pastOffer)
                                         <tr>
                                             <th scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
                                                     <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">NBA 2K16</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
-                                                        <h6>Keys sold: 10</h6>
+                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        <h6>Keys sold: {{$pastOffer->keys().count()}}</h6>
                                                     </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                                 </div>
 
                                             </th>
-                                            <td class="text-center align-middle">2020/07/10</td>
-                                            <td class="text-center align-middle">2020/07/20</td>
-                                            <td class="text-center align-middle">$79.00</td>
-                                            <td class="text-center align-middle"><strong>$200.00</strong></td>
+                                            <td class="text-center align-middle">{{$pastOffer->start_date}}</td>
+                                            <td class="text-center align-middle">{{$pastOffer->end_date}}</td>
+                                            <td class="text-center align-middle">{{$pastOffer->price}}</td>
+                                            <td class="text-center align-middle"><strong>200</strong></td>
 
                                         </tr>
                                         @endforeach
