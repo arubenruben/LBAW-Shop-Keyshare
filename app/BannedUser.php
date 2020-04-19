@@ -19,6 +19,8 @@ class BannedUser extends Model
      */
     protected $table = 'banned_user';
 
+    protected $primaryKey = 'regular_user';
+
     /**
      * User account that is banned
      */
