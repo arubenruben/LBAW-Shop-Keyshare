@@ -3,8 +3,8 @@
 @section('title', $user->name.' Offers')
 
 @section('content')
-    @include('partials.breadcrumbs', ['breadcrumbs' => ['/' => 'Home'], 'active' => ['/user/'.$user->username => 'Offers']])
-    @include('partials.user.navbar', ['user' => $user, 'canEdit' => $canEdit, 'active' => 'Account'])
+    @include('partials.breadcrumbs', ['breadcrumbs' => ['/' => 'Home', '/user/'.$user->username => 'Profile'], 'active' => ['/user/'.$user->username => 'Offers']])
+    @include('partials.user.navbar', ['user' => $user, 'isOwner' => $canEdit, 'active' => 'Offers'])
     @if ($canEdit)
         @include('partials.user.offersAsOwner', ['user' => $user, 'pastOffers' => $pastOffers,
             'currOffers' => $currOffers])
