@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use http\Client\Curl\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserEditRequest;
 
+use App\User;
+
 class UserController extends Controller
 {
     public function show($username) {
-        $user = DB::table('regular_user')->where('username', $username);
+        $user_id = DB::table('regular_user')->select('id')->where('username', $username)->first()->id;
+        $user = User::findOrFail($user_id);
 
         try {
             //$this->authorize('ownUser', $user->id);
@@ -128,21 +130,9 @@ class UserController extends Controller
     }
 
     public function getPurchases($id) {
-        return DB::table('orders')
-            ->where('orders.buyer', '=', $id)
-            ->join('key', 'orders.number', '=', 'key.orders')
-            ->join('offer', 'key.offer', '=', 'offer.id')
-            ->join('product', 'offer.product', '=', 'product.id')
-            ->join('platform', 'offer.platform', '=', 'platform.id')
-            ->join('image', 'product.image', '=', 'image.id')
-            ->join('regular_user', 'offer.seller', '=', 'regular_user.id')
-            ->leftJoin('feedback', 'key.id', '=', 'feedback.key')
-            ->leftJoin('report', 'key.id', '=', 'report.key')
-            ->orderBy('orders.date')
-            ->select('product.name as product_name', 'regular_user.username as seller_username',
-                'orders.date as buying_date', 'key.price_sold as price', 'regular_user.id as seller_id',
-                'key.key as key', 'feedback.id as feedback_id', 'report.id as report_id')
-            ->get();
+        $user = User::find($id);
+
+        return $user->orders();
     }
 
     public function getOffers($id, $curr=true) {

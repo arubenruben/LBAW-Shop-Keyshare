@@ -18,18 +18,18 @@
       </div>
     </div>
   </div>
-  <?php if($type == "banned"){?>
-  <div class="row mt-5 mb-2">
-    <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
-      You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+  @if($user->banned())
+    <div class="row mt-5 mb-2">
+      <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
+        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+      </div>
     </div>
-  </div>
-  <?php }?>
+  @endif
   <div class="row mt-2">
     <div class="col-sm-4 usercontent-left  border rounded-top">
       <div class="row ">
         <div class="col-sm-12 mt-3">
-          <h4 class="text-center">Username</h4>
+          <h4 class="text-center">{{ $user->username }}</h4>
         </div>
       </div>
       <div class="row">
@@ -43,12 +43,12 @@
       </div>
       <div class="row mt-4">
         <div class="col-sm-12 text-center">
-          <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">100%</span> | <i class="fas fa-shopping-cart"></i> 4000 </p>
+          <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span class="font-weight-bold cl-success">{{ $user->rating }}%</span> | <i class="fas fa-shopping-cart"></i>{{ $user->num_sells }} </p>
         </div>
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target=".bd-modal-lg1" class="btn btn-blue btn-sm">See all feedback</button>
+          <button type="button" data-toggle="modal" data-target="#userFeedback{{ $user->id }}" class="btn btn-blue btn-sm">See all feedback</button>
         </div>
       </div>
     </div>
@@ -64,35 +64,17 @@
           <form class="needs-validation" novalidate="">
             <div class="mb-3 mt-3 text-left">
               <label for="email">Email <span class="text-muted"></span></label>
-              <?php if($type == "banned"){?>
-              <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
-              <?php }
-              else{?>
-              <input type="email" class="form-control userDetailsForm" id="email" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
-              <?php } ?>
-
-
+              <input type="email" class="form-control userDetailsForm" id="email" value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
               <div class="invalid-feedback">
                 Please enter a valid email.
               </div>
             </div>
             <div class="mb-3 text-left">
               <label for="description">Description</label>
-              <?php if($type == "banned"){?>
-              <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" disabled></textarea>
-              <?php }
-              else{?>
-              <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3"></textarea>
-              <?php } ?>
+              <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
 
               <div class="text-right mt-3">
-                <?php if($type == "banned"){?>
-                <button type="button" class="btn btn-sm btn-blue" disabled><i class="fas fa-save"></i> Save changes</button>
-                <?php }
-                else{?>
-                <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-save"></i> Save changes</button>
-                <?php } ?>
-
+                <button type="button" class="btn btn-sm btn-blue" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
               </div>
             </div>
             <div class="mb-3 mt-0 text-left">
@@ -107,14 +89,8 @@
             <div class="mb-5 mt-0 text-left">
               <label for="">Paypal</label>
               <div class="text-right mt-0 flex-nowrap">
-                <input type="password" class="form-control userDetailsForm mb-3 d-inline-block" placeholder="Paypal Email - None" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" disabled>
-                <?php if($type == "banned"){?>
-                <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary" disabled><img src="../../../public/images/paypal/paypal.png" height="23"></button>
-                <?php }
-                else{?>
-                <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"><img src="../../../public/images/paypal/paypal.png" height="23"></button>
-                <?php } ?>
-
+                <input type="password" class="form-control userDetailsForm mb-3 d-inline-block" value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
+                <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary" {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('images/paypal/paypal.png') }}" height="23"></button>
               </div>
             </div>
 
@@ -129,6 +105,40 @@
         </div>
       </div>
     </div>
-    <?php drawAppealPopup() ?>
+
+    {{--   BannAppealPopup   --}}
+    <div id="modalAppeal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header row mx-0">
+            <div class="col-9 col-md-6">
+              <span class="flex-nowrap">
+                <h5 class="d-inline-block">Appeal</h5>
+              </span>
+            </div>
+            <div class="col-9 col-md-6 text-right">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row mt-1">
+              <div class="col">
+                <h5>An admin will access your situation after you submit an appeal, please be as self explanitory as possible in the comment section</h5>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <h6>Appeal Coment</h6>
+                <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Describe your problem" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="col text-right"><button class="btn btn-blue">Submit</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

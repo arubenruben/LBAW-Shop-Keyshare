@@ -92,4 +92,11 @@ class User extends Authenticatable
     public function image(){
         return $this->belongsTo('App\Image', 'image');
     }
+
+    /**
+     * Returns true if user is banned
+     */
+    public function banned(){
+        return BannedUser::find($this->id) == null;
+    }
 }
