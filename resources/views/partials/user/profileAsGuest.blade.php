@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <img class="rounded-circle img-fluid mt-3" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="250" height="250">
+                    <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/default.jpg') }}" alt="Generic placeholder image" width="250" height="250">
                 </div>
             </div>
             <div class="row mt-4">
@@ -39,8 +39,8 @@
                             </div>
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="description">{{ $user->description }}</label>
-                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" maxlength="150" rows="5" disabled> O Lorem Ipsum é umdasdadadasdas das das das d asd asd as dsa ds ad asd sad sd ue incluem versões do Lorem Ipsum.</textarea>
+                            <label for="description">Description</label>
+                            <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" maxlength="150" rows="5" disabled>{{ $user->description }}</textarea>
                         </div>
                     </form>
                 </div>
@@ -48,6 +48,5 @@
         </div>
     </div>
 
-    @include()
-
+    @include('partials.feedback', ['user' => $user])
 </div>

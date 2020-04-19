@@ -13,11 +13,11 @@ use App\User;
 class UserController extends Controller
 {
     public function show($username) {
-        $user_id = DB::table('regular_user')->select('id')->where('username', $username)->first()->id;
+        $user_id = DB::table('regular_user')->select('id')->where('username', '=', $username)->first()->id;
         $user = User::findOrFail($user_id);
 
         try {
-            //$this->authorize('ownUser', $user->id);
+            $this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'canEdit' => false]);
         }
@@ -34,7 +34,7 @@ class UserController extends Controller
 
         $purchases = $this->getPurchases(Auth::id());
 
-        return view('pages.user.purchases', ['$purchases' => $purchases]);
+        return view('pages.user.purchases', ['purchases' => $purchases]);
     }
 
     public function showOffers($username) {
