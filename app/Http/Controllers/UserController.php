@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use http\Client\Curl\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserEditRequest;
 
 class UserController extends Controller
 {
     public function show($username) {
-        $user = User::findOrFail($username); // If the exception is not caught, a 404 HTTP response is sent automativaly
+        $user = DB::table('regular_user')->where('username', $username);
 
         try {
-            $this->authorize('edit', $user->id);
+            $this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'canEdit' => false]);
         }
@@ -24,18 +25,18 @@ class UserController extends Controller
 
     public function showPurchases() {
         try {
-            $this->authorize('showPurchases');
+            $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $purchases = $this->getPastPurchases(Auth::id());
+        $purchases = $this->getPurchases(Auth::id());
 
         return view('pages.user.purchases', ['$purchases' => $purchases]);
     }
 
     public function showOffers($username) {
-        $user = User::findOrFail($username);
+        $user = DB::table('regular_user')->where('username', $username);
         $canEdit = true;
 
         try {
@@ -51,21 +52,18 @@ class UserController extends Controller
             'currOffers' => $currOffers, 'canEdit' => $canEdit]);
     }
 
-    public function showReports($username) {
-        $user = User::findOrFail($username);
-        $canEdit = true;
-
+    public function showReports() {
         try {
-            $this->authorize('edit', $user->id);
+            $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
-            $canEdit = false;
+            return response(json_encode($e->getMessage()), 400);
         }
 
-        $pastReports = $this->getReports($user->id, false);
-        $currReports = $this->getReports($user->id, true);
+        $myReports = $this->getReports(Auth::id(), true);
+        $reportsAgainstMe = $this->getReports(Auth::id(), false);
 
-        return view('pages.user.reports', ['pastReports' => $pastReports,
-            'currReports' => $currReports, 'canEdit' => $canEdit]);
+        return view('pages.user.reports', ['myReports' => $myReports,
+            'reportsAgainstMe' => $reportsAgainstMe]);
     }
 
     public function update(UserEditRequest $request) {
@@ -129,7 +127,7 @@ class UserController extends Controller
         Auth::user()->save();
     }
 
-    public function getPastPurchases($id) {
+    public function getPurchases($id) {
         return DB::table('orders')
             ->where('orders.buyer', '=', $id)
             ->join('key', 'orders.number', '=', 'key.orders')
@@ -142,8 +140,8 @@ class UserController extends Controller
             ->leftJoin('report', 'key.id', '=', 'report.key')
             ->orderBy('orders.date')
             ->select('product.name as product_name', 'regular_user.username as seller_username',
-                'orders.date as buying_date', 'key.price_sold as price', 'seller.id as seller_id',
-                'key.id as key_id', 'feedback.id as feedback_id', 'report.id as report_id')
+                'orders.date as buying_date', 'key.price_sold as price', 'regular_user.id as seller_id',
+                'key.key as key', 'feedback.id as feedback_id', 'report.id as report_id')
             ->get();
     }
 
@@ -151,7 +149,7 @@ class UserController extends Controller
         if($curr) {
             return DB::table('offer')
                 ->where('offer.seller', '=', $id)
-                ->join('active_offer', 'offer.id', '=', 'active_offer.offer_id')
+                ->join('active_offers', 'offer.id', '=', 'active_offer.offer_id')
                 ->join('platform', 'offer.platform', '=', 'platform.id')
                 ->join('product', 'offer.product', '=', 'product.id')
                 ->leftJoin('discount', 'offer.id', '=', 'discount.offer')
@@ -164,7 +162,7 @@ class UserController extends Controller
         } else {
             return DB::table('offer')
                 ->where('offer.seller', '=', $id)
-                ->where('offer.id', 'not in', 'select * from active_offers') //?????????
+                ->whereNotIn('offer.id', 'active_offers')
                 ->join('active_offer', 'offer.id', '=', 'active_offer.offer_id')
                 ->join('platform', 'offer.platform', '=', 'platform.id')
                 ->join('product', 'offer.product', '=', 'product.id')
@@ -178,21 +176,31 @@ class UserController extends Controller
         }
     }
 
-    //falta fazer isto esta mal -> nao esta no hackmd
-    public function getReports($id, $curr=true) {
-        if(curr) {
+    public function getReports($id, $reporter=true) {
+        if($reporter) {
             return DB::table('report')
-                ->where('report.status', '=', false)
-                ->join('regular_user as reporter', $id, '=', 'report.reporter')
-                ->join('regular_user', $id, '=', 'report.reportee')
+                ->where('report.reporter', '=', $id)
+                ->join('key', 'report.key', '=', 'key.id')
+                ->join('offer', 'key.offer', '=', 'offer.id')
+                ->join('orders', 'key.orders', 'orders.id')
+                ->join('product', 'offer.product', '=', 'product.id')
+                ->orderBy('report.status')
                 ->orderBy('report.date')
-                ->select('product.name as product_name', 'regular_user.username as seller_username',
-                    'orders.date as buying_date', 'key.price_sold as price', 'seller.id as seller_id',
-                    'key.id as key_id', 'feedback.id as feedback_id', 'report.id as report_id')
+                ->select('product.name', 'product.image', 'offer.seller',
+                    'offer.platform', 'orders.date as order_date', 'report.date as report_date')
                 ->get();
         } else {
-
+            return DB::table('report')
+                ->where('report.reportee', '=', $id)
+                ->join('key', 'report.key', '=', 'key.id')
+                ->join('offer', 'key.offer', '=', 'offer.id')
+                ->join('orders', 'key.orders', 'orders.id')
+                ->join('product', 'offer.product', '=', 'product.id')
+                ->orderBy('report.status')
+                ->orderBy('report.date')
+                ->select('product.name', 'product.image', 'offer.seller',
+                    'offer.platform', 'orders.date as order_date', 'report.date as report_date')
+                ->get();
         }
-
     }
 }
