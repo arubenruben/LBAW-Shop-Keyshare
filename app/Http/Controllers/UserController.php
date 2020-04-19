@@ -15,7 +15,7 @@ class UserController extends Controller
         $user = DB::table('regular_user')->where('username', $username);
 
         try {
-            $this->authorize('ownUser', $user->id);
+            //$this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'canEdit' => false]);
         }
