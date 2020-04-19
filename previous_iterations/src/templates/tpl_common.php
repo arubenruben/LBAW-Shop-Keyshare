@@ -313,7 +313,7 @@
         case 4: ?>
             <nav id="navbar" class="nav">
                 <?php drawBreadcrumb($pageName); ?>                        
-        </nav>
+            </nav>
         <?php
             break;
         default: ?>
