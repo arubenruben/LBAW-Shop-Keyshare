@@ -21,7 +21,7 @@
                 <div class="row ">
                     <div class="col-12">
                         <div class="table-responsive table-striped tableFixHead mt-3">
-                            <table id="userOffersTable" class="table p-0">
+                            <table id="userCurrentOffersTable" class="table p-0">
                                 <thead>
                                 <tr>
                                     <th scope="col" class="border-0 bg-light">
@@ -42,7 +42,7 @@
                                 <tbody>
                                 @foreach($currOffers as $currentOffer)
                                 <tr>
-                                    <th scope="row" class="border-0 align-middle">
+                                    <td scope="row" class="border-0 align-middle">
                                         <div class="p-2">
                                             <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle flex-nowrap">
@@ -50,7 +50,7 @@
                                                 <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
-                                    </th>
+                                    </td>
                                     <td class="text-center align-middle">{{$currentOffer->start_date}}</td>
                                     <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
                                     <td class="align-middle">
@@ -77,7 +77,7 @@
                     <div class="row ">
                         <div class="col-12">
                             <div class="table-responsive table-striped tableFixHead mt-3 mt-3">
-                                <table id="userOffersTable" class="table p-0">
+                                <table id="userPastOffersTable" class="table p-0">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="border-0 bg-light">
@@ -100,21 +100,21 @@
                                     </thead>
                                     <tbody>
                                     @foreach($pastOffers as $pastOffer)
-                                    <tr>
-                                        <th scope="row" class="border-0 align-middle">
-                                            <div class="p-2">
-                                                <img src="{{asset('images/games/'.$pastOffer->product()->image()->url)}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                    <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
-                                                    <h6>Keys sold: {{$pastOffer->keys().count()}}</h6>
-                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                            </div>
-                                        </th>
-                                        <td class="text-center align-middle">{{$pastOffer->start_date}}</td>
-                                        <td class="text-center align-middle">{{$pastOffer->end_date}}</td>
-                                        <td class="text-center align-middle">{{$pastOffer->price}}</td>
-                                        <td class="text-center align-middle"><strong>200</strong></td>
-                                    </tr>
+                                        <tr>
+                                            <td scope="row" class="border-0 align-middle">
+                                                <div class="p-2">
+                                                    <img src="{{asset('images/games/'.$pastOffer->product()->getResults()->image()->getResults()->url)}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [PS4]</span>
+                                                        <h6>Keys sold: {{count($pastOffer->keys()->getResults())}}</h6>
+                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                                </div>
+                                            </td>
+                                            <td class="text-center align-middle">{{$pastOffer->init_date}}</td>
+                                            <td class="text-center align-middle">{{$pastOffer->final_date}}</td>
+                                            <td class="text-center align-middle">{{$pastOffer->price}}</td>
+                                            <td class="text-center align-middle"><strong>{{$pastOffer->profit}}</strong></td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>

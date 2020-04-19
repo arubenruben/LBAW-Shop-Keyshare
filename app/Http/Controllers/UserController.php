@@ -23,10 +23,10 @@ class UserController extends Controller
         try {
             $this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
-            return view('pages.user.profile', ['user' => $user, 'canEdit' => false]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false]);
         }
 
-        return view('pages.user.profile', ['user' => $user, 'canEdit' => true]);
+        return view('pages.user.profile', ['user' => $user, 'isOwner' => true]);
     }
 
     public function showPurchases() {
@@ -44,19 +44,19 @@ class UserController extends Controller
 
     public function showOffers($username) {
         $user = $this->getUser($username);
-        $canEdit = true;
+        $isOwner = true;
 
         try {
             //$this->authorize('edit', $user->id);
         } catch (AuthorizationException $e) {
-            $canEdit = false;
+            $isOwner = false;
         }
 
-        $pastOffers = $user->pastOffers();
-        $currOffers = $user->activeOffers();
+        $pastOffers = $user->pastOffers()->getResults();
+        $currOffers = $user->activeOffers()->getResults();
 
         return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
-            'currOffers' => $currOffers, 'canEdit' => $canEdit]);
+            'currOffers' => $currOffers, 'isOwner' => $isOwner]);
     }
 
     public function showReports() {

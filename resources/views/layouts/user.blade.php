@@ -29,8 +29,10 @@
         <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>
         <script src="{{ asset('popper/popper.min.js') }}"></script>
         <script src="{{ asset('js/activate_popovers.js') }}" defer></script>
+{{--
         <script src="{{ asset('js/progress_bar.js') }}" defer></script>
         <script src="{{ asset('js/progress_bar_draw.js') }}" defer></script>
+--}}
 
     </head>
 
@@ -217,48 +219,50 @@
                     </div>
                 </div>
             @endif
-            <section id="content">
-                @yield('content')
-            </section>
-            <!-- Footer -->
-            <footer id="footerGeneric">
-                <div class="container">
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <h5 class="title"> More </h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="faq.php"> Help </a>
-                                </li>
-                                <li>
-                                    <a href="contact.php"> Contact </a>
-                                </li>
-                                <li>
-                                    <a href="about.php"> About us </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <h5 class="title"> Shortcuts </h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="user.php"> Profile </a>
-                                </li>
-                                <li>
-                                    <a href="homepage.php"> Homepage </a>
-                                </li>
-                                <li>
-                                    <a href="products_list.php"> All products </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col ml-auto my-auto">
-                            <p>© Copyright 2020 Key Share. All rights reserved.</p>
+            <div id="wrapper">
+                <section id="content" class="container mt-5">
+                    @yield('content')
+                </section>
+                <!-- Footer -->
+                <footer id="footerGeneric">
+                    <div class="container">
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="title"> More </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="faq.php"> Help </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.php"> Contact </a>
+                                    </li>
+                                    <li>
+                                        <a href="about.php"> About us </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h5 class="title"> Shortcuts </h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="user.php"> Profile </a>
+                                    </li>
+                                    <li>
+                                        <a href="homepage.php"> Homepage </a>
+                                    </li>
+                                    <li>
+                                        <a href="products_list.php"> All products </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col ml-auto my-auto">
+                                <p>© Copyright 2020 Key Share. All rights reserved.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </main>
     </body>
 </html>
