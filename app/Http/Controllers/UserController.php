@@ -52,8 +52,8 @@ class UserController extends Controller
             $canEdit = false;
         }
 
-        $pastOffers = $user->offers()->
-            $currOffers = $user->offers()->
+        $pastOffers = $user->pastOffers();
+        $currOffers = $user->activeOffers();
 
         return view('pages.user.offers', ['pastOffers' => $pastOffers,
             'currOffers' => $currOffers, 'canEdit' => $canEdit]);
