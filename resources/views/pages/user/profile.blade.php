@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', $user->name.' Profile')
+@section('title', $user->username.' Profile')
 
 @section('content')
     @include('partials.breadcrumbs', ['breadcrumbs' => ['/' => 'Home'], 'active' => ['/user/'.$user->username => 'Profile']])
