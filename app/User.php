@@ -39,11 +39,24 @@ class User extends Authenticatable
     /**
      * The offers the user has
      */
-    public function offer(){
+    public function offers(){
         return $this->hasMany('App\Offer', 'seller');
     }
 
-    
+    /**
+     * The active offers the user has
+     */
+    public function activeOffers(){
+        return $this->hasMany('App\Offer', 'seller')->whereNull('final_date');
+    }
+
+    /**
+     * The past offers the user has
+     */
+    public function pastOffers(){
+        return $this->hasMany('App\Offer', 'seller')->whereNotNull('final_date');
+    }
+
     /**
      * The cart entries the user has
      */
@@ -91,5 +104,12 @@ class User extends Authenticatable
      */
     public function image(){
         return $this->belongsTo('App\Image', 'image');
+    }
+
+    /**
+     * Returns true if user is banned
+     */
+    public function banned(){
+        return BannedUser::find($this->id) == null;
     }
 }
