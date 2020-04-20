@@ -11,16 +11,16 @@ class HomepageController extends Controller
 {
 
     public function getHomepageData(){
+        
+        $numberResults=5;
 
-        $homepageData['mostPopulars']=$this->getMostPopularProducts();
-        $homepageData['mostRecents']=$this->getMostRecentProducts();   
+        $homepageData['mostPopulars']=$this->getMostPopularProducts($numberResults);
+        $homepageData['mostRecents']=$this->getMostRecentProducts($numberResults);   
 
         return $homepageData;
     }
 
-    private function getMostPopularProducts(){
-
-        $numberResults=10;
+    private function getMostPopularProducts($numberResults){
 
         /*
         return DB::table('product')
@@ -56,9 +56,7 @@ class HomepageController extends Controller
             
     }
 
-    private function getMostRecentProducts(){
-
-        $numberResults=10;
+    private function getMostRecentProducts($numberResults){
 
         /*
         return DB::table('product')
