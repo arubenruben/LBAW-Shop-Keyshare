@@ -27,6 +27,13 @@ class Key extends Model
     }
 
     /**
+     * The offer the key is related to
+     */
+    public function orders(){
+        return $this->belongsTo('App\Order', 'orders');
+    }
+
+    /**
      * The report the key is related to
      */
     public function report(){

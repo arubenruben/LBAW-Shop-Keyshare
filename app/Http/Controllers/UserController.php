@@ -20,7 +20,7 @@ class UserController extends Controller
         else
             return User::findOrFail(null);
     }
-    
+
     public function show($username)
     {
 
