@@ -12,11 +12,16 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function getUser($username)
-    {
-        $user_id = DB::table('regular_user')->select('id')->where('username', '=', $username)->first()->id;
-        return User::findOrFail($user_id);
+    public function getUser($username){
+        $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
+        if($user != null)
+            return User::findOrFail($user->id);
+
+        else
+            return User::findOrFail(null);
     }
+
+    public function show($username) {
 
     public function show($username)
     {
