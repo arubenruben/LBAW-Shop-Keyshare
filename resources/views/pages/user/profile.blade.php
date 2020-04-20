@@ -10,4 +10,5 @@
     @else
         @include('partials.user.profileAsGuest', ['user' => $user])
     @endif
+    @include('partials.feedback', ['user' => $user])
 @endsection

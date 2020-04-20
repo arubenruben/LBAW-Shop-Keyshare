@@ -30,7 +30,7 @@ class UserEditRequest extends FormRequest
         return [
             'email' => 'bail | sometimes | required | string | email | unique:App\User,email',
             'description' => 'bail | sometimes | string |  max:500 ',
-            'oldPassword' => 'bail | sometimes | required_with:newPassword',
+            'oldPassword' => 'bail | sometimes | password | required_with:newPassword',
             'newPassword' => 'bail | sometimes | required_with:oldPassword | string | confirmed | min:6 | max:100 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
             'paypal' => 'bail | sometimes | required | string | email',
             'image' => 'bail | sometimes | required | image'
