@@ -34,7 +34,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/'.$user->image()->url) }}" alt="Generic placeholder image" width="250" height="250">
+          <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/'.$user->image()->url) }}" alt="Profile image" width="250" height="250">
           <form class="mt-3">
             <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
             <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>
@@ -60,7 +60,6 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-
           <form class="needs-validation" novalidate="">
             <div class="mb-3 mt-3 text-left">
               <label for="email">Email <span class="text-muted"></span></label>

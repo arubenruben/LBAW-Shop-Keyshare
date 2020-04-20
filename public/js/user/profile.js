@@ -1,25 +1,45 @@
 const addEventListeners = () => {
-    const feedback_btn = document.querySelector("#");
-    feedback_btn.addEventListener("click", () => {
+    const upload_img_btn = document.querySelector("#");
+    upload_img_btn.addEventListener("click", () => {
+
+    });
+
+    const delete_img_btn = document.querySelector("#");
+    delete_img_btn.addEventListener("click", () => {
+
+    });
+
+    const email_btn = document.querySelector("#");
+    email_btn.addEventListener("click", () => {
+
+    });
+
+    const description_btn = document.querySelector("#");
+    email_btn.addEventListener("click", () => {
 
     });
 
     const password_btn = document.querySelector("#");
     password_btn.addEventListener("click", () => {
-        const curr_password = document.querySelector("input[type=\"password\"]:nth-child(0)").value;
-        const new_password = document.querySelector("input[type=\"password\"]:nth-child(1)").value;
-        const confirm_password = document.querySelector("input[type=\"password\"]:nth-child(2)").value;
+        const curr_password = document.querySelector("input[type=\"password\"]:nth-child(0)");
+        const new_password = document.querySelector("input[type=\"password\"]:nth-child(1)");
+        const confirm_password = document.querySelector("input[type=\"password\"]:nth-child(2)");
 
-        if(!passwordIsLegal(new_password, confirm_password)) return;
+        if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
 
         const change_password = {
-            oldPassword: curr_password,
-            newPassword: new_password,
-            newPassword_confirmation: confirm_password
+            oldPassword: curr_password.value,
+            newPassword: new_password.value,
+            newPassword_confirmation: confirm_password.value
         }
 
          // changes password
         sendPost(change_password).then(r => console.log(r));
+
+    });
+
+    const delete_account_btn = document.querySelector("#");
+    delete_account_btn.addEventListener("click", () => {
 
     });
 }
@@ -39,31 +59,38 @@ const sendPost = post => {
         .catch(error => console.error("Error: {error}"));
 }
 
-const passwordIsLegal = (newPassword, newPassword_confirmation) => {
-    newPassword = encodeURIComponent(newPassword);
-    newPassword_confirmation = encodeURIComponent(newPassword_confirmation);
-    let is_legal = /(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])./.test(newPassword);
+const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) => {
+    newPassword.value = encodeURIComponent(newPassword.value);
+    newPassword_confirmation.value = encodeURIComponent(newPassword_confirmation.value);
+    let is_legal = /(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])./.test(newPassword.value);
 
         if (is_legal) {
-            document.getElementById('password').style.backgroundColor = 'white';
+            curr_password.style.backgroundColor = 'white';
             document.getElementById('msg-password1').innerHTML = '';
             if (newPassword !== newPassword_confirmation) {
-                document.getElementById('confirm_password').style.backgroundColor = 'rgb(246, 220, 220)';
-                document.getElementById('confirm_password').style.border = 'solid 1px rgb(233, 76, 76)'
-                document.getElementById('msg-password2').innerHTML = 'The password\'s don\'t match';
-                document.getElementById('msg-password2').style.color = 'red';
+                newPassword_confirmation.style.backgroundColor = 'rgb(246, 220, 220)';
+                newPassword_confirmation.style.border = 'solid 1px rgb(233, 76, 76)';
+
+                let msg = document.createElement("p");
+                msg.innerHTML = "The password\'s don\'t match";
+                msg.style.color = 'red';
+
+                curr_password.parentNode.insertBefore(msg, newPassword_confirmation);
+                return false;
             }
             else {
-                document.getElementById('confirm_password').style.backgroundColor = 'white';
-                document.getElementById('confirm_password').style.border = 'solid 1px rgb(176, 183, 187)'
-                document.getElementById('msg-password2').innerHTML = '';
+                newPassword_confirmation.style.backgroundColor = 'white';
+                newPassword_confirmation.style.border = 'solid 1px rgb(176, 183, 187)';
+
+                curr_password.querySelector("p").innerHTML = '';
                 return true;
             }
         }
         else {
-            document.getElementById('password').style.backgroundColor = 'rgb(246, 220, 220)';
-            document.getElementById('msg-password1').style.color = 'red';
-            document.getElementById('msg-password1').innerHTML = 'Enter a valid password';
+            let msg = document.createElement("p");
+            msg.innerHTML = "Enter a valid password";
+            msg.style.color = 'red';
+            msg.style.backgroundColor = 'rgb(246, 220, 220)';
         }
         return false;
 }
