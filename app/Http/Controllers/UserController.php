@@ -13,12 +13,20 @@ use App\User;
 class UserController extends Controller
 {
     public function getUser($username){
-        $user_id = DB::table('regular_user')->select('id')->where('username', '=', $username)->first()->id;
-        return User::findOrFail($user_id);
-    }
-    public function show($username) {
+        $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
 
+        if($user != null)
+            return User::findOrFail($user->id);
+
+        else
+            return null;
+    }
+
+    public function show($username) {
         $user = $this->getUser($username);
+
+        if($user == null)
+            return response(404);
 
         try {
             $this->authorize('ownUser', $user->id);
@@ -45,6 +53,9 @@ class UserController extends Controller
     public function showOffers($username) {
         $user = $this->getUser($username);
         $isOwner = true;
+
+        if($user == null)
+            return response(404);
 
         try {
             $this->authorize('edit', $user->id);
