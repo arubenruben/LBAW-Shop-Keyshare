@@ -47,4 +47,5 @@
             </div>
         </div>
     </div>
+    @include('partials.feedback', ['user' => $user])
 </div>
