@@ -13,9 +13,14 @@ use App\User;
 class UserController extends Controller
 {
     public function getUser($username){
-        $user_id = DB::table('regular_user')->select('id')->where('username', '=', $username)->first()->id;
-        return User::findOrFail($user_id);
+        $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
+        if($user != null)
+            return User::findOrFail($user->id);
+
+        else
+            return abort(404);;
     }
+
     public function show($username) {
 
         $user = $this->getUser($username);
@@ -132,37 +137,6 @@ class UserController extends Controller
 
         Auth::user()->image = '0';
         Auth::user()->save();
-    }
-
-    public function getOffers($id, $curr=true) {
-        if($curr) {
-            return DB::table('offer')
-                ->where('offer.seller', '=', $id)
-                ->join('active_offers', 'offer.id', '=', 'active_offer.offer_id')
-                ->join('platform', 'offer.platform', '=', 'platform.id')
-                ->join('product', 'offer.product', '=', 'product.id')
-                ->leftJoin('discount', 'offer.id', '=', 'discount.offer')
-                ->orderBy('offer.init_date')
-                ->select('offer.id as offer_id', 'product.name as product_name',
-                    'offer.stock as offer_stock', 'platform.name as platform',
-                    'offer.init_date as start_date','offer.price as offer_price',
-                    'discount.rate as discount_rate')
-                ->get();
-        } else {
-            return DB::table('offer')
-                ->where('offer.seller', '=', $id)
-                ->whereNotIn('offer.id', 'active_offers')
-                ->join('active_offer', 'offer.id', '=', 'active_offer.offer_id')
-                ->join('platform', 'offer.platform', '=', 'platform.id')
-                ->join('product', 'offer.product', '=', 'product.id')
-                ->leftJoin('discount', 'offer.id', '=', 'discount.offer')
-                ->orderBy('offer.init_date')
-                ->select('offer.id as offer_id', 'product.name as product_name',
-                    'offer.stock as offer_stock', 'platform.name as platform',
-                    'offer.init_date as start_date','offer.price as offer_price',
-                    'discount.rate as discount_rate')
-                ->get();
-        }
     }
 
     public function getReports($id, $reporter=true) {
