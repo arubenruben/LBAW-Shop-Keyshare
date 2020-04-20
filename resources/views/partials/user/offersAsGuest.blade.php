@@ -33,9 +33,9 @@
                                 <tr>
                                     <th scope="row" class="border-0 align-middle">
                                         <div class="p-2">
-                                            <img src="../../assets/images/games/GTAV/1.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                            <img src="{{'/images/games/'.$currentOffer->product()->getResults()->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform()->name}}]]</span>
+                                                <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform()->getResults()->name}}]]</span>
                                                 <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
@@ -44,7 +44,7 @@
                                     <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
-                                            <a href="{{ url('/product/'.$currentOffer->product()->id.'/'.$currentOffer->platform()->platform_id)}}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
+                                            <a href="{{ url('/product/'.$currentOffer->product()->getResults()->id.'/'.$currentOffer->platform()->getResults()->platform_id)}}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
                                         </div>
                                     </td>
                                 </tr>

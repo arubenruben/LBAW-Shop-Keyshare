@@ -448,7 +448,7 @@ header.navbar {
 
 .tableFixHead {
     overflow-y: auto;
-    height: 42rem;
+    max-height: 42rem;
 }
 
 .tableFixHead thead th {
