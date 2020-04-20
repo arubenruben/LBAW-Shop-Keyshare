@@ -4,6 +4,7 @@
 namespace App\Policies;
 
 use App\Http\Requests\UserEditRequest;
+use App\Offer;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
@@ -31,5 +32,11 @@ class UserPolicy
         // Only the own user can change any profile detail
         return Auth::check();
     }
+
+    public function delete0ffer($offerId) {
+        // Only the own user can change any profile detail
+        return Auto::check() && Auth::id() == Offer::findOrfail($offerId)->seller;
+    }
+
 
 }

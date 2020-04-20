@@ -55,8 +55,8 @@
                                     <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
-                                            <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
-                                            <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
+                                            <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}" class="btn btn-blue btn-block flex-nowrap"  role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
+                                            <button onclick= "pressed_delete_Button({{$currentOffer->id}})"  type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" ><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline-block"> Delete Offer </span></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -67,58 +67,58 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 usercontent-left mt-5">
-                <div class="row px-3">
-                    <div class="col-sm-12">
-                        <h4 class="text-left">Past Offers <span class="badge ml-1 badge-secondary"> {{$pastOffers->count()}}</span></h4>
-                    </div>
+        </div>
+        <div class="col-sm-12 usercontent-left mt-5">
+            <div class="row px-3">
+                <div class="col-sm-12">
+                    <h4 class="text-left">Past Offers <span class="badge ml-1 badge-secondary"> {{$pastOffers->count()}}</span></h4>
                 </div>
-                <div class="container mt-3 mb-3">
-                    <div class="row ">
-                        <div class="col-12">
-                            <div class="table-responsive table-striped tableFixHead mt-3 mt-3">
-                                <table id="userPastOffersTable" class="table p-0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="border-0 bg-light">
-                                                <div class="p-2 px-3 text-uppercase">Product Details</div>
-                                            </th>
-                                            <th scope="col" class="border-0 bg-light text-center">
-                                                <div class="py-2 text-uppercase">Start Date</div>
-                                            </th>
-                                            <th scope="col" class="border-0 bg-light text-center">
-                                                <div class="py-2 text-uppercase">End Date</div>
-                                            </th>
-                                            <th scope="col" class="border-0 bg-light text-center">
-                                                <div class="py-2 text-uppercase">Last Price</div>
-                                            </th>
-                                            <th scope="col" class="border-0 bg-light text-center">
-                                                <div class="py-2 text-uppercase">Profit</div>
-                                            </th>
+            </div>
+            <div class="container mt-3 mb-3">
+                <div class="row ">
+                    <div class="col-12">
+                        <div class="table-responsive table-striped tableFixHead mt-3 mt-3">
+                            <table id="userPastOffersTable" class="table p-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Start Date</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">End Date</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Last Price</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light text-center">
+                                            <div class="py-2 text-uppercase">Profit</div>
+                                        </th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($pastOffers as $pastOffer)
-                                        <tr>
-                                            <td scope="row" class="border-0 align-middle">
-                                                <div class="p-2">
-                                                    <img src="{{'/images/games/'.$pastOffer->product()->getResults()->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$pastOffer->platform()->getResults()->name}}]</span>
-                                                        <h6>Keys sold: {{count($pastOffer->keys()->getResults())}}</h6>
-                                                    </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
-                                                </div>
-                                            </td>
-                                            <td class="text-center align-middle">{{$pastOffer->init_date}}</td>
-                                            <td class="text-center align-middle">{{$pastOffer->final_date}}</td>
-                                            <td class="text-center align-middle">{{$pastOffer->price}}</td>
-                                            <td class="text-center align-middle"><strong>{{$pastOffer->profit}}</strong></td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($pastOffers as $pastOffer)
+                                    <tr>
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="{{'/images/games/'.$pastOffer->product()->getResults()->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                    <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$pastOffer->platform()->getResults()->name}}]</span>
+                                                    <h6>Keys sold: {{count($pastOffer->keys()->getResults())}}</h6>
+                                                </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle">{{$pastOffer->init_date}}</td>
+                                        <td class="text-center align-middle">{{$pastOffer->final_date}}</td>
+                                        <td class="text-center align-middle">{{$pastOffer->price}}</td>
+                                        <td class="text-center align-middle"><strong>{{$pastOffer->profit}}</strong></td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -12,13 +13,15 @@ use App\User;
 
 class UserController extends Controller
 {
+
+
     public function getUser($username){
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
         if($user != null)
             return User::findOrFail($user->id);
 
         else
-            return abort(404);;
+            return abort(404);
     }
 
     public function show($username)
@@ -35,16 +38,20 @@ class UserController extends Controller
         return view('pages.user.profile', ['user' => $user, 'isOwner' => true]);
     }
 
-    public function showPurchases()
+    public function showPurchases($username)
     {
+        $user = $this->getUser($username);
         try {
           //  $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $orders = Auth::user()->orders()->sortBy('date');
-        $isBanned = Auth::user()->banned();
+        /*$orders = Auth::user()->orders()->sortBy('date');
+        $isBanned = Auth::user()->banned();*/
+
+        $orders = $user->orders()->sortBy('date');
+        $isBanned = $user->banned();
 
         return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned]);
     }
@@ -134,6 +141,19 @@ class UserController extends Controller
         }
 
         User::destroy(Auth::id());
+    }
+
+    public function deleteOffer($offerId)
+    {
+        $offer = Offer::findOrFail($offerId);
+
+        try {
+           // $this->authorize('deleteOffer', $offerId);
+        } catch (AuthorizationException $e) {
+            return response(json_encode("You can't delete this offer"), 400);
+        }
+        DB::table('offer')->where('id', '=', $offerId)->delete();
+
     }
 
     public function deleteImage()
