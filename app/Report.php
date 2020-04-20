@@ -17,7 +17,7 @@ class Report extends Model
      *
      * @var string
      */
-    protected $table = 'Report';  
+    protected $table = 'report';
     
     /**
      * The user who received the report

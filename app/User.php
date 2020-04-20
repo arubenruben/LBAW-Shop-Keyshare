@@ -57,6 +57,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Offer', 'seller')->whereNotNull('final_date');
     }
 
+
     /**
      * The cart entries the user has
      */
