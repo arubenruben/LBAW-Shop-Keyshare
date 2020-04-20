@@ -18,7 +18,7 @@ class UserController extends Controller
             return User::findOrFail($user->id);
 
         else
-            return User::findOrFail(null);
+            return abort(404);;
     }
 
     public function show($username)
