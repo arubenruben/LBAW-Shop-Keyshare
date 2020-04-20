@@ -14,19 +14,16 @@ class UserController extends Controller
 {
     public function getUser($username){
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
-
         if($user != null)
             return User::findOrFail($user->id);
 
         else
-            return null;
+            return User::findOrFail(null);
     }
 
     public function show($username) {
-        $user = $this->getUser($username);
 
-        if($user == null)
-            return response(404);
+        $user = $this->getUser($username);
 
         try {
             $this->authorize('ownUser', $user->id);
@@ -53,9 +50,6 @@ class UserController extends Controller
     public function showOffers($username) {
         $user = $this->getUser($username);
         $isOwner = true;
-
-        if($user == null)
-            return response(404);
 
         try {
             $this->authorize('edit', $user->id);
