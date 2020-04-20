@@ -16,7 +16,7 @@
         <div class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
             <div class="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 mx-auto mx-sm-0 cardHomepage">
                 <a href="product.php"><img class="card-img-top cardHomepageImg img-fluid"
-                        src="../../../public/images/games/ASSASSINSCREEDUNITY/1.png"></a>
+                        src="images/games/ASSASSINSCREEDUNITY/1.png"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Assassins
                             Creed Unity</a></h6>
@@ -25,7 +25,7 @@
             </div>
             <div class="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 mx-auto mx-sm-0 d-sm-block d-none cardHomepage">
                 <a href="product.php"><img class="card-img-top cardHomepageImg img-fluid"
-                        src="../../../public/images/games/STARWARSJEDIFALLENORDER/1.png"></a>
+                        src="images/games/STARWARSJEDIFALLENORDER/1.png"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">Star Wars
                             Jedi
@@ -35,7 +35,7 @@
             </div>
             <div class="card col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 mx-auto mx-sm-0  d-md-block d-none cardHomepage">
                 <a href="product.php"><img class="card-img-top cardHomepageImg img-fluid"
-                        src="../../../public/images/games/CSGO/1.png"></a>
+                        src="images/games/CSGO/1.png"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">CSGO</a>
                     </h6>
@@ -44,7 +44,7 @@
             </div>
             <div class="card  col-xl-2 mx-auto mx-sm-0 d-xl-block d-none cardHomepage">
                 <a href="product.php"><img class="card-img-top cardHomepageImg img-fluid"
-                        src="../../../public/images/games/MINECRAFT/1.png"></a>
+                        src="images/games/MINECRAFT/1.png"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php"
                             class="text-decoration-none text-secondary">Minecraft</a>
@@ -54,7 +54,7 @@
             </div>
             <div class="card  col-xl-2 mx-auto mx-sm-0  d-xl-block d-none cardHomepage">
                 <a href="product.php"><img class="card-img-top cardHomepageImg img-fluid"
-                        src="../../../public/images/games/GTAV/1.png"></a>
+                        src="images/games/GTAV/1.png"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">GTA V</a>
                     </h6>

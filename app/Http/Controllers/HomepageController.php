@@ -8,7 +8,7 @@ class HomepageController extends Controller
 {
 
     public function show (Request $request){
-        return view('pages.homepage',['page'=> array(),'url'=>'/']);
+        return view('pages.homepage',['pages'=> array(),'links'=>array()]);
     }
 }
 ?>

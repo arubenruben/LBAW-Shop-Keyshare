@@ -5,7 +5,7 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-	@include('partials.navbar.commercenavbar',['page'=>$page,'url'=>$url])	
+	@include('partials.navbar.commercenavbar',['pages'=>$pages,'links'=>$links])	
 @endsection
 
 @section('content')

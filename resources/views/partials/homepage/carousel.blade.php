@@ -8,13 +8,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="product.php"><img src="../../../public/images/games/carousel/1.jpg" class="d-block w-100"></a>
+                <a href="product.php"><img src="images/games/carousel/1.jpg" class="d-block w-100"></a>
             </div>
             <div class="carousel-item">
-                <a href="product.php"><img src="../../../public/images/games/carousel/1.jpg" class="d-block w-100"></a>
+                <a href="product.php"><img src="images/games/carousel/1.jpg" class="d-block w-100"></a>
             </div>
             <div class="carousel-item">
-                <a href="product.php"><img src="../../../public/images/games/carousel/1.jpg" class="d-block w-100"></a>
+                <a href="product.php"><img src="images/games/carousel/1.jpg" class="d-block w-100"></a>
             </div>
         </div>
         <a id="carouselArrowLeft" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
