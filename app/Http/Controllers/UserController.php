@@ -29,9 +29,11 @@ class UserController extends Controller
             $this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'isOwner' => false]);
+        } finally {
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => true]);
         }
 
-        return view('pages.user.profile', ['user' => $user, 'isOwner' => true]);
+
     }
 
     public function showPurchases() {
