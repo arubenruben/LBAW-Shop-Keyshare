@@ -10,8 +10,8 @@
 
 @section('content')
     @include('partials.homepage.carousel')
-	@include('partials.homepage.mostpopulars')
-	@include('partials.homepage.mostrecents')
+	@include('partials.homepage.mostpopulars',['data'=>$data['mostPopulars']])
+	@include('partials.homepage.mostrecents',['data'=>$data['mostRecents']])
 @endsection
 
 @section('footer')
