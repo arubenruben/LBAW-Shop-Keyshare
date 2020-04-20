@@ -34,7 +34,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <img class="rounded-circle img-fluid mt-3" src="https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/22141173_826758350835332_1211921233867541017_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=FxTK4QbD1iIAX_KPa6o&_nc_ht=scontent.flis7-1.fna&oh=f273076c731a0cde48a147e1bc1c0308&oe=5E835F94" alt="Generic placeholder image" width="250" height="250">
+          <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/'.$user->image()->url) }}" alt="Generic placeholder image" width="250" height="250">
           <form class="mt-3">
             <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
             <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>

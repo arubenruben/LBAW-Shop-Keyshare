@@ -38,7 +38,7 @@ CREATE TABLE product (
   weight_tsvector  tsvector DEFAULT NULL,
   description TEXT,
   category INTEGER REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
-  image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  image INTEGER DEFAULT 2 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
   launch_date DATE NOT NULL,
   num_sells INTEGER NOT NULL DEFAULT 0,
@@ -68,7 +68,7 @@ CREATE TABLE regular_user (
   rating INTEGER DEFAULT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
-  image INTEGER NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  image INTEGER NOT NULL DEFAULT 1 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   num_sells INTEGER NOT NULL DEFAULT 0,
 
   CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
@@ -481,8 +481,6 @@ EXECUTE PROCEDURE update_product_stock();
 
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
-DECLARE
-    deleted_var BOOLEAN;
 BEGIN
     DELETE FROM cart
     WHERE offer IN (
@@ -653,7 +651,6 @@ EXECUTE PROCEDURE verify_banned_user_orders();
 CREATE OR REPLACE FUNCTION update_offer_profit()
 RETURNS TRIGGER AS $$
 DECLARE
-    rate REAL;
     offer_profit REAL;
 
 BEGIN

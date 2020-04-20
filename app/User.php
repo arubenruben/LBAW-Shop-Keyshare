@@ -25,6 +25,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
+        'email',
+        'birth_date',
+        'password',
     ];
 
     /**
@@ -104,7 +108,7 @@ class User extends Authenticatable
      * User has one profile image
      */
     public function image(){
-        return $this->belongsTo('App\Image', 'image');
+        return $this->belongsTo('App\Image', 'image')->getResults();
     }
 
     /**

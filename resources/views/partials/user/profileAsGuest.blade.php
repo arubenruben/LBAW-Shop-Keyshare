@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/default.jpg') }}" alt="Generic placeholder image" width="250" height="250">
+                    <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/'.$user->image()->url) }}" alt="Generic placeholder image" width="250" height="250">
                 </div>
             </div>
             <div class="row mt-4">
@@ -47,6 +47,4 @@
             </div>
         </div>
     </div>
-
-    @include('partials.feedback', ['user' => $user])
 </div>
