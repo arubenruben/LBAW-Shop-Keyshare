@@ -40,8 +40,8 @@
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
                                     </th>
-                                    <td class="text-center align-middle">{{$currentOffer->start_date}}</td>
-                                    <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
+                                    <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
+                                    <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
                                             <a href="{{ url('/product/'.$currentOffer->product()->getResults()->id.'/'.$currentOffer->platform()->getResults()->platform_id)}}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-eye"></i> <span class="d-none d-md-inline-block"> View Offer </span></a>
