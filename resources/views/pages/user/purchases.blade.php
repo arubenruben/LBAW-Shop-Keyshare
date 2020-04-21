@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', $user->username.' Profile')
+@section('title', $user->username.' Purchases')
 
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Account','pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Purchases','pages'=>$pages,'links'=>$links])
 @endsection
 
 @section('content')

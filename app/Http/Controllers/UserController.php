@@ -24,21 +24,32 @@ class UserController extends Controller
 
     public function show($username) {
         $user = $this->getUser($username);
-        try {
+
+         try {
             $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 
         return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
+
+
+      /*  if(Auth::check() && strcmp(Auth::user()->username, $username) == 0){
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
+        }
+        else{
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
+        }*/
     }
 
     public function showPurchases() {
+
         try {
-           $this->authorize('loggedIn');
+           $this->authorize('loggedIn', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
+
         $orders = Auth::user()->orders()->getResults()->sortBy('date');
         $isBanned = Auth::user()->banned();
 
@@ -48,7 +59,6 @@ class UserController extends Controller
     public function showOffers($username) {
         $user = $this->getUser($username);
         $isOwner = true;
-
         try {
            $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
@@ -65,7 +75,7 @@ class UserController extends Controller
     public function showReports() {
 
         try {
-           $this->authorize('loggedIn');
+           $this->authorize('loggedIn', Auth::user());
         } catch (AuthorizationException $e){
             return response(json_encode($e->getMessage()), 400);
         }
@@ -73,13 +83,13 @@ class UserController extends Controller
         $myReports = Auth::user()->reportee()->getResults();
         $reportsAgainstMe = Auth::user()->reporter()->getResults();
 
-        return view('pages.user.reports', ['myReports' => $myReports,
+        return view('pages.user.reports', ['user' => Auth::user(), 'myReports' => $myReports,
             'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);
     }
 
     public function update(UserEditRequest $request) {
         try {
-          $this->authorize('update');
+          $this->authorize('update', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
@@ -119,7 +129,7 @@ class UserController extends Controller
 
     public function delete() {
         try {
-            $this->authorize('delete');
+            $this->authorize('delete', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this profile"), 400);
         }
@@ -141,7 +151,7 @@ class UserController extends Controller
 
     public function deleteImage() {
         try {
-            $this->authorize('update');
+            $this->authorize('update', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }

@@ -18,3 +18,7 @@
     @endif
 @endsection
 
+
+@section('footer')
+    @include('partials.footer.userfooter')
+@endsection

@@ -1,9 +1,18 @@
-@extends('layouts.user')
 
-@section('title', $user->name.' Offers')
+@extends('layouts.app')
+
+@section('title', $user->username.' Reports')
+
+@include('partials.header.userheader')
+
+@section('navbar')
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Reports','pages'=>$pages,'links'=>$links])
+@endsection
 
 @section('content')
-    @include('partials.breadcrumbs', ['breadcrumbs' => ['/' => 'Home', '/user/'.$user->username => 'Profile'], 'active' => ['/user/'.$user->username => 'Reports']])
-    @include('partials.user.navbar', ['user' => $user, 'isOwner' => true, 'active' => 'Reports'])
-    @include('partials.user.reports', ['user' => $user, 'myReports' => $myReports, 'reportsAgainstMe' => $reportsAgainstMe, 'isBanned' => $isBanned])
+    @include('partials.user.reports', ['user' => $user, 'myReports' => $myReports, 'reportsAgainstMe' => $reportsAgainstMe])
+@endsection
+
+@section('footer')
+    @include('partials.footer.userfooter')
 @endsection
