@@ -11,6 +11,8 @@ use App\Http\Requests\UserEditRequest;
 use App\Policies\UserPolicy;
 use App\User;
 
+use Illuminate\Http\Request;
+
 class UserController extends Controller
 {
     public function getUser($username){
@@ -79,43 +81,40 @@ class UserController extends Controller
     }
 
     public function update(UserEditRequest $request) {
+        
         try {
           $this->authorize('update', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        $request = $request->validated();
-
+    
+        if (isset($request->email)) {
+            Auth::user()->email = $request->email;
+        }
+        
+        if (isset($request->description)) {
+            Auth::user()->description = $request->description;
+        }                
         if (isset($request->oldPassword) && isset($request->newPassword)) {
             if (Hash::check($request->oldPassword, Auth::user()->password)) {
                 Auth::user()->password = Hash::make($request->newPassword);
             } else {
                 return response(json_encode("Old password is incorrect"), 400);
             }
-        }
-
-        if (isset($request->email)) {
-            Auth::user()->email = $request->email;
-        }
-
-        if (isset($request->description)) {
-            Auth::user()->description = $request->description;
-        }
-
-        if (isset($request->birth_date)) {
-            Auth::user()->birth_date = $request->birth_date;
-        }
-
+        }        
         if (isset($request->paypal)) {
-            Auth::user()->birth_date = $request->birth_date;
+            Auth::user()->paypal = $request->paypal;
         }
 
         if (isset($request->image)) {
             Auth::user()->image = $request->image;
         }
-
+        
         Auth::user()->save();
+
+        return response(json_encode("Sucesss"));
+        
     }
 
     public function delete() {

@@ -23,8 +23,7 @@ Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(re
 Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
-
-Route::post('user', 'UserController@update');
+Route::put('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'UserController@deleteOffer');
