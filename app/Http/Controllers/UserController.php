@@ -35,7 +35,7 @@ class UserController extends Controller
 
     public function showPurchases() {
         try {
-           $this->authorize('loggedIn');
+           $this->authorize('loggedIn', Auth::user());
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
