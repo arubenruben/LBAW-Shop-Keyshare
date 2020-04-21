@@ -19,21 +19,21 @@ const addEventListeners = () => {
     });
 
     /*
+    
+    const description_btn = document.querySelector("#");
+    email_btn.addEventListener("click", () => {
+
+    });
     const upload_img_btn = document.querySelector("#");
     upload_img_btn.addEventListener("click", () => {
 
     });
-
     const delete_img_btn = document.querySelector("#");
     delete_img_btn.addEventListener("click", () => {
 
     });
 
 
-    const description_btn = document.querySelector("#");
-    email_btn.addEventListener("click", () => {
-
-    });
 
     const password_btn = document.querySelector("#");
     password_btn.addEventListener("click", () => {

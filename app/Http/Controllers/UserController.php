@@ -79,7 +79,7 @@ class UserController extends Controller
             'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);
     }
 
-    public function update(Request $request) {
+    public function update(UserEditRequest $request) {
         
         /*
         
