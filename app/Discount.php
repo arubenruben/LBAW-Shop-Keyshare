@@ -17,5 +17,11 @@ class Discount extends Model
      *
      * @var string
      */
-    protected $table = 'Discount';   
+    protected $table = 'discount';
+
+    protected $dates = [
+        'end_date',
+        'start_date',
+    ];
+
 }

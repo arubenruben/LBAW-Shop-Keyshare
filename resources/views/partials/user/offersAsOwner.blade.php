@@ -1,3 +1,5 @@
+
+
 <div id="content" class="container mt-5">
     <div class="row">
         <div class="col-sm-12 usercontent-left">
@@ -47,12 +49,17 @@
                                             <img src="{{'/images/games/'.$currentOffer->product()->getResults()->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                 <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform()->getResults()->name}}]</span>
-                                                <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
+                                                <h6>Stock: {{$currentOffer->stock}} keys</h6>
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
                                     </td>
-                                    <td class="text-center align-middle">{{$currentOffer->start_date}}</td>
-                                    <td class="text-center align-middle"><strong>${{$currentOffer->offer_price}}</strong></td>
+                                    <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
+                                    @if($currentOffer->price != $currentOffer->discountPrice())
+                                        <td class="text-center align-middle"><del><strong>${{$currentOffer->price}}</strong></del></del><strong  class="cl-green pl-2">${{$currentOffer->discountPrice()}}</strong></td>
+                                    @else
+                                        <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
+                                    @endif
+
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
                                             <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}" class="btn btn-blue btn-block flex-nowrap"  role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>

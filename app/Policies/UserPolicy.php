@@ -32,9 +32,9 @@ class UserPolicy
         return Auth::check();
     }
 
-    public function delete0ffer(Offer $offer) {
+    public function delete0ffer(User $user, Offer $offer) {
         // Only the own user can change any profile detail
-        return Auto::check() && Auth::id() == Offer::findOrfail($offer->id)->seller;
+        return Auto::check() && $user->id === $offer->seller;
     }
 
 

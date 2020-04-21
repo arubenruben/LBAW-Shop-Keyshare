@@ -11,14 +11,12 @@
             <div class="row ">
                 <div class="col-sm-12">
                     @php
-                        $numberOfPurchases = 0;
+                    $numberOfPurchases = 0;
                     @endphp
                     @foreach($orders as $order)
-                        @foreach($order->keys() as $key)
-                            @php
-                                $numberOfPurchases++;
-                                    @endphp
-                        @endforeach
+                        @php
+                        $numberOfPurchases += $order->keys()->getResults()->count()
+                        @endphp
                     @endforeach
                     <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">{{$numberOfPurchases}}</span></h4>
                 </div>
@@ -45,24 +43,29 @@
                             </thead>
                             <tbody>
                                 @foreach($orders as $order)
-                                    @foreach($order->keys() as $key)
+                                    @foreach($order->keys()->getResults() as $key)
                                         <tr>
                                             <td scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="{{$purchase['product_image']}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="{{$key->offer()->getResults()->product()->getResults()->image()->getResults()->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"><a href="product.php" class="text-dark d-inline-block">{{$purchase['product_name']}}</a></h5><a href="otherUser.php" data-toggle="modal" data-target=".bd-modal-lg1" class="text-muted font-weight-normal font-italic">{{$purchase['seller_username']}}</a>
+                                                        <h5 class="mb-0 d-inline-block"><a href="{{url("/product/".$key->offer()->getResults()->product()->getResults()->id."/".$key->offer()->getResults()->platform()->getResults()->id)}}" class="text-dark">{{$key->offer()->getResults()->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$key->offer()->getResults()->platform()->getResults()->name}}]</span>
+                                                        <a href="{{url("/user/".$key->offer()->getResults()->seller()->getResults()->username)}}" ><span class="text-muted font-weight-normal font-italic d-block">{{$key->offer()->getResults()->seller()->getResults()->username}}</span> </a>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="text-center align-middle">{{$order->date}}</td>
-                                            <td class="text-center align-middle"><strong>{{$key->price}}€</strong></td>
+                                            <td class="text-center align-middle"><strong>{{$key->price_sold}}€</strong></td>
                                             <td class="align-middle">
                                                 <div class="btn-group-justified btn-group-md">
-                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
-                                                    @if($isBanned)
-                                                        <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback{{$key->id}}"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
-                                                        <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport{{$key->id}}"> <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                    <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalSeeKey{{$key->id}}"><i class="fas fa-key d-inline-block"></i> <span class="d-none d-md-inline-block"> See key </span></button>
+                                                    @if($user->feedback()->getResults()->where("key", "=", $key->id)->count() == 0)
+                                                        <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap" data-toggle="modal" data-target="#modalGiveFeedback{{$key->id}} {{ $user->banned() ? 'disabled' : ''}}"> <i class="far fa-comment-alt d-inline-block"></i> <span class="d-none d-md-inline-block">Leave feedback</span> </button>
+                                                    @endif
+                                                    @if($key->report()->getResults() == null)
+                                                        <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#modalReport{{$key->id}}" {{ $user->banned() ? 'disabled' : ''}} > <i class="fas fa-user-slash d-inline-block"></i> <span class="d-none d-md-inline-block"> Report Seller </span></button>
+                                                    @else
+                                                        <a href="{{ url('/report/'.$key->report()->getResults()->id) }}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>
                                                     @endif
                                                 </div>
                                             </td>
@@ -86,8 +89,8 @@
                                                                 <u>
                                                                     <h5>Seller's Info</h5>
                                                                 </u>
-                                                                <h6>{{$key->offer()->user()->username}}</h6>
-                                                                <p><i class="fas fa-thumbs-up cl-success"></i><span class="font-weight-bold cl-success">{{$key->offer()->user()->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$key->offer()->user()->num_sells}} </p>
+                                                                <h6>{{$key->offer()->getResults()->seller()->getResults()->username}}</h6>
+                                                                <p><i class="fas fa-thumbs-up cl-success"></i><span class="font-weight-bold cl-success">{{$key->offer()->getResults()->seller()->getResults()->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$key->offer()->getResults()->seller()->getResults()->num_sells}} </p>
                                                             </div>
                                                             <div class="col-6 text-right">
                                                                 <u>
@@ -141,8 +144,8 @@
                                                                 <u>
                                                                     <h5>Seller's Info</h5>
                                                                 </u>
-                                                                <h6>{{$key->offer()->user()->username}}</h6>
-                                                                <p><i class="fas fa-thumbs-up cl-success"></i><span class="font-weight-bold cl-success">{{$key->offer()->user()->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$key->offer()->user()->num_sells}} </p>
+                                                                <h6>{{$key->offer()->getResults()->seller()->getResults()->username}}</h6>
+                                                                <p><i class="fas fa-thumbs-up cl-success"></i><span class="font-weight-bold cl-success">{{$key->offer()->getResults()->seller()->getResults()->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$key->offer()->getResults()->seller()->getResults()->num_sells}} </p>
                                                             </div>
                                                             <div class="col-6 text-right">
                                                                 <u>
@@ -165,7 +168,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="modalSeeKey" class="modal fade" role="dialog">
+                                        <div id="modalSeeKey{{$key->id}}" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
                                                 <div class="modal-content">

@@ -38,7 +38,7 @@ CREATE TABLE product (
   weight_tsvector  tsvector DEFAULT NULL,
   description TEXT,
   category INTEGER REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE,
-  image INTEGER DEFAULT 2 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  image INTEGER DEFAULT 1 NOT NULL REFERENCES image (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
   launch_date DATE NOT NULL,
   num_sells INTEGER NOT NULL DEFAULT 0,
@@ -68,7 +68,7 @@ CREATE TABLE regular_user (
   rating INTEGER DEFAULT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
-  image INTEGER NOT NULL DEFAULT 1 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+  image INTEGER NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   num_sells INTEGER NOT NULL DEFAULT 0,
 
   CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
@@ -116,7 +116,7 @@ CREATE TABLE admin (
   email TEXT NOT NULL UNIQUE,
   description TEXT,
   password TEXT NOT NULL,
-  image INTEGER NOT NULL DEFAULT 1 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
+  image INTEGER NOT NULL DEFAULT 0 REFERENCES image(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
 CREATE TABLE ban_appeal (
@@ -481,6 +481,8 @@ EXECUTE PROCEDURE update_product_stock();
 
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
+DECLARE
+    deleted_var BOOLEAN;
 BEGIN
     DELETE FROM cart
     WHERE offer IN (
@@ -651,6 +653,7 @@ EXECUTE PROCEDURE verify_banned_user_orders();
 CREATE OR REPLACE FUNCTION update_offer_profit()
 RETURNS TRIGGER AS $$
 DECLARE
+    rate REAL;
     offer_profit REAL;
 
 BEGIN
@@ -1226,7 +1229,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     INSERT INTO discount (rate, start_date, end_date, offer) values (64, '2020-04-01 23:59:00', '2020-05-23 12:48:34', 39);
     INSERT INTO discount (rate, start_date, end_date, offer) values (44, '2020-04-01 23:59:00', '2020-08-25 00:08:25', 85);
 
-    INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2019-08-18 16:52:45', 49, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
+    INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2019-08-18 16:52:45', 101, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2015-08-14 01:35:21', 37, 'Clémence', 'lkeling1@deviantart.com', 'ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere', '0126');
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2019-09-09 04:33:04', 53, 'Léa', 'gwestrip2@delicious.com', 'velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra', '806');
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2019-07-05 01:27:40', 88, 'Judicaël', 'cwreight3@goodreads.com', 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus', '576');

@@ -141,7 +141,7 @@ class UserController extends Controller
         $offer = Offer::findOrFail($offerId);
 
         try {
-            $this->authorize('deleteOffer', $offerId);
+            $this->authorize('deleteOffer',  $offer);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this offer"), 400);
         }
