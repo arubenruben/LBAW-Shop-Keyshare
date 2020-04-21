@@ -6,8 +6,7 @@
 
 
 @section('javascript')
-<script>
-   </ 
+<script src="{{ asset('js/user/profile.js') }}" defer></script>
 @endsection
 
 

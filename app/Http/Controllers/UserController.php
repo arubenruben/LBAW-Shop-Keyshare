@@ -79,6 +79,7 @@ class UserController extends Controller
     }
 
     public function update(UserEditRequest $request) {
+        
         try {
           $this->authorize('update');
         } catch (AuthorizationException $e) {
@@ -86,6 +87,10 @@ class UserController extends Controller
         }
 
         $request = $request->validated();
+    
+        if (isset($request->email)) {
+            Auth::user()->email = $request->email;
+        }
 
         if (isset($request->oldPassword) && isset($request->newPassword)) {
             if (Hash::check($request->oldPassword, Auth::user()->password)) {
@@ -94,11 +99,6 @@ class UserController extends Controller
                 return response(json_encode("Old password is incorrect"), 400);
             }
         }
-
-        if (isset($request->email)) {
-            Auth::user()->email = $request->email;
-        }
-
         if (isset($request->description)) {
             Auth::user()->description = $request->description;
         }

@@ -1,11 +1,27 @@
+'use strict'
+
+const crsf_token = document.querySelector('meta[name="csrf-token"]');
+
 const addEventListeners = () => {
-    
-    const email_btn = document.querySelector("#user_update_form input[type=email]");
+    const email_btn = document.querySelector("#button_submit_email");
+   
+   
     email_btn.addEventListener("click", () => {
-        console.log('ola');
+        let emailField=(document.querySelector("#form_update_user input[type=email]")).value;
+    
+        console.log(emailField);
+
+        const objData={
+            email:emailField
+        }
+
+        sendPut(objData).then(
+            reply=>console.log(reply)
+
+        )
     });
 
-    
+    /*
     const upload_img_btn = document.querySelector("#");
     upload_img_btn.addEventListener("click", () => {
 
@@ -45,13 +61,30 @@ const addEventListeners = () => {
     delete_account_btn.addEventListener("click", () => {
 
     });
+    */
 }
-
 const sendPost = post => {
     const options = {
         method: 'POST',
         body: JSON.stringify(post),
         headers: new Headers({
+            'X-CSRF-TOKEN' : crsf_token.getAttribute("content"),
+            'Content-Type': 'application/json'
+        })
+    }
+
+    return fetch("/user", options)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(error => console.error("Error: {error}"));
+}
+
+const sendPut = post => {
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(post),
+        headers: new Headers({
+            'X-CSRF-TOKEN' : crsf_token.getAttribute("content"),
             'Content-Type': 'application/json'
         })
     }
@@ -97,3 +130,5 @@ const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) =
         }
         return false;
 }
+
+addEventListeners();

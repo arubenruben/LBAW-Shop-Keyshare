@@ -26,12 +26,11 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('register', 'Auth\RegisterController@register');
 
 // User
-
-Route::get('user/{username}', 'UserController@show');
-Route::get('user/{username}/offers', 'UserController@showOffers');
 Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
-Route::post('user', 'UserController@update');
+Route::get('user/{username}', 'UserController@show');
+Route::get('user/{username}/offers', 'UserController@showOffers');
+Route::put('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'UserController@deleteOffer');

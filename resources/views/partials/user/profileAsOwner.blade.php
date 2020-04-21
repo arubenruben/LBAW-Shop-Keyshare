@@ -61,12 +61,12 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <form id="user_update_form" class="needs-validation" novalidate="">
+          <form id="form_update_user" class="needs-validation" novalidate="">
             <div class="mb-3 mt-3 text-left">
               <label for="email">Email <span class="text-muted"></span></label>
               <input type="email" class="form-control userDetailsForm" id="email" value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
               <div class="text-right mt-3">
-                <button type="button" class="btn btn-sm btn-blue" data-container="body" data-toggle="popover" data-trigger="focus" data-content="<span class='cl-success'>Successfully changed your password</span>" data-placement="bottom"><i class="fas fa-envelope"></i> Change email</button>
+                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue" data-container="body" data-toggle="popover" data-trigger="focus" data-content="<span class='cl-success'>Successfully changed your password</span>" data-placement="bottom"><i class="fas fa-envelope"></i> Change email</button>
               </div>
               <div class="invalid-feedback">
                 Please enter a valid email.
@@ -75,7 +75,6 @@
             <div class="mb-3 text-left">
               <label for="description">Description</label>
               <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
-
               <div class="text-right mt-3">
                 <button type="button" class="btn btn-sm btn-blue" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
               </div>
