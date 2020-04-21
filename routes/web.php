@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Auth\LoginController@home');
+Route::get('/', 'HomepageController@show');
 
 // API
 Route::put('api/cards', 'CardController@create');
@@ -43,3 +43,4 @@ Route::get('cards/{id}', 'CardController@show');
 // Products
 Route::get('product/{id}/{platform}', 'ProductController@show');
 
+//Static Pages
