@@ -74,9 +74,9 @@
             </div>
             <div class="mb-3 text-left">
               <label for="description">Description</label>
-              <textarea class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
+              <textarea id="description_textarea" class="form-control userDetailsForm" id="exampleFormControlTextarea1" placeholder="Write something about yourself!!" rows="3" {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
               <div class="text-right mt-3">
-                <button type="button" class="btn btn-sm btn-blue" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
+                <button id="button_submit_description" type="button" class="btn btn-sm btn-blue" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
               </div>
             </div>
             <div class="mb-3 mt-0 text-left">

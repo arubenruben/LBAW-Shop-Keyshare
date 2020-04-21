@@ -81,18 +81,20 @@ class UserController extends Controller
 
     public function update(UserEditRequest $request) {
         
-        /*
-        
         try {
           $this->authorize('update');
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        //$request = $request->validated();
-    */
+        $request = $request->validated();
+    
         if (isset($request->email)) {
             Auth::user()->email = $request->email;
+        }
+        
+        if (isset($request->description)) {
+            Auth::user()->description = $request->description;
         }
 /*
         if (isset($request->oldPassword) && isset($request->newPassword)) {
@@ -101,9 +103,6 @@ class UserController extends Controller
             } else {
                 return response(json_encode("Old password is incorrect"), 400);
             }
-        }
-        if (isset($request->description)) {
-            Auth::user()->description = $request->description;
         }
 
         if (isset($request->birth_date)) {

@@ -8,22 +8,33 @@ const addEventListeners = () => {
 
 
     email_btn.addEventListener("click", () => {
+
         let emailField = (document.querySelector("#form_update_user input[type=email]")).value;
 
-        const objData = {
+        const data = {
             email: emailField
         }
         
-        sendPut(objData);
+        sendPut(data);
 
     });
+
+    const description_btn = document.querySelector("#button_submit_description");
+
+    description_btn.addEventListener("click", () => {
+
+        const descriptionField=(document.querySelector("#form_update_user #description_textarea")).value;
+        
+        const data = {
+            description: descriptionField
+        }
+        
+        sendPut(data);
+    });
+
 
     /*
     
-    const description_btn = document.querySelector("#");
-    email_btn.addEventListener("click", () => {
-
-    });
     const upload_img_btn = document.querySelector("#");
     upload_img_btn.addEventListener("click", () => {
 
