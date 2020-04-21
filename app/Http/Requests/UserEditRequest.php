@@ -29,11 +29,12 @@ class UserEditRequest extends FormRequest
     {
         return [
             'email' => 'bail | sometimes | required | string | email | unique:App\User,email',
-            'description' => 'bail | sometimes | string |  max:500 ',
+            /*'description' => 'bail | sometimes | string |  max:500 ',
             'oldPassword' => 'bail | sometimes | password | required_with:newPassword',
             'newPassword' => 'bail | sometimes | required_with:oldPassword | string | confirmed | min:6 | max:100 | regex:/(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])./',
             'paypal' => 'bail | sometimes | required | string | email',
             'image' => 'bail | sometimes | required | image'
+            */
         ];
     }
 
@@ -43,6 +44,8 @@ class UserEditRequest extends FormRequest
             'email.unique' => 'The email is already registered under another account',
             'email.string' => 'The email must be a string',
             'email.email' => 'The email provided is not a valid one',
+            
+            /*
             'description.string' => 'The description must be a string',
             'description.max' => 'The description has a maximum number of 500 characters',
             'oldPassword.required_with' => 'A new password must be sent in conjunction with the old one',
@@ -58,6 +61,7 @@ class UserEditRequest extends FormRequest
             'paypal.string' => 'The paypal email must be a string',
             'paypal.email' => 'The paypal email provided  is not a valid one',
             'image.image' => 'THe image provided is not a valid one'
+            */
         ];
     }
 }
