@@ -1,22 +1,27 @@
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const url = '/user';
 
-
-let crsf_token = document.querySelector('meta[name="csrf-token"]');
-
-const pressed_delete_Button = (offer_id) => {
-
+const pressed_delete_Button = offer_id => {
+    const tableRowElem = document.querySelector('#offer' + offer_id);
     const options = {
-        method: 'DELETE',
+        method: 'delete',
         headers: new Headers({
-            'X-CSRF-TOKEN' : crsf_token.getAttribute("content"),
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
         })
     }
 
-
-    return fetch('/user/offer/' + offer_id, options)
-        .then(alert("consegui"))
+    fetch('/user/offer/' + offer_id, options)
+        .then(function (response) {
+            if (response.ok) {
+                tableRowElem.remove();
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
         .then(res => res.json())
         .then(res => console.log(res))
-        .catch(error => console.error("Error: {error}"));
-    
+        .catch(error => console.error("Error:" + error));
 }

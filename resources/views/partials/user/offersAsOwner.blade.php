@@ -43,7 +43,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($currOffers as $currentOffer)
-                                <tr>
+                                <tr id="offer{{$currentOffer->id}}">
                                     <td scope="row" class="border-0 align-middle">
                                         <div class="p-2">
                                             <img src="{{'/images/games/'.$currentOffer->product()->getResults()->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">

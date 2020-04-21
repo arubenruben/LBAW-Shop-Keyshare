@@ -81,6 +81,7 @@ const addEventListeners = () => {
 
 
 }
+/* NAO USAR SEM DAR FIX
 const sendPost = post => {
     const options = {
         method: 'POST',
@@ -96,7 +97,7 @@ const sendPost = post => {
         .then(res => console.log(res))
         .catch(error => console.error("Error: {error}"));
 }
-
+*/
 const sendPut = post => {
 
     const options = {

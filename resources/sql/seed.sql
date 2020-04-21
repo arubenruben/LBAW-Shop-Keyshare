@@ -1172,7 +1172,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (966.48, '2019-10-09 23:44:50', '2020-11-19 03:01:15', 532.33, 7, 66, 3, 46);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (374.24, '2019-11-19 00:14:25', '2020-09-23 12:43:08', 859.45, 3, 22, 25, 78);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (314.51, '2019-09-16 07:45:22', '2020-11-29 14:32:56', 85.36, 8, 61, 18, 17);
-    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 5, 5, 17, 10);
+    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (562.63, '2019-10-17 09:37:43', null, 67.14, 5, 107, 17, 10);
 
     INSERT INTO discount (rate, start_date, end_date, offer) values (40, '2020-04-01 23:59:00', '2020-05-13 14:55:39', 36);
     INSERT INTO discount (rate, start_date, end_date, offer) values (5, '2020-04-01 23:59:00', '2020-09-29 11:08:42', 67);
@@ -1729,6 +1729,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2014-03-11 21:49:54', 62, 'Félicie', 'dreignarddt@123-reg.co.uk', 'quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam', '9');
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2016-03-25 05:25:18', 15, 'Léone', 'dkiltydu@wordpress.org', 'eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula', '7323');
     INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2013-07-16 07:19:02', 35, 'Marie-thérèse', 'aknealedv@nps.gov', 'nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat', '6');
+    INSERT INTO orders (date, buyer, order_info_name, order_info_email, order_info_address, order_info_zipcode) values ('2013-07-16 07:19:02', 107, 'Marie-thérèse', 'aknealedv@nps.gov', 'nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat', '6');
 
     INSERT INTO key (key,price_sold, offer, orders) values ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjW', 17.44, 82, 180);
     INSERT INTO key (key,price_sold, offer, orders) values ('1Jz6jirE2AoVMTK6jorBtjWme1XAo8EaAr', 85.0, 76, 54);
