@@ -9,7 +9,7 @@ const addEventListeners = () => {
 
     email_btn.addEventListener("click", () => {
 
-        let emailField = (document.querySelector("#form_update_user input[type=email]")).value;
+        let emailField = (document.querySelector("#form_update_user #email-input")).value;
 
         const data = {
             email: emailField
@@ -32,38 +32,41 @@ const addEventListeners = () => {
         sendPut(data);
     });
 
+    const paypal_btn = document.querySelector("#paypalButton");
+    paypal_btn.addEventListener("click", () => {
+        const paypalField=(document.querySelector("#form_update_user #paypal-input")).value;
+        const data={
+            paypal:paypalField
+        }
+        sendPut(data);
+    });
 
+    const password_btn = document.querySelector("#button_submit_password");
+    password_btn.addEventListener("click", () => {
+        const oldPassword = (document.querySelector("#current-password-input")).value;
+        const newPassword = (document.querySelector("#new-password-input")).value;
+        const newPassword_confirmation = (document.querySelector("#confirm-password-input")).value;
+    
+        //if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
+
+        const data = {
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+            newPassword_confirmation: newPassword_confirmation
+        }
+
+        sendPut(data).then(r => console.log(r));
+        
+    });
     /*
     
     const upload_img_btn = document.querySelector("#");
     upload_img_btn.addEventListener("click", () => {
 
     });
-    const delete_img_btn = document.querySelector("#");
-    delete_img_btn.addEventListener("click", () => {
-
-    });
 
 
 
-    const password_btn = document.querySelector("#");
-    password_btn.addEventListener("click", () => {
-        const curr_password = document.querySelector("input[type=\"password\"]:nth-child(0)");
-        const new_password = document.querySelector("input[type=\"password\"]:nth-child(1)");
-        const confirm_password = document.querySelector("input[type=\"password\"]:nth-child(2)");
-
-        if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
-
-        const change_password = {
-            oldPassword: curr_password.value,
-            newPassword: new_password.value,
-            newPassword_confirmation: confirm_password.value
-        }
-
-         // changes password
-        sendPost(change_password).then(r => console.log(r));
-
-    });
 
     const delete_account_btn = document.querySelector("#");
     delete_account_btn.addEventListener("click", () => {
