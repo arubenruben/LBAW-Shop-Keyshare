@@ -88,7 +88,6 @@ class UserController extends Controller
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        //$request = $request->validated();
     
         if (isset($request->email)) {
             Auth::user()->email = $request->email;
