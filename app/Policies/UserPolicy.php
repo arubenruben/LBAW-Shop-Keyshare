@@ -17,6 +17,8 @@ class UserPolicy
         return Auth::check() && Auth::user() === $visitor;
     }
 
+
+
     public function loggedIn() {
         // Only the own user can visit its purchases
         return Auth::check();

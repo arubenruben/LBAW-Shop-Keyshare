@@ -51,7 +51,7 @@ class UserController extends Controller
         $isOwner = true;
 
         try {
-           $this->authorize('edit', $user->id);
+           $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
             $isOwner = false;
         }
