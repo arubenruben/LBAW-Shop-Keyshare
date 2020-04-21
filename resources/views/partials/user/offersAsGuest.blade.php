@@ -37,7 +37,7 @@
                                             <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                 <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform()->getResults()->name}}]</span>
                                                 <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
-                                            </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
+                                            </div>
                                         </div>
                                     </th>
                                     <td class="text-center align-middle">{{$currentOffer->init_date}}</td>

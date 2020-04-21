@@ -8,14 +8,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserEditRequest;
-
+use App\Policies\UserPolicy;
 use App\User;
 
 class UserController extends Controller
 {
-
-
-    public function getUser($username){
+    public function getUser($username) {
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
         if($user != null)
             return User::findOrFail($user->id);
@@ -23,22 +21,19 @@ class UserController extends Controller
             abort(404, 'User doesn\'t exist');
     }
 
-    public function show($username)
-    {
+    public function show($username) {
         $user = $this->getUser($username);
 
         try {
-            $this->authorize('ownUser', $user->id);
+            $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false,'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 
         return view('pages.user.profile', ['user' => $user, 'isOwner' => true, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
     }
 
-    public function showPurchases()
-    {
-
+    public function showPurchases() {
         try {
             $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
@@ -51,8 +46,7 @@ class UserController extends Controller
         return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, pages =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
     }
 
-    public function showOffers($username)
-    {
+    public function showOffers($username) {
         $user = $this->getUser($username);
         $isOwner = true;
 
@@ -69,8 +63,7 @@ class UserController extends Controller
             'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User', 'Offers'),'links'=>array(url('/user/'.$username), url('/user/'.$username.'/offers'))]);
     }
 
-    public function showReports()
-    {
+    public function showReports() {
         try {
            $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
@@ -85,8 +78,7 @@ class UserController extends Controller
             'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);
     }
 
-    public function update(UserEditRequest $request)
-    {
+    public function update(UserEditRequest $request) {
         try {
           $this->authorize('update');
         } catch (AuthorizationException $e) {
@@ -126,8 +118,7 @@ class UserController extends Controller
         Auth::user()->save();
     }
 
-    public function delete()
-    {
+    public function delete() {
         try {
             $this->authorize('delete');
         } catch (AuthorizationException $e) {
@@ -137,8 +128,7 @@ class UserController extends Controller
         User::destroy(Auth::id());
     }
 
-    public function deleteOffer($offerId)
-    {
+    public function deleteOffer($offerId) {
         $offer = Offer::findOrFail($offerId);
 
         try {
@@ -150,8 +140,7 @@ class UserController extends Controller
 
     }
 
-    public function deleteImage()
-    {
+    public function deleteImage() {
         try {
             $this->authorize('update');
         } catch (AuthorizationException $e) {
@@ -161,6 +150,4 @@ class UserController extends Controller
         Auth::user()->image = '0';
         Auth::user()->save();
     }
-
-
 }

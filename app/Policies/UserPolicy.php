@@ -13,9 +13,9 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function ownUser(int $visitorId) {
+    public function ownUser(User $visitor) {
         // Only the own user can change any profile detail
-        return Auth::check() && Auth::id() == $visitorId;
+        return Auth::check() && Auth::user() == $visitor;
     }
 
     public function loggedIn() {
@@ -33,7 +33,7 @@ class UserPolicy
         return Auth::check();
     }
 
-    public function delete0ffer($offerId) {
+    public function delete0ffer(int $offerId) {
         // Only the own user can change any profile detail
         return Auto::check() && Auth::id() == Offer::findOrfail($offerId)->seller;
     }
