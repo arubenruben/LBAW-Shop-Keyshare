@@ -32,9 +32,9 @@ class UserController extends Controller
         try {
             //$this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false,'pages'=>array('User','Profile'),'links'=>array('Ola.php','Adeus.php')]);
         } finally {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => true]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => true,'pages'=>array('User','Profile'),'links'=>array('Ola.php','Adeus.php')]);
         }
 
 
@@ -52,10 +52,7 @@ class UserController extends Controller
         /*$orders = Auth::user()->orders()->sortBy('date');
         $isBanned = Auth::user()->banned();*/
 
-        $orders = $user->orders()->sortBy('date');
-        $isBanned = $user->banned();
-
-        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned]);
+        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned,'pages'=>array('User','Profile','Purchases'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
     }
 
     public function showOffers($username)
@@ -72,8 +69,8 @@ class UserController extends Controller
         $pastOffers = $user->pastOffers()->getResults();
         $currOffers = $user->activeOffers()->getResults();
 
-        return view('pages.user.offers', ['user' => $user, 'pastOffers' => $pastOffers,
-            'currOffers' => $currOffers, 'isOwner' => $isOwner]);
+        return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
+            'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User','Profile','Offers'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
     }
 
     public function showReports($username)
@@ -90,7 +87,8 @@ class UserController extends Controller
         $reportsAgainstMe = $user->reporter()->getResults();
         $isBanned = $user->banned();
 
-        return view('pages.user.reports', ['user' => $user, 'myReports' => $myReports, 'reportsAgainstMe' => $reportsAgainstMe, 'isBanned' => $isBanned]);
+        return view('pages.user.reports', ['myReports' => $myReports,
+            'reportsAgainstMe' => $reportsAgainstMe,'pages'=>array('User','Profile','Reports'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
     }
 
     public function update(UserEditRequest $request)

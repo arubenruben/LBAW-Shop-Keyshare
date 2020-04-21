@@ -1,10 +1,14 @@
-@extends('layouts.user')
+@extends('layouts.app')
 
-@section('title', $user->name.' Offers')
+@section('title', $user->username.' Profile')
+
+@include('partials.header.userheader')
+
+@section('navbar')
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers','pages'=>$pages,'links'=>$links])	
+@endsection
 
 @section('content')
-    @include('partials.breadcrumbs', ['breadcrumbs' => ['/' => 'Home', '/user/'.$user->username => 'Profile'], 'active' => ['/user/'.$user->username => 'Offers']])
-    @include('partials.user.navbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers'])
     @if ($isOwner)
         @include('partials.user.offersAsOwner', ['user' => $user, 'pastOffers' => $pastOffers,
             'currOffers' => $currOffers])
