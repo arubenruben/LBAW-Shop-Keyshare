@@ -36,6 +36,4 @@ class UserPolicy
         // Only the own user can change any profile detail
         return Auto::check() && $user->id === $offer->seller;
     }
-
-
 }

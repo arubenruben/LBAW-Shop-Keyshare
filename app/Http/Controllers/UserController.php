@@ -13,9 +13,9 @@ use App\User;
 
 class UserController extends Controller
 {
-
     public function getUser($username){
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
+
         if($user != null)
             return User::findOrFail($user->id);
         else
@@ -32,18 +32,9 @@ class UserController extends Controller
         }
 
         return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
-
-
-      /*  if(Auth::check() && strcmp(Auth::user()->username, $username) == 0){
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
-        }
-        else{
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
-        }*/
     }
 
     public function showPurchases() {
-
         try {
            $this->authorize('loggedIn', Auth::user());
         } catch (AuthorizationException $e) {
@@ -59,6 +50,7 @@ class UserController extends Controller
     public function showOffers($username) {
         $user = $this->getUser($username);
         $isOwner = true;
+
         try {
            $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
@@ -73,7 +65,6 @@ class UserController extends Controller
     }
 
     public function showReports() {
-
         try {
            $this->authorize('loggedIn', Auth::user());
         } catch (AuthorizationException $e){
@@ -145,8 +136,8 @@ class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this offer"), 400);
         }
-        DB::table('offer')->where('id', '=', $offerId)->delete();
 
+        DB::table('offer')->where('id', '=', $offerId)->delete();
     }
 
     public function deleteImage() {
