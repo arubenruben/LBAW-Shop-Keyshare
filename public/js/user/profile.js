@@ -14,7 +14,7 @@ const addEventListeners = () => {
         const data = {
             email: emailField
         }
-        
+
         sendPut(data);
 
     });
@@ -23,20 +23,20 @@ const addEventListeners = () => {
 
     description_btn.addEventListener("click", () => {
 
-        const descriptionField=(document.querySelector("#form_update_user #description_textarea")).value;
-        
+        const descriptionField = (document.querySelector("#form_update_user #description_textarea")).value;
+
         const data = {
             description: descriptionField
         }
-        
+
         sendPut(data);
     });
 
     const paypal_btn = document.querySelector("#paypalButton");
     paypal_btn.addEventListener("click", () => {
-        const paypalField=(document.querySelector("#form_update_user #paypal-input")).value;
-        const data={
-            paypal:paypalField
+        const paypalField = (document.querySelector("#form_update_user #paypal-input")).value;
+        const data = {
+            paypal: paypalField
         }
         sendPut(data);
     });
@@ -46,7 +46,7 @@ const addEventListeners = () => {
         const oldPassword = (document.querySelector("#current-password-input")).value;
         const newPassword = (document.querySelector("#new-password-input")).value;
         const newPassword_confirmation = (document.querySelector("#confirm-password-input")).value;
-    
+
         //if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
 
         const data = {
@@ -56,7 +56,18 @@ const addEventListeners = () => {
         }
 
         sendPut(data).then(r => console.log(r));
-        
+
+    });
+    
+    
+    const delete_account_btn = document.querySelector("#delete-account-confirmation");
+    delete_account_btn.addEventListener("click", () => {
+        const username=(document.querySelector("#delete-account-confirmation-input")).value
+        sendDelete(username).then(
+            r=> console.log(r)            
+        ).then(
+            //window.location.replace("/")
+        )
     });
     /*
     
@@ -64,15 +75,11 @@ const addEventListeners = () => {
     upload_img_btn.addEventListener("click", () => {
 
     });
-
-
-
-
-    const delete_account_btn = document.querySelector("#");
-    delete_account_btn.addEventListener("click", () => {
-
-    });
+    
     */
+
+
+
 }
 const sendPost = post => {
     const options = {
@@ -114,7 +121,24 @@ const sendPut = post => {
         });
 }
 
+const sendDelete = username => {
 
+    const options = {
+        method: 'delete',
+        headers: new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        })
+    }
+
+    return fetch(url, options)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(error => console.error("Error:"+error));
+    
+}
 
 const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) => {
     newPassword.value = encodeURIComponent(newPassword.value);
