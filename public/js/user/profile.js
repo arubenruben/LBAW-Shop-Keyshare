@@ -66,7 +66,7 @@ const addEventListeners = () => {
         sendDelete(username).then(
             r=> console.log(r)            
         ).then(
-            //window.location.replace("/")
+            window.location.replace("/")
         )
     });
     /*
