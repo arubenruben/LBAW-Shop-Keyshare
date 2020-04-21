@@ -3,7 +3,6 @@
 
 namespace App\Policies;
 
-use App\Http\Requests\UserEditRequest;
 use App\Offer;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -15,7 +14,7 @@ class UserPolicy
 
     public function ownUser(User $visitor) {
         // Only the own user can change any profile detail
-        return Auth::check() && Auth::user() == $visitor;
+        return Auth::check() && Auth::user() === $visitor;
     }
 
     public function loggedIn() {
@@ -33,9 +32,9 @@ class UserPolicy
         return Auth::check();
     }
 
-    public function delete0ffer(int $offerId) {
+    public function delete0ffer(Offer $offer) {
         // Only the own user can change any profile detail
-        return Auto::check() && Auth::id() == Offer::findOrfail($offerId)->seller;
+        return Auto::check() && Auth::id() == Offer::findOrfail($offer->id)->seller;
     }
 
 
