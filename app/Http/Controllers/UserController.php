@@ -13,7 +13,8 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function getUser($username) {
+
+    public function getUser($username){
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
         if($user != null)
             return User::findOrFail($user->id);
@@ -23,14 +24,13 @@ class UserController extends Controller
 
     public function show($username) {
         $user = $this->getUser($username);
-
         try {
             $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
             return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 
-        return view('pages.user.profile', ['user' => $user, 'isOwner' => true, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
+        return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
     }
 
     public function showPurchases() {
@@ -51,7 +51,7 @@ class UserController extends Controller
         $isOwner = true;
 
         try {
-           $this->authorize('edit', $user->id);
+           $this->authorize('ownUser', $user);
         } catch (AuthorizationException $e) {
             $isOwner = false;
         }
