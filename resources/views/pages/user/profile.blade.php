@@ -4,6 +4,13 @@
 
 @include('partials.header.userheader')
 
+
+@section('javascript')
+<script>
+   </ 
+@endsection
+
+
 @section('navbar')
     @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Account','pages'=>$pages,'links'=>$links])	
 @endsection

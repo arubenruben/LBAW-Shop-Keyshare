@@ -60,7 +60,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <form class="needs-validation" novalidate="">
+          <form id="user_update_form" class="needs-validation" novalidate="">
             <div class="mb-3 mt-3 text-left">
               <label for="email">Email <span class="text-muted"></span></label>
               <input type="email" class="form-control userDetailsForm" id="email" value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>

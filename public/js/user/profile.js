@@ -1,4 +1,11 @@
 const addEventListeners = () => {
+    
+    const email_btn = document.querySelector("#user_update_form input[type=email]");
+    email_btn.addEventListener("click", () => {
+        console.log('ola');
+    });
+
+    
     const upload_img_btn = document.querySelector("#");
     upload_img_btn.addEventListener("click", () => {
 
@@ -9,10 +16,6 @@ const addEventListeners = () => {
 
     });
 
-    const email_btn = document.querySelector("#");
-    email_btn.addEventListener("click", () => {
-
-    });
 
     const description_btn = document.querySelector("#");
     email_btn.addEventListener("click", () => {

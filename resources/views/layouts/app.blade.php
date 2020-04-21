@@ -25,6 +25,7 @@
         <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>
         <script src="{{ asset('popper/popper.min.js') }}"></script>
         <script src="{{ asset('js/activate_popovers.js') }}" defer></script>
+        @yield('javascript')
 {{--
         <script src="{{ asset('js/progress_bar.js') }}" defer></script>
         <script src="{{ asset('js/progress_bar_draw.js') }}" defer></script>
