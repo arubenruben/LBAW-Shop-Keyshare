@@ -19,40 +19,36 @@ class UserController extends Controller
         $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
         if($user != null)
             return User::findOrFail($user->id);
-
         else
-            return abort(404);
+            abort(404, 'User doesn\'t exist');
     }
 
     public function show($username)
     {
-
         $user = $this->getUser($username);
 
         try {
-            //$this->authorize('ownUser', $user->id);
+            $this->authorize('ownUser', $user->id);
         } catch (AuthorizationException $e) {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false,'pages'=>array('User','Profile'),'links'=>array('Ola.php','Adeus.php')]);
-        } finally {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => true,'pages'=>array('User','Profile'),'links'=>array('Ola.php','Adeus.php')]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false,'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 
-
+        return view('pages.user.profile', ['user' => $user, 'isOwner' => true, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
     }
 
-    public function showPurchases($username)
+    public function showPurchases()
     {
-        $user = $this->getUser($username);
+
         try {
-          //  $this->authorize('loggedIn');
+            $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
 
-        /*$orders = Auth::user()->orders()->sortBy('date');
-        $isBanned = Auth::user()->banned();*/
+        $orders = Auth::user()->orders()->sortBy('date');
+        $isBanned = Auth::user()->banned();
 
-        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned,'pages'=>array('User','Profile','Purchases'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
+        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, pages =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
     }
 
     public function showOffers($username)
@@ -61,7 +57,7 @@ class UserController extends Controller
         $isOwner = true;
 
         try {
-           // $this->authorize('edit', $user->id);
+           $this->authorize('edit', $user->id);
         } catch (AuthorizationException $e) {
             $isOwner = false;
         }
@@ -70,31 +66,29 @@ class UserController extends Controller
         $currOffers = $user->activeOffers()->getResults();
 
         return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
-            'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User','Profile','Offers'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
+            'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User', 'Offers'),'links'=>array(url('/user/'.$username), url('/user/'.$username.'/offers'))]);
     }
 
-    public function showReports($username)
+    public function showReports()
     {
-
-        $user = $this->getUser($username);
         try {
-           // $this->authorize('loggedIn');
+           $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $myReports = $user->reportee()->getResults();
-        $reportsAgainstMe = $user->reporter()->getResults();
-        $isBanned = $user->banned();
+        $myReports = Auth::user()->reportee()->getResults();
+        $reportsAgainstMe = Auth::user()->reporter()->getResults();
+        $isBanned = Auth::user()->banned();
 
         return view('pages.user.reports', ['myReports' => $myReports,
-            'reportsAgainstMe' => $reportsAgainstMe,'pages'=>array('User','Profile','Reports'),'links'=>array('Ola.php','Adeus.php','Yes.php')]);
+            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);
     }
 
     public function update(UserEditRequest $request)
     {
         try {
-         //   $this->authorize('update');
+          $this->authorize('update');
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
@@ -148,7 +142,7 @@ class UserController extends Controller
         $offer = Offer::findOrFail($offerId);
 
         try {
-           // $this->authorize('deleteOffer', $offerId);
+            $this->authorize('deleteOffer', $offerId);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this offer"), 400);
         }
