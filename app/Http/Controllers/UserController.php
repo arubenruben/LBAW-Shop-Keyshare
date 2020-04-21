@@ -35,15 +35,14 @@ class UserController extends Controller
 
     public function showPurchases() {
         try {
-            $this->authorize('loggedIn');
+           $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
-
-        $orders = Auth::user()->orders()->sortBy('date');
+        $orders = Auth::user()->orders()->getResults()->sortBy('date');
         $isBanned = Auth::user()->banned();
 
-        return view('pages.user.purchases', ['orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, pages =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
+        return view('pages.user.purchases', ['user' => Auth::user(), 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'pages' =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
     }
 
     public function showOffers($username) {
@@ -64,15 +63,15 @@ class UserController extends Controller
     }
 
     public function showReports() {
+
         try {
            $this->authorize('loggedIn');
-        } catch (AuthorizationException $e) {
+        } catch (AuthorizationException $e){
             return response(json_encode($e->getMessage()), 400);
         }
 
         $myReports = Auth::user()->reportee()->getResults();
         $reportsAgainstMe = Auth::user()->reporter()->getResults();
-        $isBanned = Auth::user()->banned();
 
         return view('pages.user.reports', ['myReports' => $myReports,
             'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);

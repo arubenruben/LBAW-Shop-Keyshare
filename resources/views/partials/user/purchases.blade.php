@@ -1,7 +1,7 @@
 <div id="content" class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
-            @if($isBanned)
+            @if($user->banned())
                 <div class="row mb-2">
                     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal" data-target="#modalAppeal">
                         You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
@@ -10,7 +10,17 @@
             @endif
             <div class="row ">
                 <div class="col-sm-12">
-                    <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">4</span></h4>
+                    @php
+                        $numberOfPurchases = 0;
+                    @endphp
+                    @foreach($orders as $order)
+                        @foreach($order->keys() as $key)
+                            @php
+                                $numberOfPurchases++;
+                                    @endphp
+                        @endforeach
+                    @endforeach
+                    <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">{{$numberOfPurchases}}</span></h4>
                 </div>
             </div>
             <div class="row">
