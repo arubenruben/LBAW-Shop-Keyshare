@@ -75,10 +75,9 @@
                 value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive"
                 data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
               <div class="text-right mt-3">
-                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue" data-container="body"
-                  data-toggle="popover" data-trigger="focus"
-                  data-content="<span class='cl-success'>Successfully changed your password</span>"
-                  data-placement="bottom"><i class="fas fa-envelope"></i> Change email</button>
+                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue">
+                  <i class="fas fa-envelope"></i> Change email
+                </button>
               </div>
               <div class="invalid-feedback">
                 Please enter a valid email.
@@ -108,10 +107,9 @@
               <div id="new_password_invalid" class="invalid-feedback d-block">
               </div>
               <div class="text-right mt-3">
-                <button id="button_submit_password" type="button" class="btn btn-sm btn-blue" data-container="body"
-                  data-toggle="popover" data-trigger="focus"
-                  data-content="<span class='cl-success'>Successfully changed your password</span>"
-                  data-placement="bottom"><i class="fas fa-key"></i> Change password</button>
+                <button id="button_submit_password" type="button" class="btn btn-sm btn-blue">
+                  <i class="fas fa-key"></i> Change password
+                </button>
               </div>
             </div>
             <div class="mb-5 mt-0 text-left">

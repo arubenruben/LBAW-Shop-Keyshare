@@ -4,38 +4,141 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/user';
 
 const addEventListeners = () => {
+    let form = document.querySelector("form.needs-validation");
+
     const email_btn = document.querySelector("#button_submit_email");
-
     email_btn.addEventListener("click", () => {
-
-        let emailField = (document.querySelector("#form_update_user #email-input")).value;
+        let email_field = document.querySelector("#form_update_user #email-input");
         const data = {
-            email: emailField
+            email: email_field.value
         }
 
-        sendPut(data);
+        sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #email_msg")
+
+           if(res != "Success") {
+               email_field.style.border = 'solid 1px red';
+
+               if(msg === null) {
+                   msg = document.createElement("p");
+                   msg.setAttribute("id", "email_msg");
+                   msg.innerHTML = res['errors']['email'];
+                   msg.style.color = 'red';
+                   msg.style.textAlign = 'left';
+                   email_btn.parentNode.insertBefore(msg, email_btn);
+               } else {
+                   msg.innerHTML = res['errors']['email'];
+                   msg.style.color = 'red';
+                   msg.style.textAlign = 'left';
+               }
+           }
+           else {
+               email_field.style.border = 'solid 1px green';
+
+               if(msg === null) {
+                   msg = document.createElement("p");
+                   msg.setAttribute("id", "email_msg");
+                   msg.innerHTML = 'Changed email successfully';
+                   msg.style.color = 'green';
+                   msg.style.textAlign = 'left';
+                   email_btn.parentNode.insertBefore(msg, email_btn);
+               } else {
+                   msg.innerHTML = 'Changed email successfully';
+                   msg.style.color = 'green';
+                   msg.style.textAlign = 'left';
+               }
+           }
+        });
     });
 
     const description_btn = document.querySelector("#button_submit_description");
-
     description_btn.addEventListener("click", () => {
-
-        const descriptionField = (document.querySelector("#form_update_user #description_textarea")).value;
+        const description_field = document.querySelector("#form_update_user #description_textarea");
         const data = {
-            description: descriptionField
+            description: description_field.value
         }
 
-        sendPut(data);
+        sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #description_msg")
+
+            if(res != "Success") {
+                description_field.style.border = 'solid 1px red';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "description_msg");
+                    msg.innerHTML = res['errors']['description'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                    description_btn.parentNode.insertBefore(msg, description_btn);
+                } else {
+                    msg.innerHTML = res['errors']['description'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                }
+            }
+            else {
+                description_field.style.border = 'solid 1px green';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "description_msg");
+                    msg.innerHTML = 'Changed description successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                    description_btn.parentNode.insertBefore(msg, description_btn);
+                } else {
+                    msg.innerHTML = 'Changed description successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                }
+            }
+        });
     });
 
     const paypal_btn = document.querySelector("#paypalButton");
     paypal_btn.addEventListener("click", () => {
-        const paypalField = (document.querySelector("#form_update_user #paypal-input")).value;
+        const paypal_field = (document.querySelector("#form_update_user #paypal-input")).value;
         const data = {
-            paypal: paypalField
+            paypal: paypal_field
         }
 
-        sendPut(data);
+        sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #paypal_msg")
+
+            if(res != "Success") {
+                paypal_field.style.border = 'solid 1px red';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "paypal_msg");
+                    msg.innerHTML = res['errors']['paypal'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                    paypal_btn.parentNode.insertBefore(msg, paypal_btn);
+                } else {
+                    msg.innerHTML = res['errors']['paypal'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                }
+            }
+            else {
+                paypal_field.style.border = 'solid 1px green';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "paypal_msg");
+                    msg.innerHTML = 'Changed Paypal email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                    paypal_btn.parentNode.insertBefore(msg, paypal_btn);
+                } else {
+                    msg.innerHTML = 'Changed Paypal email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                }
+            }
+        });
     });
 
     const password_btn = document.querySelector("#button_submit_password");
@@ -137,32 +240,7 @@ const sendPost = post => {
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .then(res => console.log(res))
         .catch(error => console.error("Error: {error}"));
-}
-
-const sendPut = post => {
-
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'put',
-        credentials: "same-origin",
-        body: JSON.stringify(post)
-    }
-
-    return fetch(url, options)
-        .then((data) => {
-            console.log('Sucesso')
-            console.log(data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
 }
 
 const sendDelete = username => {

@@ -75,14 +75,13 @@ class UserController extends Controller
     }
 
     public function update(UserEditRequest $request) {
-        
         try {
           $this->authorize('update',User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        $request->validated();
+        //$request = $request->validated();
     
         if (isset($request->email)) {
             Auth::user()->email = $request->email;
@@ -108,7 +107,7 @@ class UserController extends Controller
         
         Auth::user()->save();
 
-        return response(json_encode("Sucesss"));
+        return response(json_encode("Success"), 200);
         
     }
 
