@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    //
+    
     public function delete($offerId) {
         $offer = Offer::findOrFail($offerId);
 
@@ -26,6 +26,12 @@ class OfferController extends Controller
         }
 
         $offer->final_date = date("Y-m-d");
+
+        
         $offer->save();
+
+        $response=['profit'=>$offer->profit];
+        
+        return response(json_encode($response),200);
     }
 }
