@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function showPurchases() {
         try {
-           $this->authorize('loggedIn');
+          $this->authorize('loggedIn');
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -127,17 +127,6 @@ class UserController extends Controller
         User::destroy(Auth::id());
     }
 
-    public function deleteOffer($offerId) {
-        $offer = Offer::findOrFail($offerId);
-
-        try {
-            $this->authorize('deleteOffer',  $offer);
-        } catch (AuthorizationException $e) {
-            return response(json_encode("You can't delete this offer"), 400);
-        }
-
-        DB::table('offer')->where('id', '=', $offerId)->delete();
-    }
 
     public function deleteImage() {
         try {

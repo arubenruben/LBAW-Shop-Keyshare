@@ -26,7 +26,7 @@ Route::get('user/reports', 'UserController@showReports');
 Route::put('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage');
-Route::delete('/user/offer/{idOffer}', 'UserController@deleteOffer');
+Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 
 // Products

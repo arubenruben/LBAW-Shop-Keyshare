@@ -14,7 +14,7 @@ class UserPolicy
 
     public function ownUser(User $user, User $visitor) {
         // Only the own user can change any profile detail
-        return Auth::check() && $user == $visitor;
+        return Auth::check() && $user->id == $visitor->id;
     }
 
     public function loggedIn(User $user) {
@@ -32,8 +32,5 @@ class UserPolicy
         return Auth::check();
     }
 
-    public function delete0ffer(User $user, Offer $offer) {
-        // Only the own user can change any profile detail
-        return Auth::check() && $user->id == $offer->seller;
-    }
+
 }
