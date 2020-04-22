@@ -13,15 +13,16 @@ const addEventListeners = () => {
             email: emailField.value
         }
 
-        let response;
         sendPost(data).then(res => {
-            console.log(res)
-           if(res == "Sucesss") {
+           if(res != "Success") {
                emailField.style.border = 'solid 1px red';
 
+               //if(document.querySelector("#"))
+
                let msg = document.createElement("p");
-               msg.innerHTML = "Unable to update email";
+               msg.innerHTML = res['errors']['email'];
                msg.style.color = 'red';
+               msg.style.textAlign = 'left';
                email_btn.parentNode.insertBefore(msg, email_btn);
            }
            else {
@@ -41,7 +42,7 @@ const addEventListeners = () => {
             description: descriptionField
         }
 
-        sendPut(data);
+        sendPost(data);
     });
 
     const paypal_btn = document.querySelector("#paypalButton");
@@ -51,7 +52,7 @@ const addEventListeners = () => {
             paypal: paypalField
         }
 
-        sendPut(data);
+        sendPost(data);
     });
 
     const password_btn = document.querySelector("#button_submit_password");
@@ -66,7 +67,7 @@ const addEventListeners = () => {
             newPassword_confirmation: newPassword_confirmation
         }
 
-        sendPut(data).then(r => console.log(r));
+        sendPost(data).then(r => console.log(r));
     });
 
     const delete_account_btn = document.querySelector("#delete-account-confirmation");
@@ -94,30 +95,6 @@ const sendPost = post => {
     return fetch("/user/", options)
         .then(res => res.json())
         .catch(error => console.error("Error: {error}"));
-}
-
-const sendPut = post => {
-
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'put',
-        credentials: "same-origin",
-        body: JSON.stringify(post)
-    }
-
-    return fetch(url, options)
-        .then((data) => {
-            console.log('Sucesso')
-            console.log(data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
 }
 
 const sendDelete = username => {
