@@ -29,7 +29,7 @@ class UserController extends Controller
 
         if(Auth::check() && Auth::id() == $user->id){
             return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
-        }else{
+        } else{
             return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 

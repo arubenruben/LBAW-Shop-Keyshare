@@ -95,12 +95,17 @@
             </div>
             <div class="mb-3 mt-0 text-left">
               <label for="Password ">Password (optional)</label>
-              <input id="current-password-input" type="password" class="form-control userDetailsForm mb-1"
+              <input id="old-password-input" type="password" class="form-control userDetailsForm mb-1"
                 placeholder="Current password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <div id="old_password_invalid" class="invalid-feedback">
+              </div>
               <input id="new-password-input" type="password" class="form-control userDetailsForm mb-1"
                 placeholder="New password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+
               <input id="confirm-password-input" type="password" class="form-control userDetailsForm mb-1"
                 placeholder="Confirm new password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
+              <div id="new_password_invalid" class="invalid-feedback d-block">
+              </div>
               <div class="text-right mt-3">
                 <button id="button_submit_password" type="button" class="btn btn-sm btn-blue">
                   <i class="fas fa-key"></i> Change password
