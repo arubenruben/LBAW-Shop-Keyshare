@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function showPurchases() {
         try {
-          $this->authorize('loggedIn');
+          $this->authorize('loggedIn',User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -67,7 +67,7 @@ class UserController extends Controller
 
     public function showReports() {
         try {
-           $this->authorize('loggedIn');
+           $this->authorize('loggedIn',User::class);
         } catch (AuthorizationException $e){
             return response(json_encode($e->getMessage()), 400);
         }
@@ -82,11 +82,10 @@ class UserController extends Controller
     public function update(UserEditRequest $request) {
         
         try {
-          $this->authorize('update');
+          $this->authorize('update',User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
-
     
         if (isset($request->email)) {
             Auth::user()->email = $request->email;
@@ -118,14 +117,13 @@ class UserController extends Controller
 
     public function delete() {
         try {
-            $this->authorize('delete');
+            $this->authorize('delete',User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this profile"), 400);
         }
 
         User::destroy(Auth::id());
     }
-
 
     public function deleteImage() {
         try {
