@@ -12,7 +12,7 @@
             @endif
             <div class="row px-3">
                 <div class="col-sm-9 " style=" display:flex; align-items: center;">
-                    <h4 class="text-left">Current Offers<span class="badge ml-1 badge-secondary"> {{$currOffers->count()}}</span></h4>
+                    <h4 class="text-left">Current Offers<span id="current-offer-counter" class="badge ml-1 badge-secondary"> {{$currOffers->count()}}</span></h4>
                 </div>
                 <div class="col-sm-3">
                     <a href="{{url('user/'.$user->id.'/offer')}}" class="btn p-2 btn-sm btn-orange btn-block text-white {{ $user->banned() ? 'disabled' : ''}}" role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add offer </span></a>
@@ -59,7 +59,6 @@
                                     @else
                                         <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
                                     @endif
-
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
                                             <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}" class="btn btn-blue btn-block flex-nowrap"  role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> Edit Offer </span></a>
@@ -78,14 +77,14 @@
         <div class="col-sm-12 usercontent-left mt-5">
             <div class="row px-3">
                 <div class="col-sm-12">
-                    <h4 class="text-left">Past Offers <span class="badge ml-1 badge-secondary"> {{$pastOffers->count()}}</span></h4>
+                    <h4 class="text-left">Past Offers <span id="past-offer-counter" class="badge ml-1 badge-secondary"> {{$pastOffers->count()}}</span></h4>
                 </div>
             </div>
             <div class="container mt-3 mb-3">
                 <div class="row ">
                     <div class="col-12">
                         <div class="table-responsive table-striped tableFixHead mt-3 mt-3">
-                            <table id="userPastOffersTable" class="table p-0">
+                            <table id="user-past-offer-table" class="table p-0">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="border-0 bg-light">
