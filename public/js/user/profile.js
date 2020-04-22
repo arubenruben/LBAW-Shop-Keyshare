@@ -43,19 +43,76 @@ const addEventListeners = () => {
 
     const password_btn = document.querySelector("#button_submit_password");
     password_btn.addEventListener("click", () => {
-        const oldPassword = (document.querySelector("#current-password-input")).value;
-        const newPassword = (document.querySelector("#new-password-input")).value;
-        const newPassword_confirmation = (document.querySelector("#confirm-password-input")).value;
 
-        //if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
+        let oldPassword = (document.querySelector("#old-password-input"));
+        let newPassword = (document.querySelector("#new-password-input"));
+        let newPassword_confirmation = (document.querySelector("#confirm-password-input"));
 
-        const data = {
-            oldPassword: oldPassword,
-            newPassword: newPassword,
-            newPassword_confirmation: newPassword_confirmation
+        let oldPassword_value = oldPassword.value;
+        let newPassword_value = newPassword.value;
+        let newPassword_confirmation_value = newPassword_confirmation.value;
+
+        let invalid_feedback_new_password  = (document.querySelector("#new_password_invalid"));
+        let invalid_feedback_old_password  = (document.querySelector("#old_password_invalid"));
+
+        let valid_old = true;
+        let valid_new = true;
+
+        if(oldPassword_value === ""){
+            oldPassword.className += " border-danger";
+            invalid_feedback_old_password.innerHTML = "Please fill out the old password";
+            invalid_feedback_old_password.className = "invalid-feedback d-block";
+            valid_old = false;
         }
 
-        sendPut(data).then(r => console.log(r));
+        else{
+            if(oldPassword.classList.contains('border-danger')){
+                oldPassword.classList.remove('border-danger');
+                invalid_feedback_old_password.className = "invalid-feedback";
+            }
+        }
+
+        if(newPassword_value === "" || newPassword_confirmation_value === ""){
+            newPassword.className += " border-danger";
+            newPassword_confirmation.className += " border-danger";
+            invalid_feedback_new_password.innerHTML = "Please provide and confirm a new password";
+            invalid_feedback_new_password.className = "invalid-feedback d-block";
+            valid_new = false;
+
+        }
+        else if(newPassword_value !== newPassword_confirmation_value) {
+            newPassword.className += " border-danger";
+            newPassword_confirmation.className += " border-danger";
+            invalid_feedback_new_password.innerHTML = "The passwords dont match";
+            invalid_feedback_new_password.className = "invalid-feedback d-block";
+            valid_new = false;
+
+        }
+        else{
+            invalid_feedback_new_password.innerHTML = "";
+            invalid_feedback_new_password.className = "invalid-feedback";
+
+            if(newPassword.classList.contains('border-danger')){
+                newPassword.classList.remove('border-danger');
+            }
+            if(newPassword_confirmation.classList.contains('border-danger')){
+                newPassword_confirmation.classList.remove('border-danger');
+            }
+        }
+
+        if(!valid_new && !valid_old) {
+
+            const data = {
+                oldPassword: oldPassword.value,
+                newPassword: newPassword.value,
+                newPassword_confirmation: newPassword_confirmation.value
+            }
+
+            sendPut(data).then(res => {
+                console.log(res);
+            });
+        }
+
 
     });
     
@@ -81,7 +138,7 @@ const addEventListeners = () => {
 
 
 }
-/* NAO USAR SEM DAR FIX
+
 const sendPost = post => {
     const options = {
         method: 'POST',
@@ -97,7 +154,13 @@ const sendPost = post => {
         .then(res => console.log(res))
         .catch(error => console.error("Error: {error}"));
 }
-*/
+
+
+
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+
+
 const sendPut = post => {
 
     const options = {
@@ -136,7 +199,6 @@ const sendDelete = username => {
 
     return fetch(url, options)
         .then(res => res.json())
-        .then(res => console.log(res))
         .catch(error => console.error("Error:"+error));
     
 }
