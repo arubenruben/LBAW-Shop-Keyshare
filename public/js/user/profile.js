@@ -160,7 +160,7 @@ const addEventListeners = () => {
             }
         }
 
-        if(!valid_new && !valid_old) {
+        if(valid_new && valid_old) {
 
             const data = {
                 oldPassword: oldPassword.value,
@@ -168,7 +168,7 @@ const addEventListeners = () => {
                 newPassword_confirmation: newPassword_confirmation.value
             }
 
-            sendPut(data).then(res => {
+            sendPost(data).then(res => {
                 console.log(res);
             });
         }
