@@ -6,17 +6,14 @@ const url = '/user';
 const addEventListeners = () => {
     const email_btn = document.querySelector("#button_submit_email");
 
-
     email_btn.addEventListener("click", () => {
 
         let emailField = (document.querySelector("#form_update_user #email-input")).value;
-
         const data = {
             email: emailField
         }
 
         sendPut(data);
-
     });
 
     const description_btn = document.querySelector("#button_submit_description");
@@ -24,7 +21,6 @@ const addEventListeners = () => {
     description_btn.addEventListener("click", () => {
 
         const descriptionField = (document.querySelector("#form_update_user #description_textarea")).value;
-
         const data = {
             description: descriptionField
         }
@@ -38,6 +34,7 @@ const addEventListeners = () => {
         const data = {
             paypal: paypalField
         }
+
         sendPut(data);
     });
 
@@ -47,8 +44,6 @@ const addEventListeners = () => {
         const newPassword = (document.querySelector("#new-password-input")).value;
         const newPassword_confirmation = (document.querySelector("#confirm-password-input")).value;
 
-        //if(!passwordIsLegal(curr_password, new_password, confirm_password)) return;
-
         const data = {
             oldPassword: oldPassword,
             newPassword: newPassword,
@@ -56,40 +51,28 @@ const addEventListeners = () => {
         }
 
         sendPut(data).then(r => console.log(r));
-
     });
-    
-    
+
     const delete_account_btn = document.querySelector("#delete-account-confirmation");
     delete_account_btn.addEventListener("click", () => {
         const username=(document.querySelector("#delete-account-confirmation-input")).value
-        sendDelete(username).then(
-            r=> console.log(r)            
-        ).then(
-            window.location.replace("/")
-        )
+        sendDelete(username)
+            .then(r=> console.log(r))
+            .then(window.location.replace("/"))
     });
-    /*
-    
-    const upload_img_btn = document.querySelector("#");
-    upload_img_btn.addEventListener("click", () => {
-
-    });
-    
-    */
-
-
-
 }
-/* NAO USAR SEM DAR FIX
+
 const sendPost = post => {
     const options = {
-        method: 'POST',
-        body: JSON.stringify(post),
-        headers: new Headers({
-            'X-CSRF-TOKEN': crsf_token.getAttribute("content"),
-            'Content-Type': 'application/json'
-        })
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'post',
+        credentials: "same-origin",
+        body: JSON.stringify(post)
     }
 
     return fetch("/user/", options)
@@ -97,7 +80,7 @@ const sendPost = post => {
         .then(res => console.log(res))
         .catch(error => console.error("Error: {error}"));
 }
-*/
+
 const sendPut = post => {
 
     const options = {
@@ -123,7 +106,6 @@ const sendPut = post => {
 }
 
 const sendDelete = username => {
-
     const options = {
         method: 'delete',
         headers: new Headers({
@@ -138,7 +120,6 @@ const sendDelete = username => {
         .then(res => res.json())
         .then(res => console.log(res))
         .catch(error => console.error("Error:"+error));
-    
 }
 
 const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) => {
