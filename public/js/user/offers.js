@@ -1,8 +1,12 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/user';
 
+
 const pressed_delete_Button = offer_id => {
     const tableRowElem = document.querySelector('#offer' + offer_id);
+    const currentOfferCounter = document.querySelector('#current-offer-counter');
+    const pastOfferCounter = document.querySelector('#past-offer-counter');
+    const pastOfferTable = document.querySelector('#user-past-offer-table');
     const options = {
         method: 'delete',
         headers: new Headers({
@@ -16,12 +20,10 @@ const pressed_delete_Button = offer_id => {
     fetch('/user/offer/' + offer_id, options)
         .then(function (response) {
             if (response.ok) {
-                tableRowElem.remove();
+                location.reload();
             } else {
                 console.log('Network response was not ok.');
             }
         })
-        .then(res => res.json())
-        .then(res => console.log(res))
         .catch(error => console.error("Error:" + error));
 }
