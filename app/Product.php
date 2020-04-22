@@ -6,13 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'product';
-
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
@@ -20,14 +13,14 @@ class Product extends Model
      * The image this product has
      */
     public function image() {
-        return $this->belongsTo('App\Image', 'image');
+        return $this->belongsTo('App\Image');
     }
 
     /**
      * The category this product has
      */
     public function category() {
-        return $this->belongsTo('App\Category', 'category');
+        return $this->belongsTo('App\Category');
     }
 
     /**

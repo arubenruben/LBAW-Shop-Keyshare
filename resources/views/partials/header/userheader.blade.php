@@ -24,7 +24,7 @@
             <!-- User Image -->
             <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/profile/'.Auth::user()->image()->url) }}" width="25"
+                <img src="{{ asset('images/profile/'.Auth::user()->image->url) }}" width="25"
                     class="img-header rounded-circle" alt=""> {{Auth::user()->username}}
             </button>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
@@ -48,7 +48,7 @@
         <div class="row">
             <a href="{{ url('/cart') }}" class="mt-auto mb-auto ml-auto mr-3"><i
                     class="fas fa-shopping-cart headerIcon cl-orange"></i><span
-                    class="badge badge-secondary">3</span></a>
+                    class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() : 0 }}</span></a>
         </div>
     </div>
     <!--Button Collapse Small -->

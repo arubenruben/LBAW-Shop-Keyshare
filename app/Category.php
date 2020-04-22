@@ -11,11 +11,4 @@ class Category extends Model
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'category';   
 }

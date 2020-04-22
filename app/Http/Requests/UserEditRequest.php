@@ -28,7 +28,7 @@ class UserEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'bail | sometimes | string | email | unique:regular_user',
+            'email' => 'bail | sometimes | string | email | unique:users,email',
             'description' => 'bail | sometimes | string |  max:500 ',
             'oldPassword' => 'bail | sometimes | required_with:newPassword',
             'newPassword' => 'bail | sometimes | required_with:oldPassword | string | confirmed | min:6 | max:100',

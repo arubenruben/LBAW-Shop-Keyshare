@@ -41,15 +41,15 @@ class HomepageController extends Controller
             */
 
         return DB::select(
-                'SELECT product.name AS product_name,platform.name, min(offer.price) AS min_price, max(num_sells) AS num_sells, max(discount.rate) AS discount_rate 
-                FROM active_products JOIN product ON active_products.product_id=product.id
-                    JOIN offer ON offer.product=product.id
-                    JOIN active_offers ON offer.id=active_offers.offer_id
-                    LEFT OUTER JOIN discount ON discount.offer=offer.id
-                    JOIN product_has_platform pf ON pf.product=product.id
-                    JOIN platform ON platform.id=pf.platform
-                WHERE (discount.start_date IS NULL OR (discount.start_date<now() AND discount.end_date > now()))	
-                GROUP BY product_name,platform.name
+                'SELECT products.name AS product_name,platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate 
+                FROM active_products JOIN products ON active_products.product_id=products.id
+                    JOIN offers ON offers.product_id=products.id
+                    JOIN active_offers ON offers.id=active_offers.offer_id
+                    LEFT OUTER JOIN discounts ON discounts.offer_id=offers.id
+                    JOIN product_has_platforms pf ON pf.product_id=products.id
+                    JOIN platforms ON platforms.id=pf.platform_id
+                WHERE (discounts.start_date IS NULL OR (discounts.start_date<now() AND discounts.end_date > now()))	
+                GROUP BY product_name,platforms.name
                 ORDER BY num_sells DESC
                 LIMIT ?',[$numberResults]
              );
@@ -77,15 +77,15 @@ class HomepageController extends Controller
             */
 
         return DB::select(
-                'SELECT product.name AS product_name, platform.name, min(offer.price) AS min_price, max(num_sells) AS num_sells, max(discount.rate) AS discount_rate, max(product.launch_date)  AS launch_date
-                FROM active_products JOIN product On active_products.product_id=product.id
-                    JOIN offer ON offer.product=product.id
-                    JOIN active_offers ON offer.id=active_offers.offer_id
-                    LEFT OUTER JOIN discount ON discount.offer=offer.id
-                    JOIN product_has_platform pf ON pf.product=product.id
-                    JOIN platform ON platform.id=pf.platform
-                    WHERE (discount.start_date IS NULL OR (discount.start_date<now() AND discount.end_date > now()))
-                GROUP BY product_name,platform.name
+                'SELECT products.name AS product_name, platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate, max(products.launch_date)  AS launch_date
+                FROM active_products JOIN products On active_products.product_id=products.id
+                    JOIN offers ON offers.product_id=products.id
+                    JOIN active_offers ON offers.id=active_offers.offer_id
+                    LEFT OUTER JOIN discounts ON discounts.offer_id=offers.id
+                    JOIN product_has_platforms pf ON pf.product_id=products.id
+                    JOIN platforms ON platforms.id=pf.platform_id
+                    WHERE (discounts.start_date IS NULL OR (discounts.start_date<now() AND discounts.end_date > now()))
+                GROUP BY product_name,platforms.name
                 ORDER BY launch_date DESC
                 LIMIT ?',[$numberResults]
             );

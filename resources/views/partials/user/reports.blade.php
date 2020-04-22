@@ -39,15 +39,15 @@
                                 <tr>
                                     <th scope="row" class="border-0 align-middle">
                                         <div class="p-2">
-                                            <img src="{{'/images/games/original/'.$myReport->key()->getResults()->offer()->getResults()->product()->getResults()->image()->getResults()->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                            <img src="{{'/images/games/original/'.$myReport->key->offer->product->image->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle">
                                                 <div class="flex-nowrap">
-                                                    <h5 class="mb-0 d-inline-block"><a href="{{ url('/product/'.$myReport->key()->getResults()->offer()->getResults()->product()->getResults()->id.'/'.$myReport->key()->getResults()->offer()->getResults()->platform()->getResults()->id) }}" class="text-dark d-inline-block">{{$myReport->key()->getResults()->offer()->getResults()->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$myReport->key()->getResults()->offer()->getResults()->platform()->getResults()->name}}]</span>
-                                                </div><a href="/user/{{$myReport->key()->getResults()->offer()->getResults()->seller()->getResults()->username}}" class="text-muted font-weight-normal font-italic">{{$myReport->key()->getResults()->offer()->getResults()->seller()->getResults()->username}}</a>
+                                                    <h5 class="mb-0 d-inline-block"><a href="{{ url('/product/'.$myReport->key->offer->product->id.'/'.$myReport->key->offer->platform->id) }}" class="text-dark d-inline-block">{{$myReport->key->offer->product->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$myReport->key->offer->platform->name}}]</span>
+                                                </div><a href="/user/{{$myReport->key->offer->seller->username}}" class="text-muted font-weight-normal font-italic">{{$myReport->key->offer->seller->username}}</a>
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
                                     </th>
-                                    <td class="text-center align-middle">{{$myReport->key()->getResults()->orders()->getResults()->date}}</td>
+                                    <td class="text-center align-middle">{{$myReport->key->order->date}}</td>
                                     <td class="text-center align-middle">{{$myReport->date}}</td>
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
@@ -97,14 +97,14 @@
                                 <tr>
                                     <th scope="row" class="border-0 align-middle">
                                         <div class="p-2">
-                                            <img src="{{'/images/games/original/'.$reportAgainstMe->key()->getResults()->offer()->getResults()->product()->getResults()->image()->getResults()->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                            <img src="{{'/images/games/original/'.$reportAgainstMe->key->offer->product->image->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                <h5 class="mb-0 d-inline-block"><a href="{{ url('/product/'.$reportAgainstMe->key()->getResults()->offer()->getResults()->product()->getResults()->id.'/'.$reportAgainstMe->key()->getResults()->offer()->getResults()->platform()->getResults()->id) }}" class="text-dark">{{$reportAgainstMe->key()->getResults()->offer()->getResults()->product()->getResults()->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$reportAgainstMe->key()->getResults()->offer()->getResults()->platform()->getResults()->name}}]</span>
+                                                <h5 class="mb-0 d-inline-block"><a href="{{ url('/product/'.$reportAgainstMe->key->offer->product->id.'/'.$reportAgainstMe->key->offer->platform->id) }}" class="text-dark">{{$reportAgainstMe->key->offer->product->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$reportAgainstMe->key->offer->platform->name}}]</span>
                                             </div> <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                         </div>
                                     </th>
                                     <td class="text-center align-middle">{{$reportAgainstMe->date}}</td>
-                                    <td class="text-center align-middle"><a href="{{url('/user/'.$reportAgainstMe->reportee()->getResults()->username)}}" class="text-muted font-weight-normal font-italic">{{$reportAgainstMe->reportee()->getResults()->username}}</a></td>
+                                    <td class="text-center align-middle"><a href="{{url('/user/'.$reportAgainstMe->reportee->username)}}" class="text-muted font-weight-normal font-italic">{{$reportAgainstMe->reportee->username}}</a></td>
                                     <td class="align-middle">
                                         <div class="btn-group-justified btn-group-md">
                                             <a href="{{ url('/report/'.$reportAgainstMe->id) }}" class="btn btn-blue btn-block flex-nowrap" role="button"> <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-md-inline-block"> View Report </span></a>

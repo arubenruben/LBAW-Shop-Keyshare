@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Appeal extends Model
+class BanAppeal extends Model
 {
     use Notifiable;
 
@@ -13,23 +13,16 @@ class Appeal extends Model
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'ban_appeal';
-
-    /**
      * Banned User that made the appeal
      */
     public function user() {
-        return $this->belongsTo('App\BannedUser', 'banned_user');
+        return $this->belongsTo('App\BannedUser', 'id');
     }
 
     /**
      * Admin that responded to the appeal
      */
     public function admin() {
-        return $this->belongsTo('App\Admin', 'admin');
+        return $this->belongsTo('App\Admin');
     }
 }

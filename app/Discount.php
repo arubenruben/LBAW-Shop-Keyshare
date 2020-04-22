@@ -12,13 +12,6 @@ class Discount extends Model
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'discount';
-
     protected $dates = [
         'end_date',
         'start_date',

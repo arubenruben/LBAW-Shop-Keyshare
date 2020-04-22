@@ -13,13 +13,6 @@ class User extends Authenticatable
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'regular_user';
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -44,21 +37,21 @@ class User extends Authenticatable
      * The offers the user has
      */
     public function offers(){
-        return $this->hasMany('App\Offer', 'seller');
+        return $this->hasMany('App\Offer');
     }
 
     /**
      * The active offers the user has
      */
     public function activeOffers(){
-        return $this->hasMany('App\Offer', 'seller')->whereNull('final_date');
+        return $this->hasMany('App\Offer')->whereNull('final_date');
     }
 
     /**
      * The past offers the user has
      */
     public function pastOffers(){
-        return $this->hasMany('App\Offer', 'seller')->whereNotNull('final_date');
+        return $this->hasMany('App\Offer')->whereNotNull('final_date');
     }
 
 
@@ -66,49 +59,49 @@ class User extends Authenticatable
      * The cart entries the user has
      */
     public function cart(){
-        return $this->hasMany('App\Cart', 'buyer');
+        return $this->hasMany('App\Cart');
     }
 
     /**
      * The feedbacks the user has given
      */
     public function feedback(){
-        return $this->hasMany('App\Feedback', 'buyer');
+        return $this->hasMany('App\Feedback');
     }
 
     /**
      * The orders the user has purchased
      */
     public function orders(){
-        return $this->hasMany('App\Order', 'buyer');
+        return $this->hasMany('App\Order', 'number');
     }
 
     /**
      * The reports the user has given
      */
-    public function reportee(){
-        return $this->hasMany('App\Report', 'reportee');
+    public function reportsGiven(){
+        return $this->hasMany('App\Report', 'reporter_id');
     }
 
     /**
      * The reports given to the user
      */
-    public function reporter(){
-        return $this->hasMany('App\Report', 'reporter');
+    public function reportsReceived(){
+        return $this->hasMany('App\Report', 'reported_id');
     }
 
     /**
      * The messages the user writes
     */
     public function message(){
-        return $this->hasMany('App\Message', 'regular_user');
+        return $this->hasMany('App\Message');
     }
 
     /**
      * User has one profile image
      */
     public function image(){
-        return $this->belongsTo('App\Image', 'image')->getResults();
+        return $this->belongsTo('App\Image');
     }
 
     /**

@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function getUser($username){
-        $user = DB::table('regular_user')->select('id')->where('username', '=', $username)->first();
+        $user = DB::table('users')->select('id')->where('username', '=', $username)->first();
 
         if($user != null)
             return User::findOrFail($user->id);
@@ -42,7 +42,7 @@ class UserController extends Controller
             return response(json_encode($e->getMessage()), 400);
         }
     
-        $orders = Auth::user()->orders()->getResults()->sortBy('date');
+        $orders = Auth::user()->orders->sortBy('date');
         $isBanned = Auth::user()->banned();
 
         return view('pages.user.purchases', ['user' => Auth::user(), 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'pages' =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
@@ -53,8 +53,8 @@ class UserController extends Controller
         $isOwner = Auth::check() && Auth::id() == $user->id;
 
        
-        $pastOffers = $user->pastOffers()->getResults();
-        $currOffers = $user->activeOffers()->getResults();
+        $pastOffers = $user->pastOffers;
+        $currOffers = $user->activeOffers;
 
         return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
             'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User', 'Offers'),'links'=>array(url('/user/'.$username), url('/user/'.$username.'/offers'))]);
@@ -67,11 +67,14 @@ class UserController extends Controller
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $myReports = Auth::user()->reportee()->getResults();
-        $reportsAgainstMe = Auth::user()->reporter()->getResults();
+        $user = User::find(Auth::id());
 
-        return view('pages.user.reports', ['user' => Auth::user(), 'myReports' => $myReports,
-            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/reports'))]);
+        $myReports = $user->reportsGiven;
+        $reportsAgainstMe = $user->reportsReceived;
+
+        return view('pages.user.reports', ['user' => $user, 'myReports' => $myReports,
+            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),
+            'links'=>array(url('/user/'.$user->username),url('/user/reports'))]);
     }
 
     public function update(UserEditRequest $request) {
@@ -128,7 +131,7 @@ class UserController extends Controller
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        Auth::user()->image = '0';
+        Auth::user()->image = '1';
         Auth::user()->save();
     }
 }

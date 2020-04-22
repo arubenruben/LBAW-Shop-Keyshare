@@ -11,13 +11,11 @@
             <div class="row ">
                 <div class="col-sm-12">
                     @php
-                    $numberOfPurchases = 0;
+                        $numberOfPurchases = 0;
+                        foreach($orders as $order){
+                            $numberOfPurchases += $order->keys->count();
+                        }
                     @endphp
-                    @foreach($orders as $order)
-                        @php
-                        $numberOfPurchases += $order->keys()->getResults()->count()
-                        @endphp
-                    @endforeach
                     <h4 class="text-left">Purchase History <span class="badge ml-1 badge-secondary">{{$numberOfPurchases}}</span></h4>
                 </div>
             </div>

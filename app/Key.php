@@ -13,30 +13,23 @@ class Key extends Model
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'key';  
-    
-    /**
      * The offer the key is related to 
      */
     public function offer(){
-        return $this->belongsTo('App\Offer', 'offer');
+        return $this->belongsTo('App\Offer');
     }
 
     /**
-     * The offer the key is related to
+     * The order the key is related to
      */
-    public function orders(){
-        return $this->belongsTo('App\Order', 'orders');
+    public function order(){
+        return $this->belongsTo('App\Order', 'order_id', 'number');
     }
 
     /**
      * The report the key is related to
      */
     public function report(){
-        return $this->hasOne('App\Report', 'key');
+        return $this->hasOne('App\Report');
     }
 }

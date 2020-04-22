@@ -13,18 +13,11 @@ class Admin extends Authenticatable
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'admin';
-
-    /**
      * The model's default values for attributes.
      *
      * @var array
      */
     protected $attributes = [
-        'image' => 0,
+        'image' => 1,
     ];
 }

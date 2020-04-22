@@ -13,23 +13,16 @@ class Cart extends Model
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'cart';   
-
-    /**
      * the user this cart entries belongs to
      */
     public function user() {
-        return $this->belongsTo('App\User', 'buyer');
+        return $this->belongsTo('App\User');
     }
 
     /**
      * the offer this cart is realted to 
      */
     public function offer() {
-        return $this->belongsTo('App\Offer', 'offer');
+        return $this->belongsTo('App\Offer');
     }
 }

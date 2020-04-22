@@ -12,13 +12,6 @@ class Order extends Model
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'orders';
-
       /**
      * The primary key associated with the table.
      *
@@ -30,13 +23,13 @@ class Order extends Model
      * The user this offer belongs to
      */
     public function buyer() {
-        return $this->belongsTo('App\User', 'buyer');
+        return $this->belongsTo('App\User');
     }
 
     /**
      * The keys this offer has
      */
     public function keys() {
-        return $this->hasMany('App\Key', 'orders');
+        return $this->hasMany('App\Key', 'order_id');
     }
 }

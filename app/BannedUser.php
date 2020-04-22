@@ -13,25 +13,16 @@ class BannedUser extends Model
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'banned_user';
-
-    protected $primaryKey = 'regular_user';
-
-    /**
      * User account that is banned
      */
     public function user() {
-        return $this->belongsTo('App\User', 'regular_user');
+        return $this->belongsTo('App\User', 'id');
     }
 
     /**
      * The appeal linked to this user
      */
     public function appeal() {
-        return $this->hasOne('App\BanAppeal', 'banned_user');
+        return $this->hasOne('App\BanAppeal', 'id');
     }
 }

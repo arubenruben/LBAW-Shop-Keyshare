@@ -13,23 +13,16 @@ class Feedback extends Model
     public $timestamps  = false;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feedback';
-
-    /**
      * The buyer that is evaluating
      */
     public function buyer(){
-        return $this->belongsTo('App\User', 'buyer');
+        return $this->belongsTo('App\User');
     }
 
     /**
      * The key the buyer is referring to
      */
     public function key(){
-        return $this->belongsTo('App\Key', 'key');
+        return $this->belongsTo('App\Key');
     }
 }
