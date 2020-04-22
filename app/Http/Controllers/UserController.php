@@ -50,14 +50,9 @@ class UserController extends Controller
 
     public function showOffers($username) {
         $user = $this->getUser($username);
-        $isOwner = true;
+        $isOwner = Auth::check() && Auth::id() == $user->id;
 
-        try {
-           $this->authorize('ownUser', $user);
-        } catch (AuthorizationException $e) {
-            $isOwner = false;
-        }
-
+       
         $pastOffers = $user->pastOffers()->getResults();
         $currOffers = $user->activeOffers()->getResults();
 

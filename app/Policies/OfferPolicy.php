@@ -11,18 +11,9 @@ class OfferPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    public function deleteEntryOffer(User $user, Offer $offer) {
+    public function cancel(User $user, Offer $offer) {
         // Only the own user can change any profile detail
-        return Auth::check() && $user->id == $offer->seller;
+        
+        return Auth::check() && ($user->id == $offer->seller);
     }
 }

@@ -20,12 +20,12 @@ class OfferController extends Controller
         $offer = Offer::findOrFail($offerId);
 
         try {
-            $this->authorize('deleteEntryOffer', $offer);
+            $this->authorize('cancel', $offer);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this offer"), 400);
         }
 
         $offer->final_date = date("Y-m-d");
-        //$offer->save();
+        $offer->save();
     }
 }

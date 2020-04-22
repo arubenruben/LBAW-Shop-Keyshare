@@ -1170,6 +1170,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (374.24, '2019-11-19 00:14:25', '2020-09-23 12:43:08', 859.45, 3, 22, 25, 78);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (314.51, '2019-09-16 07:45:22', '2020-11-29 14:32:56', 85.36, 8, 61, 18, 17);
     INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 5, 5, 17, 10);
+    INSERT INTO offer (price, init_date, final_date, profit, platform, seller, product, stock) values (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 5, 107, 17, 10);
 
     INSERT INTO discount (rate, start_date, end_date, offer) values (40, '2020-04-01 23:59:00', '2020-05-13 14:55:39', 36);
     INSERT INTO discount (rate, start_date, end_date, offer) values (5, '2020-04-01 23:59:00', '2020-09-29 11:08:42', 67);
