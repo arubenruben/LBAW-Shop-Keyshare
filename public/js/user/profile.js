@@ -14,19 +14,39 @@ const addEventListeners = () => {
         }
 
         sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #email_msg")
+
            if(res != "Success") {
                emailField.style.border = 'solid 1px red';
 
-               //if(document.querySelector("#"))
-
-               let msg = document.createElement("p");
-               msg.innerHTML = res['errors']['email'];
-               msg.style.color = 'red';
-               msg.style.textAlign = 'left';
-               email_btn.parentNode.insertBefore(msg, email_btn);
+               if(msg === null) {
+                   msg = document.createElement("p");
+                   msg.setAttribute("id", "email_msg");
+                   msg.innerHTML = res['errors']['email'];
+                   msg.style.color = 'red';
+                   msg.style.textAlign = 'left';
+                   email_btn.parentNode.insertBefore(msg, email_btn);
+               } else {
+                   msg.innerHTML = res['errors']['email'];
+                   msg.style.color = 'red';
+                   msg.style.textAlign = 'left';
+               }
            }
            else {
-               emailField.style.border = 'solid 1px black';
+               emailField.style.border = 'solid 1px green';
+
+               if(msg === null) {
+                   msg = document.createElement("p");
+                   msg.setAttribute("id", "email_msg");
+                   msg.innerHTML = 'Changed email successfully';
+                   msg.style.color = 'red';
+                   msg.style.textAlign = 'left';
+                   email_btn.parentNode.insertBefore(msg, email_btn);
+               } else {
+                   msg.innerHTML = 'Changed email successfully';
+                   msg.style.color = 'green';
+                   msg.style.textAlign = 'left';
+               }
            }
 
             $(function () {
