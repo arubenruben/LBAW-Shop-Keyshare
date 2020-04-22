@@ -115,7 +115,7 @@ const addEventListeners = () => {
                     msg.innerHTML = res['errors']['paypal'];
                     msg.style.color = 'red';
                     msg.style.textAlign = 'left';
-                    email_btn.parentNode.insertBefore(msg, email_btn);
+                    paypal_btn.parentNode.insertBefore(msg, paypal_btn);
                 } else {
                     msg.innerHTML = res['errors']['paypal'];
                     msg.style.color = 'red';
@@ -131,7 +131,7 @@ const addEventListeners = () => {
                     msg.innerHTML = 'Changed Paypal email successfully';
                     msg.style.color = 'green';
                     msg.style.textAlign = 'left';
-                    email_btn.parentNode.insertBefore(msg, paypal_btn);
+                    paypal_btn.parentNode.insertBefore(msg, paypal_btn);
                 } else {
                     msg.innerHTML = 'Changed Paypal email successfully';
                     msg.style.color = 'green';
