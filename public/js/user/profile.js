@@ -98,12 +98,7 @@ const addEventListeners = () => {
 
     const paypal_btn = document.querySelector("#paypalButton");
     paypal_btn.addEventListener("click", () => {
-        const paypal_field = document.querySelector("#form_update_user #paypal-input");
-        const data = {
-            paypal: paypal_field.value
-        }
-
-        sendPost(data);
+        
     });
 
     const password_btn = document.querySelector("#button_submit_password");
