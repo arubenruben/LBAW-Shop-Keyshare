@@ -4,22 +4,38 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/user';
 
 const addEventListeners = () => {
+    let form = document.querySelector("form.needs-validation");
+
     const email_btn = document.querySelector("#button_submit_email");
-
     email_btn.addEventListener("click", () => {
-
-        let emailField = (document.querySelector("#form_update_user #email-input")).value;
+        let emailField = document.querySelector("#form_update_user #email-input");
         const data = {
-            email: emailField
+            email: emailField.value
         }
 
-        sendPut(data);
+        let response;
+        sendPost(data).then(res => {
+            console.log(res)
+           if(res == "Sucesss") {
+               emailField.style.border = 'solid 1px red';
+
+               let msg = document.createElement("p");
+               msg.innerHTML = "Unable to update email";
+               msg.style.color = 'red';
+               email_btn.parentNode.insertBefore(msg, email_btn);
+           }
+           else {
+               emailField.style.border = 'solid 1px black';
+           }
+
+            $(function () {
+                $('[data-toggle="popover"]').popover('show');
+            })
+        });
     });
 
     const description_btn = document.querySelector("#button_submit_description");
-
     description_btn.addEventListener("click", () => {
-
         const descriptionField = (document.querySelector("#form_update_user #description_textarea")).value;
         const data = {
             description: descriptionField
@@ -77,7 +93,6 @@ const sendPost = post => {
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .then(res => console.log(res))
         .catch(error => console.error("Error: {error}"));
 }
 
