@@ -8,16 +8,16 @@ const addEventListeners = () => {
 
     const email_btn = document.querySelector("#button_submit_email");
     email_btn.addEventListener("click", () => {
-        let emailField = document.querySelector("#form_update_user #email-input");
+        let email_field = document.querySelector("#form_update_user #email-input");
         const data = {
-            email: emailField.value
+            email: email_field.value
         }
 
         sendPost(data).then(res => {
             let msg = document.querySelector("form.needs-validation #email_msg")
 
            if(res != "Success") {
-               emailField.style.border = 'solid 1px red';
+               email_field.style.border = 'solid 1px red';
 
                if(msg === null) {
                    msg = document.createElement("p");
@@ -33,7 +33,7 @@ const addEventListeners = () => {
                }
            }
            else {
-               emailField.style.border = 'solid 1px green';
+               email_field.style.border = 'solid 1px green';
 
                if(msg === null) {
                    msg = document.createElement("p");
@@ -98,12 +98,47 @@ const addEventListeners = () => {
 
     const paypal_btn = document.querySelector("#paypalButton");
     paypal_btn.addEventListener("click", () => {
-        const paypalField = (document.querySelector("#form_update_user #paypal-input")).value;
+        const paypal_field = (document.querySelector("#form_update_user #paypal-input")).value;
         const data = {
-            paypal: paypalField
+            paypal: paypal_field
         }
 
-        sendPost(data);
+        sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #paypal_msg")
+
+            if(res != "Success") {
+                paypal_field.style.border = 'solid 1px red';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "paypal_msg");
+                    msg.innerHTML = res['errors']['paypal'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                    email_btn.parentNode.insertBefore(msg, email_btn);
+                } else {
+                    msg.innerHTML = res['errors']['paypal'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                }
+            }
+            else {
+                paypal_field.style.border = 'solid 1px green';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "paypal_msg");
+                    msg.innerHTML = 'Changed Paypal email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                    email_btn.parentNode.insertBefore(msg, paypal_btn);
+                } else {
+                    msg.innerHTML = 'Changed Paypal email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                }
+            }
+        });
     });
 
     const password_btn = document.querySelector("#button_submit_password");
