@@ -25,15 +25,14 @@ class UserController extends Controller
     }
 
     public function show($username) {
-        $user = $this->getUser($username);
+        $user = $this->getUser($username); 
 
-         try {
-            $this->authorize('ownUser', $user);
-        } catch (AuthorizationException $e) {
+        if(Auth::check() && Auth::id() == $user->id){
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
+        }else{
             return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
         }
 
-        return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
     }
 
     public function showPurchases() {
@@ -42,7 +41,7 @@ class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
-
+    
         $orders = Auth::user()->orders()->getResults()->sortBy('date');
         $isBanned = Auth::user()->banned();
 

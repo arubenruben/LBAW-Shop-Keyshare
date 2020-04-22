@@ -12,11 +12,6 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function ownUser(User $user, User $visitor) {
-        // Only the own user can change any profile detail
-        return Auth::check() && $user->id == $visitor->id;
-    }
-
     public function loggedIn(User $user) {
         // Only the own user can visit its purchases
         return Auth::check();
