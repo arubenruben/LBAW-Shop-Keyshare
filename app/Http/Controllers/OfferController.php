@@ -32,6 +32,6 @@ class OfferController extends Controller
 
         $response=['profit'=>$offer->profit];
         
-        return response(json_encode($response),200);
+        return response(200);
     }
 }
