@@ -39,7 +39,7 @@ const addEventListeners = () => {
                    msg = document.createElement("p");
                    msg.setAttribute("id", "email_msg");
                    msg.innerHTML = 'Changed email successfully';
-                   msg.style.color = 'red';
+                   msg.style.color = 'green';
                    msg.style.textAlign = 'left';
                    email_btn.parentNode.insertBefore(msg, email_btn);
                } else {
@@ -48,21 +48,52 @@ const addEventListeners = () => {
                    msg.style.textAlign = 'left';
                }
            }
-
-            $(function () {
-                $('[data-toggle="popover"]').popover('show');
-            })
         });
     });
 
     const description_btn = document.querySelector("#button_submit_description");
     description_btn.addEventListener("click", () => {
-        const descriptionField = (document.querySelector("#form_update_user #description_textarea")).value;
+        const description_field = document.querySelector("#form_update_user #description_textarea");
         const data = {
-            description: descriptionField
+            description: description_field.value
         }
 
-        sendPost(data);
+        sendPost(data).then(res => {
+            let msg = document.querySelector("form.needs-validation #description_msg")
+
+            if(res != "Success") {
+                description_field.style.border = 'solid 1px red';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "description_msg");
+                    msg.innerHTML = res['errors']['description'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                    description_btn.parentNode.insertBefore(msg, description_btn);
+                } else {
+                    msg.innerHTML = res['errors']['description'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                }
+            }
+            else {
+                description_field.style.border = 'solid 1px green';
+
+                if(msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "description_msg");
+                    msg.innerHTML = 'Changed description successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                    description_btn.parentNode.insertBefore(msg, description_btn);
+                } else {
+                    msg.innerHTML = 'Changed description successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                }
+            }
+        });
     });
 
     const paypal_btn = document.querySelector("#paypalButton");
