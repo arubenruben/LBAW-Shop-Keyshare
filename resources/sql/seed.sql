@@ -61,7 +61,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
-  description TEXT DEFAULT NULL,
+  description TEXT NOT NULL DEFAULT '',
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
   password TEXT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
-  description TEXT,
+  description TEXT NOT NULL DEFAULT '',
   password TEXT NOT NULL,
   image_id INTEGER NOT NULL DEFAULT 1 REFERENCES images(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
@@ -152,7 +152,7 @@ CREATE TABLE keys (
 
 );
 
-CREATE TABLE feedbacks (
+CREATE TABLE feedback (
   id SERIAL PRIMARY KEY,
   evaluation BOOLEAN NOT NULL,
   comment TEXT,
@@ -164,7 +164,7 @@ CREATE TABLE feedbacks (
 CREATE TABLE reports (
   id SERIAL PRIMARY KEY,
   date date NOT NULL DEFAULT NOW(),
-  description TEXT NOT NULL,
+  description TEXT NOT NULL ,
   title TEXT NOT NULL,
   status BOOLEAN NOT NULL DEFAULT false,
   key_id INTEGER NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -391,7 +391,7 @@ BEGIN
 
     -- Number of positive reviews of seller with id seller_id
     SELECT COUNT(u.id) INTO positive_reviews
-    FROM feedbacks f JOIN keys k ON f.key_id = k.id
+    FROM feedback f JOIN keys k ON f.key_id = k.id
     JOIN offers o ON k.offer_id = o.id
     JOIN users u ON o.user_id = u.id
     WHERE f.evaluation = true and u.id = o.user_id
@@ -403,7 +403,7 @@ BEGIN
 
     -- Number of reviews of seller with id seller_id
     SELECT COUNT(u.id) INTO num_reviews
-    FROM feedbacks f JOIN keys k ON f.key_id = k.id
+    FROM feedback f JOIN keys k ON f.key_id = k.id
     JOIN offers o ON k.offer_id = o.id
     JOIN users u ON o.user_id = u.id
     WHERE u.id = o.user_id
@@ -422,9 +422,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedbacks CASCADE;
+DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedback CASCADE;
 CREATE TRIGGER update_seller_feedback_tg
-AFTER INSERT OR UPDATE OR DELETE ON feedbacks
+AFTER INSERT OR UPDATE OR DELETE ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE update_seller_feedback();
 
@@ -442,10 +442,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS check_user_bought_product_tg ON feedbacks CASCADE;
+DROP TRIGGER IF EXISTS check_user_bought_product_tg ON feedback CASCADE;
 CREATE TRIGGER check_user_bought_product_tg
 BEFORE INSERT
-ON feedbacks
+ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE check_user_bought_product();
 
@@ -705,7 +705,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     TRUNCATE categories RESTART IDENTITY CASCADE; 
     TRUNCATE discounts RESTART IDENTITY CASCADE; 
     TRUNCATE faq RESTART IDENTITY CASCADE; 
-    TRUNCATE feedbacks RESTART IDENTITY CASCADE; 
+    TRUNCATE feedback RESTART IDENTITY CASCADE;
     TRUNCATE genres RESTART IDENTITY CASCADE; 
     TRUNCATE images RESTART IDENTITY CASCADE; 
     TRUNCATE keys RESTART IDENTITY CASCADE; 
@@ -1989,12 +1989,25 @@ INSERT INTO banned_users(id)VALUES (2);
 
     
 
-    INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
+INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
 
-    INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE keyHARE WEBSITE?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('DO I HABE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-    INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE keyHARE WEBISTE FOREVER?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE keyHARE WEBSITE?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('DO I HABE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE keyHARE WEBISTE FOREVER?','FAQ REPLY');
+
+--SSN
+INSERT INTO users (username, email, description, password, rating, birth_date, paypal, image_id, num_sells) VALUES ('ssn','ssn@fe.up.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
+
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 2, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 3, 103, 19, 3);
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
+INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZ', 17.44, 82, 501);
+INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZW', 17.44, 82, 502);
+INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES('2020-03-30','Report de autoria SSN','Key dont work',173, true,103,56);

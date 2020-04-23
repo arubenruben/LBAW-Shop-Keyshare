@@ -73,7 +73,7 @@ class User extends Authenticatable
      * The orders the user has purchased
      */
     public function orders(){
-        return $this->hasMany('App\Order', 'number');
+        return $this->hasMany('App\Order');
     }
 
     /**

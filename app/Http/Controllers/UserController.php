@@ -41,11 +41,13 @@ class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
-    
-        $orders = Auth::user()->orders->sortBy('date');
-        $isBanned = Auth::user()->banned();
 
-        return view('pages.user.purchases', ['user' => Auth::user(), 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'pages' =>array('User', 'Purchases'),'links'=>array(url('/user/'.Auth::user()->username),url('/user/purchases'))]);
+        $user = Auth::user();
+
+        $orders = $user->orders;
+        $isBanned = $user->banned();
+
+        return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'pages' =>array('User', 'Purchases'),'links'=>array(url('/user/'.$user->username),url('/user/purchases'))]);
     }
 
     public function showOffers($username) {
@@ -67,7 +69,7 @@ class UserController extends Controller
             return response(json_encode($e->getMessage()), 400);
         }
 
-        $user = User::find(Auth::id());
+        $user = Auth::user();
 
         $myReports = $user->reportsGiven;
         $reportsAgainstMe = $user->reportsReceived;

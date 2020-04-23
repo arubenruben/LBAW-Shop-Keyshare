@@ -14,6 +14,6 @@ class OfferPolicy
     public function cancel(User $user, Offer $offer) {
         // Only the own user can change any profile detail
         
-        return Auth::check() && ($user->id == $offer->seller);
+        return Auth::check() && ($user->id === $offer->user_id);
     }
 }
