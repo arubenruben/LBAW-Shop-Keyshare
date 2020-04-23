@@ -61,7 +61,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
-  description TEXT DEFAULT NULL,
+  description TEXT NOT NULL DEFAULT '',
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
   password TEXT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL UNIQUE,
-  description TEXT,
+  description TEXT NOT NULL DEFAULT '',
   password TEXT NOT NULL,
   image_id INTEGER NOT NULL DEFAULT 1 REFERENCES images(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
@@ -164,7 +164,7 @@ CREATE TABLE feedback (
 CREATE TABLE reports (
   id SERIAL PRIMARY KEY,
   date date NOT NULL DEFAULT NOW(),
-  description TEXT NOT NULL,
+  description TEXT NOT NULL ,
   title TEXT NOT NULL,
   status BOOLEAN NOT NULL DEFAULT false,
   key_id INTEGER NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
