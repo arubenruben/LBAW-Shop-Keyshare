@@ -152,7 +152,7 @@ CREATE TABLE keys (
 
 );
 
-CREATE TABLE feedbacks (
+CREATE TABLE feedback (
   id SERIAL PRIMARY KEY,
   evaluation BOOLEAN NOT NULL,
   comment TEXT,
@@ -391,7 +391,7 @@ BEGIN
 
     -- Number of positive reviews of seller with id seller_id
     SELECT COUNT(u.id) INTO positive_reviews
-    FROM feedbacks f JOIN keys k ON f.key_id = k.id
+    FROM feedback f JOIN keys k ON f.key_id = k.id
     JOIN offers o ON k.offer_id = o.id
     JOIN users u ON o.user_id = u.id
     WHERE f.evaluation = true and u.id = o.user_id
@@ -403,7 +403,7 @@ BEGIN
 
     -- Number of reviews of seller with id seller_id
     SELECT COUNT(u.id) INTO num_reviews
-    FROM feedbacks f JOIN keys k ON f.key_id = k.id
+    FROM feedback f JOIN keys k ON f.key_id = k.id
     JOIN offers o ON k.offer_id = o.id
     JOIN users u ON o.user_id = u.id
     WHERE u.id = o.user_id
@@ -422,9 +422,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedbacks CASCADE;
+DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedback CASCADE;
 CREATE TRIGGER update_seller_feedback_tg
-AFTER INSERT OR UPDATE OR DELETE ON feedbacks
+AFTER INSERT OR UPDATE OR DELETE ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE update_seller_feedback();
 
@@ -442,10 +442,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS check_user_bought_product_tg ON feedbacks CASCADE;
+DROP TRIGGER IF EXISTS check_user_bought_product_tg ON feedback CASCADE;
 CREATE TRIGGER check_user_bought_product_tg
 BEFORE INSERT
-ON feedbacks
+ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE check_user_bought_product();
 
@@ -705,7 +705,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     TRUNCATE categories RESTART IDENTITY CASCADE; 
     TRUNCATE discounts RESTART IDENTITY CASCADE; 
     TRUNCATE faq RESTART IDENTITY CASCADE; 
-    TRUNCATE feedbacks RESTART IDENTITY CASCADE; 
+    TRUNCATE feedback RESTART IDENTITY CASCADE;
     TRUNCATE genres RESTART IDENTITY CASCADE; 
     TRUNCATE images RESTART IDENTITY CASCADE; 
     TRUNCATE keys RESTART IDENTITY CASCADE; 
