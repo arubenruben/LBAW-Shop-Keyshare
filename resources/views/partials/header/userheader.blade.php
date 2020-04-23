@@ -163,7 +163,8 @@
                     </div>
                     <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
                         <form class="form-horizontal" action="{{ url('/register') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
+                            @method('PUT')
                             <!-- Sign Up Form -->
                             <!-- Username -->
                             <div class="control-group">
