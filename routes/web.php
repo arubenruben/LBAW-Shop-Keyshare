@@ -28,6 +28,10 @@ Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
+// Product list
+Route::get('products', 'ProductsController@show');
+//Route::post('products', 'ProductsController@update');
+
 
 // Products
 //Route::get('product/{id}/{platform}', 'ProductController@show');
