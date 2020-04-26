@@ -28,13 +28,13 @@ class ProductsController
         }*/
 
         $products = Product::where('deleted', '=', false)->paginate(9);
-        return view('pages.products', ['products' => $products, 'pages' => array('User'), 'links'=>array(url('/products/'))]);
+        return view('pages.products', ['products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
     }
 
     public function search() {
         $input = Input::get('input');
         $products = Product::whereRaw('delted = false and name_tsvector @@ plainto_tsquery('.$input.')')->paginate(9);
-        return view('pages.products', ['products' => $products, 'pages' => array('User'), 'links'=>array(url('/products/'))]);
+        return view('pages.products', ['products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
     }
 
 }

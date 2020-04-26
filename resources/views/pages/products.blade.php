@@ -4,8 +4,12 @@
 
 @include('partials.header.userheader')
 
+@section('javascript')
+    <script src="{{ asset('js/products/products.js') }}" defer></script>
+@endsection
+
 @section('navbar')
-    @include('partials.navbar.commercenavbar', ['pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.breadcrumbs',['pages'=>$pages, 'links'=>$links])
 @endsection
 
 @section('content')
@@ -16,10 +20,3 @@
 @section('footer')
     @include('partials.footer.userfooter')
 @endsection
-
-
-
-
-
-
-
