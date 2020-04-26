@@ -9,49 +9,44 @@
             </div>
 
             @php
-                $splited = array_chunk($products, ceil(count($products)/3));
-                $firstLine = $splited[0];
-                $secondLine = $splited[1];
-                $thirdLine = $splited[2];
+
             @endphp
 
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
-            @foreach ($firstLine as $item)
-                <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                    <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
-                    <div class="card-body">
-                        <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">$item->name</a></h6>
-                        <h5 class="cl-orange2">$24.99</h5>
-                    </div>
-                </div>
-            @endforeach
-            </div>
-
-            <div class="row justify-content-between mx-auto flex-wrap mt-2">
-                @foreach ($secondLine as $item)
+                @for ($i = 0; $i < 3; $i++)
                     <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">$item->name</a></h6>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                @endforeach
+                @endfor
             </div>
 
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
-                @foreach ($thirdLine as $item)
+                @for ($i = 3; $i < 6; $i++)
                     <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                         <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
-                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">$item->name</a></h6>
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>
-                @endforeach
+                @endfor
             </div>
 
-            {{ $products->links }}
+            <div class="row justify-content-between mx-auto flex-wrap mt-2">
+                @for ($i = 6; $i < 9; $i++)
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                        <a href="product.php"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
+                        <div class="card-body">
+                            <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
+                            <h5 class="cl-orange2">$24.99</h5>
+                        </div>
+                    </div>
+                @endfor
+            </div>
 
 
             <!--Paging-->
