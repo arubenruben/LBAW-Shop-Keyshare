@@ -48,25 +48,6 @@
                 @endfor
             </div>
 
-
-            <!--Paging-->
-            <div class="my-auto mx-auto">
-                <nav class="row justify-content-center mt-5" aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
             <!-- filter popup (for small devices) -->
             <div id="sideBarFilterResponsive">
                 <?php// drawListingsFilterModal(); ?>

@@ -28,8 +28,6 @@ class ProductsController
         }*/
 
         $products = Product::where('deleted', '=', false)->paginate(9);
-
-
         return view('pages.products', ['products' => $products, 'pages' => array('User'), 'links'=>array(url('/products/'))]);
     }
 

@@ -10,6 +10,7 @@
 
 @section('content')
     @include('partials.products.list')
+    @include('partials.products.pagination')
 @endsection
 
 @section('footer')
