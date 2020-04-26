@@ -12,20 +12,30 @@ use App\Cart;
 
 class CartController extends Controller
 {
-    
     public function show()
     {
+        $loggedIn=true;
+        $data='';
+
         try {
             $this->authorize('loggedIn',Cart::class);
+            $user = Auth::user();
         }catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
+            $loggedIn=false;    
         }
 
-        return view('pages.cart.cart',['data'=>array(),'pages'=> array('Cart'),'links'=>array(url('cart'))]);
+        if($loggedIn){
+            $data=$user->cart;
+        }else{
+
+
+
+        }
+        
+        
+
+        return view('pages.cart.cart',['data'=>$data,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
     }
     
 }
-
-
-
 ?>

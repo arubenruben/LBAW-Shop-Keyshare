@@ -37,8 +37,8 @@
                     </thead>
                     <tbody>
                        @foreach ($data as $item)
-                           
-                       @endforeach 
+                            @include('partials.cart.cartentry',['data'=>$item])
+                       @endforeach
                     </tbody>
                 </table>
             </div>
