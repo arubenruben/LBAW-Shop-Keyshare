@@ -9,9 +9,8 @@ const addEventListeners = () => {
     const platform_input = document.querySelectorAll("form#option input.platform");
     const category_input = document.querySelectorAll("form#option input.category");
     const max_price_input = document.querySelector("form#option input#price-range");
-    document.querySelector("form#option label#max_price_value").innerHTML = 50;
 
-    let sort_by = null;
+    let sort_by = 2;
     let genres_array = [];
     let platform = null;
     let category = null;
@@ -19,55 +18,49 @@ const addEventListeners = () => {
     for(let i = 0; i < sort_by_input.length; i++) {
         sort_by_input[i].addEventListener("click", () => {
             sort_by = i;
-            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
         });
     }
 
     for(let i = 0; i < genres_input.length; i++) {
         genres_input[i].addEventListener("click", () => {
-            genres_array.push(genres_input[i]);
-            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            genres_array.push(genres_input[i].value);
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
         });
     }
 
     for(let i = 0; i < platform_input.length; i++) {
         platform_input[i].addEventListener("click", () => {
             platform = i;
-            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
         });
     }
 
     for(let i = 0; i < category_input.length; i++) {
         category_input[i].addEventListener("click", () => {
             category = i;
-            sendPost(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
         });
     }
 
     max_price_input.addEventListener("input", () => {
         document.querySelector("form#option label#max_price_value").innerHTML = max_price_input.value;
-        sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+        sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
     });
 }
 
 function assembleData (sort_by, genres_array, platform, category, max_price) {
-    console.log(sort_by.name)
-    console.log(genres_array)
-    console.log(platform.name)
-    console.log(category.name)
-    console.log(max_price.name)
-
     let data = {
-        sort_by: sort_by.value,
-        genres: genres_array,
-        platform: platform.value,
-        category: category.value,
-        max_price: max_price.value
+        sort_by: sort_by == undefined ? null : sort_by.value,
+        genres: genres_array == undefined ? null : genres_array,
+        platform: platform == undefined ? null : platform.value,
+        category: category == undefined ? null : category.value,
+        max_price: max_price == undefined ? null : max_price.value,
     }
     return data;
 }
 
-const sendPost = post => {
+const sendGet = post => {
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -75,12 +68,12 @@ const sendPost = post => {
             "X-Requested-With": "XMLHttpRequest",
             "X-CSRF-TOKEN": token
         },
-        method: 'post',
+        method: 'get',
         credentials: "same-origin",
         body: JSON.stringify(post)
     }
 
-    return fetch("/user/", options)
+    return fetch("/products/", options)
         .then(res => res.json())
         .catch(error => console.error("Error: {error}"));
 }

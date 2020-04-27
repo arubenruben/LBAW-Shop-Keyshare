@@ -14,28 +14,40 @@ use Illuminate\Support\Facades\Input;
 
 class ProductsController
 {
-    public function show(ProductsRequest $request) {
+    public function show() {
 
-        /*if (isset($request->sort)) {
-        }
+        $products = Product::where('deleted', '=', false);
+
 
         if (isset($request->genres)) {
         }
 
         if (isset($request->platform)) {
+            $products = $products->where('platform', $request->platform);
         }
 
         if (isset($request->category)) {
         }
 
         if (isset($request->max_price)) {
+        }
+
+        /*if (isset($request->sort)) {
+            $products = $products->where(')
         }*/
 
-        $products = Product::where('deleted', '=', false)->paginate(9);
+
+
         $genres = Genre::all();
         $platforms = Platform::all();
         $categories = Category::all();
-        return view('pages.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories, 'products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
+        $products = $products->paginate(9);
+
+        $min_price = 0;
+        $max_price = 0;
+
+        return view('pages.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
+            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
     }
 
     public function search() {

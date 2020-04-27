@@ -7,19 +7,19 @@
                 </button>
                 <div id="collapseOrder" class="collapse show">
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy1" name="sort_by">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy1" name="sort_by" value="Highest Price">
                         <label class="custom-control-label" for="SortBy1">Highest Price</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy2" name="sort_by">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy2" name="sort_by" value="Lowest Price">
                         <label class="custom-control-label" for="SortBy2">Lowest Price</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy3" name="sort_by">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy3" name="sort_by" value="Most popular">
                         <label class="custom-control-label" for="SortBy3">Most popular</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy4" name="sort_by">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy4" name="sort_by" value="Most recent">
                         <label class="custom-control-label" for="SortBy4">Most recent</label>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     @foreach($genres as $genre)
                         @php $i++; @endphp
                         <div class="custom-control custom-checkbox row ml-3 my-2">
-                            <input type="checkbox" class="custom-control-input genre" id="checkBoxGenre{{$i}}">
+                            <input type="checkbox" class="custom-control-input genre" id="checkBoxGenre{{$i}}" value="{{$genre->name}}">
                             <label class="custom-control-label" for="checkBoxGenre{{$i}}">{{$genre->name}}</label>
                         </div>
                     @endforeach
@@ -50,7 +50,7 @@
                     @foreach($platforms as $platform)
                         @php $i++; @endphp
                         <div class="custom-control custom-radio my-2 ml-3">
-                            <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i}}" name="platform">
+                            <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i}}" name="platform" value="{{$platform->name}}">
                             <label class="custom-control-label" for="checkBoxPlatforms{{$i}}">{{$platform->name}}</label>
                         </div>
                     @endforeach
@@ -66,7 +66,7 @@
                     @foreach($categories as $category)
                         @php $i++; @endphp
                         <div class="custom-control custom-radio row ml-3 my-2">
-                            <input type="radio" class="custom-control-input category" id="checkBoxCategories{{$i}}" name="category">
+                            <input type="radio" class="custom-control-input category" id="checkBoxCategories{{$i}}" name="category" value="{{$category->name}}">
                             <label class="custom-control-label" for="checkBoxCategories{{$i}}">{{$category->name}}</label>
                         </div>
                     @endforeach
