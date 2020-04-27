@@ -60,7 +60,15 @@ function assembleData (sort_by, genres_array, platform, category, max_price) {
     return data;
 }
 
-const sendGet = post => {
+function encodeForAjax(data) {
+    if (data == null) return null;
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&');
+}
+
+
+const sendGet = get => {
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -70,12 +78,11 @@ const sendGet = post => {
         },
         method: 'get',
         credentials: "same-origin",
-        body: JSON.stringify(post)
     }
 
-    return fetch("/products/", options)
+    return fetch("products/" + encodeForAjax(get), options)
         .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
+        .catch(error => console.error("Error: " + error));
 }
 
 addEventListeners();

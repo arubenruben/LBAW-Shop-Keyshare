@@ -29,8 +29,8 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 // Product list
-Route::get('products', 'ProductsController@show');
-//Route::post('products', 'ProductsController@update');
+Route::get('products/', 'ProductsController@show');
+Route::get('products/{sort_by}{genres}{platform}{category}{max_price}', 'ProductsController@show');
 
 
 // Products

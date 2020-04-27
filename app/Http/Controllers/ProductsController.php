@@ -18,6 +18,12 @@ class ProductsController
 
         $products = Product::where('deleted', '=', false);
 
+        /*if ($request->has('sort')) {
+            abort(404);
+        }
+        $request->input('id')*/
+
+
 
         /*if (isset($request->genres)) {
         }*/
@@ -33,7 +39,7 @@ class ProductsController
         }*/
 
         if (isset($request->sort)) {
-            var_dump($request);
+            abort(404);
             if($request->sort == 'Most popular') {
                 $products->orderBy('num_sells', 'desc');
             } else if($request->sort == 'Most recent') {
