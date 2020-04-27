@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('title')Homepage @endsection
-
+@section('javascript')
+    <script src="{{ asset('js/cart/cart.js') }}" defer></script>
+@endsection
+    
 @include('partials.header.userheader')
 
 @section('navbar')

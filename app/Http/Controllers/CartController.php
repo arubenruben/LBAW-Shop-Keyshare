@@ -28,12 +28,25 @@ class CartController extends Controller
         
         for($i=0;$i<count($user);$i++){
             
-            $data[$i]=Cart::find($user[$i]['id']);
+            $data[$i]=Cart::findOrFail($user[$i]['id']);
             
         }
         
-
         return view('pages.cart.cart',['data'=>$data,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
+    }
+
+    public function delete($cartId) {
+        $loggedIn=true;
+        $cart = Cart::findOrFail($cartId);
+
+        try {
+            $this->authorize('loggedIn',Cart::class);
+            $user = Auth::user();
+        } catch (AuthorizationException $e) {
+            $loggedIn=false;
+        }
+
+        return response(json_encode("Success"), 404);
     }
 
 }
