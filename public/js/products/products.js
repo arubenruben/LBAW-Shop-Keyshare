@@ -1,51 +1,70 @@
 'use strict'
 
-//const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-//const url = '/user';
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const url = '/products';
 
 const addEventListeners = () => {
-    let form = document.querySelector("form#option");
-    let genresArray = [];
+    const sort_by_input = document.querySelectorAll("form#option input.sort-by");
+    const genres_input = document.querySelectorAll("form#option input.genre");
+    const platform_input = document.querySelectorAll("form#option input.platform");
+    const category_input = document.querySelectorAll("form#option input.category");
+    const max_price_input = document.querySelector("form#option input#price-range");
+    document.querySelector("form#option label#max_price_value").innerHTML = 50;
 
-    const sort_by = document.querySelector("form#option input.sort-by");
-    const genres = document.querySelectorAll("form#option input.genre");
-    const platform = document.querySelector("form#option input.platform");
-    const category = document.querySelector("form#option input.category");
-    const max_price = document.querySelector("form#option input#price-range");
+    let sort_by = null;
+    let genres_array = [];
+    let platform = null;
+    let category = null;
 
-    sort_by.addEventListener("onchange", () => {
-        sendPost(assembleData()).then(res => console.log(res));
-    });
-
-    for(let genre in genres) {
-        genre.addEventListener("onchange", () => {
-            genresArray.push(genre.value);
-            sendPost(assembleData()).then(res => console.log(res));
+    for(let i = 0; i < sort_by_input.length; i++) {
+        sort_by_input[i].addEventListener("click", () => {
+            sort_by = i;
+            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
         });
     }
 
-    platform.addEventListener("onchange", () => {
-        sendPost(assembleData()).then(res => console.log(res));
-    });
+    for(let i = 0; i < genres_input.length; i++) {
+        genres_input[i].addEventListener("click", () => {
+            genres_array.push(genres_input[i]);
+            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+        });
+    }
 
-    category.addEventListener("onchange", () => {
-        sendPost(assembleData()).then(res => console.log(res));
-    });
+    for(let i = 0; i < platform_input.length; i++) {
+        platform_input[i].addEventListener("click", () => {
+            platform = i;
+            sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+        });
+    }
 
+    for(let i = 0; i < category_input.length; i++) {
+        category_input[i].addEventListener("click", () => {
+            category = i;
+            sendPost(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+        });
+    }
 
-    max_price.addEventListener("onchange", () => {
-        sendPost(assembleData()).then(res => console.log(res));
+    max_price_input.addEventListener("input", () => {
+        document.querySelector("form#option label#max_price_value").innerHTML = max_price_input.value;
+        sendPost(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
     });
 }
 
-function assembleData () {
-    return {
+function assembleData (sort_by, genres_array, platform, category, max_price) {
+    console.log(sort_by.name)
+    console.log(genres_array)
+    console.log(platform.name)
+    console.log(category.name)
+    console.log(max_price.name)
+
+    let data = {
         sort_by: sort_by.value,
-        genres: genresArray,
+        genres: genres_array,
         platform: platform.value,
         category: category.value,
         max_price: max_price.value
     }
+    return data;
 }
 
 const sendPost = post => {

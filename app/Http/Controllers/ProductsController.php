@@ -4,9 +4,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Category;
+use App\Genre;
 use App\Http\Requests\ProductsRequest;
+use App\Platform;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ProductsController
 {
@@ -28,7 +32,10 @@ class ProductsController
         }*/
 
         $products = Product::where('deleted', '=', false)->paginate(9);
-        return view('pages.products', ['products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
+        $genres = Genre::all();
+        $platforms = Platform::all();
+        $categories = Category::all();
+        return view('pages.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories, 'products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
     }
 
     public function search() {
