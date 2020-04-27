@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class FAQController extends Controller
 {
-    //
+    public function show()
+    {
+
+    }
 }
