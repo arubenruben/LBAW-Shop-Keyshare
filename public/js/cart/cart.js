@@ -1,6 +1,7 @@
 'use strict'
 
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const cartItemCounter=document.querySelector("#shopping_cart_item_counter");
 const url = '/cart';
 
 const addEventListeners = () => {
@@ -13,7 +14,8 @@ const addEventListeners = () => {
             event.preventDefault();
             sendDelete(cartId).then(function() {
                 let tableEntry=document.querySelector('#row'+cartId);
-                tableEntry.remove();
+                tableEntry.remove();        
+                cartItemCounter.innerHTML=cartItemCounter.innerHTML-1;
               });              
         });
     });
