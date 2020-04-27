@@ -18,11 +18,29 @@ class Cart extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
-
     /**
      * the offer this cart is realted to 
      */
     public function offer() {
         return $this->belongsTo('App\Offer');
+    }
+    public function seller(){
+        return $this->hasOneThrough('App\User', 'App\Offer');
+    }
+    public function product(){
+        return $this->hasOneThrough('App\Product', 'App\Offer');
+    }
+    public function discounts() {
+        return $this->hasOneThrough('App\Discount','App\Offer');
+    }
+    public function discountPrice(){
+
+        foreach($this->discounts()->getResults() as $discount){
+            if($discount->start_date < date("Y-m-d") && date("Y-m-d") < $discount->end_date){
+                return number_format((float)($this->price - ($this->price * $discount->rate/100)), 2, '.', '');
+            }
+        }
+
+        return $this->price;
     }
 }
