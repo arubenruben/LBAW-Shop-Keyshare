@@ -18,7 +18,7 @@
                             <h5 class="cl-orange2">$24.99</h5>
                         </div>
                     </div>*/ @endphp
-                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto" id="pos{{$i}}">
                         <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="{{asset($products[$i]->image->path)}})}}"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
@@ -31,7 +31,7 @@
 
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
                 @for ($i = 3; $i < 6; $i++)
-                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto" id="pos{{$i}}">
                         <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
@@ -43,7 +43,7 @@
 
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
                 @for ($i = 6; $i < 9; $i++)
-                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+                    <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto" id="pos{{$i}}">
                         <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="../../../public/images/games/FIFA20/1.png"></a>
                         <div class="card-body">
                             <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$products[$i]->name}}</a></h6>
@@ -51,11 +51,6 @@
                         </div>
                     </div>
                 @endfor
-            </div>
-
-            <!-- filter popup (for small devices) -->
-            <div id="sideBarFilterResponsive">
-                <?php// drawListingsFilterModal(); ?>
             </div>
         </div>
     </div>

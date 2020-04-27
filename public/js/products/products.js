@@ -1,7 +1,7 @@
 'use strict'
 
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-const url = '/products';
+const url = '/search';
 
 const addEventListeners = () => {
     const sort_by_input = document.querySelectorAll("form#option input.sort-by");
@@ -18,45 +18,64 @@ const addEventListeners = () => {
     for(let i = 0; i < sort_by_input.length; i++) {
         sort_by_input[i].addEventListener("click", () => {
             sort_by = i;
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
+                .then(res => {
+                    //res.products.data
+                    for(let i = 0; i < res.products.length; i++) {
+                        let product = document.querySelector("div.cardProductList#pos" + i);
+                        product.querySelector('.card-body h6 a').innerHTML = res.products[i].name;
+                        //product.querySelector('.card-body h5').innerHTML = res.products[i].price;
+                    }
+                })
+                .catch(error => console.error("Error: " + error));
         });
     }
 
     for(let i = 0; i < genres_input.length; i++) {
         genres_input[i].addEventListener("click", () => {
             genres_array.push(genres_input[i].value);
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input));
         });
     }
 
     for(let i = 0; i < platform_input.length; i++) {
         platform_input[i].addEventListener("click", () => {
             platform = i;
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input));
         });
     }
 
     for(let i = 0; i < category_input.length; i++) {
         category_input[i].addEventListener("click", () => {
             category = i;
-            sendGet(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+            sendGet(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input));
         });
     }
 
     max_price_input.addEventListener("input", () => {
         document.querySelector("form#option label#max_price_value").innerHTML = max_price_input.value;
-        sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => console.log(res));
+        sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input));
     });
 }
 
 function assembleData (sort_by, genres_array, platform, category, max_price) {
-    let data = {
-        sort_by: sort_by == undefined ? null : sort_by.value,
-        genres: genres_array == undefined ? null : genres_array,
-        platform: platform == undefined ? null : platform.value,
-        category: category == undefined ? null : category.value,
-        max_price: max_price == undefined ? null : max_price.value,
-    }
+    let data = {};
+
+    if(sort_by != undefined)
+        data.sort_by = sort_by.value;
+
+    if(genres_array != undefined)
+        data.sort_by = genres_array;
+
+    if(platform != undefined)
+        data.sort_by = platform.value;
+
+    if(category != undefined)
+        data.sort_by = category.value;
+
+    if(max_price != undefined)
+        data.sort_by = max_price.value;
+
     return data;
 }
 
@@ -80,7 +99,7 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("products/" + encodeForAjax(get), options)
+    return fetch("api/product?" + encodeForAjax(get), options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }
