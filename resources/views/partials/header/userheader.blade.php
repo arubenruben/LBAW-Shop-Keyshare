@@ -48,7 +48,7 @@
         <div class="row">
             <a href="{{ url('/cart') }}" class="mt-auto mb-auto ml-auto mr-3"><i
                     class="fas fa-shopping-cart headerIcon cl-orange"></i><span id="shopping_cart_item_counter"
-                    class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() : 0 }}</span></a>
+                    class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() :  count(session('cart',array())) }}</span></a>
         </div>
     </div>
     <!--Button Collapse Small -->

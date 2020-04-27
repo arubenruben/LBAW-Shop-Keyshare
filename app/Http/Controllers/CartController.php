@@ -15,26 +15,24 @@ class CartController extends Controller
 {
 
     public function show(Request $request)
-    {
-        
-    
+    {    
         $loggedIn=true;
         $data=array();
-
+        
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
         }catch (AuthorizationException $e) {
             $loggedIn=false;    
         }
-        
-        if($loggedIn){
-            
+        //If logged in -> Get the Cart from the database
+        if($loggedIn){            
             $user=$user->cart;
     
             for($i=0;$i<count($user);$i++){
                 $data[$i]=Cart::findOrFail($user[$i]['id']);
             }
+            //If not logged int get the cart from the session cookie if exists
         }else if($request->session()->has('cart')){
             $cartItemsInSession=$request->session()->get('cart');
 
@@ -60,11 +58,11 @@ class CartController extends Controller
                 $loggedIn=false;
             }
         }
-
+        //IF logged in delete the cart entry from the database
         if($loggedIn){
 
             $cart->delete();
-
+        //If not logged in refresh the content of the session variable
         }else if($request->session()->has('cart')){
 
             $cartSessionContent=$request->session()->get('cart');
@@ -80,8 +78,7 @@ class CartController extends Controller
             for($i=0;$i<count($tempArray);$i++){
                 if($tempArray[$i]->id!=$cartId)
                     $request->session()->push('cart', $tempArray[$i]);
-            }    
-            return response(json_encode($tempArray), 200);
+            }        
         }
 
         return response(json_encode("Success"), 200);
