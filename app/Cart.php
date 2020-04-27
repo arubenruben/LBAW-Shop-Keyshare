@@ -11,6 +11,16 @@ class Cart extends Model
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
+     
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+     protected $fillable = [
+        'user_id',
+        'offer_id'        
+    ];
 
     /**
      * the user this cart entries belongs to

@@ -46,7 +46,7 @@ class CartController extends Controller
 
     public function delete(Request $request,$cartId) {
         $loggedIn=false;
-        
+
         $cart = Cart::find($cartId);
 
         if(isset($cart)){
@@ -80,9 +80,36 @@ class CartController extends Controller
                     $request->session()->push('cart', $tempArray[$i]);
             }        
         }
+        return response(json_encode("Success"), 200);
+    }
+    
+    public function insert(Request $request){
+
+        $loggedIn=true;
+
+        $cart=new Cart;
+            
+        try {
+            $this->authorize('insert',$cart);
+            $user = Auth::user();    
+        } catch (AuthorizationException $e) {
+            $loggedIn=false;
+        }
+
+        if($loggedIn){
+            
+            $cart->user_id=$user->id;
+            $cart->offer_id=$request->offer_id;
+            $cart->save();
+        
+        }else{
+            $cart->user_id=-1;
+            $cart->offer_id=$request->offer_id;
+            
+            $request->session()->push('cart', $cart);
+        }
 
         return response(json_encode("Success"), 200);
     }
-
 }
 ?>

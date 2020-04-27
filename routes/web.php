@@ -35,4 +35,5 @@ Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 //Cart
 Route::get('cart','CartController@show');
 Route::delete('cart/{idCart}','CartController@delete');
+Route::put('cart','CartController@insert');
 //Static Pages
