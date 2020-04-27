@@ -5,14 +5,14 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-@include('partials.navbar.nonavbar',['pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.nonavbar',['pages'=>$pages,'links'=>$links])
 @endsection
 
 @section('content')
 <article>
     <header class="row">
         <div class="col-sm-6 text-left">
-            <h4>My Cart<span class="badge badge-secondary">4</span></h4>
+        <h4>My Cart<span class="badge badge-secondary">{{count($data)}}</span></h4>
         </div>
     </header>
     <section class="row">

@@ -1,5 +1,5 @@
 <!-- Feedback Modal -->
-<div class="modal fade bd-modal-lg" id="userFeedback.{{$user->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-modal-lg" id="userFeedback{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-around mt-2 row">

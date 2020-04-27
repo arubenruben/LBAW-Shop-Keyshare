@@ -16,6 +16,7 @@ class CartController extends Controller
     public function show()
     {
         $loggedIn=true;
+        $data=array();
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
