@@ -1,4 +1,4 @@
-<tr>
+<tr id={{'row'.$data->id}}>
     <td scope="row" class="border-0 align-middle">
         <section class="p-2">
             <a href="product.php"><img src="images/games/original/starwars.png" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage"></a>

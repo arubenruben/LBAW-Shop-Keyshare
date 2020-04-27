@@ -11,7 +11,10 @@ const addEventListeners = () => {
         button.addEventListener('click',()=>{
             const cartId=button.getAttribute('data_cart_id');
             event.preventDefault();
-            sendDelete(cartId);
+            sendDelete(cartId).then(function() {
+                let tableEntry=document.querySelector('#row'+cartId);
+                tableEntry.remove();
+              });              
         });
     });
    

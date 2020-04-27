@@ -40,13 +40,27 @@ class CartController extends Controller
         $cart = Cart::findOrFail($cartId);
 
         try {
-            $this->authorize('loggedIn',Cart::class);
+            $this->authorize('delete',$cart);
             $user = Auth::user();
         } catch (AuthorizationException $e) {
             $loggedIn=false;
         }
 
-        return response(json_encode("Success"), 404);
+        if($loggedIn){
+
+            $cart->delete();
+
+
+        }else{
+
+
+
+
+
+
+        }
+
+        return response(json_encode("Success"), 200);
     }
 
 }

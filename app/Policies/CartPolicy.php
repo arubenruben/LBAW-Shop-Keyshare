@@ -5,7 +5,7 @@ namespace App\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Offer;
+use App\Cart;
 
 class CartPolicy 
 {
@@ -14,10 +14,8 @@ class CartPolicy
         
         return Auth::check();
     }
-    public function delete(User $user, Offer $offer){
-        
-
-
+    public function delete(User $user, Cart $cart){
+        return Auth::check() &&($user->id === $cart->user_id);
     }
     
 }
