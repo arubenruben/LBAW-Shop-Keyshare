@@ -57,7 +57,6 @@ class ProductsController
     public function get(Request $request) {
         $products = Product::all();
 
-
         if ($request->has('genres')) {
             $products = $products->filter(function($product) use($request) {
                 return count(array_intersect($request->input('genres'), $product->platform)) == count($request->input('genres'));
@@ -82,7 +81,7 @@ class ProductsController
             if($request->input('sort_by') === 'Most popular') {
                 $products->sortByDesc('num_sells');
             } else if($request->input('sort_by') === 'Most recent') {
-                $products->sortByDesc('launch_date');
+                $products->sortByDesc('date');
             }
         }
 

@@ -21,6 +21,7 @@ const addEventListeners = () => {
             sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
                 .then(res => {
                     //res.products.data
+                    console.log(res.products)
                     for(let i = 0; i < res.products.length; i++) {
                         let product = document.querySelector("div.cardProductList#pos" + i);
                         product.querySelector('.card-body h6 a').innerHTML = res.products[i].name;
@@ -65,16 +66,16 @@ function assembleData (sort_by, genres_array, platform, category, max_price) {
         data.sort_by = sort_by.value;
 
     if(genres_array != undefined)
-        data.sort_by = genres_array;
+        data.genres = genres_array;
 
     if(platform != undefined)
-        data.sort_by = platform.value;
+        data.platform = platform.value;
 
     if(category != undefined)
-        data.sort_by = category.value;
+        data.category = category.value;
 
     if(max_price != undefined)
-        data.sort_by = max_price.value;
+        data.max_price = max_price.value;
 
     return data;
 }
