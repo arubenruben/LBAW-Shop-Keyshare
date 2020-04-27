@@ -15,7 +15,7 @@
 <article>
     <header class="row">
         <div class="col-sm-6 text-left">
-        <h4>My Cart<span class="badge badge-secondary">{{count($data)}}</span></h4>
+        <h4>My Cart<span id="counter_products_cart" class="badge badge-secondary">{{count($data)}}</span></h4>
         </div>
     </header>
     <section class="row">

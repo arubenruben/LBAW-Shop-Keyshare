@@ -2,6 +2,7 @@
 
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const cartItemCounter=document.querySelector("#shopping_cart_item_counter");
+const counter_products_cart=document.querySelector("#counter_products_cart");
 const url = '/cart';
 
 const addEventListeners = () => {
@@ -16,6 +17,7 @@ const addEventListeners = () => {
                 let tableEntry=document.querySelector('#row'+cartId);
                 tableEntry.remove();        
                 cartItemCounter.innerHTML=cartItemCounter.innerHTML-1;
+                counter_products_cart.innerHTML=counter_products_cart.innerHTML-1;
               });              
         });
     });
