@@ -9,34 +9,37 @@ use App\Genre;
 use App\Http\Requests\ProductsRequest;
 use App\Platform;
 use App\Product;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class ProductsController
 {
-    public function show() {
+    public function show(Request $request) {
 
         $products = Product::where('deleted', '=', false);
 
 
-        if (isset($request->genres)) {
-        }
+        /*if (isset($request->genres)) {
+        }*/
 
-        if (isset($request->platform)) {
-            $products = $products->where('platform', $request->platform);
-        }
+        /*if (isset($request->platform)) {
+            $products = $products->whereHas()
+        }*/
 
-        if (isset($request->category)) {
+        /*if (isset($request->category)) {
         }
 
         if (isset($request->max_price)) {
-        }
-
-        /*if (isset($request->sort)) {
-            $products = $products->where(')
         }*/
 
-
+        if (isset($request->sort)) {
+            var_dump($request);
+            if($request->sort == 'Most popular') {
+                $products->orderBy('num_sells', 'desc');
+            } else if($request->sort == 'Most recent') {
+                $products->latest('launch_date');
+            }
+        }
 
         $genres = Genre::all();
         $platforms = Platform::all();
