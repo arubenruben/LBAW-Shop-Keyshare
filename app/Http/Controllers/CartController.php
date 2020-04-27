@@ -13,7 +13,6 @@ use App\Offer;
 
 class CartController extends Controller
 {
-
     public function show(Request $request)
     {    
         $loggedIn=true;
@@ -83,7 +82,7 @@ class CartController extends Controller
         return response(json_encode("Success"), 200);
     }
     
-    public function insert(Request $request){
+    public function add(Request $request){
 
         $loggedIn=true;
 
@@ -111,5 +110,15 @@ class CartController extends Controller
 
         return response(json_encode("Success"), 200);
     }
+
+    public function checkout()
+    {
+
+    }
+
+    public function finalizeCheckout()
+    {
+
+    }
 }
-?>
+
