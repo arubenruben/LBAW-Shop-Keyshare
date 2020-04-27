@@ -21,7 +21,6 @@ const addEventListeners = () => {
     });
    
 }
-
 const sendDelete = cartId => {
     const options = {
         method: 'delete',
@@ -32,7 +31,6 @@ const sendDelete = cartId => {
             "X-CSRF-TOKEN": token
         })
     }
-
     return fetch(url+'/'+cartId, options)
         .then(res => res.json())
         .catch(error => console.error("Error:"+error));

@@ -9,14 +9,25 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Policies\CartPolicy;
 use App\Cart;
+use App\Offer;
 
 class CartController extends Controller
 {
 
-    public function show()
+    public function show(Request $request)
     {
+        
+        $item=Cart::findOrFail(1);
+        
+        $request->session()->forget('cart');   
+        $request->session()->push('cart', $item);
+        $request->session()->push('cart', $item);
+        $request->session()->push('cart', $item);
+        $request->session()->push('cart', $item);
+    
         $loggedIn=true;
         $data=array();
+
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
@@ -24,12 +35,19 @@ class CartController extends Controller
             $loggedIn=false;    
         }
         
-        $user=$user->cart;
-        
-        for($i=0;$i<count($user);$i++){
+        if($loggedIn){
             
-            $data[$i]=Cart::findOrFail($user[$i]['id']);
-            
+            $user=$user->cart;
+    
+            for($i=0;$i<count($user);$i++){
+                $data[$i]=Cart::findOrFail($user[$i]['id']);
+            }
+        }else{
+            $cartItemsInSession=$request->session()->get('cart');
+
+            for($i=0;$i<count($cartItemsInSession);$i++){
+                $data[$i]=Cart::findOrFail($cartItemsInSession[$i]['id']);
+            }
         }
         
         return view('pages.cart.cart',['data'=>$data,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
