@@ -17,13 +17,6 @@ class CartController extends Controller
     public function show(Request $request)
     {
         
-        $item=Cart::findOrFail(1);
-        
-        $request->session()->forget('cart');   
-        $request->session()->push('cart', $item);
-        $request->session()->push('cart', $item);
-        $request->session()->push('cart', $item);
-        $request->session()->push('cart', $item);
     
         $loggedIn=true;
         $data=array();
@@ -42,40 +35,53 @@ class CartController extends Controller
             for($i=0;$i<count($user);$i++){
                 $data[$i]=Cart::findOrFail($user[$i]['id']);
             }
-        }else{
+        }else if($request->session()->has('cart')){
             $cartItemsInSession=$request->session()->get('cart');
 
             for($i=0;$i<count($cartItemsInSession);$i++){
-                $data[$i]=Cart::findOrFail($cartItemsInSession[$i]['id']);
+                $data[$i]=$cartItemsInSession[$i];
             }
         }
         
-        return view('pages.cart.cart',['data'=>$data,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
+        return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
     }
 
-    public function delete($cartId) {
-        $loggedIn=true;
-        $cart = Cart::findOrFail($cartId);
+    public function delete(Request $request,$cartId) {
+        $loggedIn=false;
+        
+        $cart = Cart::find($cartId);
 
-        try {
-            $this->authorize('delete',$cart);
-            $user = Auth::user();
-        } catch (AuthorizationException $e) {
-            $loggedIn=false;
+        if(isset($cart)){
+            try {
+                $this->authorize('delete',$cart);
+                $user = Auth::user();
+                $loggedIn=true;
+            } catch (AuthorizationException $e) {
+                $loggedIn=false;
+            }
         }
 
         if($loggedIn){
 
             $cart->delete();
 
+        }else if($request->session()->has('cart')){
 
-        }else{
+            $cartSessionContent=$request->session()->get('cart');
+            $tempArray=array();
+            
+            //Copy of session cart
+            for($i=0;$i<count($cartSessionContent);$i++)
+                array_push($tempArray, $cartSessionContent[$i]);
 
 
-
-
-
-
+            $request->session()->forget('cart');
+    
+            for($i=0;$i<count($tempArray);$i++){
+                if($tempArray[$i]->id!=$cartId)
+                    $request->session()->push('cart', $tempArray[$i]);
+            }    
+            return response(json_encode($tempArray), 200);
         }
 
         return response(json_encode("Success"), 200);
