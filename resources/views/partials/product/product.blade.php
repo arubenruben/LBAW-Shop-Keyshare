@@ -7,7 +7,7 @@
             <h3>{{$product->name}}</h3>
             <span>
                     <h6 class="title-price">Starting at:</h6>
-                    <h4>US$ </h4>
+                    <h4>US$ {{$offers[0]->discountPriceColumn}}</h4>
                 </span>
             <div class="d-none d-lg-inline">
                 <p>
@@ -48,7 +48,11 @@
                                     | <i class="fas fa-shopping-cart"></i> {{$offer->seller->num_sells}} | Stock: {{$offer->stock}}
                                 </div>
                             </td>
-                            <td class="text-center align-middle"><strong>${{$offer->discountPrice}}</strong></td>
+                            @if($offer->price != $offer->discountPrice)
+                                <td class="text-center align-middle"><del><strong>${{$currentOffer->price}}</strong></del><strong  class="cl-green pl-2">${{$offer->discountPrice}}</strong></td>
+                            @else
+                                <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
+                            @endif
                             <td class="text-center align-middle">
                                 <div class="btn-group-justified">
                                     <button class="btn btn-orange" data-container="body" data-toggle="popover" data-trigger="focus" title="<span class='cl-success'>Successfully added to your cart</span>" data-placement="bottom" data-content="Click <a href='cart.php'>here</a> to go to your cart"><i class="fas fa-cart-plus"></i></button>
