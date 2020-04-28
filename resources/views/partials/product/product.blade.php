@@ -4,25 +4,30 @@
             <img class="img-fluid productPageImgPreview" src={{$product->image->url}}/>
         </div>
         <div class="col-6">
-            <h3>{{$product->name}}</h3>
+            <h3>{{$product->name}} [{{$platformName}}]</h3>
             <span>
+
+                @if($offers != null)
                     <h6 class="title-price">Starting at:</h6>
                     <h4>US$ {{$offers[0]->discountPriceColumn}}</h4>
+                    @endif
                 </span>
             <div class="d-none d-lg-inline">
                 <p>
                     {{substr($product->description, 0 , 200)}}<span id="dots" >...</span><span id="more">
-                        {{substr($product->description, 200 , strlen($product->description)}}
+                        {{substr($product->description, 200 , strlen($product->description))}}
                     </span>
                 </p>
-                <a onclick="myFunction()" id="myBtn">Read more</a>
+                <button onclick="myFunction()" id="myBtn">Read more</button>
             </div>
         </div>
         <div class="col-lg-6 col-0"></div>
     </div>
-    <div class="row" id="offersListing">
-        <div class="col-sm-12">
-            <div class="table-responsive table-striped mt-3">
+
+            @if($offers != null)
+            <div class="row mt-5" id="offersListing">
+            <div class="col-sm-12 ">
+            <div class="table-responsive table-striped mt-5">
                 <table id="userOffersTable" class="table p-0">
                     <thead>
                     <tr>
@@ -38,6 +43,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach($offers as $offer)
                         <tr class="offer">
                             <td scope="row" class="border-0 align-middle">
@@ -48,9 +54,9 @@
                                 </div>
                             </td>
                             @if($offer->price != $offer->discountPrice())
-                                <td class="text-center align-middle"><del><strong>${{$currentOffer->price}}</strong></del><strong  class="cl-green pl-2">${{$offer->discountPrice()}}</strong></td>
+                                <td class="text-center align-middle"><del><strong>${{$offer->price}}</strong></del><strong  class="cl-green pl-2">${{$offer->discountPrice()}}</strong></td>
                             @else
-                                <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
+                                <td class="text-center align-middle"><strong>${{$offer->price}}</strong></td>
                             @endif
                             <td class="text-center align-middle">
                                 <div class="btn-group-justified">
@@ -64,8 +70,14 @@
                             </td>
                         </tr>
                     @endforeach
+
                     </tbody>
                 </table>
+                @else
+                    <div class="row mt-5" id="offersListing">
+                        <div class="col-sm-12 text-center align-middle">
+                    <p class="mt-5">No offers available for this product</p>
+                @endif
             </div>
         </div>
     </div>

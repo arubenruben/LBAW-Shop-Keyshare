@@ -2,6 +2,10 @@
 
 @section('title')product @endsection
 
+@section('javascript')
+    <script src="{{ asset('js/product/product.js') }}" defer></script>
+@endsection
+
 @include('partials.header.userheader')
 
 @section('navbar')
@@ -9,7 +13,7 @@
 @endsection
 
 @section('content')
-    @include('partials.product.product', ['product' => $product, 'offers' => $offers])
+    @include('partials.product.product', ['product' => $product, 'offers' => $offers, 'platformName' => $platformName])
 @endsection
 
 @section('footer')
