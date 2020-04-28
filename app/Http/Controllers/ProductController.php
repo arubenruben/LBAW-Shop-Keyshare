@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Offer;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -18,7 +20,7 @@ class ProductController extends Controller
 
         $offers = $offers->orderBy('discountPrice', 'ASC');
 
-        return view('pages.product', ['product' => $product, 'offers' => $offers, 'pages' => array('product'), 'links'=>array(url('/product/'.$productId.'/'.$platform))]);
+        return view('pages.product', ['user' => Auth::user(), 'product' => $product, 'offers' => $offers, 'pages' => array('product'), 'links'=>array(url('/product/'.$productId.'/'.$platform))]);
     }
 
 }
