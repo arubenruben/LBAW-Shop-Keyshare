@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +11,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Products
+Route::get('product/{id}/{platform}', 'ProductController@show');
+
 
 Route::get('/', 'HomepageController@show');
 
@@ -29,7 +34,5 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 
-// Products
-//Route::get('product/{id}/{platform}', 'ProductController@show');
 
 //Static Pages
