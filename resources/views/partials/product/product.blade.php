@@ -7,18 +7,15 @@
             <h3>{{$product->name}}</h3>
             <span>
                     <h6 class="title-price">Starting at:</h6>
-                    <h4>US$ {{$product->offers->where()</h4>
+                    <h4>US$ </h4>
                 </span>
             <div class="d-none d-lg-inline">
                 <p>
-                    {{substr($product->description, 0 , 200)}}<span id="dots" class="collapse show demo1">...</span><span id="extraText"class="collapse demo1">
+                    {{substr($product->description, 0 , 200)}}<span id="dots" >...</span><span id="more">
                         {{substr($product->description, 200 , strlen($product->description)}}
                     </span>
                 </p>
-
-                <a href="#" role="button" data-toggle="collapse" data-target=".demo1" aria-expanded="true" aria-controls="dots extraTest more less">
-                    <span id="more" class="collapse show demo1">Read more</span><span id="less"class="collapse demo1">Show less</span>
-                </a>
+                <a onclick="myFunction()" id="myBtn">Read more</a>
             </div>
         </div>
         <div class="col-lg-6 col-0"></div>

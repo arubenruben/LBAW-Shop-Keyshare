@@ -13,7 +13,7 @@
 */
 
 // Products
-Route::get('product/{id}/{platform}', 'ProductController@show');
+Route::get('product/{productId}/{platform}', 'ProductController@show');
 
 
 Route::get('/', 'HomepageController@show');

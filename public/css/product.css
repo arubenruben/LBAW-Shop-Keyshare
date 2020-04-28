@@ -5,3 +5,5 @@
 #offersListing .seller{
     cursor: pointer;
 }
+
+#more {display: none;}
