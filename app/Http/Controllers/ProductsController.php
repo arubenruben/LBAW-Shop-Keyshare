@@ -57,7 +57,9 @@ class ProductsController
 
         //return response(json_encode(Product::all()->first()->platforms->pluck('name')->first()), 400);
         //return response(json_encode(Product::all()->first()->genres->pluck('name')), 400);
-        //return response(json_encode($request->input('platform')), 400);
+
+        //return response(json_encode($request->input('category')), 400);
+        return response(json_encode(Product::find(25)->category->pluck('name')->first()), 400);
 
 
         if ($request->has('genres')) {
