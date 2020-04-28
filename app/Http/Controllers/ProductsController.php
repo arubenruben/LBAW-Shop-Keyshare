@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Input;
 
 class ProductsController
 {
-
-    //Route::get('/search/{sort_by}{genres}{platform}{category}{max_price}', 'ProductsController@explore'); //view
-    //Route::get('/api/product/{sort_by}{genres}{platform}{category}{max_price}', 'ProductsController@get'); //json
     public function explore(Request $request) {
 
         $products = Product::where('deleted', '=', false);
@@ -56,22 +53,29 @@ class ProductsController
 
     public function get(Request $request) {
         $products = Product::all();
+        $products->where('deleted', false);
+
+        //return response(json_encode(Product::all()->first()->platforms->pluck('name')->first()), 400);
+        //return response(json_encode(Product::all()->first()->genres->pluck('name')), 400);
+        //return response(json_encode($request->input('platform')), 400);
+
 
         if ($request->has('genres')) {
             $products = $products->filter(function($product) use($request) {
-                return count(array_intersect($request->input('genres'), $product->platform)) == count($request->input('genres'));
+                $decoded = explode(",", $request->input('genres'));
+                return count(array_intersect($decoded, $product->genres->pluck('name')->toArray())) == count($decoded);
             });
         }
 
         if ($request->has('platform')) {
             $products = $products->filter(function($product) use($request) {
-                return $product->platform == $request->input('platform');
+                return $product->platforms->pluck('name')->first() == $request->input('platform');
             });
         }
 
         if ($request->has('category')) {
             $products = $products->filter(function($product) use($request) {
-                return $product->category == $request->input('category');
+                return $product->category->pluck('name')->first() == $request->input('category');
             });
         }
 
@@ -81,7 +85,7 @@ class ProductsController
             if($request->input('sort_by') === 'Most popular') {
                 $products->sortByDesc('num_sells');
             } else if($request->input('sort_by') === 'Most recent') {
-                $products->sortByDesc('date');
+                $products->sortByDesc('launch_date');
             }
         }
 
