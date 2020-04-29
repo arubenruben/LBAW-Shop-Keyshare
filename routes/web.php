@@ -50,16 +50,16 @@ Route::put('/offer', 'OfferController@add');
 Route::get('/offer/{id}', 'OfferController@showOffer');
 Route::post('/offer/{id}', 'OfferController@update');
 Route::delete('/offer/{id}', 'OfferController@delete');
+Route::get('/api/offer/{id}/key', 'OfferController@getKeys');
+Route::put('/offer/{id}/key', 'OfferController@addKey');
+Route::get('/api/offer/{id}/discount', 'OfferController@getDiscounts');
+Route::put('/offer/{id}/discount', 'OfferController@addDiscount');
 
 // Discounts
-Route::get('/api/offer/{id}/discount', 'DiscountController@get');
-Route::put('/offer/{id}/discount', 'DiscountController@add');
-Route::post('/offer/{offerId}/discount/{discountId}', 'DiscountController@update');
-Route::delete('/offer/{offerId}/discount/{discountId}', 'DiscountController@delete');
+Route::post('/discount/{discountId}', 'DiscountController@update');
+Route::delete('/discount/{discountId}', 'DiscountController@delete');
 
 // Keys
-Route::get('/api/offer/{id}/key', 'KeyController@get');
-Route::put('/offer/{id}/key', 'KeyController@add');
 Route::post('/key/{keyId}', 'KeyController@update');
 Route::delete('/key/{keyId}', 'KeyController@delete');
 Route::put('/key/{id}/feedback', 'KeyController@feedback');
