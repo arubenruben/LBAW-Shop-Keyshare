@@ -31,9 +31,8 @@ Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage');
 
 // Products
-Route::get('/', 'HomepageController@show'); //TODO: passar para ProductController
 Route::get('/', 'ProductController@home');
-Route::get('/search', 'ProductController@explore');
+Route::get('/search', 'ProductController@search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/product/{id}/{platform}', 'ProductController@show');
 Route::get('/api/product/{id}/{platform}/offers', 'ProductController@offers');
