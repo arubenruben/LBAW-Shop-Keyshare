@@ -1,21 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-use App\Product;
 
-class HomepageController extends Controller
+class ProductController extends Controller
 {
-
     public function getHomepageData(){
-        
+
         $numberResults=5;
 
         $homepageData['mostPopulars']=$this->getMostPopularProducts($numberResults);
-        $homepageData['mostRecents']=$this->getMostRecentProducts($numberResults);   
+        $homepageData['mostRecents']=$this->getMostRecentProducts($numberResults);
 
         return $homepageData;
     }
@@ -41,7 +38,7 @@ class HomepageController extends Controller
             */
 
         return DB::select(
-                'SELECT products.name AS product_name,platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate 
+            'SELECT products.name AS product_name,platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate 
                 FROM active_products JOIN products ON active_products.product_id=products.id
                     JOIN offers ON offers.product_id=products.id
                     JOIN active_offers ON offers.id=active_offers.offer_id
@@ -52,8 +49,8 @@ class HomepageController extends Controller
                 GROUP BY product_name,platforms.name
                 ORDER BY num_sells DESC
                 LIMIT ?',[$numberResults]
-             );
-            
+        );
+
     }
 
     private function getMostRecentProducts($numberResults){
@@ -77,7 +74,7 @@ class HomepageController extends Controller
             */
 
         return DB::select(
-                'SELECT products.name AS product_name, platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate, max(products.launch_date)  AS launch_date
+            'SELECT products.name AS product_name, platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate, max(products.launch_date)  AS launch_date
                 FROM active_products JOIN products On active_products.product_id=products.id
                     JOIN offers ON offers.product_id=products.id
                     JOIN active_offers ON offers.id=active_offers.offer_id
@@ -88,16 +85,34 @@ class HomepageController extends Controller
                 GROUP BY product_name,platforms.name
                 ORDER BY launch_date DESC
                 LIMIT ?',[$numberResults]
-            );
-    
+        );
+
     }
 
-
-    public function show (Request $request){
-
+    public function home()
+    {
         $homepageData=$this->getHomepageData();
 
         return view('pages.homepage',['data'=>$homepageData,'pages'=> array(),'links'=>array()]);
     }
+
+    public function search()
+    {
+
+    }
+
+    public function get()
+    {
+
+    }
+
+    public function show($productId, $platform)
+    {
+
+    }
+
+    public function offers($productId, $platform)
+    {
+
+    }
 }
-?>
