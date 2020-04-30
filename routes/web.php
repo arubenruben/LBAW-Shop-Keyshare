@@ -45,15 +45,15 @@ Route::get('/cart/checkout', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finalizeCheckout');
 
 // Offers
-Route::get('/offer', 'OfferController@show');
-Route::put('/offer', 'OfferController@add');
-Route::get('/offer/{id}', 'OfferController@showOffer');
-Route::post('/offer/{id}', 'OfferController@update');
-Route::delete('/offer/{id}', 'OfferController@delete');
-Route::get('/api/offer/{id}/key', 'OfferController@getKeys');
-Route::put('/offer/{id}/key', 'OfferController@addKey');
-Route::get('/api/offer/{id}/discount', 'OfferController@getDiscounts');
-Route::put('/offer/{id}/discount', 'OfferController@addDiscount');
+Route::get('offer', 'OfferController@show');
+Route::put('offer', 'OfferController@add');
+Route::get('offer/{id}', 'OfferController@showOffer');
+Route::post('offer/{id}', 'OfferController@update');
+Route::delete('offer/{id}', 'OfferController@delete');
+Route::get('api/offer/{id}/key', 'OfferController@getKeys');
+Route::put('offer/{id}/key', 'OfferController@addKey');
+Route::get('api/offer/{id}/discount', 'OfferController@getDiscounts');
+Route::put('offer/{id}/discount', 'OfferController@addDiscount');
 
 // Discounts
 Route::post('/discount/{discountId}', 'DiscountController@update');

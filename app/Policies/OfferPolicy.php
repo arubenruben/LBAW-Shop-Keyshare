@@ -11,9 +11,15 @@ class OfferPolicy
 {
     use HandlesAuthorization;
 
-    public function cancel(User $user, Offer $offer) {
-        // Only the own user can change any profile detail
-        
+    public function add(User $user) {
+        // Only the an authenticated not banned user can make an offer
+
+        return Auth::check() && Auth::user()->banned() === false;
+    }
+
+    public function seller(User $user, Offer $offer) {
+        // Only the owner of the offer can change any details
+
         return Auth::check() && ($user->id === $offer->user_id);
     }
 }

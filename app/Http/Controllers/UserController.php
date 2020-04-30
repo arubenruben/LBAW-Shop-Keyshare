@@ -28,9 +28,9 @@ class UserController extends Controller
         $user = $this->getUser($username); 
 
         if(Auth::check() && Auth::id() == $user->id){
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'pages' => array('User'),'links'=>array(url('/user/'.Auth::user()->username))]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'breadcrumbs' => ['User' => url('/user/'.$username)]]);
         } else{
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'pages'=>array('User'),'links'=>array(url('/user/'.$username))]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'breadcrumbs' => ['User' => url('/user/'.$username)]]);
         }
 
     }
@@ -47,7 +47,7 @@ class UserController extends Controller
         $orders = $user->orders;
         $isBanned = $user->banned();
 
-        return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'pages' =>array('User', 'Purchases'),'links'=>array(url('/user/'.$user->username),url('/user/purchases'))]);
+        return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'breadcrumbs' => ['User' => url('/user/'.$user->username), 'Purchases' => url('/user/purchases')]]);
     }
 
     public function showOffers($username) {
@@ -58,7 +58,7 @@ class UserController extends Controller
         $currOffers = $user->activeOffers;
 
         return view('pages.user.offers', ['user'=> $user, 'pastOffers' => $pastOffers,
-            'currOffers' => $currOffers, 'isOwner' => $isOwner,'pages'=>array('User', 'Offers'),'links'=>array(url('/user/'.$username), url('/user/'.$username.'/offers'))]);
+            'currOffers' => $currOffers, 'isOwner' => $isOwner, 'breadcrumbs' => ['User' => url('/user/'.$username), 'Offers' => url('/user/'.$username.'/offers')]]);
     }
 
     public function showReports() {
@@ -74,8 +74,8 @@ class UserController extends Controller
         $reportsAgainstMe = $user->reportsReceived;
 
         return view('pages.user.reports', ['user' => $user, 'myReports' => $myReports,
-            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'pages'=>array('User','Reports'),
-            'links'=>array(url('/user/'.$user->username),url('/user/reports'))]);
+            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true,
+            'breadcrumbs' => ['User' => url('/user/'.$user->username),'Reports' => url('/user/reports')]]);
     }
 
     public function update(UserEditRequest $request) {

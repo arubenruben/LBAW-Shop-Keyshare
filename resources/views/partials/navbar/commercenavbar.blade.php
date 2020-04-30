@@ -1,5 +1,5 @@
 <nav id="navbar" class="nav pt-3">
-    @include('partials.navbar.breadcrumbs',['pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
     <article class="col-8 d-none d-sm-block ml-auto mr-auto">
         <section class="row">
             <div class="dropdown show ml-auto">
