@@ -6,7 +6,7 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Reports','pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Reports','breadcrumbs'=>$breadcrumbs])
 @endsection
 
 @section('content')

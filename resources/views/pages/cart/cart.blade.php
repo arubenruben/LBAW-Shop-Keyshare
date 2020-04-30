@@ -8,7 +8,7 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.nonavbar',['pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.nonavbar',['breadcrumbs'=>$breadcrumbs])
 @endsection
 
 @section('content')

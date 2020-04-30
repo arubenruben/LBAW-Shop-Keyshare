@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Discount;
+use App\Offer;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
 {
-    public function get($offerId)
-    {
-
-    }
-
-    public function add($offerId)
-    {
-
-    }
-
     public function update($offerId, $discountId)
     {
 

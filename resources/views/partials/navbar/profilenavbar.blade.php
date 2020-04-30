@@ -1,5 +1,5 @@
 <nav id="navbar" class="nav">
-    @include('partials.navbar.breadcrumbs',['pages'=>$pages,'links'=>$links])
+    @include('partials.navbar.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
     <ul id="userNavbar" class="nav nav-tabs ml-auto mr-auto p-3 flex-nowrap">
         <li class="nav-item">
             <a class="nav-link deco-none ml-1 mr-1 userNavbarItem" href="{{ url('/user/'.$user->username) }}"><button

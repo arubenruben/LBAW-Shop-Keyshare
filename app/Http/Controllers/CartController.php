@@ -40,7 +40,8 @@ class CartController extends Controller
             }
         }
         
-        return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,'pages'=> array('Cart'),'links'=>array(url('cart'))]);
+        return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
+            'breadcrumbs' => ['Cart' => url('/cart')]]);
     }
 
     public function delete(Request $request,$cartId) {
