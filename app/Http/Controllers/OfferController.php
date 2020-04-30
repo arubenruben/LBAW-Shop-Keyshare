@@ -45,8 +45,6 @@ class OfferController extends Controller
         }
 
         $offer->final_date = date("Y-m-d");
-
-        
         $offer->save();
 
         $response=['profit'=>$offer->profit];
