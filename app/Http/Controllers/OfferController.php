@@ -18,7 +18,7 @@ class OfferController extends Controller
     public function show()
     {
         try {
-            $this->authorize('add', User::class);
+            $this->authorize('add', Offer::class);
         } catch (AuthorizationException $e) {
             return redirect(url('/'));
         }
@@ -47,7 +47,7 @@ class OfferController extends Controller
         try {
             $this->authorize('seller', $offer);
         } catch (AuthorizationException $e) {
-            return response(json_encode("You can't delete this offer"), 401);
+            return response("You can't delete this offer", 401);
         }
 
         $offer->final_date = date("Y-m-d");
@@ -70,7 +70,7 @@ class OfferController extends Controller
             return response('User does not have permissions to add a discount to this offer.', 401);
         }
 
-        return response(json_encode(['keys' => $offer->keys]));
+        return response()->json(['keys' => $offer->keys]);
     }
 
     public function addKey($offerId)
@@ -88,7 +88,7 @@ class OfferController extends Controller
             return response('User does not have permissions to add a discount to this offer.', 401);
         }
 
-        return response(json_encode(['discounts' => $offer->discounts]));
+        return response()->json(['discounts' => $offer->discounts]);
     }
 
     public function addDiscount($offerId)
