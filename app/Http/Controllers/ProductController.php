@@ -179,6 +179,22 @@ class ProductController extends Controller
 
     public function show($productId, $platform){
 
+=======
+    public function get()
+    {
+        $products = ActiveProduct::all();
+
+        $products = $products->map(function ($activeProduct, $key) {
+            $product = $activeProduct->product;
+            return [
+                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
+                'launch_date' => $product->launch_date, 'category' => $product->category->name,
+                'platforms' => $product->platforms, 'genres' => $product->genres,
+                ];
+        });
+
+        return response()->json(['products' => $products]);
+>>>>>>> done product get
     }
 
     public function offers($productId, $platform){
