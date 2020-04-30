@@ -1,4 +1,5 @@
-<div id="content" class="container">
+<form id="content" class="container">
+    @csrf
     <div class="row mt-5">
         <div class="col">
             <h3>Choose a Game</h3>
@@ -6,51 +7,39 @@
     </div>
     <div class="row">
         <div class="col-5 mt-3 my-auto d-none d-md-block">
-            <img class="img-fluid productPageImgPreview" src="../../assets/images/games/GTAV/1.png" />
+            <img class="img-fluid productPageImgPreview" src="{{asset('images/games/default.png')}}" />
         </div>
         <div class="col-12 col-md-7 mt-2">
 
-            <div class="row">
+            <section class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="inputGameName">
+                        <label for="game">
                             <h4>Select Game</h4>
                         </label>
-                        <select id="inputGameName" class="form-control form-control-md">
-                            <option>GTA V</option>
-                            <option>FIFA 20</option>
-                            <option>Minecraft</option>
+                        <select id="game" name="game" class="form-control form-control-md" required>
+
+                        </select>
+                        <label for="platform">
+                            <h4>Select Platform</h4>
+                        </label>
+                        <select id="platform" name="platform" class="form-control form-control-md" required>
+
                         </select>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="row mt-2">
+            <section class="row mt-2">
                 <div class="col-12 flex-nowrap">
 
                     <div class="form-group">
-                        <label for="inputGameName">
-                            <h4>Keys</h4>
-                        </label>
+                        <h4>Keys</h4>
                         <div class="input-group">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
+                            <input type="text" name="key[]" class="form-control mr-2" placeholder="Key" value="">
                             <span class="input-group-btn">
                                     <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                                </span>
-                        </div>
-
-                        <div class="input-group mt-2">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                            <span class="input-group-btn">
-                                    <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                                </span>
-                        </div>
-
-                        <div class="input-group mt-2">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key" value="55-FF-55">
-                            <span class="input-group-btn">
-                                    <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                                </span>
+                            </span>
                         </div>
 
                         <div class="row mt-3 flex-nowrap">
@@ -64,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
     <hr>
@@ -150,3 +139,4 @@
 
         </div>
     </div>
+</form>
