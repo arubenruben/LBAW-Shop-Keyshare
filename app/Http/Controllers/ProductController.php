@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ActiveProduct;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -103,7 +105,18 @@ class ProductController extends Controller
 
     public function get()
     {
+        $products = ActiveProduct::all();
 
+        $products = $products->map(function ($activeProduct, $key) {
+            $product = $activeProduct->product;
+            return [
+                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
+                'launch_date' => $product->launch_date, 'category' => $product->category->name,
+                'platforms' => $product->platforms, 'genres' => $product->genres,
+                ];
+        });
+
+        return response()->json(['products' => $products]);
     }
 
     public function show($productId, $platform)
