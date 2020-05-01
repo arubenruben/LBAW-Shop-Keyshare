@@ -203,6 +203,11 @@ CREATE TABLE faq (
   question TEXT NOT NULL,
   answer TEXT NOT NULL
 );
+CREATE TABLE password_resets (
+    email TEXT,
+    token TEXT,
+    created_at TIMESTAMP
+);
 
 -----------------------------------------
 -- MATERIALIZED VIEWS
