@@ -17,6 +17,7 @@ Route::get('/', 'HomepageController@show');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::put('register', 'Auth\RegisterController@register');
+Auth::routes();
 
 // User
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');

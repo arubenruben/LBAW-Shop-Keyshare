@@ -91,7 +91,7 @@
 
 @if(!Auth::check())
 <!-- authentication modal -->
-<div class="modal fade bs-modal-sm" id="authenticationModal" tabindex="-1" role="dialog"
+<article class="modal fade bs-modal-sm" id="authenticationModal" tabindex="-1" role="dialog"
     aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -107,7 +107,7 @@
             <!-- modal body-->
             <div class="modal-body">
                 <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
+                    <section class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
                         <form class="form-horizontal" action="{{ url('/login') }}" method="post">
                             {{ csrf_field() }}
                             <!-- Log in Form -->
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="modal-body">
+                        <div class="modal-body text-center">
                             <button id="google-signup" name="google-signup" class="btn btn-blue">
                                 <svg class="ml-2 float-left" viewBox="0 0 18 18" role="presentation" aria-hidden="true"
                                     focusable="false" style="height: 20px; width: 20px; display: block;">
@@ -159,9 +159,12 @@
                                 </svg>
                                 <span class="mx-auto">Log in with Google</span>
                             </button>
+                            <button type="button" class="btn mt-3" data-toggle="modal" data-target="#recover-password-modal" data-dismiss="modal">
+                                Forgot Password
+                              </button>                            
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
+                    </section>
+                    <section class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
                         <form class="form-horizontal" action="{{ url('/register') }}" method="post">
                             @csrf
                             @method('PUT')
@@ -238,7 +241,7 @@
                                 <span class="mx-auto">Sign up with Google</span>
                             </button>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
             <div class="modal-footer">
@@ -246,5 +249,27 @@
             </div>
         </div>
     </div>
-</div>
+</article>
+
+
+<!-- Modal -->
+<article class="modal fade" id="recover-password-modal" tabindex="-1" role="dialog" aria-labelledby="recover-password-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recover-password-modal">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Preencher</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</article>
 @endif
