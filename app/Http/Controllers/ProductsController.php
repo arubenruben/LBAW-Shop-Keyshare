@@ -100,6 +100,20 @@ class ProductsController
         }
 
         return $filter;
+=======
+        $request->has('page') ? $products = $products->forPage($request->input('page'), 9) :
+            $products = $products->forPage(0, 9);
+
+        $products = $products->map(function ($product, $key) {
+            return [
+                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
+                'launch_date' => $product->launch_date, 'category' => $product->category->name,
+                'platforms' => $product->platforms, 'genres' => $product->genres,
+            ];
+        });
+
+        return response(json_encode(['products' => $products]), 200);
+>>>>>>> Update ProductsController.php
     }
 
     public function search() {
