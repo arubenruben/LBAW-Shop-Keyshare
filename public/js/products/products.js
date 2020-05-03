@@ -46,8 +46,6 @@ const received = (response) => {
     receivedPrices(response.max_price, response.min_price);
 }
 
-
-
 const addEventListeners = () => {
     const sort_by_input = document.querySelectorAll("form#option input.sort-by");
     const genres_input = document.querySelectorAll("form#option input.genre");
