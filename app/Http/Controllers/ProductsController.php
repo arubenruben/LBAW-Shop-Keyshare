@@ -57,6 +57,12 @@ class ProductsController
         return response()->json(['products' => array_values($filtered->toArray())]);
     }
 
+        //return response(json_encode(Product::all()->first()->platforms), 400);
+        //return response(json_encode(Product::all()->first()->genres->pluck('name')), 400);
+
+        //return response(json_encode($products->platforms), 400);
+
+
     private function filterProducts(Request $request, Collection $products) : \Illuminate\Support\Collection {
         $filter = $products;
         if ($request->has('genres')) {
@@ -66,6 +72,7 @@ class ProductsController
                     return $genre->name;
                 });
                 return count(array_intersect($decoded, $genres->toArray())) == count($decoded);
+                return count(array_intersect($decoded, $product->genres->name->toArray())) == count($decoded);
             });
         }
 
@@ -76,14 +83,17 @@ class ProductsController
                         return true;
 
                 return false;
+            $products = $products->filter(function($product) use($request) {
+                return $product->platforms->name == $request->input('platform');
             });
-        }
+
 
         if ($request->has('category')) {
             $filter = $filter->filter(function(Product $product) use($request) {
+            $products = $products->filter(function($product) use($request) {
                 return $product->category->name == $request->input('category');
             });
-        }
+
 
         if ($request->has('max_price')) {
             $filter = $filter->filter(function(Product $product) use($request) {
@@ -100,6 +110,18 @@ class ProductsController
         }
 
         return $filter;
+        $request->has('page') ? $products = $products->forPage($request->input('page'), 9) :
+            $products = $products->forPage(0, 9);
+
+        $products = $products->map(function ($product, $key) {
+            return [
+                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
+                'launch_date' => $product->launch_date, 'category' => $product->category->name,
+                'platforms' => $product->platforms, 'genres' => $product->genres,
+            ];
+        });
+
+        return response(json_encode(['products' => $products]), 200);
     }
 
     public function search() {
