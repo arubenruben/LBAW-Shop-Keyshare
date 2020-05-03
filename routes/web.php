@@ -19,9 +19,7 @@ Route::get('product/{productId}/{platform}', 'ProductController@show');
 Route::get('/', 'HomepageController@show');
 
 // Authentication
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::put('register', 'Auth\RegisterController@register');
+Auth::routes();
 
 // User
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
@@ -36,3 +34,5 @@ Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 
 //Static Pages
+
+Route::get('/home', 'HomeController@index')->name('home');
