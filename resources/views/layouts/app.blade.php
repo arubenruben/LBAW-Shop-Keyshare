@@ -31,18 +31,14 @@
         <script src="{{ asset('js/progress_bar_draw.js') }}" defer></script>
 --}}
     </head>
-    <body>
-        <header> 
-          @yield('header')
-        </header>
+    <body>    
+        @yield('header')  
         <main id="wrapper">
           @yield('navbar')
           <div id="content" class="container mt-5">
             @yield('content')
-          </div>
-          <footer id="footerGeneric">
-            @yield('footer')
-          </footer>
+          </div>          
+            @yield('footer')          
         </main>
       </main>
     </body>

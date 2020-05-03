@@ -12,11 +12,6 @@
 |
 */
 
-// Products
-Route::get('product/{productId}/{platform}', 'ProductController@show');
-
-
-Route::get('/', 'HomepageController@show');
 
 // Authentication
 Auth::routes();
@@ -32,7 +27,8 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 
+// Products
+Route::get('product/{productId}/{platform}', 'ProductController@show');
+Route::get('/', 'HomepageController@show');
 
 //Static Pages
-
-Route::get('/home', 'HomeController@index')->name('home');
