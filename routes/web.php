@@ -31,6 +31,5 @@ Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 //Route::get('product/{id}/{platform}', 'ProductController@show');
 
 //Static Pages
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
