@@ -50,9 +50,24 @@ class Offer extends Model
         return $this->hasMany('App\Discount');
     }
 
-    public function discountPrice(){
+    /**
+     * Returns the active discount of the offer
+     */
+    public function active_discount() {
+        foreach($this->discounts as $discount){
+            if($discount->start_date < date("Y-m-d") && date("Y-m-d") < $discount->end_date){
+                return $discount;
+            }
+        }
 
-        foreach($this->discounts()->getResults() as $discount){
+        return null;
+    }
+
+    /**
+     * Returns the discounted price of the offer
+     */
+    public function discount_price(){
+        foreach($this->discounts as $discount){
             if($discount->start_date < date("Y-m-d") && date("Y-m-d") < $discount->end_date){
                 return number_format((float)($this->price - ($this->price * $discount->rate/100)), 2, '.', '');
             }

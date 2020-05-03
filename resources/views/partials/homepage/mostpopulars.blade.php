@@ -11,7 +11,7 @@
     <div class="col mb-5">
         <article class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
            @foreach ($data as $card)
-                @include('partials.product.productcard',['card'=>$card])
+                @include('partials.product.productcard',['card' => $card])
            @endforeach
         </article>
     </div>
