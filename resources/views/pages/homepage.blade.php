@@ -2,7 +2,9 @@
 
 @section('title')Homepage @endsection
 
-@include('partials.header.userheader')
+@section('header')
+    @include('partials.header.userheader')
+@endsection
 
 @section('navbar')
 	@include('partials.navbar.commercenavbar',['breadcrumbs'=>$breadcrumbs])
