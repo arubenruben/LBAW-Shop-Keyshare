@@ -35,7 +35,7 @@
         @yield('header')  
         <main id="wrapper">
           @yield('navbar')
-          <div id="content" class="container mt-5">
+          <section id="content" class="container mt-5">
             @yield('content')
           </div>          
             @yield('footer')          
