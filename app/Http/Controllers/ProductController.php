@@ -13,15 +13,31 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    public function getProduct($productName){
+        
+        $product=DB::table('products')->select('id')->where('name','=',$productName)->first(); 
 
-    public function show($productId, $platform) {
+        return Product::findOrFail($product->id);    
+    }
 
-        $product =  Product::findOrFail($productId);
+    public function getPlatform($platformName){
+        
+        $platform=DB::table('platforms')->select('id')->where('name','=',$platformName)->first();
+        
+        return Platform::findOrFail($platform->id);
+    }
 
-        $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform)->get();
-        $platformName = Platform::findOrFail($platform)->name;
 
-        return view('pages.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'pages' => array('product'), 'links'=>array(url('/product/'.$productId.'/'.$platform))]);
+    public function show($productName, $platformName) {
+
+        $product = $this->getProduct($productName);
+            
+        $platform= $this->getPlatform($platformName);
+
+        $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
+        $platformName =$platform->name;
+
+        return view('pages.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'pages' => array($product->name.'['.$platform->name.']'), 'links'=>array(url('/product/'.$product->name.'/'.$platform->name))]);
     }
 
 }

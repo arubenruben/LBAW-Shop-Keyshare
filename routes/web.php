@@ -28,7 +28,7 @@ Route::delete('/user/offer/{idOffer}', 'OfferController@delete');
 
 
 // Products
-Route::get('product/{productId}/{platform}', 'ProductController@show');
+Route::get('product/{productName}/{platformName}', 'ProductController@show');
 Route::get('/', 'HomepageController@show');
 
 //Static Pages
