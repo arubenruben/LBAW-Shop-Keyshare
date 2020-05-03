@@ -33,7 +33,10 @@
                 <a class="dropdown-item" href="{{ url('/user/'.Auth::user()->username.'/offers') }}">My Offers</a>
                 <a class="dropdown-item" href="{{ url('/user/reports') }}">Reports</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ url('/logout') }}">Log out</a>
+                <form action={{url('/logout')}} method="POST">
+                    @csrf
+                    <input type="submit" class="dropdown-item" value="Log out">
+                </form>
             </div>
             @else
             <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" data-toggle="modal"
