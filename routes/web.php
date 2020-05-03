@@ -33,7 +33,6 @@ Route::get('/search', 'ProductController@search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/api/product/{id}/{platform}/offers', 'ProductController@offers');
 Route::get('product/{productName}/{platformName}', 'ProductController@show');
-Route::get('/', 'HomepageController@show');
 
 // Cart
 Route::get('/cart', 'CartController@show');
