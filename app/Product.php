@@ -37,4 +37,18 @@ class Product extends Model
     public function genres() {
         return $this->belongsToMany('App\Genre', 'product_has_genres', 'product_id', 'genre_id');
     }
+
+    /**
+     * The offers this product has
+     */
+    public function offers() {
+        return $this->hasMany('App\Offer');
+    }
+
+    /**
+     * The offers this product has
+     */
+    public function active_offers() {
+        return $this->hasManyThrough('App\ActiveOffer', 'App\Offer');
+    }
 }

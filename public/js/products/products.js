@@ -3,6 +3,24 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/search';
 
+const receivedProducts = (products) => {
+    document.querySelector('');
+    `<div class="row justify-content-between mx-auto flex-wrap mt-2">
+        @endif
+        <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+        <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="{{asset('images/games/'.$product->image->url)}}"></a>
+        <div class="card-body">
+        <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$product->name}}</a></h6>
+    <h5 class="cl-orange2">{{$product->offers->min('price') !== null ? '$'.$product->offers->min('price') : 'Unavailable'}}</h5>
+    </div>`
+
+    for(let i = 0; i < res.products.length; i++) {
+        let product = document.querySelector("div.cardProductList#pos" + i);
+        product.querySelector('.card-body h6 a').innerHTML = res.products[i].name;
+        //product.querySelector('.card-body h5').innerHTML = res.products[i].price;
+    } //e se o length for menor que 9 ... fazer outro for
+}
+
 const addEventListeners = () => {
     const sort_by_input = document.querySelectorAll("form#option input.sort-by");
     const genres_input = document.querySelectorAll("form#option input.genre");
@@ -73,7 +91,7 @@ const addEventListeners = () => {
         });
     }
 
-    max_price_input.addEventListener("input", () => {
+    max_price_input.addEventListener("click", () => {
         document.querySelector("form#option label#max_price_value").innerHTML = max_price_input.value;
         sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input)).then(res => {
             for(let i = 0; i < res.products.length; i++) {

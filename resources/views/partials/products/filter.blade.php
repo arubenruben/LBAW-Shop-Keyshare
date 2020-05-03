@@ -1,4 +1,4 @@
-<div id="sidebar" class="col-3 d-none d-lg-block">
+<div id="sidebar" class="col-3 d-none d-lg-block h-100">
     <form id="option">
         <div class="col">
             <section>
@@ -76,7 +76,7 @@
             <section class="mt-4">
                 <h5 class="productSideBarTitle my-2 ml-3">Max Price</h5>
                 <label for="price-range" class="my-2 ml-3" id="max_price_value">Value</label>
-                <input type="range" class="custom-range my-2 mx-auto" id="price-range" name="maxPrice">
+                <input type="range" class="custom-range my-2 mx-auto" id="price-range" name="maxPrice" max="{{$max_price}}" min="{{$min_price}}" value="{{$max_price}}">
             </section>
         </div>
     </form>

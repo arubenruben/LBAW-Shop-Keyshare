@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notifiable;
 
 class Image extends Model
 {
-    use Notifiable;
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
