@@ -14,35 +14,13 @@ use Illuminate\Support\Facades\Input;
 class ProductsController
 {
     public function explore(Request $request) {
-
         $products = Product::where('deleted', '=', false);
 
-
-        /*if (isset($request->genres)) {
-        }*/
-
-        if (isset($request->platform)) {
-            //$products = $products->platform();
-        }
-
-        /*if (isset($request->category)) {
-        }
-
-        if (isset($request->max_price)) {
-        }*/
-
-        if (isset($request->sort_by)) {
-            if($request->sort_by === 'Most popular') {
-                $products->orderBy('num_sells', 'desc');
-            } else if($request->sort_by === 'Most recent') {
-                $products->latest('launch_date');
-            }
-        }
+        $this->filterProducts($request, $products);
 
         $genres = Genre::all();
         $platforms = Platform::all();
         $categories = Category::all();
-        $products = $products->paginate(9);
 
         $min_price = 0;
         $max_price = 0;
@@ -53,23 +31,28 @@ class ProductsController
 
     public function get(Request $request) {
         $products = Product::all()->where('deleted', false);
+        $this->filterProducts($request, $products);
+        return response()->json(['products' => array_values($products->toArray())]);
+    }
 
-        //return response(json_encode(Product::all()->first()->platforms), 400);
-        //return response(json_encode(Product::all()->first()->genres->pluck('name')), 400);
-
-        //return response(json_encode($products->platforms), 400);
-
-
+    private function filterProducts($request, $products) {
         if ($request->has('genres')) {
-            $products = $products->filter(function($product) use($request) {
+            $products = $products->filter(function(Product $product) use($request) {
                 $decoded = explode(",", $request->input('genres'));
-                return count(array_intersect($decoded, $product->genres->name->toArray())) == count($decoded);
+                $genres = $product->genres->map(function ($genre, $key) {
+                    return $genre->name;
+                });
+                return count(array_intersect($decoded, $genres->toArray())) == count($decoded);
             });
         }
 
         if ($request->has('platform')) {
             $products = $products->filter(function($product) use($request) {
-                return $product->platforms->name == $request->input('platform');
+                foreach ($product->platforms as $platform)
+                    if($platform->name == $request->input('platform'))
+                        return true;
+
+                return false;
             });
         }
 
@@ -99,8 +82,6 @@ class ProductsController
                 'platforms' => $product->platforms, 'genres' => $product->genres,
             ];
         });
-
-        return response(json_encode(['products' => $products]), 200);
     }
 
     public function search() {
