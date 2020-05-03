@@ -15,9 +15,15 @@ use Illuminate\Support\Facades\Input;
 class ProductsController
 {
     public function explore(Request $request) {
+
         $products = Product::all('deleted', '=', false);
 
         $filtered = $this->filterProducts($request, $products);
+
+        $products = Product::where('deleted', '=', false);
+
+        $this->filterProducts($request, $products);
+
 
         $genres = Genre::all();
         $platforms = Platform::all();
@@ -40,6 +46,7 @@ class ProductsController
 
     public function get(Request $request) {
         $products = Product::all()->where('deleted', false);
+
         $filtered = $this->filterProducts($request, $products);
 
         $request->has('page') ? $filtered = $filtered->forPage($request->input('page'), 9) :
@@ -67,12 +74,23 @@ class ProductsController
         $filter = $products;
         if ($request->has('genres')) {
             $filter = $filter->filter(function(Product $product) use($request) {
+
+        $this->filterProducts($request, $products);
+        return response()->json(['products' => array_values($products->toArray())]);
+    }
+
+    private function filterProducts($request, $products) {
+        if ($request->has('genres')) {
+            $products = $products->filter(function(Product $product) use($request) {
+
                 $decoded = explode(",", $request->input('genres'));
                 $genres = $product->genres->map(function ($genre, $key) {
                     return $genre->name;
                 });
                 return count(array_intersect($decoded, $genres->toArray())) == count($decoded);
+
                 return count(array_intersect($decoded, $product->genres->name->toArray())) == count($decoded);
+
             });
         }
 
@@ -84,7 +102,11 @@ class ProductsController
 
                 return false;
             $products = $products->filter(function($product) use($request) {
-                return $product->platforms->name == $request->input('platform');
+                foreach ($product->platforms as $platform)
+                    if($platform->name == $request->input('platform'))
+                        return true;
+
+                return false;
             });
 
 
@@ -120,8 +142,6 @@ class ProductsController
                 'platforms' => $product->platforms, 'genres' => $product->genres,
             ];
         });
-
-        return response(json_encode(['products' => $products]), 200);
     }
 
     public function search() {
