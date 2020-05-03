@@ -6,6 +6,7 @@ use App\ActiveOffer;
 use App\ActiveProduct;
 use App\Category;
 use App\Genre;
+use App\Offer;
 use App\Platform;
 use App\Product;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,97 +16,41 @@ use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
-    public function getHomepageData(){
+    private function getProducts() : \Illuminate\Support\Collection {
+        $filtered = $products = Product::all()->filter(function (Product $product){
+            return ActiveProduct::find($product->id) !== null;
+        });
 
-        $numberResults=5;
-
-        $homepageData['mostPopulars']=$this->getMostPopularProducts($numberResults);
-        $homepageData['mostRecents']=$this->getMostRecentProducts($numberResults);
-
-        return $homepageData;
-    }
-
-    private function getMostPopularProducts($numberResults){
-
-        /*
-        return DB::table('product')
-            ->whereNull('discount.start_date')
-            ->orwhere(function ($query) {
-               $query->whereDate('discount.start_date','<',Carbon::now())
-                     ->whereDate('discount.end_date', '>',Carbon::now());
-            })
-            ->join('active_products','active_products.product_id','=','product.id')
-            ->join('offer','offer.product','=','product.id')
-            ->join('active_offers','active_offers.offer_id','=','offer.id')
-            ->leftJoin('discount','discount.offer','=','offer.id')
-            ->join('product_has_platform','product_has_platform.product','=','product.id')
-            ->join('platform','platform.id','=','product_has_platform.platform')
-            ->orderBy('num_sells')
-            ->select('product.name','platform.name','offer.price')
-            ->get();
-            */
-
-        return DB::select(
-            'SELECT products.name AS product_name,platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate 
-                FROM active_products JOIN products ON active_products.product_id=products.id
-                    JOIN offers ON offers.product_id=products.id
-                    JOIN active_offers ON offers.id=active_offers.offer_id
-                    LEFT OUTER JOIN discounts ON discounts.offer_id=offers.id
-                    JOIN product_has_platforms pf ON pf.product_id=products.id
-                    JOIN platforms ON platforms.id=pf.platform_id
-                WHERE (discounts.start_date IS NULL OR (discounts.start_date<now() AND discounts.end_date > now()))	
-                GROUP BY product_name,platforms.name
-                ORDER BY num_sells DESC
-                LIMIT ?',[$numberResults]
-        );
-
-    }
-
-    private function getMostRecentProducts($numberResults){
-
-        /*
-        return DB::table('product')
-            ->whereNull('discount.start_date')
-            ->orwhere(function ($query) {
-            $query->whereDate('discount.start_date','<',Carbon::now())
-                    ->whereDate('discount.end_date', '>',Carbon::now());
-            })
-            ->join('active_products','active_products.product_id','=','product.id')
-            ->join('offer','offer.product','=','product.id')
-            ->join('active_offers','active_offers.offer_id','=','offer.id')
-            ->leftJoin('discount','discount.offer','=','offer.id')
-            ->join('product_has_platform','product_has_platform.product','=','product.id')
-            ->join('platform','platform.id','=','product_has_platform.platform')
-            ->orderBy('num_sells')
-            ->select('product.name','platform.name','offer.price')
-            ->get();
-            */
-
-        return DB::select(
-            'SELECT products.name AS product_name, platforms.name, min(offers.price) AS min_price, max(num_sells) AS num_sells, max(discounts.rate) AS discount_rate, max(products.launch_date)  AS launch_date
-                FROM active_products JOIN products On active_products.product_id=products.id
-                    JOIN offers ON offers.product_id=products.id
-                    JOIN active_offers ON offers.id=active_offers.offer_id
-                    LEFT OUTER JOIN discounts ON discounts.offer_id=offers.id
-                    JOIN product_has_platforms pf ON pf.product_id=products.id
-                    JOIN platforms ON platforms.id=pf.platform_id
-                    WHERE (discounts.start_date IS NULL OR (discounts.start_date<now() AND discounts.end_date > now()))
-                GROUP BY product_name,platforms.name
-                ORDER BY launch_date DESC
-                LIMIT ?',[$numberResults]
-        );
-
+        return $filtered->map(function (Product $product) {
+            $lowest_price = $product->offers->min('price');
+            $lowest_offer = $product->offers->where('price', $lowest_price)->first();
+            $discount = $lowest_offer->active_discount();
+            return (object)[
+                'name' => $product->name,
+                'image' => asset('/images/games/'.$product->image->url),
+                'platforms' =>$product->platforms->only(['name']),
+                'min_price' => '$'.$lowest_price,
+                'discount_rate' => $discount !== null ? $discount->rate : null,
+                'num_sells' => $product->num_sells,
+                'launch_date' => $product->launch_date,
+            ];
+        });
     }
 
     public function home(){
-        $homepageData=$this->getHomepageData();
+        $numberResults = 5;
 
-        return view('pages.homepage',['data'=>$homepageData,'breadcrumbs' => []]);
+        $homepageData = collect([
+            'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
+            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults)
+        ]);
+
+        return view('pages.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);
     }
 
     public function search(Request $request){
         $products = Product::all()->filter(function (Product $product){
-            return ActiveProduct::find($product->id) !== false;
+            return ActiveProduct::find($product->id) !== null;
         });
         $filtered = $this->filterProducts($request, $products);
 
