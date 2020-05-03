@@ -52,32 +52,30 @@ class ProductsController
     }
 
     public function get(Request $request) {
-        $products = Product::all();
-        $products->where('deleted', false);
+        $products = Product::all()->where('deleted', false);
 
-        //return response(json_encode(Product::all()->first()->platforms->pluck('name')->first()), 400);
+        //return response(json_encode(Product::all()->first()->platforms), 400);
         //return response(json_encode(Product::all()->first()->genres->pluck('name')), 400);
 
-        //return response(json_encode($request->input('category')), 400);
-        return response(json_encode(Product::find(25)->category->pluck('name')->first()), 400);
+        //return response(json_encode($products->platforms), 400);
 
 
         if ($request->has('genres')) {
             $products = $products->filter(function($product) use($request) {
                 $decoded = explode(",", $request->input('genres'));
-                return count(array_intersect($decoded, $product->genres->pluck('name')->toArray())) == count($decoded);
+                return count(array_intersect($decoded, $product->genres->name->toArray())) == count($decoded);
             });
         }
 
         if ($request->has('platform')) {
             $products = $products->filter(function($product) use($request) {
-                return $product->platforms->pluck('name')->first() == $request->input('platform');
+                return $product->platforms->name == $request->input('platform');
             });
         }
 
         if ($request->has('category')) {
             $products = $products->filter(function($product) use($request) {
-                return $product->category->pluck('name')->first() == $request->input('category');
+                return $product->category->name == $request->input('category');
             });
         }
 
@@ -93,6 +91,14 @@ class ProductsController
 
         $request->has('page') ? $products = $products->forPage($request->input('page'), 9) :
             $products = $products->forPage(0, 9);
+
+        $products = $products->map(function ($product, $key) {
+            return [
+                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
+                'launch_date' => $product->launch_date, 'category' => $product->category->name,
+                'platforms' => $product->platforms, 'genres' => $product->genres,
+            ];
+        });
 
         return response(json_encode(['products' => $products]), 200);
     }
