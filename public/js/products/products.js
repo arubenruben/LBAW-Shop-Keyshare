@@ -39,7 +39,7 @@ const addEventListeners = () => {
                     for(let i = 0; i < res.products.length; i++) {
                         let product = document.querySelector("div.cardProductList#pos" + i);
                         product.querySelector('.card-body h6 a').innerHTML = res.products[i].name;
-                        //product.querySelector('.card-body h5').innerHTML = res.products[i].price;
+                        product.querySelector('.card-body h5').innerHTML = res.products[i].min_price;
                     }
                 })
         });
