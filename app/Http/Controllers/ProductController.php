@@ -143,6 +143,23 @@ class ProductController extends Controller
         });
         $filtered = $this->filterProducts($request, $products);
 
+        $prices = [];
+        foreach ($filtered as $product){
+            $active_offers = $product->active_offers;
+            if($active_offers != null){
+                array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer){
+                    return $activeOffer->offer->price;
+                }));
+            }
+        }
+
+        if(count($prices) === 0){
+            $prices = [0, 100];
+        }
+
+        $min_price = min($prices);
+        $max_price = max($prices);
+
         $request->has('page') ? $filtered = $filtered->forPage($request->input('page'), 9) :
             $filtered = $filtered->forPage(0, 9);
 
@@ -151,11 +168,13 @@ class ProductController extends Controller
                 'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
                 'launch_date' => $product->launch_date, 'category' => $product->category->name,
                 'platforms' => $product->platforms, 'genres' => $product->genres,
-                'price' => $product->offers->min('price'), 'image' => asset('/images/games/'.$product->image->url)
+                'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
+                    return $activeOffer->offer->price;
+                }), 'image' => asset('/images/games/'.$product->image->url)
             ];
         });
 
-        return response()->json(['products' => array_values($filtered->toArray())]);
+        return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
     public function show($productId, $platform){
