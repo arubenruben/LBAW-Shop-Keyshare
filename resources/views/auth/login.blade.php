@@ -6,7 +6,7 @@
 </header>
 @endsection
 @section('navbar')
-    <p class="ml-2 pt-2">Login</p>
+    @include('partials.navbar.resetPasswordnavbar')
 @endsection
 @section('content')
 <div class="mt-auto">
@@ -34,7 +34,7 @@
         <div class="control-group">
             <label class="control-label" for="login"></label>
             <div class="controls text-center">
-                <button id="login" name="login" class="btn text-light btn-orange"
+                <button id="login" name="login" class="btn btn-lg text-light btn-orange"
                     formmethod="post">Log in</button>
             </div>
         </div>

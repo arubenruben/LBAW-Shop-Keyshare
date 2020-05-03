@@ -109,7 +109,7 @@
                 <div id="myTabContent" class="tab-content">
                     <section class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
                         <form class="form-horizontal" action="{{ url('/login') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <!-- Log in Form -->
                             <!-- Text input-->
                             <div class="control-group">
@@ -166,8 +166,7 @@
                     </section>
                     <section class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
                         <form class="form-horizontal" action="{{ url('/register') }}" method="post">
-                            @csrf
-                            @method('PUT')
+                            @csrf                    
                             <!-- Sign Up Form -->
                             <!-- Username -->
                             <div class="control-group">

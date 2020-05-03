@@ -2,17 +2,16 @@
 
 @section('header')
 <header id="headerFixed" class="navbar row">
-  <img class="img-fluid logo" src="{{ asset('images/logo/logo.png') }}" alt="Logo of KeyShare" />
+    <img class="img-fluid logo" src="{{ asset('images/logo/logo.png') }}" alt="Logo of KeyShare" />
 </header>
 @endsection
 @section('navbar')
-<p class="ml-2 pt-2">Register</p>
+    @include('partials.navbar.resetPasswordnavbar')
 @endsection
 @section('content')
 <div class="mt-auto">
   <form class="form-horizontal" action="{{ url('/register') }}" method="post">
     @csrf
-    @method('PUT')
     <!-- Sign Up Form -->
     <!-- Username -->
     <div class="control-group">
@@ -57,7 +56,7 @@
     <div class="control-group">
       <label class="control-label" for="confirmsignup"></label>
       <div class="controls text-center">
-        <button id="confirmsignup" class="btn text-light btn-orange" formmethod="post">Sign
+        <button id="confirmsignup" class="btn text-light btn-orange btn-lg" formmethod="post">Sign
           Up</button>
       </div>
     </div>

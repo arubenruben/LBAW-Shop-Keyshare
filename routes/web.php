@@ -14,9 +14,6 @@
 Route::get('/', 'HomepageController@show');
 
 // Authentication
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::put('register', 'Auth\RegisterController@register');
 Auth::routes();
 
 // User
