@@ -75,6 +75,11 @@ Route::put('/report/{id}', 'ReportController@message');
 // FAQ
 Route::get('/faq', 'FAQController@show');
 
+// Static
+Route::get('/about', function () {
+    return view('pages.static.about', ['pages' => array('About us'), 'links'=>array(url('/about/'))]);
+});
+
 // Admin
 Route::get('/admin', 'AdminController@show');
 Route::get('/admin/product', 'AdminController@productShow');
