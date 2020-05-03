@@ -32,19 +32,18 @@
 --}}
     </head>
     <body>
-      <main>
         <header> 
           @yield('header')
         </header>
-        <div id="wrapper">
+        <main id="wrapper">
           @yield('navbar')
-          <section id="content" class="container mt-5">
+          <div id="content" class="container mt-5">
             @yield('content')
-          </section>
+          </div>
           <footer id="footerGeneric">
             @yield('footer')
           </footer>
-        </div>
+        </main>
       </main>
     </body>
 </html>

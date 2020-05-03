@@ -15,26 +15,7 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    public function show()
-    {
-
-    }
-
-    public function add()
-    {
-
-    }
-
-    public function showOffer($offerId)
-    {
-
-    }
-
-    public function update($offerId)
-    {
-
-    }
-
+    
     public function delete($offerId) {
         $offer = Offer::findOrFail($offerId);
 
@@ -45,6 +26,8 @@ class OfferController extends Controller
         }
 
         $offer->final_date = date("Y-m-d");
+
+        
         $offer->save();
 
         $response=['profit'=>$offer->profit];

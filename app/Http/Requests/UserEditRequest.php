@@ -7,11 +7,16 @@ use Illuminate\Foundation\Http\FormRequest;
 class UserEditRequest extends FormRequest
 {
     /**
+     * @var mixed
+     */
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize() {
+    public function authorize()
+    {
         return true;
     }
 
@@ -20,7 +25,8 @@ class UserEditRequest extends FormRequest
      *
      * @return array
      */
-    public function rules() {
+    public function rules()
+    {
         return [
             'email' => 'bail | sometimes | string | email | unique:users,email',
             'description' => 'bail | sometimes | string |  max:500 ',

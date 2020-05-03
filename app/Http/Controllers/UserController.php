@@ -54,6 +54,7 @@ class UserController extends Controller
         $user = $this->getUser($username);
         $isOwner = Auth::check() && Auth::id() == $user->id;
 
+       
         $pastOffers = $user->pastOffers;
         $currOffers = $user->activeOffers;
 
