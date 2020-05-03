@@ -25,5 +25,5 @@
 
 
 @section('footer')
-    @include('partials.footer.userfooter')
+    @include('partials.footer.footer')
 @endsection

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Faq;
 
 class FAQController extends Controller
 {
-    public function show()
-    {
-
+    public function show() {
+        $faqs = Faq::all();
+        return view('pages.static.faq', ['faqs' => $faqs, 'pages' => array('FAQ'), 'links'=>array(url('/faq/'))]);
     }
 }

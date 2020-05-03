@@ -5,13 +5,13 @@
             <h5 class="title"> More </h5>
             <ul class="list-unstyled">
                 <li>
-                    <a href="faq.php"> Help </a>
+                    <a href="faq"> Help </a>
                 </li>
                 <li>
-                    <a href="contact.php"> Contact </a>
+                    <a href="contact"> Contact </a>
                 </li>
                 <li>
-                    <a href="about.php"> About us </a>
+                    <a href="about"> About us </a>
                 </li>
             </ul>
         </section>

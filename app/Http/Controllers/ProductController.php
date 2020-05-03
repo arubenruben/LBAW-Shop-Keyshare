@@ -93,7 +93,7 @@ class ProductController extends Controller
     {
         $homepageData=$this->getHomepageData();
 
-        return view('pages.homepage',['data'=>$homepageData,'pages'=> array(),'links'=>array()]);
+        return view('pages.homepage.homepage',['data'=>$homepageData,'pages'=> array(),'links'=>array()]);
     }
 
     public function search()
