@@ -4,6 +4,7 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 let dots = document.getElementById("dots");
 let moreText = document.getElementById("more");
 let btnText = document.getElementById("moreTextButton");
+let cartItemCounter=document.querySelector("#shopping_cart_item_counter");
 
 btnText.addEventListener('click',collapseDescription);
 
@@ -22,12 +23,13 @@ function collapseDescription() {
 }
 
 function pressed_add_offer_to_cart(id){
-    console.log(id);
-    
+
     let data={
         offer_id:id
     }
-    sendPut(data).then(console.log('Sucesso'));
+    sendPut(data).then(
+        cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
+    );
 }
 
 function encodeForAjax(data) {
