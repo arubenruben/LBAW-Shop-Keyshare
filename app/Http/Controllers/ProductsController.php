@@ -21,8 +21,9 @@ class ProductsController
         $filtered = $this->filterProducts($request, $products);
 
         $products = Product::where('deleted', '=', false);
+        $products = Product::all('deleted', '=', false);
 
-        $this->filterProducts($request, $products);
+        $filtered = $this->filterProducts($request, $products);
 
 
         $genres = Genre::all();
@@ -46,7 +47,6 @@ class ProductsController
 
     public function get(Request $request) {
         $products = Product::all()->where('deleted', false);
-
         $filtered = $this->filterProducts($request, $products);
 
         $request->has('page') ? $filtered = $filtered->forPage($request->input('page'), 9) :
@@ -79,10 +79,12 @@ class ProductsController
         return response()->json(['products' => array_values($products->toArray())]);
     }
 
-    private function filterProducts($request, $products) {
+    private function filterProducts(Request $request, Collection $products) : \Illuminate\Support\Collection {
+        $filter = $products;
         if ($request->has('genres')) {
             $products = $products->filter(function(Product $product) use($request) {
 
+            $filter = $filter->filter(function(Product $product) use($request) {
                 $decoded = explode(",", $request->input('genres'));
                 $genres = $product->genres->map(function ($genre, $key) {
                     return $genre->name;
@@ -115,7 +117,6 @@ class ProductsController
             $products = $products->filter(function($product) use($request) {
                 return $product->category->name == $request->input('category');
             });
-
 
         if ($request->has('max_price')) {
             $filter = $filter->filter(function(Product $product) use($request) {
