@@ -8,6 +8,6 @@ class FAQController extends Controller
 {
     public function show() {
         $faqs = Faq::all();
-        return view('pages.static.faq', ['faqs' => $faqs, 'pages' => array('FAQ'), 'links'=>array(url('/faq/'))]);
+        return view('pages.faq.faq', ['faqs' => $faqs, 'pages' => array('FAQ'), 'links'=>array(url('/faq/'))]);
     }
 }

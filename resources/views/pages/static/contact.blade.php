@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') FAQ     @endsection
+@section('title') About us     @endsection
 
 @include('partials.header.userheader')
 
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @include('partials.static.faq')
+    @include('partials.static.contact')
 @endsection
 
 @section('footer')

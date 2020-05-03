@@ -79,6 +79,9 @@ Route::get('/faq', 'FAQController@show');
 Route::get('/about', function () {
     return view('pages.static.about', ['pages' => array('About us'), 'links'=>array(url('/about/'))]);
 });
+Route::get('/contact', function () {
+    return view('pages.static.contact', ['pages' => array('Contact us'), 'links'=>array(url('/contact/'))]);
+});
 
 // Admin
 Route::get('/admin', 'AdminController@show');
