@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Input;
 class ProductsController
 {
     public function explore(Request $request) {
-        $products = Product::all('deleted', '=', false);
+        $products = Product::where('deleted', '=', false);
 
-        $filtered = $this->filterProducts($request, $products);
+        $this->filterProducts($request, $products);
 
         $genres = Genre::all();
         $platforms = Platform::all();
@@ -40,27 +40,13 @@ class ProductsController
 
     public function get(Request $request) {
         $products = Product::all()->where('deleted', false);
-        $filtered = $this->filterProducts($request, $products);
-
-        $request->has('page') ? $filtered = $filtered->forPage($request->input('page'), 9) :
-            $filtered = $filtered->forPage(0, 9);
-
-        $filtered = $filtered->map(function ($product, $key) {
-            return [
-                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
-                'launch_date' => $product->launch_date, 'category' => $product->category->name,
-                'platforms' => $product->platforms, 'genres' => $product->genres,
-                'price' => $product->offers->min('price'),
-            ];
-        });
-
-        return response()->json(['products' => array_values($filtered->toArray())]);
+        $this->filterProducts($request, $products);
+        return response()->json(['products' => array_values($products->toArray())]);
     }
 
-    private function filterProducts(Request $request, Collection $products) : \Illuminate\Support\Collection {
-        $filter = $products;
+    private function filterProducts($request, $products) {
         if ($request->has('genres')) {
-            $filter = $filter->filter(function(Product $product) use($request) {
+            $products = $products->filter(function(Product $product) use($request) {
                 $decoded = explode(",", $request->input('genres'));
                 $genres = $product->genres->map(function ($genre, $key) {
                     return $genre->name;
@@ -91,16 +77,6 @@ class ProductsController
             });
         }
 
-        if ($request->has('sort_by')) {
-            if($request->input('sort_by') === 'Most popular') {
-                $filter = $filter->sortByDesc('num_sells');
-            } else if($request->input('sort_by') === 'Most recent') {
-                $filter = $filter->sortByDesc('launch_date');
-            }
-        }
-
-        return $filter;
-=======
         $request->has('page') ? $products = $products->forPage($request->input('page'), 9) :
             $products = $products->forPage(0, 9);
 
@@ -113,7 +89,6 @@ class ProductsController
         });
 
         return response(json_encode(['products' => $products]), 200);
->>>>>>> Update ProductsController.php
     }
 
     public function search() {
