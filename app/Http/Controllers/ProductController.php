@@ -45,7 +45,7 @@ class ProductController extends Controller
             'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults)
         ]);
 
-        return view('pages.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);
+        return view('pages.homepage.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);
     }
 
     public function search(Request $request){
