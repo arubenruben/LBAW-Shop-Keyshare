@@ -159,6 +159,9 @@
                                 </svg>
                                 <span class="mx-auto">Log in with Google</span>
                             </button>
+                            <button type="button" class="btn mt-3" data-toggle="modal" data-target="#recover-password-modal" data-dismiss="modal">
+                                Forgot Password
+                            </button>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
@@ -247,4 +250,33 @@
         </div>
     </div>
 </div>
+
+<!-- Recovery Password -->
+<article class="modal fade" id="recover-password-modal" tabindex="-1" role="dialog" aria-labelledby="recover-password-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="recover-password-modal">Password Recover</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action={{route('password.email')}} method="POST" >
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="control-group mt-2">
+                        <label class="control-label" for="email">Email:</label>
+                        <div class="controls">
+                            <input id="email" name="email" type="text" class="form-control input-medium"
+                                   placeholder="youremail@example.com" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn text-light btn-orange"value="Send me a recovery email">
+                </div>
+            </form>
+        </div>
+    </div>
+</article>
 @endif
