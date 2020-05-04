@@ -12,14 +12,7 @@
 */
 
 // Authentication
-Route::get('login', 'Auth\LoginController@show');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('register', 'Auth\RegisterController@show');
-Route::put('register', 'Auth\RegisterController@register');
-Route::get('admin/login', 'Auth\LoginController@showAdmin');
-Route::post('admin/login', 'Auth\LoginController@loginAdmin');
-Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
+Auth::routes();
 
 // User
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
