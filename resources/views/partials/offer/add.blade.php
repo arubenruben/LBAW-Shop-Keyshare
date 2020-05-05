@@ -18,9 +18,11 @@
                             <h4>Select Game</h4>
                         </label>
                         <select id="game" name="game" class="form-control form-control-md" required>
-
+                            @foreach($products as $product)
+                                <option value="{{ $product->id }}">{{ $product->name }}</option>
+                            @endforeach
                         </select>
-                        <label for="platform">
+                        <label for="platform" class="mt-3">
                             <h4>Select Platform</h4>
                         </label>
                         <select id="platform" name="platform" class="form-control form-control-md" required>

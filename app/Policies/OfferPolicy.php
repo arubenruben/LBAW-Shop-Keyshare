@@ -11,7 +11,7 @@ class OfferPolicy
 {
     use HandlesAuthorization;
 
-    public function add(User $user) {
+    public function unbanned(User $user) {
         // Only the an authenticated not banned user can make an offer
 
         return Auth::check() && Auth::user()->banned() === false;

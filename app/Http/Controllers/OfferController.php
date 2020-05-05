@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\ActiveProduct;
 use App\Offer;
+use App\Product;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
@@ -15,29 +17,29 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    public function show()
-    {
+    public function show() {
         try {
-            $this->authorize('add', Offer::class);
+            $this->authorize('unbanned', Offer::class);
         } catch (AuthorizationException $e) {
             return redirect(url('/'));
         }
 
-        return view('pages.offer.add', ['breadcrumbs' => ['Add Offer' => url('/offer')]]);
+        $active_products = ActiveProduct::all()->filter(function ($product) {
+            return $product->product;
+        });
+
+        return view('pages.offer.add', ['products' => $active_products, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);
     }
 
-    public function add()
-    {
+    public function add() {
 
     }
 
-    public function showOffer($offerId)
-    {
+    public function showOffer($offerId) {
 
     }
 
-    public function update($offerId)
-    {
+    public function update($offerId) {
 
     }
 
@@ -58,8 +60,7 @@ class OfferController extends Controller
         return response(200);
     }
 
-    public function getKeys($offerId)
-    {
+    public function getKeys($offerId) {
         $offer = Offer::findOrFail($offerId);
 
         try {
@@ -71,13 +72,11 @@ class OfferController extends Controller
         return response()->json(['keys' => $offer->keys]);
     }
 
-    public function addKey($offerId)
-    {
+    public function addKey($offerId) {
 
     }
 
-    public function getDiscounts($offerId)
-    {
+    public function getDiscounts($offerId) {
         $offer = Offer::findOrFail($offerId);
 
         try {
@@ -89,8 +88,7 @@ class OfferController extends Controller
         return response()->json(['discounts' => $offer->discounts]);
     }
 
-    public function addDiscount($offerId)
-    {
+    public function addDiscount($offerId) {
 
     }
 }
