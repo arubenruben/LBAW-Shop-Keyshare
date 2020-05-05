@@ -3,7 +3,8 @@
         <a href="#"><img class="card-img-top cardHomepageImg img-fluid" src="{{$card->image}}"></a>
     </header>
     <section class="card-body">
-        <h6 class="card-title"> <a href="#" class="text-decoration-none text-secondary">{{$card->name}}</a></h6>
+        @php var_dump($card) @endphp
+        <h6 class="card-title"> <a href="product/{{$card->name}}" class="text-decoration-none text-secondary">{{ucwords(strtolower($card->name))}}</a></h6>
         <h5 class="cl-orange2">{{$card->min_price}}</h5>
     </section>
 </article>
