@@ -203,6 +203,11 @@ CREATE TABLE faq (
   question TEXT NOT NULL,
   answer TEXT NOT NULL
 );
+CREATE TABLE password_resets (
+    email TEXT,
+    token TEXT,
+    created_at TIMESTAMP
+);
 
 -----------------------------------------
 -- MATERIALIZED VIEWS
@@ -753,7 +758,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
     INSERT INTO platforms(name) VALUES('XBOX 360');
 
     INSERT INTO images(url)VALUES('user.png');
-    INSERT INTO images(url)VALUES('default.png');
+    INSERT INTO images(url)VALUES('product.png');
 
 INSERT INTO products(name,description, category_id, image_id,deleted, launch_date)VALUES ('GTA V', 'Grand Theft Auto V for PC will take full advantage of the power of PC to deliver across-the-board enhancements including increased resolution and graphical detail, denser traffic, greater draw distances, upgraded AI, new wildlife, and advanced weather and damage effects for the ultimate open world experience. Grand Theft Auto V for PC features the all-new First Person Mode, giving players the chance to explore the incredibly detailed world of Los Santos and Blaine County in an entirely new way across both Story Mode and Grand Theft Auto Online.Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets and fading celebrities, once the envy of the Western world, now struggling to stay afloat in an era of economic uncertainty and cheap reality TV. Amidst the turmoil, three very different criminals risk everything in a series of daring and dangerous heists that could set them up for life.The biggest, most dynamic and most diverse open world ever created and now packed with layers of new detail, Grand Theft Auto V blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.Grand Theft Auto V for PC also includes Grand Theft Auto Online, the ever-evolving Grand Theft Auto universe. Explore the vast world or rise through the criminal ranks by banding together to complete Jobs for cash, purchase properties, vehicles and character upgrades, compete in traditional competitive', 1, 2, FALSE, '2018-12-15 06:42:26');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(1,1);
@@ -1920,49 +1925,49 @@ INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_i
 INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',45, false,28,38);
 INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',56, true,55,56);
 
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,1);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',2,null,2);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',3,null,3);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',4,null,4);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',5,null,5);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',6,null,6);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',7,null,7);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,1,8);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,2,9);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,3,10);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,4,11);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,5,12);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,6,13);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,14);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,15);
-    INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,15);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,1);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',2,null,2);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',3,null,3);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',4,null,4);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',5,null,5);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',6,null,6);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',7,null,7);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,1,8);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,2,9);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,3,10);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,4,11);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,5,12);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,6,13);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,14);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,15);
+INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,15);
 
-    INSERT INTO carts(user_id, offer_id) VALUES(1,1);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,5);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,4);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,3);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,7);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,8);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,9);
-    INSERT INTO carts(user_id, offer_id) VALUES(1,10);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,1);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,5);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,4);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,3);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,7);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,8);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,9);
-    INSERT INTO carts(user_id, offer_id) VALUES(12,10);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,1);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,4);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,3);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,7);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,8);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,9);
-    INSERT INTO carts(user_id, offer_id) VALUES(16,10);
+INSERT INTO carts(user_id, offer_id) VALUES(1,1);
+INSERT INTO carts(user_id, offer_id) VALUES(1,5);
+INSERT INTO carts(user_id, offer_id) VALUES(1,4);
+INSERT INTO carts(user_id, offer_id) VALUES(1,3);
+INSERT INTO carts(user_id, offer_id) VALUES(1,7);
+INSERT INTO carts(user_id, offer_id) VALUES(1,8);
+INSERT INTO carts(user_id, offer_id) VALUES(1,9);
+INSERT INTO carts(user_id, offer_id) VALUES(1,10);
+INSERT INTO carts(user_id, offer_id) VALUES(12,1);
+INSERT INTO carts(user_id, offer_id) VALUES(12,5);
+INSERT INTO carts(user_id, offer_id) VALUES(12,4);
+INSERT INTO carts(user_id, offer_id) VALUES(12,3);
+INSERT INTO carts(user_id, offer_id) VALUES(12,7);
+INSERT INTO carts(user_id, offer_id) VALUES(12,8);
+INSERT INTO carts(user_id, offer_id) VALUES(12,9);
+INSERT INTO carts(user_id, offer_id) VALUES(12,10);
+INSERT INTO carts(user_id, offer_id) VALUES(16,1);
+INSERT INTO carts(user_id, offer_id) VALUES(16,5);
+INSERT INTO carts(user_id, offer_id) VALUES(16,5);
+INSERT INTO carts(user_id, offer_id) VALUES(16,5);
+INSERT INTO carts(user_id, offer_id) VALUES(16,4);
+INSERT INTO carts(user_id, offer_id) VALUES(16,3);
+INSERT INTO carts(user_id, offer_id) VALUES(16,7);
+INSERT INTO carts(user_id, offer_id) VALUES(16,8);
+INSERT INTO carts(user_id, offer_id) VALUES(16,9);
+INSERT INTO carts(user_id, offer_id) VALUES(16,10);
 
 
 INSERT INTO banned_users(id)VALUES (1);
@@ -1976,16 +1981,11 @@ INSERT INTO banned_users(id)VALUES (56);
 INSERT INTO banned_users(id)VALUES (57);
 INSERT INTO banned_users(id)VALUES (2);
     
-       INSERT INTO ban_appeals(id,admin_id,ban_appeal,date)
-    VALUES(1,1,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeals(id,admin_id,ban_appeal,date)
-    VALUES(51,2,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeals(id,admin_id,ban_appeal,date)
-    VALUES(52,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeals(id,admin_id,ban_appeal,date)
-    VALUES(53,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-    INSERT INTO ban_appeals(id,admin_id,ban_appeal,date)
-    VALUES(54,5,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(1,1,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(51,2,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(52,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(53,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
+INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(54,5,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
 
     
 
