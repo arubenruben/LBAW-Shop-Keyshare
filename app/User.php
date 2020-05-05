@@ -98,10 +98,10 @@ class User extends Authenticatable
     }
 
     /**
-     * User has one profile image
+     * User has one profile picture
      */
-    public function image(){
-        return $this->belongsTo('App\Image');
+    public function picture(){
+        return $this->belongsTo('App\Picture');
     }
 
     /**
