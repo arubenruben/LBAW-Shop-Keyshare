@@ -117,8 +117,6 @@ function assembleData () {
 
     data.max_price = max_price_input.value;
 
-    console.log(data);
-
     return data;
 }
 
