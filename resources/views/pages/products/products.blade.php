@@ -3,7 +3,7 @@
 @section('title')Products @endsection
 
 @section('javascript')
-    <script src="{{ asset('js/products/products.js') }}" defer></script>
+    <script src="{{ asset('js/products/add.js') }}" defer></script>
 @endsection
 
 @section('header')

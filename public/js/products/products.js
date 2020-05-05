@@ -49,79 +49,75 @@ const received = (response) => {
 
 
 const addEventListeners = () => {
+    let sort_by_input = document.querySelectorAll("form#option input.sort-by");
+    let genres_input = document.querySelectorAll("form#option input.genre");
+    let platform_input = document.querySelectorAll("form#option input.platform");
+    let category_input = document.querySelectorAll("form#option input.category");
+    let max_price_input = document.querySelector("form#option input#price-range");
+
+    for(let i = 0; i < sort_by_input.length; i++) {
+        sort_by_input[i].addEventListener("click", sendRequest);
+    }
+
+    for(let i = 0; i < genres_input.length; i++) {
+        genres_input[i].addEventListener("click", sendRequest);
+    }
+
+    for(let i = 0; i < platform_input.length; i++) {
+        platform_input[i].addEventListener("click", sendRequest);
+    }
+
+    for(let i = 0; i < category_input.length; i++) {
+        category_input[i].addEventListener("click", sendRequest);
+    }
+
+    max_price_input.addEventListener("click", sendRequest);
+}
+
+function assembleData () {
     const sort_by_input = document.querySelectorAll("form#option input.sort-by");
     const genres_input = document.querySelectorAll("form#option input.genre");
     const platform_input = document.querySelectorAll("form#option input.platform");
     const category_input = document.querySelectorAll("form#option input.category");
     const max_price_input = document.querySelector("form#option input#price-range");
 
-    let sort_by = 2;
-    sort_by_input[sort_by].checked = true;
-    let genres_array = [];
-    let platform = null;
-    let category = null;
-
-    for(let i = 0; i < sort_by_input.length; i++) {
-        sort_by_input[i].addEventListener("click", () => {
-            sort_by = i;
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
-                .then(res => received(res))
-                .catch(error => console.error("Error: " + error));
-        });
-    }
-
-    for(let i = 0; i < genres_input.length; i++) {
-        genres_input[i].addEventListener("click", () => {
-            genres_array.push(genres_input[i].value);
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
-                .then(res => received(res))
-                .catch(error => console.error("Error: " + error));
-        });
-    }
-
-    for(let i = 0; i < platform_input.length; i++) {
-        platform_input[i].addEventListener("click", () => {
-            platform = i;
-            sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
-                .then(res => received(res))
-                .catch(error => console.error("Error: " + error));
-        });
-    }
-
-    for(let i = 0; i < category_input.length; i++) {
-        category_input[i].addEventListener("click", () => {
-            category = i;
-            sendGet(assembleData(sort_by_input[sort_by_input], genres_array, platform_input[platform], category_input[category], max_price_input))
-                .then(res => received(res))
-                .catch(error => console.error("Error: " + error));
-        });
-    }
-
-    max_price_input.addEventListener("click", () => {
-        document.querySelector("form#option label#max_price_value").innerHTML = max_price_input.value;
-        sendGet(assembleData(sort_by_input[sort_by], genres_array, platform_input[platform], category_input[category], max_price_input))
-            .then(res => received(res))
-            .catch(error => console.error("Error: " + error));
-    });
-}
-
-function assembleData (sort_by, genres_array, platform, category, max_price) {
     let data = {};
 
-    if(sort_by !== undefined)
-        data.sort_by = sort_by.value;
+    for (let i = 0; i < sort_by_input.length; i++){
+        if(sort_by_input[i].checked){
+            data.sort_by = sort_by_input[i].value;
+            break;
+        }
+    }
 
-    if(genres_array.length !== 0)
-        data.genres = genres_array;
+    let genres_array = [];
+    for (let i = 0; i < genres_input.length; i++){
+        if(genres_input[i].checked){
+            genres_array.push(genres_input[i].value);
+        }
+    }
 
-    if(platform !== undefined)
-        data.platform = platform.value;
+    if(genres_array.length !== 0){
+        data.genres_array = genres_array;
+    }
 
-    if(category !== undefined)
-        data.category = category.value;
+    for (let i = 0; i < platform_input.length; i++){
+        if(platform_input[i].checked){
+            data.platform = platform_input[i].value;
+            break;
+        }
+    }
 
-    if(max_price !== undefined)
-        data.max_price = max_price.value;
+    for (let i = 0; i < category_input.length; i++){
+        if(category_input[i].checked){
+            data.category = category_input[i].value;
+            break;
+        }
+    }
+
+    data.max_price = max_price_input.value;
+
+    console.log(data);
 
     return data;
 }
@@ -133,6 +129,12 @@ function encodeForAjax(data) {
     }).join('&');
 }
 
+const sendRequest = () => {
+    let data = assembleData();
+    sendGet(data)
+        .then(res => received(res))
+        .catch(error => console.error("Error: " + error));
+}
 
 const sendGet = get => {
     const options = {

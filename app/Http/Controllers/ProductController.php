@@ -77,7 +77,7 @@ class ProductController extends Controller
 
         $filtered = $filtered->forPage($request->has('page') ? $request->input('page') : 0, 9);
 
-        return view('pages.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
+        return view('pages.products.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
             'min_price' => $min_price, 'max_price' => $max_price, 'products' => $filtered, 'breadcrumbs' => ['Products' => url('/products/')]]);
 
     }
