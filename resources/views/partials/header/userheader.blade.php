@@ -46,8 +46,8 @@
             @endif
         </div>
     </div>
-    <!-- Cart icon -->
-    <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
+     <!-- Cart icon -->
+     <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
         <div class="row">
             <a href="{{ url('/cart') }}" class="mt-auto mb-auto ml-auto mr-3"><i
                     class="fas fa-shopping-cart headerIcon cl-orange"></i><span
@@ -91,7 +91,6 @@
         </div>
     </div>
 </div>
-
 @if(!Auth::check())
 <!-- authentication modal -->
 <article class="modal fade bs-modal-sm" id="authenticationModal" tabindex="-1" role="dialog"
@@ -252,7 +251,6 @@
         </div>
     </div>
 </article>
-
 <!-- Recovery Password -->
 <article class="modal fade" id="recover-password-modal" tabindex="-1" role="dialog" aria-labelledby="recover-password-modal" aria-hidden="true">
     <div class="modal-dialog" role="document">

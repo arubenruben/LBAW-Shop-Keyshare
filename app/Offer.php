@@ -16,6 +16,23 @@ class Offer extends Model
     ];
 
     /**
+     * Append custom columns to the model
+     *
+     * @var array
+     */
+    protected $appends = ['discountPriceColumn'];
+
+    /**
+     * Define the type column to every Item object instance
+     *
+     * @return string
+     */
+    public function getDiscountPriceColumnAttribute()
+    {
+        return $this->discount_price();
+    }
+
+    /**
      * The user this offer belongs to
      */
     public function seller() {
