@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
+
+
 
 class ProductController extends Controller
 {
@@ -38,17 +41,20 @@ class ProductController extends Controller
     }
 
     public function home(){
-
-        $img = Image::make('games/original/fifa20.png');
-
         
+        //$path = public_path('images/games/original/fifa20.png');
+
+        //$img = Image::make($path);
+
+
 
 
         $numberResults = 5;
 
         $homepageData = collect([
             'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
-            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults)
+            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults),
+            'carousel'=>[asset('images/carousel/1.png'),asset('images/carousel/2.png'),asset('images/carousel/3.png')]
         ]);
 
         return view('pages.homepage.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);

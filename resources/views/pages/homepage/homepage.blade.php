@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    @include('partials.homepage.carousel')
+    @include('partials.homepage.carousel',['carousel'=>$data['carousel']])
 	@include('partials.homepage.mostpopulars',['data'=>$data['mostPopulars']])
 	@include('partials.homepage.mostrecents',['data'=>$data['mostRecents']])
 @endsection
