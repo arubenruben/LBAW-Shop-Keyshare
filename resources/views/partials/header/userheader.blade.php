@@ -33,7 +33,10 @@
                 <a class="dropdown-item" href="{{ url('/user/'.Auth::user()->username.'/offers') }}">My Offers</a>
                 <a class="dropdown-item" href="{{ url('/user/reports') }}">Reports</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ url('/logout') }}">Log out</a>
+                <form action={{url('/logout')}} method="POST">
+                    @csrf
+                    <input type="submit" class="dropdown-item" value="Log out">
+                </form>
             </div>
             @else
             <button class="btn btn-outline-light mt-auto mb-auto ml-5 pl-4 pr-4" data-toggle="modal"
@@ -47,8 +50,8 @@
     <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
         <div class="row">
             <a href="{{ url('/cart') }}" class="mt-auto mb-auto ml-auto mr-3"><i
-                    class="fas fa-shopping-cart headerIcon cl-orange"></i><span id="shopping_cart_item_counter"
-                    class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() :  count(session('cart',array())) }}</span></a>
+                    class="fas fa-shopping-cart headerIcon cl-orange"></i><span
+                    class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() : 0 }}</span></a>
         </div>
     </div>
     <!--Button Collapse Small -->
@@ -91,7 +94,7 @@
 
 @if(!Auth::check())
 <!-- authentication modal -->
-<div class="modal fade bs-modal-sm" id="authenticationModal" tabindex="-1" role="dialog"
+<article class="modal fade bs-modal-sm" id="authenticationModal" tabindex="-1" role="dialog"
     aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -107,9 +110,9 @@
             <!-- modal body-->
             <div class="modal-body">
                 <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
+                    <section class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login">
                         <form class="form-horizontal" action="{{ url('/login') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <!-- Log in Form -->
                             <!-- Text input-->
                             <div class="control-group">
@@ -137,7 +140,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="modal-body">
+                        <div class="modal-body text-center">
                             <button id="google-signup" name="google-signup" class="btn btn-blue">
                                 <svg class="ml-2 float-left" viewBox="0 0 18 18" role="presentation" aria-hidden="true"
                                     focusable="false" style="height: 20px; width: 20px; display: block;">
@@ -161,13 +164,12 @@
                             </button>
                             <button type="button" class="btn mt-3" data-toggle="modal" data-target="#recover-password-modal" data-dismiss="modal">
                                 Forgot Password
-                            </button>
+                              </button>                            
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
+                    </section>
+                    <section class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
                         <form class="form-horizontal" action="{{ url('/register') }}" method="post">
-                            @csrf
-                            @method('PUT')
+                            @csrf                    
                             <!-- Sign Up Form -->
                             <!-- Username -->
                             <div class="control-group">
@@ -241,7 +243,7 @@
                                 <span class="mx-auto">Sign up with Google</span>
                             </button>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
             <div class="modal-footer">
@@ -249,34 +251,34 @@
             </div>
         </div>
     </div>
-</div>
+</article>
 
 <!-- Recovery Password -->
 <article class="modal fade" id="recover-password-modal" tabindex="-1" role="dialog" aria-labelledby="recover-password-modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="recover-password-modal">Password Recover</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action={{route('password.email')}} method="POST" >
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    <div class="control-group mt-2">
-                        <label class="control-label" for="email">Email:</label>
-                        <div class="controls">
-                            <input id="email" name="email" type="text" class="form-control input-medium"
-                                   placeholder="youremail@example.com" required>
-                        </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recover-password-modal">Password Recover</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    <form action={{route('password.email')}} method="POST" >
+            {{ csrf_field() }}
+            <div class="modal-body">
+                <div class="control-group mt-2">
+                    <label class="control-label" for="email">Email:</label>
+                    <div class="controls">
+                        <input id="email" name="email" type="text" class="form-control input-medium"
+                            placeholder="youremail@example.com" required>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn text-light btn-orange"value="Send me a recovery email">
-                </div>
-            </form>
-        </div>
+            </div>
+        <div class="modal-footer">        
+            <input type="submit" class="btn text-light btn-orange"value="Send me a recovery email">
+            </div>
+        </form>
+      </div>
     </div>
 </article>
 @endif
