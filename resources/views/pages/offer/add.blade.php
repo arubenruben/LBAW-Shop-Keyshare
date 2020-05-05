@@ -4,20 +4,18 @@
 
 @include('partials.header.userheader')
 
+@section('javascript')
+        <script src="{{ asset('js/offer/add.js') }}" defer></script>
+@endsection
+
 @section('navbar')
     @include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])
 @endsection
 
-@section('javascript')
-{{--    <script src="{{ asset('js/user/offers.js') }}" defer></script>--}}
-@endsection
-
-
 @section('content')
-        @include('partials.offer.add')
+        @include('partials.offer.add', ['products' => $products])
 @endsection
-
 
 @section('footer')
-    @include('partials.footer.userfooter')
+    @include('partials.footer.footer')
 @endsection
