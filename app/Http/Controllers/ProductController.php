@@ -38,6 +38,12 @@ class ProductController extends Controller
     }
 
     public function home(){
+
+        $img = Image::make('games/original/fifa20.png');
+
+        
+
+
         $numberResults = 5;
 
         $homepageData = collect([
