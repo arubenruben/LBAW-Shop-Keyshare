@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    @include('partials.offer.add', ['products' => $products])
+        @include('partials.offer.add', ['products' => $products])
 @endsection
 
 @section('footer')
