@@ -31,7 +31,7 @@ class ProductController extends Controller
             return (object)[
                 'name' => $product->name,
                 'image' => asset('/images/games/'.$product->image->url),
-                'platforms' =>$product->platforms->only(['name']),
+                'platform' =>$lowest_offer->platform->only(['name']),
                 'min_price' => '$'.$lowest_price,
                 'discount_rate' => $discount !== null ? $discount->rate : null,
                 'num_sells' => $product->num_sells,
