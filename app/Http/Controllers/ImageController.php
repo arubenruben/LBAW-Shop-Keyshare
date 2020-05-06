@@ -23,11 +23,11 @@ class ImageController extends Controller
             $now=Carbon::now()->timestamp;
             $hash=md5($product->name.$now);
             $dataBaseImage=new Picture;
-            $dataBaseImage->url=$hash;
+            $dataBaseImage->url=$hash.'.png';
             $dataBaseImage->save();
             $id=$dataBaseImage->id;
-            $img = Image::make('images/games/1.png');            
-            $img->save('images/games/'.$hash.'.png');
+            $img = Image::make('pictures/games/1.png');            
+            $img->save('pictures/games/'.$hash.'.png');
             $product->picture_id=$id;
             $product->save();
         }

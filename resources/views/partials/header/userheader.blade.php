@@ -1,7 +1,7 @@
 <header id="headerFixed" class="navbar row">
     <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
         <a href="{{ url('/') }}">
-            <img class="img-fluid logo" src="{{ asset('images/logo/logo.png') }}" alt="Logo of KeyShare" />
+            <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
         </a>
     </div>
     <!-- Search -->

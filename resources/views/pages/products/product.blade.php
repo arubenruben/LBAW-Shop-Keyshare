@@ -15,7 +15,7 @@
 @section('content')
 <article class="row ml-auto mr-auto">
     <div class="col-5 p-0">
-        <img class="img-fluid productPageImgPreview" src={{$product->image->url}} />
+        <img class="img-fluid productPageImgPreview" src="/pictures/games/{{$product->picture->url}}"" />
     </div>
     <aside class="col-6">
         <h3>{{$product->name}} [{{$platformName}}]</h3>

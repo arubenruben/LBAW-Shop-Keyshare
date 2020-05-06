@@ -30,7 +30,7 @@ class ProductController extends Controller
             $discount = $lowest_offer->active_discount();
             return (object)[
                 'name' => $product->name,
-                'image' => asset('/images/games/'.$product->image->url),
+                'picture' => asset('/pictures/games/'.$product->picture->url),
                 'platform' =>$lowest_offer->platform->only(['name']),
                 'min_price' => '$'.$lowest_price,
                 'discount_rate' => $discount !== null ? $discount->rate : null,
@@ -47,7 +47,7 @@ class ProductController extends Controller
         $homepageData = collect([
             'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
             'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults),
-            'carousel'=>[asset('images/carousel/1.png'),asset('images/carousel/2.png'),asset('images/carousel/3.png')]
+            'carousel'=>[asset('pictures/carousel/1.png'),asset('pictures/carousel/2.png'),asset('pictures/carousel/3.png')]
         ]);
 
         return view('pages.homepage.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);
@@ -120,7 +120,7 @@ class ProductController extends Controller
                 'platforms' => $product->platforms, 'genres' => $product->genres,
                 'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
                     return $activeOffer->offer->price;
-                }), 'image' => asset('/images/games/'.$product->image->url)
+                }), 'picture' => asset('/images/games/'.$product->image->url)
             ];
         });
 
