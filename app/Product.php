@@ -11,10 +11,10 @@ class Product extends Model
     public $timestamps  = false;
 
     /**
-     * The image this product has
+     * The picture this product has
      */
-    public function image() {
-        return $this->belongsTo('App\Image');
+    public function picture() {
+        return $this->belongsTo('App\Picture');
     }
 
     /**

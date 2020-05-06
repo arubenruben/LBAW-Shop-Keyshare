@@ -54,8 +54,8 @@
                                             </div>
                                         </td>
                                         <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
-                                        @if($currentOffer->price != $currentOffer->discountPrice())
-                                            <td class="text-center align-middle"><del><strong>${{$currentOffer->price}}</strong></del></del><strong  class="cl-green pl-2">${{$currentOffer->discountPrice()}}</strong></td>
+                                        @if($currentOffer->price != $currentOffer->discount_price())
+                                            <td class="text-center align-middle"><del><strong>${{$currentOffer->price}}</strong></del></del><strong  class="cl-green pl-2">${{$currentOffer->discount_price()}}</strong></td>
                                         @else
                                             <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
                                         @endif

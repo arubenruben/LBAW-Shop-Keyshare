@@ -90,14 +90,13 @@ class CartController extends Controller
         $cart=new Cart;
             
         try {
-            $this->authorize('insert',$cart);
+            $this->authorize('loggedIn',$cart);
             $user = Auth::user();    
         } catch (AuthorizationException $e) {
             $loggedIn=false;
         }
 
-        if($loggedIn){
-            
+        if($loggedIn){            
             $cart->user_id=$user->id;
             $cart->offer_id=$request->offer_id;
             $cart->save();
@@ -105,7 +104,7 @@ class CartController extends Controller
         }else{
             $cart->user_id=-1;
             $cart->offer_id=$request->offer_id;
-            
+                        
             $request->session()->push('cart', $cart);
         }
 

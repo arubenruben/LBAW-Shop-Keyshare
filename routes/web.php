@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,10 @@
 
 // Authentication
 Auth::routes();
+Route::get('admin/login', 'Auth\LoginController@showAdmin');
+Route::post('admin/login', 'Auth\LoginController@loginAdmin');
+Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
 
-// User
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::get('user/purchases', 'UserController@showPurchases');
@@ -27,8 +30,8 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::get('/', 'ProductController@home');
 Route::get('/search', 'ProductController@search');
 Route::get('/api/product', 'ProductController@get');
-Route::get('/product/{id}/{platform}', 'ProductController@show');
 Route::get('/api/product/{id}/{platform}/offers', 'ProductController@offers');
+Route::get('product/{productName}/{platformName}', 'ProductController@show');
 
 // Cart
 Route::get('/cart', 'CartController@show');

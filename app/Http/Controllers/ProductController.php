@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
+
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -27,8 +30,8 @@ class ProductController extends Controller
             $discount = $lowest_offer->active_discount();
             return (object)[
                 'name' => $product->name,
-                'image' => asset('/images/games/'.$product->image->url),
-                'platforms' =>$product->platforms->only(['name']),
+                'picture' => asset('/pictures/games/'.$product->picture->url),
+                'platform' =>$lowest_offer->platform->only(['name']),
                 'min_price' => '$'.$lowest_price,
                 'discount_rate' => $discount !== null ? $discount->rate : null,
                 'num_sells' => $product->num_sells,
@@ -38,11 +41,13 @@ class ProductController extends Controller
     }
 
     public function home(){
+        
         $numberResults = 5;
 
         $homepageData = collect([
             'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
-            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults)
+            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults),
+            'carousel'=>[asset('pictures/carousel/1.png'),asset('pictures/carousel/2.png'),asset('pictures/carousel/3.png')]
         ]);
 
         return view('pages.homepage.homepage',['data'=>$homepageData->all(),'breadcrumbs' => []]);
@@ -115,19 +120,11 @@ class ProductController extends Controller
                 'platforms' => $product->platforms, 'genres' => $product->genres,
                 'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
                     return $activeOffer->offer->price;
-                }), 'image' => asset('/images/games/'.$product->image->url)
+                }), 'picture' => asset('/images/games/'.$product->image->url)
             ];
         });
 
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
-    }
-
-    public function show($productId, $platform){
-
-    }
-
-    public function offers($productId, $platform){
-
     }
 
     private function filterProducts(Request $request, Collection $products) {
@@ -187,5 +184,37 @@ class ProductController extends Controller
         $input = Input::get('input');
         $products = Product::whereRaw('name_tsvector @@ plainto_tsquery('.$input.')')->paginate(9);
         return view('pages.products', ['products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
+
+    }
+
+    public function offers($productId, $platform){
+        return;
+    }
+
+
+    public function getProduct($productName){
+        
+        $product=DB::table('products')->select('id')->where('name','=',$productName)->first(); 
+
+        return Product::findOrFail($product->id);    
+    }
+
+    public function getPlatform($platformName){
+        
+        $platform=DB::table('platforms')->select('id')->where('name','=',$platformName)->first();
+        
+        return Platform::findOrFail($platform->id);
+    }
+
+     public function show($productName, $platformName) {
+
+        $product = $this->getProduct($productName);
+            
+        $platform= $this->getPlatform($platformName);
+
+        $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
+        $platformName =$platform->name;
+    
+        return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'breadcrumbs' => ['Product' => url('/product/')]]);
     }
 }
