@@ -120,5 +120,3 @@ Route::get('/admin/faq', 'AdminController@faqShow');
 Route::put('/admin/faq', 'AdminController@faqAdd');
 Route::post('/admin/faq/{id}', 'AdminController@faqUpdate');
 Route::delete('/admin/faq/{id}', 'AdminController@faqDelete');
-
-Route::get('image/get','ImageController@convert');
