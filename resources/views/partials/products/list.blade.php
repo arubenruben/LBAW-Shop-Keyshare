@@ -3,6 +3,7 @@
             'min_price' => $min_price, 'max_price' => $max_price])
     @include('partials.products.modal', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
             'min_price' => $min_price, 'max_price' => $max_price])
+    @if(isset($products) and $products != null)
     <div id="product_list" class="col ml-auto mr-auto">
         @include('partials.products.modal_button')
         <div class="row justify-content-between mx-auto flex-wrap">
@@ -23,4 +24,6 @@
             @endforeach
         </div>
     </div>
+    @endif
+
 </div>

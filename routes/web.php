@@ -30,6 +30,7 @@ Route::delete('user/image', 'UserController@deleteImage');
 Route::get('/', 'ProductController@home');
 Route::get('/search', 'ProductController@search');
 Route::get('/api/product', 'ProductController@get');
+Route::get('/query', 'ProductController@inputSearch')->name('query');
 Route::get('/api/product/{id}/{platform}/offers', 'ProductController@offers');
 Route::get('product/{productName}/{platformName}', 'ProductController@show');
 

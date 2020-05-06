@@ -57,6 +57,7 @@ class ProductController extends Controller
         $products = Product::all()->filter(function (Product $product){
             return ActiveProduct::find($product->id) !== null;
         });
+
         $filtered = $this->filterProducts($request, $products);
 
         $genres = Genre::all();
@@ -91,17 +92,10 @@ class ProductController extends Controller
         $products = Product::all()->filter(function (Product $product){
             return ActiveProduct::find($product->id) !== null;
         });
+
         $filtered = $this->filterProducts($request, $products);
 
-        $prices = [];
-        foreach ($filtered as $product){
-            $active_offers = $product->active_offers;
-            if($active_offers != null){
-                array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer){
-                    return $activeOffer->offer->price;
-                }));
-            }
-        }
+        $prices = $this->returnPrices($filtered);
 
         if(count($prices) === 0){
             $prices = [0, 100];
@@ -118,17 +112,41 @@ class ProductController extends Controller
                 'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
                 'launch_date' => $product->launch_date, 'category' => $product->category->name,
                 'platforms' => $product->platforms, 'genres' => $product->genres,
+                'picture' => asset('/images/games/'.$product->image->url),
                 'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
                     return $activeOffer->offer->price;
-                }), 'picture' => asset('/images/games/'.$product->image->url)
+                })
             ];
         });
 
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
+    public function inputSearch(){
+        $input = Input::get('input');
+
+        $products = Product::whereRaw("deleted = false AND name_tsvector @@ plainto_tsquery('" . $input . "')")->paginate(9);
+        $prices = $this->returnPrices($products);
+
+        if(count($prices) === 0){
+            $prices = [0, 100];
+        }
+
+        $genres = Genre::all();
+        $platforms = Platform::all();
+        $categories = Category::all();
+
+        $min_price = min($prices);
+        $max_price = max($prices);
+
+        return view('pages.products.products', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
+            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products[0], 'breadcrumbs' => ['Products' => url('/products/')]]);
+
+    }
+
     private function filterProducts(Request $request, Collection $products) {
         $filter = $products;
+
         if ($request->has('genres')) {
             $filter = $filter->filter(function(Product $product) use($request) {
                 $decoded = explode(",", $request->input('genres'));
@@ -180,38 +198,38 @@ class ProductController extends Controller
         return $filter;
     }
 
-    private function idk(){
-        $input = Input::get('input');
-        $products = Product::whereRaw('name_tsvector @@ plainto_tsquery('.$input.')')->paginate(9);
-        return view('pages.products', ['products' => $products, 'pages' => array('Products'), 'links'=>array(url('/products/'))]);
+    private function returnPrices($filtered) {
+        $prices = [];
 
+        foreach ($filtered as $product){
+            $active_offers = $product->active_offers;
+            if($active_offers != null){
+                array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer){
+                    return $activeOffer->offer->price;
+                }));
+            }
+        }
+
+        return $prices;
     }
 
     public function offers($productId, $platform){
         return;
     }
 
-
     public function getProduct($productName){
-        
-        $product=DB::table('products')->select('id')->where('name','=',$productName)->first(); 
-
+        $product=DB::table('products')->select('id')->where('name','=',$productName)->first();
         return Product::findOrFail($product->id);    
     }
 
     public function getPlatform($platformName){
-        
         $platform=DB::table('platforms')->select('id')->where('name','=',$platformName)->first();
-        
         return Platform::findOrFail($platform->id);
     }
 
      public function show($productName, $platformName) {
-
         $product = $this->getProduct($productName);
-            
         $platform= $this->getPlatform($platformName);
-
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
         $platformName =$platform->name;
     

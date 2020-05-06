@@ -6,12 +6,12 @@
     </div>
     <!-- Search -->
     <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
-        <form class="form-inline">
-            <a class="ml-auto" href="{{ url('/search') }}">
+        <form class="form-inline" action="/query" method="get">
+            <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
             <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search"
-                placeholder="Search" aria-label="Search">
+                placeholder="Search" aria-label="Search" name="input">
         </form>
     </div>
     <!--Buttons-->
@@ -66,13 +66,13 @@
 <!--Collapse Small -->
 <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
     <div class="col w-100">
-        <div class="row">
+        <form class="form-inline" action="/query" method="get">
             <a class="mt-auto mb-auto ml-auto" href="{{ url('/search') }}">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
             <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search"
-                placeholder="Search" aria-label="Search">
-        </div>
+                placeholder="Search" aria-label="Search" name="input">
+        </form>
         <div class="row flex-nowrap justify-content-around mt-3">
             @if (!Auth::check())
             <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" data-toggle="modal"

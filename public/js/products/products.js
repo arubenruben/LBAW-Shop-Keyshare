@@ -46,8 +46,6 @@ const received = (response) => {
     receivedPrices(response.max_price, response.min_price);
 }
 
-
-
 const addEventListeners = () => {
     let sort_by_input = document.querySelectorAll("form#option input.sort-by");
     let genres_input = document.querySelectorAll("form#option input.genre");
@@ -120,13 +118,6 @@ function assembleData () {
     return data;
 }
 
-function encodeForAjax(data) {
-    if (data == null) return null;
-    return Object.keys(data).map(function(k){
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&');
-}
-
 const sendRequest = () => {
     let data = assembleData();
     sendGet(data)
@@ -149,6 +140,13 @@ const sendGet = get => {
     return fetch("api/product?" + encodeForAjax(get), options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
+}
+
+function encodeForAjax(data) {
+    if (data == null) return null;
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&');
 }
 
 addEventListeners();
