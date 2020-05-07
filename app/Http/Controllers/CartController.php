@@ -25,14 +25,30 @@ class CartController extends Controller
             $loggedIn=false;    
         }
         //If logged in -> Get the Cart from the database
-        if($loggedIn){            
+        if($loggedIn){  
+        
+            if($request->session()->has('cart')){
+                
+                $cartItemsInSession=$request->session()->get('cart');
+                
+                for($i=0;$i<count($cartItemsInSession);$i++){
+                    $cartEntry=new Cart;
+                    $cartEntry->offer_id=$cartItemsInSession[$i]->offer->id;
+                    $cartEntry->user_id=$user->id;                
+                    $cartEntry->save();
+                }
+                $request->session()->forget('cart');
+            }
+
             $user=$user->cart;
     
             for($i=0;$i<count($user);$i++){
                 $data[$i]=Cart::findOrFail($user[$i]['id']);
             }
-            //If not logged int get the cart from the session cookie if exists
-        }else if($request->session()->has('cart')){
+            //Add cart content to User information
+        }
+        //If not logged int get the cart from the session cookie if exists
+        else if($request->session()->has('cart')){
             $cartItemsInSession=$request->session()->get('cart');
 
             for($i=0;$i<count($cartItemsInSession);$i++){
@@ -100,7 +116,7 @@ class CartController extends Controller
             $cart->user_id=$user->id;
             $cart->offer_id=$request->offer_id;
             $cart->save();
-        
+            $request->session()->push('cart', $cart);
         }else{
             
             if($request->session()->has('cart')){            
