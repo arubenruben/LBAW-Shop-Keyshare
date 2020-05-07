@@ -119,7 +119,7 @@
                   value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive"
                   data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
                 <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"
-                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('images/paypal/paypal.png') }}"
+                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
                     height="23"></button>
               </div>
             </div>

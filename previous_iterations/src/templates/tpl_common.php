@@ -49,7 +49,7 @@
             <header id="headerFixed" class="navbar row">
                 <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
                     <a href="homepage.php">
-                        <img class="img-fluid logo" src="../../../public/images/logo/logo.png" />
+                        <img class="img-fluid logo" src="../../../public/pictures/logo/logo.png" />
                     </a>
                 </div>
                 <!-- Search -->

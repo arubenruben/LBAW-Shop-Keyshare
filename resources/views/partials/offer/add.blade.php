@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-5 mt-3 my-auto d-none d-md-block">
-            <img class="img-fluid productPageImgPreview" src="{{asset('images/games/default.png')}}" />
+            <img class="img-fluid productPageImgPreview" src="{{asset('pictures/games/default.png')}}" />
         </div>
         <div class="col-12 col-md-7 mt-2">
 
