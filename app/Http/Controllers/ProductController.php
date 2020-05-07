@@ -112,7 +112,7 @@ class ProductController extends Controller
                 'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
                 'launch_date' => $product->launch_date, 'category' => $product->category->name,
                 'platforms' => $product->platforms, 'genres' => $product->genres,
-                'picture' => asset('/images/games/'.$product->image->url),
+                'picture' => asset('/images/games/'.$product->picture->url),
                 'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
                     return $activeOffer->offer->price;
                 })
