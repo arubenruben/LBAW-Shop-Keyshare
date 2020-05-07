@@ -114,6 +114,7 @@ class CartController extends Controller
     public function checkout()
     {
 
+
     }
 
     public function finalizeCheckout()
