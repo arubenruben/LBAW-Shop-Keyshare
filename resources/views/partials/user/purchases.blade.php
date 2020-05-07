@@ -45,7 +45,7 @@
                                         <tr>
                                             <td scope="row" class="border-0 align-middle">
                                                 <div class="p-2">
-                                                    <img src="{{$key->offer->product->image->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                    <img src="{{$key->offer->product->picture->url}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                     <div class="ml-3 d-inline-block align-middle">
                                                         <h5 class="mb-0 d-inline-block"><a href="{{url("/product/".$key->offer->product->id."/".$key->offer->platform->id)}}" class="text-dark">{{$key->offer->product->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$key->offer->platform->name}}]</span>
                                                         <a href="{{url("/user/".$key->offer->seller->username)}}" ><span class="text-muted font-weight-normal font-italic d-block">{{$key->offer->seller->username}}</span> </a>

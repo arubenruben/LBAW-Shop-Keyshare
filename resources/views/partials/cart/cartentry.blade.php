@@ -11,7 +11,7 @@
     @include('partials.table.entrydiscount',['data'=>$data->offer])
     <td class="align-middle">
         <section class="btn-group-justified btn-group-md">
-            <button class="btn btn-red btn-block flex-nowrap remove_cart_button" value_offer={{$data->offer->discountPriceColumn}} data_cart_id={{$data->id}}><i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block">Delete</span></button>
+        <button class="btn btn-red btn-block flex-nowrap remove_cart_button" value_offer={{$data->offer->discountPriceColumn}} data_cart_id={{$data->id}}><i class="fa fa-trash cl-fail"></i> <span class="d-none d-md-inline-block">Delete</span></button>
         </section>
     </td>
 </tr>

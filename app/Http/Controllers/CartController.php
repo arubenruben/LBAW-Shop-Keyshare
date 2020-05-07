@@ -17,7 +17,7 @@ class CartController extends Controller
     {    
         $loggedIn=true;
         $data=array();
-        
+            
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
@@ -102,13 +102,20 @@ class CartController extends Controller
             $cart->save();
         
         }else{
+            
+            if($request->session()->has('cart')){            
+                $cart->id=count($request->session()->get('cart'));
+            }else{
+                $cart->id=0;
+            }
+
             $cart->user_id=-1;
-            $cart->offer_id=$request->offer_id;
+            $cart->offer=Offer::find($request->offer_id);
                         
             $request->session()->push('cart', $cart);
         }
 
-        return response(json_encode("Success"), 200);
+        return response(json_encode($cart), 200);
     }
 
     public function checkout()

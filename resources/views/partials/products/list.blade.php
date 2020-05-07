@@ -14,7 +14,7 @@
         <div class="row justify-content-between mx-auto flex-wrap mt-2">
                 @endif
                 <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                    <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="{{asset('images/games/'.$product->image->url)}}"></a>
+                    <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="{{asset('pictures/games/'.$product->picture->url)}}"></a>
                     <div class="card-body">
                         <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">{{$product->name}}</a></h6>
                         <h5 class="cl-orange2">{{$product->offers->min('price') !== null ? '$'.$product->offers->min('price') : 'Unavailable'}}</h5>
