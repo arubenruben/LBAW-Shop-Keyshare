@@ -49,6 +49,7 @@
             </div>
         </div>
     </section>
+
     @php($totalPrice = 0);
     <div class="row mt-4">
         <div class="col text-right">

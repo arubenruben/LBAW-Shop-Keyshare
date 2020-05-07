@@ -14,10 +14,11 @@ const addEventListeners = () => {
     buttons.forEach(button => {
         button.addEventListener('click',()=>{
             const cartId=button.getAttribute('data_cart_id')
-            const offerPrice=parseInt(button.getAttribute('value_offer'));
+            const offerPrice=parseFloat(button.getAttribute('value_offer')).toFixed(2);
             event.preventDefault();
-            let totalPriceNumber = parseInt(totalPrice.innerHTML);
+            let totalPriceNumber = parseFloat(totalPrice.innerHTML).toFixed(2);
             totalPriceNumber -= offerPrice;
+            totalPriceNumber = totalPriceNumber.toFixed(2);
             totalPrice.innerHTML = totalPriceNumber;
             sendDelete(cartId).then(function() {
                 let tableEntry=document.querySelector('#row'+cartId);
