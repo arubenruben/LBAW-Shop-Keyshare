@@ -28,7 +28,7 @@
         <div class="row  mt-4 mb-4">
             <div class="col-12">
                 @if($offers != null)
-                    <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
+                    <h4 class="title-price d-inline-block">Starting at: {{$offersSortPrice[0]->discountPriceColumn}}$</h4>
             </div>
 
                 @endif
@@ -86,16 +86,31 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody id="offers_body">
-                        @php $i = 0; @endphp
-                        @foreach($offers as $offer)
-                            @if($i < 10)
-                                @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => true])
-                            @elseif($i >= 10)
-                                @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => false])
-                            @endif
-                            @php $i++; @endphp
-                        @endforeach
+                        <tbody id="offers_sort_price">
+
+                            @php $i = 0; @endphp
+                            @foreach($offersSortPrice as $offer)
+                                @if($i < 10)
+                                    @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => true])
+                                @elseif($i >= 10)
+                                    @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => false])
+                                @endif
+                                @php $i++; @endphp
+                            @endforeach
+
+                        </tbody>
+
+                        <tbody id="offers_sort_rating" style="display: none;">
+
+                            @php $i = 0; @endphp
+                            @foreach($offersSortRating as $offer)
+                                @if($i < 10)
+                                    @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => true])
+                                @elseif($i >= 10)
+                                    @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => false])
+                                @endif
+                                @php $i++; @endphp
+                            @endforeach
                         </tbody>
                     </table>
                     @else
