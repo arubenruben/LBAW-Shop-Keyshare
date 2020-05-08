@@ -230,26 +230,43 @@ class ProductController extends Controller
         $platform= $this->getPlatform($platformName);
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
         $offers = $offers->sortBy('discountPriceColumn');
-        $platformName =$platform->name;
-    
+        $platformName = $platform->name;
         return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'breadcrumbs' => ['Product' => url('/product/')]]);
     }
 
     public function sort(Request $request){
 
-        $sortBy = "";
+
         if(!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform')){
-            abort(300);
+            abort(400);
         }
         else{
-            $sortBy = Offer::all();
-            $array = collect();
-            foreach ($sortBy as $offer){
-                if($offer->product->name == $request->game_name && $offer->platform->name == $request->game_platform)
-                    $array->add($offer);
+
+            $sortBy = Offer::all()->filter(function(Offer $offer) use($request) {
+                return $offer->product->name == $request->input('game_name') && $offer->platform->name == $request->input('game_platform');
+            });
+
+            if($request->input('sort_by') == 'rating'){
+
+                $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })
+                    ->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                });
+
+            }
+            else{
+
+                $sortBy = $sortBy->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                })->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })->sortBy('discountPriceColumn');
+
             }
 
-            $array = $array->map(function ($offer, $key) {
+            $sortBy = $sortBy->map(function ($offer, $key) {
                 return [
                     'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
                     'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
@@ -258,6 +275,7 @@ class ProductController extends Controller
                 ];
             });
 
+
             $current_user = Auth::user();
 
             if($current_user == null)
@@ -265,8 +283,7 @@ class ProductController extends Controller
             else{
                 $banned = $current_user->banned;
             }
-
-            return response()->json(['offers' => array_values($array->toArray()), 'current_user' => $current_user, 'banned' => $banned]);
+            return response()->json(['offers' => array_values($sortBy->toArray()), 'current_user' => $current_user, 'banned' => $banned]);
         }
     }
 }

@@ -7,12 +7,21 @@ let btnText = document.getElementById("moreTextButton");
 let cartItemCounter=document.querySelector("#shopping_cart_item_counter");
 let radioBestRating=document.querySelector("#radio_best_rating");
 let radioBestPrice=document.querySelector("#radio_best_price");
+let seeMoreOffers=document.querySelector("#see_more_offers");
+let closeMoreOffers=document.querySelector("#close_more_offers");
 
+seeMoreOffers.addEventListener('click', collapseOffers);
+closeMoreOffers.addEventListener('click', collapseOffers);
 
 btnText.addEventListener('click',collapseDescription);
 
-const templateEntryOffer = (username, rating, offer_id,  num_sells, price, discount_price, stock, current_user, banned) => {
-    let html =  `<tr class="offer">
+const templateEntryOffer = (username, rating, offer_id,  num_sells, price, discount_price, stock, current_user, banned, display) => {
+    let html =  `<tr class="offer`
+    if(display == true){
+        html += ' offer_outside" style="display: none;';
+    }
+
+    html += `">
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
             <h4><a data-toggle="modal" data-target=".bd-modal-lg{{$offer->id}}" href="#"
@@ -27,11 +36,11 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
 
 
     if(price !== discount_price) {
-        html += `<td class="text-center align-middle"><del><strong>${price}</strong></del><strong
-            class="cl-green pl-2">${discount_price}</strong></td>`;
+        html += `<td class="text-center align-middle"><del><strong> `  + '$' +  `${price}</strong></del><strong
+            class="cl-green pl-2">`  + '$' +  `${discount_price} </strong></td>`;
     }
     else {
-        html += ` <td class="text-center align-middle"><strong>${price}</strong></td>`;
+        html += ` <td class="text-center align-middle"><strong>`  + '$' +  `${price}</strong></td>`;
     }
 
     html +=  `<td class="text-center align-middle">
@@ -56,8 +65,15 @@ const received = (response) => {
 
     let tableOffersBody= document.querySelector("#offers_body");
     let entriesTable = "";
+    let boolean;
     for(let i = 0; i < response.offers.length; i++) {
-        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned);
+        if(i < 10)
+            boolean = false;
+        else
+            boolean = true;
+
+        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
+
     }
 
     tableOffersBody.innerHTML = entriesTable;
@@ -76,6 +92,30 @@ function collapseDescription() {
         btnText.innerHTML = "Read less";
         moreText.style.display = "inline";
     }
+}
+
+function collapseOffers(){
+    let allMoreOffers = document.querySelectorAll(".offer_outside");
+
+    console.log("iam here");
+    if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
+        console.log("iam here 1");
+        seeMoreOffers.style.display = "block";
+        closeMoreOffers.style.display = "none";
+        for(let i = 0; i < allMoreOffers.length; i++){
+            allMoreOffers[i].style.display = "none";
+        }
+    } else if(closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")){
+        console.log("iam here 2");
+        closeMoreOffers.style.display = "block";
+        seeMoreOffers.style.display = "none";
+        console.log(allMoreOffers.length);
+        for(let i = 0; i < allMoreOffers.length; i++){
+            allMoreOffers[i].style.display = "table-row";
+        }
+
+    }
+
 }
 
 

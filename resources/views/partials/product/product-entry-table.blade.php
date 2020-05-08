@@ -1,4 +1,5 @@
-<tr class="offer">
+
+<tr class="offer {{  $display ? '' : 'offer_outside'}}">
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
             <h4><a data-toggle="modal" data-target=".bd-modal-lg{{$offer->id}}" href="#"

@@ -87,8 +87,14 @@
                         </tr>
                         </thead>
                         <tbody id="offers_body">
+                        @php $i = 0; @endphp
                         @foreach($offers as $offer)
-                            @include('partials.product.product-entry-table',['offer'=>$offer])
+                            @if($i < 10)
+                                @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => true])
+                            @elseif($i >= 10)
+                                @include('partials.product.product-entry-table',['offer'=>$offer, 'display' => false])
+                            @endif
+                            @php $i++; @endphp
                         @endforeach
                         </tbody>
                     </table>
@@ -102,7 +108,19 @@
                 </div>
             </div>
         </div>
+        @if(count($offers) > 9)
+            <div class="row mt-4 mx-auto">
+                <div class="col-12">
+                    <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the other offers <i class="fas fa-angle-down"></i> </button>
+                    <button id="close_more_offers" class="btn-blue btn-primary" style="display: none;"> <i class="fas fa-angle-up"></i> Only see 10 offers <i class="fas fa-angle-up"></i> </button>
+                </div>
+            </div>
+
+
+
+        @endif
     </div>
+
 </article>
 @endsection
 
