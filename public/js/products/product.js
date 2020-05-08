@@ -44,7 +44,6 @@ function collapseOffers(){
     } else if(closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")){
         closeMoreOffers.style.display = "block";
         seeMoreOffers.style.display = "none";
-        console.log(allMoreOffers.length);
         for(let i = 0; i < allMoreOffers.length; i++){
             allMoreOffers[i].style.display = "table-row";
         }
@@ -60,6 +59,25 @@ function pressed_add_offer_to_cart(id){
     sendPut(data).then(
         cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
     );
+}
+
+
+const sendPut = post => {
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'put',
+        credentials: "same-origin",
+        body: JSON.stringify(post)
+    }
+
+    return fetch("/cart/", options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: {error}"));
 }
 
 function switchOffers(){

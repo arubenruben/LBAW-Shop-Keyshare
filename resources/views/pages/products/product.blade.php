@@ -28,9 +28,8 @@
         <div class="row  mt-4 mb-4">
             <div class="col-12">
                 @if($offers != null)
-                    <h4 class="title-price d-inline-block">Starting at: {{$offersSortPrice[0]->discountPriceColumn}}$</h4>
+                    <h4 class="title-price d-inline-block">Starting at: <strong>{{$offersSortPrice->first()->discountPriceColumn}}$ </strong></h4>
             </div>
-
                 @endif
             </div>
         </div>
@@ -101,7 +100,6 @@
                         </tbody>
 
                         <tbody id="offers_sort_rating" style="display: none;">
-
                             @php $i = 0; @endphp
                             @foreach($offersSortRating as $offer)
                                 @if($i < 10)
@@ -124,15 +122,13 @@
             </div>
         </div>
         @if(count($offers) > 9)
+            @php $restOffers = count($offers) - 10; @endphp
             <div class="row mt-4 mx-auto">
                 <div class="col-12">
-                    <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the other offers <i class="fas fa-angle-down"></i> </button>
-                    <button id="close_more_offers" class="btn-blue btn-primary" style="display: none;"> <i class="fas fa-angle-up"></i> Only see 10 offers <i class="fas fa-angle-up"></i> </button>
+                    <button id="see_more_offers" class="btn btn-blue-full"><i class="fas fa-angle-down mr-1"></i> See the other offers ({{$restOffers}}) <i class="fas fa-angle-down ml-1"></i> </button>
+                    <button id="close_more_offers" class="btn btn-blue-full" style="display: none;"> <i class="fas fa-angle-up mr-1"></i> Only see 10 offers <i class="fas fa-angle-up ml-1"></i> </button>
                 </div>
             </div>
-
-
-
         @endif
     </div>
 

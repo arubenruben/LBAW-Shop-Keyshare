@@ -213,6 +213,8 @@ class ProductController extends Controller
         return $prices;
     }
 
+
+
     public function getProduct($productName){
         $product=DB::table('products')->select('id')->where('name','=',$productName)->first();
         return Product::findOrFail($product->id);    
@@ -223,7 +225,7 @@ class ProductController extends Controller
         return Platform::findOrFail($platform->id);
     }
 
-     public function show($productName, $platformName) {
+    public function show($productName, $platformName) {
 
         $product = $this->getProduct($productName);
         $platform= $this->getPlatform($platformName);
@@ -253,5 +255,57 @@ class ProductController extends Controller
             return $offer->seller()->getResults()->rating;
         });
 
+    }
+
+    public function sort(Request $request){
+
+
+        if(!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform')){
+            abort(400);
+        }
+        else{
+
+            $sortBy = Offer::all()->filter(function(Offer $offer) use($request) {
+                return $offer->product->name == $request->input('game_name') && $offer->platform->name == $request->input('game_platform');
+            });
+
+            if($request->input('sort_by') == 'rating'){
+
+                $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })
+                    ->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                });
+
+            }
+            else{
+
+                $sortBy = $sortBy->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                })->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })->sortBy('discountPriceColumn');
+
+            }
+
+            $sortBy = $sortBy->map(function ($offer, $key) {
+                return [
+                    'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
+                    'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
+                    'price' => $offer->price, 'discount_price' => $offer->discountPriceColumn,
+                    'stock' => $offer->stock
+                ];
+            });
+
+            $current_user = Auth::user();
+
+            if($current_user == null)
+                $banned = false;
+            else{
+                $banned = $current_user->banned;
+            }
+            return response()->json(['offers' => array_values($sortBy->toArray()), 'current_user' => $current_user, 'banned' => $banned]);
+        }
     }
 }

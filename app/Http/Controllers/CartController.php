@@ -134,6 +134,7 @@ class CartController extends Controller
         }catch (AuthorizationException $e) {
             $loggedIn=false;
         }
+
         //If logged in -> Get the Cart from the database
         if($loggedIn){
             $user=$user->cart;
@@ -158,23 +159,21 @@ class CartController extends Controller
 
         $totalPrice = $collectionOffers->sum('discountPriceColumn');
 
-        $transactionResult = true;
 
-        if($page == 1){
-            return view('pages.cart.checkoutPage1',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn,
+        return view('pages.cart.checkout',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn, 'userCart' => $data,
                 'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
-        }
-        else if($page == 2){
-            return view('pages.cart.checkoutPage2',['totalPrice' => $totalPrice, 'data'=>$data,'loggedIn'=>$loggedIn,
-                'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
-        }
-
 
     }
 
     public function finalizeCheckout()
     {
-        return view('pages.cart.checkoutPage3',['loggedIn'=>$loggedIn,
+        if(true){
+            $transactionSucess = true;
+        }
+
+
+
+        return view('pages.cart.checkout',[
             'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
 
 
