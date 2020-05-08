@@ -50,6 +50,7 @@ class CartController extends Controller
     public function delete(Request $request,$cartId) {
 
         $cart = Cart::find($cartId);
+        $loggedIn=false;
 
         if(isset($cart)){
             try {
@@ -86,8 +87,7 @@ class CartController extends Controller
     
     public function add(Request $request){
 
-        
-        
+    
         try {
             $this->authorize('loggedIn');
             $user = Auth::user();
@@ -96,14 +96,24 @@ class CartController extends Controller
             $loggedIn=false;
         }
         
+        $offer=Offer::find($request->offer_id);
+        $stock=$offer->stock;
+
         $cart=new Cart;
 
-        if($loggedIn){            
+        if($loggedIn){       
+            
+           if(!$this->checkOfferStock($user->cart,$request->offer_id,$stock))
+                response(json_encode("Out of Stock"), 401);
+
             $cart->user_id=$user->id;
-            $cart->offer_id=$request->offer_id;
+            $cart->offer_id=$offer->id;
             $cart->save();
         }else{
-            
+        
+            if($request->session()->has('cart')&& !$this->checkOfferStock($request->session()->get('cart'),$request->offer_id,$stock))
+                return response(json_encode("Out of Stock"), 401);
+
             if($request->session()->has('cart')){            
                 $cart->id=count($request->session()->get('cart'));
             }else{
@@ -111,11 +121,27 @@ class CartController extends Controller
             }
 
             $cart->user_id=-1;
-            $cart->offer=Offer::find($request->offer_id);                        
+            $cart->offer_id=$offer->id;                        
             $request->session()->push('cart', $cart);
         }
 
         return response(json_encode("Sucess"), 200);
+    }
+    protected function checkOfferStock($arrayCart,$offerId,$stock){
+        
+        for($i=0;$i<count($arrayCart);$i++){
+            
+            $counter=0;
+
+            if($arrayCart[$i]->offer_id==$offerId){
+                $counter++;    
+            }
+
+            if($counter>=$stock)
+                return false;
+        }
+        
+        return true;
     }
 
     public function checkout(Request $request, $page)
