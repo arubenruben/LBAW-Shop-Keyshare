@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ActiveProduct;
 use App\Offer;
+use App\Platform;
 use App\Product;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -24,8 +25,21 @@ class OfferController extends Controller
             return redirect(url('/'));
         }
 
-        $active_products = ActiveProduct::all()->filter(function ($product) {
-            return $product->product;
+        $active_products = ActiveProduct::all()->map(function ($active_product) {
+            $product = $active_product->product;
+            $platforms = $product->platforms->map(function (Platform $platform){
+                return (object)[
+                    'id' => $platform->id,
+                    'name' => $platform->name,
+                    ];
+            });
+
+            return (object)[
+                'id' => $product->id,
+                'name' => $product->name,
+                'image' => $product->picture->url,
+                'platforms' => $platforms
+                ];
         });
 
         return view('pages.offer.add', ['products' => $active_products, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);

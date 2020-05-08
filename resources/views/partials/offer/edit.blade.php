@@ -26,9 +26,7 @@
             <div class="row mt-2">
                 <div class="col-12 flex-nowrap">
                     <div class="form-group">
-                        <label for="inputGameName">
-                            <h4>Keys</h4>
-                        </label>
+                        <h4>Keys</h4>
                         <div class="input-group">
                             <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key"
                                 value="55-FF-55">

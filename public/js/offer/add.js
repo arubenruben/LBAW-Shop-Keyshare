@@ -3,184 +3,85 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 const addEventListeners = () => {
-    let form = document.querySelector("form.needs-validation");
+    const product_image = document.querySelector("img.productPageImgPreview");
 
-    const email_btn = document.querySelector("#button_submit_email");
-    email_btn.addEventListener("click", () => {
-        let email_field = document.querySelector("#form_update_user #email-input");
-        const data = {
-            email: email_field.value
-        }
+    const game_choice = document.getElementById("game-selection");
+    game_choice.addEventListener("change", () => {
+        let selected = game_choice.options[game_choice.selectedIndex];
 
-        sendPost(data).then(res => {
-            let msg = document.querySelector("form.needs-validation #email_msg")
+        product_image.src = selected.getAttribute("data-img");
+        let platforms = JSON.parse(selected.getAttribute("data-platforms"));
 
-           if(res != "Success") {
-               email_field.style.border = 'solid 1px red';
-
-               if(msg === null) {
-                   msg = document.createElement("p");
-                   msg.setAttribute("id", "email_msg");
-                   msg.innerHTML = res['errors']['email'];
-                   msg.style.color = 'red';
-                   msg.style.textAlign = 'left';
-                   email_btn.parentNode.insertBefore(msg, email_btn);
-               } else {
-                   msg.innerHTML = res['errors']['email'];
-                   msg.style.color = 'red';
-                   msg.style.textAlign = 'left';
-               }
-           }
-           else {
-               email_field.style.border = 'solid 1px green';
-
-               if(msg === null) {
-                   msg = document.createElement("p");
-                   msg.setAttribute("id", "email_msg");
-                   msg.innerHTML = 'Changed email successfully';
-                   msg.style.color = 'green';
-                   msg.style.textAlign = 'left';
-                   email_btn.parentNode.insertBefore(msg, email_btn);
-               } else {
-                   msg.innerHTML = 'Changed email successfully';
-                   msg.style.color = 'green';
-                   msg.style.textAlign = 'left';
-               }
-           }
-        });
+        setPlatforms(platforms);
     });
 
-    const description_btn = document.querySelector("#button_submit_description");
-    description_btn.addEventListener("click", () => {
-        const description_field = document.querySelector("#form_update_user #description_textarea");
-        const data = {
-            description: description_field.value
-        }
+    const add_key = document.querySelector("section#key-input button.btn-blue");
+    add_key.addEventListener("click", addKey)
+}
 
-        sendPost(data).then(res => {
-            let msg = document.querySelector("form.needs-validation #description_msg")
+const setPlatforms = platforms => {
+    if(platforms == null || !Array.isArray(platforms)) {
+        return;
+    }
 
-            if(res != "Success") {
-                description_field.style.border = 'solid 1px red';
+    const platform_choice = document.getElementById("platform-selection");
 
-                if(msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "description_msg");
-                    msg.innerHTML = res['errors']['description'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                    description_btn.parentNode.insertBefore(msg, description_btn);
-                } else {
-                    msg.innerHTML = res['errors']['description'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                }
-            }
-            else {
-                description_field.style.border = 'solid 1px green';
+    for (let i = platform_choice.length - 1; i >= 0; i--) {
+        platform_choice.remove(i);
+    }
 
-                if(msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "description_msg");
-                    msg.innerHTML = 'Changed description successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
-                    description_btn.parentNode.insertBefore(msg, description_btn);
-                } else {
-                    msg.innerHTML = 'Changed description successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
-                }
-            }
-        });
-    });
+    for (let i = 0; i < platforms.length; i++){
+        let platform = platforms[i];
 
-    const paypal_btn = document.querySelector("#paypalButton");
-    paypal_btn.addEventListener("click", () => {
-        
-    });
+        let option = document.createElement("option");
+        option.value = platform.id;
+        option.text = platform.name;
+        platform_choice.add(option);
+    }
+}
 
-    const password_btn = document.querySelector("#button_submit_password");
-    password_btn.addEventListener("click", () => {
+const newKey = key => {
+    return `
+        <div class="input-group mt-2">
+            <input type="text" name="key[]" class="form-control mr-2" placeholder="Key" value="${key}">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-red"><i class="fas fa-times-circle"></i></button>
+            </span>
+        </div>
+    `;
+}
 
-        let oldPassword = (document.querySelector("#old-password-input"));
-        let newPassword = (document.querySelector("#new-password-input"));
-        let newPassword_confirmation = (document.querySelector("#confirm-password-input"));
+const addKey = () => {
+    let key_add = document.getElementById('key-input-add');
 
-        let oldPassword_value = oldPassword.value;
-        let newPassword_value = newPassword.value;
-        let newPassword_confirmation_value = newPassword_confirmation.value;
+    let key_error = document.getElementById('key-input-error');
+    if(key_add.value == null || key_add.value.length === 0){
+        key_error.innerText = "The key must not be empty!";
+        key_add.classList.add('border-danger')
+        key_error.classList.add('d-block')
+        return;
+    } else {
+        key_error.innerText = null;
+        key_add.classList.remove('border-danger');
+        key_error.classList.remove('d-block');
+    }
 
-        let invalid_feedback_new_password  = (document.querySelector("#new_password_invalid"));
-        let invalid_feedback_old_password  = (document.querySelector("#old_password_invalid"));
+    let key = newKey(key_add.value);
+    let added_keys = document.getElementById('key-input-added');
 
-        let valid_old = true;
-        let valid_new = true;
+    key_add.value = null;
+    added_keys.innerHTML += key;
 
-        if(oldPassword_value === ""){
-            oldPassword.className += " border-danger";
-            invalid_feedback_old_password.innerHTML = "Please fill out the old password";
-            invalid_feedback_old_password.className = "invalid-feedback d-block";
-            valid_old = false;
-        }
+    resetKeys();
+}
 
-        else{
-            if(oldPassword.classList.contains('border-danger')){
-                oldPassword.classList.remove('border-danger');
-                invalid_feedback_old_password.className = "invalid-feedback";
-            }
-        }
+const resetKeys = () => {
+    const keys_buttons = document.querySelectorAll('#key-input-added button');
 
-        if(newPassword_value === "" || newPassword_confirmation_value === ""){
-            newPassword.className += " border-danger";
-            newPassword_confirmation.className += " border-danger";
-            invalid_feedback_new_password.innerHTML = "Please provide and confirm a new password";
-            invalid_feedback_new_password.className = "invalid-feedback d-block";
-            valid_new = false;
-
-        }
-        else if(newPassword_value !== newPassword_confirmation_value) {
-            newPassword.className += " border-danger";
-            newPassword_confirmation.className += " border-danger";
-            invalid_feedback_new_password.innerHTML = "The passwords dont match";
-            invalid_feedback_new_password.className = "invalid-feedback d-block";
-            valid_new = false;
-
-        }
-        else{
-            invalid_feedback_new_password.innerHTML = "";
-            invalid_feedback_new_password.className = "invalid-feedback";
-
-            if(newPassword.classList.contains('border-danger')){
-                newPassword.classList.remove('border-danger');
-            }
-            if(newPassword_confirmation.classList.contains('border-danger')){
-                newPassword_confirmation.classList.remove('border-danger');
-            }
-        }
-
-        if(valid_new && valid_old) {
-
-            const data = {
-                oldPassword: oldPassword.value,
-                newPassword: newPassword.value,
-                newPassword_confirmation: newPassword_confirmation.value
-            }
-
-            sendPost(data).then(res => {
-                console.log(res);
-            });
-        }
-
-
-    });
-
-    const delete_account_btn = document.querySelector("#delete-account-confirmation");
-    delete_account_btn.addEventListener("click", () => {
-        const username=(document.querySelector("#delete-account-confirmation-input")).value
-        sendDelete(username)
-            .then(r=> console.log(r))
-            .then(window.location.replace("/"))
+    keys_buttons.forEach((key) => {
+        key.addEventListener("click", () => {
+            key.parentElement.parentElement.remove();
+        })
     });
 }
 
@@ -200,6 +101,41 @@ const sendPut = put => {
     return fetch("/user/", options)
         .then(res => res.json())
         .catch(error => console.error("Error: {error}"));
+}
+
+const addDiscount = () => {
+    let discount_add = document.querySelectorAll('#discount-input-add input');
+
+    let key_error = document.getElementById('discount-input-error');
+
+
+
+    let discount = newDiscount(discount_add[0].value, discount_add[1].value, discount_add[2].value);
+    let added_keys = document.getElementById('key-input-added');
+
+    let today = new Date();
+    let tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    discount_add[0].value = `${today.getUTCFullYear()}/${today.getUTCMonth()}/${today.getUTCDay()}`;
+    discount_add[1].value = `${tomorrow.getUTCFullYear()}/${tomorrow.getUTCMonth()}/${tomorrow.getUTCDay()}`;
+    discount_add[2].value = 1;
+
+    added_keys.innerHTML += key;
+
+    numberDiscounts();
+}
+
+const newDiscount = (start, end, rate) => {
+    return `
+        <tr>
+            <th scope="row">2</th>
+            <td><input type="date" class="mx-auto form-control" value="${start}"></td>
+            <td><input type="date" class="mx-auto form-control" value="${end}"></td>
+            <td class="w-25"><input type="number" class="mx-auto form-control" value="${rate}"></td>
+            <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
+        </tr>
+    `;
 }
 
 addEventListeners();
