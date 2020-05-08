@@ -191,7 +191,8 @@ class CartController extends Controller
 
     public function finalizeCheckout()
     {
-
+        return view('pages.cart.checkoutPage3',['loggedIn'=>$loggedIn,
+            'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
 
 
     }
