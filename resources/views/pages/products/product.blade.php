@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h3 id="product_name_platform" data_product_name={{$product->name}} data_product_platform={{$platformName}} >{{$product->name}} [{{$platformName}}]</h3>
+                <h3 id="product_name_platform" data_product_name="{{$product->name}}" data_product_platform="{{$platformName}}" >{{$product->name}} [{{$platformName}}]</h3>
             </div>
         </div>
 

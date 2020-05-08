@@ -39,7 +39,7 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
 
     if(current_user !== 'none'){
         html += ` <button id="add_offer_to_cart_{{$offer->id}}"
-                onclick="pressed_add_offer_to_cart(${$offer_id})" class="btn btn-orange"
+                onclick="pressed_add_offer_to_cart(${offer_id})" class="btn btn-orange"
                 ${banned ? 'disabled' : ''}><i class="fas fa-cart-plus"></i></button>`;
     }
     else{
@@ -57,7 +57,7 @@ const received = (response) => {
     let tableOffersBody= document.querySelector("#offers_body");
     let entriesTable = "";
     for(let i = 0; i < response.offers.length; i++) {
-        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.offers[i].current_user, response.offers[i].banned);
+        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned);
     }
 
     tableOffersBody.innerHTML = entriesTable;
@@ -96,6 +96,7 @@ function assembleData () {
     let data = {};
 
     data.game_name = game.getAttribute('data_product_name');
+    console.log(data.game_name);
     data.game_platform = game.getAttribute('data_product_platform');
 
     if(radioBestRating.checked){
@@ -107,8 +108,6 @@ function assembleData () {
 
     return data;
 }
-
-
 
 const sendPut = post => {
     const options = {
@@ -148,7 +147,7 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("api/product/sort?" + encodeForAjax(get), options)
+    return fetch("/api/product/sort?" + encodeForAjax(get), options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }

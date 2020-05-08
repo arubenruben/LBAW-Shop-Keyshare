@@ -237,10 +237,36 @@ class ProductController extends Controller
 
     public function sort(Request $request){
 
-        if($request->has('sort_by') && $request->has('game_name') && $request->has('game_platform')){
+        $sortBy = "";
+        if(!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform')){
             abort(300);
         }
+        else{
+            $sortBy = Offer::all();
+            $array = collect();
+            foreach ($sortBy as $offer){
+                if($offer->product->name == $request->game_name && $offer->platform->name == $request->game_platform)
+                    $array->add($offer);
+            }
 
+            $array = $array->map(function ($offer, $key) {
+                return [
+                    'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
+                    'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
+                    'price' => $offer->price, 'discount_price' => $offer->discountPriceColumn,
+                    'stock' => $offer->stock
+                ];
+            });
 
+            $current_user = Auth::user();
+
+            if($current_user == null)
+                $banned = false;
+            else{
+                $banned = $current_user->banned;
+            }
+
+            return response()->json(['offers' => array_values($array->toArray()), 'current_user' => $current_user, 'banned' => $banned]);
+        }
     }
 }
