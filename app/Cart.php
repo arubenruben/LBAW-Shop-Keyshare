@@ -53,4 +53,6 @@ class Cart extends Model
 
         return $this->price;
     }
+
+
 }

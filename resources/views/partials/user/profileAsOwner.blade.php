@@ -38,7 +38,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <img class="rounded-circle img-fluid mt-3" src="{{ asset('images/profile/'.$user->image->url) }}"
+          <img class="rounded-circle img-fluid mt-3" src="{{ asset('pictures/profile/'.$user->picture->url) }}"
             alt="Profile image" width="250" height="250">
           <form class="mt-3">
             <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
@@ -119,7 +119,7 @@
                   value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive"
                   data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
                 <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"
-                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('images/paypal/paypal.png') }}"
+                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
                     height="23"></button>
               </div>
             </div>

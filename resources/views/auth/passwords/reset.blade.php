@@ -2,7 +2,7 @@
 
 @section('header')
     <header id="headerFixed" class="navbar row">
-        <img class="img-fluid logo" src="{{ asset('images/logo/logo.png') }}" alt="Logo of KeyShare" />
+        <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
     </header>
 @endsection
 @section('navbar')

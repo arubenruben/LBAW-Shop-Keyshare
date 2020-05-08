@@ -112,7 +112,7 @@ class ProductController extends Controller
                 'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
                 'launch_date' => $product->launch_date, 'category' => $product->category->name,
                 'platforms' => $product->platforms, 'genres' => $product->genres,
-                'picture' => asset('/images/games/'.$product->image->url),
+                'picture' => asset('/pictures/games/'.$product->picture->url),
                 'price' => $product->active_offers->min(function (ActiveOffer $activeOffer){
                     return $activeOffer->offer->price;
                 })
@@ -213,9 +213,7 @@ class ProductController extends Controller
         return $prices;
     }
 
-    public function offers($productId, $platform){
-        return;
-    }
+
 
     public function getProduct($productName){
         $product=DB::table('products')->select('id')->where('name','=',$productName)->first();
@@ -231,8 +229,61 @@ class ProductController extends Controller
         $product = $this->getProduct($productName);
         $platform= $this->getPlatform($platformName);
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
-        $platformName =$platform->name;
-    
+        $offers = $offers->sortBy('discountPriceColumn');
+        $platformName = $platform->name;
         return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'breadcrumbs' => ['Product' => url('/product/')]]);
+    }
+
+    public function sort(Request $request){
+
+
+        if(!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform')){
+            abort(400);
+        }
+        else{
+
+            $sortBy = Offer::all()->filter(function(Offer $offer) use($request) {
+                return $offer->product->name == $request->input('game_name') && $offer->platform->name == $request->input('game_platform');
+            });
+
+            if($request->input('sort_by') == 'rating'){
+
+                $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })
+                    ->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                });
+
+            }
+            else{
+
+                $sortBy = $sortBy->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->rating;
+                })->sortByDesc(function (Offer $offer){
+                    return $offer->seller()->getResults()->num_sells;
+                })->sortBy('discountPriceColumn');
+
+            }
+
+            $sortBy = $sortBy->map(function ($offer, $key) {
+                return [
+                    'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
+                    'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
+                    'price' => $offer->price, 'discount_price' => $offer->discountPriceColumn,
+                    'stock' => $offer->stock
+                ];
+            });
+
+
+            $current_user = Auth::user();
+
+            if($current_user == null)
+                $banned = false;
+            else{
+                $banned = $current_user->banned;
+            }
+            return response()->json(['offers' => array_values($sortBy->toArray()), 'current_user' => $current_user, 'banned' => $banned]);
+        }
     }
 }

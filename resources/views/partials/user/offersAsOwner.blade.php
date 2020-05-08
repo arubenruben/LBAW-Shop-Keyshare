@@ -46,7 +46,7 @@
                                     <tr id="offer{{$currentOffer->id}}">
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="{{'/images/games/'.$currentOffer->product->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <img src="{{'/pictures/games/'.$currentOffer->product->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                     <h5 class="mb-0 d-inline-block"><a href="product.php" class="text-dark">{{$currentOffer->product->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$currentOffer->platform->name}}]</span>
                                                     <h6>Stock: {{$currentOffer->stock}} keys</h6>
@@ -110,7 +110,7 @@
                                     <tr>
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="{{'/images/games/'.$pastOffer->product->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <img src="{{'/pictures/games/'.$pastOffer->product->name.'/1.png'}}" alt="" width="150" class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                     <h5 class="mb-0 d-inline-block"><a href="#" class="text-dark">{{$pastOffer->product->name}}</a></h5><span class="text-muted font-weight-normal font-italic d-inline-block"> [{{$pastOffer->platform->name}}]</span>
                                                     <h6>Keys sold: {{count($pastOffer->keys)}}</h6>

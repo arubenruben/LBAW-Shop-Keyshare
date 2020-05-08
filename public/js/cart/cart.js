@@ -4,6 +4,8 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const cartItemCounter=document.querySelector("#shopping_cart_item_counter");
 const counter_products_cart=document.querySelector("#counter_products_cart");
 const url = '/cart';
+const totalPrice = document.querySelector("#total_price");
+let totalPriceNumber = 0;
 
 const addEventListeners = () => {
 
@@ -11,8 +13,13 @@ const addEventListeners = () => {
 
     buttons.forEach(button => {
         button.addEventListener('click',()=>{
-            const cartId=button.getAttribute('data_cart_id');
+            const cartId=button.getAttribute('data_cart_id')
+            const offerPrice=parseFloat(button.getAttribute('value_offer')).toFixed(2);
             event.preventDefault();
+            let totalPriceNumber = parseFloat(totalPrice.innerHTML).toFixed(2);
+            totalPriceNumber -= offerPrice;
+            totalPriceNumber = totalPriceNumber.toFixed(2);
+            totalPrice.innerHTML = totalPriceNumber;
             sendDelete(cartId).then(function() {
                 let tableEntry=document.querySelector('#row'+cartId);
                 tableEntry.remove();        

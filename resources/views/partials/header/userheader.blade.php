@@ -24,7 +24,7 @@
             <!-- User Image -->
             <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/profile/'.Auth::user()->image->url) }}" width="25"
+                <img src="{{ asset('pictures/profile/'.Auth::user()->picture->url) }}" width="25"
                     class="img-header rounded-circle" alt=""> {{Auth::user()->username}}
             </button>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">

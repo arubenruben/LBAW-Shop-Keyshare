@@ -105,8 +105,8 @@ class UserController extends Controller
             Auth::user()->paypal = $request->paypal;
         }
 
-        if (isset($request->image)) {
-            Auth::user()->image = $request->image;
+        if (isset($request->pictures)) {
+            Auth::user()->pictures = $request->pictures;
         }
         
         Auth::user()->save();
@@ -132,7 +132,7 @@ class UserController extends Controller
             return response(json_encode("You can't edit this profile"), 400);
         }
 
-        Auth::user()->image = '1';
+        Auth::user()->picture = '1';
         Auth::user()->save();
     }
 }
