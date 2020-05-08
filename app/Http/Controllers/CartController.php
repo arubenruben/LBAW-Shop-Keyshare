@@ -28,15 +28,6 @@ class CartController extends Controller
         //If logged in -> Get the Cart from the database
         if($loggedIn){          
             //Get Content in the session
-            if($request->session()->has('cart')){                
-                $cartItemsInSession=$request->session()->pull('cart');            
-                for($i=0;$i<count($cartItemsInSession);$i++){
-                    $cartEntry=new Cart;
-                    $cartEntry->user_id=$user->id;                
-                    $cartEntry->offer_id=$cartItemsInSession[$i]->offer->id;
-                    $cartEntry->save();
-                }
-            }
             $cart=$user->cart;
             
             for($i=0;$i<count($cart);$i++){

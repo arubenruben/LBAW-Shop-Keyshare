@@ -5,6 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Policies\CartPolicy;
+use App\Cart;
+use App\Offer;
 
 class LoginController extends Controller
 {
@@ -53,5 +61,20 @@ class LoginController extends Controller
     public function loggedOut(Request $request)
     {
         return redirect('/');
+    }
+    
+    public function authenticated($request, $user)
+    {
+        if($request->session()->has('cart')){                
+                $cartItemsInSession=$request->session()->pull('cart');            
+                for($i=0;$i<count($cartItemsInSession);$i++){
+                    $cartEntry=new Cart;
+                    $cartEntry->user_id=$user->id;                
+                    $cartEntry->offer_id=$cartItemsInSession[$i]->offer->id;
+                    $cartEntry->save();
+                }
+        }
+        
+        return redirect()->intended($this->redirectPath());
     }
 }
