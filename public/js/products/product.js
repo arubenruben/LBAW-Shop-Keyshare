@@ -10,8 +10,8 @@ let radioBestPrice=document.querySelector("#radio_best_price");
 let seeMoreOffers=document.querySelector("#see_more_offers");
 let closeMoreOffers=document.querySelector("#close_more_offers");
 
-seeMoreOffers.addEventListener('click', collapseOffers);
-closeMoreOffers.addEventListener('click', collapseOffers);
+//seeMoreOffers.addEventListener('click', collapseOffers);
+//closeMoreOffers.addEventListener('click', collapseOffers);
 
 btnText.addEventListener('click',collapseDescription);
 
@@ -118,17 +118,6 @@ function collapseOffers(){
 
 }
 
-
-function pressed_add_offer_to_cart(id){
-
-    let data={
-        offer_id:id
-    }
-    sendPut(data).then(
-        cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
-    );
-}
-
 function assembleData () {
 
     let game = document.querySelector("#product_name_platform");
@@ -149,7 +138,7 @@ function assembleData () {
     return data;
 }
 
-const sendPut = post => {
+function sendPut(post) {
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -203,3 +192,13 @@ function encodeForAjax(data) {
 
 radioBestPrice.addEventListener("click", sendRequest);
 radioBestRating.addEventListener("click", sendRequest);
+
+function pressed_add_offer_to_cart(id){
+
+    let data={
+        offer_id:id
+    }
+    sendPut(data).then(
+        cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
+    );
+}

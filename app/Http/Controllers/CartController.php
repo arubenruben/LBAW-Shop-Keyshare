@@ -16,6 +16,7 @@ class CartController extends Controller
 {
     public function show(Request $request)
     {    
+        $data=array();
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
@@ -37,9 +38,9 @@ class CartController extends Controller
                 }
             }
             $cart=$user->cart;
-
+            
             for($i=0;$i<count($cart);$i++){
-                $data[$i]=Cart::findOrFail($cart->id);
+                $data[$i]=Cart::findOrFail($cart[$i]->id);
             }
         }
         else if($request->session()->has('cart')){
@@ -57,9 +58,6 @@ class CartController extends Controller
 
     public function delete(Request $request,$cartId) {
 
-        /*
-        $loggedIn=false;
-
         $cart = Cart::find($cartId);
 
         if(isset($cart)){
@@ -73,18 +71,17 @@ class CartController extends Controller
         }
         //IF logged in delete the cart entry from the database
         if($loggedIn){
-
             $cart->delete();
+        }
         //If not logged in refresh the content of the session variable
-        }else if($request->session()->has('cart')){
-
+        else if($request->session()->has('cart')){
+            
             $cartSessionContent=$request->session()->get('cart');
             $tempArray=array();
             
             //Copy of session cart
             for($i=0;$i<count($cartSessionContent);$i++)
                 array_push($tempArray, $cartSessionContent[$i]);
-
 
             $request->session()->forget('cart');
     
@@ -94,30 +91,26 @@ class CartController extends Controller
             }        
         }
         return response(json_encode("Success"), 200);
-
-        */
     }
     
     public function add(Request $request){
 
-        /*
-
-        $loggedIn=true;
-
-        $cart=new Cart;
-            
+        
+        
         try {
-            $this->authorize('loggedIn',$cart);
-            $user = Auth::user();    
+            $this->authorize('loggedIn');
+            $user = Auth::user();
+            $loggedIn=true;    
         } catch (AuthorizationException $e) {
             $loggedIn=false;
         }
+        
+        $cart=new Cart;
 
         if($loggedIn){            
             $cart->user_id=$user->id;
             $cart->offer_id=$request->offer_id;
             $cart->save();
-            $request->session()->push('cart', $cart);
         }else{
             
             if($request->session()->has('cart')){            
@@ -127,14 +120,11 @@ class CartController extends Controller
             }
 
             $cart->user_id=-1;
-            $cart->offer=Offer::find($request->offer_id);
-                        
+            $cart->offer=Offer::find($request->offer_id);                        
             $request->session()->push('cart', $cart);
         }
 
-        */
-
-        return response(json_encode($cart), 200);
+        return response(json_encode("Sucess"), 200);
     }
 
     public function checkout(Request $request, $page)
