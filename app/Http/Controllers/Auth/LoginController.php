@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -61,7 +62,18 @@ class LoginController extends Controller
     }
 
     public function handleProviderCallback() {
-        $user = Socialite::driver('google')->stateless()->user();
-        return redirect('/');
+        try {
+            $user = Socialite::driver('google')->stateless()->user();
+        } catch (\Exception $e) {
+            return redirect('/');
+        }
+        
+        $existingUser = User::where('email', $user->email)->first();
+
+        if($existingUser){
+            // log them in
+            auth()->login($existingUser);
+            return redirect()->to('/');
+        }
     }
 }
