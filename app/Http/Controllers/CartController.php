@@ -16,42 +16,35 @@ class CartController extends Controller
 {
     public function show(Request $request)
     {    
-        $loggedIn=true;
-        $data=array();
-            
         try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
+            $loggedIn=true;
         }catch (AuthorizationException $e) {
             $loggedIn=false;    
         }
-        //If logged in -> Get the Cart from the database
-        if($loggedIn){  
         
-            if($request->session()->has('cart')){
-                
-                $cartItemsInSession=$request->session()->get('cart');
-                
+        //If logged in -> Get the Cart from the database
+        if($loggedIn){          
+            //Get Content in the session
+            if($request->session()->has('cart')){                
+                $cartItemsInSession=$request->session()->pull('cart');            
                 for($i=0;$i<count($cartItemsInSession);$i++){
                     $cartEntry=new Cart;
-                    $cartEntry->offer_id=$cartItemsInSession[$i]->offer->id;
                     $cartEntry->user_id=$user->id;                
+                    $cartEntry->offer_id=$cartItemsInSession[$i]->offer->id;
                     $cartEntry->save();
                 }
-                $request->session()->forget('cart');
             }
+            $cart=$user->cart;
 
-            $user=$user->cart;
-    
-            for($i=0;$i<count($user);$i++){
-                $data[$i]=Cart::findOrFail($user[$i]['id']);
+            for($i=0;$i<count($cart);$i++){
+                $data[$i]=Cart::findOrFail($cart->id);
             }
-            //Add cart content to User information
         }
-        //If not logged int get the cart from the session cookie if exists
         else if($request->session()->has('cart')){
+            //If not logged int get the cart from the session cookie if exists
             $cartItemsInSession=$request->session()->get('cart');
-
             for($i=0;$i<count($cartItemsInSession);$i++){
                 $data[$i]=$cartItemsInSession[$i];
             }
@@ -59,9 +52,12 @@ class CartController extends Controller
         
         return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
             'breadcrumbs' => ['Cart' => url('/cart')]]);
+            
     }
 
     public function delete(Request $request,$cartId) {
+
+        /*
         $loggedIn=false;
 
         $cart = Cart::find($cartId);
@@ -98,9 +94,13 @@ class CartController extends Controller
             }        
         }
         return response(json_encode("Success"), 200);
+
+        */
     }
     
     public function add(Request $request){
+
+        /*
 
         $loggedIn=true;
 
@@ -131,6 +131,8 @@ class CartController extends Controller
                         
             $request->session()->push('cart', $cart);
         }
+
+        */
 
         return response(json_encode($cart), 200);
     }
