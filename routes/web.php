@@ -31,14 +31,14 @@ Route::get('/', 'ProductController@home');
 Route::get('/search', 'ProductController@search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/query', 'ProductController@inputSearch')->name('query');
-Route::get('/api/product/{id}/{platform}/offers', 'ProductController@offers');
+Route::get('/api/product/sort', 'ProductController@sort');
 Route::get('product/{productName}/{platformName}', 'ProductController@show');
 
 // Cart
 Route::get('/cart', 'CartController@show');
 Route::put('/cart', 'CartController@add');
 Route::delete('/cart/{id}', 'CartController@delete');
-Route::get('/cart/checkout', 'CartController@checkout');
+Route::get('/cart/checkout/{page}', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finalizeCheckout');
 
 // Offers

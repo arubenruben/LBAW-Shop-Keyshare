@@ -213,9 +213,7 @@ class ProductController extends Controller
         return $prices;
     }
 
-    public function offers($productId, $platform){
-        return;
-    }
+
 
     public function getProduct($productName){
         $product=DB::table('products')->select('id')->where('name','=',$productName)->first();
@@ -231,8 +229,18 @@ class ProductController extends Controller
         $product = $this->getProduct($productName);
         $platform= $this->getPlatform($platformName);
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
+        $offers = $offers->sortBy('discountPriceColumn');
         $platformName =$platform->name;
     
         return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'breadcrumbs' => ['Product' => url('/product/')]]);
+    }
+
+    public function sort(Request $request){
+
+        if($request->has('sort_by') && $request->has('game_name') && $request->has('game_platform')){
+            abort(300);
+        }
+
+
     }
 }
