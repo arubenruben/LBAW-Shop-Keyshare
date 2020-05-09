@@ -10,7 +10,7 @@
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
-            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search"
+            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search"
                 placeholder="Search" aria-label="Search" name="input">
         </form>
     </div>
@@ -70,7 +70,7 @@
             <a class="mt-auto mb-auto ml-auto" href="{{ url('/search') }}">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
-            <input id="searchBar" class="form-control mr-auto mt-auto mb-auto mr-auto" type="search"
+            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search"
                 placeholder="Search" aria-label="Search" name="input">
         </form>
         <div class="row flex-nowrap justify-content-around mt-3">

@@ -158,14 +158,14 @@ function switchOffers() {
             },
             method: 'get',
             credentials: "same-origin",
-        }
+        }.catch(
+            bodyTableOffersRating.style.display = "none",
+            bodyTableOffersPrice.style.display = "table-row-group"
+        )
 
-        else {
-            bodyTableOffersRating.style.display = "none";
-            bodyTableOffersPrice.style.display = "table-row-group";
-        }
+
 
     }
-
-    radioBestPrice.addEventListener("click", sendRequest);
-    radioBestRating.addEventListener("click", sendRequest);
+}
+radioBestPrice.addEventListener("click", sendRequest);
+radioBestRating.addEventListener("click", sendRequest);

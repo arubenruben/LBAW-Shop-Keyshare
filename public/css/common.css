@@ -159,7 +159,7 @@ header.navbar {
     height: 5rem;
 }
 
-#searchBar {
+#headerFixed .searchBar {
     width: 70%;
     max-width: 35rem;
 }
