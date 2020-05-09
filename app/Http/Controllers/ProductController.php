@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    /** Product listings functions */
     private function getProducts() : \Illuminate\Support\Collection {
         $filtered = $products = Product::all()->filter(function (Product $product){
             return ActiveProduct::find($product->id) !== null;
@@ -213,8 +214,7 @@ class ProductController extends Controller
         return $prices;
     }
 
-
-
+    /** Individual Product functions */
     public function getProduct($productName){
         $product=DB::table('products')->select('id')->where('name','=',$productName)->first();
         return Product::findOrFail($product->id);    
@@ -258,7 +258,6 @@ class ProductController extends Controller
     }
 
     public function sort(Request $request){
-
 
         if(!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform')){
             abort(400);

@@ -55,7 +55,7 @@
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target="#userFeedback{{ $user->id }}"
+          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}"
             class="btn btn-blue btn-sm">See all feedback</button>
         </div>
       </div>

@@ -32,4 +32,11 @@ class Key extends Model
     public function report(){
         return $this->hasOne('App\Report');
     }
+
+    /**
+     * The feedback the key is related to
+     */
+    public function feedback(){
+        return $this->hasOne('App\Feedback');
+    }
 }
