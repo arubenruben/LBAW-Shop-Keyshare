@@ -176,9 +176,28 @@ const addEventListeners = () => {
             .then(r => console.log(r))
             .then(window.location.replace("/"))
     });
+
+    const uploadImageForm = document.querySelector('#form-img-upload');
+
+    uploadImageForm.addEventListener('change', () => {
+
+        const fileBlob = document.querySelector('#img-upload').files[0];
+
+        const fileReader = new FileReader();
+
+        fileReader.onload = function () {
+            const imgPreview = document.querySelector('#profile-image');
+            const imgPreviewHeader = document.querySelector('#profile-image-icon');
+            imgPreview.setAttribute('src', fileReader.result);
+            imgPreviewHeader.setAttribute('src', fileReader.result);
+        }
+
+        fileReader.readAsDataURL(fileBlob);
+    });
 }
 
 const sendPost = post => {
+
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -188,7 +207,7 @@ const sendPost = post => {
         },
         method: 'post',
         credentials: "same-origin",
-        body: JSON.stringify(post)
+        body: JSON.stringify(post),
     }
 
     return fetch("/user/", options)
@@ -210,6 +229,27 @@ const sendDelete = username => {
     return fetch(url, options)
         .then(res => res.json())
         .catch(error => console.error("Error:" + error));
+}
+
+const uploadFile = file => {
+    FormData
+
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'post',
+        credentials: "same-origin",
+        body: file,
+    }
+
+    return fetch("/user/", options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: {error}"));
+
 }
 
 const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) => {

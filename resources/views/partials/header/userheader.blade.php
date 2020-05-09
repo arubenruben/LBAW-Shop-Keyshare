@@ -10,8 +10,8 @@
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
-            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search"
-                placeholder="Search" aria-label="Search" name="input">
+            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
+                aria-label="Search" name="input">
         </form>
     </div>
     <!--Buttons-->
@@ -24,8 +24,8 @@
             <!-- User Image -->
             <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('pictures/profile/'.Auth::user()->picture->url) }}" width="25"
-                    class="img-header rounded-circle" alt=""> {{Auth::user()->username}}
+                <img id="profile-image-icon" src="{{ asset('pictures/profile/'.Auth::user()->picture->url) }}"
+                    width="25" class="img-header rounded-circle" alt=""> {{Auth::user()->username}}
             </button>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{ url('/user/'.Auth::user()->username) }}">My Profile</a>
@@ -70,8 +70,8 @@
             <a class="mt-auto mb-auto ml-auto" href="{{ url('/search') }}">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
-            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search"
-                placeholder="Search" aria-label="Search" name="input">
+            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
+                aria-label="Search" name="input">
         </form>
         <div class="row flex-nowrap justify-content-around mt-3">
             @if (!Auth::check())

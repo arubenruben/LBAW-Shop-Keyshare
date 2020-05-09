@@ -39,12 +39,12 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <img class="rounded-circle img-fluid mt-3" src="{{ asset('pictures/profile/'.$user->picture->url) }}"
-            alt="Profile image" width="250" height="250">
-          <form class="mt-3">
+          <img id="profile-image" class="rounded-circle img-fluid mt-3"
+            src="{{ asset('pictures/profile/'.$user->picture->url) }}" alt="Profile image" width="250" height="250">
+          <form id="form-img-upload" class="mt-3" enctype="multipart/form-data">
             <span class="btn btn-sm btn-blue btn-file">
               <i class="fas fa-camera-retro"></i>
-              Browse <input type="file">
+              Browse <input id="img-upload" type="file">
             </span>
             <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>
           </form>
