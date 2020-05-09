@@ -1,15 +1,15 @@
-<div class="modal fade bd-modal-lg{{$offer->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-modal-lg{{$seller->username}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-around mt-2 row">
                 <div class="col-9 text-left">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <h4>{{$offer->seller->username}}</h4>
-                            <p><i class="fas fa-thumbs-up cl-success" ></i><span class="font-weight-bold cl-success">{{$offer->seller->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$offer->seller->num_sells}} </p>
+                            <h4>{{$seller->username}}</h4>
+                            <p><i class="fas fa-thumbs-up cl-success" ></i><span class="font-weight-bold cl-success">{{$seller->rating}}%</span> | <i class="fas fa-shopping-cart"></i> {{$seller->num_sells}} </p>
                         </div>
                         <div class="col-md-3 text-left">
-                            <a href="{{route('profile', ['username' => $offer->seller->username])}}" class="btn btn-sm btn-blue"><i class="fas fa-user-alt d-inline-block"></i> <span class="d-inline-block">View profile </span></a>
+                            <a href="{{route('profile', ['username' => $seller->username])}}" class="btn btn-sm btn-blue"><i class="fas fa-user-alt d-inline-block"></i> <span class="d-inline-block">View profile </span></a>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <div class="modal-body">
                 <ul id="userNavbar" class="nav nav-tabs justify-content-center p-3 flex-nowrap">
                     @php $positive = 0; $negative = 0; @endphp
-                    @foreach($offer->seller->offers->$offer as $offer)
+                    @foreach($seller->offers as $offer)
                         @foreach($offer->keys as $key)
                             @if($key->feedback !== null)
                                 @if($key->feedback->evaluation)
@@ -50,16 +50,18 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white">
-                                @foreach($offer->seller->offers->keys as $key)
-                                    @if($key->feedback !== null)
-                                        @if($key->feedback->evaluation)
-                                            <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
-                                        @else
-                                            <td class="text-center align-middle"><i class="fas fa-thumbs-down cl-fail"></i></td>
+                                @foreach($seller->offers as $offer)
+                                    @foreach($offer->keys as $key)
+                                        @if($key->feedback !== null)
+                                            @if($key->feedback->evaluation)
+                                                <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
+                                            @else
+                                                <td class="text-center align-middle"><i class="fas fa-thumbs-down cl-fail"></i></td>
+                                            @endif
+                                            <td class="text-center align-middle">{{$key->feedback->evaluation_date}}</td>
+                                            <td class="text-center align-middle"><strong>{{$key->feedback->comment}}</strong></td>
                                         @endif
-                                        <td class="text-center align-middle">{{$key->feedback->evaluation_date}}</td>
-                                        <td class="text-center align-middle"><strong>{{$key->feedback->comment}}</strong></td>
-                                    @endif
+                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>

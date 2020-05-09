@@ -20,7 +20,7 @@
     @else
         @include('partials.user.profileAsGuest', ['user' => $user])
     @endif
-    @include('partials.feedback', ['user' => $user])
+    @include('partials.feedback.feedback', ['seller' => $user])
 @endsection
 
 @section('footer')

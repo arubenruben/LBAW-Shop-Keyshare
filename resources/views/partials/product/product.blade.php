@@ -68,7 +68,7 @@
                             @foreach($offers as $offer)
                                 @if($i < 10)
                                     @include('partials.product.product_offer_item',['offer'=>$offer, 'display' => true])
-                                    @include('partials.feedback.feedback')
+                                    @include('partials.feedback.feedback', ['seller' => $offer->seller])
                                 @elseif($i >= 10)
                                     @include('partials.product.product_offer_item',['offer'=>$offer, 'display' => false])
                                 @endif
