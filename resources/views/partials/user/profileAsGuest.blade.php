@@ -18,7 +18,7 @@
             </div>
             <div class="row mt-2 mb-5">
                 <div class="col-sm-12 text-center">
-                    <button data-toggle="modal" data-target="#userFeedback{{ $user->id }}" class="btn btn-blue btn-sm mt-2 ">See all feedback</button>
+                    <button data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm mt-2 ">See all feedback</button>
                 </div>
             </div>
         </div>
