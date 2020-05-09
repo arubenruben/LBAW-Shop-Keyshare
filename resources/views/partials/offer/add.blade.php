@@ -64,7 +64,7 @@
     <hr>
 
     <div class="row">
-        <div class="col mt-5" id="discount-input">
+        <section class="col mt-5" id="discount-input">
             <h3>Discounts</h3>
             <table class="table table-responsive mt-2 text-center">
                 <thead>
@@ -78,9 +78,9 @@
                 </thead>
                 <tbody>
                     <tr id = "discount-input-add">
-                        <th scope="row">1</th>
-                        <td><input type="date" class="mx-auto form-control" value="{{ Carbon\Carbon::now()->toString() }}"></td>
-                        <td><input type="date" class="mx-auto form-control" value="{{ Carbon\Carbon::tomorrow()->toString() }}"></td>
+                        <th scope="row"></th>
+                        <td><input type="date" class="mx-auto form-control" value="{{ date('Y-m-d') }}"></td>
+                        <td><input type="date" class="mx-auto form-control" value="{{ date('Y-m-d', time() + (24 * 60 * 60)) }}"></td>
                         <td class="w-25"><input type="number" class="mx-auto form-control" min="1" max="99" value="1"></td>
                         <td></td>
                     </tr>
@@ -96,22 +96,22 @@
                     </button>
                 </div>
             </div>
-        </div>
-        <div class="col mt-5" id="price-input">
+        </section>
+        <div class="col mt-5">
             <h3>Billing</h3>
             <div class="input-group mt-5">
-                <label for="exampleInputEmail1">
-                    <h5 class="pt-1">Price</h5>
+                <label for="price-input" class="pt-1 font-weight-bold">
+                    Price Per Key
                 </label>
-                <input type="number" name="price" class="form-control ml-2"/>
+                <input type="number" id="price-input" name="price" min="1" class="form-control ml-2"/>
             </div>
 
             <div class="form-group mt-4">
-                <label for="paypal">
-                    <h5>Billing Email</h5>
+                <label for="paypal" class="font-weight-bold">
+                    Billing Email
                 </label>
                 <div class="input-group">
-                    <input type="email" name="paypal" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="" disabled>
+                    <input type="email" id="paypal" name="paypal" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="" disabled>
                     <span class="input-group-btn">
                             <button type="button" id="paypalButton" class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="{{ asset('/pictures/paypal/paypal.png') }}" height="26"></button>
                             <button type="button" id="paypalButton" class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="{{ asset('/pictures/paypal/paypalLogo.png') }}" height="26"></button>

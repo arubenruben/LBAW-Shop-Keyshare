@@ -17,6 +17,9 @@ const addEventListeners = () => {
 
     const add_key = document.querySelector("section#key-input button.btn-blue");
     add_key.addEventListener("click", addKey)
+
+    const add_discount = document.querySelector("section#discount-input button.btn-blue");
+    add_discount.addEventListener("click", addDiscount)
 }
 
 const setPlatforms = platforms => {
@@ -103,39 +106,145 @@ const sendPut = put => {
         .catch(error => console.error("Error: {error}"));
 }
 
+const newDiscount = (index, start, end, rate) => {
+    let discount = document.createElement("tr");
+    discount.innerHTML = `    
+            <th scope="row">${index}</th>
+            <td><input type="date" name="discount[][start]" class="mx-auto form-control" value="${start}" readonly></td>
+            <td><input type="date" name="discount[][end]" class="mx-auto form-control" value="${end}" readonly></td>
+            <td class="w-25"><input type="number" name="discount[][rate]" class="mx-auto form-control" value="${rate}" readonly></td>
+            <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
+        `;
+
+    return discount;
+}
+
 const addDiscount = () => {
-    let discount_add = document.querySelectorAll('#discount-input-add input');
+    let discounts = document.querySelector('#discount-input tbody');
+    let discount_inputs = document.querySelectorAll('#discount-input-add input');
+    let discount_add = document.getElementById('discount-input-add');
 
-    let key_error = document.getElementById('discount-input-error');
+    if(!verifyDiscount(discount_inputs)){
+        return;
+    }
 
-
-
-    let discount = newDiscount(discount_add[0].value, discount_add[1].value, discount_add[2].value);
-    let added_keys = document.getElementById('key-input-added');
+    let discount = newDiscount(discounts.children.length, discount_inputs[0].value, discount_inputs[1].value, discount_inputs[2].value);
 
     let today = new Date();
     let tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
 
-    discount_add[0].value = `${today.getUTCFullYear()}/${today.getUTCMonth()}/${today.getUTCDay()}`;
-    discount_add[1].value = `${tomorrow.getUTCFullYear()}/${tomorrow.getUTCMonth()}/${tomorrow.getUTCDay()}`;
-    discount_add[2].value = 1;
+    discount_inputs[0].setAttribute("value", formatDate(today));
+    discount_inputs[1].setAttribute("value", formatDate(tomorrow));
+    discount_inputs[2].value = 1;
 
-    added_keys.innerHTML += key;
+    discounts.insertBefore(discount, discount_add);
 
-    numberDiscounts();
+    resetDiscounts();
 }
 
-const newDiscount = (start, end, rate) => {
-    return `
-        <tr>
-            <th scope="row">2</th>
-            <td><input type="date" class="mx-auto form-control" value="${start}"></td>
-            <td><input type="date" class="mx-auto form-control" value="${end}"></td>
-            <td class="w-25"><input type="number" class="mx-auto form-control" value="${rate}"></td>
-            <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
-        </tr>
-    `;
+const formatDate = (date) => {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    if (day < 10) {
+        day = "0" + day;
+    }
+
+    return [year, month, day].join("-");
+}
+
+const isValidDate = (date) => {
+    return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(date);
+}
+
+const verifyDiscount = (discount_inputs) => {
+    const discount_error = document.getElementById('discount-input-error');
+    const start = discount_inputs[0];
+    const end = discount_inputs[1];
+    const rate = discount_inputs[2];
+
+    discount_error.innerText = null;
+    discount_error.classList.remove('d-block');
+    start.classList.remove('border-danger');
+    end.classList.remove('border-danger');
+    rate.classList.remove('border-danger');
+
+    if(start.value == null){
+        discount_error.innerText = "The start date must not be empty.";
+        start.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(end.value == null){
+        discount_error.innerText = "The end date must not be empty.";
+        start.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(rate.value == null){
+        discount_error.innerText = "The discount rate must not be empty.";
+        rate.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(!isValidDate(start.value)){
+        discount_error.innerText = "The start date must be in the correct format and be valid.";
+        start.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(!isValidDate(end.value)){
+        discount_error.innerText = "The end date must be in the correct format and be valid.";
+        end.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(rate.value < 1 || rate.value > 99 ){
+        discount_error.innerText = "The discount rate must be between 1% and 99%.";
+        rate.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    if(new Date(end.value) <= new Date(start.value) ){
+        discount_error.innerText = "The end date must be at least one day after the start date.";
+        start.classList.add('border-danger');
+        end.classList.add('border-danger');
+        discount_error.classList.add('d-block');
+        return false;
+    }
+
+    return true;
+}
+
+const resetDiscounts = () => {
+    const deleteButtons = document.querySelectorAll('#discount-input tbody button');
+
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            button.parentElement.parentElement.remove();
+            numberDiscounts();
+        })
+    })
+}
+
+const numberDiscounts = () => {
+    const discounts_headers = document.querySelectorAll('#discount-input tbody th');
+
+    for (let i = 0; i < discounts_headers.length - 1; i++) {
+        discounts_headers[i].innerHTML = String(i + 1);
+    }
 }
 
 addEventListeners();
