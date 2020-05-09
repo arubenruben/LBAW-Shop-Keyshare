@@ -3,20 +3,20 @@
 @section('title')product @endsection
 
 @section('javascript')
-    <script src="{{ asset('js/products/product.js') }}" defer></script>
-    <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
+<script src="{{ asset('js/products/product.js') }}" defer></script>
+<script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
 @endsection
 
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
+@include('partials.navbar.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
 @endsection
 
 @section('content')
-    @include('partials.product.product')
+@include('partials.product.product')
 @endsection
 
 @section('footer')
-    @include('partials.footer.footer')
+@include('partials.footer.footer')
 @endsection

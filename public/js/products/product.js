@@ -3,22 +3,22 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 let dots = document.getElementById("dots");
 let moreText = document.getElementById("more");
 let btnText = document.getElementById("moreTextButton");
-let cartItemCounter=document.querySelector("#shopping_cart_item_counter");
-let radioBestRating=document.querySelector("#radio_best_rating");
-let radioBestPrice=document.querySelector("#radio_best_price");
-let seeMoreOffers=document.querySelector("#see_more_offers");
-let closeMoreOffers=document.querySelector("#close_more_offers");
-let bodyTableOffersPrice=document.querySelector("#offers_sort_price");
-let bodyTableOffersRating=document.querySelector("#offers_sort_rating");
+let cartItemCounter = document.querySelector("#shopping_cart_item_counter");
+let radioBestRating = document.querySelector("#radio_best_rating");
+let radioBestPrice = document.querySelector("#radio_best_price");
+let seeMoreOffers = document.querySelector("#see_more_offers");
+let closeMoreOffers = document.querySelector("#close_more_offers");
+let bodyTableOffersPrice = document.querySelector("#offers_sort_price");
+let bodyTableOffersRating = document.querySelector("#offers_sort_rating");
 
 seeMoreOffers.addEventListener('click', collapseOffers);
 closeMoreOffers.addEventListener('click', collapseOffers);
 
-btnText.addEventListener('click',collapseDescription);
+btnText.addEventListener('click', collapseDescription);
 
-const templateEntryOffer = (username, rating, offer_id,  num_sells, price, discount_price, stock, current_user, banned, display) => {
-    let html =  `<tr class="offer`
-    if(display == true)
+const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
+    let html = `<tr class="offer`
+    if (display == true)
         html += ' offer_outside" style="display: none;';
 
     html += `>
@@ -33,39 +33,36 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
         </div>
     </td>`;
 
-    if(price !== discount_price) {
-        html += `<td class="text-center align-middle"><del><strong> `  + '$' +  `${price}</strong></del><strong
-            class="cl-green pl-2">`  + '$' +  `${discount_price} </strong></td>`;
-    }
-    else
-        html += ` <td class="text-center align-middle"><strong>`  + '$' +  `${price}</strong></td>`;
+    if (price !== discount_price) {
+        html += `<td class="text-center align-middle"><del><strong> ` + '$' + `${price}</strong></del><strong
+            class="cl-green pl-2">` + '$' + `${discount_price} </strong></td>`;
+    } else
+        html += ` <td class="text-center align-middle"><strong>` + '$' + `${price}</strong></td>`;
 
-    html +=  `<td class="text-center align-middle">
+    html += `<td class="text-center align-middle">
         <div class="btn-group-justified">`;
 
-    if(current_user !== 'none'){
+    if (current_user !== 'none') {
         html += ` <button id="add_offer_to_cart_{{$offer->id}}"
                 onclick="pressed_add_offer_to_cart(${offer_id})" class="btn btn-orange"
                 ${banned ? 'disabled' : ''}><i class="fas fa-cart-plus"></i></button>`;
-    }
-
-    else{
-        html +=  `<button id="add_offer_to_cart_{{$offer->id}}"
+    } else {
+        html += `<button id="add_offer_to_cart_{{$offer->id}}"
                     onclick="pressed_add_offer_to_cart(${offer_id})" class="btn btn-orange"><i class="fas fa-cart-plus"></i></button>`
 
     }
-    html +=` </div> </td> </tr>`;
+    html += ` </div> </td> </tr>`;
 
     return html;
 }
 
 const received = (response) => {
-    let tableOffersBody= document.querySelector("#offers_body");
+    let tableOffersBody = document.querySelector("#offers_body");
     let entriesTable = "";
     let boolean;
 
-    for(let i = 0; i < response.offers.length; i++) {
-        if(i < 10)
+    for (let i = 0; i < response.offers.length; i++) {
+        if (i < 10)
             boolean = false;
         else
             boolean = true;
@@ -89,43 +86,43 @@ function collapseDescription() {
     }
 }
 
-function collapseOffers(){
+function collapseOffers() {
     let allMoreOffers = document.querySelectorAll(".offer_outside");
 
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
         seeMoreOffers.style.display = "block";
         closeMoreOffers.style.display = "none";
-        for(let i = 0; i < allMoreOffers.length; i++){
+        for (let i = 0; i < allMoreOffers.length; i++) {
             allMoreOffers[i].style.display = "none";
         }
-    } else if(closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")){
+    } else if (closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")) {
         closeMoreOffers.style.display = "block";
         seeMoreOffers.style.display = "none";
-        for(let i = 0; i < allMoreOffers.length; i++){
+        for (let i = 0; i < allMoreOffers.length; i++) {
             allMoreOffers[i].style.display = "table-row";
         }
     }
 
 }
 
-function pressed_add_offer_to_cart(id){
-    let data={
-        offer_id:id
+function pressed_add_offer_to_cart(id) {
+    let data = {
+        offer_id: id
     }
 
     sendPut(data).then(
-        cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
+        cartItemCounter.innerHTML = parseInt(cartItemCounter.innerHTML) + 1.0
     );
 }
 
-function assembleData () {
+function assembleData() {
     let game = document.querySelector("#product_name_platform");
     let data = {};
 
     data.game_name = game.getAttribute('data_product_name');
     data.game_platform = game.getAttribute('data_product_platform');
 
-    if(radioBestRating.checked) data.sort_by = "rating";
+    if (radioBestRating.checked) data.sort_by = "rating";
     else data.sort_by = "price";
 
     return data;
@@ -149,26 +146,26 @@ const sendPut = post => {
         .catch(error => console.error("Error: {error}"));
 }
 
-function switchOffers(){
+function switchOffers() {
 
-const sendGet = get => {
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'get',
-        credentials: "same-origin",
+    const sendGet = get => {
+        const options = {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json, text-plain, */*",
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": token
+            },
+            method: 'get',
+            credentials: "same-origin",
+        }
+
+        else {
+            bodyTableOffersRating.style.display = "none";
+            bodyTableOffersPrice.style.display = "table-row-group";
+        }
+
     }
 
-    else{
-        bodyTableOffersRating.style.display = "none";
-        bodyTableOffersPrice.style.display = "table-row-group";
-    }
-
-}
-
-radioBestPrice.addEventListener("click", sendRequest);
-radioBestRating.addEventListener("click", sendRequest);
+    radioBestPrice.addEventListener("click", sendRequest);
+    radioBestRating.addEventListener("click", sendRequest);

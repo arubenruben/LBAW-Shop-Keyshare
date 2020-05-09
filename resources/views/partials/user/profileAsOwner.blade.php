@@ -9,11 +9,13 @@
         </div>
         <div class="modal-body text-left">
           <span> Confirm </span>
-          <input id="delete-account-confirmation-input" type="text-area" class="form-control userDetailsForm mt-2 d-inline-block"
-            id="exampleFormControlTextarea1" placeholder="Type your username to proceed"></input>
+          <input id="delete-account-confirmation-input" type="text-area"
+            class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
+            placeholder="Type your username to proceed"></input>
         </div>
         <div class="modal-footer">
-          <div class="col text-left"><button  id="delete-account-confirmation" class="btn btn-blue"><i class="fas fa-check mr-2"></i>Yes</button></div>
+          <div class="col text-left"><button id="delete-account-confirmation" class="btn btn-blue"><i
+                class="fas fa-check mr-2"></i>Yes</button></div>
           <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i
                 class="fas fa-times mr-2"></i>Cancel</button></div>
         </div>
@@ -55,8 +57,8 @@
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}"
-            class="btn btn-blue btn-sm">See all feedback</button>
+          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See
+            all feedback</button>
         </div>
       </div>
     </div>

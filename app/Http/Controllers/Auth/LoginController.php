@@ -82,7 +82,7 @@ class LoginController extends Controller
             auth()->login($existingUser);
             return redirect()->to('/');
         }
-
+    }
 
     public function authenticated($request, $user) {
         if($request->session()->has('cart')){                

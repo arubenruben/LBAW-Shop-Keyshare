@@ -10,7 +10,6 @@
             <img class="img-fluid productPageImgPreview" src="{{asset('pictures/games/default.png')}}" />
         </div>
         <div class="col-12 col-md-7 mt-2">
-
             <section class="row">
                 <div class="col-12">
                     <div class="form-group">
@@ -29,7 +28,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="row mt-2">
                 <div class="col-12 flex-nowrap">
 
@@ -38,10 +36,9 @@
                         <div class="input-group">
                             <input type="text" name="key[]" class="form-control mr-2" placeholder="Key" value="">
                             <span class="input-group-btn">
-                                    <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
+                                <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
                             </span>
                         </div>
-
                         <div class="row mt-3 flex-nowrap">
                             <div class="col-12 text-center">
                                 <button class="btn btn-blue text-center">
@@ -65,34 +62,37 @@
                 <div class="col-12">
                     <table class="table table-responsive mt-2 text-center">
                         <thead>
-                        <tr>
-                            <th scope="col">Sale Nr</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Percentage</th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th scope="col">Sale Nr</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
+                                <th scope="col">Percentage</th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>2020/03/15</td>
-                            <td>2020/03/20</td>
-                            <td>40%</td>
-                            <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>2020/04/15</td>
-                            <td>2020/05/20</td>
-                            <td>30%</td>
-                            <td><button class="btn btn-red ml-2"><i class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button></td>
-                        </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>2020/03/15</td>
+                                <td>2020/03/20</td>
+                                <td>40%</td>
+                                <td><button class="btn btn-red ml-2"><i
+                                            class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>2020/04/15</td>
+                                <td>2020/05/20</td>
+                                <td>30%</td>
+                                <td><button class="btn btn-red ml-2"><i
+                                            class="fas fa-times-circle mt-auto mb-auto d-inline-block"></i></button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
             <div class="row mt-1">
                 <div class="col text-center">
                     <button class="btn btn-blue ml-2">
@@ -111,23 +111,23 @@
 
                 <input type="text" class="form-control ml-2" id="exampleInputEmail1" />
             </div>
-
-
-
             <div class="form-group mt-4">
                 <label for="inputGameBillingEmail">
                     <h5>Billing Email</h5>
                 </label>
 
                 <div class="input-group">
-                    <input type="email" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="up2000@fe.up.pt" disabled>
+                    <input type="email" class="form-control mt-auto mb-auto" placeholder="Billing Email"
+                        value="up2000@fe.up.pt" disabled>
                     <span class="input-group-btn">
-                            <button id="paypalButton" class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../assets/pictures/paypal/paypal.png" height="26"></button>
-                            <button id="paypalButton" class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="../../assets/pictures/paypal/paypalLogo.png" height="26"></button>
-                        </span>
+                        <button id="paypalButton"
+                            class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img
+                                src="../../assets/pictures/paypal/paypal.png" height="26"></button>
+                        <button id="paypalButton"
+                            class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img
+                                src="../../assets/pictures/paypal/paypalLogo.png" height="26"></button>
+                    </span>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -136,7 +136,6 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-orange px-5 py-2">Submit Offer</button>
             </div>
-
         </div>
     </div>
 </form>

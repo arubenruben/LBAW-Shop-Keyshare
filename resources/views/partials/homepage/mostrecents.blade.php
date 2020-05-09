@@ -1,4 +1,3 @@
-<!-- most recent -->
 <article>
     <header class="row mt-5 ml-3">
         <div class="col-8 pl-0">
@@ -15,7 +14,7 @@
     <div class="col mb-5">
         <article class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
             @foreach ($data as $card)
-                @include('partials.product.productcard',['card'=>$card])
+            @include('partials.product.productcard',['card'=>$card])
             @endforeach
         </article>
     </div>
