@@ -4,6 +4,7 @@
 @import "user.css";
 @import "report.css";
 @import "common.css";
+
 html {
     height: 100%;
     margin: 0;
@@ -586,4 +587,24 @@ li.section.status-bar-circle:before {
 .adminUserTableImage {
     max-width: 5em;
     max-height: 5em;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
 }

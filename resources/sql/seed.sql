@@ -65,7 +65,7 @@ CREATE TABLE users (
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
   password TEXT NOT NULL,
-  rating INTEGER DEFAULT NULL,
+  rating INTEGER DEFAULT 100,
   birth_date date NOT NULL,
   paypal TEXT,
   picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,

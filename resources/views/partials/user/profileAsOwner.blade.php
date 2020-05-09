@@ -23,7 +23,6 @@
     </div>
   </div>
   @if($user->banned())
-
   <div class="row mt-5 mb-2">
     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal"
       data-target="#modalAppeal">
@@ -43,7 +42,10 @@
           <img class="rounded-circle img-fluid mt-3" src="{{ asset('pictures/profile/'.$user->picture->url) }}"
             alt="Profile image" width="250" height="250">
           <form class="mt-3">
-            <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
+            <span class="btn btn-sm btn-blue btn-file">
+              <i class="fas fa-camera-retro"></i>
+              Browse <input type="file">
+            </span>
             <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>
           </form>
         </div>
@@ -125,11 +127,9 @@
                     height="23"></button>
               </div>
             </div>
-
             <div class="mb-5 mt-5 text-center">
               <span class="invisible">Easter egg</span>
             </div>
-
             <div class="mb-5 mt-5 text-center flex-nowrap">
               <button id="deleteAccountButton" data-toggle="modal" data-target="#modalConfirm" type="button"
                 class="btn btn-sm btn-blue d-inline-block"><i class="fas fa-user-slash"></i> <span
