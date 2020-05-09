@@ -127,7 +127,7 @@ class CartController extends Controller
 
         return response(json_encode("Sucess"), 200);
     }
-    protected function checkOfferStock($arrayCart,$offerId,$stock){
+    private function checkOfferStock($arrayCart,$offerId,$stock){
         
         for($i=0;$i<count($arrayCart);$i++){
             
