@@ -52,15 +52,17 @@
                             <tbody class="bg-white">
                                 @foreach($seller->offers as $offer)
                                     @foreach($offer->keys as $key)
-                                        @if($key->feedback !== null)
-                                            @if($key->feedback->evaluation)
-                                                <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
-                                            @else
-                                                <td class="text-center align-middle"><i class="fas fa-thumbs-down cl-fail"></i></td>
+                                            @if($key->feedback !== null)
+                                                <tr>
+                                                    @if($key->feedback->evaluation)
+                                                        <td class="text-center align-middle"><i class="fas fa-thumbs-up cl-success"></i></td>
+                                                    @else
+                                                        <td class="text-center align-middle"><i class="fas fa-thumbs-down cl-fail"></i></td>
+                                                    @endif
+                                                    <td class="text-center align-middle">{{$key->feedback->evaluation_date}}</td>
+                                                    <td class="text-center align-middle"><strong>{{$key->feedback->comment}}</strong></td>
+                                                </tr>
                                             @endif
-                                            <td class="text-center align-middle">{{$key->feedback->evaluation_date}}</td>
-                                            <td class="text-center align-middle"><strong>{{$key->feedback->comment}}</strong></td>
-                                        @endif
                                     @endforeach
                                 @endforeach
                             </tbody>

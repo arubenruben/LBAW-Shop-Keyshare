@@ -1,4 +1,3 @@
-
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 let dots = document.getElementById("dots");
@@ -17,11 +16,10 @@ btnText.addEventListener('click',collapseDescription);
 
 const templateEntryOffer = (username, rating, offer_id,  num_sells, price, discount_price, stock, current_user, banned, display) => {
     let html =  `<tr class="offer`
-    if(display == true){
+    if(display == true)
         html += ' offer_outside" style="display: none;';
-    }
 
-    html += `">
+    html += `>
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
             <h4><a data-toggle="modal" data-target=".bd-modal-lg{{$offer->id}}" href="#"
@@ -33,15 +31,12 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
         </div>
     </td>`;
 
-
-
     if(price !== discount_price) {
         html += `<td class="text-center align-middle"><del><strong> `  + '$' +  `${price}</strong></del><strong
             class="cl-green pl-2">`  + '$' +  `${discount_price} </strong></td>`;
     }
-    else {
+    else
         html += ` <td class="text-center align-middle"><strong>`  + '$' +  `${price}</strong></td>`;
-    }
 
     html +=  `<td class="text-center align-middle">
         <div class="btn-group-justified">`;
@@ -51,6 +46,7 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
                 onclick="pressed_add_offer_to_cart(${offer_id})" class="btn btn-orange"
                 ${banned ? 'disabled' : ''}><i class="fas fa-cart-plus"></i></button>`;
     }
+
     else{
         html +=  `<button id="add_offer_to_cart_{{$offer->id}}"
                     onclick="pressed_add_offer_to_cart(${offer_id})" class="btn btn-orange"><i class="fas fa-cart-plus"></i></button>`
@@ -62,10 +58,10 @@ const templateEntryOffer = (username, rating, offer_id,  num_sells, price, disco
 }
 
 const received = (response) => {
-
     let tableOffersBody= document.querySelector("#offers_body");
     let entriesTable = "";
     let boolean;
+
     for(let i = 0; i < response.offers.length; i++) {
         if(i < 10)
             boolean = false;
@@ -77,12 +73,9 @@ const received = (response) => {
     }
 
     tableOffersBody.innerHTML = entriesTable;
-
 }
 
-
 function collapseDescription() {
-
     if (dots.style.display === "none") {
         dots.style.display = "inline";
         btnText.innerHTML = "Read more";
@@ -118,33 +111,25 @@ function collapseOffers(){
 
 }
 
-
 function pressed_add_offer_to_cart(id){
-
     let data={
         offer_id:id
     }
+
     sendPut(data).then(
         cartItemCounter.innerHTML=parseInt(cartItemCounter.innerHTML)+1.0
     );
 }
 
 function assembleData () {
-
     let game = document.querySelector("#product_name_platform");
-
     let data = {};
 
     data.game_name = game.getAttribute('data_product_name');
-    console.log(data.game_name);
     data.game_platform = game.getAttribute('data_product_platform');
 
-    if(radioBestRating.checked){
-        data.sort_by = "rating";
-    }
-    else{
-        data.sort_by = "price";
-    }
+    if(radioBestRating.checked) data.sort_by = "rating";
+    else data.sort_by = "price";
 
     return data;
 }
@@ -174,7 +159,6 @@ const sendRequest = () => {
         .catch(error => console.error("Error: " + error));
 }
 
-
 const sendGet = get => {
     const options = {
         headers: {
@@ -198,8 +182,6 @@ function encodeForAjax(data) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
 }
-
-
 
 radioBestPrice.addEventListener("click", sendRequest);
 radioBestRating.addEventListener("click", sendRequest);

@@ -4,11 +4,10 @@
 
 @include('partials.header.userheader')
 
-
 @section('javascript')
     <script src="{{ asset('js/user/profile.js') }}" defer></script>
+    <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
 @endsection
-
 
 @section('navbar')
     @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Account', 'breadcrumbs'=>$breadcrumbs])
@@ -26,5 +25,3 @@
 @section('footer')
 	@include('partials.footer.footer')
 @endsection
-
-

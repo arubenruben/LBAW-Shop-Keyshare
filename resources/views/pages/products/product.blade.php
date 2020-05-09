@@ -4,6 +4,7 @@
 
 @section('javascript')
     <script src="{{ asset('js/products/product.js') }}" defer></script>
+    <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
 @endsection
 
 @include('partials.header.userheader')
