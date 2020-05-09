@@ -27,7 +27,7 @@
         </div>
         <div class="row  mt-4 mb-4">
             <div class="col-12">
-                @if($offers != null)
+                @if(count($offers)>0)
                 <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
                 @endif
             </div>
@@ -68,7 +68,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="table-responsive table-striped ">
-                    @if($offers != null)
+                    @if(count($offers)>0)
                     <table id="userOffersTable" class="table p-0">
                         <thead>
                             <tr>
@@ -96,13 +96,13 @@
                         </tbody>
                     </table>
                     @else
-                    <div class="row mt-5" id="offersListing">
-                        <div class="col-sm-12 text-center align-middle">
-                            <p class="mt-5">No offers available for this product</p>
-                        </div>
-                    </div>
-                    @endif
                 </div>
+                <div class="row mt-5" id="offersListing">
+                    <div class="col-sm-12 text-center align-middle">
+                        <p class="mt-5">No offers available for this product</p>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
         @if(count($offers) > 9)
