@@ -43,16 +43,17 @@
                     @php $allOffers = collect(); @endphp
                     <tbody>
                         @foreach ($data as $item)
-                        @php $allOffers->add($item->offer);@endphp
-                        @include('partials.cart.cartentry',['data'=>$item])
+                        @php 
+                            $allOffers->add($item->offer);
+                        @endphp
+                            @include('partials.cart.cartentry',['data'=>$item])
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-
-    @php($totalPrice = 0);
+    @php($totalPrice = 0)@endphp
     <div class="row mt-4">
         <div class="col text-right">
             <h4>Total Price: <span id="total_price">{{$allOffers->sum('discountPriceColumn')}}</span>$</h4>

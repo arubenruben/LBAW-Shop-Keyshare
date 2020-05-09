@@ -6,9 +6,9 @@
             <section class="ml-3 d-inline-block align-middle">
                 <h5 class="mb-0"><a href={{url('product/'.$data->offer->product->id)}}
                         class="text-dark d-inline-block">{{$data->offer->product->name}}</a></h5><a href="#"
-                    data-toggle="modal" data-target="#userFeedback{{$data->offer->seller->id}}"
+                    data-toggle="modal" data-target="#user-{{$data->offer->seller->id}}"
                     class="text-muted font-weight-normal font-italic">{{$data->offer->seller->username}}</a>
-                @include('partials.feedback',['user'=>$data->offer->seller])
+                @include('partials.feedback.feedback',['seller'=>$data->offer->seller])
             </section>
         </section>
     </td>

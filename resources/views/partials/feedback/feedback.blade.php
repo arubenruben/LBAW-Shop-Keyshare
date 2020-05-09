@@ -1,7 +1,7 @@
 <div class="modal fade bd-modal-lg" id="user-{{$seller->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" >
-            <div class="modal-header justify-content-around mt-2 row">
+            <div class="modal-header justify-content-around mt-2 row ml-0 mr-0">
                 <div class="col-9 text-left">
                     <div class="row">
                         <div class="col-md-6 text-left">
@@ -13,7 +13,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-3">
                     <button class="close m-0" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
