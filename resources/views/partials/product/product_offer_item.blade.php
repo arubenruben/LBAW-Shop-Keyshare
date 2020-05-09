@@ -1,7 +1,7 @@
 <tr class="offer {{  $display ? '' : 'offer_outside'}}">
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
-            <h4><a data-toggle="modal" data-target=".bd-modal-lg{{$offer->seller->username}}" href="#"
+            <h4><a data-toggle="modal" data-target=".bd-modal-lg-{{$offer->seller->username}}" href="#"
                     class="seller" style="color:black">{{$offer->seller->username}}</a></h4>
             <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i>
                 {{ $offer->seller->rating }}</span>
@@ -17,7 +17,7 @@
     @endif
     <td class="text-center align-middle">
         <div class="btn-group-justified">
-            @if(@$user != null)
+            @if($user != null)
             <button id="add_offer_to_cart_{{$offer->id}}"
                 onclick="pressed_add_offer_to_cart({{$offer->id}})" class="btn btn-orange"
                 {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
