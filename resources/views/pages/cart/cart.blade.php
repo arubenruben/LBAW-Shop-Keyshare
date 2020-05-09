@@ -29,7 +29,7 @@
                         <tr>
                             <th scope="col" class="border-0 bg-light">
                                 <div class="p-2 px-3 text-uppercase">Product Details</div>
-                            </th>                        
+                            </th>
                             <th scope="col" class="border-0 bg-light text-center">
                                 <div class="py-2 text-uppercase">Price</div>
                             </th>
@@ -42,7 +42,7 @@
                     <tbody>
                         @foreach ($data as $item)
                             @php $allOffers->add($item->offer);@endphp
-                            @include('partials.cart.cartentry',['data'=>$item])                        
+                            @include('partials.cart.cartentry',['data'=>$item])
                         @endforeach
                     </tbody>
                 </table>

@@ -38,7 +38,7 @@ Route::get('product/{productName}/{platformName}', 'ProductController@show');
 Route::get('/cart', 'CartController@show');
 Route::put('/cart', 'CartController@add');
 Route::delete('/cart/{id}', 'CartController@delete');
-Route::get('/cart/checkout/{page}', 'CartController@checkout');
+Route::get('/cart/checkout', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finalizeCheckout');
 
 // Offers

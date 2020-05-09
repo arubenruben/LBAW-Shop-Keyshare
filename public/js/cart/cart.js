@@ -2,7 +2,7 @@
 
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const cartItemCounter=document.querySelector("#shopping_cart_item_counter");
-const counter_products_cart=document.querySelector("#counter_products_cart");
+const counter_products_cart=document.querySelector("#counter_products_cart");const counter_products_cart=document.querySelector("#counter_products_cart");
 const url = '/cart';
 const totalPrice = document.querySelector("#total_price");
 let totalPriceNumber = 0;

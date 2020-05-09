@@ -118,12 +118,8 @@ class CartController extends Controller
         return response(json_encode("Sucess"), 200);
     }
 
-    public function checkout(Request $request, $page)
+    public function checkout(Request $request)
     {
-
-        if($page != 1 && $page != 2){
-            abort(404);
-        }
 
         $loggedIn=true;
         $data=array();
@@ -160,7 +156,7 @@ class CartController extends Controller
         $totalPrice = $collectionOffers->sum('discountPriceColumn');
 
 
-        return view('pages.cart.checkout',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn, 'userCart' => $data,
+        return view('pages.cart.checkout',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn, 'userCartEntries' => $data,
                 'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
 
     }
