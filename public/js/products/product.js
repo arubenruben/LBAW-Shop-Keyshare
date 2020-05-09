@@ -1,9 +1,73 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const btnText = document.getElementById("moreTextButton");
+const cartItemCounter = document.querySelector("#shopping_cart_item_counter");
 
+btnText.addEventListener('click', collapseDescription);
+
+function collapseDescription() {
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+    }
+}
+
+function pressed_add_offer_to_cart(id) {
+    let data = {
+        offer_id: id
+    }
+    sendPut(data);
+}
+
+const sendPut = put => {
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'put',
+        credentials: "same-origin",
+        body: JSON.stringify(put)
+    }
+
+    return fetch("/cart/", options)
+        .then(function (res) {
+            if (res.ok) {
+                cartItemCounter.innerHTML = parseInt(cartItemCounter.innerHTML) + 1.0
+            }
+            res.json();
+        })
+        .catch(error => console.error("Error:" + error));
+}
+
+
+const sendGet = get => {
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'get',
+        credentials: "same-origin",
+    }
+
+    return fetch("api/product?" + encodeForAjax(get), options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: " + error));
+}
+
+
+/*
 let dots = document.getElementById("dots");
 let moreText = document.getElementById("more");
-let btnText = document.getElementById("moreTextButton");
-let cartItemCounter = document.querySelector("#shopping_cart_item_counter");
 let radioBestRating = document.querySelector("#radio_best_rating");
 let radioBestPrice = document.querySelector("#radio_best_price");
 let seeMoreOffers = document.querySelector("#see_more_offers");
@@ -14,7 +78,6 @@ let bodyTableOffersRating = document.querySelector("#offers_sort_rating");
 seeMoreOffers.addEventListener('click', collapseOffers);
 closeMoreOffers.addEventListener('click', collapseOffers);
 
-btnText.addEventListener('click', collapseDescription);
 
 const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
     let html = `<tr class="offer`
@@ -74,18 +137,6 @@ const received = (response) => {
     tableOffersBody.innerHTML = entriesTable;
 }
 
-function collapseDescription() {
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
-    }
-}
-
 function collapseOffers() {
     let allMoreOffers = document.querySelectorAll(".offer_outside");
 
@@ -105,16 +156,6 @@ function collapseOffers() {
 
 }
 
-function pressed_add_offer_to_cart(id) {
-    let data = {
-        offer_id: id
-    }
-
-    sendPut(data).then(
-        cartItemCounter.innerHTML = parseInt(cartItemCounter.innerHTML) + 1.0
-    );
-}
-
 function assembleData() {
     let game = document.querySelector("#product_name_platform");
     let data = {};
@@ -128,44 +169,12 @@ function assembleData() {
     return data;
 }
 
-const sendPut = post => {
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'put',
-        credentials: "same-origin",
-        body: JSON.stringify(post)
-    }
-
-    return fetch("/cart/", options)
-        .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
-}
-
 function switchOffers() {
-
-    const sendGet = get => {
-        const options = {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json, text-plain, */*",
-                "X-Requested-With": "XMLHttpRequest",
-                "X-CSRF-TOKEN": token
-            },
-            method: 'get',
-            credentials: "same-origin",
-        }.catch(
-            bodyTableOffersRating.style.display = "none",
-            bodyTableOffersPrice.style.display = "table-row-group"
-        )
-
-
-
-    }
+    
 }
-radioBestPrice.addEventListener("click", sendRequest);
-radioBestRating.addEventListener("click", sendRequest);
+
+*/
+
+
+//radioBestPrice.addEventListener("click", sendRequest);
+//radioBestRating.addEventListener("click", sendRequest);

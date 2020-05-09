@@ -186,7 +186,7 @@
                             <div class="control-group mt-2">
                                 <label class="control-label" for="email">Email:</label>
                                 <div class="controls">
-                                    <input id="email" name="email" type="text" class="form-control input-medium"
+                                    <input name="email" type="text" class="form-control input-medium email"
                                         placeholder="youremail@example.com" required>
                                 </div>
                             </div>
@@ -272,7 +272,7 @@
                     <div class="control-group mt-2">
                         <label class="control-label" for="email">Email:</label>
                         <div class="controls">
-                            <input id="email" name="email" type="text" class="form-control input-medium"
+                            <input name="email" type="text" class="form-control input-medium email"
                                 placeholder="youremail@example.com" required>
                         </div>
                     </div>
