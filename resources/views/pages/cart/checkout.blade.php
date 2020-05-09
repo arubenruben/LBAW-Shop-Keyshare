@@ -4,6 +4,9 @@
 @section('javascript')
     <script src="{{ asset('js/cart/checkout.js') }}" defer></script>
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>
+    <script
+            src="https://www.paypal.com/sdk/js?client-id=AWx3ajbtZGcYsK0YLYMFvNM8YqFs2nEKajo--kEKx5FBuTLF3URnrRpHrrpBnz1kHiops07OTacIyUcT"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+    </script>
 @endsection
 
 @include('partials.header.userheader')
