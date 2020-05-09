@@ -225,13 +225,36 @@ class ProductController extends Controller
         return Platform::findOrFail($platform->id);
     }
 
-     public function show($productName, $platformName) {
+    public function show($productName, $platformName) {
+
         $product = $this->getProduct($productName);
         $platform= $this->getPlatform($platformName);
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
-        $offers = $offers->sortBy('discountPriceColumn');
+        $offersSortPrice = $this->sortOffersByPrice($offers);
+        $offersSortRating = $this->sortOffersByRating($offers);
         $platformName = $platform->name;
-        return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers' => $offers, 'breadcrumbs' => ['Product' => url('/product/')]]);
+        return view('pages.products.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating, 'breadcrumbs' => ['Product' => url('/product/')]]);
+
+    }
+
+
+    public function sortOffersByPrice($offers)
+    {
+        return $offers->sortByDesc(function (Offer $offer) {
+            return $offer->seller()->getResults()->rating;
+        })->sortByDesc(function (Offer $offer) {
+            return $offer->seller()->getResults()->num_sells;
+        })->sortBy('discountPriceColumn');
+    }
+
+    public function sortOffersByRating($offers){
+
+        return $offers->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer){
+            return $offer->seller()->getResults()->num_sells;
+        })->sortByDesc(function (Offer $offer){
+            return $offer->seller()->getResults()->rating;
+        });
+
     }
 
     public function sort(Request $request){
@@ -274,7 +297,6 @@ class ProductController extends Controller
                     'stock' => $offer->stock
                 ];
             });
-
 
             $current_user = Auth::user();
 
