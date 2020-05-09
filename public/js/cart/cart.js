@@ -2,7 +2,7 @@
 
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const cartItemCounter=document.querySelector("#shopping_cart_item_counter");
-const counter_products_cart=document.querySelector("#counter_products_cart");const counter_products_cart=document.querySelector("#counter_products_cart");
+const counter_products_cart=document.querySelector("#counter_products_cart");
 const url = '/cart';
 const totalPrice = document.querySelector("#total_price");
 let totalPriceNumber = 0;
@@ -19,7 +19,7 @@ const addEventListeners = () => {
             let totalPriceNumber = parseFloat(totalPrice.innerHTML).toFixed(2);
             totalPriceNumber -= offerPrice;
             totalPriceNumber = totalPriceNumber.toFixed(2);
-            totalPrice.innerHTML = totalPriceNumber;
+            totalPrice.innerHTML = totalPriceNumber + "$";
             sendDelete(cartId).then(function() {
                 let tableEntry=document.querySelector('#row'+cartId);
                 tableEntry.remove();        

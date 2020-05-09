@@ -8,6 +8,11 @@ const input_email = document.querySelector("#checkoutInputEmail");
 const input_address = document.querySelector("#checkoutInputAddress");
 const input_zip_code = document.querySelector("#checkoutInputZipcode");
 
+const client_name = document.querySelector("#client-name");
+const client_email = document.querySelector("#client-email");
+const client_address = document.querySelector("#client-address");
+const client_zip_code = document.querySelector("#client-zip-code");
+
 const name_invalid = document.querySelector("#name-invalid");
 const email_invalid = document.querySelector("#email-invalid");
 const address_invalid = document.querySelector("#address-invalid");
@@ -15,7 +20,7 @@ const zip_code_invalid = document.querySelector("#zip-code-invalid");
 
 let valid_inputs;
 
-const verify_input = (input_variable, invalid_block, invalid_text) => {
+const verify_input = (input_variable, invalid_block, invalid_text, extra_validation) => {
 
     if(input_variable.value === ""){
         valid_inputs = false;
@@ -41,9 +46,15 @@ const clicked_confirm_button = () => {
     verify_input(input_address, address_invalid, "Please fill out your address");
     verify_input(input_zip_code, zip_code_invalid, "Please fill out your zip-code");
 
+
     if(valid_inputs){
         checkout_tab_1.style.display = "none";
         checkout_tab_2.style.display = "block";
+
+        client_name.innerHTML = input_name.value;
+        client_email.innerHTML = input_email.value;
+        client_address.innerHTML = input_address.value;
+        client_zip_code.innerHTML = input_zip_code.value;
     }
 
 }

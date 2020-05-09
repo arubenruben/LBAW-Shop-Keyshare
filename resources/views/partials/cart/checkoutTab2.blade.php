@@ -12,7 +12,7 @@
         <div id="content" class="container mt-4 pb-0">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <h4>My Cart <span class="badge badge-secondary">7</span></h4>
+                    <h4>My Cart <span id="counter_products_cart" class="badge badge-secondary">{{count($userCartEntries)}}</span></h4>
                 </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
             <h4>Pricing</h4>
             <h5> Subtotal ({{count($userCartEntries)}} items) </h5>
             <span>
-                    <h5> Total price: <h3>{{$totalPrice}} €</h3> </h5>
+                    <h5> Total price: <h3 id="total_price">{{$totalPrice}}$</h3> </h5>
             </span>
         </div>
     </div>

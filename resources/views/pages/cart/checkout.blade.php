@@ -3,6 +3,7 @@
 @section('title')Checkout @endsection
 @section('javascript')
     <script src="{{ asset('js/cart/checkout.js') }}" defer></script>
+    <script src="{{ asset('js/cart/cart.js') }}" defer></script>
 @endsection
 
 @include('partials.header.userheader')
