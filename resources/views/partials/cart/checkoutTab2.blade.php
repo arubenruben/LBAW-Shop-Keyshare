@@ -65,6 +65,6 @@
     <hr>
     <div id="checkoutButtonsContainer" class="row">
         <a  id="your-info"  class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
-        <a id="paypalButton" href="checkout.php?page=3" role="button" class="btn btn-lg px-4  btn-outline-primary"> <img src="/pictures/paypal/paypalLogo.png" height="25"> <strong class="mr-2 d-none d-sm-inline-block" style="color: black; ">Pay with Paypal</strong> </a>
+        <a id="paypalButton" role="button" class="btn btn-lg px-4  btn-outline-primary"> <img src="/pictures/paypal/paypalLogo.png" height="25"> <strong class="mr-2 d-none d-sm-inline-block" style="color: black; ">Pay with Paypal</strong> </a>
     </div>
 </div>
