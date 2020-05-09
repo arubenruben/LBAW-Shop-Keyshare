@@ -1,6 +1,6 @@
 <div class="modal fade bd-modal-lg{{$seller->username}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" >
             <div class="modal-header justify-content-around mt-2 row">
                 <div class="col-9 text-left">
                     <div class="row">
@@ -43,11 +43,11 @@
                     <div class="table-responsive tableFixHead mt-3">
                         <table class="table p-0">
                             <thead>
-                            <tr>
-                                <th scope="col" class="border-0 bg-light text-center"><div class="p-2 px-3 text-uppercase">Feedback</div></th>
-                                <th scope="col" class="border-0 bg-light text-center"><div class="py-2 text-uppercase">Date</div></th>
-                                <th scope="col" class="border-0 bg-light text-center"><div class="py-2 text-uppercase">Comment</div></th>
-                            </tr>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light text-center"><div class="p-2 px-3 text-uppercase">Feedback</div></th>
+                                    <th scope="col" class="border-0 bg-light text-center"><div class="py-2 text-uppercase">Date</div></th>
+                                    <th scope="col" class="border-0 bg-light text-center"><div class="py-2 text-uppercase">Comment</div></th>
+                                </tr>
                             </thead>
                             <tbody class="bg-white">
                                 @foreach($seller->offers as $offer)
