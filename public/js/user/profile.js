@@ -192,6 +192,13 @@ const addEventListeners = () => {
             imgPreviewHeader.setAttribute('src', fileReader.result);
         }
         fileReader.readAsDataURL(fileBlob);
+
+        const formData = new FormData()
+
+        formData.append('image', fileBlob);
+
+        uploadFile(formData);
+
     });
 }
 
@@ -211,7 +218,7 @@ const sendPost = post => {
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
+        .catch(error => console.error("Error:" + error));
 }
 
 const sendDelete = username => {
@@ -230,24 +237,23 @@ const sendDelete = username => {
         .catch(error => console.error("Error:" + error));
 }
 
-const uploadFile = file => {
-    FormData
+const uploadFile = formData => {
 
     const options = {
         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
+            'X-CSRF-TOKEN': token,
+            "Content-Type": "multipart/form-data"
         },
         method: 'post',
-        credentials: "same-origin",
-        body: file,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        body: formData
     }
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
+        .catch(error => console.error("Error:" + error));
 
 }
 

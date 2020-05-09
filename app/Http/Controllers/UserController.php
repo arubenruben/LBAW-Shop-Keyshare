@@ -78,7 +78,9 @@ class UserController extends Controller
             'breadcrumbs' => ['User' => url('/user/'.$user->username),'Reports' => url('/user/reports')]]);
     }
 
-    public function update(UserEditRequest $request) {
+    public function update(Request $request) {
+        
+
         try {
           $this->authorize('update',User::class);
         } catch (AuthorizationException $e) {
@@ -104,14 +106,15 @@ class UserController extends Controller
         if (isset($request->paypal)) {
             Auth::user()->paypal = $request->paypal;
         }
-
+        /*
         if (isset($request->pictures)) {
             Auth::user()->pictures = $request->pictures;
         }
+        */
         
         Auth::user()->save();
 
-        return response(json_encode("Success"), 200);
+        return response(json_encode($request->file), 200);
         
     }
 
