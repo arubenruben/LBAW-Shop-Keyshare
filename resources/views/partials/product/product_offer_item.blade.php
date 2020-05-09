@@ -1,7 +1,7 @@
 <tr class="offer {{  $display ? '' : 'offer_outside'}}">
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
-            <h4><a data-toggle="modal" data-target=".bd-modal-lg-{{$offer->seller->username}}" href="#" class="seller"
+            <h4><a data-toggle="modal" data-target="#user-{{$offer->seller->id}}" href="#" class="seller"
                     style="color:black">{{$offer->seller->username}}</a></h4>
             <span class="font-weight-bold cl-success"><i class="fas fa-thumbs-up"></i>
                 {{ $offer->seller->rating }}</span>

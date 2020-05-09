@@ -70,14 +70,16 @@
                         <tbody id="offers_body">
                             @php $i = 0; @endphp
                             @foreach($offers as $offer)
-                            @if($i < 10) @include('partials.product.product_offer_item',['offer'=>$offer, 'display' =>
-                                true])
-                                @include('partials.feedback.feedback', ['seller' => $offer->seller])
+                                @if($i < 10) 
+                                    @include('partials.product.product_offer_item',['offer'=>$offer, 'display' =>true])
+                                    {{-- comment 
+                                        @include('partials.feedback.feedback', ['seller' => $offer->seller])
+                                        --}}
                                 @elseif($i >= 10)
-                                @include('partials.product.product_offer_item',['offer'=>$offer, 'display' => false])
+                                    @include('partials.product.product_offer_item',['offer'=>$offer, 'display' => false])
                                 @endif
                                 @php $i++; @endphp
-                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                     @else

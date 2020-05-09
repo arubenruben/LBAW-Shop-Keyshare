@@ -4,9 +4,7 @@
             <a href="product.php"><img src="pictures/games/original/starwars.png" alt="" width="150"
                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage"></a>
             <section class="ml-3 d-inline-block align-middle">
-                <h5 class="mb-0"><a href={{url('product/'.$data->offer->product->id)}}
-                        class="text-dark d-inline-block">{{$data->offer->product->name}}</a></h5><a href="#"
-                    data-toggle="modal" data-target="#user-{{$data->offer->seller->id}}"
+                <h5 class="mb-0"><a href={{url('product/'.$data->offer->product->id)}} class="text-dark d-inline-block">{{$data->offer->product->name}}</a></h5><a href="#" data-toggle="modal" data-target="#user-{{$data->offer->seller->id}}"
                     class="text-muted font-weight-normal font-italic">{{$data->offer->seller->username}}</a>
                 @include('partials.feedback.feedback',['seller'=>$data->offer->seller])
             </section>
