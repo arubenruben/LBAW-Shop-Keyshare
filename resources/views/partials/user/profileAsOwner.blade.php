@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <img id="profile-image" class="rounded-circle img-fluid mt-3"
-            src="{{ asset('pictures/profile/'.$user->picture->url) }}" alt="Profile image" width="250" height="250">
+            src="{{ asset('pictures/profile/'.$user->picture->url) }}" alt="Profile image">
           <form id="form-img-upload" class="mt-3" enctype="multipart/form-data">
             <span class="btn btn-sm btn-blue btn-file">
               <i class="fas fa-camera-retro"></i>

@@ -608,3 +608,8 @@ li.section.status-bar-circle:before {
     cursor: inherit;
     display: block;
 }
+
+#profile-image {
+    width: 15rem;
+    height: 15rem;
+}

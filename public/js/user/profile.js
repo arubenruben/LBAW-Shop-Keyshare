@@ -191,7 +191,6 @@ const addEventListeners = () => {
             imgPreview.setAttribute('src', fileReader.result);
             imgPreviewHeader.setAttribute('src', fileReader.result);
         }
-
         fileReader.readAsDataURL(fileBlob);
     });
 }
