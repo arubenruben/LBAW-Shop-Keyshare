@@ -9,8 +9,7 @@
 
         <div class="row">
             <div class="col d-none d-xl-block pt-4">
-
-                @include('partials.cart.progressBar');
+                @include('partials.cart.progressBar')
             </div>
         </div>
         <div class="row mt-3">
@@ -20,18 +19,22 @@
                     <div class="form-group">
                         <label for="checkoutInputName">Name</label>
                         <input type="text" class="form-control checkoutInput" id="checkoutInputName" placeholder="Enter Your Name">
-                    </div>
+                        <div id="name-invalid" class="invalid-feedback d-block"> </div>
+                     </div>
                     <div class="form-group">
                         <label for="checkoutInputEmail">Email</label>
                         <input type="email" class="form-control checkoutInput" id="checkoutInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                        <div id="email-invalid" class="invalid-feedback d-block"> </div>
                     </div>
                     <div class="form-group">
                         <label for="checkoutInputAddress">Address</label>
                         <input type="text" class="form-control checkoutInput" id="checkoutInputAddress" placeholder="Enter Your Address">
+                        <div id="address-invalid" class="invalid-feedback d-block"> </div>
                     </div>
                     <div class="form-group">
                         <label for="checkoutInputZipcode">Zipcode</label>
                         <input type="text" class="form-control checkoutInput" id="checkoutInputZipcode" placeholder="Enter Your Zipcode">
+                        <div id="zip-code-invalid" class="invalid-feedback d-block"> </div>
                     </div>
                 </form>
             </div>
