@@ -34,9 +34,9 @@
                             @endif
                         @endforeach
                     @endforeach
-                    <li class="nav-item"> <button class="btn btn-blue-full active">All reviews<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$positive + $negative}}</span></button> </li>
-                    <li class="nav-item"> <button class="btn btn-green"><i class="fas fa-thumbs-up"></i>Positive<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$positive}}</span></button></li>
-                    <li class="nav-item"> <button class="btn btn-red"><i class="fas fa-thumbs-down"></i>Negative<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$negative}}</span></button></li>
+                    <li class="nav-item"> <button class="btn all btn-blue-full active">All reviews<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$positive + $negative}}</span></button> </li>
+                    <li class="nav-item"> <button class="btn positive btn-green"><i class="fas fa-thumbs-up"></i>Positive<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$positive}}</span></button></li>
+                    <li class="nav-item"> <button class="btn negative btn-red"><i class="fas fa-thumbs-down"></i>Negative<span class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$negative}}</span></button></li>
                 </ul>
                 <hr class="mt-0">
                 <div class="col">

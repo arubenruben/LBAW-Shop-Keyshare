@@ -296,6 +296,11 @@ header.navbar {
 
 /* buttons css */
 
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 .btn.btn-orange {
     background-color: var(--color-interactive-orange);
     color: white;
@@ -322,6 +327,10 @@ header.navbar {
     color: white;
 }
 
+.btn.btn-blue-full:hover {
+    color: white;
+}
+
 .btn.btn-red {
     background-color: inherit;
     border: solid 1px var(--color-interactive-red-fail);
@@ -333,6 +342,15 @@ header.navbar {
     color: white;
 }
 
+.btn.btn-red-full {
+    background-color: var(--color-interactive-red-fail);
+    color: white;
+}
+
+.btn.btn-red-full:hover {
+    color: white;
+}
+
 .btn.btn-green {
     background-color: inherit;
     border: solid 1px var(--color-interactive-green-success);
@@ -341,6 +359,15 @@ header.navbar {
 
 .btn.btn-green:hover {
     background-color: var(--color-interactive-green-success);
+    color: white;
+}
+
+.btn.btn-green-full {
+    background-color: var(--color-interactive-green-success);
+    color: white;
+}
+
+.btn.btn-green-full:hover {
     color: white;
 }
 
