@@ -39,10 +39,9 @@ Route::get('/cart', 'CartController@show');
 Route::put('/cart', 'CartController@add');
 Route::delete('/cart/{id}', 'CartController@delete');
 Route::get('/cart/checkout', 'CartController@checkout');
-Route::put('/cart/checkout', 'CartController@finalizeCheckout');
+Route::put('/cart/checkout', 'CartController@finishCheckout');
 
 
-Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 
 // Offers
 Route::get('offer', 'OfferController@show');

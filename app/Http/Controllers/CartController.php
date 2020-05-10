@@ -162,27 +162,12 @@ class CartController extends Controller
 
     }
 
-    public function finalizeCheckout()
-    {
-        if(true){
-            $transactionSucess = true;
-        }
-
-
-
-        return view('pages.cart.checkout',[
-            'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
-
-
-    }
-
     public function generateClientToken(){
 
+
+
         $gateway = new Braintree\Gateway([
-            'environment' => 'sandbox',
-            'merchantId' => 'yygkq599j5drrhfd',
-            'publicKey' => '7zfdxgnsnmnkw5kk',
-            'privateKey' => 'd8f04d766b06992882cdf7bf5bf2739c'
+            'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
         ]);
 
         $clientToken = $gateway->clientToken()->generate();
@@ -191,13 +176,14 @@ class CartController extends Controller
 
     }
 
-    public function finishCheckout(){
+    public function finishCheckout(Request $request){
 
-        $gateway = new Braintree_Gateway([
+
+        $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
         ]);
 
-        $result = $this->createTransaction($gateway, $_POST['amount'], $_POST['payment_method_nonce'], $_POST['device_data']);
+        $result = $this->createTransaction($gateway, 5, $request->nonce, $request->orderID);
 
         if ($result->success) {
             print_r("Success ID: " . $result->transaction->id);
@@ -206,42 +192,13 @@ class CartController extends Controller
         }
     }
 
-    public function createTransaction($gateway, $amount, $paymentMethodNonce, $deviceData){
+    public function createTransaction($gateway, $amount, $paymentMethodNonce, $invoiceNumber){
 
-      /*  return $gateway->transaction()->sale([
+      return $gateway->transaction()->sale([
             "amount" => $amount,
             'merchantAccountId' => 'USD',
             "paymentMethodNonce" => $paymentMethodNonce,
-            "orderId" => $invoiceNumber,
-            "descriptor" => [
-                "name" => "Descriptor displayed in customer CC statements. 22 char max"
-            ],
-            "shipping" => [
-                "firstName" => "Jen",
-                "lastName" => "Smith",
-                "company" => "Braintree",
-                "streetAddress" => "1 E 1st St",
-                "extendedAddress" => "Suite 403",
-                "locality" => "Bartlett",
-                "region" => "IL",
-                "postalCode" => "60103",
-                "countryCodeAlpha2" => "US"
-            ],
-            "options" => [
-                "paypal" => [
-                    "customField" => $paypalCustomField,
-                    "description" => $paypalEmailDescription
-                ],
-            ]
-        ]);*/
-
-        return $gateway->transaction()->sale([
-            'amount' => $amount,
-            'paymentMethodNonce' => $paymentMethodNonce,
-            'deviceData' => $deviceData,
-            'options' => [
-                'submitForSettlement' => True
-            ]
+            "orderId" => $invoiceNumber
         ]);
     }
 }

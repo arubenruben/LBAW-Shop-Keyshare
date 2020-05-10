@@ -5,18 +5,10 @@
 
     <!-- Load the required checkout.js script -->
     <!-- Load PayPal's checkout.js Library. -->
-    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-    <!-- Load the client component. -->
-    <script src="https://js.braintreegateway.com/web/3.62.0/js/client.min.js"></script>
-
-    <!-- Load the PayPal Checkout component. -->
-    <script src="https://js.braintreegateway.com/web/3.62.0/js/paypal-checkout.min.js"></script>
-
-    <!-- Collection data from device -->
-    <script src="https://js.braintreegateway.com/web/3.62.0/js/data-collector.min.js"></script>
-
-    <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
+    <!-- Load the required checkout.js script -->
+    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
 
     <script src="{{ asset('js/cart/checkoutC.js') }}" defer></script>
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>

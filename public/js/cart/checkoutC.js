@@ -167,24 +167,44 @@ function encodeForAjax(data) {
     });
 });*/
 
+function check_transaction_result(res){
+    console.log(JSON.stringify(res));
+}
 
 
-var button = document.querySelector('#paypal-button');
+paypal.Button.render({
+    braintree: braintree,
+    client: {
+        production: document.querySelector("#client-token").innerHTML,
+        sandbox: document.querySelector("#client-token").innerHTML
+    },
+    env: 'sandbox', // Or 'sandbox'
+    commit: true, // This will add the transaction amount to the PayPal button
 
-
-braintree.dropin.create({
-    authorization: document.querySelector("#client-token").innerHTML,
-    container: '#dropin-container'
-}, function (createErr, instance) {
-    button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {
-            // Submit payload.nonce to your server
-            sendPut(payload.nonce);
+    payment: function (data, actions) {
+        return actions.braintree.create({
+            flow: 'checkout', // Required
+            amount: 10.00, // Required
+            currency: 'USD', // Required
         });
-    });
-});
+    },
 
+    onAuthorize: function (payload) {
+        console.log(JSON.stringify(payload));
+        const data = {
+            nonce: payload.nonce,
+            orderId: payload.orderId
+        }
 
+        console.log(data);
+
+        sendPut(data).then(res => check_transaction_result(res));
+
+            //.catch(error => console.error("Error: " + error));
+    },
+}, '#paypal-button');
+
+/*
 // Create a client.
 braintree.client.create({
     authorization: document.querySelector("#client-token").innerHTML,
@@ -236,7 +256,8 @@ braintree.client.create({
 
             onAuthorize: function (data, actions) {
                 return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
-                    // Submit `payload.nonce` to your server.
+                    // Submit payload.nonce to your server
+                    sendPut(payload.nonce);
                 });
             },
 
@@ -254,7 +275,7 @@ braintree.client.create({
 
     });
 
-});
+});*/
 
 addEventListenersCheckout();
 
