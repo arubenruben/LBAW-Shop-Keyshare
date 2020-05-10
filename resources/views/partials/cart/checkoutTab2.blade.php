@@ -67,15 +67,10 @@
         <div class="col-9">
             <a  id="your-info"  class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
         </div>
-        <div class="col-3">
-            <div id="paypal-button-container"></div>
-        </div>
-        <script>
-            paypal.Buttons().render('#paypal-button-container');
-            // This function displays Smart Payment Buttons on your web page.
-        </script>
-
-
-
     </div>
+
+
+    <div id="paypal-button"></div>
+
+
 </div>

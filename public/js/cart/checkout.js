@@ -4,7 +4,7 @@ const checkout_tab_2 = document.querySelector("#checkout-tab-2");
 const comfirm_order_button = document.querySelector("#confirm-order");
 const your_info_button = document.querySelector("#your-info");
 
-const paypal_button = document.querySelector("#paypalButton");
+const paypal_button = document.querySelector("#paypal-button");
 
 
 const input_name = document.querySelector("#checkoutInputName");
@@ -24,7 +24,7 @@ const zip_code_invalid = document.querySelector("#zip-code-invalid");
 
 let valid_inputs;
 
-const addEventListeners = () => {
+const addEventListenersCheckout = () => {
     comfirm_order_button.addEventListener('click', clicked_confirm_button);
     your_info_button.addEventListener('click', clicked_info_button);
     paypal_button.addEventListener('click', sendRequest);
@@ -144,6 +144,118 @@ function encodeForAjax(data) {
     }).join('&');
 }
 
-addEventListeners();
+
+
+
+// going to check device data
+/*braintree.client.create({
+    authorization: 'CLIENT_AUTHORIZATION'
+}, function (err, clientInstance) {
+    // Creation of any other components...
+
+    braintree.dataCollector.create({
+        client: clientInstance,
+        paypal: true
+    }, function (err, dataCollectorInstance) {
+        if (err) {
+            // Handle error in creation of data collector
+            return;
+        }
+        // At this point, you should access the dataCollectorInstance.deviceData value and provide it
+        // to your server, e.g. by injecting it into your form as a hidden input.
+        var deviceData = dataCollectorInstance.deviceData;
+    });
+});*/
+
+
+
+var button = document.querySelector('#paypal-button');
+
+
+braintree.dropin.create({
+    authorization: document.querySelector("#client-token").innerHTML,
+    container: '#dropin-container'
+}, function (createErr, instance) {
+    button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {
+            // Submit payload.nonce to your server
+            sendPut(payload.nonce);
+        });
+    });
+});
+
+
+// Create a client.
+braintree.client.create({
+    authorization: document.querySelector("#client-token").innerHTML,
+}, function (clientErr, clientInstance) {
+
+    // Stop if there was a problem creating the client.
+    // This could happen if there is a network error or if the authorization
+    // is invalid.
+    if (clientErr) {
+        console.error('Error creating client:', clientErr);
+        return;
+    }
+
+    // Create a PayPal Checkout component.
+    braintree.paypalCheckout.create({
+        client: clientInstance
+    }, function (paypalCheckoutErr, paypalCheckoutInstance) {
+
+        // Stop if there was a problem creating PayPal Checkout.
+        // This could happen if there was a network error or if it's incorrectly
+        // configured.
+        if (paypalCheckoutErr) {
+            console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
+            return;
+        }
+
+
+        // Set up PayPal with the checkout.js library
+        paypal.Button.render({
+            env: 'production', // or 'sandbox'
+
+            onError: function (err) {
+                console.error('checkout.js error', err);
+            },
+
+            payment: function () {
+                return paypalCheckoutInstance.createPayment({
+                    // Your PayPal options here. For available options, see
+                    // http://braintree.github.io/braintree-web/current/PayPalCheckout.html#createPayment
+                    flow: 'checkout',
+                    amount: 200,
+                    currency: 'USD',
+                    billingAgreementDescription: 'My Company name',
+                    enableShippingAddress: false,
+                    enableBillingAddress: false,
+                });
+            },
+
+
+            onAuthorize: function (data, actions) {
+                return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
+                    // Submit `payload.nonce` to your server.
+                });
+            },
+
+
+            onCancel: function (data) {
+                console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
+            },
+
+
+        }, '#paypal-button').then(function () {
+            // The PayPal button will be rendered in an html element with the id
+            // `paypal-button`. This function will be called when the PayPal button
+            // is set up and ready to be used.
+        });
+
+    });
+
+});
+
+addEventListenersCheckout();
 
 
