@@ -193,11 +193,7 @@ const addEventListeners = () => {
         }
         fileReader.readAsDataURL(fileBlob);
 
-        const formData = new FormData()
-
-        formData.append('image', fileBlob);
-
-        uploadFile(formData);
+        uploadFile(fileBlob);
 
     });
 }
@@ -237,18 +233,21 @@ const sendDelete = username => {
         .catch(error => console.error("Error:" + error));
 }
 
-const uploadFile = formData => {
+const uploadFile = file => {
+
+    let form = new FormData();
+    form.append("picture", file, file.name);
+    //form.append("string", "ola");
 
     const options = {
         headers: {
-            'X-CSRF-TOKEN': token,
-            "Content-Type": "multipart/form-data"
+            "X-CSRF-TOKEN": token,
         },
+        credentials: "same-origin",
         method: 'post',
-        dataType: 'json',
         contentType: false,
         processData: false,
-        body: formData
+        body: form
     }
 
     return fetch("/user/", options)
