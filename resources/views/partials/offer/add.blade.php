@@ -1,5 +1,4 @@
 <form id="content" class="container">
-    @csrf
     <div class="row mt-5">
         <div class="col">
             <h3>Choose a Game</h3>
@@ -102,7 +101,7 @@
                 <label for="price-input" class="pt-1 font-weight-bold">
                     Price Per Key
                 </label>
-                <input type="number" id="price-input" name="price" min="1" class="form-control ml-2"/>
+                <input type="number" id="price-input" name="price" min="1" value="1" class="form-control ml-2"/>
             </div>
 
             <div class="form-group mt-4">
@@ -110,7 +109,7 @@
                     Billing Email
                 </label>
                 <div class="input-group">
-                    <input type="email" id="paypal" name="paypal" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="" disabled>
+                    <input type="email" id="paypal" name="paypal" class="form-control mt-auto mb-auto" placeholder="Billing Email" value="" readonly>
                     <span class="input-group-btn">
                             <button type="button" id="paypalButton" class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="{{ asset('/pictures/paypal/paypal.png') }}" height="26"></button>
                             <button type="button" id="paypalButton" class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img src="{{ asset('/pictures/paypal/paypalLogo.png') }}" height="26"></button>
@@ -122,7 +121,7 @@
     <div class="row mt-5">
         <div class="col-12 text-right">
             <div class="form-group">
-                <button type="button" class="btn btn-orange px-5 py-2">Submit Offer</button>
+                <button type="button" id="offer-submit" class="btn btn-orange px-5 py-2">Submit Offer</button>
             </div>
         </div>
     </div>

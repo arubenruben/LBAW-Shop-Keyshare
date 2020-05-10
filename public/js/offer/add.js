@@ -16,10 +16,44 @@ const addEventListeners = () => {
     });
 
     const add_key = document.querySelector("section#key-input button.btn-blue");
-    add_key.addEventListener("click", addKey)
+    add_key.addEventListener("click", addKey);
 
     const add_discount = document.querySelector("section#discount-input button.btn-blue");
-    add_discount.addEventListener("click", addDiscount)
+    add_discount.addEventListener("click", addDiscount);
+
+    const send_offer = document.querySelector("button#offer-submit");
+    send_offer.addEventListener("click", sendOffer);
+}
+
+const sendOffer = () => {
+    const form = new FormData(document.querySelector("form#content"));
+
+    const keys = form.getAll("key");
+    console.log(keys);
+    if(keys.length === 0) {
+        return;
+    }
+
+    for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+
+        if(!isValidKey(key.value)){
+            return;
+        }
+    }
+
+    const discounts = form.getAll("discount");
+    console.log(discounts);
+    for (let i = 0; i < discounts.length; i++) {
+        const discount = discounts[i];
+
+        if(discount.length === 3 || !isValidDate(discount[0]) || !isValidDate(discount[1])
+                || discount[2] < 1 || discount[2] > 99){
+            return;
+        }
+    }
+
+    //sendPut()
 }
 
 const setPlatforms = platforms => {
@@ -46,7 +80,7 @@ const setPlatforms = platforms => {
 const newKey = key => {
     return `
         <div class="input-group mt-2">
-            <input type="text" name="key[]" class="form-control mr-2" placeholder="Key" value="${key}">
+            <input type="text" name="key[]" class="form-control mr-2" readonly value="${key}">
             <span class="input-group-btn">
                 <button type="button" class="btn btn-red"><i class="fas fa-times-circle"></i></button>
             </span>
@@ -58,8 +92,15 @@ const addKey = () => {
     let key_add = document.getElementById('key-input-add');
 
     let key_error = document.getElementById('key-input-error');
+
+
     if(key_add.value == null || key_add.value.length === 0){
-        key_error.innerText = "The key must not be empty!";
+        key_error.innerText = "The key must not be empty.";
+        key_add.classList.add('border-danger')
+        key_error.classList.add('d-block')
+        return;
+    } else if (!isValidKey(key_add.value)){
+        key_error.innerText = "The key inserted must have only letters and numbers and can be divided with - or \\ or /.";
         key_add.classList.add('border-danger')
         key_error.classList.add('d-block')
         return;
@@ -78,6 +119,10 @@ const addKey = () => {
     resetKeys();
 }
 
+const isValidKey = (key : String) => {
+    return /^\w+[[-\\/]\w+]*$/g.test(key);
+}
+
 const resetKeys = () => {
     const keys_buttons = document.querySelectorAll('#key-input-added button');
 
@@ -86,24 +131,6 @@ const resetKeys = () => {
             key.parentElement.parentElement.remove();
         })
     });
-}
-
-const sendPut = put => {
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'put',
-        credentials: "same-origin",
-        body: JSON.stringify(put)
-    }
-
-    return fetch("/user/", options)
-        .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
 }
 
 const newDiscount = (index, start, end, rate) => {
@@ -143,7 +170,7 @@ const addDiscount = () => {
     resetDiscounts();
 }
 
-const formatDate = (date) => {
+const formatDate = (date : Date) => {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
@@ -159,7 +186,7 @@ const formatDate = (date) => {
     return [year, month, day].join("-");
 }
 
-const isValidDate = (date) => {
+const isValidDate = (date : String) => {
     return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(date);
 }
 
@@ -245,6 +272,24 @@ const numberDiscounts = () => {
     for (let i = 0; i < discounts_headers.length - 1; i++) {
         discounts_headers[i].innerHTML = String(i + 1);
     }
+}
+
+const sendPut = put => {
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'put',
+        credentials: "same-origin",
+        body: JSON.stringify(put)
+    }
+
+    return fetch("/user/", options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: {error}"));
 }
 
 addEventListeners();
