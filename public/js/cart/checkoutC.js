@@ -139,6 +139,7 @@ function check_transaction_result(res){
     console.log(JSON.stringify(res));
 }
 
+let deviceData;
 
 paypal.Button.render({
     braintree: braintree,
@@ -149,27 +150,15 @@ paypal.Button.render({
     env: 'sandbox', // Or 'sandbox'
     commit: true, // This will add the transaction amount to the PayPal button
 
-    payment: function (data, actions) {
+    payment: async function (data, actions) {
 
-
-        // DELETE AFTER - tentei fazer desta maenira falar com alguem sobre isto
-       /* sendGet()
-            .then(res => {
-                console.log(JSON.stringify(res));
-                return actions.braintree.create({
-                    flow: 'checkout', // Required
-                    amount: 50, // Required
-                    currency: 'USD', // Required
-                });
-            })
-            .catch(error => console.error("Error: " + error));*/
+        let response = await sendGet();
 
         return actions.braintree.create({
             flow: 'checkout', // Required
-            amount: document.querySelector("#total_price").innerHTML, // Required
+            amount: response.amount, // Required
             currency: 'USD', // Required
         });
-
 
     },
 
@@ -177,17 +166,38 @@ paypal.Button.render({
         console.log(JSON.stringify(payload));
         const data = {
             nonce: payload.nonce,
-            orderId: payload.orderID
+            orderId: payload.orderID,
+            deviceData: deviceData,
         }
-
-        console.log(data);
 
 
         sendPut(data).then(res => check_transaction_result(res));
 
             //.catch(error => console.error("Error: " + error));
     },
+
 }, '#paypal-button');
+
+
+braintree.client.create({
+    authorization: document.querySelector("#client-token").innerHTML,
+}, function (err, clientInstance) {
+    // Creation of any other components...
+
+    braintree.dataCollector.create({
+        client: clientInstance,
+        paypal: true
+    }, function (err, dataCollectorInstance) {
+        if (err) {
+            // Handle error in creation of data collector
+            return;
+        }
+        // At this point, you should access the dataCollectorInstance.deviceData value and provide it
+        // to your server, e.g. by injecting it into your form as a hidden input.
+        deviceData = dataCollectorInstance.deviceData;
+
+    });
+});
 
 
 addEventListenersCheckout();

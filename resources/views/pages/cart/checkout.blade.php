@@ -9,6 +9,7 @@
     <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
     <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.62.0/js/data-collector.min.js"></script>
 
     <script src="{{ asset('js/cart/checkoutC.js') }}" defer></script>
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>

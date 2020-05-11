@@ -219,12 +219,12 @@ class CartController extends Controller
 
     public function finishCheckout(Request $request){
 
-        /*try {
+        try {
             $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
         }catch (AuthorizationException $e) {
             abort(403);
-        }*/
+        }
 
 
 
@@ -234,12 +234,20 @@ class CartController extends Controller
         ]);
 
 
-
         // The total price the client will be charged
-        $totalPrice = 1600.15;
+        $totalPrice = $this->getCartTotalPrice($request)['amount'];
 
         // Create a transaction
-        $result = $this->createTransaction($gateway, $totalPrice, $request->nonce, $request->orderID);
+        $result = $gateway->transaction()->sale([
+            'amount' => $totalPrice,
+            'orderId' => $request->orderID,
+            'merchantAccountId' =>'USD',
+            'paymentMethodNonce' => $request->nonce,
+            'deviceData' => $request->deviceData,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
 
         // Checking the result of the transaction and send message to the client
         if ($result->success) {
@@ -247,22 +255,13 @@ class CartController extends Controller
                 'success' => true,
                 'message' => 'Transaction was a success with id'.$result->transaction->id,
             ];
-
         } else {
             return [
                 'success' => false,
                 'message' => $result->message
             ];
         }
-    }
 
-    public function createTransaction($gateway, $amount, $paymentMethodNonce, $invoiceNumber){
 
-      return $gateway->transaction()->sale([
-            "amount" => $amount,
-            'merchantAccountId' => 'USD',
-            "paymentMethodNonce" => $paymentMethodNonce,
-            "orderId" => $invoiceNumber,
-        ]);
     }
 }
