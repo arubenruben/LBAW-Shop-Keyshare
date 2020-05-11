@@ -19,16 +19,22 @@ const submitFeedback = () => {
         feedback = false;
     else if(positive_feedback.classList.contains('btn-green-full') && negative_feedback.classList.contains('btn-red'))
         feedback = true;
-    else
-        return;
+    else return;
 
     let data = {
         key_id: document.querySelector('div.key input.key-name').value,
         description: description,
         feedback: feedback
     }
-    sendPut(data).then(r => {
-        console.log(r)
+
+    sendPut(data).then(res => {
+        res.text().then(text => {
+            let div = document.querySelector('div.feedback-response')
+            if(res.status === 200) div.style.color = "green";
+            else div.style.color = "red";
+            div.innerHTML = text;
+            div.hidden = false
+        })
     })
 }
 

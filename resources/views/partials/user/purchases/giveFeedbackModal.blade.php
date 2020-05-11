@@ -49,6 +49,7 @@
                                   id="description"
                                   placeholder="Describe your experience with this seller"
                                   rows="3" value=""></textarea>
+                        <div class="feedback-response" hidden></div>
                     </div>
                 </div>
             </div>

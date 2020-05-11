@@ -133,7 +133,7 @@ class UserController extends Controller
         
         Auth::user()->save();
 
-        return response(json_encode("success"), 200);
+        return response(json_encode("Success"), 200);
     }
 
     public function delete()

@@ -34,7 +34,7 @@ class KeyController extends Controller
         // check if there is no feedback for that key
         $key = Key::findOrFail($request->get('key_id'));
         if($key->feedback != null) {
-            return response("You already have reviewed this key");
+            return response("You already reviewed this key", 400);
         } else {
             $feedback = Feedback::create([
                 'evaluation' => $request->get('feedback'),
@@ -42,8 +42,9 @@ class KeyController extends Controller
                 'user_id' => Auth::user()->id,
                 'key_id' => $request->get('key_id')
             ]);
-            $feedback->save();
-            return response("Success");
+            if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
+
+            return response('Success', 200);
         }
     }
 
