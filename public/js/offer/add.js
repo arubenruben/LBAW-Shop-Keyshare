@@ -28,9 +28,16 @@ const addEventListeners = () => {
 const sendOffer = () => {
     const form = new FormData(document.querySelector("form#content"));
 
-    const keys = form.getAll("key");
-    console.log(keys);
+    const submit_error = document.getElementById("offer-submit-error");
+
+    const submit_button = document.getElementById("offer-submit");
+
+    const keys = form.getAll("key[]");
+
     if(keys.length === 0) {
+        submit_error.innerText = "There must be at least one key.";
+        submit_button.classList.add('border-danger');
+        submit_error.classList.add('d-block');
         return;
     }
 
@@ -38,21 +45,36 @@ const sendOffer = () => {
         const key = keys[i];
 
         if(!isValidKey(key.value)){
+            submit_error.innerText = "There is an invalid key.";
+            submit_button.classList.add('border-danger');
+            submit_error.classList.add('d-block');
             return;
         }
     }
 
-    const discounts = form.getAll("discount");
-    console.log(discounts);
-    for (let i = 0; i < discounts.length; i++) {
-        const discount = discounts[i];
+    const discounts_start = form.getAll("discount[][start]");
+    const discounts_end = form.getAll("discount[][end]");
+    const discounts_rate = form.getAll("discount[][rate]");
 
-        if(discount.length === 3 || !isValidDate(discount[0]) || !isValidDate(discount[1])
-                || discount[2] < 1 || discount[2] > 99){
+    if(discounts_start.length !== discounts_end.length || discounts_start.length !== discounts_rate.length){
+        return;
+    }
+    for (let i = 0; i < discounts_start.length; i++) {
+        if(!isValidDate(discounts_start[i]) || !isValidDate(discounts_end[i])
+                || discounts_rate[i] < 1 || discounts_rate[i] > 99){
+            submit_error.innerText = "There is an invalid discount row.";
+            submit_button.classList.add('border-danger');
+            submit_error.classList.add('d-block');
             return;
         }
     }
 
+    submit_error.innerText = "";
+    submit_button.classList.remove('border-danger');
+    submit_error.classList.remove('d-block');
+
+
+    console.log(form);
     //sendPut()
 }
 
@@ -93,7 +115,6 @@ const addKey = () => {
 
     let key_error = document.getElementById('key-input-error');
 
-
     if(key_add.value == null || key_add.value.length === 0){
         key_error.innerText = "The key must not be empty.";
         key_add.classList.add('border-danger')
@@ -119,8 +140,8 @@ const addKey = () => {
     resetKeys();
 }
 
-const isValidKey = (key : String) => {
-    return /^\w+[[-\\/]\w+]*$/g.test(key);
+const isValidKey = (key) => {
+    return /^\w+([\-|\\|/]\w+)*$/g.test(key);
 }
 
 const resetKeys = () => {
@@ -170,7 +191,7 @@ const addDiscount = () => {
     resetDiscounts();
 }
 
-const formatDate = (date : Date) => {
+const formatDate = (date) => {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
@@ -186,7 +207,7 @@ const formatDate = (date : Date) => {
     return [year, month, day].join("-");
 }
 
-const isValidDate = (date : String) => {
+const isValidDate = (date) => {
     return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(date);
 }
 

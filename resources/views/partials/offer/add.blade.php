@@ -122,6 +122,7 @@
         <div class="col-12 text-right">
             <div class="form-group">
                 <button type="button" id="offer-submit" class="btn btn-orange px-5 py-2">Submit Offer</button>
+                <span id="offer-submit-error" class="error"></span>
             </div>
         </div>
     </div>
