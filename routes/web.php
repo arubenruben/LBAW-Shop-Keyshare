@@ -40,7 +40,7 @@ Route::put('/cart', 'CartController@add');
 Route::delete('/cart/{id}', 'CartController@delete');
 Route::get('/cart/checkout', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finishCheckout');
-
+Route::get('api/getCartTotalPrice', 'CartController@getCartTotalPrice');
 
 
 // Offers
@@ -53,6 +53,7 @@ Route::get('api/offer/{id}/key', 'OfferController@getKeys');
 Route::put('offer/{id}/key', 'OfferController@addKey');
 Route::get('api/offer/{id}/discount', 'OfferController@getDiscounts');
 Route::put('offer/{id}/discount', 'OfferController@addDiscount');
+
 
 // Discounts
 Route::post('/discount/{discountId}', 'DiscountController@update');

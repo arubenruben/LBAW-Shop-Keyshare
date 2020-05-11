@@ -162,9 +162,50 @@ class CartController extends Controller
 
     }
 
+    public function getCartTotalPrice(Request $request){
+
+
+        $loggedIn=true;
+        $data=array();
+
+        try {
+            $this->authorize('loggedIn',Cart::class);
+            $user = Auth::user();
+        }catch (AuthorizationException $e) {
+            $loggedIn=false;
+        }
+
+        //If logged in -> Get the Cart from the database
+        if($loggedIn){
+            $user=$user->cart;
+
+            for($i=0;$i<count($user);$i++){
+                $data[$i]=Cart::findOrFail($user[$i]['id']);
+            }
+            //If not logged int get the cart from the session cookie if exists
+        }else if($request->session()->has('cart')){
+            $cartItemsInSession=$request->session()->get('cart');
+
+            for($i=0;$i<count($cartItemsInSession);$i++){
+                $data[$i]=$cartItemsInSession[$i];
+            }
+        }
+
+        $collectionOffers = collect();
+
+        for($i=0;$i<count($data); $i++){
+            $collectionOffers->add($data[$i]->offer);
+        }
+
+
+        return [
+            'amount' => $collectionOffers->sum('discountPriceColumn'),
+        ];
+
+
+    }
+
     public function generateClientToken(){
-
-
 
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
@@ -178,17 +219,40 @@ class CartController extends Controller
 
     public function finishCheckout(Request $request){
 
+        /*try {
+            $this->authorize('loggedIn',Cart::class);
+            $user = Auth::user();
+        }catch (AuthorizationException $e) {
+            abort(403);
+        }*/
 
+
+
+        // Access token
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
         ]);
 
-        $result = $this->createTransaction($gateway, 5, $request->nonce, $request->orderID);
 
+
+        // The total price the client will be charged
+        $totalPrice = 1600.15;
+
+        // Create a transaction
+        $result = $this->createTransaction($gateway, $totalPrice, $request->nonce, $request->orderID);
+
+        // Checking the result of the transaction and send message to the client
         if ($result->success) {
-            print_r("Success ID: " . $result->transaction->id);
+            return [
+                'success' => true,
+                'message' => 'Transaction was a success with id'.$result->transaction->id,
+            ];
+
         } else {
-            print_r("Error Message: " . $result->message);
+            return [
+                'success' => false,
+                'message' => $result->message
+            ];
         }
     }
 
@@ -198,7 +262,7 @@ class CartController extends Controller
             "amount" => $amount,
             'merchantAccountId' => 'USD',
             "paymentMethodNonce" => $paymentMethodNonce,
-            "orderId" => $invoiceNumber
+            "orderId" => $invoiceNumber,
         ]);
     }
 }

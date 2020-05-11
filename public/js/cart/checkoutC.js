@@ -27,7 +27,6 @@ let valid_inputs;
 const addEventListenersCheckout = () => {
     comfirm_order_button.addEventListener('click', clicked_confirm_button);
     your_info_button.addEventListener('click', clicked_info_button);
-    paypal_button.addEventListener('click', sendRequest);
 }
 
 
@@ -90,15 +89,6 @@ const clicked_info_button = () => {
 
 const validate_info = (res) => {
 
-
-
-}
-
-const sendRequest = () => {
-    let data = assembleData();
-    sendGet(data)
-        .then(res => validate_info(res))
-        .catch(error => console.error("Error: " + error));
 }
 
 const sendPut = post => {
@@ -131,7 +121,7 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("api/validateCheckoutInfo?" + encodeForAjax(get), options)
+    return fetch("/api/getCartTotalPrice", options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }
@@ -144,28 +134,6 @@ function encodeForAjax(data) {
     }).join('&');
 }
 
-
-
-
-// going to check device data
-/*braintree.client.create({
-    authorization: 'CLIENT_AUTHORIZATION'
-}, function (err, clientInstance) {
-    // Creation of any other components...
-
-    braintree.dataCollector.create({
-        client: clientInstance,
-        paypal: true
-    }, function (err, dataCollectorInstance) {
-        if (err) {
-            // Handle error in creation of data collector
-            return;
-        }
-        // At this point, you should access the dataCollectorInstance.deviceData value and provide it
-        // to your server, e.g. by injecting it into your form as a hidden input.
-        var deviceData = dataCollectorInstance.deviceData;
-    });
-});*/
 
 function check_transaction_result(res){
     console.log(JSON.stringify(res));
@@ -182,21 +150,38 @@ paypal.Button.render({
     commit: true, // This will add the transaction amount to the PayPal button
 
     payment: function (data, actions) {
+
+
+        // DELETE AFTER - tentei fazer desta maenira falar com alguem sobre isto
+       /* sendGet()
+            .then(res => {
+                console.log(JSON.stringify(res));
+                return actions.braintree.create({
+                    flow: 'checkout', // Required
+                    amount: 50, // Required
+                    currency: 'USD', // Required
+                });
+            })
+            .catch(error => console.error("Error: " + error));*/
+
         return actions.braintree.create({
             flow: 'checkout', // Required
-            amount: 10.00, // Required
+            amount: document.querySelector("#total_price").innerHTML, // Required
             currency: 'USD', // Required
         });
+
+
     },
 
     onAuthorize: function (payload) {
         console.log(JSON.stringify(payload));
         const data = {
             nonce: payload.nonce,
-            orderId: payload.orderId
+            orderId: payload.orderID
         }
 
         console.log(data);
+
 
         sendPut(data).then(res => check_transaction_result(res));
 
@@ -204,78 +189,6 @@ paypal.Button.render({
     },
 }, '#paypal-button');
 
-/*
-// Create a client.
-braintree.client.create({
-    authorization: document.querySelector("#client-token").innerHTML,
-}, function (clientErr, clientInstance) {
-
-    // Stop if there was a problem creating the client.
-    // This could happen if there is a network error or if the authorization
-    // is invalid.
-    if (clientErr) {
-        console.error('Error creating client:', clientErr);
-        return;
-    }
-
-    // Create a PayPal Checkout component.
-    braintree.paypalCheckout.create({
-        client: clientInstance
-    }, function (paypalCheckoutErr, paypalCheckoutInstance) {
-
-        // Stop if there was a problem creating PayPal Checkout.
-        // This could happen if there was a network error or if it's incorrectly
-        // configured.
-        if (paypalCheckoutErr) {
-            console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
-            return;
-        }
-
-
-        // Set up PayPal with the checkout.js library
-        paypal.Button.render({
-            env: 'production', // or 'sandbox'
-
-            onError: function (err) {
-                console.error('checkout.js error', err);
-            },
-
-            payment: function () {
-                return paypalCheckoutInstance.createPayment({
-                    // Your PayPal options here. For available options, see
-                    // http://braintree.github.io/braintree-web/current/PayPalCheckout.html#createPayment
-                    flow: 'checkout',
-                    amount: 200,
-                    currency: 'USD',
-                    billingAgreementDescription: 'My Company name',
-                    enableShippingAddress: false,
-                    enableBillingAddress: false,
-                });
-            },
-
-
-            onAuthorize: function (data, actions) {
-                return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
-                    // Submit payload.nonce to your server
-                    sendPut(payload.nonce);
-                });
-            },
-
-
-            onCancel: function (data) {
-                console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
-            },
-
-
-        }, '#paypal-button').then(function () {
-            // The PayPal button will be rendered in an html element with the id
-            // `paypal-button`. This function will be called when the PayPal button
-            // is set up and ready to be used.
-        });
-
-    });
-
-});*/
 
 addEventListenersCheckout();
 
