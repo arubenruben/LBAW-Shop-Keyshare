@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ActiveProduct;
+use App\Http\Requests\OfferAddRequest;
 use App\Offer;
 use App\Platform;
 use App\Product;
@@ -45,7 +46,7 @@ class OfferController extends Controller
         return view('pages.offer.add', ['products' => $active_products, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);
     }
 
-    public function add() {
+    public function add(OfferAddRequest $request) {
 
     }
 

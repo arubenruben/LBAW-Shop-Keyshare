@@ -14,7 +14,7 @@ class OfferPolicy
     public function unbanned(User $user) {
         // Only the an authenticated not banned user can make an offer
 
-        return Auth::check() && Auth::user()->banned() === false;
+        return Auth::check() && Auth::user()->isBanned() === false;
     }
 
     public function seller(User $user, Offer $offer) {

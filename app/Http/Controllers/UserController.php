@@ -47,7 +47,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         $orders = $user->orders;
-        $isBanned = $user->banned();
+        $isBanned = $user->isBanned();
 
         return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'breadcrumbs' => ['User' => url('/user/' . $user->username), 'Purchases' => url('/user/purchases')]]);
     }

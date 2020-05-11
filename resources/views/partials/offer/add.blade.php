@@ -10,24 +10,22 @@
         </div>
         <div class="col-12 col-md-7 mt-2">
             <section class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <label for="game">
-                            <h4>Select Game</h4>
-                        </label>
-                        <select id="game-selection" name="game" class="form-control form-control-md" required>
-                            <option disabled selected value class="d-none"></option>
-                            @foreach($products as $product)
-                                <option value="{{ $product->id }}" data-img="{{ asset('/images/games/'.$product->image) }}" data-platforms="{{ json_encode(array_values($product->platforms->toArray())) }}">{{ $product->name }}</option>
-                            @endforeach
-                        </select>
-                        <label for="platform" class="mt-3">
-                            <h4>Select Platform</h4>
-                        </label>
-                        <select id="platform-selection" name="platform" class="form-control form-control-md" required>
+                <div class="col-12 form-group">
+                    <label for="product-selection">
+                        <h4>Select Product</h4>
+                    </label>
+                    <select id="product-selection" name="product" class="form-control form-control-md" required>
+                        <option disabled selected value class="d-none">Select a product</option>
+                        @foreach($products as $product)
+                            <option value="{{ $product->id }}" data-img="{{ asset('/images/games/'.$product->image) }}" data-platforms="{{ json_encode(array_values($product->platforms->toArray())) }}">{{ $product->name }}</option>
+                        @endforeach
+                    </select>
+                    <label for="platform-selection" class="mt-3">
+                        <h4>Select Platform</h4>
+                    </label>
+                    <select id="platform-selection" name="platform" class="form-control form-control-md" required>
 
-                        </select>
-                    </div>
+                    </select>
                 </div>
             </section>
 
