@@ -13,6 +13,18 @@ class Feedback extends Model
     public $timestamps  = false;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'evaluation',
+        'comment',
+        'user_id',
+        'key_id'
+    ];
+
+    /**
      * The buyer that is evaluating
      */
     public function buyer(){

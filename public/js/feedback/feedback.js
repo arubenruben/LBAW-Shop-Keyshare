@@ -2,7 +2,6 @@ let all_feedback = document.querySelector(".modal-body #userNavbar .nav-item but
 let positive_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.positive");
 let negative_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.negative");
 
-
 const addFeedbackEventListeners = () => {
     all_feedback.addEventListener("click", showAll);
     positive_feedback.addEventListener("click", showPositive);
@@ -53,8 +52,6 @@ const showPositive = () => {
             element.style.visibility = "visible";
         else
             element.style.visibility = "hidden";
-
-        //console.log(element.querySelector("td.eval i.cl-success"))
     }
 }
 
