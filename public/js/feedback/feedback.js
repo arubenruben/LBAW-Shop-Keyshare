@@ -2,6 +2,7 @@ let all_feedback = document.querySelector(".modal-body #userNavbar .nav-item but
 let positive_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.positive");
 let negative_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.negative");
 
+
 const addFeedbackEventListeners = () => {
     all_feedback.addEventListener("click", showAll);
     positive_feedback.addEventListener("click", showPositive);
@@ -22,7 +23,7 @@ const showAll = () => {
         negative_feedback.classList.add('btn-red')
     }
 
-    let content = document.querySelectorAll("table tbody tr")
+    let content = document.querySelectorAll("table tbody tr.feedback")
     for(let i=0; i<content.length; i++) {
         let element = content[i];
         element.style.visibility = "visible";
@@ -44,13 +45,16 @@ const showPositive = () => {
         negative_feedback.classList.add('btn-red')
     }
 
-    let content = document.querySelectorAll("table tbody tr")
+    let content = document.querySelectorAll("table tbody tr.feedback");
+
     for(let i=0; i<content.length; i++) {
         let element = content[i];
-        if(element.querySelector("i.cl-success") !== null)
+        if(element.querySelector("td.eval i.cl-success") !== null)
             element.style.visibility = "visible";
         else
             element.style.visibility = "hidden";
+
+        //console.log(element.querySelector("td.eval i.cl-success"))
     }
 }
 
@@ -68,10 +72,10 @@ const showNegative = () => {
         positive_feedback.classList.add('btn-green')
     }
 
-    let content = document.querySelectorAll("table tbody tr")
+    let content = document.querySelectorAll("table tbody tr.feedback");
     for(let i=0; i<content.length; i++) {
         let element = content[i];
-        if(element.querySelector("i.cl-fail") !== null)
+        if(element.querySelector("td.eval i.cl-fail") !== null)
             element.style.visibility = "visible";
         else
             element.style.visibility = "hidden";

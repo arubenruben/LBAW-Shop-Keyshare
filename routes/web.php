@@ -8,7 +8,7 @@ Auth::routes();
 Route::get('admin/login', 'Auth\LoginController@showAdmin');
 Route::post('admin/login', 'Auth\LoginController@loginAdmin');
 Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
-Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/google', 'Auth\LoginController@redirectToProvider')->name('loginGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 // User
@@ -22,7 +22,7 @@ Route::delete('user/image', 'UserController@deleteImage');
 
 // Products
 Route::get('/', 'ProductController@home');
-Route::get('/search', 'ProductController@search');
+Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/query', 'ProductController@inputSearch')->name('query');
 Route::get('/api/product/sort', 'ProductController@sort');

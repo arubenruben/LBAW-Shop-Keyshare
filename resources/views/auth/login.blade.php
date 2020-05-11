@@ -40,7 +40,7 @@
         </div>
     </form>
     <div class="text-center mt-5">
-        <a href={{ url('/login/google')}}>
+        <a href={{route('loginGoogle')}}>
             <button id="google-signup" name="google-signup" class="btn btn-blue">
                 <svg class="ml-2 float-left" viewBox="0 0 18 18" role="presentation" aria-hidden="true"
                     focusable="false" style="height: 20px; width: 20px; display: block;">
