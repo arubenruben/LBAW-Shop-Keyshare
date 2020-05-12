@@ -16,21 +16,21 @@
         </div>
     </td>
     @if($offer->price != $offer->discount_price())
-    <td class="text-center align-middle"><del><strong>${{$offer->price}}</strong></del><strong
-            class="cl-success pl-2">${{$offer->discount_price()}}</strong></td>
+        <td class="text-center align-middle"><del><strong>${{$offer->price}}</strong></del><strong
+                class="cl-success pl-2">${{$offer->discount_price()}}</strong></td>
     @else
-    <td class="text-center align-middle"><strong>${{$offer->price}}</strong></td>
+        <td class="text-center align-middle"><strong>${{$offer->price}}</strong></td>
     @endif
     <td class="text-center align-middle">
         <div class="btn-group-justified">
             @if($user != null)
-            <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
-                class="btn btn-orange" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
-            </button>
+                <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
+                    class="btn btn-orange" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
+                </button>
             @else
-            <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
-                class="btn btn-orange"><i class="fas fa-cart-plus"></i>
-            </button>
+                <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
+                    class="btn btn-orange"><i class="fas fa-cart-plus"></i>
+                </button>
             @endif
         </div>
     </td>

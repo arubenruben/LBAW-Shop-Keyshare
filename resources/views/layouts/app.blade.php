@@ -16,11 +16,6 @@
   <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  <!-- Scripts -->
-  <script type="text/javascript">
-    // Fix for Firefox autofocus CSS bug
-            // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
-  </script>
   <script src="{{ asset('jquery/jquery.slim.js') }}"></script>
   <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>

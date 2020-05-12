@@ -5,7 +5,7 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-@include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])
+    @include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])
 @endsection
 
 @section('javascript')
@@ -14,10 +14,10 @@
 
 
 @section('content')
-@include('partials.offer.add')
+    @include('partials.offer.add')
 @endsection
 
 
 @section('footer')
-@include('partials.footer.userfooter')
+    @include('partials.footer.userfooter')
 @endsection
