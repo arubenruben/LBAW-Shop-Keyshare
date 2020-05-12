@@ -14,14 +14,14 @@
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
                 @endif
                 <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                    <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->platforms[0]->name])}}">
-                        <img class="card-img-top cardProductListImg img-fluid" src="{{asset('pictures/games/'.$product->picture->url)}}">
+                    <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->name])}}">
+                        <img class="card-img-top cardProductListImg img-fluid" src="{{ $product->picture }}">
                     </a>
                     <div class="card-body">
-                        <h6 class="card-title"> <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->platforms[0]->name])}}"
-                                class="text-decoration-none text-secondary">{{$product->name}}</a></h6>
+                        <h6 class="card-title"> <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->platform])}}"
+                                class="text-decoration-none text-secondary">{{$product->name.'-'.$product->platform}}</a></h6>
                         <h5 class="cl-orange2">
-                            {{$product->offers->min('price') !== null ? '$'.$product->offers->min('price') : 'Unavailable'}}
+                            {{$product->price !== null ? '$'.$product->price : 'Unavailable'}}
                         </h5>
                     </div>
                 </div>

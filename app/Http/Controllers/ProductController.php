@@ -61,16 +61,32 @@ class ProductController extends Controller
             return ActiveProduct::find($product->id) !== null;
         });
 
-        $filtered = $this->filterProducts($request, $products);
+        $productsPlatform = [];
+        foreach ($products as $product) {
+            foreach ($product->platforms as $platform){
+                array_push($productsPlatform, (object)[
+                    'product' => $product,
+                    'platform' => $platform
+                ]);
+            }
+        }
+
+        $productsCollection = collect($productsPlatform);
+
+        $filtered = $this->filterProducts($request, $productsCollection);
 
         $genres = Genre::all();
         $platforms = Platform::all();
         $categories = Category::all();
 
         $prices = [];
-        foreach ($filtered as $product) {
-            $active_offers = $product->active_offers;
-            if ($active_offers != null) {
+        foreach ($filtered as $entry) {
+            if ($entry->product->active_offers != null) {
+                $plat_id = $entry->platform->id;
+                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                    return $active_offer->offer->platform_id == $plat_id;
+                });
+
                 array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer) {
                     return $activeOffer->offer->price;
                 }));
@@ -86,6 +102,27 @@ class ProductController extends Controller
 
         $filtered = $filtered->forPage($request->has('page') ? $request->input('page') : 0, 9);
 
+        $filtered = $filtered->map(function ($entry) {
+            $plat_id = $entry->platform->id;
+            $min_price = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                return $active_offer->offer->platform_id == $plat_id;
+            })->min(function (ActiveOffer $active_offer) {
+                return $active_offer->offer->price;
+            });
+
+            return (object)[
+                'id' => $entry->product->id,
+                'name' => $entry->product->name,
+                'description' => $entry->product->description,
+                'launch_date' => $entry->product->launch_date,
+                'category' => $entry->product->category->name,
+                'platform' => $entry->platform->name,
+                'genres' => $entry->product->genres,
+                'picture' => asset('/pictures/games/' . $entry->product->picture->url),
+                'price' => $min_price
+            ];
+        });
+
         return view('pages.products.products', [
             'genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
             'min_price' => $min_price, 'max_price' => $max_price, 'products' => $filtered, 'breadcrumbs' => ['Products' => url('/products/')]
@@ -98,7 +135,20 @@ class ProductController extends Controller
             return ActiveProduct::find($product->id) !== null;
         });
 
-        $filtered = $this->filterProducts($request, $products);
+
+        $productsPlatform = [];
+        foreach ($products as $product) {
+            foreach ($product->platforms as $platform){
+                array_push($productsPlatform, (object)[
+                    'product' => $product,
+                    'platform' => $platform
+                ]);
+            }
+        }
+
+        $productsCollection = collect($productsPlatform);
+
+        $filtered = $this->filterProducts($request, $productsCollection);
 
         $prices = $this->returnPrices($filtered);
 
@@ -112,19 +162,28 @@ class ProductController extends Controller
         $request->has('page') ? $filtered = $filtered->forPage($request->input('page'), 9) :
             $filtered = $filtered->forPage(0, 9);
 
-        $filtered = $filtered->map(function ($product, $key) {
+        $filtered = $filtered->map(function ($entry) {
+            $plat_id = $entry->platform->id;
+            $min_price = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                return $active_offer->offer->platform_id == $plat_id;
+            })->min(function (ActiveOffer $active_offer) {
+                return $active_offer->offer->price;
+            });
+
             return [
-                'id' => $product->id, 'name' => $product->name, 'description' => $product->description,
-                'launch_date' => $product->launch_date, 'category' => $product->category->name,
-                'platforms' => $product->platforms, 'genres' => $product->genres,
-                'picture' => asset('/pictures/games/' . $product->picture->url),
-                'price' => $product->active_offers->min(function (ActiveOffer $activeOffer) {
-                    return $activeOffer->offer->price;
-                })
+                'id' => $entry->product->id,
+                'name' => $entry->product->name,
+                'description' => $entry->product->description,
+                'launch_date' => $entry->product->launch_date,
+                'category' => $entry->product->category->name,
+                'platform' => $entry->platform->name,
+                'genres' => $entry->product->genres,
+                'picture' => asset('/pictures/games/' . $entry->product->picture->url),
+                'price' => $min_price
             ];
         });
 
-        return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
+        return response()->json(['products' => $filtered, 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
     public function inputSearch()
@@ -151,14 +210,14 @@ class ProductController extends Controller
         ]);
     }
 
-    private function filterProducts(Request $request, Collection $products)
+    private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
 
         if ($request->has('genres')) {
-            $filter = $filter->filter(function (Product $product) use ($request) {
+            $filter = $filter->filter(function ($entry) use ($request) {
                 $decoded = explode(",", $request->input('genres'));
-                $genres = $product->genres->map(function ($genre, $key) {
+                $genres = $entry->product->genres->map(function ($genre) {
                     return $genre->name;
                 });
                 return count(array_intersect($decoded, $genres->toArray())) == count($decoded);
@@ -166,39 +225,54 @@ class ProductController extends Controller
         }
 
         if ($request->has('platform')) {
-            $filter = $filter->filter(function (Product $product) use ($request) {
-                foreach ($product->platforms as $platform)
-                    if ($platform->name == $request->input('platform'))
-                        return true;
-
-                return false;
+            $filter = $filter->filter(function ($entry) use ($request) {
+                return $entry->platform->name == $request->input('platform');
             });
         }
 
         if ($request->has('category')) {
-            $filter = $filter->filter(function (Product $product) use ($request) {
-                return $product->category->name == $request->input('category');
+            $filter = $filter->filter(function ($entry) use ($request) {
+                return $entry->product->category->name == $request->input('category');
             });
         }
 
         if ($request->has('max_price')) {
-            $filter = $filter->filter(function (Product $product) use ($request) {
-                return $product->offers->min('price') <= $request->input('max_price');
+            $filter = $filter->filter(function ($entry) use ($request) {
+                $plat_id = $entry->platform->id;
+                $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                    return $offer->platform_id == $plat_id;
+                });
+
+                return $offers->min('price') <= $request->input('max_price');
             });
         }
 
         if ($request->has('sort_by')) {
             if ($request->input('sort_by') === 'Most popular') {
-                $filter = $filter->sortByDesc('num_sells');
+                $filter = $filter->sortByDesc(function ($entry) {
+                    return $entry->product->num_sells;
+                });
             } else if ($request->input('sort_by') === 'Most recent') {
-                $filter = $filter->sortByDesc('launch_date');
+                $filter = $filter->sortByDesc(function ($entry) {
+                    return $entry->product->launch_date;
+                });
             } else if ($request->input('sort_by') === 'Highest Price') {
-                $filter = $filter->sortByDesc(function (Product $product) {
-                    return $product->offers()->min('price');
+                $filter = $filter->sortByDesc(function ($entry) {
+                    $plat_id = $entry->platform->id;
+                    $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                        return $offer->platform_id == $plat_id;
+                    });
+
+                    return $offers->min('price');
                 });
             } else if ($request->input('sort_by') === 'Lowest Price') {
-                $filter = $filter->sortBy(function (Product $product) {
-                    return $product->offers()->min('price');
+                $filter = $filter->sortBy(function ($entry) {
+                    $plat_id = $entry->platform->id;
+                    $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                        return $offer->platform_id == $plat_id;
+                    });
+
+                    return $offers->min('price');
                 });
             }
         }
@@ -210,9 +284,13 @@ class ProductController extends Controller
     {
         $prices = [];
 
-        foreach ($filtered as $product) {
-            $active_offers = $product->active_offers;
-            if ($active_offers != null) {
+        foreach ($filtered as $entry) {
+            if ($entry->product->active_offers != null) {
+                $plat_id = $entry->platform->id;
+                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                    return $active_offer->offer->platform_id == $plat_id;
+                });
+
                 array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer) {
                     return $activeOffer->offer->price;
                 }));
