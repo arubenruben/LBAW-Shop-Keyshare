@@ -45,9 +45,7 @@ class ProductController extends Controller
 
     public function home()
     {
-
         $numberResults = 5;
-
         $homepageData = collect([
             'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
             'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults),

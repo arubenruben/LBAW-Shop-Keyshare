@@ -5,12 +5,13 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' =>
-    'Reports','breadcrumbs'=>$breadcrumbs])
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner,
+        'active' => 'Reports','breadcrumbs'=>$breadcrumbs])
 @endsection
 
 @section('content')
-    @include('partials.user.reports', ['user' => $user, 'myReports' => $myReports, 'reportsAgainstMe' => $reportsAgainstMe])
+    @include('partials.user.reports', ['user' => $user, 'myReports' => $myReports,
+        'reportsAgainstMe' => $reportsAgainstMe])
 @endsection
 
 @section('footer')

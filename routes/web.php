@@ -26,7 +26,7 @@ Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/query', 'ProductController@inputSearch')->name('query');
 Route::get('/api/product/sort', 'ProductController@sort');
-Route::get('product/{productName}/{platformName}', 'ProductController@show');
+Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product');
 
 // Cart
 Route::get('/cart', 'CartController@show');
