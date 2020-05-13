@@ -6,48 +6,33 @@
     </div>
     <div class="row">
         <div class="col-5 mt-3 my-auto d-none d-md-block">
-            <img class="img-fluid productPageImgPreview" src="../../assets/pictures/games/GTAV/1.png" />
+            <img class="img-fluid productPageImgPreview" src="{{asset('pictures/games/'.$offer->product->picture->url)}}"/>
         </div>
         <div class="col-12 col-md-7 mt-2">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <label for="inputGameName">
-                            <h4>Select Game</h4>
-                        </label>
-                        <select id="inputGameName" class="form-control form-control-md">
-                            <option>GTA V</option>
-                            <option>FIFA 20</option>
-                            <option>Minecraft</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
+            <h4>Game</h4>
+            <p class="pl-2 font-weight-bold">{{ $offer->product->name }}</p>
+            <h5>Platform</h5>
+            <p>{{ $offer->platform->name }}</p>
+            <section class="row mt-2">
                 <div class="col-12 flex-nowrap">
                     <div class="form-group">
                         <h4>Keys</h4>
-                        <div class="input-group">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key"
-                                value="55-FF-55">
-                            <span class="input-group-btn">
-                                <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                            </span>
-                        </div>
-                        <div class="input-group mt-2">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key"
-                                value="55-FF-55">
-                            <span class="input-group-btn">
-                                <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                            </span>
-                        </div>
-                        <div class="input-group mt-2">
-                            <input type="text" class="form-control mr-2" id="exampleFormControlInput1" placeholder="Key"
-                                value="55-FF-55">
-                            <span class="input-group-btn">
-                                <button class="btn btn-red"><i class="fas fa-times-circle"></i></button>
-                            </span>
-                        </div>
+                        <article id="offer-keys">
+                        @foreach($offer->keys as $key)
+                            <div class="input-group">
+                                <p class="form-control mr-2" readonly>{{ $key->key }}</p>
+                                @if($key->order !== null)
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-green noHover">Sold</button>
+                                </span>
+                                @else
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-red"><i class="fas fa-times-circle"></i></button>
+                                </span>
+                                @endif
+                            </div>
+                        @endforeach
+                        </article>
                         <div class="row mt-3 flex-nowrap">
                             <div class="col-12 text-center">
                                 <button class="btn btn-blue text-center">
@@ -58,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
     <hr>

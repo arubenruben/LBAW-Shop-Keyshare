@@ -1,7 +1,7 @@
 <div id="content" class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
-            @if($user->banned())
+            @if($user->isBanned())
                 <div class="row mb-2">
                     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
                         data-toggle="modal" data-target="#modalAppeal">
@@ -71,14 +71,14 @@
                                                     @if($user->feedback->where("key", "=", $key->id)->count() == 0)
                                                     <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap"
                                                         data-toggle="modal"
-                                                        data-target="#modalGiveFeedback{{$key->id}} {{ $user->banned() ? 'disabled' : ''}}">
+                                                        data-target="#modalGiveFeedback{{$key->id}} {{ $user->isBanned() ? 'disabled' : ''}}">
                                                         <i class="far fa-comment-alt d-inline-block"></i> <span
                                                             class="d-none d-md-inline-block">Leave feedback</span> </button>
                                                     @endif
                                                     @if($key->report == null)
                                                     <button type="button mt-5 mb-5 " class="btn btn-red btn-block flex-nowrap"
                                                         data-toggle="modal" data-target="#modalReport{{$key->id}}"
-                                                        {{ $user->banned() ? 'disabled' : ''}}> <i
+                                                        {{ $user->isBanned() ? 'disabled' : ''}}> <i
                                                             class="fas fa-user-slash d-inline-block"></i> <span
                                                             class="d-none d-md-inline-block"> Report Seller </span></button>
                                                     @else

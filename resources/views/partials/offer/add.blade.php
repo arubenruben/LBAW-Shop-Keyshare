@@ -43,7 +43,6 @@
                         </div>
                         <span id="key-input-error" class="error"></span>
 
-
                         <div class="row mt-3 flex-nowrap">
                             <div class="col-12 text-center">
                                 <button type="button" class="btn btn-blue text-center">

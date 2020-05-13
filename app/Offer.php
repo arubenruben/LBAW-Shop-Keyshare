@@ -16,6 +16,18 @@ class Offer extends Model
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'product_id',
+        'user_id',
+        'platform_id',
+        'price'
+    ];
+
+    /**
      * Append custom columns to the model
      *
      * @var array

@@ -27,8 +27,8 @@ class OfferAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'product' => "bail | required | numeric | exists:App\ActiveProduct,id",
-            'platform' => "bail | required | numeric | exists:App\Platform,id",
+            'product' => "bail | required | numeric | exists:active_products,product_id",
+            'platform' => "bail | required | numeric | exists:platforms,id",
             'discounts' => 'bail | sometimes | array',
             'keys' => 'bail | required | array | filled | distinct',
         ];

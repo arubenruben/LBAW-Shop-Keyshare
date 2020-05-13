@@ -17,4 +17,15 @@ class Discount extends Model
         'start_date',
     ];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'offer_id',
+        'rate',
+        'start_date',
+        'end_date'
+    ];
 }

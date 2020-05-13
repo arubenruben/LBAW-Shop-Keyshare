@@ -613,3 +613,7 @@ li.section.status-bar-circle:before {
     width: 15rem;
     height: 15rem;
 }
+
+.noHover {
+    pointer-events: none !important;
+}

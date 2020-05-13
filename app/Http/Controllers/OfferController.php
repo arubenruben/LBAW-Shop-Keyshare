@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\ActiveProduct;
+use App\Discount;
 use App\Http\Requests\OfferAddRequest;
+use App\Key;
 use App\Offer;
 use App\Platform;
 use App\Product;
@@ -47,11 +49,52 @@ class OfferController extends Controller
     }
 
     public function add(OfferAddRequest $request) {
+        $offer = Offer::create([
+            'user_id' => Auth::id(),
+            'product_id' => $request->get('product'),
+            'platform_id' => $request->get('platform'),
+            'price' =>  $request->get('price')
+        ]);
 
+        $offer->save();
+
+        $keys = $request->get("keys");
+        $keysCreated = [];
+        foreach ($keys as $key){
+            Key::create([
+                'key' => $key,
+                'offer_id' => $offer->id
+            ])->save();
+        }
+
+        $discounts = $request->get("discounts");
+        $discountsCreated = [];
+        foreach ($discounts as $discount){
+            Discount::create([
+                'offer_id' => $offer->id,
+                'rate' => $discount['rate'],
+                'start_date' => $discount['start'],
+                'end_date' => $discount['end']
+            ])->save();
+        }
+
+        $username = Auth::user()->username;
+
+        return response(url("user/${username}/offers"));
     }
 
     public function showOffer($offerId) {
+        $offer = Offer::findOrFail($offerId);
 
+        try {
+            $this->authorize('seller', $offer);
+            $this->authorize('unbanned', Offer::class);
+        } catch (AuthorizationException $e) {
+            return response("You can't view this offer", 401);
+        }
+
+        $curName = Auth::user()->username;
+        return view('pages.offer.edit', ['offer' => $offer, 'breadcrumbs' => ['User' => url("/user/${curName}/offers"), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
     }
 
     public function update($offerId) {

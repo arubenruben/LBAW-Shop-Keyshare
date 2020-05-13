@@ -66,6 +66,13 @@ const addEventListeners = () => {
             }
         }
 
+        const price = form.get("price");
+        if(price === null || price < 1){
+            submit_error.innerText = "Please fill the price per key with a valid value.";
+            submit_button.classList.add('border-danger');
+            submit_error.classList.add('d-block');
+        }
+
         submit_error.innerText = "";
         submit_button.classList.remove('border-danger');
         submit_error.classList.remove('d-block');
@@ -84,10 +91,9 @@ const addEventListeners = () => {
             product: product_choice.value,
             platform: platform.value,
             keys: keys,
-            discounts: discounts
+            discounts: discounts,
+            price: price
         };
-
-        console.log(data);
 
         send_offer.removeEventListener("click", sendOffer);
 
@@ -104,7 +110,9 @@ const addEventListeners = () => {
                 });
             })
             .catch(error => {
-                console.error(`Error: ${error}`);
+                submit_error.innerText = `${error}`;
+                submit_button.classList.add('border-danger');
+                submit_error.classList.add('d-block');
                 send_offer.addEventListener("click", sendOffer);
             });
     }
