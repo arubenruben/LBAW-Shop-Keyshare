@@ -617,3 +617,7 @@ li.section.status-bar-circle:before {
 .noHover {
     pointer-events: none !important;
 }
+
+.nobr {
+    white-space: nowrap;
+}

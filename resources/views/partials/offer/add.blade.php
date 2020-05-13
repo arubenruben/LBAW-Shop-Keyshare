@@ -17,7 +17,7 @@
                     <select id="product-selection" name="product" class="form-control form-control-md" required>
                         <option disabled selected value class="d-none">Select a product</option>
                         @foreach($products as $product)
-                            <option value="{{ $product->id }}" data-img="{{ asset('/images/games/'.$product->image) }}" data-platforms="{{ json_encode(array_values($product->platforms->toArray())) }}">{{ $product->name }}</option>
+                            <option value="{{ $product->id }}" data-img="{{ $product->image }}" data-platforms="{{ json_encode(array_values($product->platforms->toArray())) }}">{{ $product->name }}</option>
                         @endforeach
                     </select>
                     <label for="platform-selection" class="mt-3">

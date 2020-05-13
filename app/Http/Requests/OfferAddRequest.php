@@ -30,7 +30,7 @@ class OfferAddRequest extends FormRequest
             'product' => "bail | required | numeric | exists:active_products,product_id",
             'platform' => "bail | required | numeric | exists:platforms,id",
             'discounts' => 'bail | sometimes | array',
-            'keys' => 'bail | required | array | filled | distinct',
+            'keys' => 'bail | required | array | filled | distinct | ',
         ];
     }
 

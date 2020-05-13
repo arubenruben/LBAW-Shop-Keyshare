@@ -17,6 +17,12 @@ class OfferPolicy
         return Auth::check() && Auth::user()->isBanned() === false;
     }
 
+    public function unfinished(User $user, Offer $offer) {
+        // Only the an authenticated not banned user can make an offer
+
+        return $this->seller($user, $offer) && $offer->final_date === null;
+    }
+
     public function seller(User $user, Offer $offer) {
         // Only the owner of the offer can change any details
 

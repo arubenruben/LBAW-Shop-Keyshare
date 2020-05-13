@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ActiveProduct;
 use App\Discount;
+use App\Http\Requests\DiscountAddRequest;
+use App\Http\Requests\KeyAddRequest;
 use App\Http\Requests\OfferAddRequest;
 use App\Key;
 use App\Offer;
@@ -40,7 +42,7 @@ class OfferController extends Controller
             return (object)[
                 'id' => $product->id,
                 'name' => $product->name,
-                'image' => $product->picture->url,
+                'image' => asset('/pictures/games/'.$product->picture->url),
                 'platforms' => $platforms
                 ];
         });
@@ -59,7 +61,6 @@ class OfferController extends Controller
         $offer->save();
 
         $keys = $request->get("keys");
-        $keysCreated = [];
         foreach ($keys as $key){
             Key::create([
                 'key' => $key,
@@ -68,7 +69,6 @@ class OfferController extends Controller
         }
 
         $discounts = $request->get("discounts");
-        $discountsCreated = [];
         foreach ($discounts as $discount){
             Discount::create([
                 'offer_id' => $offer->id,
@@ -87,8 +87,8 @@ class OfferController extends Controller
         $offer = Offer::findOrFail($offerId);
 
         try {
-            $this->authorize('seller', $offer);
             $this->authorize('unbanned', Offer::class);
+            $this->authorize('unfinished', $offer);
         } catch (AuthorizationException $e) {
             return response("You can't view this offer", 401);
         }
@@ -115,7 +115,7 @@ class OfferController extends Controller
 
         $response=['profit'=>$offer->profit];
         
-        return response(200);
+        return redirect('/user/'.Auth::user()->username.'/offers');
     }
 
     public function getKeys($offerId) {
@@ -130,8 +130,26 @@ class OfferController extends Controller
         return response()->json(['keys' => $offer->keys]);
     }
 
-    public function addKey($offerId) {
+    public function addKey(KeyAddRequest $request, $offerId) {
+        $offer = Offer::findOrFail($offerId);
 
+        try {
+            $this->authorize('seller', $offer);
+        } catch (AuthorizationException $e) {
+            return response('User does not have permissions to add a key to this offer.', 401);
+        }
+        try {
+            $this->authorize('unfinished', $offer);
+        } catch (AuthorizationException $e) {
+            return response('The offer selected is sold out. You cannot add a key to this offer.', 401);
+        }
+
+        $key = Key::create([
+            'offer_id' => $offerId,
+            'key' => $request->get('key')
+        ]);
+
+        return response()->json(['id' => $key->id]);
     }
 
     public function getDiscounts($offerId) {
@@ -146,7 +164,27 @@ class OfferController extends Controller
         return response()->json(['discounts' => $offer->discounts]);
     }
 
-    public function addDiscount($offerId) {
+    public function addDiscount(DiscountAddRequest $request, $offerId) {
+        $offer = Offer::findOrFail($offerId);
 
+        try {
+            $this->authorize('seller', $offer);
+        } catch (AuthorizationException $e) {
+            return response('User does not have permissions to add a discount to this offer.', 401);
+        }
+        try {
+            $this->authorize('unfinished', $offer);
+        } catch (AuthorizationException $e) {
+            return response('The offer selected is sold out. You cannot add a discount to this offer.', 401);
+        }
+
+        $discount = Discount::create([
+            'offer_id' => $offerId,
+            'rate' => $request->get('rate'),
+            'start_date' => $request->get('start'),
+            'end_date' => $request->get('end')
+        ]);
+
+        return response()->json(['id' => $discount->id]);
     }
 }

@@ -12,11 +12,6 @@ class Discount extends Model
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
-    protected $dates = [
-        'end_date',
-        'start_date',
-    ];
-
     /**
      * The attributes that are mass assignable.
      *
@@ -28,4 +23,8 @@ class Discount extends Model
         'start_date',
         'end_date'
     ];
+
+    public function offer(){
+        return $this->belongsTo('App\Offer');
+    }
 }
