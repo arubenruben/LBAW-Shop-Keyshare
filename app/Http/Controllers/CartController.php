@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Collection;
@@ -256,6 +257,7 @@ class CartController extends Controller
             ];
         }
 
+
         try {
             DB::beginTransaction();
             $this->createOrder($request->input('name'), $request->input('email'), $request->input('address'), $request->input('zipcode'), $user->cart, $user->id);
@@ -271,16 +273,16 @@ class CartController extends Controller
                 ]
             ]);
 
+
             if ($result->success) {
                 DB::commit();
-
                 return [
                     'success' => true,
                     'message' => 'Transaction was a success with id'.$result->transaction->id,
                 ];
             }
             else{
-                DB::roolBack();
+                DB::rollBack();
                 return [
                     'success' => false,
                     'message' => $result->message
@@ -288,10 +290,13 @@ class CartController extends Controller
             }
         }
         catch (Exception $e){
-            DB::roolBack();
+            DB::rollBack();
+
+            $this->checkIfKeysAreAvailable($user->cart);
+
             return [
                 'success' => false,
-                'message' => "A problem occured when trying to buy a key"
+                'message' => $e->getMessage()
             ];
         }
 
@@ -301,6 +306,9 @@ class CartController extends Controller
 
 
     public function checkIfKeysAreAvailable($userCartEntries){
+
+
+        $cartEntriesToEliminate = collect();
 
         for ($i = 0; $i < count($userCartEntries); $i++) {
             $keys = $userCartEntries[$i]->offer->keys;
@@ -312,13 +320,15 @@ class CartController extends Controller
                 }
             }
             if(!$keyExists)
-                return false;
+                $cartEntriesToEliminate->add($userCartEntries[$i]);
         }
 
-        return true;
+        if(count($cartEntriesToEliminate) > 0){
+            for($i = 0; $i < count($cartEntriesToEliminate); $i++)
+            Cart::where('user_id', $cartEntriesToEliminate[$i]->user_id)->where('offer_id', $cartEntriesToEliminate[$i]->offer_id)->delete();
+        }
 
     }
-
     public function createOrder($name, $email, $address, $zipcode, $userCartEntries, $userId){
 
         $order = new Order();
@@ -337,17 +347,25 @@ class CartController extends Controller
             $keyExists = false;
             for ($j = 0; $j < count($keys); $j++) {
                 if (is_null($keys[$j]->order_id) && is_null($keys[$j]->price_sold)) {
-                    $keys[$j]->order_id = (int)$_GET["order"];
+                    $keys[$j]->order_id = $order->number;
                     $keys[$j]->price_sold = $userCartEntries[$i]->offer->discountPriceColumn;
                     $keys[$j]->save();
                     $keyExists = true;
                     break;
                 }
             }
-            if(!$keyExists)
+            if (!$keyExists) {
                 throw new Exception("No available key for certain offer");
+            }
         }
+
+
+
+
+
 
         Cart::where('user_id', $userId)->delete();
     }
+
+
 }
