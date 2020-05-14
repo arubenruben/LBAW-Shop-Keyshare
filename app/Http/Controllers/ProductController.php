@@ -23,9 +23,7 @@ class ProductController extends Controller
     /** Product listings functions */
     private function getProducts(): \Illuminate\Support\Collection
     {
-        $filtered = $products = Product::all()->filter(function (Product $product) {
-            return ActiveProduct::find($product->id) !== null;
-        });
+        $filtered = $this->getActiveProducts();
 
         return $filtered->map(function (Product $product) {
             $lowest_price = $product->offers->min('price');
@@ -57,9 +55,7 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $products = Product::all()->filter(function (Product $product) {
-            return ActiveProduct::find($product->id) !== null;
-        });
+        $products = $this->getActiveProducts();
 
         $productsPlatform = [];
         foreach ($products as $product) {
@@ -72,7 +68,6 @@ class ProductController extends Controller
         }
 
         $productsCollection = collect($productsPlatform);
-
         $filtered = $this->filterProducts($request, $productsCollection);
 
         $genres = Genre::all();
@@ -93,9 +88,9 @@ class ProductController extends Controller
             }
         }
 
-        if (count($prices) === 0) {
+        if (count($prices) === 0)
             $prices = [0, 100];
-        }
+
 
         $min_price = min($prices);
         $max_price = max($prices);
@@ -131,10 +126,7 @@ class ProductController extends Controller
 
     public function get(Request $request)
     {
-        $products = Product::all()->filter(function (Product $product) {
-            return ActiveProduct::find($product->id) !== null;
-        });
-
+        $products = $this->getActiveProducts();
 
         $productsPlatform = [];
         foreach ($products as $product) {
@@ -147,9 +139,7 @@ class ProductController extends Controller
         }
 
         $productsCollection = collect($productsPlatform);
-
         $filtered = $this->filterProducts($request, $productsCollection);
-
         $prices = $this->returnPrices($filtered);
 
         if (count($prices) === 0) {
@@ -186,28 +176,58 @@ class ProductController extends Controller
         return response()->json(['products' => $filtered, 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
-    public function inputSearch()
+    public function inputSearch(Request $request)
     {
         $input = Input::get('input');
-
         $products = Product::whereRaw("deleted = false AND name_tsvector @@ plainto_tsquery('" . $input . "')")->paginate(9);
-        $prices = $this->returnPrices($products);
 
-        if (count($prices) === 0) {
-            $prices = [0, 100];
+        $productsPlatform = [];
+        foreach ($products as $product) {
+            foreach ($product->platforms as $platform){
+                array_push($productsPlatform, (object)[
+                    'product' => $product,
+                    'platform' => $platform
+                ]);
+            }
         }
 
+        $products = collect($productsPlatform);
         $genres = Genre::all();
         $platforms = Platform::all();
         $categories = Category::all();
 
+        $prices = [];
+        foreach ($products as $entry) {
+            if ($entry->product->active_offers != null) {
+                $plat_id = $entry->platform->id;
+                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                    return $active_offer->offer->platform_id == $plat_id;
+                });
+
+                array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer) {
+                    return $activeOffer->offer->price;
+                }));
+            }
+        }
+
+        if (count($prices) === 0)
+            $prices = [0, 100];
+
         $min_price = min($prices);
         $max_price = max($prices);
 
+        $products = $products->forPage($request->has('page') ? $request->input('page') : 0, 9);
+
         return view('pages.products.products', [
             'genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
-            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products[0], 'breadcrumbs' => ['Products' => url('/products/')]
+            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products, 'breadcrumbs' => ['Products' => url('/products/')]
         ]);
+    }
+
+    private function getActiveProducts() {
+        return Product::all()->filter(function (Product $product) {
+            return ActiveProduct::find($product->id) !== null;
+        });
     }
 
     private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
@@ -315,7 +335,6 @@ class ProductController extends Controller
 
     public function show(Request $request, $productName, $platformName)
     {
-
         $product = $this->getProduct($productName);
         $platform = $this->getPlatform($platformName);
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->get();
@@ -346,7 +365,6 @@ class ProductController extends Controller
                 return $offers;
             }
         }
-
     }
 
     private function getFilteredOffer($offers, $cart)
@@ -366,7 +384,6 @@ class ProductController extends Controller
 
         return $offersFiltered;
     }
-
 
     public function sortOffersByPrice($offers)
     {

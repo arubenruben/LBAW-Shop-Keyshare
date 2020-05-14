@@ -19,7 +19,7 @@
                     </a>
                     <div class="card-body">
                         <h6 class="card-title"> <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->platform])}}"
-                                class="text-decoration-none text-secondary">{{$product->name.'-'.$product->platform}}</a></h6>
+                                class="text-decoration-none text-secondary">{{$product->name.' ['.$product->platform.']'}}</a></h6>
                         <h5 class="cl-orange2">
                             {{$product->price !== null ? '$'.$product->price : 'Unavailable'}}
                         </h5>
