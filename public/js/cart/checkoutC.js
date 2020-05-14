@@ -1,5 +1,6 @@
 const checkout_tab_1 = document.querySelector("#checkout-tab-1");
 const checkout_tab_2 = document.querySelector("#checkout-tab-2");
+const checkout_tab_3 = document.querySelector("#checkout-tab-3");
 
 const comfirm_order_button = document.querySelector("#confirm-order");
 const your_info_button = document.querySelector("#your-info");
@@ -21,6 +22,11 @@ const name_invalid = document.querySelector("#name-invalid");
 const email_invalid = document.querySelector("#email-invalid");
 const address_invalid = document.querySelector("#address-invalid");
 const zip_code_invalid = document.querySelector("#zip-code-invalid");
+
+const checkout_tab_3_success = document.querySelector("#checkout-success");
+const checkout_tab_3_fail = document.querySelector("#checkout-fail");
+
+
 
 let valid_inputs;
 
@@ -85,6 +91,7 @@ const clicked_info_button = () => {
 
     checkout_tab_1.style.display = "block";
     checkout_tab_2.style.display = "none";
+    checkout_tab_3.style.display = "none";
 }
 
 const validate_info = (res) => {
@@ -137,6 +144,21 @@ function encodeForAjax(data) {
 
 function check_transaction_result(res){
     console.log(JSON.stringify(res));
+
+    checkout_tab_1.style.display = "none";
+    checkout_tab_2.style.display = "none";
+
+    if(res.success === true){
+        checkout_tab_3.style.display = "block";
+        checkout_tab_3_success.style.display = "block";
+        checkout_tab_3_fail.style.display = "none";
+    }
+    else{
+        checkout_tab_3.style.display = "block";
+        checkout_tab_3_success.style.display = "none";
+        checkout_tab_3_fail.style.display = "block";
+    }
+
 }
 
 let deviceData;
@@ -168,6 +190,10 @@ paypal.Button.render({
             nonce: payload.nonce,
             orderId: payload.orderID,
             deviceData: deviceData,
+            name: input_name.value,
+            zipcode: input_zip_code.value,
+            address: input_address.value,
+            email: input_email.value
         }
 
 
@@ -175,6 +201,15 @@ paypal.Button.render({
 
             //.catch(error => console.error("Error: " + error));
     },
+
+    locale: 'en_US',
+    style: {
+        size: 'medium',
+        color: 'gold',
+        shape: 'pill',
+        label: 'checkout',
+        tagline: 'true'
+    }
 
 }, '#paypal-button');
 

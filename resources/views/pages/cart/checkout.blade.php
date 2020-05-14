@@ -23,16 +23,22 @@
 @endsection
 
 @section('content')
-    <span id="client-token">{{$clientToken}}</span>
+
+    <span class="d-none" id="client-token">{{$clientToken}}</span>
     <div id="content" class="container">
         <section id="checkout-tab-1" >
-        @include('partials.cart.checkoutTab1', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+            @include('partials.cart.checkoutTab1', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
         </section>
 
-        <section id="checkout-tab-2" style="display: none;">
-        @include('partials.cart.checkoutTab2', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+        <section id="checkout-tab-2">
+            @include('partials.cart.checkoutTab2', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+        </section>
+
+        <section id="checkout-tab-3">
+            @include('partials.cart.checkoutTab3')
         </section>
     </div>
+
 @endsection
 
 @section('footer')

@@ -64,13 +64,16 @@
     </div>
     <hr>
     <div id="checkoutButtonsContainer" class="row">
-        <div class="col-9">
+        <div class="col-6">
             <a  id="your-info"  class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
+        </div>
+        <div class="col-6">
+            <div class="float-right" id="paypal-button"></div>
         </div>
     </div>
 
 
-    <div id="paypal-button"></div>
+
 
 
 </div>

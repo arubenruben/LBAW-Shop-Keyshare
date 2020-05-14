@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Collection;
@@ -226,7 +227,12 @@ class CartController extends Controller
             abort(403);
         }
 
-
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'zipcode' => 'required'
+        ]);
 
         // Access token
         $gateway = new Braintree\Gateway([
@@ -237,31 +243,111 @@ class CartController extends Controller
         // The total price the client will be charged
         $totalPrice = $this->getCartTotalPrice($request)['amount'];
 
-        // Create a transaction
-        $result = $gateway->transaction()->sale([
-            'amount' => $totalPrice,
-            'orderId' => $request->orderID,
-            'merchantAccountId' =>'USD',
-            'paymentMethodNonce' => $request->nonce,
-            'deviceData' => $request->deviceData,
-            'options' => [
-                'submitForSettlement' => true
-            ]
-        ]);
+        $line_items = array();
 
-        // Checking the result of the transaction and send message to the client
-        if ($result->success) {
-            return [
-                'success' => true,
-                'message' => 'Transaction was a success with id'.$result->transaction->id,
+
+        for($i = 0; $i < count($user->cart); $i++){
+            $line_items[$i] = [
+                'name' => $user->cart[$i]->offer->product->name." ".$user->cart[$i]->offer->platform->name,
+                'quantity' => 1,
+                'unit_amount' => $user->cart[$i]->offer->discountPriceColum,
+                'kind' => 'debit',
+                'total_amount' => $user->cart[$i]->offer->discountPriceColum,
             ];
-        } else {
+        }
+
+        try {
+            DB::beginTransaction();
+            $this->createOrder($request->input('name'), $request->input('email'), $request->input('address'), $request->input('zipcode'), $user->cart, $user->id);
+            // Create a transaction
+            $result = $gateway->transaction()->sale([
+                'amount' => $totalPrice,
+                'orderId' => $request->orderID,
+                'merchantAccountId' => 'USD',
+                'paymentMethodNonce' => $request->nonce,
+                'deviceData' => $request->deviceData,
+                'options' => [
+                    'submitForSettlement' => true
+                ]
+            ]);
+
+            if ($result->success) {
+                DB::commit();
+
+                return [
+                    'success' => true,
+                    'message' => 'Transaction was a success with id'.$result->transaction->id,
+                ];
+            }
+            else{
+                DB::roolBack();
+                return [
+                    'success' => false,
+                    'message' => $result->message
+                ];
+            }
+        }
+        catch (Exception $e){
+            DB::roolBack();
             return [
                 'success' => false,
-                'message' => $result->message
+                'message' => "A problem occured when trying to buy a key"
             ];
         }
 
 
+    }
+
+
+
+    public function checkIfKeysAreAvailable($userCartEntries){
+
+        for ($i = 0; $i < count($userCartEntries); $i++) {
+            $keys = $userCartEntries[$i]->offer->keys;
+            $keyExists = false;
+            for ($j = 0; $j < count($keys); $j++) {
+                if (is_null($keys[$j]->order_id) && is_null($keys[$j]->price_sold)) {
+                    $keyExists = true;
+                    break;
+                }
+            }
+            if(!$keyExists)
+                return false;
+        }
+
+        return true;
+
+    }
+
+    public function createOrder($name, $email, $address, $zipcode, $userCartEntries, $userId){
+
+        $order = new Order();
+
+        $order->order_info_name = $name;
+        $order->order_info_email = $email;
+        $order->order_info_address = $address;
+        $order->order_info_zipcode = $zipcode;
+        $order->user_id = $userId;
+        $order->date = "2020-04-03";
+
+        $order->save();
+
+        for ($i = 0; $i < count($userCartEntries); $i++) {
+            $keys = $userCartEntries[$i]->offer->keys;
+            $keyExists = false;
+            for ($j = 0; $j < count($keys); $j++) {
+                if (is_null($keys[$j]->order_id) && is_null($keys[$j]->price_sold)) {
+                    $keys[$j]->order_id = (int)$_GET["order"];
+                    $keys[$j]->price_sold = $userCartEntries[$i]->offer->discountPriceColumn;
+                    $keys[$j]->save();
+                    $keyExists = true;
+                    break;
+                }
+            }
+            if(!$keyExists)
+                throw new Exception("No available key for certain offer");
+        }
+
+        Cart::where('user_id', $userId)->delete();
     }
 }
