@@ -9,10 +9,6 @@
 
 @include('partials.header.userheader')
 
-@section('navbar')
-    @include('partials.navbar.commercenavbar',['breadcrumbs'=>$breadcrumbs])
-@endsection
-
 @section('content')
     @include('partials.product.product')
 @endsection

@@ -52,9 +52,13 @@
       </div>
       <div class="row mt-4">
         <div class="col-sm-12 text-center">
-          <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span
-              class="font-weight-bold cl-success">{{ $user->rating }}%</span> | <i
-              class="fas fa-shopping-cart"></i>{{ $user->num_sells }} </p>
+          <p>@if($user->rating != null) <i class="fas fa-thumbs-up cl-success mr-1"></i> @endif
+            <span class="font-weight-bold cl-success">
+              @if($user->rating == null) {{ 'No rating yet!'  }}
+              @else {{ $user->rating }}%
+              @endif
+            </span> | <span><i class="fas fa-shopping-cart"></i>{{ $user->num_sells }}</span>
+          </p>
         </div>
       </div>
       <div class="row mt-2 mb-5">

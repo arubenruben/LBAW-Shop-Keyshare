@@ -14,7 +14,7 @@
             <div class="row justify-content-between mx-auto flex-wrap mt-2">
                 @endif
                 <div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
-                    <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->name])}}">
+                    <a href="{{route('product', ['productName' => $product->name, 'platformName' => $product->platform])}}">
                         <img class="card-img-top cardProductListImg img-fluid" src="{{ $product->picture }}">
                     </a>
                     <div class="card-body">
