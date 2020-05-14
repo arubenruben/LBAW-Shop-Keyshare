@@ -161,7 +161,7 @@ function check_transaction_result(res){
 
 }
 
-let deviceData;
+
 
 paypal.Button.render({
     braintree: braintree,
@@ -189,7 +189,6 @@ paypal.Button.render({
         const data = {
             nonce: payload.nonce,
             orderId: payload.orderID,
-            deviceData: deviceData,
             name: input_name.value,
             zipcode: input_zip_code.value,
             address: input_address.value,
@@ -214,25 +213,7 @@ paypal.Button.render({
 }, '#paypal-button');
 
 
-braintree.client.create({
-    authorization: document.querySelector("#client-token").innerHTML,
-}, function (err, clientInstance) {
-    // Creation of any other components...
 
-    braintree.dataCollector.create({
-        client: clientInstance,
-        paypal: true
-    }, function (err, dataCollectorInstance) {
-        if (err) {
-            // Handle error in creation of data collector
-            return;
-        }
-        // At this point, you should access the dataCollectorInstance.deviceData value and provide it
-        // to your server, e.g. by injecting it into your form as a hidden input.
-        deviceData = dataCollectorInstance.deviceData;
-
-    });
-});
 
 
 addEventListenersCheckout();

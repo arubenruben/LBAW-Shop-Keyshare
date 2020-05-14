@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutInfoRequest;
 use App\Order;
 use Exception;
 use Illuminate\Http\Request;
@@ -166,7 +167,6 @@ class CartController extends Controller
 
     public function getCartTotalPrice(Request $request){
 
-
         $loggedIn=true;
         $data=array();
 
@@ -219,34 +219,20 @@ class CartController extends Controller
 
     }
 
-    public function finishCheckout(Request $request){
-
-        try {
-            $this->authorize('loggedIn',Cart::class);
-            $user = Auth::user();
-        }catch (AuthorizationException $e) {
-            abort(403);
-        }
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
-            'zipcode' => 'required'
-        ]);
-
+    public function finishCheckout(CheckoutInfoRequest $request){
         // Access token
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
         ]);
 
+        $user = Auth::user();
+
 
         // The total price the client will be charged
         $totalPrice = $this->getCartTotalPrice($request)['amount'];
 
+        // Used in the description of the paypal transaction
         $line_items = array();
-
-
         for($i = 0; $i < count($user->cart); $i++){
             $line_items[$i] = [
                 'name' => $user->cart[$i]->offer->product->name." ".$user->cart[$i]->offer->platform->name,
@@ -258,6 +244,7 @@ class CartController extends Controller
         }
 
 
+        // complete the transaction and add a order
         try {
             DB::beginTransaction();
             $this->createOrder($request->input('name'), $request->input('email'), $request->input('address'), $request->input('zipcode'), $user->cart, $user->id);
@@ -267,7 +254,6 @@ class CartController extends Controller
                 'orderId' => $request->orderID,
                 'merchantAccountId' => 'USD',
                 'paymentMethodNonce' => $request->nonce,
-                'deviceData' => $request->deviceData,
                 'options' => [
                     'submitForSettlement' => true
                 ]
@@ -302,7 +288,6 @@ class CartController extends Controller
 
 
     }
-
 
 
     public function checkIfKeysAreAvailable($userCartEntries){
