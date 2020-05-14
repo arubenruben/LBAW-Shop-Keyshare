@@ -342,13 +342,10 @@ class CartController extends Controller
             if (!$keyExists) {
                 throw new Exception("No available key for certain offer");
             }
+            $userCartEntries[$i]->offer->stock -= 1;
+            $userCartEntries[$i]->offer->save();
         }
-
-
-
-
-
-
+        
         Cart::where('user_id', $userId)->delete();
     }
 

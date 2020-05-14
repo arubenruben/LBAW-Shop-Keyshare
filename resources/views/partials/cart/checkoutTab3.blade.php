@@ -17,14 +17,17 @@
             <div id="checkout-success">
                 <i id="checkoutStatusEmojiTrue" class="fas fa-check-circle mb-2" style="font-size: 4rem;"></i>
                 <h1 id="checkoutStatusTitleTrue">Success</h1>
+                <a href="/user/purchases" id="checkoutStatusButtonSuccess" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
             </div>
 
             <div id="checkout-fail">
                 <i id="checkoutStatusEmojiFalse" class="fas fa-times-circle mb-2" style="font-size: 4rem;"></i>
                 <h3 id="checkoutStatusTitle">Fail</h3>
+                <a href="/" id="checkoutStatusButtonFailure" class="btn btn-primary btn-lg mt-3">Back to Homepage</a>
+
             </div>
 
-            <a href="/user/purchases" id="checkoutStatusButton" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
+
         </div>
     </div>
 </div>

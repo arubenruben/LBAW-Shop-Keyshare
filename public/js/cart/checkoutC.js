@@ -194,11 +194,7 @@ paypal.Button.render({
             address: input_address.value,
             email: input_email.value
         }
-
-
         sendPut(data).then(res => check_transaction_result(res));
-
-            //.catch(error => console.error("Error: " + error));
     },
 
     locale: 'en_US',

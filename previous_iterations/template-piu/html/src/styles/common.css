@@ -125,10 +125,16 @@ header.navbar {
     color: var(--color-primary-black);
 }
 
-#checkoutStatusButton {
+#checkoutStatusButtonSuccess {
     background-color: var(--color-interactive-green-success);
     border-color: transparent;
 }
+
+#checkoutStatusButtonFailure {
+    background-color: var(--color-interactive-red-fail);
+    border-color: transparent;
+}
+
 
 #sidebar .showAllProductListSideBar {
     margin: 0;
