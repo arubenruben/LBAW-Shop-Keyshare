@@ -41,7 +41,7 @@
                                     <tr>
                                         <th scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="{{'/pictures/games/original/'.$myReport->key->offer->product->picture->url}}"
+                                                <img src="{{'/pictures/games/'.$myReport->key->offer->product->picture->url}}"
                                                     alt="" width="150"
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle">
@@ -112,7 +112,7 @@
                                     <tr>
                                         <th scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="{{'/pictures/games/original/'.$reportAgainstMe->key->offer->product->picture->url}}"
+                                                <img src="{{'/pictures/games/'.$reportAgainstMe->key->offer->product->picture->url}}"
                                                     alt="" width="150"
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
@@ -128,8 +128,8 @@
                                         </th>
                                         <td class="text-center align-middle">{{$reportAgainstMe->date}}</td>
                                         <td class="text-center align-middle"><a
-                                                href="{{url('/user/'.$reportAgainstMe->reportee->username)}}"
-                                                class="text-muted font-weight-normal font-italic">{{$reportAgainstMe->reportee->username}}</a>
+                                                href="{{url('/user/'.$reportAgainstMe->reporter->username)}}"
+                                                class="text-muted font-weight-normal font-italic">{{$reportAgainstMe->reporter->username}}</a>
                                         </td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">

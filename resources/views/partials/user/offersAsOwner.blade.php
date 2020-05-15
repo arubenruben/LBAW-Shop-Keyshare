@@ -49,7 +49,7 @@
                                     <tr id="offer{{$currentOffer->id}}">
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
-                                                <img src="{{'/pictures/games/'.$currentOffer->product->name.'/1.png'}}"
+                                                <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
                                                     alt="" width="150"
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
