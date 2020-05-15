@@ -136,7 +136,7 @@ class CartController extends Controller
         for($i=0;$i<count($arrayCart);$i++){
             
             $counter=0;
-            f($arrayCart[$i]->offer_id==$offerId){
+            for($arrayCart[$i]->offer_id==$offerId){
                 $counter++;    
             }
 

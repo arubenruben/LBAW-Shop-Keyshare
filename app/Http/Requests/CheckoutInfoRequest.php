@@ -16,7 +16,7 @@ class CheckoutInfoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check() && !Auth::user()->banned();
+        return Auth::check() && !Auth::user()->isBanned();
     }
 
     /**
