@@ -4,10 +4,10 @@
 
 @include('partials.header.userheader')
 
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/user/profile.js') }}" defer></script>
     <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
-@endsection
+@endpush
 
 @section('navbar')
     @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Account',

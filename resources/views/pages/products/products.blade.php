@@ -2,9 +2,9 @@
 
 @section('title')Products @endsection
 
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/products/products.js') }}" defer></script>
-@endsection
+@endpush
 
 @section('header')
     @include('partials.header.userheader')

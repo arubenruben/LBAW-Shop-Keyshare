@@ -2,9 +2,9 @@
 
 @section('title', $user->username.' Purchases')
 
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/user/purchases.js') }}" defer></script>
-@endsection
+@endpush
 
 @include('partials.header.userheader')
 

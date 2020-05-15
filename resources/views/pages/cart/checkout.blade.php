@@ -2,9 +2,9 @@
 
 @section('title')Homepage @endsection
 
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/cart/checkout.js') }}" defer></script>
-@endsection
+@endpush
 
 @include('partials.header.userheader')
 

@@ -4,9 +4,9 @@
 
 @include('partials.header.userheader')
 
-@section('javascript')
+@push('head')
         <script src="{{ asset('js/offer/add.js') }}" defer></script>
-@endsection
+@endpush
 
 @section('navbar')
     @include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])

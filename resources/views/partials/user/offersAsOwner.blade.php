@@ -74,7 +74,7 @@
                                         @endif
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <a href="{{ url('/user/'.$user->id.'/offer/'.$currentOffer->id) }}"
+                                                <a href="{{ url('/offer/'.$currentOffer->id) }}"
                                                     class="btn btn-blue btn-block flex-nowrap" role="button"> <i
                                                         class="fas fa-edit d-inline-block"></i> <span
                                                         class="d-none d-md-inline-block"> Edit Offer </span></a>

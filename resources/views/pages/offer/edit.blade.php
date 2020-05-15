@@ -4,10 +4,10 @@
 
 @include('partials.header.userheader')
 
-@section('javascript')
+@push('head')
     <meta name="offer-id" content="{{ $offer->id }}">
     <script src="{{ asset('js/offer/edit.js') }}" defer></script>
-@endsection
+@endpush
 
 @section('navbar')
     @include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])
