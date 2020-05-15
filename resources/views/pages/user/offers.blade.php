@@ -23,7 +23,6 @@
     @endif
 @endsection
 
-
 @section('footer')
     @include('partials.footer.footer')
 @endsection
