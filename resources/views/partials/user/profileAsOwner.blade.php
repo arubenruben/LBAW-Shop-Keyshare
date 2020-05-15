@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  @if($user->banned())
+  @if($user->isBanned())
   <div class="row mt-5 mb-2">
     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal"
       data-target="#modalAppeal">
@@ -81,7 +81,7 @@
               <label for="email">Email <span class="text-muted"></span></label>
               <input id="email-input" type="email" class="form-control userDetailsForm" id="email"
                 value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive"
-                data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
+                data-kwimpalaid="1583446459119-9" {{ $user->isBanned() ? 'disabled' : ''}}>
               <div class="text-right mt-3">
                 <button id="button_submit_email" type="button" class="btn btn-sm btn-blue">
                   <i class="fas fa-envelope"></i> Change email
@@ -95,10 +95,10 @@
               <label for="description">Description</label>
               <textarea id="description_textarea" class="form-control userDetailsForm" id="exampleFormControlTextarea1"
                 placeholder="Write something about yourself!!" rows="3"
-                {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
+                {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
               <div class="text-right mt-3">
                 <button id="button_submit_description" type="button" class="btn btn-sm btn-blue"
-                  {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
+                  {{ $user->isBanned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
               </div>
             </div>
             <div class="mb-3 mt-0 text-left">
@@ -125,9 +125,9 @@
               <div class="text-right mt-0 flex-nowrap">
                 <input id="paypal-input" type="email" class="form-control userDetailsForm mb-3 d-inline-block"
                   value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive"
-                  data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
+                  data-kwimpalaid="1583446459119-9" {{ $user->isBanned() ? 'disabled' : ''}}>
                 <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"
-                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
+                  {{ $user->isBanned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
                     height="23"></button>
               </div>
             </div>

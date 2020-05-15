@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Feedback;
 use App\Key;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Policies\KeyPolicy;
 
 class KeyController extends Controller
 {
@@ -24,9 +26,16 @@ class KeyController extends Controller
 
     }
 
-    public function delete($keyId)
-    {
+    public function delete($keyId) {
+        $key = Key::findOrFail($keyId);
 
+        try {
+            $this->authorize('delete', $key);
+        } catch (AuthorizationException $e) {
+            return response("You can't delete this key", 401);
+        }
+
+        $key->delete();
     }
 
     public function feedback(Request $request)

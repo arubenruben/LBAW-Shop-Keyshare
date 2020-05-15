@@ -1,7 +1,7 @@
 <div id="content" class="container mt-5">
     <div class="row">
         <div class="col-sm-12 usercontent-left">
-            @if($user->banned())
+            @if($user->isBanned())
             <div class="row mb-2">
                 <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
                     data-toggle="modal" data-target="#modalAppeal">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-sm-3">
                     <a href="{{url('user/'.$user->id.'/offer')}}"
-                        class="btn p-2 btn-sm btn-orange btn-block text-white {{ $user->banned() ? 'disabled' : ''}}"
+                        class="btn p-2 btn-sm btn-orange btn-block text-white {{ $user->isBanned() ? 'disabled' : ''}}"
                         role="button"> <i class="mr-1 fas fa-plus"></i> <span class="d-none d-md-inline-block"> Add
                             offer </span></a>
                 </div>

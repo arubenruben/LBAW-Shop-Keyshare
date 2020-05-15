@@ -25,7 +25,7 @@
         <div class="btn-group-justified">
             @if($user != null)
                 <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
-                    class="btn btn-orange" {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
+                    class="btn btn-orange" {{ $user->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
                 </button>
             @else
                 <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
