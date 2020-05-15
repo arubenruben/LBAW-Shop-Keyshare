@@ -51,32 +51,34 @@ class OfferController extends Controller
     }
 
     public function add(OfferAddRequest $request) {
-        $offer = Offer::create([
-            'user_id' => Auth::id(),
-            'product_id' => $request->get('product'),
-            'platform_id' => $request->get('platform'),
-            'price' =>  $request->get('price')
-        ]);
+        DB::transaction(function () use ($request) {
+            $offer = Offer::create([
+                'user_id' => Auth::id(),
+                'product_id' => $request->get('product'),
+                'platform_id' => $request->get('platform'),
+                'price' =>  $request->get('price')
+            ]);
 
-        $offer->save();
+            $offer->save();
 
-        $keys = $request->get("keys");
-        foreach ($keys as $key){
-            Key::create([
-                'key' => $key,
-                'offer_id' => $offer->id
-            ])->save();
-        }
+            $keys = $request->get("keys");
+            foreach ($keys as $key){
+                Key::create([
+                    'key' => $key,
+                    'offer_id' => $offer->id
+                ])->save();
+            }
 
-        $discounts = $request->get("discounts");
-        foreach ($discounts as $discount){
-            Discount::create([
-                'offer_id' => $offer->id,
-                'rate' => $discount['rate'],
-                'start_date' => $discount['start'],
-                'end_date' => $discount['end']
-            ])->save();
-        }
+            $discounts = $request->get("discounts");
+            foreach ($discounts as $discount){
+                Discount::create([
+                    'offer_id' => $offer->id,
+                    'rate' => $discount['rate'],
+                    'start_date' => $discount['start'],
+                    'end_date' => $discount['end']
+                ])->save();
+            }
+        });
 
         $username = Auth::user()->username;
 
