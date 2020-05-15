@@ -4,7 +4,7 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/search';
 
 const templateProduct = (name, image, price) => {
-    return  `<div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
+    return `<div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                 <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="${image}"></a>
                 <div class="card-body">
                     <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">${name}</a></h6>
@@ -20,8 +20,8 @@ const received = (response) => {
         let productList = document.querySelector('#product_list');
         let list = templateListInit;
 
-        for(let i = 0; i < products.length; i++) {
-            if((i !== 0) && i % 3 === 0){
+        for (let i = 0; i < products.length; i++) {
+            if ((i !== 0) && i % 3 === 0) {
                 list += templateListEnd + templateListInit;
             }
             list += templateProduct(products[i].name, products[i].image, products[i].price);
@@ -35,9 +35,9 @@ const received = (response) => {
         max_price_input.setAttribute('max', maxPrice);
         max_price_input.setAttribute('min', minPrice);
 
-        if(parseFloat(max_price_input.value) > parseFloat(maxPrice)){
+        if (parseFloat(max_price_input.value) > parseFloat(maxPrice)) {
             max_price_input.value = maxPrice;
-        } else if(parseFloat(max_price_input.value) < parseFloat(minPrice)) {
+        } else if (parseFloat(max_price_input.value) < parseFloat(minPrice)) {
             max_price_input.value = minPrice;
         }
     }
@@ -53,26 +53,26 @@ const addEventListeners = () => {
     let category_input = document.querySelectorAll("form#option input.category");
     let max_price_input = document.querySelector("form#option input#price-range");
 
-    for(let i = 0; i < sort_by_input.length; i++) {
+    for (let i = 0; i < sort_by_input.length; i++) {
         sort_by_input[i].addEventListener("click", sendRequest);
     }
 
-    for(let i = 0; i < genres_input.length; i++) {
+    for (let i = 0; i < genres_input.length; i++) {
         genres_input[i].addEventListener("click", sendRequest);
     }
 
-    for(let i = 0; i < platform_input.length; i++) {
+    for (let i = 0; i < platform_input.length; i++) {
         platform_input[i].addEventListener("click", sendRequest);
     }
 
-    for(let i = 0; i < category_input.length; i++) {
+    for (let i = 0; i < category_input.length; i++) {
         category_input[i].addEventListener("click", sendRequest);
     }
 
     max_price_input.addEventListener("click", sendRequest);
 }
 
-function assembleData () {
+function assembleData() {
     const sort_by_input = document.querySelectorAll("form#option input.sort-by");
     const genres_input = document.querySelectorAll("form#option input.genre");
     const platform_input = document.querySelectorAll("form#option input.platform");
@@ -81,33 +81,33 @@ function assembleData () {
 
     let data = {};
 
-    for (let i = 0; i < sort_by_input.length; i++){
-        if(sort_by_input[i].checked){
+    for (let i = 0; i < sort_by_input.length; i++) {
+        if (sort_by_input[i].checked) {
             data.sort_by = sort_by_input[i].value;
             break;
         }
     }
 
     let genres_array = [];
-    for (let i = 0; i < genres_input.length; i++){
-        if(genres_input[i].checked){
+    for (let i = 0; i < genres_input.length; i++) {
+        if (genres_input[i].checked) {
             genres_array.push(genres_input[i].value);
         }
     }
 
-    if(genres_array.length !== 0){
+    if (genres_array.length !== 0) {
         data.genres_array = genres_array;
     }
 
-    for (let i = 0; i < platform_input.length; i++){
-        if(platform_input[i].checked){
+    for (let i = 0; i < platform_input.length; i++) {
+        if (platform_input[i].checked) {
             data.platform = platform_input[i].value;
             break;
         }
     }
 
-    for (let i = 0; i < category_input.length; i++){
-        if(category_input[i].checked){
+    for (let i = 0; i < category_input.length; i++) {
+        if (category_input[i].checked) {
             data.category = category_input[i].value;
             break;
         }
@@ -144,7 +144,7 @@ const sendGet = get => {
 
 function encodeForAjax(data) {
     if (data == null) return null;
-    return Object.keys(data).map(function(k){
+    return Object.keys(data).map(function (k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
 }

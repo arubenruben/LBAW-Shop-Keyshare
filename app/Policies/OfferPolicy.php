@@ -11,10 +11,16 @@ class OfferPolicy
 {
     use HandlesAuthorization;
 
-    public function add(User $user) {
+    public function unbanned(User $user) {
         // Only the an authenticated not banned user can make an offer
 
-        return Auth::check() && Auth::user()->banned() === false;
+        return Auth::check() && Auth::user()->isBanned() === false;
+    }
+
+    public function unfinished(User $user, Offer $offer) {
+        // Only the an authenticated not banned user can make an offer
+
+        return $this->seller($user, $offer) && $offer->final_date === null;
     }
 
     public function seller(User $user, Offer $offer) {

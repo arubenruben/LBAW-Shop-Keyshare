@@ -9,19 +9,20 @@
         </div>
         <div class="modal-body text-left">
           <span> Confirm </span>
-          <input id="delete-account-confirmation-input" type="text-area" class="form-control userDetailsForm mt-2 d-inline-block"
-            id="exampleFormControlTextarea1" placeholder="Type your username to proceed"></input>
+          <input id="delete-account-confirmation-input" type="text-area"
+            class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
+            placeholder="Type your username to proceed"></input>
         </div>
         <div class="modal-footer">
-          <div class="col text-left"><button  id="delete-account-confirmation" class="btn btn-blue"><i class="fas fa-check mr-2"></i>Yes</button></div>
+          <div class="col text-left"><button id="delete-account-confirmation" class="btn btn-blue"><i
+                class="fas fa-check mr-2"></i>Yes</button></div>
           <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i
                 class="fas fa-times mr-2"></i>Cancel</button></div>
         </div>
       </div>
     </div>
   </div>
-  @if($user->banned())
-
+  @if($user->isBanned())
   <div class="row mt-5 mb-2">
     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal"
       data-target="#modalAppeal">
@@ -38,25 +39,32 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-center">
-          <img class="rounded-circle img-fluid mt-3" src="{{ asset('pictures/profile/'.$user->picture->url) }}"
-            alt="Profile image" width="250" height="250">
-          <form class="mt-3">
-            <button type="button" class="btn btn-sm btn-blue"><i class="fas fa-camera-retro"></i> Upload</button>
+          <img id="profile-image" class="rounded-circle img-fluid mt-3"
+            src="{{ asset('pictures/profile/'.$user->picture->url) }}" alt="Profile image">
+          <form id="form-img-upload" class="mt-3" name="user-image-form" enctype="multipart/form-data">
+            <span class="btn btn-sm btn-blue btn-file">
+              <i class="fas fa-camera-retro"></i>
+              Browse <input id="img-upload" name="picture" type="file">
+            </span>
             <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>
           </form>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-sm-12 text-center">
-          <p><i class="fas fa-thumbs-up cl-success mr-1"></i><span
-              class="font-weight-bold cl-success">{{ $user->rating }}%</span> | <i
-              class="fas fa-shopping-cart"></i>{{ $user->num_sells }} </p>
+          <p>@if($user->rating != null) <i class="fas fa-thumbs-up cl-success mr-1"></i> @endif
+            <span class="font-weight-bold cl-success">
+              @if($user->rating == null) {{ 'No rating yet!'  }}
+              @else {{ $user->rating }}%
+              @endif
+            </span> | <span><i class="fas fa-shopping-cart"></i>{{ $user->num_sells }}</span>
+          </p>
         </div>
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target="#userFeedback{{ $user->id }}"
-            class="btn btn-blue btn-sm">See all feedback</button>
+          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See
+            all feedback</button>
         </div>
       </div>
     </div>
@@ -73,7 +81,7 @@
               <label for="email">Email <span class="text-muted"></span></label>
               <input id="email-input" type="email" class="form-control userDetailsForm" id="email"
                 value="{{ $user->email }}" placeholder="youremail@example.com" data-kwimpalastatus="alive"
-                data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
+                data-kwimpalaid="1583446459119-9" {{ $user->isBanned() ? 'disabled' : ''}}>
               <div class="text-right mt-3">
                 <button id="button_submit_email" type="button" class="btn btn-sm btn-blue">
                   <i class="fas fa-envelope"></i> Change email
@@ -87,10 +95,10 @@
               <label for="description">Description</label>
               <textarea id="description_textarea" class="form-control userDetailsForm" id="exampleFormControlTextarea1"
                 placeholder="Write something about yourself!!" rows="3"
-                {{ $user->banned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
+                {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
               <div class="text-right mt-3">
                 <button id="button_submit_description" type="button" class="btn btn-sm btn-blue"
-                  {{ $user->banned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
+                  {{ $user->isBanned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes</button>
               </div>
             </div>
             <div class="mb-3 mt-0 text-left">
@@ -117,17 +125,15 @@
               <div class="text-right mt-0 flex-nowrap">
                 <input id="paypal-input" type="email" class="form-control userDetailsForm mb-3 d-inline-block"
                   value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive"
-                  data-kwimpalaid="1583446459119-9" {{ $user->banned() ? 'disabled' : ''}}>
+                  data-kwimpalaid="1583446459119-9" {{ $user->isBanned() ? 'disabled' : ''}}>
                 <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"
-                  {{ $user->banned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
+                  {{ $user->isBanned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
                     height="23"></button>
               </div>
             </div>
-
             <div class="mb-5 mt-5 text-center">
               <span class="invisible">Easter egg</span>
             </div>
-
             <div class="mb-5 mt-5 text-center flex-nowrap">
               <button id="deleteAccountButton" data-toggle="modal" data-target="#modalConfirm" type="button"
                 class="btn btn-sm btn-blue d-inline-block"><i class="fas fa-user-slash"></i> <span

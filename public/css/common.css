@@ -4,6 +4,7 @@
 @import "user.css";
 @import "report.css";
 @import "common.css";
+
 html {
     height: 100%;
     margin: 0;
@@ -159,7 +160,7 @@ header.navbar {
     height: 5rem;
 }
 
-#searchBar {
+#headerFixed .searchBar {
     width: 70%;
     max-width: 35rem;
 }
@@ -296,6 +297,11 @@ header.navbar {
 
 /* buttons css */
 
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 .btn.btn-orange {
     background-color: var(--color-interactive-orange);
     color: white;
@@ -322,6 +328,10 @@ header.navbar {
     color: white;
 }
 
+.btn.btn-blue-full:hover {
+    color: white;
+}
+
 .btn.btn-red {
     background-color: inherit;
     border: solid 1px var(--color-interactive-red-fail);
@@ -333,6 +343,15 @@ header.navbar {
     color: white;
 }
 
+.btn.btn-red-full {
+    background-color: var(--color-interactive-red-fail);
+    color: white;
+}
+
+.btn.btn-red-full:hover {
+    color: white;
+}
+
 .btn.btn-green {
     background-color: inherit;
     border: solid 1px var(--color-interactive-green-success);
@@ -341,6 +360,15 @@ header.navbar {
 
 .btn.btn-green:hover {
     background-color: var(--color-interactive-green-success);
+    color: white;
+}
+
+.btn.btn-green-full {
+    background-color: var(--color-interactive-green-success);
+    color: white;
+}
+
+.btn.btn-green-full:hover {
     color: white;
 }
 
@@ -559,4 +587,37 @@ li.section.status-bar-circle:before {
 .adminUserTableImage {
     max-width: 5em;
     max-height: 5em;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}
+
+#profile-image {
+    width: 15rem;
+    height: 15rem;
+}
+
+.noHover {
+    pointer-events: none !important;
+}
+
+.nobr {
+    white-space: nowrap;
 }

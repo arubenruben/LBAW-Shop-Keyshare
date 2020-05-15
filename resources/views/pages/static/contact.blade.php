@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') About us     @endsection
+@section('title') About us @endsection
 
 @include('partials.header.userheader')
 

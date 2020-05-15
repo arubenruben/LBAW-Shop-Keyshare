@@ -16,21 +16,6 @@ class ImageController extends Controller
     }
     
     public function convert(){
-
-        $products=Product::all();
-
-        foreach ($products as $product) {
-            $now=Carbon::now()->timestamp;
-            $hash=md5($product->name.$now);
-            $dataBaseImage=new Picture;
-            $dataBaseImage->url=$hash.'.png';
-            $dataBaseImage->save();
-            $id=$dataBaseImage->id;
-            $img = Image::make('pictures/games/1.png');            
-            $img->save('pictures/games/'.$hash.'.png');
-            $product->picture_id=$id;
-            $product->save();
-        }
-        return $id;
+        
     }
 }

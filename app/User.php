@@ -107,7 +107,7 @@ class User extends Authenticatable
     /**
      * Returns true if user is banned
      */
-    public function banned(){
+    public function isBanned(){
         return BannedUser::find($this->id) !== null;
     }
 }

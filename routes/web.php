@@ -1,24 +1,18 @@
 <?php
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // Authentication
 Auth::routes();
 Route::get('admin/login', 'Auth\LoginController@showAdmin');
 Route::post('admin/login', 'Auth\LoginController@loginAdmin');
 Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
+Route::get('login/google', 'Auth\LoginController@redirectToProvider')->name('loginGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
+// User
+Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('profile');
 Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
@@ -28,11 +22,11 @@ Route::delete('user/image', 'UserController@deleteImage');
 
 // Products
 Route::get('/', 'ProductController@home');
-Route::get('/search', 'ProductController@search');
+Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/api/product', 'ProductController@get');
 Route::get('/query', 'ProductController@inputSearch')->name('query');
 Route::get('/api/product/sort', 'ProductController@sort');
-Route::get('product/{productName}/{platformName}', 'ProductController@show');
+Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product');
 
 // Cart
 Route::get('/cart', 'CartController@show');

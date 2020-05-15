@@ -2,10 +2,15 @@
 
 @section('title', $user->username.' Purchases')
 
+@push('head')
+    <script src="{{ asset('js/user/purchases.js') }}" defer></script>
+@endpush
+
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Purchases','breadcrumbs'=>$breadcrumbs])
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner,
+        'active' =>'Purchases','breadcrumbs'=>$breadcrumbs])
 @endsection
 
 @section('content')

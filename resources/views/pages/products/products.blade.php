@@ -2,9 +2,9 @@
 
 @section('title')Products @endsection
 
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/products/products.js') }}" defer></script>
-@endsection
+@endpush
 
 @section('header')
     @include('partials.header.userheader')
@@ -16,7 +16,7 @@
 
 @section('content')
     @include('partials.products.list', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
-            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products])
+        'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products])
     @include('partials.products.pagination')
 @endsection
 

@@ -9,7 +9,7 @@
             <a href="{{url('search')}}"><img src={{$carousel[0]}} class="d-block w-100"></a>
         </div>
         <div class="carousel-item">
-        <a href="{{url('search')}}"><img src={{$carousel[1]}} class="d-block w-100"></a>
+            <a href="{{url('search')}}"><img src={{$carousel[1]}} class="d-block w-100"></a>
         </div>
         <div class="carousel-item">
             <a href="{{url('search')}}"><img src={{$carousel[2]}} class="d-block w-100"></a>

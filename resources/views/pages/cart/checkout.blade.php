@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title')Checkout @endsection
-@section('javascript')
 
+@push("head")
     <!-- Load the required checkout.js script -->
     <!-- Load PayPal's checkout.js Library. -->
     <!-- Load the required checkout.js script -->
@@ -13,8 +13,7 @@
 
     <script src="{{ asset('js/cart/checkoutC.js') }}" defer></script>
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>
-
-@endsection
+@endpush
 
 @include('partials.header.userheader')
 

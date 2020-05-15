@@ -16,38 +16,37 @@ const addEventListeners = () => {
         sendPost(data).then(res => {
             let msg = document.querySelector("form.needs-validation #email_msg")
 
-           if(res != "Success") {
-               email_field.style.border = 'solid 1px red';
+            if (res != "Success") {
+                email_field.style.border = 'solid 1px red';
 
-               if(msg === null) {
-                   msg = document.createElement("p");
-                   msg.setAttribute("id", "email_msg");
-                   msg.innerHTML = res['errors']['email'];
-                   msg.style.color = 'red';
-                   msg.style.textAlign = 'left';
-                   email_btn.parentNode.insertBefore(msg, email_btn);
-               } else {
-                   msg.innerHTML = res['errors']['email'];
-                   msg.style.color = 'red';
-                   msg.style.textAlign = 'left';
-               }
-           }
-           else {
-               email_field.style.border = 'solid 1px green';
+                if (msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "email_msg");
+                    msg.innerHTML = res['errors']['email'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                    email_btn.parentNode.insertBefore(msg, email_btn);
+                } else {
+                    msg.innerHTML = res['errors']['email'];
+                    msg.style.color = 'red';
+                    msg.style.textAlign = 'left';
+                }
+            } else {
+                email_field.style.border = 'solid 1px green';
 
-               if(msg === null) {
-                   msg = document.createElement("p");
-                   msg.setAttribute("id", "email_msg");
-                   msg.innerHTML = 'Changed email successfully';
-                   msg.style.color = 'green';
-                   msg.style.textAlign = 'left';
-                   email_btn.parentNode.insertBefore(msg, email_btn);
-               } else {
-                   msg.innerHTML = 'Changed email successfully';
-                   msg.style.color = 'green';
-                   msg.style.textAlign = 'left';
-               }
-           }
+                if (msg === null) {
+                    msg = document.createElement("p");
+                    msg.setAttribute("id", "email_msg");
+                    msg.innerHTML = 'Changed email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                    email_btn.parentNode.insertBefore(msg, email_btn);
+                } else {
+                    msg.innerHTML = 'Changed email successfully';
+                    msg.style.color = 'green';
+                    msg.style.textAlign = 'left';
+                }
+            }
         });
     });
 
@@ -57,14 +56,13 @@ const addEventListeners = () => {
         const data = {
             description: description_field.value
         }
-
         sendPost(data).then(res => {
             let msg = document.querySelector("form.needs-validation #description_msg")
 
-            if(res != "Success") {
+            if (res != "Success") {
                 description_field.style.border = 'solid 1px red';
 
-                if(msg === null) {
+                if (msg === null) {
                     msg = document.createElement("p");
                     msg.setAttribute("id", "description_msg");
                     msg.innerHTML = res['errors']['description'];
@@ -76,11 +74,10 @@ const addEventListeners = () => {
                     msg.style.color = 'red';
                     msg.style.textAlign = 'left';
                 }
-            }
-            else {
+            } else {
                 description_field.style.border = 'solid 1px green';
 
-                if(msg === null) {
+                if (msg === null) {
                     msg = document.createElement("p");
                     msg.setAttribute("id", "description_msg");
                     msg.innerHTML = 'Changed description successfully';
@@ -98,7 +95,7 @@ const addEventListeners = () => {
 
     const paypal_btn = document.querySelector("#paypalButton");
     paypal_btn.addEventListener("click", () => {
-        
+
     });
 
     const password_btn = document.querySelector("#button_submit_password");
@@ -112,55 +109,51 @@ const addEventListeners = () => {
         let newPassword_value = newPassword.value;
         let newPassword_confirmation_value = newPassword_confirmation.value;
 
-        let invalid_feedback_new_password  = (document.querySelector("#new_password_invalid"));
-        let invalid_feedback_old_password  = (document.querySelector("#old_password_invalid"));
+        let invalid_feedback_new_password = (document.querySelector("#new_password_invalid"));
+        let invalid_feedback_old_password = (document.querySelector("#old_password_invalid"));
 
         let valid_old = true;
         let valid_new = true;
 
-        if(oldPassword_value === ""){
+        if (oldPassword_value === "") {
             oldPassword.className += " border-danger";
             invalid_feedback_old_password.innerHTML = "Please fill out the old password";
             invalid_feedback_old_password.className = "invalid-feedback d-block";
             valid_old = false;
-        }
-
-        else{
-            if(oldPassword.classList.contains('border-danger')){
+        } else {
+            if (oldPassword.classList.contains('border-danger')) {
                 oldPassword.classList.remove('border-danger');
                 invalid_feedback_old_password.className = "invalid-feedback";
             }
         }
 
-        if(newPassword_value === "" || newPassword_confirmation_value === ""){
+        if (newPassword_value === "" || newPassword_confirmation_value === "") {
             newPassword.className += " border-danger";
             newPassword_confirmation.className += " border-danger";
             invalid_feedback_new_password.innerHTML = "Please provide and confirm a new password";
             invalid_feedback_new_password.className = "invalid-feedback d-block";
             valid_new = false;
 
-        }
-        else if(newPassword_value !== newPassword_confirmation_value) {
+        } else if (newPassword_value !== newPassword_confirmation_value) {
             newPassword.className += " border-danger";
             newPassword_confirmation.className += " border-danger";
             invalid_feedback_new_password.innerHTML = "The passwords dont match";
             invalid_feedback_new_password.className = "invalid-feedback d-block";
             valid_new = false;
 
-        }
-        else{
+        } else {
             invalid_feedback_new_password.innerHTML = "";
             invalid_feedback_new_password.className = "invalid-feedback";
 
-            if(newPassword.classList.contains('border-danger')){
+            if (newPassword.classList.contains('border-danger')) {
                 newPassword.classList.remove('border-danger');
             }
-            if(newPassword_confirmation.classList.contains('border-danger')){
+            if (newPassword_confirmation.classList.contains('border-danger')) {
                 newPassword_confirmation.classList.remove('border-danger');
             }
         }
 
-        if(valid_new && valid_old) {
+        if (valid_new && valid_old) {
 
             const data = {
                 oldPassword: oldPassword.value,
@@ -178,14 +171,35 @@ const addEventListeners = () => {
 
     const delete_account_btn = document.querySelector("#delete-account-confirmation");
     delete_account_btn.addEventListener("click", () => {
-        const username=(document.querySelector("#delete-account-confirmation-input")).value
+        const username = (document.querySelector("#delete-account-confirmation-input")).value
         sendDelete(username)
-            .then(r=> console.log(r))
+            .then(r => console.log(r))
             .then(window.location.replace("/"))
+    });
+
+    const uploadImageForm = document.querySelector('#form-img-upload');
+
+    uploadImageForm.addEventListener('change', () => {
+
+        const fileBlob = document.querySelector('#img-upload').files[0];
+
+        const fileReader = new FileReader();
+
+        fileReader.onload = function () {
+            const imgPreview = document.querySelector('#profile-image');
+            const imgPreviewHeader = document.querySelector('#profile-image-icon');
+            imgPreview.setAttribute('src', fileReader.result);
+            imgPreviewHeader.setAttribute('src', fileReader.result);
+        }
+        fileReader.readAsDataURL(fileBlob);
+
+        uploadFile(fileBlob);
+
     });
 }
 
 const sendPost = post => {
+
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -195,12 +209,12 @@ const sendPost = post => {
         },
         method: 'post',
         credentials: "same-origin",
-        body: JSON.stringify(post)
+        body: JSON.stringify(post),
     }
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .catch(error => console.error("Error: {error}"));
+        .catch(error => console.error("Error:" + error));
 }
 
 const sendDelete = username => {
@@ -216,7 +230,30 @@ const sendDelete = username => {
 
     return fetch(url, options)
         .then(res => res.json())
-        .catch(error => console.error("Error:"+error));
+        .catch(error => console.error("Error:" + error));
+}
+
+const uploadFile = file => {
+
+    let form = new FormData();
+    form.append("picture", file, file.name);
+    //form.append("string", "ola");
+
+    const options = {
+        headers: {
+            "X-CSRF-TOKEN": token,
+        },
+        credentials: "same-origin",
+        method: 'post',
+        contentType: false,
+        processData: false,
+        body: form
+    }
+
+    return fetch("/user/", options)
+        .then(res => res.json())
+        .catch(error => console.error("Error:" + error));
+
 }
 
 const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) => {
@@ -237,16 +274,14 @@ const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) =
 
             curr_password.parentNode.insertBefore(msg, newPassword_confirmation);
             return false;
-        }
-        else {
+        } else {
             newPassword_confirmation.style.backgroundColor = 'white';
             newPassword_confirmation.style.border = 'solid 1px rgb(176, 183, 187)';
 
             curr_password.querySelector("p").innerHTML = '';
             return true;
         }
-    }
-    else {
+    } else {
         let msg = document.createElement("p");
         msg.innerHTML = "Enter a valid password";
         msg.style.color = 'red';

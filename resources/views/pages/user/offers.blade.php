@@ -4,14 +4,14 @@
 
 @include('partials.header.userheader')
 
-@section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers','breadcrumbs'=> $breadcrumbs])
-@endsection
-
-@section('javascript')
+@push('head')
     <script src="{{ asset('js/user/offers.js') }}" defer></script>
-@endsection
+@endpush
 
+@section('navbar')
+    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers',
+        'breadcrumbs'=> $breadcrumbs])
+@endsection
 
 @section('content')
     @if ($isOwner)

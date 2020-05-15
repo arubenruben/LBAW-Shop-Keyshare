@@ -1,8 +1,7 @@
-<!-- most recent -->
 <article>
     <header class="row mt-5 ml-3">
         <div class="col-8 pl-0">
-            <h5 class="title"> Most Recents <a href="products_list.php"><small class="ml-3 d-inline-block"> See
+            <h5 class="title"> Most Recents <a href="{{route('search')}}"><small class="ml-3 d-inline-block"> See
                         all</small></a></h5>
         </div>
         <div class="col-4 pl-0 d-flex justify-content-end my-auto mw-100 mh-100">
@@ -15,7 +14,7 @@
     <div class="col mb-5">
         <article class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
             @foreach ($data as $card)
-                @include('partials.product.productcard',['card'=>$card])
+                @include('partials.product.product_card',['card'=>$card])
             @endforeach
         </article>
     </div>

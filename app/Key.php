@@ -13,6 +13,16 @@ class Key extends Model
     public $timestamps  = false;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'key',
+        'offer_id'
+    ];
+
+    /**
      * The offer the key is related to 
      */
     public function offer(){
@@ -31,5 +41,12 @@ class Key extends Model
      */
     public function report(){
         return $this->hasOne('App\Report');
+    }
+
+    /**
+     * The feedback the key is related to
+     */
+    public function feedback(){
+        return $this->hasOne('App\Feedback');
     }
 }
