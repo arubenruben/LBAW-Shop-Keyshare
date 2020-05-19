@@ -93,7 +93,7 @@ class CartController extends Controller
 
     
         try {
-            $this->authorize('loggedIn');
+            $this->authorize('loggedIn',Cart::class);
             $user = Auth::user();
             $loggedIn=true;    
         } catch (AuthorizationException $e) {
@@ -113,6 +113,7 @@ class CartController extends Controller
             $cart->user_id=$user->id;
             $cart->offer_id=$offer->id;
             $cart->save();
+            
         }else{
         
             if($request->session()->has('cart')&& !$this->checkOfferStock($request->session()->get('cart'),$request->offer_id,$stock))
@@ -129,7 +130,7 @@ class CartController extends Controller
             $request->session()->push('cart', $cart);
         }
 
-        return response(json_encode("Sucess"), 200);
+        return response(json_encode("Success"), 200);
     }
     private function checkOfferStock($arrayCart,$offerId,$stock){
         
