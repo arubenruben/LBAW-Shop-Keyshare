@@ -40,11 +40,11 @@ const sendPut = put => {
         .then(function (res) {
             if (res.ok) {
                 cartItemCounter.innerHTML = parseInt(cartItemCounter.innerHTML) + 1.0;
-                let offerStock=document.querySelector('#offer-'+put.offer_id+'-stock');
-                offerStock.innerHTML-=1;
+                let offerStock = document.querySelector('#offer-' + put.offer_id + '-stock');
+                offerStock.innerHTML -= 1;
                 //Out of stock
-                if(offerStock.innerHTML==0){
-                    let offerTableEntry=document.querySelector('#entry-offer-'+put.offer_id);
+                if (offerStock.innerHTML == 0) {
+                    let offerTableEntry = document.querySelector('#entry-offer-' + put.offer_id);
                     offerTableEntry.remove();
 
                 }
@@ -185,4 +185,4 @@ function switchOffers() {
 
 
 //radioBestPrice.addEventListener("click", sendRequest);
-//radioBestRating.addEventListener("click", sendRequest);
+//radioBestRating.addEventListener("click", sendRequest)
