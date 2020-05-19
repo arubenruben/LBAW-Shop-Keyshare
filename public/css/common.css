@@ -621,3 +621,9 @@ li.section.status-bar-circle:before {
 .nobr {
     white-space: nowrap;
 }
+
+#profile-image-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+
+}
