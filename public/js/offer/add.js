@@ -16,7 +16,7 @@ const addEventListeners = () => {
 
         const submit_button = document.getElementById("offer-submit");
 
-        if(product_choice.value === ""){
+        if (product_choice.value === "") {
             submit_error.innerText = "Please select a product and platform.";
             product_choice.classList.add('border-danger');
             submit_button.classList.add('border-danger');
@@ -28,7 +28,7 @@ const addEventListeners = () => {
 
         const keys = form.getAll("key[]");
 
-        if(keys.length === 0) {
+        if (keys.length === 0) {
             submit_error.innerText = "There must be at least one key.";
             submit_button.classList.add('border-danger');
             submit_error.classList.add('d-block');
@@ -38,7 +38,7 @@ const addEventListeners = () => {
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i];
 
-            if(!isValidKey(key.value)){
+            if (!isValidKey(key.value)) {
                 submit_error.innerText = "There is an invalid key.";
                 submit_button.classList.add('border-danger');
                 submit_error.classList.add('d-block');
@@ -50,15 +50,15 @@ const addEventListeners = () => {
         const discounts_end = form.getAll("discount[][end]");
         const discounts_rate = form.getAll("discount[][rate]");
 
-        if(discounts_start.length !== discounts_end.length || discounts_start.length !== discounts_rate.length){
+        if (discounts_start.length !== discounts_end.length || discounts_start.length !== discounts_rate.length) {
             submit_error.innerText = "There is an invalid discount row.";
             submit_button.classList.add('border-danger');
             submit_error.classList.add('d-block');
             return;
         }
         for (let i = 0; i < discounts_start.length; i++) {
-            if(!isValidDate(discounts_start[i]) || !isValidDate(discounts_end[i])
-                || discounts_rate[i] < 1 || discounts_rate[i] > 99){
+            if (!isValidDate(discounts_start[i]) || !isValidDate(discounts_end[i]) ||
+                discounts_rate[i] < 1 || discounts_rate[i] > 99) {
                 submit_error.innerText = "There is an invalid discount row.";
                 submit_button.classList.add('border-danger');
                 submit_error.classList.add('d-block');
@@ -67,7 +67,7 @@ const addEventListeners = () => {
         }
 
         const price = form.get("price");
-        if(price === null || price < 1){
+        if (price === null || price < 1) {
             submit_error.innerText = "Please fill the price per key with a valid value.";
             submit_button.classList.add('border-danger');
             submit_error.classList.add('d-block');
@@ -87,12 +87,14 @@ const addEventListeners = () => {
         }
 
         const platform = document.getElementById("platform-selection");
+        const paypal = form.get('paypal');
         let data = {
             product: product_choice.value,
             platform: platform.value,
             keys: keys,
             discounts: discounts,
-            price: price
+            price: price,
+            paypal: paypal
         };
 
         send_offer.removeEventListener("click", sendOffer);
@@ -101,7 +103,7 @@ const addEventListeners = () => {
             .then(res => {
                 let status = res.status;
                 res.text().then(response => {
-                    if(status === 200){
+                    if (status === 200) {
                         window.location = response;
                     } else {
                         submit_error.innerText = response;
@@ -118,7 +120,7 @@ const addEventListeners = () => {
     }
 
     const setPlatforms = platforms => {
-        if(platforms == null || !Array.isArray(platforms)) {
+        if (platforms == null || !Array.isArray(platforms)) {
             return;
         }
 
@@ -128,7 +130,7 @@ const addEventListeners = () => {
             platform_choice.remove(i);
         }
 
-        for (let i = 0; i < platforms.length; i++){
+        for (let i = 0; i < platforms.length; i++) {
             let platform = platforms[i];
 
             let option = document.createElement("option");
@@ -154,12 +156,12 @@ const addEventListeners = () => {
 
         let key_error = document.getElementById('key-input-error');
 
-        if(key_add.value == null || key_add.value.length === 0){
+        if (key_add.value == null || key_add.value.length === 0) {
             key_error.innerText = "The key must not be empty.";
             key_add.classList.add('border-danger')
             key_error.classList.add('d-block')
             return;
-        } else if (!isValidKey(key_add.value)){
+        } else if (!isValidKey(key_add.value)) {
             key_error.innerText = "The key inserted must have only letters and numbers and can be divided with - or \\ or /.";
             key_add.classList.add('border-danger')
             key_error.classList.add('d-block')
@@ -211,7 +213,7 @@ const addEventListeners = () => {
         let discount_inputs = document.querySelectorAll('#discount-input-add input');
         let discount_add = document.getElementById('discount-input-add');
 
-        if(!verifyDiscount(discount_inputs)){
+        if (!verifyDiscount(discount_inputs)) {
             return;
         }
 
@@ -262,49 +264,49 @@ const addEventListeners = () => {
         end.classList.remove('border-danger');
         rate.classList.remove('border-danger');
 
-        if(start.value == null){
+        if (start.value == null) {
             discount_error.innerText = "The start date must not be empty.";
             start.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(end.value == null){
+        if (end.value == null) {
             discount_error.innerText = "The end date must not be empty.";
             start.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(rate.value == null){
+        if (rate.value == null) {
             discount_error.innerText = "The discount rate must not be empty.";
             rate.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(!isValidDate(start.value)){
+        if (!isValidDate(start.value)) {
             discount_error.innerText = "The start date must be in the correct format and be valid.";
             start.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(!isValidDate(end.value)){
+        if (!isValidDate(end.value)) {
             discount_error.innerText = "The end date must be in the correct format and be valid.";
             end.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(rate.value < 1 || rate.value > 99 ){
+        if (rate.value < 1 || rate.value > 99) {
             discount_error.innerText = "The discount rate must be between 1% and 99%.";
             rate.classList.add('border-danger');
             discount_error.classList.add('d-block');
             return false;
         }
 
-        if(new Date(end.value) <= new Date(start.value) ){
+        if (new Date(end.value) <= new Date(start.value)) {
             discount_error.innerText = "The end date must be at least one day after the start date.";
             start.classList.add('border-danger');
             end.classList.add('border-danger');

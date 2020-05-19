@@ -29,6 +29,7 @@ class OfferController extends Controller
         } catch (AuthorizationException $e) {
             return redirect(url('/'));
         }
+        $user=Auth::user();
 
         $active_products = ActiveProduct::all()->map(function ($active_product) {
             $product = $active_product->product;
@@ -43,11 +44,11 @@ class OfferController extends Controller
                 'id' => $product->id,
                 'name' => $product->name,
                 'image' => asset('/pictures/games/'.$product->picture->url),
-                'platforms' => $platforms
+                'platforms' => $platforms,
                 ];
         });
 
-        return view('pages.offer.add', ['products' => $active_products, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);
+        return view('pages.offer.add', ['products' => $active_products,'paypal'=>$user->paypal, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);
     }
 
     public function add(OfferAddRequest $request) {
@@ -80,7 +81,14 @@ class OfferController extends Controller
             }
         });
 
-        $username = Auth::user()->username;
+        $user = Auth::user();
+        $username=$user->username;
+        
+        //UPDATE PAYPAL IF DIFFERENT
+        if($request->has('paypal')!==NULL&&strcmp($request->get('paypal'),$user->paypal)!=0){
+            $user->paypal=$request->get('paypal');
+            $user->save();
+        }
 
         return response(url("user/${username}/offers"));
     }
