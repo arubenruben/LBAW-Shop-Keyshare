@@ -50,8 +50,10 @@
                                                     alt="" width="150"
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                    <h5 class="mb-0 d-inline-block"><a href="product.php"
-                                                            class="text-dark">{{$currentOffer->product->name}}</a></h5>
+                                                    <h5 class="mb-0 d-inline-block"><a
+                                                            href="{{url('product/'.$currentOffer->product->name.'/'.$currentOffer->platform->name)}}"
+                                                            class=" text-dark">{{$currentOffer->product->name}}</a>
+                                                    </h5>
                                                     <span
                                                         class="text-muted font-weight-normal font-italic d-inline-block">
                                                         [{{$currentOffer->platform->name}}]</span>
@@ -120,7 +122,6 @@
                                         <th scope="col" class="border-0 bg-light text-center">
                                             <div class="py-2 text-uppercase">Profit</div>
                                         </th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
