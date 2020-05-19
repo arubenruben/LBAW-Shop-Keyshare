@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Policies\CartPolicy;
 use App\Cart;
 use App\Offer;
+use Lang;
 
 
 class LoginController extends Controller
@@ -94,7 +95,26 @@ class LoginController extends Controller
                     $cartEntry->save();
                 }
         }
-        
         return redirect()->intended($this->redirectPath());
+    }
+   protected function sendFailedLoginResponse(Request $request)
+    {
+    
+    if ( ! User::where('username', $request->username)->first() ) {
+        return redirect('/login')
+        ->withInput($request->only($this->username(), 'remember'))
+        ->withErrors([
+            $this->username() => Lang::get('auth.email'),
+        ]);
+    }
+    
+    if ( ! User::where('email', $request->email)->where('password', bcrypt($request->password))->first() ) {
+        return redirect('/login')
+        ->withInput($request->only($this->username(), 'remember'))
+        ->withErrors([
+            'password' => Lang::get('auth.password'),
+        ]);
+    }
+    
     }
 }
