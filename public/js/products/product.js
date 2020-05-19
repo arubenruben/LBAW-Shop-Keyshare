@@ -1,6 +1,9 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const btnText = document.getElementById("moreTextButton");
 const cartItemCounter = document.querySelector("#shopping_cart_item_counter");
+const counterNumberOffers = document.querySelector("#counter-number-offers");
+const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middle"> <p class = "mt-5" >No offers available for this product</p> </div >'
+const htmlToInsertPlace = document.querySelector('#offers_body');
 
 btnText.addEventListener('click', collapseDescription);
 
@@ -46,7 +49,10 @@ const sendPut = put => {
                 if (offerStock.innerHTML == 0) {
                     let offerTableEntry = document.querySelector('#entry-offer-' + put.offer_id);
                     offerTableEntry.remove();
-
+                    counterNumberOffers.innerHTML -= 1
+                }
+                if (counterNumberOffers.innerHTML == 0) {
+                    htmlToInsertPlace.innerHTML = htmlToInsertWithoutOffers;
                 }
             }
             res.json();
