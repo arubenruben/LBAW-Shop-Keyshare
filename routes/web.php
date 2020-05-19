@@ -18,7 +18,7 @@ Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
 Route::post('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
-Route::delete('user/image', 'UserController@deleteImage');
+Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
 
 // Products
 Route::get('/', 'ProductController@home');

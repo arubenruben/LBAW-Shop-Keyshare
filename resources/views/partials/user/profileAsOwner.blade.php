@@ -41,13 +41,20 @@
         <div class="col-sm-12 text-center">
           <img id="profile-image" class="rounded-circle img-fluid mt-3"
             src="{{ asset('pictures/profile/'.$user->picture->url) }}" alt="Profile image">
-          <form id="form-img-upload" class="mt-3" name="user-image-form" enctype="multipart/form-data">
-            <span class="btn btn-sm btn-blue btn-file">
-              <i class="fas fa-camera-retro"></i>
-              Browse <input id="img-upload" name="picture" type="file">
-            </span>
-            <button type="button" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i> Delete</button>
-          </form>
+          <section class="row justify-content-center mt-3">
+            <form id="form-img-upload" name="user-image-form" enctype="multipart/form-data">
+              <span class="btn btn-sm btn-blue btn-file">
+                <i class="fas fa-camera-retro"></i>
+                Browse <input id="img-upload" name="picture" type="file">
+              </span>
+            </form>
+            <form action={{route('deleteProfilePicture')}} method="POST" class="ml-3">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn  btn-sm btn-red"><i class="fas fa-trash-alt"></i>
+                Delete</button>
+            </form>
+          </section>
         </div>
       </div>
       <div class="row mt-4">

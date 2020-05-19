@@ -150,12 +150,15 @@ class UserController extends Controller
     public function deleteImage()
     {
         try {
-            $this->authorize('update');
+            $this->authorize('update', User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't edit this profile"), 400);
         }
+        
+        if(Auth::user()->picture->id!=1){
+            $picture=Picture::find(Auth::user()->picture->id)->delete();
+        }
 
-        Auth::user()->picture = '1';
-        Auth::user()->save();
+        return back();
     }
 }
