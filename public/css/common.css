@@ -628,3 +628,12 @@ li.section.status-bar-circle:before {
     width: 1.5rem;
 
 }
+
+#carouselExampleIndicators carousel-indicators li {
+
+    z-index: 999;
+}
+
+#headerFixed {
+    z-index: 100;
+}
