@@ -473,7 +473,7 @@ BEGIN
     END IF;
 
     UPDATE offers
-    SET stock = stock_quantity
+    SET stock = stock_quantity+1
     WHERE id = NEW.offer_id;
 
     RETURN NEW;
@@ -488,14 +488,10 @@ EXECUTE PROCEDURE update_product_stock();
 
 CREATE OR REPLACE FUNCTION update_product_stock_cancel()
 RETURNS TRIGGER AS $$
-DECLARE
-    stock_quantity INTEGER;
 BEGIN
 
-    stock_quantity := 0;
-
     UPDATE offers
-    SET stock = stock_quantity
+    SET stock = 0
     WHERE id = OLD.offer_id;
 
     RETURN NEW;
