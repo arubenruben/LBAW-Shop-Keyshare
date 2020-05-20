@@ -70,8 +70,10 @@
                                                     class="fas fa-key d-inline-block"></i> <span
                                                     class="d-none d-md-inline-block"> See key </span></button>
                                             @if($user->feedback->where("key", "=", $key->id)->count() == 0)
-                                            <button type="button mt-5 mb-5 " class="btn btn-blue btn-block flex-nowrap"
-                                                data-toggle="modal"
+                                            <button type="button mt-5 mb-5 "
+                                                class="btn btn-blue btn-block flex-nowrap modal-feedback-opener"
+                                                data-toggle="modal" data-key-id={{$key->id}}
+                                                data-order-number={{$order->number}}
                                                 data-target="#modalGiveFeedback {{ $user->isBanned() ? 'disabled' : ''}}">
                                                 <i class="far fa-comment-alt d-inline-block"></i> <span
                                                     class="d-none d-md-inline-block">Leave feedback</span> </button>
