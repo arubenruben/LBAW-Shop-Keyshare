@@ -454,6 +454,9 @@ ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE check_user_bought_product();
 
+
+
+----
 CREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -477,12 +480,37 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-/*
 DROP TRIGGER IF EXISTS update_product_stock_tg ON keys CASCADE;
 CREATE TRIGGER update_product_stock_tg
-AFTER INSERT OR DELETE OR UPDATE OF order_id ON keys
+AFTER INSERT OR UPDATE OF order_id ON keys
 FOR EACH ROW
 EXECUTE PROCEDURE update_product_stock();
+
+
+CREATE OR REPLACE FUNCTION update_product_stock_cancel()
+RETURNS TRIGGER AS $$
+DECLARE
+    stock_quantity INTEGER;
+BEGIN
+
+    stock_quantity := 0;
+
+    UPDATE offers
+    SET stock = stock_quantity
+    WHERE id = OLD.offer_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+DROP TRIGGER IF EXISTS update_product_stock_delete_tg ON keys CASCADE;
+CREATE TRIGGER update_product_stock_delete_tg
+AFTER DELETE ON keys
+FOR EACH ROW
+EXECUTE PROCEDURE update_product_stock_cancel();
+
+
+----
+
 
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
@@ -503,7 +531,7 @@ AFTER INSERT OR UPDATE OF deleted ON products
 FOR EACH ROW
 WHEN (NEW.deleted = true)
 EXECUTE PROCEDURE delete_from_cart();
-*/
+
 DROP FUNCTION IF EXISTS check_not_self_buying() CASCADE;
 CREATE OR REPLACE FUNCTION check_not_self_buying()
 RETURNS TRIGGER AS $$
@@ -529,7 +557,7 @@ CREATE TRIGGER check_not_self_buying_tg
 AFTER INSERT ON carts
 FOR EACH ROW
 EXECUTE PROCEDURE check_not_self_buying();
-/*
+
 CREATE OR REPLACE FUNCTION delete_keys_from_canceled_offers()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -544,7 +572,7 @@ AFTER UPDATE OF final_date ON offers
 FOR EACH ROW
 WHEN(NEW.final_date IS NOT NULL)
 EXECUTE PROCEDURE delete_keys_from_canceled_offers();
-*/
+
 
 CREATE OR REPLACE FUNCTION rollback_offer_of_deleted_products()
 RETURNS TRIGGER AS $$
@@ -2037,8 +2065,13 @@ INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 2, 103, 19, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 3, 103, 19, 3);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSa', 92);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSb', 92);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSc', 92);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkABSa', 93);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkABSb', 93);
+INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkABSc', 93);
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZ', 17.44, 82, 501);
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZW', 17.44, 82, 502);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES('2020-03-30','Report de autoria SSN','Key dont work',173, true,103,56);

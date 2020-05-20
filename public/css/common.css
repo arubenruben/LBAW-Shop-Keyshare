@@ -155,7 +155,8 @@ header.navbar {
     height: 10rem;
 }
 
-#userOffersTable .userOffersTableEntryImage {
+#userOffersTable .userOffersTableEntryImage,
+#user-past-offer-table .userOffersTableEntryImage {
     object-fit: cover;
     height: 5rem;
 }

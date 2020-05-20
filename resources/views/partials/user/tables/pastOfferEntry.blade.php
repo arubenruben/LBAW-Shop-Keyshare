@@ -1,7 +1,7 @@
 <tr>
     <td scope="row" class="border-0 align-middle">
         <section class="p-2">
-            <img src={{ asset('/pictures/games/'.$pastOffer->product->picture->url) }} alt="" width=" 150"
+            <img src={{ asset('/pictures/games/'.$pastOffer->product->picture->url) }} alt="Game Picture" width=" 150"
                 class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
             <div class="ml-3 d-inline-block align-middle flex-nowrap">
                 <h5 class="mb-0 d-inline-block"><a
