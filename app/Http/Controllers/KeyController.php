@@ -11,6 +11,7 @@ use App\Policies\KeyPolicy;
 
 class KeyController extends Controller
 {
+    /*
     public function get($offerId)
     {
 
@@ -25,6 +26,7 @@ class KeyController extends Controller
     {
 
     }
+    */
 
     public function delete($keyId) {
         $key = Key::findOrFail($keyId);
@@ -36,6 +38,8 @@ class KeyController extends Controller
         }
 
         $key->delete();
+
+        return response('Success',200);
     }
 
     public function feedback(Request $request)
@@ -55,10 +59,5 @@ class KeyController extends Controller
 
             return response('Success', 200);
         }
-    }
-
-    public function report($keyId)
-    {
-
     }
 }

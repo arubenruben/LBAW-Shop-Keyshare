@@ -85,7 +85,7 @@ CREATE TABLE offers (
   platform_id INTEGER NOT NULL REFERENCES platforms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
   product_id INTEGER REFERENCES products(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  stock INTEGER NOT NULL DEFAULT 1,
+  stock INTEGER NOT NULL DEFAULT 0,
   CONSTRAINT price_ck CHECK (price > 0),
   CONSTRAINT init_date_ck CHECK (init_date <= NOW()),
   CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
@@ -462,18 +462,8 @@ DECLARE
     stock_quantity INTEGER;
 BEGIN
 
-    SELECT COUNT(keys.id) into stock_quantity
-    FROM keys
-    WHERE keys.order_id IS NULL AND keys.offer_id = NEW.offer_id
-    GROUP BY(keys.id);
-
-
-    IF stock_quantity IS NULL THEN
-        stock_quantity := 0;
-    END IF;
-
     UPDATE offers
-    SET stock = stock_quantity+1
+    SET stock = stock+1
     WHERE id = NEW.offer_id;
 
     RETURN NEW;
@@ -488,13 +478,21 @@ EXECUTE PROCEDURE update_product_stock();
 
 CREATE OR REPLACE FUNCTION update_product_stock_cancel()
 RETURNS TRIGGER AS $$
+DECLARE
+    stock_quantity INTEGER;
 BEGIN
 
+
+    IF(stock_quantity IS NULL)THEN
+        stock_quantity:=0;
+    END IF;
+    
+
     UPDATE offers
-    SET stock = 0
+    SET stock = stock-1
     WHERE id = OLD.offer_id;
 
-    RETURN NEW;
+    RETURN OLD;
 END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_product_stock_delete_tg ON keys CASCADE;
@@ -775,8 +773,6 @@ CREATE TRIGGER verify_banned_user_offer_tg
 BEFORE INSERT ON offers
 FOR EACH ROW
 EXECUTE PROCEDURE verify_banned_user_offer();
-
-
 
 -----------------------------------------
 -- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
