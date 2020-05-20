@@ -81,7 +81,7 @@ CREATE TABLE offers (
   price REAL NOT NULL,
   init_date date NOT NULL DEFAULT NOW(),
   final_date date,
-  profit REAL DEFAULT 0,
+  profit REAL NOT NULL DEFAULT 0,
   platform_id INTEGER NOT NULL REFERENCES platforms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
   product_id INTEGER REFERENCES products(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -380,7 +380,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS user_num_sells_tg ON keys CASCADE;
 CREATE TRIGGER user_num_sells_tg
-AFTER INSERT OR UPDATE OF order_id ON keys
+AFTER UPDATE OF order_id ON keys
 FOR EACH ROW
 EXECUTE PROCEDURE user_num_sells();
 
@@ -536,7 +536,7 @@ RETURNS TRIGGER AS $$
 BEGIN
     DELETE FROM carts
     WHERE offer_id=NEW.id;
-    
+
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -698,7 +698,9 @@ CREATE TRIGGER verify_banned_user_orders_tg
 BEFORE INSERT ON orders
 FOR EACH ROW
 EXECUTE PROCEDURE verify_banned_user_orders();
-/*
+
+
+---
 CREATE OR REPLACE FUNCTION update_offer_profit()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -712,6 +714,10 @@ BEGIN
         AND keys.price_sold IS NOT NULL
     GROUP BY keys.offer_id;
 
+    IF (offer_profit IS NULL) THEN
+        offer_profit:=0;
+    END IF; 
+
     UPDATE offers
     SET profit = profit + offer_profit
     WHERE id = NEW.offer_id;
@@ -721,10 +727,41 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_offer_profit_tg ON keys CASCADE;
 CREATE TRIGGER update_offer_profit_tg
-AFTER INSERT OR DELETE OR UPDATE OF price_sold ON keys
+AFTER INSERT OR UPDATE OF price_sold ON keys
 FOR EACH ROW
 EXECUTE PROCEDURE update_offer_profit();
-*/
+---
+
+CREATE OR REPLACE FUNCTION update_offer_profit_delete()
+RETURNS TRIGGER AS $$
+DECLARE
+    offer_profit REAL;
+
+BEGIN
+
+    SELECT SUM(keys.price_sold) into offer_profit
+    FROM keys
+    WHERE keys.offer_id = OLD.offer_id
+        AND keys.price_sold IS NOT NULL
+    GROUP BY keys.offer_id;
+
+    IF (offer_profit IS NULL) THEN
+        offer_profit:=0;
+    END IF; 
+
+
+    UPDATE offers
+    SET profit = profit + offer_profit
+    WHERE id = OLD.offer_id;
+
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+DROP TRIGGER IF EXISTS update_offer_profit_delete_tg ON keys CASCADE;
+CREATE TRIGGER update_offer_profit_delete_tg
+AFTER DELETE ON keys
+FOR EACH ROW
+EXECUTE PROCEDURE update_offer_profit_delete();
 
 CREATE OR REPLACE FUNCTION verify_banned_user_offer()
 RETURNS TRIGGER AS $$
@@ -1163,11 +1200,11 @@ INSERT INTO admins (username, email, description, password, picture_id)values ('
 INSERT INTO admins (username, email, description, password, picture_id)values ('hdurran5', 'ccolliford5@godaddy.com', 'habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
 INSERT INTO admins (username, email, description, password, picture_id)values ('pvankov6', 'ngrisdale6@tumblr.com', 'et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
 
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, null, 2, 94, 12, 47);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, null, 2, 98, 10, 96);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.72, '2020-02-27 20:26:32', null, null, 5, 22, 25, 75);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (907.84, '2019-08-07 11:05:46', null, null, 1, 25, 3, 50);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (986.68, '2019-12-13 07:19:42', null, null, 6, 68, 3, 39);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 47);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, 0, 2, 98, 10, 96);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 75);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (907.84, '2019-08-07 11:05:46', null, 0, 1, 25, 3, 50);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (986.68, '2019-12-13 07:19:42', null, 0, 6, 68, 3, 39);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (393.52, '2019-12-02 04:46:25', '2020-10-05 02:39:57', 734.87, 8, 77, 2, 21);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (645.86, '2019-05-05 13:42:00', '2020-06-30 08:03:14', 582.24, 2, 94, 12, 21);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.25, '2019-12-03 20:56:41', '2020-12-29 07:28:13', 593.43, 3, 48, 5, 52);
@@ -2081,8 +2118,8 @@ INSERT INTO users (username, email, description, password, rating, birth_date, p
 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 2, 103, 19, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 67.14, 3, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 3, 103, 19, 3);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSa', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSb', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSc', 92);
