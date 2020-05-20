@@ -73,10 +73,9 @@
         </a>
     </div>
     <div class="text-center">
-        <button type="button" class="btn mt-3" data-toggle="modal" data-target="#recover-password-modal"
-            data-dismiss="modal">
+        <a type="button" class="btn mt-3" data-dismiss="modal" href="{{url('/password/reset')}}">
             Forgot Password
-        </button>
+        </a>
     </div>
 </div>
 
