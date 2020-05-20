@@ -1,5 +1,5 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+const
 
 const arrayButtonsToOpenFeedback = document.querySelectorAll('.modal-feedback-opener');
 
