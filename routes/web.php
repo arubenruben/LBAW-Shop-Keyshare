@@ -56,11 +56,14 @@ Route::delete('/discount/{discountId}', 'DiscountController@delete');
 // Keys
 Route::post('/key/{keyId}', 'KeyController@update');
 Route::delete('/key/{keyId}', 'KeyController@delete');
-Route::put('/key/{id}/feedback', 'KeyController@feedback');
+Route::put('/key/{id}/feedback', 'KeyController@add');
+Route::get('/key/{id}/feedback', 'KeyController@view');
 Route::put('/key/{id}/report', 'KeyController@report');
 
 // Feedback
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');
+
+
 
 // Reports
 Route::get('/report/{id}', 'ReportController@show');
