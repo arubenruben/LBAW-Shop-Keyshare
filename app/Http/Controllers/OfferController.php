@@ -112,6 +112,7 @@ class OfferController extends Controller
     }
 
     public function delete($offerId) {
+        
         $offer = Offer::findOrFail($offerId);
 
         try {

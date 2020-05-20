@@ -477,7 +477,7 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-
+/*
 DROP TRIGGER IF EXISTS update_product_stock_tg ON keys CASCADE;
 CREATE TRIGGER update_product_stock_tg
 AFTER INSERT OR DELETE OR UPDATE OF order_id ON keys
@@ -503,7 +503,7 @@ AFTER INSERT OR UPDATE OF deleted ON products
 FOR EACH ROW
 WHEN (NEW.deleted = true)
 EXECUTE PROCEDURE delete_from_cart();
-
+*/
 DROP FUNCTION IF EXISTS check_not_self_buying() CASCADE;
 CREATE OR REPLACE FUNCTION check_not_self_buying()
 RETURNS TRIGGER AS $$
@@ -529,7 +529,7 @@ CREATE TRIGGER check_not_self_buying_tg
 AFTER INSERT ON carts
 FOR EACH ROW
 EXECUTE PROCEDURE check_not_self_buying();
-
+/*
 CREATE OR REPLACE FUNCTION delete_keys_from_canceled_offers()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -538,13 +538,13 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-
 DROP TRIGGER IF EXISTS delete_keys_from_canceled_offers_tg ON offers CASCADE;
 CREATE TRIGGER delete_keys_from_canceled_offers_tg
 AFTER UPDATE OF final_date ON offers
 FOR EACH ROW
 WHEN(NEW.final_date IS NOT NULL)
 EXECUTE PROCEDURE delete_keys_from_canceled_offers();
+*/
 
 CREATE OR REPLACE FUNCTION rollback_offer_of_deleted_products()
 RETURNS TRIGGER AS $$
@@ -652,7 +652,7 @@ CREATE TRIGGER verify_banned_user_orders_tg
 BEFORE INSERT ON orders
 FOR EACH ROW
 EXECUTE PROCEDURE verify_banned_user_orders();
-
+/*
 CREATE OR REPLACE FUNCTION update_offer_profit()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -673,12 +673,12 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-
 DROP TRIGGER IF EXISTS update_offer_profit_tg ON keys CASCADE;
 CREATE TRIGGER update_offer_profit_tg
 AFTER INSERT OR DELETE OR UPDATE OF price_sold ON keys
 FOR EACH ROW
 EXECUTE PROCEDURE update_offer_profit();
+*/
 
 CREATE OR REPLACE FUNCTION verify_banned_user_offer()
 RETURNS TRIGGER AS $$
