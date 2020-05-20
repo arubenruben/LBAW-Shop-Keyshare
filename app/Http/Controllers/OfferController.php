@@ -103,8 +103,10 @@ class OfferController extends Controller
             return response("You can't view this offer", 401);
         }
 
-        $curName = Auth::user()->username;
-        return view('pages.offer.edit', ['offer' => $offer, 'breadcrumbs' => ['User' => url("/user/${curName}/offers"), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
+        $user = Auth::user();
+        $curName=$user->username;
+        
+        return view('pages.offer.edit', ['offer' => $offer,'paypal'=>$user->paypal, 'breadcrumbs' => ['User' => url("/user/${curName}/offers"), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
     }
 
     public function update($offerId) {

@@ -25,7 +25,7 @@ class KeyAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'key' => "bail | required | filled | string | regex:/^\w+([\-|\\|\/]\w+)*$/g | unique:keys,key",
+            'key' => "bail | required | filled | string | unique:keys,key",
         ];
     }
 
