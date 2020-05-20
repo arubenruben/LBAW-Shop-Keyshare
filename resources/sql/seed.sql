@@ -456,7 +456,6 @@ EXECUTE PROCEDURE check_user_bought_product();
 
 
 
-----
 CREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -509,8 +508,6 @@ FOR EACH ROW
 EXECUTE PROCEDURE update_product_stock_cancel();
 
 
-----
-
 
 CREATE OR REPLACE FUNCTION delete_from_cart()
 RETURNS TRIGGER AS $$
@@ -531,6 +528,27 @@ AFTER INSERT OR UPDATE OF deleted ON products
 FOR EACH ROW
 WHEN (NEW.deleted = true)
 EXECUTE PROCEDURE delete_from_cart();
+
+
+
+CREATE OR REPLACE FUNCTION delete_from_cart_offer()
+RETURNS TRIGGER AS $$
+BEGIN
+    DELETE FROM carts
+    WHERE offer_id=NEW.id;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP TRIGGER IF EXISTS delete_from_cart_update_tg ON products CASCADE;
+CREATE TRIGGER delete_from_cart_update_tg
+AFTER UPDATE OF final_date ON offers
+FOR EACH ROW
+WHEN (NEW.final_date IS NOT NULL)
+EXECUTE PROCEDURE delete_from_cart_offer();
+
 
 DROP FUNCTION IF EXISTS check_not_self_buying() CASCADE;
 CREATE OR REPLACE FUNCTION check_not_self_buying()
