@@ -37,13 +37,13 @@
                 <hr>
                 <div class="row mt-1">
                     <div class="col-6 text-center">
-                        <button class="btn positive-feedback btn-green btn-lg px-5">
-                            <i class="fas positive-feedback-i fa-thumbs-up cl-success"></i>
+                        <button id="buttonPositive" class="btn positive-feedback btn-green btn-lg px-5">
+                            <i id="positiveThumb" class="fas positive-feedback-i fa-thumbs-up cl-success"></i>
                         </button>
                     </div>
                     <div class="col-6 text-center">
-                        <button class="btn negative-feedback btn-red btn-lg px-5">
-                            <i class="fas negative-feedback-i fa-thumbs-down cl-fail"></i>
+                        <button id="buttonNegative" class="btn negative-feedback btn-red btn-lg px-5">
+                            <i id="negativeThumb" class="fas negative-feedback-i fa-thumbs-down cl-fail"></i>
                         </button>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
             </section>
             <section class="modal-footer">
                 <div class="col text-right submit-feedback">
-                    <button class="btn btn-blue submit">Submit</button>
+                    <button id="submitButton" class="btn btn-blue submit">Submit</button>
                 </div>
             </section>
         </div>
