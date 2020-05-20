@@ -113,5 +113,5 @@ const sendPut = put => {
         body: JSON.stringify(put)
     }
 
-    return fetch('/key/' + '/report', options);
+    return fetch('/key/' + put.key + '/feedback', options);
 }

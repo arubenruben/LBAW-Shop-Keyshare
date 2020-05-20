@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Feedback;
 use App\Key;
+use App\Feedback;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Policies\KeyPolicy;
+use App\Http\Requests\FeedbackAddRequest;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class KeyController extends Controller
 {
@@ -33,12 +36,15 @@ class KeyController extends Controller
         return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product,'feedback'=>$feedback]),200);
     }
     
-    /*
-    public function add($offerId)
+    public function add(FeedbackAddRequest $request)
     {
+        
+        
 
+        response(json_encode("Success"),400);
     }
-
+    
+    /*
     public function update($keyId)
     {
 
