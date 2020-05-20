@@ -31,9 +31,6 @@ const processClick = (keyId, orderNumber) => {
         approvalRatePlaceHolder.innerHTML += res.seller.rating;
         numSellsPlaceHolder.innerHTML += res.seller.num_sells;
 
-
-
-
     })
 };
 addFeedbackEventListeners();

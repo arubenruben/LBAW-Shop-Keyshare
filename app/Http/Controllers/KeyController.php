@@ -28,8 +28,9 @@ class KeyController extends Controller
         $offer=$key->offer;
         $seller=$offer->seller;
         $product=$offer->product;
+        $feedback=$offer->feedback;
 
-        return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product]),200);
+        return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product,'feedback'=>$feedback]),200);
     }
     
     /*
