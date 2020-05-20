@@ -21,7 +21,7 @@
                         <p>
                             <i class="fas fa-thumbs-up cl-success"></i>
                             <span id="approvalRate" class="font-weight-bold cl-success">%</span>
-                            <i class="fas fa-shopping-cart"></i>
+                            <i id="numSells" class="fas fa-shopping-cart"></i>
 
                         </p>
                     </div>

@@ -11,12 +11,28 @@ use App\Policies\KeyPolicy;
 
 class KeyController extends Controller
 {
-    /*
-    public function get($offerId)
+    public function get($keyId)
     {
+        if($keyId===NULL)
+            return response(json_encode("Key not valid"),400);
+        
+        $key=Key::findOrFail($keyId);
+        
+        try {
+            $this->authorize('get', $key);
+        } catch (AuthorizationException $e) {
+            return response("You can't get this key", 401);
+        } 
+        
 
+        $offer=$key->offer;
+        $seller=$offer->seller;
+        $product=$offer->product;
+
+        return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product]),200);
     }
-
+    
+    /*
     public function add($offerId)
     {
 

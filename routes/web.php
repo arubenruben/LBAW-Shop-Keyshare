@@ -59,13 +59,10 @@ Route::delete('/key/{keyId}', 'KeyController@delete');
 Route::put('/key/{id}/feedback', 'KeyController@add');
 Route::get('/key/{id}/feedback', 'KeyController@view');
 Route::put('/key/{id}/report', 'KeyController@report');
+Route::get('/api/key/{keyId}', 'KeyController@get');
 
 // Feedback
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');
-
-//Orders
-
-Route::get('/api/order/{orderNumber}','OrderController@get');
 
 // Reports
 Route::get('/report/{id}', 'ReportController@show');
