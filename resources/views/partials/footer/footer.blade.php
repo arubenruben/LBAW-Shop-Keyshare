@@ -4,17 +4,17 @@
         <section class="col">
             <h5 class="title"> More</h5>
             <ul class="list-unstyled">
-                <li><a href="#"> Help</a></li>
-                <li><a href="#"> Contact</a></li>
-                <li><a href="#"> About us</a></li>
+                <li><a href={{url('/faq')}}> Help</a></li>
+                <li><a href={{url('/contact')}}> Contact</a></li>
+                <li><a href={{url('/about')}}> About us</a></li>
             </ul>
         </section>
         <section class="col">
             <h5 class="title"> Shortcuts </h5>
             <ul class="list-unstyled">
-                <li><a href="#"> Profile</a></li>
-                <li><a href="#"> Homepage</a></li>
-                <li><a href="#"> All products</a></li>
+                <li><a href={{url('/user/')}}> Profile</a></li>
+                <li><a href={{url('/')}}> Homepage</a></li>
+                <li><a href={{url('/search')}}> All products</a></li>
             </ul>
         </section>
         <section class="col ml-auto my-auto">

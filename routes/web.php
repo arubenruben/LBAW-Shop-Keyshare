@@ -67,14 +67,14 @@ Route::get('/report/{id}', 'ReportController@show');
 Route::put('/report/{id}', 'ReportController@message');
 
 // FAQ
-Route::get('/faq', 'FAQController@show');
+Route::get('/faq', 'FAQController@show',['breadcrumbs' => ['Faq' => url("/faq")]]);
 
 // Static
 Route::get('/about', function () {
-    return view('pages.static.about', ['pages' => array('About us'), 'links'=>array(url('/about/'))]);
+    return view('pages.static.about', ['breadcrumbs' => ['About Us' => url("/about")]]);
 });
 Route::get('/contact', function () {
-    return view('pages.static.contact', ['pages' => array('Contact us'), 'links'=>array(url('/contact/'))]);
+    return view('pages.static.contact', ['breadcrumbs' => ['About Us' => url("/about")]]);
 });
 
 // Admin

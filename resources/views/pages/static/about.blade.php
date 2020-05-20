@@ -5,13 +5,13 @@
 @include('partials.header.userheader')
 
 @section('navbar')
-    @include('partials.navbar.breadcrumbs',['pages'=>$pages, 'links'=>$links])
+@include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
 @endsection
 
 @section('content')
-    @include('partials.static.about')
+@include('partials.static.about')
 @endsection
 
 @section('footer')
-    @include('partials.footer.footer')
+@include('partials.footer.footer')
 @endsection
