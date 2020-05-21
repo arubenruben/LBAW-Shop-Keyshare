@@ -3,7 +3,6 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 let evaluation = null;
 
-
 const orderNumberPlaceHolder = document.querySelector('#orderNumber');
 const orderNumberOriginalContent = orderNumberPlaceHolder.innerHTML;
 const usernamePlaceHolder = document.querySelector('#username');
@@ -18,7 +17,10 @@ const numSellsPlaceHolder = document.querySelector('#numSells');
 const numSellsOriginalContent = numSellsPlaceHolder.innerHTML;
 const commentPlaceHolder = document.querySelector('#comment');
 const commentOriginalContent = commentPlaceHolder.innerHTML;
+const buttonContainer = document.querySelector('#button-submit-container');
 
+const positiveButtonContainer = document.querySelector('#positive-button-container');
+const negativeButtonContainer = document.querySelector('#negative-button-container');
 const buttonSubmitFeedback = document.querySelector('#submitButton');
 const positiveButton = document.querySelector('#buttonPositive');
 const negativeButton = document.querySelector('#buttonNegative');
@@ -59,9 +61,39 @@ const processClick = (keyId, orderNumber) => {
         if (res.feedback !== null) {
             buttonSubmitFeedback.remove();
             commentPlaceHolder.innerHTML = res.feedback.comment;
-        } else {
+
+            if (res.feedback.evaluation === true) {
+                negativeButton.remove();
+                if (!positiveButtonContainer.hasChildNodes(positiveButton))
+                    positiveButtonContainer.append(positiveButton);
+            } else if (res.feedback.evaluation === false) {
+                positiveButton.remove();
+                if (!negativeButtonContainer.hasChildNodes(negativeButton))
+                    negativeButtonContainer.append(negativeButton);
+            }
+
+        } else if (buttonContainer.hasChildNodes(buttonSubmitFeedback)) {
+
             commentPlaceHolder.innerHTML = commentOriginalContent;
+            buttonContainer.append(buttonSubmitFeedback);
+
+            if (!negativeButtonContainer.hasChildNodes(negativeButton))
+                negativeButtonContainer.append(negativeButton);
+
+            if (!positiveButtonContainer.hasChildNodes(positiveButton))
+                positiveButtonContainer.append(positiveButton);
+        } else {
+
+            commentPlaceHolder.innerHTML = commentOriginalContent;
+
+            if (!negativeButtonContainer.hasChildNodes(negativeButton))
+                negativeButtonContainer.append(negativeButton);
+
+            if (!positiveButtonContainer.hasChildNodes(positiveButton))
+                positiveButtonContainer.append(positiveButton);
         }
+
+
 
     })
 };
@@ -71,6 +103,9 @@ const buttonPositiveClick = () => {
 }
 
 const buttonNegativeClick = () => {
+
+
+
     evaluation = false;
 }
 const submitComment = (keyId) => {

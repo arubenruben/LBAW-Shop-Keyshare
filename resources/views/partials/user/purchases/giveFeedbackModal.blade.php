@@ -22,7 +22,6 @@
                             <i class="fas fa-thumbs-up cl-success"></i>
                             <span id="approvalRate" class="font-weight-bold cl-success">%</span>
                             <i id="numSells" class="fas fa-shopping-cart"></i>
-
                         </p>
                     </div>
                     <div class="col-6 text-right">
@@ -36,12 +35,12 @@
                 </div>
                 <hr>
                 <div class="row mt-1">
-                    <div class="col-6 text-center">
+                    <div id="positive-button-container" class="col-6 text-center">
                         <button id="buttonPositive" class="btn positive-feedback btn-green btn-lg px-5">
                             <i id="positiveThumb" class="fas positive-feedback-i fa-thumbs-up cl-success"></i>
                         </button>
                     </div>
-                    <div class="col-6 text-center">
+                    <div id="negative-button-container" class="col-6 text-center">
                         <button id="buttonNegative" class="btn negative-feedback btn-red btn-lg px-5">
                             <i id="negativeThumb" class="fas negative-feedback-i fa-thumbs-down cl-fail"></i>
                         </button>
@@ -57,7 +56,7 @@
                 </div>
             </section>
             <section class="modal-footer">
-                <div class="col text-right submit-feedback">
+                <div id="button-submit-container" class="col text-right submit-feedback">
                     <button id="submitButton" class="btn btn-blue submit">Submit</button>
                 </div>
             </section>
