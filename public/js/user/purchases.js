@@ -5,12 +5,20 @@ let evaluation = null;
 
 
 const orderNumberPlaceHolder = document.querySelector('#orderNumber');
+orderNumberPlaceHolder.innerHTML = "";
 const usernamePlaceHolder = document.querySelector('#username');
+usernamePlaceHolder.innerHTML = "";
 const pricePlaceHolder = document.querySelector('#price');
+pricePlaceHolder.innerHTML = "";
 const productNamePlaceHolder = document.querySelector('#productName');
+productNamePlaceHolder.innerHTML = "";
 const approvalRatePlaceHolder = document.querySelector('#approvalRate');
+approvalRatePlaceHolder.innerHTML = "";
 const numSellsPlaceHolder = document.querySelector('#numSells');
+numSellsPlaceHolder.innerHTML = "";
 const commentPlaceHolder = document.querySelector('#comment');
+commentPlaceHolder.innerHTML = "";
+
 const buttonSubmitFeedback = document.querySelector('#submitButton');
 const positiveButton = document.querySelector('#buttonPositive');
 const negativeButton = document.querySelector('#buttonNegative');
@@ -48,8 +56,10 @@ const processClick = (keyId, orderNumber) => {
         approvalRatePlaceHolder.innerHTML += res.seller.rating;
         numSellsPlaceHolder.innerHTML += res.seller.num_sells;
 
-        if (res.feedback !== null)
+        if (res.feedback !== null) {
             buttonSubmitFeedback.remove();
+            commentPlaceHolder.innerHTML = res.feedback.comment;
+        }
 
     })
 };
