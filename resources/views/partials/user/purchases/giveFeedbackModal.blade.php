@@ -37,12 +37,12 @@
                 <div class="row mt-1">
                     <div id="positive-button-container" class="col-6 text-center">
                         <button id="buttonPositive" class="btn positive-feedback btn-green btn-lg px-5">
-                            <i id="positiveThumb" class="fas positive-feedback-i fa-thumbs-up cl-success"></i>
+                            <i id="positive-thumb" class="fas positive-feedback-i fa-thumbs-up cl-success"></i>
                         </button>
                     </div>
                     <div id="negative-button-container" class="col-6 text-center">
                         <button id="buttonNegative" class="btn negative-feedback btn-red btn-lg px-5">
-                            <i id="negativeThumb" class="fas negative-feedback-i fa-thumbs-down cl-fail"></i>
+                            <i id="negative-thumb" class="fas negative-feedback-i fa-thumbs-down cl-fail"></i>
                         </button>
                     </div>
                 </div>

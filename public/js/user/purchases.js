@@ -26,6 +26,9 @@ const positiveButtonContainer = document.querySelector('#positive-button-contain
 const negativeButton = document.querySelector('#buttonNegative');
 const negativeButtonContainer = document.querySelector('#negative-button-container');
 
+const positiveThumb = document.querySelector('#positive-thumb');
+const negativeThumb = document.querySelector('#negative-thumb');
+
 const arrayButtonsToOpenFeedback = document.querySelectorAll('.modal-feedback-opener');
 
 const addFeedbackEventListeners = () => {
@@ -93,12 +96,19 @@ const processClick = (keyId, orderNumber) => {
 
 const buttonPositiveClick = () => {
     evaluation = true;
-    console.log(event.target);
+    positiveButton.classList.add('bg-success');
+    positiveThumb.classList.add('cl-white');
+    negativeButton.classList.remove('bg-aux');
+    negativeThumb.classList.remove('cl-white');
+
 }
 
 const buttonNegativeClick = () => {
     evaluation = false;
-    console.log(event.target);
+    negativeButton.classList.add('bg-aux');
+    negativeThumb.classList.add('cl-white');
+    positiveButton.classList.remove('bg-success');
+    positiveThumb.classList.remove('cl-white');
 
 }
 const submitComment = (keyId) => {

@@ -472,6 +472,9 @@ button:focus {
     background-color: var(--color-background-dark-blue);
 }
 
+.bg-aux {
+    background-color: var(--color-interactive-red-fail) !important;
+}
 
 /* scrollable table */
 
