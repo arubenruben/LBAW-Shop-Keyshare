@@ -5,19 +5,19 @@ let evaluation = null;
 
 
 const orderNumberPlaceHolder = document.querySelector('#orderNumber');
-orderNumberPlaceHolder.innerHTML = "";
+const orderNumberOriginalContent = orderNumberPlaceHolder.innerHTML;
 const usernamePlaceHolder = document.querySelector('#username');
-usernamePlaceHolder.innerHTML = "";
+const usernameOriginalContent = usernamePlaceHolder.innerHTML;
 const pricePlaceHolder = document.querySelector('#price');
-pricePlaceHolder.innerHTML = "";
+const priceOriginalContent = pricePlaceHolder.innerHTML;
 const productNamePlaceHolder = document.querySelector('#productName');
-productNamePlaceHolder.innerHTML = "";
+const productNameOriginalContent = productNamePlaceHolder.innerHTML;
 const approvalRatePlaceHolder = document.querySelector('#approvalRate');
-approvalRatePlaceHolder.innerHTML = "";
+const approvalRateOriginalContent = approvalRatePlaceHolder.innerHTML;
 const numSellsPlaceHolder = document.querySelector('#numSells');
-numSellsPlaceHolder.innerHTML = "";
+const numSellsOriginalContent = numSellsPlaceHolder.innerHTML;
 const commentPlaceHolder = document.querySelector('#comment');
-commentPlaceHolder.innerHTML = "";
+const commentOriginalContent = commentPlaceHolder.innerHTML;
 
 const buttonSubmitFeedback = document.querySelector('#submitButton');
 const positiveButton = document.querySelector('#buttonPositive');
@@ -50,15 +50,17 @@ const processClick = (keyId, orderNumber) => {
     sendGet('/api/key/' + keyId).then(function (res) {
         orderNumberPlaceHolder.innerHTML += orderNumber;
 
-        usernamePlaceHolder.innerHTML += res.seller.username;
-        pricePlaceHolder.innerHTML += res.offer.price;
-        productNamePlaceHolder.innerHTML += res.product.name;
-        approvalRatePlaceHolder.innerHTML += res.seller.rating;
-        numSellsPlaceHolder.innerHTML += res.seller.num_sells;
+        usernamePlaceHolder.innerHTML = usernameOriginalContent + res.seller.username;
+        pricePlaceHolder.innerHTML = priceOriginalContent + res.offer.price;
+        productNamePlaceHolder.innerHTML = productNameOriginalContent + res.product.name;
+        approvalRatePlaceHolder.innerHTML = approvalRateOriginalContent + res.seller.rating;
+        numSellsPlaceHolder.innerHTML = numSellsOriginalContent + res.seller.num_sells;
 
         if (res.feedback !== null) {
             buttonSubmitFeedback.remove();
             commentPlaceHolder.innerHTML = res.feedback.comment;
+        } else {
+            commentPlaceHolder.innerHTML = commentOriginalContent;
         }
 
     })
