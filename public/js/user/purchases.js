@@ -129,6 +129,7 @@ const submitComment = (keyId) => {
                 if (positiveButtonContainer.contains(positiveButton))
                     positiveButton.remove();
             }
+            buttonSubmitFeedback.remove();
         }
     });
 };
