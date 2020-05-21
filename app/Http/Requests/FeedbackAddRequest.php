@@ -13,9 +13,10 @@ class FeedbackAddRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize($key)
+    public function authorize()
     {
-        return Auth::check() && !Auth::user()->isBanned() && Auth::user()->id == $key->order->user_id;
+        //return Auth::check() && !Auth::user()->isBanned() && Auth::user()->id == $key->order->user_id;
+        return Auth::check() && !Auth::user()->isBanned();
     }
 
     /**
@@ -27,8 +28,8 @@ class FeedbackAddRequest extends FormRequest
     {
         return [
             'key' => "bail | required | filled | string | unique:keys,key",
-            'comment'=>"required | filled | string"
-            'evaluation'=>"required | filled | boolean"
+            'comment' =>"required | filled | string",
+            'evaluation' =>"required | filled | boolean"
         ];
     }
 
@@ -39,11 +40,7 @@ class FeedbackAddRequest extends FormRequest
      */
     public function messages() {
         return [
-            'key.required' => 'The key must be specified.',
-            'key.filled' => 'The key must be specified.',
-            'key.string' => 'The key must be a string value.',
-            'key.regex' => 'The key must only contain alphabetic characters and digits and can be separated by -, |, \ or /.',
-            'key.unique' => 'The key already exists.',
+           
         ];
     }
 }

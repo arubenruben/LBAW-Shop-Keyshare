@@ -22,4 +22,10 @@ class KeyPolicy
         // User can only delete items in cards they own
         return Auth::check() && !Auth::user()->isBanned() && $user->id == $key->order->user_id;
     }
+    
+    public function submitFeedback(User $user, Key $key)
+    {
+    // User can only delete items in cards they own
+    return Auth::check() && !Auth::user()->isBanned() && $user->id == $key->order->user_id;
+    }
 }

@@ -11,6 +11,7 @@ use App\Http\Requests\FeedbackAddRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class KeyController extends Controller
 {
@@ -38,8 +39,27 @@ class KeyController extends Controller
     
     public function add(FeedbackAddRequest $request)
     {
+
+        $keyId=$request->get('key');
         
+        $key=Key::findOrFail($keyId);
         
+        try {
+            $this->authorize('submitFeedback', $key);
+        } catch (AuthorizationException $e) {
+            return response("You can't get this key", 401);
+        }
+
+        $evaluation=$request->get('evaluation');
+        $comment=$request->get('comment');
+
+        $feedback=new Feedback;
+        $feedback->evaluation=$evaluation;
+        $feedback->comment=$comment;
+        $feedback->user_id=Auth::User()->id;
+        $feedback->key_id=$key->id;
+
+        $feedback->save();    
 
         response(json_encode("Success"),400);
     }
