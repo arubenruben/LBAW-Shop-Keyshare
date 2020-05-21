@@ -56,7 +56,7 @@
                 </div>
             </section>
             <section class="modal-footer">
-                <div id="button-submit-container" class="col text-right submit-feedback">
+                <div id="submit-button-container" class="col text-right submit-feedback">
                     <button id="submitButton" class="btn btn-blue submit">Submit</button>
                 </div>
             </section>
