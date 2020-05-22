@@ -63,16 +63,14 @@
         </button>
     </div>
 </header>
-<!--Collapse Small -->
 <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
     <div class="col w-100">
-        <form class="form-inline" action="/query" method="get">
-            <a class="mt-auto mb-auto ml-auto" href="{{ url('/search') }}">
-                <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
-            </a>
+        <form class="form-inline" action="{{route('query')}}" method="get">
+            <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                aria-label="Search" name="input">
+                   aria-label="Search" name="input"/>
         </form>
+
         <div class="row flex-nowrap justify-content-around mt-3">
             @if (!Auth::check())
             <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" data-toggle="modal"

@@ -176,10 +176,13 @@ class ProductController extends Controller
         return response()->json(['products' => $filtered, 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
-    public function inputSearch(Request $request)
+    public function inputSearch()
     {
+
         $input = Input::get('input');
         $products = Product::whereRaw("deleted = false AND name_tsvector @@ plainto_tsquery('" . $input . "')")->paginate(9);
+
+        return json_encode($products, 404);
 
         $productsPlatform = [];
         foreach ($products as $product) {

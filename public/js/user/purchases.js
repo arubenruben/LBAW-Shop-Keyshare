@@ -55,7 +55,6 @@ const processClick = (keyId, orderNumber) => {
 
     sendGet('/api/key/' + keyId).then(function (res) {
         orderNumberPlaceHolder.innerHTML += orderNumber;
-
         usernamePlaceHolder.innerHTML = usernameOriginalContent + res.seller.username;
         pricePlaceHolder.innerHTML = priceOriginalContent + res.offer.price;
         productNamePlaceHolder.innerHTML = productNameOriginalContent + res.product.name;
@@ -65,7 +64,6 @@ const processClick = (keyId, orderNumber) => {
         if (res.feedback !== null) {
             buttonSubmitFeedback.remove();
             commentPlaceHolder.innerHTML = res.feedback.comment;
-
 
             if (res.feedback.evaluation) {
 

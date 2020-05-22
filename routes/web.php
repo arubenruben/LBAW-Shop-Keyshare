@@ -36,7 +36,6 @@ Route::get('/cart/checkout', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finishCheckout');
 Route::get('api/getCartTotalPrice', 'CartController@getCartTotalPrice');
 
-
 // Offers
 Route::get('offer', 'OfferController@show');
 Route::put('offer', 'OfferController@add');
@@ -47,7 +46,6 @@ Route::get('api/offer/{id}/key', 'OfferController@getKeys');
 Route::put('offer/{id}/key', 'OfferController@addKey');
 Route::get('api/offer/{id}/discount', 'OfferController@getDiscounts');
 Route::put('offer/{id}/discount', 'OfferController@addDiscount');
-
 
 // Discounts
 Route::post('/discount/{discountId}', 'DiscountController@update');
@@ -69,7 +67,7 @@ Route::get('/report/{id}', 'ReportController@show');
 Route::put('/report/{id}', 'ReportController@message');
 
 // FAQ
-Route::get('/faq', 'FAQController@show',['breadcrumbs' => ['Faq' => url("/faq")]]);
+Route::get('/faq', 'FAQController@show');
 
 // Static
 Route::get('/about', function () {
