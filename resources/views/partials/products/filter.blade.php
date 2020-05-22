@@ -40,7 +40,7 @@
                     @foreach($genres as $genre)
                     @php $i++; @endphp
                     <div class="custom-control custom-checkbox row ml-3 my-2">
-                        <input type="checkbox" class="custom-control-input genre" id="checkBoxGenre{{$i}}"
+                        <input type="checkbox" name="genres[]" class="custom-control-input genre" id="checkBoxGenre{{$i}}"
                             value="{{$genre->name}}">
                         <label class="custom-control-label" for="checkBoxGenre{{$i}}">{{$genre->name}}</label>
                     </div>
@@ -54,6 +54,11 @@
                     <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i></h5>
                 </button>
                 <div id="collapsePlatforms" class="collapse show">
+                    <div class="custom-control custom-radio row ml-3 my-2">
+                        <input type="radio" class="custom-control-input category" id="noPlatform"
+                               name="platform" value="">
+                        <label class="custom-control-label" for="noPlatform">All</label>
+                    </div>
                     @php $i = 1; @endphp
                     @foreach($platforms as $platform)
                     @php $i++; @endphp
@@ -72,6 +77,11 @@
                     <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                 </button>
                 <div id="collapseCategories" class="collapse show">
+                    <div class="custom-control custom-radio row ml-3 my-2">
+                        <input type="radio" class="custom-control-input category" id="noCategory"
+                               name="category" value="">
+                        <label class="custom-control-label" for="noCategory">All</label>
+                    </div>
                     @php $i = 1; @endphp
                     @foreach($categories as $category)
                     @php $i++; @endphp
@@ -87,7 +97,7 @@
             <section class="mt-4">
                 <h5 class="productSideBarTitle my-2 ml-3">Max Price</h5>
                 <label for="price-range" class="my-2 ml-3" id="max_price_value">Value</label>
-                <input type="range" class="custom-range my-2 mx-auto" id="price-range" name="maxPrice"
+                <input type="range" class="custom-range my-2 mx-auto" id="price-range" name="max_price"
                     max="{{$max_price}}" min="{{$min_price}}" value="{{$max_price}}">
             </section>
         </div>

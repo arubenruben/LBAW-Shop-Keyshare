@@ -63,13 +63,6 @@ class KeyController extends Controller
 
         response(json_encode("Success"),400);
     }
-    
-    /*
-    public function update($keyId)
-    {
-
-    }
-    */
 
     public function delete($keyId) {
         $key = Key::findOrFail($keyId);
@@ -102,5 +95,9 @@ class KeyController extends Controller
 
             return response('Success', 200);
         }
+    }
+
+    public function report(ReportRequest $request) {
+
     }
 }
