@@ -82,6 +82,8 @@ class LoginController extends Controller
             // log them in
             auth()->login($existingUser);
             return redirect()->to('/');
+        } else {
+            return redirect('/');
         }
     }
 
