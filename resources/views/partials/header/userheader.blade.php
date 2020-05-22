@@ -6,12 +6,12 @@
     </div>
     <!-- Search -->
     <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
-        <form class="form-inline" action="/query" method="get">
+        <form class="form-inline" action="{{ route('search') }}" method="get">
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
             <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                aria-label="Search" name="input">
+                aria-label="Search" name="query">
         </form>
     </div>
     <!--Buttons-->
@@ -65,10 +65,10 @@
 </header>
 <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
     <div class="col w-100">
-        <form class="form-inline" action="{{route('query')}}" method="get">
+        <form class="form-inline" action="{{route('search')}}" method="get">
             <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                   aria-label="Search" name="input"/>
+                   aria-label="Search" name="query"/>
         </form>
 
         <div class="row flex-nowrap justify-content-around mt-3">

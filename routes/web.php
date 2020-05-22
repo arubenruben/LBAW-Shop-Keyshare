@@ -24,7 +24,6 @@ Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePi
 Route::get('/', 'ProductController@home');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/api/product', 'ProductController@get');
-Route::get('/query', 'ProductController@inputSearch')->name('query');
 Route::get('/api/product/sort', 'ProductController@sort');
 Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product');
 
