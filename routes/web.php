@@ -52,12 +52,12 @@ Route::post('/discount/{discountId}', 'DiscountController@update');
 Route::delete('/discount/{discountId}', 'DiscountController@delete');
 
 // Keys
-Route::post('/key/{keyId}', 'KeyController@update');
-Route::delete('/key/{keyId}', 'KeyController@delete');
+Route::post('/key/{id}', 'KeyController@update');
+Route::delete('/key/{id}', 'KeyController@delete');
 Route::put('/key/{id}/feedback', 'KeyController@add');
 Route::get('/key/{id}/feedback', 'KeyController@view');
-Route::put('/key/{KeyId}/report', 'KeyController@report');
-Route::get('/api/key/{keyId}', 'KeyController@get');
+Route::put('/key/{id}/report', 'KeyController@report');
+Route::get('/api/key/{id}', 'KeyController@get');
 
 // Feedback
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');
@@ -73,8 +73,9 @@ Route::get('/faq', 'FAQController@show');
 Route::get('/about', function () {
     return view('pages.static.about', ['breadcrumbs' => ['About Us' => url("/about")]]);
 });
+
 Route::get('/contact', function () {
-    return view('pages.static.contact', ['breadcrumbs' => ['About Us' => url("/about")]]);
+    return view('pages.static.contact', ['breadcrumbs' => ['Contact Us' => url("/contact")]]);
 });
 
 // Admin

@@ -15,57 +15,48 @@ use Illuminate\Support\Facades\Auth;
 
 class KeyController extends Controller
 {
-    public function get($keyId)
+    public function get($id)
     {
-        if($keyId===NULL)
-            return response(json_encode("Key not valid"),400);
-        
-        $key=Key::findOrFail($keyId);
+        $key = Key::findOrFail($id);
         
         try {
             $this->authorize('get', $key);
         } catch (AuthorizationException $e) {
             return response("You can't get this key", 401);
         } 
-        
 
-        $offer=$key->offer;
-        $seller=$offer->seller;
-        $product=$offer->product;
-        $feedback=$key->feedback;
+        $offer = $key->offer;
+        $seller = $offer->seller;
+        $product = $offer->product;
+        $feedback = $key->feedback;
 
         return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product,'feedback'=>$feedback]),200);
     }
     
     public function add(FeedbackAddRequest $request)
     {
+        $key = Key::findOrFail($request->get('key'));
 
-        $keyId=$request->get('key');
-        
-        $key=Key::findOrFail($keyId);
-        
         try {
             $this->authorize('submitFeedback', $key);
         } catch (AuthorizationException $e) {
             return response("You can't get this key", 401);
         }
 
-        $evaluation=$request->get('evaluation');
-        $comment=$request->get('comment');
+        $feedback = Feedback::create([
+            'evaluation' => $request->get('evaluation'),
+            'comment' => $request->get('comment'),
+            'user_id' => Auth::user()->id,
+            'key_id' => $key->id
+        ]);
 
-        $feedback=new Feedback;
-        $feedback->evaluation=$evaluation;
-        $feedback->comment=$comment;
-        $feedback->user_id=Auth::User()->id;
-        $feedback->key_id=$key->id;
+        if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
 
-        $feedback->save();    
-
-        response(json_encode("Success"),400);
+        return response('Success', 200);
     }
 
-    public function delete($keyId) {
-        $key = Key::findOrFail($keyId);
+    public function delete($id) {
+        $key = Key::findOrFail($id);
 
         try {
             $this->authorize('delete', $key);
@@ -78,20 +69,21 @@ class KeyController extends Controller
         return response('Success',200);
     }
 
-    public function feedback(Request $request)
+    public function report(Request $request)
     {
-        // check if there is no feedback for that key
         $key = Key::findOrFail($request->get('key_id'));
-        if($key->feedback != null) {
-            return response("You already reviewed this key", 400);
+        if($key->report != null) {
+            return response("You already reported this key", 400);
         } else {
-            $feedback = Feedback::create([
-                'evaluation' => $request->get('feedback'),
-                'comment' => $request->get('description'),
-                'user_id' => Auth::user()->id,
-                'key_id' => $request->get('key_id')
+            $report = Report::create([
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'key_id' => $key->id,
+                'reporter_id' =>Auth::user()->id,
+                'reported_id' => $key->offer->seller
             ]);
-            if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
+
+            if(!$report->save()) return response('Cannot give feedback at this time', 401);
 
             return response('Success', 200);
         }

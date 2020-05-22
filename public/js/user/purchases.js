@@ -3,7 +3,6 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 let evaluation = null;
 
-
 const orderNumberPlaceHolder = document.querySelector('#orderNumber');
 const orderNumberOriginalContent = orderNumberPlaceHolder.innerHTML;
 const usernamePlaceHolder = document.querySelector('#username');
@@ -42,8 +41,6 @@ const addFeedbackEventListeners = () => {
 
     positiveButton.addEventListener('click', buttonPositiveClick);
     negativeButton.addEventListener('click', buttonNegativeClick);
-
-
 }
 
 
@@ -109,8 +106,8 @@ const buttonNegativeClick = () => {
     positiveThumb.classList.remove('cl-white');
 
 }
-const submitComment = (keyId) => {
 
+const submitComment = (keyId) => {
     let data = {
         comment: commentPlaceHolder.value,
         evaluation: evaluation,
@@ -118,25 +115,30 @@ const submitComment = (keyId) => {
     };
 
     sendPut(data).then(function (res) {
-
         if (res.ok) {
-            if (data.evaluation) {
-                if (negativeButtonContainer.contains(negativeButton))
-                    negativeButton.remove();
-            } else {
-                if (positiveButtonContainer.contains(positiveButton))
-                    positiveButton.remove();
-            }
+            if (data.evaluation && negativeButtonContainer.contains(negativeButton))
+                negativeButton.remove();
+            else if(positiveButtonContainer.contains(positiveButton))
+                positiveButton.remove();
+
             buttonSubmitFeedback.remove();
         }
     });
 };
 
+const submitReport = (keyId) => {
+    let data = {
+        key_id: reportkeyId,
+        title: reportTitle,
+        description: reportDescription,
+    };
 
+    sendPut(data).then(function (res) {
+        if (res.ok) {
 
-
-addFeedbackEventListeners();
-
+        }
+    });
+}
 
 const sendGet = get => {
     const options = {
@@ -149,6 +151,7 @@ const sendGet = get => {
         method: 'get',
         credentials: "same-origin",
     }
+
     return fetch(get, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
@@ -167,5 +170,9 @@ const sendPut = put => {
         body: JSON.stringify(put)
     }
 
-    return fetch('/key/' + put.key + '/feedback', options);
+    return fetch('/key/' + put.key + '/feedback', options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: " + error));
 }
+
+addFeedbackEventListeners();

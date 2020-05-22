@@ -97,7 +97,8 @@ class LoginController extends Controller
         }
         return redirect()->intended($this->redirectPath());
     }
-   protected function sendFailedLoginResponse(Request $request)
+
+    protected function sendFailedLoginResponse(Request $request)
     {
     
     if ( ! User::where('username', $request->username)->first() ) {
