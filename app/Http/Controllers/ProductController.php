@@ -161,13 +161,14 @@ class ProductController extends Controller
             });
 
             return [
-                'id' => $entry->product->id,
-                'name' => $entry->product->name,
-                'description' => $entry->product->description,
-                'launch_date' => $entry->product->launch_date,
-                'category' => $entry->product->category->name,
-                'platform' => $entry->platform->name,
-                'genres' => $entry->product->genres,
+//                'id' => $entry->product->id,
+                'name' => $entry->product->name . ' ['.$entry->platform->name.']',
+                'url' => route('product', ['productName' => $entry->product->name, 'platformName' => $entry->platform->name]),
+//                'description' => $entry->product->description,
+//                'launch_date' => $entry->product->launch_date,
+//                'category' => $entry->product->category->name,
+//                'platform' => $entry->platform->name,
+//                'genres' => $entry->product->genres,
                 'image' => asset('/pictures/games/' . $entry->product->picture->url),
                 'price' => $min_price
             ];
@@ -283,7 +284,7 @@ class ProductController extends Controller
                 $filter = $filter->sortByDesc(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
-                        return $offer->platform_id == $plat_id;
+                        return $offer->stock > 0 && $offer->platform_id == $plat_id;
                     });
 
                     return $offers->min('price');
@@ -292,7 +293,7 @@ class ProductController extends Controller
                 $filter = $filter->sortBy(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
-                        return $offer->platform_id == $plat_id;
+                        return $offer->stock > 0 && $offer->platform_id == $plat_id;
                     });
 
                     return $offers->min('price');

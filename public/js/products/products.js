@@ -3,11 +3,11 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/search';
 
-const templateProduct = (name, image, price) => {
+const templateProduct = (name, url, image, price) => {
     return `<div class="card col-md-3 col-sm-4 col-10 cardProductList my-2 mx-auto">
                 <a href="#"><img class="card-img-top cardProductListImg img-fluid" src="${image}"></a>
                 <div class="card-body">
-                    <h6 class="card-title"> <a href="product.php" class="text-decoration-none text-secondary">${name}</a></h6>
+                    <h6 class="card-title"> <a href=${url} class="text-decoration-none text-secondary">${name}</a></h6>
                     <h5 class="cl-orange2">${price !== null ? '$'+price : 'Unavailable'}</h5>
                 </div>
             </div>`
@@ -24,7 +24,7 @@ const received = (response) => {
             if ((i !== 0) && i % 3 === 0) {
                 list += templateListEnd + templateListInit;
             }
-            list += templateProduct(products[i].name, products[i].image, products[i].price);
+            list += templateProduct(products[i].name, products[i].url, products[i].image, products[i].price);
         }
 
         productList.innerHTML = list + templateListEnd;
@@ -73,47 +73,31 @@ const addEventListeners = () => {
 }
 
 function assembleData() {
-    const sort_by_input = document.querySelectorAll("form#option input.sort-by");
-    const genres_input = document.querySelectorAll("form#option input.genre");
-    const platform_input = document.querySelectorAll("form#option input.platform");
-    const category_input = document.querySelectorAll("form#option input.category");
-    const max_price_input = document.querySelector("form#option input#price-range");
-
+    const form = new FormData(document.querySelector("form#option"));
     let data = {};
 
-    for (let i = 0; i < sort_by_input.length; i++) {
-        if (sort_by_input[i].checked) {
-            data.sort_by = sort_by_input[i].value;
-            break;
-        }
+    let sort_by = form.get('sort_by')
+    if (sort_by != null) {
+        data.sort_by = sort_by;
     }
 
-    let genres_array = [];
-    for (let i = 0; i < genres_input.length; i++) {
-        if (genres_input[i].checked) {
-            genres_array.push(genres_input[i].value);
-        }
+    let genres = form.getAll('genres[]');
+
+    if (genres.length !== 0) {
+        data.genres = genres;
     }
 
-    if (genres_array.length !== 0) {
-        data.genres_array = genres_array;
+    let platform = form.get('platform')
+    if (platform != null && platform !== "") {
+        data.platform = platform;
     }
 
-    for (let i = 0; i < platform_input.length; i++) {
-        if (platform_input[i].checked) {
-            data.platform = platform_input[i].value;
-            break;
-        }
+    let category = form.get('category')
+    if (category != null && category !== "") {
+        data.category = category;
     }
 
-    for (let i = 0; i < category_input.length; i++) {
-        if (category_input[i].checked) {
-            data.category = category_input[i].value;
-            break;
-        }
-    }
-
-    data.max_price = max_price_input.value;
+    data.max_price = form.get('max_price');
 
     return data;
 }
@@ -126,6 +110,7 @@ const sendRequest = () => {
 }
 
 const sendGet = get => {
+    let request = encodeForAjax(get);
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -137,7 +122,9 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("api/product?" + encodeForAjax(get), options)
+    window.history.pushState("", "", window.location.pathname + "?" + request);
+
+    return fetch("api/product?" + request, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }

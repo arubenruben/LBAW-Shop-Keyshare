@@ -7,7 +7,6 @@ const your_info_button = document.querySelector("#your-info");
 
 const paypal_button = document.querySelector("#paypal-button");
 
-
 const input_name = document.querySelector("#checkoutInputName");
 const input_email = document.querySelector("#checkoutInputEmail");
 const input_address = document.querySelector("#checkoutInputAddress");
@@ -35,21 +34,40 @@ const addEventListenersCheckout = () => {
     your_info_button.addEventListener('click', clicked_info_button);
 }
 
+const isValidEmail = (email) => {
+    return /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email);
+}
 
-const verify_input = (input_variable, invalid_block, invalid_text, extra_validation) => {
+const isValidZipCode = (zipcode) => {
+    return /^[a-z0-9][a-z0-9\- ]{0,10}[a-z0-9]$/.test(zipcode);
+}
 
-    if(input_variable.value === ""){
+const isValidName = (name) => {
+    return /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(name);
+}
+
+
+
+const verify_input = (input_variable, invalid_block, invalid_text, extra_validation, extra_validation_message) => {
+
+    if(input_variable.value === "") {
         valid_inputs = false;
         invalid_block.innerHTML = invalid_text;
         input_variable.className += " border-danger";
     }
+    else if((extra_validation != null && !extra_validation(input_variable.value))){
+        valid_inputs = false;
+        invalid_block.innerHTML = extra_validation_message;
+        input_variable.className += " border-danger";
+    }
     else{
-        valid_inputs = true;
         if(input_variable.classList.contains('border-danger')){
             input_variable.classList.remove('border-danger');
             invalid_block.innerHTML = "";
         }
     }
+
+
 
 }
 
@@ -57,11 +75,10 @@ const clicked_confirm_button = () => {
 
     valid_inputs = true;
 
-    verify_input(input_name, name_invalid, "Please fill out your name");
-    verify_input(input_email, email_invalid, "Please fill out your email");
+    verify_input(input_name, name_invalid, "Please fill out your name", isValidName, "Name is not a valid one");
+    verify_input(input_email, email_invalid, "Please fill out your email", isValidEmail, "Please enter a valid email");
     verify_input(input_address, address_invalid, "Please fill out your address");
-    verify_input(input_zip_code, zip_code_invalid, "Please fill out your zip-code");
-
+    verify_input(input_zip_code, zip_code_invalid, "Please fill out your zip-code", isValidZipCode, "Please enter a valid zip-code");
 
     if(valid_inputs){
         checkout_tab_1.style.display = "none";
@@ -72,8 +89,8 @@ const clicked_confirm_button = () => {
         client_address.innerHTML = input_address.value;
         client_zip_code.innerHTML = input_zip_code.value;
     }
-
 }
+
 
 const assembleData = () => {
 
@@ -94,9 +111,6 @@ const clicked_info_button = () => {
     checkout_tab_3.style.display = "none";
 }
 
-const validate_info = (res) => {
-
-}
 
 const sendPut = post => {
     const options = {
@@ -162,8 +176,8 @@ function check_transaction_result(res){
 }
 
 
-
 paypal.Button.render({
+
     braintree: braintree,
     client: {
         production: document.querySelector("#client-token").innerHTML,
@@ -173,6 +187,8 @@ paypal.Button.render({
     commit: true, // This will add the transaction amount to the PayPal button
 
     payment: async function (data, actions) {
+
+        //clicked_info_button();
 
         let response = await sendGet();
 
@@ -207,8 +223,6 @@ paypal.Button.render({
     }
 
 }, '#paypal-button');
-
-
 
 
 

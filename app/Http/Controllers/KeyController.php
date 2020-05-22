@@ -54,13 +54,6 @@ class KeyController extends Controller
 
         return response('Success', 200);
     }
-    
-    /*
-    public function update($keyId)
-    {
-
-    }
-    */
 
     public function delete($id) {
         $key = Key::findOrFail($id);
@@ -94,5 +87,9 @@ class KeyController extends Controller
 
             return response('Success', 200);
         }
+    }
+
+    public function report(ReportRequest $request) {
+
     }
 }
