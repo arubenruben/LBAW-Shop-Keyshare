@@ -3,7 +3,6 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 let evaluation = null;
 
-
 const orderNumberPlaceHolder = document.querySelector('#orderNumber');
 const orderNumberOriginalContent = orderNumberPlaceHolder.innerHTML;
 const usernamePlaceHolder = document.querySelector('#username');
@@ -107,8 +106,8 @@ const buttonNegativeClick = () => {
     positiveThumb.classList.remove('cl-white');
 
 }
-const submitComment = (keyId) => {
 
+const submitComment = (keyId) => {
     let data = {
         comment: commentPlaceHolder.value,
         evaluation: evaluation,
@@ -116,19 +115,30 @@ const submitComment = (keyId) => {
     };
 
     sendPut(data).then(function (res) {
-
         if (res.ok) {
-            if (data.evaluation) {
-                if (negativeButtonContainer.contains(negativeButton))
-                    negativeButton.remove();
-            } else {
-                if (positiveButtonContainer.contains(positiveButton))
-                    positiveButton.remove();
-            }
+            if (data.evaluation && negativeButtonContainer.contains(negativeButton))
+                negativeButton.remove();
+            else if(positiveButtonContainer.contains(positiveButton))
+                positiveButton.remove();
+
             buttonSubmitFeedback.remove();
         }
     });
 };
+
+const submitReport = (keyId) => {
+    let data = {
+        key_id: reportkeyId,
+        title: reportTitle,
+        description: reportDescription,
+    };
+
+    sendPut(data).then(function (res) {
+        if (res.ok) {
+
+        }
+    });
+}
 
 const sendGet = get => {
     const options = {

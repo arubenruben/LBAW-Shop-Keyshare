@@ -76,7 +76,6 @@ class KeyController extends Controller
         return response('Success',200);
     }
 
-    // request(key_id, date, description, title)
     public function report(Request $request)
     {
         $key = Key::findOrFail($request->get('key_id'));
@@ -84,9 +83,8 @@ class KeyController extends Controller
             return response("You already reported this key", 400);
         } else {
             $report = Report::create([
-                'date' => $request->get('date'),
-                'description' => $request->get('description'),
                 'title' => $request->get('title'),
+                'description' => $request->get('description'),
                 'key_id' => $key->id,
                 'reporter_id' =>Auth::user()->id,
                 'reported_id' => $key->offer->seller
