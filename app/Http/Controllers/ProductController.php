@@ -161,71 +161,14 @@ class ProductController extends Controller
             });
 
             return [
-//                'id' => $entry->product->id,
                 'name' => $entry->product->name . ' ['.$entry->platform->name.']',
                 'url' => route('product', ['productName' => $entry->product->name, 'platformName' => $entry->platform->name]),
-//                'description' => $entry->product->description,
-//                'launch_date' => $entry->product->launch_date,
-//                'category' => $entry->product->category->name,
-//                'platform' => $entry->platform->name,
-//                'genres' => $entry->product->genres,
                 'image' => asset('/pictures/games/' . $entry->product->picture->url),
                 'price' => $min_price
             ];
         });
 
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
-    }
-
-    public function inputSearch()
-    {
-
-        $input = Input::get('input');
-        $products = Product::whereRaw("deleted = false AND name_tsvector @@ plainto_tsquery('" . $input . "')")->paginate(9);
-
-        return json_encode($products, 404);
-
-        $productsPlatform = [];
-        foreach ($products as $product) {
-            foreach ($product->platforms as $platform){
-                array_push($productsPlatform, (object)[
-                    'product' => $product,
-                    'platform' => $platform
-                ]);
-            }
-        }
-
-        $products = collect($productsPlatform);
-        $genres = Genre::all();
-        $platforms = Platform::all();
-        $categories = Category::all();
-
-        $prices = [];
-        foreach ($products as $entry) {
-            if ($entry->product->active_offers != null) {
-                $plat_id = $entry->platform->id;
-                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
-                    return $active_offer->offer->platform_id == $plat_id;
-                });
-
-                array_push($prices, $active_offers->min(function (ActiveOffer $activeOffer) {
-                    return $activeOffer->offer->price;
-                }));
-            }
-        }
-
-        if (count($prices) === 0)
-            $prices = [0, 100];
-
-        $min_price = min($prices);
-        $max_price = max($prices);
-
-        $products = $products->forPage($request->has('page') ? $request->input('page') : 0, 9);
-
-        return view('pages.products.products', [
-            'genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
-            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $products, 'breadcrumbs' => ['Products' => url('/products/')]
-        ]);
     }
 
     private function getActiveProducts() {
@@ -237,6 +180,15 @@ class ProductController extends Controller
     private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
+
+        if($request->has('query')) {
+            $queried = Product::whereRaw("name_tsvector @@ plainto_tsquery('". $request->input('query') ."')")->get();
+            $filter = $filter->filter(function ($entry) use ($queried) {
+                return $queried->search(function (Product $product) use($entry) {
+                    return $product->id === $entry->product->id;
+                }) !== false;
+            });
+        }
 
         if ($request->has('genres')) {
             $filter = $filter->filter(function ($entry) use ($request) {
