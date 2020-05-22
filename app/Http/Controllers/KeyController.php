@@ -88,8 +88,4 @@ class KeyController extends Controller
             return response('Success', 200);
         }
     }
-
-    public function report(ReportRequest $request) {
-
-    }
 }
