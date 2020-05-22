@@ -168,12 +168,12 @@ class ProductController extends Controller
                 'category' => $entry->product->category->name,
                 'platform' => $entry->platform->name,
                 'genres' => $entry->product->genres,
-                'picture' => asset('/pictures/games/' . $entry->product->picture->url),
+                'image' => asset('/pictures/games/' . $entry->product->picture->url),
                 'price' => $min_price
             ];
         });
 
-        return response()->json(['products' => $filtered, 'max_price' => $max_price, 'min_price' => $min_price]);
+        return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
     public function inputSearch()
