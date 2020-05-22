@@ -39,29 +39,24 @@ class KeyController extends Controller
     
     public function add(FeedbackAddRequest $request)
     {
+        $key = Key::findOrFail($request->get('key'));
 
-        $keyId=$request->get('key');
-        
-        $key=Key::findOrFail($keyId);
-        
         try {
             $this->authorize('submitFeedback', $key);
         } catch (AuthorizationException $e) {
             return response("You can't get this key", 401);
         }
 
-        $evaluation=$request->get('evaluation');
-        $comment=$request->get('comment');
 
-        $feedback=new Feedback;
-        $feedback->evaluation=$evaluation;
-        $feedback->comment=$comment;
-        $feedback->user_id=Auth::User()->id;
-        $feedback->key_id=$key->id;
+        $feedback = Feedback::create([
+            'evaluation' => $request->get('evaluation'),
+            'comment' => $request->get('comment'),
+            'user_id' => Auth::user()->id,
+            'key_id' => $key->id
+        ]);
+        if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
 
-        $feedback->save();    
-
-        response(json_encode("Success"),400);
+        return response('Success', 200);
     }
     
     /*
@@ -87,7 +82,6 @@ class KeyController extends Controller
 
     public function feedback(Request $request)
     {
-        // check if there is no feedback for that key
         $key = Key::findOrFail($request->get('key_id'));
         if($key->feedback != null) {
             return response("You already reviewed this key", 400);
@@ -98,7 +92,30 @@ class KeyController extends Controller
                 'user_id' => Auth::user()->id,
                 'key_id' => $request->get('key_id')
             ]);
+
             if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
+
+            return response('Success', 200);
+        }
+    }
+
+    // request(key_id, date, description, title)
+    public function report(Request $request)
+    {
+        $key = Key::findOrFail($request->get('key_id'));
+        if($key->report != null) {
+            return response("You already reported this key", 400);
+        } else {
+            $report = Report::create([
+                'date' => $request->get('date'),
+                'description' => $request->get('description'),
+                'title' => $request->get('title'),
+                'key_id' => $key->id,
+                'reporter_id' =>Auth::user()->id,
+                'reported_id' => $key->offer->seller
+            ]);
+
+            if(!$report->save()) return response('Cannot give feedback at this time', 401);
 
             return response('Success', 200);
         }

@@ -56,7 +56,7 @@ Route::post('/key/{keyId}', 'KeyController@update');
 Route::delete('/key/{keyId}', 'KeyController@delete');
 Route::put('/key/{id}/feedback', 'KeyController@add');
 Route::get('/key/{id}/feedback', 'KeyController@view');
-Route::put('/key/{KeyId}/report', 'KeyController@report');
+Route::put('/key/{id}/report', 'KeyController@report');
 Route::get('/api/key/{keyId}', 'KeyController@get');
 
 // Feedback

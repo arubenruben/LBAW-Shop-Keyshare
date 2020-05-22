@@ -42,8 +42,6 @@ const addFeedbackEventListeners = () => {
 
     positiveButton.addEventListener('click', buttonPositiveClick);
     negativeButton.addEventListener('click', buttonNegativeClick);
-
-
 }
 
 
@@ -132,12 +130,6 @@ const submitComment = (keyId) => {
     });
 };
 
-
-
-
-addFeedbackEventListeners();
-
-
 const sendGet = get => {
     const options = {
         headers: {
@@ -149,6 +141,7 @@ const sendGet = get => {
         method: 'get',
         credentials: "same-origin",
     }
+
     return fetch(get, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
@@ -167,5 +160,9 @@ const sendPut = put => {
         body: JSON.stringify(put)
     }
 
-    return fetch('/key/' + put.key + '/feedback', options);
+    return fetch('/key/' + put.key + '/feedback', options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: " + error));
 }
+
+addFeedbackEventListeners();
