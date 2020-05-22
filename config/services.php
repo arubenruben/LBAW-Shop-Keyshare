@@ -38,7 +38,6 @@ return [
     'google' => [
         'client_id' => '192341084933-2k29bnbtpf95pifvbk3jomtt1sftbsa3.apps.googleusercontent.com',
         'client_secret' => 'qQc2V-xpSCBAFE_nA0OFFpmZ',
-        'redirect' => url('/login/google/callback'),
+        'redirect' => '/login/google/callback',
     ],
-
 ];

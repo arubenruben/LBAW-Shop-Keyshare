@@ -68,6 +68,7 @@ Route::put('/report/{id}', 'ReportController@message');
 // FAQ
 Route::get('/faq', 'FAQController@show');
 
+/*
 // Static
 Route::get('/about', function () {
     return view('pages.static.about', ['breadcrumbs' => ['About Us' => url("/about")]]);
@@ -75,7 +76,7 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('pages.static.contact', ['breadcrumbs' => ['Contact Us' => url("/contact")]]);
-});
+});*/
 
 // Admin
 Route::get('/admin', 'AdminController@show');
