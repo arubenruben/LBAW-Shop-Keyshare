@@ -6,6 +6,8 @@ const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middl
 const htmlToInsertPlace = document.querySelector('#offers_body');
 
 btnText.addEventListener('click', collapseDescription);
+const dots = document.getElementById("dots");
+const moreText = document.getElementById("more");
 
 function collapseDescription() {
     if (dots.style.display === "none") {
@@ -78,10 +80,6 @@ const sendGet = get => {
         .catch(error => console.error("Error: " + error));
 }
 
-
-/*
-let dots = document.getElementById("dots");
-let moreText = document.getElementById("more");
 let radioBestRating = document.querySelector("#radio_best_rating");
 let radioBestPrice = document.querySelector("#radio_best_price");
 let seeMoreOffers = document.querySelector("#see_more_offers");
@@ -187,8 +185,5 @@ function switchOffers() {
     
 }
 
-*/
-
-
-//radioBestPrice.addEventListener("click", sendRequest);
-//radioBestRating.addEventListener("click", sendRequest)
+radioBestPrice.addEventListener("click", sendRequest);
+radioBestRating.addEventListener("click", sendRequest)
