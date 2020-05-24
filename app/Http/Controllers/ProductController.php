@@ -182,7 +182,7 @@ class ProductController extends Controller
         $filter = $products;
 
         if($request->has('query')) {
-            $queried = Product::whereRaw("name_tsvector @@ plainto_tsquery('". $request->input('query') ."')")->get();
+            $queried = Product::whereRaw("name_tsvector @@ to_tsquery('simple', '". $request->input('query') .":*')")->get();
             $filter = $filter->filter(function ($entry) use ($queried) {
                 return $queried->search(function (Product $product) use($entry) {
                     return $product->id === $entry->product->id;
