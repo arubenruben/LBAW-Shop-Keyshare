@@ -1193,26 +1193,35 @@ INSERT INTO admins (username, email, description, password, picture_id)values ('
 INSERT INTO admins (username, email, description, password, picture_id)values ('pvankov6', 'ngrisdale6@tumblr.com', 'et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, 0, 2, 98, 10, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, 0, 2, 98, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.72, '2020-02-27 20:26:32', null, 0, 2, 22, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (907.84, '2019-08-07 11:05:46', null, 0, 1, 25, 3, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (907.84, '2019-08-07 11:05:46', null, 0, 2, 25, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (986.68, '2019-12-13 07:19:42', null, 0, 6, 68, 3, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (393.52, '2019-12-02 04:46:25', '2020-10-05 02:39:57', 734.87, 8, 77, 2, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (645.86, '2019-05-05 13:42:00', '2020-06-30 08:03:14', 582.24, 2, 94, 12, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (645.86, '2019-05-05 13:42:00', '2020-06-30 08:03:14', 582.24, 2, 94, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.25, '2019-12-03 20:56:41', '2020-12-29 07:28:13', 593.43, 3, 48, 5, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (668.14, '2019-05-30 14:55:28', '2020-09-24 20:03:04', 509.44, 2, 94, 10, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (826.8, '2019-11-29 07:19:25', '2020-09-08 02:51:51', 885.41, 8, 33, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (550.04, '2020-02-25 05:13:31', '2020-05-30 17:53:02', 968.84, 1, 24, 6, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (550.04, '2020-02-25 05:13:31', '2020-05-30 17:53:02', 968.84, 2, 24, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (576.32, '2019-10-27 00:50:02', '2020-05-14 12:14:10', 757.09, 3, 91, 11, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (647.14, '2020-04-07 21:02:32', '2020-10-14 19:00:27', 873.67, 3, 34, 13, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (711.3, '2019-07-15 16:13:44', '2020-11-10 21:31:19', 560.44, 8, 33, 16, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (711.3, '2019-07-15 16:13:44', '2020-11-10 21:31:19', 560.44, 2, 33, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (693.62, '2019-06-10 19:43:13', '2020-11-14 11:35:24', 727.14, 6, 66, 27, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (623.53, '2019-10-29 01:44:07', '2020-06-13 11:48:08', 664.22, 4, 95, 3, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (48.1, '2019-05-26 05:36:19', '2020-09-11 18:55:23', 734.32, 6, 1, 5, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (796.28, '2019-08-18 16:42:18', '2020-07-11 01:20:13', 300.53, 7, 77, 8, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (796.28, '2019-08-18 16:42:18', '2020-07-11 01:20:13', 300.53, 2, 77, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (27.11, '2019-12-07 11:20:57', '2020-07-04 14:16:09', 392.98, 3, 68, 26, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (657.76, '2019-10-28 21:50:45', '2020-10-04 11:31:53', 221.93, 9, 71, 12, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (530.91, '2020-03-06 00:11:10', '2020-10-05 02:27:49', 13.41, 1, 77, 8, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (530.91, '2020-03-06 00:11:10', '2020-10-05 02:27:49', 13.41, 2, 77, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (424.17, '2019-12-13 09:21:34', '2020-10-08 13:37:32', 81.32, 6, 41, 6, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (910.99, '2019-05-26 06:05:24', '2020-07-14 05:32:16', 246.1, 4, 52, 21, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (577.29, '2019-10-31 02:16:20', '2020-06-20 17:25:48', 228.09, 1, 25, 18, 0);
@@ -1281,6 +1290,22 @@ INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (374.24, '2019-11-19 00:14:25', '2020-09-23 12:43:08', 859.45, 3, 22, 25, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (314.51, '2019-09-16 07:45:22', '2020-11-29 14:32:56', 85.36, 8, 61, 18, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 5, 5, 17, 0);
+
+
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (417.24, '2020-03-16 14:55:48', '2020-08-13 12:23:36', 649.78, 3, 93, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (782.13, '2019-10-25 21:16:20', '2020-11-15 00:14:10', 546.88, 3, 58, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (422.28, '2019-11-12 07:20:57', '2020-06-24 18:43:27', 163.9, 3, 40, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (882.51, '2019-06-23 23:39:40', '2020-08-15 19:55:30', 342.35, 3, 7, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (556.6, '2020-01-16 08:40:23', '2020-10-27 06:52:01', 328.85, 3, 59, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (254.03, '2019-11-13 09:59:04', '2020-07-22 14:39:00', 610.29, 3, 54, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (37.73, '2019-04-25 23:09:15', '2020-05-26 03:52:10', 355.03, 3, 34, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (966.48, '2019-10-09 23:44:50', '2020-11-19 03:01:15', 532.33, 3, 66, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (374.24, '2019-11-19 00:14:25', '2020-09-23 12:43:08', 859.45, 3, 22, 6, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (314.51, '2019-09-16 07:45:22', '2020-11-29 14:32:56', 85.36, 3, 61, 6, 20);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 5, 6, 10);
+
+
+
 
 INSERT INTO discounts (rate, start_date, end_date, offer_id)values (40, '2020-04-01 23:59:00', '2020-05-13 14:55:39', 36);
 INSERT INTO discounts (rate, start_date, end_date, offer_id)values (5, '2020-04-01 23:59:00', '2020-09-29 11:08:42', 67);

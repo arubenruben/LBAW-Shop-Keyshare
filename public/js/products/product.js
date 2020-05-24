@@ -87,9 +87,10 @@ let closeMoreOffers = document.querySelector("#close_more_offers");
 let bodyTableOffersPrice = document.querySelector("#offers_sort_price");
 let bodyTableOffersRating = document.querySelector("#offers_sort_rating");
 
-seeMoreOffers.addEventListener('click', collapseOffers);
-closeMoreOffers.addEventListener('click', collapseOffers);
-
+if(seeMoreOffers != null && closeMoreOffers != null) {
+    seeMoreOffers.addEventListener('click', collapseOffers);
+    closeMoreOffers.addEventListener('click', collapseOffers);
+}
 
 const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
     let html = `<tr class="offer`
@@ -168,6 +169,13 @@ function collapseOffers() {
 
 }
 
+const sendRequest = () => {
+    let data = assembleData();
+    sendGet(data)
+        .then(res => received(res))
+        .catch(error => console.error("Error: " + error));
+}
+
 function assembleData() {
     let game = document.querySelector("#product_name_platform");
     let data = {};
@@ -181,9 +189,6 @@ function assembleData() {
     return data;
 }
 
-function switchOffers() {
-    
-}
 
 radioBestPrice.addEventListener("click", sendRequest);
-radioBestRating.addEventListener("click", sendRequest)
+radioBestRating.addEventListener("click", sendRequest);
