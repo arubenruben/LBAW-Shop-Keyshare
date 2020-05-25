@@ -75,7 +75,7 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("api/product?" + encodeForAjax(get), options)
+    return fetch("/api/product/sort?" + encodeForAjax(get), options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }
@@ -188,6 +188,14 @@ function assembleData() {
 
     return data;
 }
+
+function encodeForAjax(data) {
+    if (data == null) return null;
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&');
+}
+
 
 
 radioBestPrice.addEventListener("click", sendRequest);

@@ -37,16 +37,14 @@
                 </h4>
             </div>
             <div class="col-6 text-right">
-                <h6 class="d-inline-block mr-3">Sort by: </h6>
-                <div class="custom-control custom-radio my-2 ml-3" style="display:inline;">
-                    <input type="radio" class="custom-control-input sort-by" id="SortBy1" name="sort_by"
-                        value="Best Price">
-                    <label class="custom-control-label" for="SortBy1">Best Price</label>
+                <h6 class="d-inline-block mr-3">Sort by:  </h6>
+                <div style='display:inline;' class="mr-3">
+                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_price" checked/>
+                    <label for="radio_best_price">Best Price</label>
                 </div>
-                <div class="custom-control custom-radio my-2 ml-3" style="display:inline;">
-                    <input type="radio" class="custom-control-input sort-by" id="SortBy2" name="sort_by"
-                        value="Best Rating">
-                    <label class="custom-control-label" for="SortBy2">Best Rating</label>
+                <div  style='display:inline;'>
+                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_rating"/>
+                    <label for="radio_best_rating">Best Rating</label>
                 </div>
             </div>
         </div>
