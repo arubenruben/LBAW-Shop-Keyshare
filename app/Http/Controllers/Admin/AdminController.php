@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function show()
     {
-        return "Tou logged In";
+        return view('admin.pages.homepage');
     }
 
     public function productShow()

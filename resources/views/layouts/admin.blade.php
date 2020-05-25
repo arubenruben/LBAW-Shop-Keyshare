@@ -28,7 +28,12 @@
     <main id="wrapper">
         @yield('header')
         <section id="content" class="container">
-            @yield('content')
+            <div class="row">
+                @yield('navbar')
+            </div>
+            <div class="row">
+                @yield('content')
+            </div>
         </section>
         @yield('footer')
     </main>
