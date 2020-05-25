@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -30,14 +31,14 @@ class LoginController extends Controller
         return Auth::guard('admin');
     }
 
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->only('username', 'password');
-    
-        if (Auth::attempt($credentials)) {
-
-            return "ok";
+    public function login(Request $request)
+    { 
+        if(Auth::guard('admin')->attempt($request->only('username','password'),$request->filled('remember'))){
+            //Authentication passed...
         }
+    
+        //Authentication failed...
+        return "fail";
     }
 
 

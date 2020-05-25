@@ -11,15 +11,24 @@ class Admin extends Authenticatable
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
-    protected $guard="admin";
-    
 
     /**
-     * The model's default values for attributes.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $attributes = [
-        'image' => 1,
+    protected $fillable = [
+        'username',
+        'email',    
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password'
     ];
 }

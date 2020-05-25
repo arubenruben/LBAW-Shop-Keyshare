@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function show()
     {
-        return true;
+        return "Tou logged In";
     }
 
     public function productShow()
