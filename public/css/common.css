@@ -476,6 +476,11 @@ button:focus {
     background-color: var(--color-interactive-red-fail) !important;
 }
 
+.bg-aux1 {
+    background-color: var(--color-interactive-green-success) !important;
+}
+
+
 /* scrollable table */
 
 .tableFixHead {
