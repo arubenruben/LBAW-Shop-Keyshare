@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
     public function show()
     {
-
+        return true;
     }
 
     public function productShow()
@@ -205,4 +207,11 @@ class AdminController extends Controller
     {
 
     }
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+
+        View::share('nav', 'dashboard');
+    }
+
 }
