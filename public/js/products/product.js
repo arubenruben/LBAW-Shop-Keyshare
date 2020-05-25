@@ -84,10 +84,12 @@ let radioBestRating = document.querySelector("#radio_best_rating");
 let radioBestPrice = document.querySelector("#radio_best_price");
 let seeMoreOffers = document.querySelector("#see_more_offers");
 let closeMoreOffers = document.querySelector("#close_more_offers");
+let loadingMoreOffers = document.querySelector("#loading_offers");
 
 if(seeMoreOffers != null && closeMoreOffers != null) {
     seeMoreOffers.addEventListener('click', collapseOffers);
     closeMoreOffers.addEventListener('click', collapseOffers);
+
 }
 
 const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
@@ -143,9 +145,7 @@ const received = (response) => {
             boolean = false;
         else
             boolean = true;
-
          entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
-
     }
 
     tableOffersBody.innerHTML = entriesTable;
@@ -158,7 +158,6 @@ const receivedAll = (response) => {
     for (let i = 0; i < response.offers.length; i++) {
         boolean = true;
         tableOffersBody.innerHTML += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
-
     }
 
 }
@@ -166,7 +165,7 @@ const receivedAll = (response) => {
 let changedSortBy = true;
 
 async function collapseOffers() {
-    
+
     let allMoreOffers = document.querySelectorAll(".offer_outside");
 
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
@@ -177,9 +176,12 @@ async function collapseOffers() {
         }
     } else if (closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")) {
             if(changedSortBy) {
+                seeMoreOffers.style.display = "none";
+                loadingMoreOffers.style.display = "block";
                 await sendRequestForAllOffers();
                 changedSortBy = false;
             }
+            loadingMoreOffers.style.display = "none";
             allMoreOffers = document.querySelectorAll(".offer_outside");
             closeMoreOffers.style.display = "block";
             seeMoreOffers.style.display = "none";
@@ -199,9 +201,9 @@ const sendRequest = () => {
         .catch(error => console.error("Error: " + error));
 }
 
-const sendRequestForAllOffers = () => {
+const sendRequestForAllOffers = async () => {
     let data = assembleData(true);
-    sendGet(data)
+    await sendGet(data)
         .then(res => receivedAll(res))
         .catch(error => console.error("Error: " + error));
 }
