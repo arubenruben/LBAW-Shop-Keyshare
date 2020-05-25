@@ -151,30 +151,58 @@ const received = (response) => {
     tableOffersBody.innerHTML = entriesTable;
 }
 
-function collapseOffers() {
+const receivedAll = (response) => {
+    let tableOffersBody = document.querySelector("#offers_body");
+    let boolean;
+
+    for (let i = 0; i < response.offers.length; i++) {
+        boolean = true;
+        tableOffersBody.innerHTML += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
+
+    }
+
+}
+
+let changedSortBy = true;
+
+async function collapseOffers() {
+    
     let allMoreOffers = document.querySelectorAll(".offer_outside");
 
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
-
         seeMoreOffers.style.display = "block";
         closeMoreOffers.style.display = "none";
         for (let i = 0; i < allMoreOffers.length; i++) {
             allMoreOffers[i].style.display = "none";
         }
     } else if (closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")) {
-        closeMoreOffers.style.display = "block";
-        seeMoreOffers.style.display = "none";
-        for (let i = 0; i < allMoreOffers.length; i++) {
-            allMoreOffers[i].style.display = "table-row";
-        }
+            if(changedSortBy) {
+                await sendRequestForAllOffers();
+                changedSortBy = false;
+            }
+            allMoreOffers = document.querySelectorAll(".offer_outside");
+            closeMoreOffers.style.display = "block";
+            seeMoreOffers.style.display = "none";
+            for (let i = 0; i < allMoreOffers.length; i++) {
+                allMoreOffers[i].style.display = "table-row";
+            }
+
     }
 
 }
 
 const sendRequest = () => {
+    changedSortBy = true;
     let data = assembleData(false);
     sendGet(data)
         .then(res => received(res))
+        .catch(error => console.error("Error: " + error));
+}
+
+const sendRequestForAllOffers = () => {
+    let data = assembleData(true);
+    sendGet(data)
+        .then(res => receivedAll(res))
         .catch(error => console.error("Error: " + error));
 }
 
@@ -199,8 +227,6 @@ function encodeForAjax(data) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
 }
-
-
 
 radioBestPrice.addEventListener("click", sendRequest);
 radioBestRating.addEventListener("click", sendRequest);
