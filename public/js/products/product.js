@@ -48,12 +48,12 @@ const sendPut = put => {
                 let offerStock = document.querySelector('#offer-' + put.offer_id + '-stock');
                 offerStock.innerHTML -= 1;
                 //Out of stock
-                if (offerStock.innerHTML == 0) {
+                if (offerStock.innerHTML === 0) {
                     let offerTableEntry = document.querySelector('#entry-offer-' + put.offer_id);
                     offerTableEntry.remove();
                     counterNumberOffers.innerHTML -= 1
                 }
-                if (counterNumberOffers.innerHTML == 0) {
+                if (counterNumberOffers.innerHTML === 0) {
                     htmlToInsertPlace.innerHTML = htmlToInsertWithoutOffers;
                 }
             }
@@ -84,8 +84,6 @@ let radioBestRating = document.querySelector("#radio_best_rating");
 let radioBestPrice = document.querySelector("#radio_best_price");
 let seeMoreOffers = document.querySelector("#see_more_offers");
 let closeMoreOffers = document.querySelector("#close_more_offers");
-let bodyTableOffersPrice = document.querySelector("#offers_sort_price");
-let bodyTableOffersRating = document.querySelector("#offers_sort_rating");
 
 if(seeMoreOffers != null && closeMoreOffers != null) {
     seeMoreOffers.addEventListener('click', collapseOffers);
@@ -94,10 +92,11 @@ if(seeMoreOffers != null && closeMoreOffers != null) {
 
 const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
     let html = `<tr class="offer`
-    if (display == true)
+    if (display === true) {
         html += ' offer_outside" style="display: none;';
+    }
 
-    html += `>
+    html += `">
     <td scope="row" class="border-0 align-middle">
         <div class="p-2 m-0">
             <h4><a data-toggle="modal" data-target=".bd-modal-lg{{$offer->id}}" href="#"
@@ -109,11 +108,13 @@ const templateEntryOffer = (username, rating, offer_id, num_sells, price, discou
         </div>
     </td>`;
 
+
     if (price !== discount_price) {
         html += `<td class="text-center align-middle"><del><strong> ` + '$' + `${price}</strong></del><strong
             class="cl-green pl-2">` + '$' + `${discount_price} </strong></td>`;
-    } else
+    } else {
         html += ` <td class="text-center align-middle"><strong>` + '$' + `${price}</strong></td>`;
+    }
 
     html += `<td class="text-center align-middle">
         <div class="btn-group-justified">`;
@@ -143,7 +144,7 @@ const received = (response) => {
         else
             boolean = true;
 
-        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
+         entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
 
     }
 
@@ -154,6 +155,7 @@ function collapseOffers() {
     let allMoreOffers = document.querySelectorAll(".offer_outside");
 
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
+
         seeMoreOffers.style.display = "block";
         closeMoreOffers.style.display = "none";
         for (let i = 0; i < allMoreOffers.length; i++) {
@@ -170,13 +172,13 @@ function collapseOffers() {
 }
 
 const sendRequest = () => {
-    let data = assembleData();
+    let data = assembleData(false);
     sendGet(data)
         .then(res => received(res))
         .catch(error => console.error("Error: " + error));
 }
 
-function assembleData() {
+function assembleData(allOffers) {
     let game = document.querySelector("#product_name_platform");
     let data = {};
 
@@ -185,6 +187,8 @@ function assembleData() {
 
     if (radioBestRating.checked) data.sort_by = "rating";
     else data.sort_by = "price";
+
+    data.all_offers = allOffers;
 
     return data;
 }

@@ -71,6 +71,8 @@
                             @foreach($offers as $offer)
                                 @if($i < 10) @include('partials.product.product_offer_item',['offer'=>$offer, 'display'
                                     =>true])
+                                @else
+                                    @break
                                 @endif
                                 @php $i++; @endphp
                             @endforeach
