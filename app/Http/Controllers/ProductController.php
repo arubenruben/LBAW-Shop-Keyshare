@@ -50,7 +50,8 @@ class ProductController extends Controller
             'carousel' => [asset('pictures/carousel/1.png'), asset('pictures/carousel/2.png'), asset('pictures/carousel/3.png')]
         ]);
 
-        return view('pages.homepage.homepage', ['data' => $homepageData->all(), 'breadcrumbs' => []]);
+        return view('pages.homepage.homepage', ['data' => $homepageData->all(), 'genres' => Genre::all(),
+            'platforms' => Platform::all(), 'categories' => Category::all(),'breadcrumbs' => []]);
     }
 
     public function search(Request $request)
@@ -180,6 +181,15 @@ class ProductController extends Controller
     private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
+
+        $filter = $filter->filter(function ($entry) {
+            $plat_id = $entry->platform->id;
+            $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                return $offer->platform_id == $plat_id && $offer->final_date == null;
+            });
+
+            return $offers->min('price') != null;
+        });
 
         if($request->has('query')) {
             $queried = Product::whereRaw("name_tsvector @@ to_tsquery('simple', '". $request->input('query') .":*')")->get();

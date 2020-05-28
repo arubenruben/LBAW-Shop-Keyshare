@@ -1192,20 +1192,20 @@ INSERT INTO admins (username, email, description, password, picture_id)values ('
 INSERT INTO admins (username, email, description, password, picture_id)values ('hdurran5', 'ccolliford5@godaddy.com', 'habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
 INSERT INTO admins (username, email, description, password, picture_id)values ('pvankov6', 'ngrisdale6@tumblr.com', 'et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
 
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (17.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, 0, 2, 98, 10, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (907.84, '2019-08-07 11:05:46', null, 0, 1, 25, 3, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (986.68, '2019-12-13 07:19:42', null, 0, 6, 68, 3, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (393.52, '2019-12-02 04:46:25', '2020-10-05 02:39:57', 734.87, 8, 77, 2, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (645.86, '2019-05-05 13:42:00', '2020-06-30 08:03:14', 582.24, 2, 94, 12, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (201.25, '2019-12-03 20:56:41', '2020-12-29 07:28:13', 593.43, 3, 48, 5, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (668.14, '2019-05-30 14:55:28', '2020-09-24 20:03:04', 509.44, 2, 94, 10, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (826.8, '2019-11-29 07:19:25', '2020-09-08 02:51:51', 885.41, 8, 33, 20, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (550.04, '2020-02-25 05:13:31', '2020-05-30 17:53:02', 968.84, 1, 24, 6, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (576.32, '2019-10-27 00:50:02', '2020-05-14 12:14:10', 757.09, 3, 91, 11, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (647.14, '2020-04-07 21:02:32', '2020-10-14 19:00:27', 873.67, 3, 34, 13, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (711.3, '2019-07-15 16:13:44', '2020-11-10 21:31:19', 560.44, 8, 33, 16, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (12.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (64.84, '2019-08-07 11:05:46', null, 0, 1, 25, 3, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (43.68, '2019-12-13 07:19:42', null, 0, 6, 68, 3, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (56.52, '2019-12-02 04:46:25', '2020-10-05 02:39:57', 734.87, 8, 77, 2, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.86, '2019-05-05 13:42:00', '2020-06-30 08:03:14', 582.24, 2, 94, 12, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (12.25, '2019-12-03 20:56:41', '2020-12-29 07:28:13', 593.43, 3, 48, 5, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (124.14, '2019-05-30 14:55:28', '2020-09-24 20:03:04', 509.44, 2, 94, 10, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (46.8, '2019-11-29 07:19:25', '2020-09-08 02:51:51', 885.41, 8, 33, 20, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (65.04, '2020-02-25 05:13:31', '2020-05-30 17:53:02', 968.84, 1, 24, 6, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (56.32, '2019-10-27 00:50:02', '2020-05-14 12:14:10', 757.09, 3, 91, 11, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.14, '2020-04-07 21:02:32', '2020-10-14 19:00:27', 873.67, 3, 34, 13, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (7411.3, '2019-07-15 16:13:44', '2020-11-10 21:31:19', 560.44, 8, 33, 16, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (693.62, '2019-06-10 19:43:13', '2020-11-14 11:35:24', 727.14, 6, 66, 27, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (623.53, '2019-10-29 01:44:07', '2020-06-13 11:48:08', 664.22, 4, 95, 3, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (48.1, '2019-05-26 05:36:19', '2020-09-11 18:55:23', 734.32, 6, 1, 5, 0);
@@ -2097,21 +2097,19 @@ INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(54,5,'I M NOT A SCAM
 
 INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
 
-INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I HABE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE keyHARE WEBISTE FOREVER?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHAT IS KEYSHARE?','KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
+INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?','The only available payment method Paypal');
+INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?','Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
+INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','The full price is as listed, so no!');
+INSERT INTO faq(question, answer) VALUES('DO I HAVE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','In case a product does not work, you should report the seller and the admin will analyze yoyr situation');
+INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?','Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
 
---SSN
+-- SSN --
 INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','ssn@fe.up.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
-
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 3, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', null, 0, 3, 103, 19, 3);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSa', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSb', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSc', 92);
@@ -2122,3 +2120,7 @@ INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZ', 17.44, 82, 501);
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZW', 17.44, 82, 502);
+
+
+-- new offers --
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);

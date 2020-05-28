@@ -9,12 +9,9 @@
                     </h5>
                 </button>
                 <div id="collapseGenres" class="dropdown-menu">
-                    <a class="dropdown-item" href="product.php">Action</a>
-                    <a class="dropdown-item" href="product.php">Racing</a>
-                    <a class="dropdown-item" href="product.php">Sports</a>
-                    <a class="dropdown-item" href="product.php">Puzzle</a>
-                    <a class="dropdown-item" href="product.php">FPS</a>
-                    <a class="dropdown-item" href="product.php">Simulation</a>
+                    @foreach($genres as $genre)
+                        <a class="dropdown-item" href="{{route('search')}}">{{$genre->name}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="dropdown show">
@@ -24,10 +21,9 @@
                             class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
                 </button>
                 <div id="collapsePlatforms" class="dropdown-menu">
-                    <a class="dropdown-item" href="product.php">PC</a>
-                    <a class="dropdown-item" href="product.php">PS4</a>
-                    <a class="dropdown-item" href="product.php">Xbox</a>
-                    <a class="dropdown-item" href="product.php">Nintendo</a>
+                    @foreach($platforms as $platform)
+                        <a class="dropdown-item" href="{{route('search')}}">{{$platform->name}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="dropdown show mr-auto">
@@ -37,9 +33,9 @@
                             class="fas fa-angle-down ml-1 homepageDropdownArrow"></i></h5>
                 </button>
                 <div id="collapseCategories" class="dropdown-menu">
-                    <a class="dropdown-item" href="product.php">Game</a>
-                    <a class="dropdown-item" href="product.php">DCL</a>
-                    <a class="dropdown-item" href="product.php">Patch</a>
+                    @foreach($categories as $category)
+                        <a class="dropdown-item" href="{{route('search')}}">{{$category->name}}</a>
+                    @endforeach
                 </div>
             </div>
         </section>
