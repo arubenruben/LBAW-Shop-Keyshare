@@ -21,6 +21,7 @@ const addEventListeners = () => {
     });
 
 }
+
 const sendDelete = (cartId, offerPrice) => {
     const options = {
         method: 'delete',

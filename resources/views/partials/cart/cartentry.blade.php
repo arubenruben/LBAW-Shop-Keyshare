@@ -13,7 +13,7 @@
             </section>
         </section>
     </td>
-    @include('partials.table.entrydiscount',['data'=>$data->offer])
+    @include('partials.table.entry_discount',['data'=>$data->offer])
     <td class="align-middle">
         <section class="btn-group-justified btn-group-md">
             <button class="btn btn-red btn-block flex-nowrap remove_cart_button"

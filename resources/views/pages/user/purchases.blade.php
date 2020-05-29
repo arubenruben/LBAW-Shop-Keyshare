@@ -6,7 +6,7 @@
     <script src="{{ asset('js/user/purchases.js') }}" defer></script>
 @endpush
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @section('navbar')
     @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner,

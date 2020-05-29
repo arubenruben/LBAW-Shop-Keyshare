@@ -2,7 +2,7 @@
 
 @section('title') About us @endsection
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @section('navbar')
 @include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])

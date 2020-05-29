@@ -2,7 +2,7 @@
 
 @section('title', 'Add an offer')
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @push('head')
         <script src="{{ asset('js/offer/add.js') }}" defer></script>

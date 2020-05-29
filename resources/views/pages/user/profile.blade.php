@@ -2,7 +2,7 @@
 
 @section('title', $user->username.' Profile')
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @push('head')
     <script src="{{ asset('js/user/profile.js') }}" defer></script>

@@ -7,7 +7,7 @@
 @endpush
 
 @section('header')
-    @include('partials.header.userheader')
+    @include('partials.header.user_header')
 @endsection
 
 @section('navbar')

@@ -25,6 +25,15 @@ class ProductController extends Controller
     {
         $filtered = $this->getActiveProducts();
 
+        $filtered = $filtered->filter(function ($entry) {
+            $plat_id = $entry->platform->id;
+            $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                return $offer->platform_id == $plat_id && $offer->final_date == null;
+            });
+
+            return $offers->isNotEmpty();
+        });
+
         return $filtered->map(function (Product $product) {
             $lowest_price = $product->offers->min('price');
             $lowest_offer = $product->offers->where('price', $lowest_price)->first();
@@ -43,18 +52,35 @@ class ProductController extends Controller
 
     public function home()
     {
-        $numberResults = 5;
+        $numberResults = 20;
+        $productsCollection = $this->getProductPlatformPair();
+
+        $products = $productsCollection->filter(function ($entry) {
+            $plat_id = $entry->platform->id;
+            $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                return $offer->platform_id == $plat_id && $offer->final_date == null;
+            });
+
+            return $offers->isNotEmpty();
+        });
+
         $homepageData = collect([
-            'mostPopulars' => $this->getProducts()->sortByDesc('num_sells')->forPage(0, $numberResults),
-            'mostRecents' => $this->getProducts()->sortByDesc('launch_date')->forPage(0, $numberResults),
+            'mostPopulars' => $products->sortByDesc(function ($entry) {
+                return $entry->product->num_sells;
+            })->forPage(0, $numberResults),
+
+            'mostRecents' => $products->sortByDesc(function ($entry) {
+                return $entry->product->launch_date;
+            })->forPage(0, $numberResults),
+
             'carousel' => [asset('pictures/carousel/1.png'), asset('pictures/carousel/2.png'), asset('pictures/carousel/3.png')]
         ]);
 
-        return view('pages.homepage.homepage', ['data' => $homepageData->all(), 'genres' => Genre::all(),
+        return view('pages.homepage.homepage', ['data' => $homepageData, 'genres' => Genre::all(),
             'platforms' => Platform::all(), 'categories' => Category::all(),'breadcrumbs' => []]);
     }
 
-    public function search(Request $request)
+    private function getProductPlatformPair()
     {
         $products = $this->getActiveProducts();
 
@@ -68,7 +94,12 @@ class ProductController extends Controller
             }
         }
 
-        $productsCollection = collect($productsPlatform);
+        return collect($productsPlatform);
+    }
+
+    public function search(Request $request)
+    {
+        $productsCollection = $this->getProductPlatformPair();
         $filtered = $this->filterProducts($request, $productsCollection);
 
         $genres = Genre::all();
@@ -127,19 +158,7 @@ class ProductController extends Controller
 
     public function get(Request $request)
     {
-        $products = $this->getActiveProducts();
-
-        $productsPlatform = [];
-        foreach ($products as $product) {
-            foreach ($product->platforms as $platform){
-                array_push($productsPlatform, (object)[
-                    'product' => $product,
-                    'platform' => $platform
-                ]);
-            }
-        }
-
-        $productsCollection = collect($productsPlatform);
+        $productsCollection = $this->getProductPlatformPair();
         $filtered = $this->filterProducts($request, $productsCollection);
         $prices = $this->returnPrices($filtered);
 
@@ -188,7 +207,7 @@ class ProductController extends Controller
                 return $offer->platform_id == $plat_id && $offer->final_date == null;
             });
 
-            return $offers->min('price') != null;
+            return $offers->isNotEmpty();
         });
 
         if($request->has('query')) {

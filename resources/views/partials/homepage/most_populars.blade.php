@@ -2,7 +2,7 @@
     <header class="row ml-3">
         <div class="col-8 pl-0">
             <h5 class="title"> Most Popular
-                <a href="{{route('search', ['sort_by' => 'Most recent'])}}">
+                <a href="{{route('search', ['sort_by' => 'Most popular'])}}">
                     <small class="ml-3 d-inline-block"> See all</small>
                 </a>
             </h5>

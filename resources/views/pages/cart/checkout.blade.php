@@ -15,7 +15,7 @@
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>
 @endpush
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @section('navbar')
     @include('partials.navbar.nonavbar',['breadcrumbs'=>$breadcrumbs])

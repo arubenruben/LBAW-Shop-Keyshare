@@ -2,7 +2,7 @@
 
 @section('title', 'Add an offer')
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @push('head')
     <meta name="offer-id" content="{{ $offer->id }}">
