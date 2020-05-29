@@ -8,18 +8,18 @@
             </h5>
         </div>
         <div class="col-4 pl-0 d-flex justify-content-end my-auto mw-100 mh-100">
-            <button id="side-btn" type="button" class="btn btn-light rounded-circle ml-auto" onclick="blur();">
+            <button id="left-most-recent" type="button" class="btn btn-light rounded-circle ml-auto" onclick="blur();">
                 <i class="fas fa-angle-left"></i>
             </button>
-            <button id="side-btn1" type="button" class="btn btn-light rounded-circle" onclick="blur();">
+            <button id="right-most-recent" type="button" class="btn btn-light rounded-circle" onclick="blur();">
                 <i class="fas fa-angle-right"></i>
             </button>
         </div>
     </header>
     <div class="col mb-5">
-        <article class="row justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
+        <article class="row most-recent justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
             @foreach ($data as $card)
-                @include('partials.product.product_card', ['card'=>$card])
+                @include('partials.product.product_card', ['card' => $card])
             @endforeach
         </article>
     </div>

@@ -2,6 +2,10 @@
 
 @section('title', 'Homepage')
 
+@push('head')
+    <script src="{{ asset('js/homepage/homepage.js') }}" defer></script>
+@endpush
+
 @section('header')
     @include('partials.header.user_header')
 @endsection

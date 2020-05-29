@@ -67,11 +67,11 @@ class ProductController extends Controller
         $homepageData = collect([
             'mostPopulars' => $products->sortByDesc(function ($entry) {
                 return $entry->product->num_sells;
-            })->forPage(0, $numberResults),
+            })->slice(0, $numberResults),
 
             'mostRecents' => $products->sortByDesc(function ($entry) {
                 return $entry->product->launch_date;
-            })->forPage(0, $numberResults),
+            })->slice(0, $numberResults),
 
             'carousel' => [asset('pictures/carousel/1.png'), asset('pictures/carousel/2.png'), asset('pictures/carousel/3.png')]
         ]);

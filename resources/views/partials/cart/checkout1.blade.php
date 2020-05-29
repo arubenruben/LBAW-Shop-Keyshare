@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="col d-none d-xl-block pt-4">
-                @include('partials.cart.progressBar')
+                @include('partials.cart.progress_bar')
             </div>
         </div>
         <div class="row mt-3">

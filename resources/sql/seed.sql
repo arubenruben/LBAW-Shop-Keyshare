@@ -1194,7 +1194,7 @@ INSERT INTO admins (username, email, description, password, picture_id)values ('
 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (17.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (23.4, '2019-08-05 00:05:43', null, 0, 2, 98, 10, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (12.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (28.72, '2020-02-27 20:26:32', null, 0, 5, 22, 25, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (64.84, '2019-08-07 11:05:46', null, 0, 1, 25, 3, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (43.68, '2019-12-13 07:19:42', null, 0, 6, 68, 3, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (56.52, '2019-12-02 04:46:25', '2020-10-05 02:39:57', 734.87, 8, 77, 2, 0);
@@ -2124,3 +2124,8 @@ INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9o
 
 -- new offers --
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (53.68, '2016-12-13 07:19:42', null, 0, 1, 68, 5, 5);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (63.68, '2019-12-13 07:19:42', null, 0, 2, 68, 8, 5);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (53.68, '2016-12-13 07:19:42', null, 0, 3, 4, 24, 12);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (63.68, '2019-12-13 07:19:42', null, 0, 4, 6, 15, 7);
+
