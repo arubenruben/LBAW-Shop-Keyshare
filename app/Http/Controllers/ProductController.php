@@ -192,11 +192,15 @@ class ProductController extends Controller
         });
 
         if($request->has('query')) {
-            $queried = Product::whereRaw("name_tsvector @@ to_tsquery('simple', '". $request->input('query') .":*')")->get();
+
+            $queryExploded = explode(' ', $request->input('query'));
+            $querySql = implode(':* &', $queryExploded);
+
+            $queried = Product::whereRaw("name_tsvector @@ to_tsquery('simple', '". $querySql.":*')")->get();
             $filter = $filter->filter(function ($entry) use ($queried) {
                 return $queried->search(function (Product $product) use($entry) {
-                    return $product->id === $entry->product->id;
-                }) !== false;
+                        return $product->id === $entry->product->id;
+                    }) !== false;
             });
         }
 
