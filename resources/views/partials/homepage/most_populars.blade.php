@@ -9,32 +9,38 @@
         </div>
     </header>
     <div class="col mb-5">
-        <article class="row most-popular justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
-            @foreach ($data as $card)
-                @include('partials.product.product_card', ['card' => $card])
-            @endforeach
-            </div>
-        </article>
-
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                @php $i=0; @endphp
-                @foreach ($data as $card)
-                    @if($i==0) <div class="carousel-item active">
-                    @elseif ($i%5 == 0) </div> <div class="carousel-item"> @endif
-                    @include('partials.product.product_card', ['card' => $card])
-                    @php $i++; @endphp
-                @endforeach
+                <div class="carousel-item active">
+                    <article class="row most-popular justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
+                        @php $i=0; @endphp
+                        @foreach ($data as $card)
+                            @if($i <= 4) @include('partials.product.product_card', ['card' => $card])
+                            @else
+                            @endif
+
+                            @php $i++; @endphp
+                        @endforeach
+                    </article>
+                </div>
+                <div class="carousel-item">
+                    <article class="row most-popular justify-content-between flex-nowrap mt-2 ml-auto mr-auto">
+                        @php $i=0; @endphp
+                        @foreach ($data as $card)
+                            @if($i > 4) @include('partials.product.product_card', ['card' => $card]) @endif
+                            @php $i++; @endphp
+                        @endforeach
+                    </article>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
         </div>
     </div>
 </article>
