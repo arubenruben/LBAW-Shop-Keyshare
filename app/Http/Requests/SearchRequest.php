@@ -4,12 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductsRequest extends FormRequest
+class SearchRequest extends FormRequest
 {
-    /**
-     * @var mixed
-     */
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,17 +23,12 @@ class ProductsRequest extends FormRequest
     public function rules()
     {
         return [
-            'sort' => 'bail | sometimes | digits_between:1,4',
+            'sort' => 'bail | sometimes | integer | between:1,4',
             'genres' => 'bail | sometimes | array',
-            'platform' => 'bail | sometimes',
-            'category' => 'bail | sometimes',
-            'max_price' => 'bail | sometimes',
-        ];
-    }
-
-    public function messages() {
-        return [
-
+            'platform' => 'bail | sometimes | string | exists:platforms,name',
+            'category' => 'bail | sometimes | string | exists:categories,name',
+            'max_price' => 'bail | sometimes | numeric | min:0',
+            'query' => 'bail | sometimes | string | max:50 | regex:/^\w+$/u'
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\ActiveOffer;
 use App\ActiveProduct;
 use App\Category;
 use App\Genre;
+use App\Http\Requests\SearchRequest;
 use App\Offer;
 use App\Platform;
 use App\Product;
@@ -43,7 +44,7 @@ class ProductController extends Controller
         });
     }
 
-    /** Homepage */
+    /* Homepage */
     public function home()
     {
         $numberResults = 20;
@@ -74,8 +75,8 @@ class ProductController extends Controller
             'platforms' => Platform::all(), 'categories' => Category::all(),'breadcrumbs' => []]);
     }
 
-    /** Products list functions */
-    public function search(Request $request)
+    /* Products list functions */
+    public function search(SearchRequest $request)
     {
         $productsCollection = $this->getProductPlatformPair();
 
@@ -134,7 +135,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function get(Request $request)
+    public function get(SearchRequest $request)
     {
         $productsCollection = $this->getProductPlatformPair();
         $filtered = $this->filterProducts($request, $productsCollection);
@@ -169,7 +170,7 @@ class ProductController extends Controller
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
-    private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
+    private function filterProducts(SearchRequest $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
 
@@ -183,11 +184,11 @@ class ProductController extends Controller
         });
 
         if($request->has('query')) {
-
-            $queryExploded = explode(' ', $request->input('query'));
+            $query = htmlentities($request->input('query'));
+            $queryExploded = explode(' ', $query);
             $querySql = implode(':* &', $queryExploded);
 
-            $queried = Product::whereRaw("name_tsvector @@ to_tsquery('simple', '". $querySql.":*')")->get();
+            $queried = Product::whereRaw("name_tsvector @@ to_tsquery('". $querySql.":*')")->get();
             $filter = $filter->filter(function ($entry) use ($queried) {
                 return $queried->search(function (Product $product) use($entry) {
                         return $product->id === $entry->product->id;
@@ -229,15 +230,7 @@ class ProductController extends Controller
         }
 
         if ($request->has('sort_by')) {
-            if ($request->input('sort_by') === 'Most popular') {
-                $filter = $filter->sortByDesc(function ($entry) {
-                    return $entry->product->num_sells;
-                });
-            } else if ($request->input('sort_by') === 'Most recent') {
-                $filter = $filter->sortByDesc(function ($entry) {
-                    return $entry->product->launch_date;
-                });
-            } else if ($request->input('sort_by') === 'Highest Price') {
+            if ($request->input('sort_by') === '1') {
                 $filter = $filter->sortByDesc(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
@@ -246,7 +239,7 @@ class ProductController extends Controller
 
                     return $offers->min('price');
                 });
-            } else if ($request->input('sort_by') === 'Lowest Price') {
+            } else if ($request->input('sort_by') === '2') {
                 $filter = $filter->sortBy(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
@@ -254,6 +247,14 @@ class ProductController extends Controller
                     });
 
                     return $offers->min('price');
+                });
+            } else if ($request->input('sort_by') === '3') {
+                $filter = $filter->sortByDesc(function ($entry) {
+                    return $entry->product->num_sells;
+                });
+            } else if ($request->input('sort_by') === '4') {
+                $filter = $filter->sortByDesc(function ($entry) {
+                    return $entry->product->launch_date;
                 });
             }
         }
@@ -281,7 +282,7 @@ class ProductController extends Controller
         return $prices;
     }
 
-    /** Individual Product functions */
+    /* Individual Product functions */
     public function getProduct($productName)
     {
         $product = DB::table('products')->select('id')->where('name', '=', $productName)->first();

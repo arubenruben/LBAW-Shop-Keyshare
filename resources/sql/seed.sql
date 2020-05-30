@@ -2105,7 +2105,7 @@ INSERT INTO faq(question, answer) VALUES('DO I HAVE THE RIGHT TO A REFUND IN CAS
 INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?','Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
 
 -- SSN --
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','ssn@fe.up.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
+INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','up310021@g.uporto.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
