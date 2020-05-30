@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('title')product @endsection
+@section('title', $product->name.' ['. $platformName.']')
 
 @push('head')
     <script src="{{ asset('js/products/product.js') }}" defer></script>
