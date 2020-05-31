@@ -10,9 +10,17 @@
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
-            <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                aria-label="Search" name="query">
+
+            @if(Input::has('query'))
+                <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
+                    aria-label="Search" name="query" id="query" value="{{Input::get('query')}}">
+            @else
+                <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
+                       aria-label="Search" name="query" id="query" value="">
+            @endif
         </form>
+
+
     </div>
     <!--Buttons-->
     <div class="col d-none d-xl-block mt-auto mb-auto">

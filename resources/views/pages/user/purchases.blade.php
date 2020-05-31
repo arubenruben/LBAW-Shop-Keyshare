@@ -9,7 +9,7 @@
 @include('partials.header.user_header')
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner,
+    @include('partials.navbar.profile_navbar', ['user' => $user, 'isOwner' => $isOwner,
         'active' =>'Purchases','breadcrumbs'=>$breadcrumbs])
 @endsection
 

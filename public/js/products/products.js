@@ -99,6 +99,8 @@ function assembleData() {
 
     data.max_price = form.get('max_price');
 
+    document.querySelector("form input#query").value = "";
+
     return data;
 }
 
