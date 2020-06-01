@@ -107,8 +107,8 @@ const getKeyInfo = (keyId, option) => {
                 positiveButtonContainer.append(positiveButton);
             if (!negativeButtonContainer.contains(negativeButton))
                 negativeButtonContainer.append(negativeButton);
-        }
 
+        }
     });
 }
 
@@ -220,8 +220,8 @@ const approvalRatePlaceHolderReport = document.querySelector('#approvalRate-repo
 const approvalRateOriginalContentReport = approvalRatePlaceHolderReport.innerHTML;
 const numSellsPlaceHolderReport = document.querySelector('#numSells-report');
 const numSellsOriginalContentReport = numSellsPlaceHolderReport.innerHTML;
-const submitButtonContainerReport = document.querySelector('#submit-button-container-feedback');
-const submitButtonReport = document.querySelector('#submitButton-feedback');
+const submitButtonContainerReport = document.querySelector('#submit-button-container-report');
+const submitButtonReport = document.querySelector('#submitButton-report');
 
 const giveReport = (keyId, orderNumber) => {
     submitButtonReport.addEventListener('click', function () {
