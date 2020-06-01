@@ -53,7 +53,7 @@ class ProductController extends Controller
         $products = $productsCollection->filter(function ($entry) {
             $plat_id = $entry->platform->id;
             $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
-                return $offer->platform_id == $plat_id && $offer->final_date == null;
+                return $offer->platform_id == $plat_id && $offer->final_date == null && $offer->stock != 0;
             });
 
             return $offers->isNotEmpty();
@@ -76,7 +76,7 @@ class ProductController extends Controller
     }
 
     /* Products list functions */
-    public function search(Request $request)
+    public function search(SearchRequest $request)
     {
         $productsCollection = $this->getProductPlatformPair();
 
@@ -171,18 +171,19 @@ class ProductController extends Controller
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
-    private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
+    private function filterProducts(SearchRequest $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
 
         $filter = $filter->filter(function ($entry) {
             $plat_id = $entry->platform->id;
             $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
-                return $offer->platform_id == $plat_id && $offer->final_date == null;
+                return $offer->platform_id == $plat_id && $offer->final_date == null && $offer->stock != 0;
             });
 
             return $offers->isNotEmpty();
         });
+
 
         if($request->has('query')) {
             $query = htmlentities($request->input('query'));
@@ -231,7 +232,7 @@ class ProductController extends Controller
         }
 
         if ($request->has('sort_by')) {
-            if ($request->input('sort_by') === '1') {
+            if ($request->input('sort_by') == 1) {
                 $filter = $filter->sortByDesc(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
@@ -240,7 +241,7 @@ class ProductController extends Controller
 
                     return $offers->min('price');
                 });
-            } else if ($request->input('sort_by') === '2') {
+            } else if ($request->input('sort_by') == 2) {
                 $filter = $filter->sortBy(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
@@ -249,11 +250,11 @@ class ProductController extends Controller
 
                     return $offers->min('price');
                 });
-            } else if ($request->input('sort_by') === '3') {
+            } else if ($request->input('sort_by') == 3) {
                 $filter = $filter->sortByDesc(function ($entry) {
                     return $entry->product->num_sells;
                 });
-            } else if ($request->input('sort_by') === '4') {
+            } else if ($request->input('sort_by') == 4) {
                 $filter = $filter->sortByDesc(function ($entry) {
                     return $entry->product->launch_date;
                 });
