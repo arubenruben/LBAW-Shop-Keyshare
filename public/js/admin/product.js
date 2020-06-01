@@ -8,7 +8,9 @@ const inputGenre = document.querySelector('#gameGenres');
 const dropdownGenreArray = document.querySelectorAll('#dropdownGenre .dropdown-item');
 const dropdownPlatformArray = document.querySelectorAll('#dropdownPlatform .dropdown-item');
 const dropdownCategoryArray = document.querySelectorAll('#dropdownCategory .dropdown-item');
+const imgUploadInput = document.querySelector('#img-upload');
 
+imgUploadInput.addEventListener('change', pictureUpdate);
 
 dropdownGenreArray.forEach(element => {
     element.addEventListener('click', genreChange);
@@ -45,6 +47,19 @@ function genreChange() {
         inputGenre.value += event.target.textContent;
     }
 
+}
+
+
+function pictureUpdate() {
+    const fileBlob = document.querySelector('#img-upload').files[0];
+
+    const fileReader = new FileReader();
+
+    fileReader.onload = function () {
+        const imgPreview = document.querySelector('#product-img');
+        imgPreview.setAttribute('src', fileReader.result);
+    }
+    fileReader.readAsDataURL(fileBlob);
 
 
 }

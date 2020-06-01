@@ -4,13 +4,12 @@
         @php
         if(isset($data)){
         @endphp
-        <textarea class="form-control" id="gameDescription" rows="5"
-            placeholder="Insert here the game description">$data->description</textarea>
-        <textarea class="form-control" id="gameDescription" rows="5"></textarea>
+        <textarea class="form-control" id="gameDescription" rows="5">$data->description</textarea>
         @php
         }else {
         @endphp
-        <textarea class="form-control" id="gameDescription" rows="5"></textarea>
+        <textarea class="form-control" id="gameDescription" rows="5"
+            placeholder="Insert here the game description"></textarea>
         @php
         }
         @endphp

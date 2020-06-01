@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col text-center">
-        <img class="img-fluid productPageImgPreview" src={{asset('pictures/games/default.png')}} />
+        <img id="product-img" class="img-fluid productPageImgPreview" src={{asset('pictures/games/default.png')}} />
         <span class="btn btn-orange btn-lg btn-file mt-3">
             Upload Photo<input id="img-upload" name="picture" type="file">
         </span>
