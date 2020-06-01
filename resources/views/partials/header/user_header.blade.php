@@ -1,6 +1,6 @@
 <header id="headerFixed" class="navbar row">
     <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
-        <a href="{{ route('home') }}">
+        <a href="{{ url('/') }}">
             <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
         </a>
     </div>
@@ -12,9 +12,9 @@
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
 
-            @if(Input::has('query'))
+            @if(Request::has('query'))
                 <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                    aria-label="Search" name="query" id="query" value="{{Input::get('query')}}">
+                    aria-label="Search" name="query" id="query" value="{{::get('query')}}">
             @else
                 <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
                        aria-label="Search" name="query" id="query" value="">

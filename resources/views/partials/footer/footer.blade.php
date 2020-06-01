@@ -12,8 +12,8 @@
         <section class="col">
             <h5 class="title"> Shortcuts </h5>
             <ul class="list-unstyled">
-                <li><a href={{route('home')}}> Profile</a></li>
-                <li><a href={{route('home')}}> Homepage</a></li>
+                <li><a href={{url('/')}}> Profile</a></li>
+                <li><a href={{url('/')}}> Homepage</a></li>
                 <li><a href={{route('search')}}> All products</a></li>
             </ul>
         </section>
