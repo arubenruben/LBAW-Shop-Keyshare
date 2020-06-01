@@ -4,13 +4,55 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Order;
+use App\Report;
 use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
     public function show()
     {
-        return view('admin.pages.homepage');
+        $active_reports = Report::where('status', '=', 'false');
+
+        $dailyOrders = Order::where('date', '=', 'CURRENT_DATE');
+
+        $dailyKeys = [];
+        foreach ($dailyOrders as $dailyOrder) {
+            foreach ($dailyOrder->keys as $key) {
+                array_push($dailyKeys, $key);
+            }
+        }
+
+        $dailyKeysCollection = collect($dailyKeys);
+
+        $monthlyOrders = Order::where('date', '>=', 'cast(date_trunc(\'month\', CURRENT_DATE) as date)');
+
+        $monthlyKeys = [];
+        foreach ($monthlyOrders as $monthlyOrder) {
+            foreach ($monthlyOrder->keys as $key) {
+                array_push($monthlyKeys, $key);
+            }
+        }
+
+        $monthlyKeysCollection = collect($monthlyKeys);
+
+        return view(
+            'admin.pages.homepage',
+            [
+                'title' => 'Dashboard',
+                'contents' => [
+                    'Tasks to be done' => ['Active Reports: '.$active_reports->count()],
+                    'Daily Statistics' => [
+                        'Transactions made: '.$dailyKeysCollection->count(),
+                        'Money made: '.$dailyKeysCollection->sum(function ($dailyKey) { return $dailyKey->price; }).' US$'
+                    ],
+                    'Monthly Statistics' => [
+                        'Transactions made: '.$monthlyKeysCollection->count(),
+                        'Money made: '.$monthlyKeysCollection->sum(function ($monthlyKey) { return $monthlyKey->price; }).' US$'
+                    ]
+                ]
+            ]
+        );
     }
 
     public function productShow()

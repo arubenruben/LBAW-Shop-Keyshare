@@ -35,6 +35,7 @@ class LoginController extends Controller
     { 
         if(Auth::guard('admin')->attempt($request->only('username','password'),$request->filled('remember'))){
             //Authentication passed...
+            return redirect('/admin');
         }
     
         //Authentication failed...
