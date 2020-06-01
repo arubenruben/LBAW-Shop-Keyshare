@@ -17,7 +17,7 @@ class ProductAddRequest extends FormRequest
     {
         $admin=Auth::user();
         
-     //   Admin::findOrFail($admin->id);
+        Admin::findOrFail($admin->id);
 
         return Auth::check();
     }

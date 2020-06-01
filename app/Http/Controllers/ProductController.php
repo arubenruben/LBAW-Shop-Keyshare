@@ -28,7 +28,7 @@ class ProductController extends Controller
         return $filtered->map(function (Product $product) {
             $lowest_price = $product->offers->min('price');
             $lowest_offer = $product->offers->where('price', $lowest_price)->first();
-            $discount = $lowest_offer->active_discount();
+            
             return (object) [
                 'name' => $product->name,
                 'picture' => asset('/pictures/games/' . $product->picture->url),

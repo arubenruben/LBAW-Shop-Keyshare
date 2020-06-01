@@ -8,6 +8,15 @@ use App\Order;
 use App\Report;
 use Illuminate\Support\Facades\View;
 use App\Product;
+use App\Admin;
+use App\Genre;
+use App\Platform;
+use App\Category;
+use App\Picture;
+use Image;
+use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\ProductAddRequest;
 
@@ -73,7 +82,57 @@ class AdminController extends Controller
 
     public function productAdd(ProductAddRequest $request)
     {
-        return $request;
+        
+        try {
+            $this->authorize('addProduct', Admin::class);
+        } catch (AuthorizationException $e) {
+            return response(json_encode($e->getMessage()), 400);
+        }
+
+
+        $product=new Product;
+
+        $product->name=$request->get('gameName');
+        $product->description=$request->get('gameDescription');
+        $product->launch_date=Carbon::now();
+        $category=Category::where('name',strtoupper($request->get('gameCategories')))->first();
+        $product->category_id=$category->id;
+
+        $picture = $request->file('img-upload');
+        $pictureORM = new Picture;
+        $username = Auth::user()->username;
+        $imgFinal = Image::make($picture->getRealPath());
+
+        $hash = md5($username . now());
+        $imgFinal->save('pictures/games/' . $hash . '.png');
+        
+        $pictureORM->url = $hash . '.png';
+        $pictureORM->save();
+
+        $product->picture_id=$pictureORM->id;
+        $product->save();
+        
+        
+        $genres=explode(",",$request->get('gameGenres'));
+        $platforms=explode(",",$request->get('gamePlatforms'));
+
+
+    
+
+        foreach ($genres as $genre) {
+
+            $founded=Genre::where('name',strtoupper($genre))->first();
+            $product->genres()->attach($founded->id);                 
+        }
+        
+        foreach ($platforms as $platform) {
+            $founded=Platform::where('name',strtoupper($platform))->first();
+        
+            $product->platforms()->attach($founded->id);            
+        }
+
+    
+        return json_encode("OK",200);
 
     }
 
