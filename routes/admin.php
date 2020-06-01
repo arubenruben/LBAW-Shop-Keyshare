@@ -11,10 +11,9 @@ Route::get('/admin/products', 'AdminController@productShow');
 Route::get('/admin/product', 'AdminController@productAddForm');
 Route::put('/admin/product', 'AdminController@productAdd')->name('product_add')
 /*
-Route::get('/api/admin/product', 'AdminController@productGet');
-Route::get('/admin/product/{id}', 'AdminController@productUpdateView');
-Route::post('/admin/product/{id}', 'AdminController@productUpdate');
 Route::delete('/admin/product/{id}', 'AdminController@productDelete');
+Route::post('/admin/product/{id}', 'AdminController@productUpdate');
+Route::get('/admin/product/{id}', 'AdminController@productUpdateView');
 Route::get('/api/admin/category', 'AdminController@categoryGet');
 Route::get('/admin/category', 'AdminController@categoryShow');
 Route::put('/admin/category', 'AdminController@categoryAdd');

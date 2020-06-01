@@ -10,7 +10,7 @@
 @endsection
 @section('content')
 <div class="col mt-3">
-    <form action="admin.php" method="GET">
+    <form action={{ route('product_add') }} method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         @include('admin.partials.product.info')
