@@ -54,8 +54,10 @@
             </tbody>
         </table>
     </div>
-    <div class="row">
-        {{$data->links()}}
+    <div class="row mt-5">
+        <div class="ml-auto">
+            {{$data->links()}}
+        </div>
     </div>
 </article>
 @endsection

@@ -29,6 +29,7 @@ class AdminController extends Controller
 
     public function productAdd()
     {
+        return "true";
 
     }
 
@@ -37,9 +38,9 @@ class AdminController extends Controller
 
     }
 
-    public function productForm()
+    public function productAddForm()
     {
-
+        return view('admin.pages.productAdd');
     }
 
     public function productUpdateView($id)

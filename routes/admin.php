@@ -8,10 +8,10 @@ Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/admin', 'AdminController@show')->name('admin_homepage');
 Route::get('/admin/products', 'AdminController@productShow');
+Route::get('/admin/product', 'AdminController@productAddForm');
+Route::put('/admin/product', 'AdminController@productAdd')->name('product_add')
 /*
-Route::put('/admin/product', 'AdminController@productAdd');
 Route::get('/api/admin/product', 'AdminController@productGet');
-Route::get('/admin/product/form', 'AdminController@productForm');
 Route::get('/admin/product/{id}', 'AdminController@productUpdateView');
 Route::post('/admin/product/{id}', 'AdminController@productUpdate');
 Route::delete('/admin/product/{id}', 'AdminController@productDelete');
