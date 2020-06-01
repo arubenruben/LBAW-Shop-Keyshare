@@ -12,11 +12,11 @@
                 </div>
             </div>
             <div class="modal-body key">
-                <input type="text" class="form-control userDetailsForm mt-2" id="exampleFormControlTextarea1" value="{{$key->key}}" readonly/>
+                <input type="text" class="form-control userDetailsForm mt-2" id="key-val" value="{{$key->key}}" readonly/>
                 <input type="hidden" class="key-name" value="{{$key->id}}">
             </div>
             <div class="modal-footer">
-                <div class="col text-right"><button class="btn btn-blue"><i class="fas fa-clipboard"></i> Copy to clipboard</button>
+                <div class="col text-right"><button class="btn btn-blue" id="clipboard-copy"><i class="fas fa-clipboard"></i> Copy to clipboard</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 <div id="content" class="container">
   <div id="modalConfirm" class="modal fade" role="dialog">
     <div class="modal-dialog">
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Delete account, are you sure?</h5>
@@ -10,26 +9,32 @@
         <div class="modal-body text-left">
           <span> Confirm </span>
           <input id="delete-account-confirmation-input" type="text-area"
-            class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
-            placeholder="Type your username to proceed"></input>
+                 class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
+                 placeholder="Type your username to proceed"/>
         </div>
         <div class="modal-footer">
-          <div class="col text-left"><button id="delete-account-confirmation" class="btn btn-blue"><i
-                class="fas fa-check mr-2"></i>Yes</button></div>
-          <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal"><i
-                class="fas fa-times mr-2"></i>Cancel</button></div>
+          <div class="col text-left">
+            <button id="delete-account-confirmation" class="btn btn-blue">
+              <i class="fas fa-check mr-2"></i>Yes
+            </button>
+          </div>
+          <div class="col text-right"><button class="btn btn-blue" data-dismiss="modal">
+              <i class="fas fa-times mr-2"></i>Cancel</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   @if($user->isBanned())
-  <div class="row mt-5 mb-2">
-    <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal"
-      data-target="#modalAppeal">
-      You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+    <div class="row mt-5 mb-2">
+      <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert" data-toggle="modal"
+        data-target="#modalAppeal">
+        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+      </div>
     </div>
-  </div>
   @endif
+
   <div class="row mt-2">
     <div class="col-sm-4 usercontent-left  border rounded-top">
       <div class="row ">
@@ -70,8 +75,7 @@
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See
-            all feedback</button>
+          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See all feedback</button>
         </div>
       </div>
     </div>
@@ -127,17 +131,6 @@
                 </button>
               </div>
             </div>
-            <div class="mb-5 mt-0 text-left">
-              <label for="">Paypal</label>
-              <div class="text-right mt-0 flex-nowrap">
-                <input id="paypal-input" type="email" class="form-control userDetailsForm mb-3 d-inline-block"
-                  value="{{ $user->paypal }}" placeholder="Paypal Email - None" data-kwimpalastatus="alive"
-                  data-kwimpalaid="1583446459119-9" {{ $user->isBanned() ? 'disabled' : ''}}>
-                <button id="paypalButton" type="button" class="btn btn-sm px-4 py-1 btn-outline-primary"
-                  {{ $user->isBanned() ? 'disabled' : ''}}><img src="{{ asset('pictures/paypal/paypal.png') }}"
-                    height="23"></button>
-              </div>
-            </div>
             <div class="mb-5 mt-5 text-center">
               <span class="invisible">Easter egg</span>
             </div>
@@ -150,6 +143,7 @@
         </div>
       </div>
     </div>
+
     {{--   BannAppealPopup   --}}
     <div id="modalAppeal" class="modal fade" role="dialog">
       <div class="modal-dialog">

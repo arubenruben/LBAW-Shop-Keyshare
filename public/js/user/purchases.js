@@ -30,6 +30,13 @@ const negativeThumb = document.querySelector('#negative-thumb');
 
 const arrayButtonsToOpenFeedback = document.querySelectorAll('.modal-feedback-opener');
 
+
+/** See key **/
+const clipboard = document.querySelector('#clipboard-copy');
+
+
+
+
 const addFeedbackEventListeners = () => {
     arrayButtonsToOpenFeedback.forEach(button => {
         let keyId = button.getAttribute('data-key-id');
@@ -41,8 +48,18 @@ const addFeedbackEventListeners = () => {
 
     positiveButton.addEventListener('click', buttonPositiveClick);
     negativeButton.addEventListener('click', buttonNegativeClick);
+
+    const clipboard = document.querySelector('#clipboard-copy');
+    clipboard.addEventListener('click', copyToClipBoard);
 }
 
+const copyToClipBoard = () => {
+    const clipboardValue = document.querySelector('#key-val');
+    clipboardValue.select();
+    clipboardValue.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+
+}
 
 const processClick = (keyId, orderNumber) => {
 
