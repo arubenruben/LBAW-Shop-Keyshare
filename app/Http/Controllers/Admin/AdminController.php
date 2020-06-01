@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\View;
+use App\Product;
 
 class AdminController extends Controller
 {
+    
+
+
+
     public function show()
     {
         return view('admin.pages.homepage');
@@ -15,7 +20,11 @@ class AdminController extends Controller
 
     public function productShow()
     {
+        $data=array();
 
+        $products=Product::paginate(10);
+
+        return view('admin.pages.products',['data'=>$products]);
     }
 
     public function productAdd()

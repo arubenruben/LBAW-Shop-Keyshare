@@ -7,10 +7,8 @@ Route::post('/admin/login', 'Auth\LoginController@login')->name('login');
 Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/admin', 'AdminController@show')->name('admin_homepage');
+Route::get('/admin/products', 'AdminController@productShow');
 /*
-Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
-Route::get('admin/login', 'Auth\LoginController@showAdmin');
-Route::get('/admin/product', 'AdminController@productShow');
 Route::put('/admin/product', 'AdminController@productAdd');
 Route::get('/api/admin/product', 'AdminController@productGet');
 Route::get('/admin/product/form', 'AdminController@productForm');
