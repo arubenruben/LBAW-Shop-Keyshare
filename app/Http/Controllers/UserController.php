@@ -19,10 +19,8 @@ class UserController extends Controller
     {
         $user = DB::table('users')->select('id')->where('username', '=', $username)->first();
 
-        if ($user != null)
-            return User::findOrFail($user->id);
-        else
-            abort(404, 'User doesn\'t exist');
+        if ($user != null) return User::findOrFail($user->id);
+        else abort(404, 'User doesn\'t exist');
     }
 
     public function show($username)
@@ -155,9 +153,7 @@ class UserController extends Controller
             return response(json_encode("You can't edit this profile"), 400);
         }
         
-        if(Auth::user()->picture->id!=1){
-            $picture=Picture::find(Auth::user()->picture->id)->delete();
-        }
+        if(Auth::user()->picture->id!=1) Picture::find(Auth::user()->picture->id)->delete();
 
         return back();
     }

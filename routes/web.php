@@ -51,12 +51,12 @@ Route::post('/discount/{discountId}', 'DiscountController@update');
 Route::delete('/discount/{discountId}', 'DiscountController@delete');
 
 // Keys
-Route::post('/key/{id}', 'KeyController@update');
-Route::delete('/key/{id}', 'KeyController@delete');
-Route::put('/key/{id}/feedback', 'KeyController@add');
-Route::get('/key/{id}/feedback', 'KeyController@view');
-Route::put('/key/{id}/report', 'KeyController@report');
-Route::get('/api/key/{id}', 'KeyController@get');
+Route::post('/key/{id}', 'KeyController@update')->name('keyUpdate');
+Route::delete('/key/{id}', 'KeyController@delete')->name('keyDelete');
+Route::put('/key/{id}/feedback', 'KeyController@feedback');
+Route::get('/key/{id}/feedback', 'KeyController@view')->name('feedback');
+Route::put('/key/{id}/report', 'KeyController@report')->name('report');
+Route::get('/api/key/{id}', 'KeyController@get')->name('key');
 
 // Feedback
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');

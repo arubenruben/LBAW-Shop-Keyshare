@@ -171,8 +171,7 @@ const addEventListeners = () => {
 
     const delete_account_btn = document.querySelector("#delete-account-confirmation");
     delete_account_btn.addEventListener("click", () => {
-        const username = (document.querySelector("#delete-account-confirmation-input")).value
-        sendDelete(username)
+        sendDelete()
             .then(r => console.log(r))
             .then(window.location.replace("/"))
     });
@@ -217,7 +216,7 @@ const sendPost = post => {
         .catch(error => console.error("Error:" + error));
 }
 
-const sendDelete = username => {
+const sendDelete = () => {
     const options = {
         method: 'delete',
         headers: new Headers({

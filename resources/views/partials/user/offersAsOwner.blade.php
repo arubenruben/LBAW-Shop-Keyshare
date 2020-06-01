@@ -56,35 +56,34 @@
                                                     </h5>
                                                     <span
                                                         class="text-muted font-weight-normal font-italic d-inline-block">
-                                                        [{{$currentOffer->platform->name}}]</span>
+                                                        [{{$currentOffer->platform->name}}]
+                                                    </span>
                                                     <h6>Stock: {{$currentOffer->stock}} keys</h6>
                                                 </div>
-                                                <!-- <a data-toggle="modal" data-target="#" ><span class="text-muted font-weight-normal font-italic d-block">nightwalker123</span> </a> -->
                                             </div>
                                         </td>
                                         <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
                                         @if($currentOffer->price != $currentOffer->discount_price())
                                         <td class="text-center align-middle">
-                                            <del><strong>${{$currentOffer->price}}</strong></del></del><strong
-                                                class="cl-green pl-2">${{$currentOffer->discount_price()}}</strong></td>
-                                        @else
-                                        <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong>
+                                            <del><strong>${{$currentOffer->price}}</strong></del>
+                                            <strong class="cl-green pl-2">${{$currentOffer->discount_price()}}</strong>
                                         </td>
+                                        @else
+                                        <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
                                         @endif
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
                                                 <a href="{{ url('/offer/'.$currentOffer->id) }}"
-                                                    class="btn btn-blue btn-block flex-nowrap" role="button"> <i
-                                                        class="fas fa-edit d-inline-block"></i> <span
-                                                        class="d-none d-md-inline-block"> Edit Offer </span></a>
+                                                    class="btn btn-blue btn-block flex-nowrap" role="button">
+                                                    <i class="fas fa-edit d-inline-block"> </i>
+                                                    <span class="d-none d-md-inline-block"> Edit Offer </span>
+                                                </a>
                                                 <form action="{{ url('/offer/'.$currentOffer->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type=" button mt-5 mb-5 "
-                                                        class=" btn btn-red btn-block flex-nowrap"><i
-                                                            class="fas fa-trash-alt"></i> <span
-                                                            class="d-none d-md-inline-block"> Delete Offer
-                                                        </span>
+                                                    <button type="button" class=" btn btn-red btn-block flex-nowrap mt-2">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        <span class="d-none d-md-inline-block"> Delete Offer </span>
                                                     </button>
                                                 </form>
                                             </div>

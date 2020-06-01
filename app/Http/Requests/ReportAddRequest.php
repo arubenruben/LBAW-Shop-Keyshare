@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Key;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class FeedbackAddRequest extends FormRequest
+class ReportAddRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +14,6 @@ class FeedbackAddRequest extends FormRequest
      */
     public function authorize()
     {
-        //return Auth::check() && !Auth::user()->isBanned() && Auth::user()->id == $key->order->user_id;
         return Auth::check() && !Auth::user()->isBanned();
     }
 
@@ -28,8 +26,8 @@ class FeedbackAddRequest extends FormRequest
     {
         return [
             'key' => "bail | required | filled | string | exists:keys,id",
-            'comment' =>"bail | required | filled | string",
-            'evaluation' =>"bail | required | filled | boolean"
+            'title' =>"bail | required | filled | string",
+            'description' =>"bail | required | filled | string"
         ];
     }
 
@@ -40,12 +38,12 @@ class FeedbackAddRequest extends FormRequest
      */
     public function messages() {
         return [
-            'evaluation.required' => 'Didn\'t give a feedback evaluation',
-            'evaluation.filled' => 'Didn\'t give a feedback evaluation',
-            'evaluation.boolean' => 'Evaluation is invalid',
-            'comment.required' => 'Didn\'t give a feedback comment',
-            'comment.filled' => 'Didn\'t give a feedback comment',
-            'comment.string' => 'Comment is invalid',
+            'description.required' => 'Didn\'t give a report description',
+            'description.filled' => 'Didn\'t give a report description',
+            'description.string' => 'Report description is invalid',
+            'title.required' => 'Didn\'t give a report title',
+            'title.filled' => 'Didn\'t give a report title',
+            'title.string' => 'Report title is invalid',
             'key.required' => 'Feedback is invalid',
             'key.filled' => 'Feedback is invalid',
             'key.string' => 'Feedback is invalid',

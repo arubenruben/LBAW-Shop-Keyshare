@@ -17,20 +17,20 @@
                         <u>
                             <h5>Seller's Info</h5>
                         </u>
-                        <h6 id="username"></h6>
+                        <h6 id="username-feedback"></h6>
                         <p>
                             <i class="fas fa-thumbs-up cl-success"></i>
-                            <span id="approvalRate" class="font-weight-bold cl-success">%</span>
-                            <i id="numSells" class="fas fa-shopping-cart"></i>
+                            <span id="approvalRate-feedback" class="font-weight-bold cl-success">%</span>
+                            <i id="numSells-feedback" class="fas fa-shopping-cart"></i>
                         </p>
                     </div>
                     <div class="col-6 text-right">
                         <u>
                             <h5>Product in question</h5>
-                            <h6 id="productName"></h6>
+                            <h6 id="productName-feedback"></h6>
                         </u>
-                        <h6 id="orderNumber">Order Nº </h6>
-                        <h6 id="price">Price : € </h6>
+                        <h6 id="orderNumber-feedback">Order Nº </h6>
+                        <h6 id="price-feedback">Price : € </h6>
                     </div>
                 </div>
                 <hr>
@@ -56,7 +56,8 @@
                 </div>
             </section>
             <section class="modal-footer">
-                <div id="submit-button-container" class="col text-right submit-feedback">
+                <div id="submit-button-container-feedback" class="col text-right submit-feedback">
+                    <span id="feedback-response" display="none" value=""></span>
                     <button id="submitButton" class="btn btn-blue submit">Submit</button>
                 </div>
             </section>

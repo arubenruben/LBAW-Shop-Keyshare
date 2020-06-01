@@ -14,7 +14,6 @@ class UserPolicy
 
     public function loggedIn(User $user) {
         // Only the own user can visit its purchases
-
         return Auth::check();
     }
     public function update(User $user) {
