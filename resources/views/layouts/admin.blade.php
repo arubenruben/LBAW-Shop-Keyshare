@@ -39,7 +39,6 @@
         </section>
         @yield('footer')
     </main>
-    </main>
 </body>
 
 </html>

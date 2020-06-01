@@ -7,9 +7,7 @@ Route::post('/admin/login', 'Auth\LoginController@login')->name('login');
 Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/admin', 'AdminController@show');
-/*
-Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
-Route::get('admin/login', 'Auth\LoginController@showAdmin');
+
 Route::get('/admin/product', 'AdminController@productShow');
 Route::put('/admin/product', 'AdminController@productAdd');
 Route::get('/api/admin/product', 'AdminController@productGet');
@@ -49,5 +47,5 @@ Route::get('/admin/faq', 'AdminController@faqShow');
 Route::put('/admin/faq', 'AdminController@faqAdd');
 Route::post('/admin/faq/{id}', 'AdminController@faqUpdate');
 Route::delete('/admin/faq/{id}', 'AdminController@faqDelete');
-*/
+
 ?>
