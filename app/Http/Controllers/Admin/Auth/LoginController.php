@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Lang;
 
 class LoginController extends Controller
 {
@@ -34,11 +35,15 @@ class LoginController extends Controller
     public function login(Request $request)
     { 
         if(Auth::guard('admin')->attempt($request->only('username','password'),$request->filled('remember'))){
-            //Authentication passed...
+            return redirect()->route('admin_homepage');
         }
     
         //Authentication failed...
-        return "fail";
+       return redirect()->route('login_page')
+        ->withInput($request->only($this->username(), 'remember'))
+        ->withErrors([
+        'password' => Lang::get('auth.password'),
+        ]);
     }
 
 

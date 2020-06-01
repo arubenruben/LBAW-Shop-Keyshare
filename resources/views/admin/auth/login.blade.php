@@ -24,12 +24,17 @@
                         placeholder="username" class="input-medium" required="">
                 </div>
             </div>
-            <!-- Password input-->
             <div class="control-group mt-4 mb-2">
-                <label class="control-label" for="password">Password:</label>
+                <label class="control-label" for="passwordLogIn">Password:</label>
                 <div class="controls">
-                    <input required id="password" name="password" class="form-control" type="password"
-                        placeholder="********" class="input-medium">
+                    <input required="" id="passwordLogIn" name="password"
+                        class="form-control input-medium @error('password') is-invalid @enderror" type="password"
+                        placeholder="********">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
             <!-- Button -->

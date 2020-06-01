@@ -6,7 +6,7 @@ Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('login_pa
 Route::post('/admin/login', 'Auth\LoginController@login')->name('login');
 Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/admin', 'AdminController@show');
+Route::get('/admin', 'AdminController@show')->name('admin_homepage');
 /*
 Route::get('admin/logout', 'Auth\LoginController@logoutAdmin')->name('logoutAdmin');
 Route::get('admin/login', 'Auth\LoginController@showAdmin');
