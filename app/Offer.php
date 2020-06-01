@@ -88,7 +88,6 @@ class Offer extends Model
                 return $discount;
             }
         }
-
         return null;
     }
 

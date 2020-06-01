@@ -3,100 +3,89 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/user';
 
+
+const isValidEmail = (email) => {
+    return /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email);
+}
+
+const isValidDescription = (description) => {
+    return description.length <= 500;
+}
+
 const addEventListeners = () => {
-    let form = document.querySelector("form.needs-validation");
+    let email_invalid = document.querySelector("#email-invalid");
+    let email_valid = document.querySelector("#email-valid");
 
     const email_btn = document.querySelector("#button_submit_email");
     email_btn.addEventListener("click", () => {
         let email_field = document.querySelector("#form_update_user #email-input");
-        const data = {
-            email: email_field.value
-        }
 
-        sendPost(data).then(res => {
-            let msg = document.querySelector("form.needs-validation #email_msg")
-
-            if (res != "Success") {
-                email_field.style.border = 'solid 1px red';
-
-                if (msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "email_msg");
-                    msg.innerHTML = res['errors']['email'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                    email_btn.parentNode.insertBefore(msg, email_btn);
-                } else {
-                    msg.innerHTML = res['errors']['email'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                }
-            } else {
-                email_field.style.border = 'solid 1px green';
-
-                if (msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "email_msg");
-                    msg.innerHTML = 'Changed email successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
-                    email_btn.parentNode.insertBefore(msg, email_btn);
-                } else {
-                    msg.innerHTML = 'Changed email successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
+       if(!isValidEmail(email_field.value)){
+            email_invalid.innerHTML = "Invalid Email, choose another one";
+            if(email_field.classList.contains('border-success'))
+                email_field.classList.remove('border-danger');
+            email_valid.innerHTML = "";
+            email_field.className += " border-danger";
+        }else{
+            const data = {
+                email: email_field.value
+            }
+            sendPost(data).then(res => {
+                if (res != "Success") {
+                    if(email_field.classList.contains('border-success'))
+                        email_field.classList.remove('border-success');
+                    email_field.className += " border-danger";
+                    email_valid.innerHTML = "";
+                    email_invalid.innerHTML = res['errors']['email'];
+                }else {
+                    if(email_field.classList.contains('border-danger'))
+                        email_field.classList.remove('border-danger');
+                    email_field.className += " border-success";
+                    email_invalid.innerHTML = "";
+                    email_valid.innerHTML = "Changed email successfully";
                 }
             }
-        });
-    });
+        );
+    }
+});
 
-    const description_btn = document.querySelector("#button_submit_description");
-    description_btn.addEventListener("click", () => {
-        const description_field = document.querySelector("#form_update_user #description_textarea");
+
+const description_btn = document.querySelector("#button_submit_description");
+description_btn.addEventListener("click", () => {
+    const description_field = document.querySelector("#form_update_user #description_textarea");
+    let description_invalid = document.querySelector("#email-invalid");
+    let description_valid = document.querySelector("#email-valid");
+
+    if(isValidDescription(description_field.value)){
+        email_invalid.innerHTML = "Invalid Email, choose another one";
+        if(email_field.classList.contains('border-success'))
+            email_field.classList.remove('border-danger');
+        email_valid.innerHTML = "";
+        email_field.className += " border-danger";
+        description_invalid.innerHTML =  "Description must have 500 or less characters";
+        description_field.className = " border-danger";
+    }else {
         const data = {
             description: description_field.value
         }
         sendPost(data).then(res => {
-            let msg = document.querySelector("form.needs-validation #description_msg")
-
             if (res != "Success") {
-                description_field.style.border = 'solid 1px red';
-
-                if (msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "description_msg");
-                    msg.innerHTML = res['errors']['description'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                    description_btn.parentNode.insertBefore(msg, description_btn);
-                } else {
-                    msg.innerHTML = res['errors']['description'];
-                    msg.style.color = 'red';
-                    msg.style.textAlign = 'left';
-                }
-            } else {
-                description_field.style.border = 'solid 1px green';
-
-                if (msg === null) {
-                    msg = document.createElement("p");
-                    msg.setAttribute("id", "description_msg");
-                    msg.innerHTML = 'Changed description successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
-                    description_btn.parentNode.insertBefore(msg, description_btn);
-                } else {
-                    msg.innerHTML = 'Changed description successfully';
-                    msg.style.color = 'green';
-                    msg.style.textAlign = 'left';
-                }
+                if(description_field.classList.contains('border-success'))
+                    description_field.classList.remove('border-success');
+                description_field.className += " border-danger";
+                description_valid.innerHTML = "";
+                description_invalid.innerHTML = res['errors']['description'];
+            }else {
+                if(description_field.classList.contains('border-danger'))
+                    description_field.classList.remove('border-danger');
+                description_field.className += " border-success";
+                description_invalid.innerHTML = "";
+                description_valid.innerHTML = "Changed email successfully";
             }
         });
-    });
+    }
+});
 
-    const paypal_btn = document.querySelector("#paypalButton");
-    paypal_btn.addEventListener("click", () => {
-
-    });
 
     const password_btn = document.querySelector("#button_submit_password");
     password_btn.addEventListener("click", () => {

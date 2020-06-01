@@ -66,9 +66,6 @@ const verify_input = (input_variable, invalid_block, invalid_text, extra_validat
             invalid_block.innerHTML = "";
         }
     }
-
-
-
 }
 
 const clicked_confirm_button = () => {
