@@ -25,14 +25,16 @@
 </head>
 
 <body>
+    @yield('header')
     <main id="wrapper">
-        @yield('header')
         <section id="content" class="container">
-            <div class="row">
-                @yield('navbar')
-            </div>
-            <div class="row">
-                @yield('content')
+            <div class="row pt-3">
+                <nav class="col-md-3">
+                    @yield('sidebar')
+                </nav>
+                <section class="col-md-9">
+                    @yield('content')
+                </section>
             </div>
         </section>
         @yield('footer')

@@ -1,15 +1,17 @@
 @extends('layouts.admin')
 
 @section('header')
-@include('admin.partials.header.header_admin')
+    @include('admin.partials.header.header_admin')
 @endsection
-@section('navbar')
-<nav>
-    <h3>Dashboard</h3>
-</nav>
-@endsection
-@section('content')
 
-@include('admin.partials.sidebar.sidebar')
-@include('admin.partials.tables.table_homepage')
+@section('navbar')
+    @include('admin.partials.navbar.navbar_admin', ['page' => 'Dashboard'])
+@endsection
+
+@section('sidebar')
+    @include('admin.partials.sidebar.sidebar')
+@endsection
+
+@section('content')
+    @include('admin.partials.tables.table_homepage', ['title' => $title, 'contents' => $contents])
 @endsection

@@ -4,5 +4,7 @@
     <a href={{ route('admin_homepage') }}>
         <img class="img-fluid logo mx-auto" src={{ asset('/pictures/logo/logo.png') }} />
     </a>
-    <a href="homepage.php" class="btn btn-outline-light navbarButton" role="button">Logout</a>
+    <form action="{{ url('/admin/logout') }}" method="POST">
+        <button type="submit" class="btn btn-outline-light navbarButton" role="button">Logout</button>
+    </form>
 </header>
