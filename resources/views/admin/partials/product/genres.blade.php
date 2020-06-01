@@ -6,8 +6,10 @@
         <div class="input-group-prepend">
             <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Genres</button>
-            <div class="dropdown-menu">
-
+            <div id="dropdownGenre" class="dropdown-menu">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Simulation</a>
+                <a class="dropdown-item">Racing</a>
             </div>
         </div>
 

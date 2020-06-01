@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@push('head')
+<script src="{{ asset('js/admin/product.js') }}" defer></script>
+@endpush
+
 @section('header')
 @include('admin.partials.header.header_admin')
 @endsection
@@ -19,7 +23,6 @@
         @include('admin.partials.product.genres')
         @include('admin.partials.product.platform')
         @include('admin.partials.product.categories')
-        <input type="submit">
         <div class="row flex-nowrap justify-content-between mt-5">
             <!--a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
             <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Publish Product">

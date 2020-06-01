@@ -1,7 +1,7 @@
 <aside class="card">
     <ul class="list-unstyled m-0">
         <li><a href="{{ url('/admin') }}" class="list-group-item bg-active">Dashboard </a> </li>
-        <li><a href="{{ url('/admin/product') }}" class="list-group-item"> Products </a> </li>
+        <li><a href="{{ url('/admin/products') }}" class="list-group-item"> Products </a> </li>
         <li><a href="{{ url('/admin/category') }}" class="list-group-item"> Categories </a> </li>
         <li><a href="{{ url('/admin/genre') }}" class="list-group-item"> Genres </a> </li>
         <li><a href="{{ url('/admin/platform') }}" class="list-group-item"> Platforms </a> </li>

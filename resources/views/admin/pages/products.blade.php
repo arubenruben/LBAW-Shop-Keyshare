@@ -17,8 +17,9 @@
         <div class="row justify-content-between flex-nowrap">
             <h3 class="ml-3">Products</h3>
             <input class="form-control col-5 sm" type="search" placeholder="Search" aria-label="Search">
-            <a href="" class="btn btn-orange text-white mr-3" role="button"> <i class="mr-1 fas fa-plus"></i> <span
-                    class="d-none d-md-inline-block">Add Product</span></a>
+            <a href={{ url('/admin/product') }} class="btn btn-orange text-white mr-3" role="button"> <i
+                    class="mr-1 fas fa-plus"></i>
+                <span class="d-none d-md-inline-block">Add Product</span></a>
         </div>
     </div>
 </div>

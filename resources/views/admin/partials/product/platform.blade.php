@@ -6,9 +6,11 @@
         <div class="input-group-prepend">
             <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Platforms</button>
-            <div class="dropdown-menu">
-
-            </div>
+            <ul id="dropdownPlatform" class="dropdown-menu">
+                <li class="dropdown-item">PC</li>
+                <li class="dropdown-item">PS4</li>
+                <li class="dropdown-item">Xbox</li>
+            </ul>
         </div>
         @php
         if(isset($data)){
