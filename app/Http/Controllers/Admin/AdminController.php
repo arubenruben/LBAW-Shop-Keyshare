@@ -185,13 +185,13 @@ class AdminController extends Controller
         $page = $request->has('page') ? $request->input('page') : 1;
 
         $users_paginated = $this->paginate($users, $page);
+        $users_paginated->withPath('/admin/user');
 
         return view('admin.pages.all_users', [
             'title' => 'Users',
             'users' => $users_paginated->items(),
-            'page' => $users_paginated->currentPage(),
-            'max' => $users_paginated->lastPage(),
-            'query' => ($request->has('query') ? $request->input('query') : "")
+            'query' => ($request->has('query') ? $request->input('query') : ""),
+            'links' => $users_paginated->links()
         ]);
     }
 

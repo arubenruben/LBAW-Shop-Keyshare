@@ -27,7 +27,7 @@
 <body>
     @yield('header')
     <main id="wrapper">
-        <section id="content" class="container">
+        <section class="container-fluid">
             <div class="row pt-3">
                 <nav class="col-md-3">
                     @yield('sidebar')
