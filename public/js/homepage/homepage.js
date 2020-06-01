@@ -8,6 +8,21 @@ let most_popular = document.querySelectorAll(".most-popular .cardHomepage")
 let most_recent_offset = 0;
 let most_recent = document.querySelectorAll(".most-recent .cardHomepage")
 
+
+let cards = $('.card-body');
+let maxHeight = 0;
+
+for (let i = 0; i < cards.length; i++) {
+    if (maxHeight < $(cards[i]).outerHeight()) {
+        maxHeight = $(cards[i]).outerHeight();
+    }
+}
+
+for (let i = 0; i < cards.length; i++) {
+    $(cards[i]).height(maxHeight);
+}
+
+
 for(let i = 0; i < most_popular.length && i < most_recent.length; i++) {
     if(i < 5) {
         most_popular[i].style.display  = 'block';
