@@ -238,6 +238,15 @@ class AdminController extends Controller
 
     public function productDelete($id)
     {
+        try {
+            $this->authorize('addProduct', Admin::class);
+        } catch (AuthorizationException $e) {
+            return response(json_encode($e->getMessage()), 400);
+        }
+
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->back();
     }
 
     public function categoryGet()
