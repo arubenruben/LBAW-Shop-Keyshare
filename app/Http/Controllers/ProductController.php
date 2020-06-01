@@ -76,7 +76,7 @@ class ProductController extends Controller
     }
 
     /* Products list functions */
-    public function search(SearchRequest $request)
+    public function search(Request $request)
     {
         $productsCollection = $this->getProductPlatformPair();
 
@@ -94,11 +94,12 @@ class ProductController extends Controller
             }
         }
 
-        if (count($prices) === 0)
-            $prices = [0, 100];
-
-        $min_price = min($prices);
-        $max_price = max($prices);
+        $min_price = 0;
+        $max_price = 0;
+        if (count($prices) !== 0) {
+            $min_price = min($prices);
+            $max_price = max($prices);
+        }
 
         $filtered = $this->filterProducts($request, $productsCollection);
 
@@ -170,7 +171,7 @@ class ProductController extends Controller
         return response()->json(['products' => array_values($filtered->toArray()), 'max_price' => $max_price, 'min_price' => $min_price]);
     }
 
-    private function filterProducts(SearchRequest $request, \Illuminate\Support\Collection $products)
+    private function filterProducts(Request $request, \Illuminate\Support\Collection $products)
     {
         $filter = $products;
 

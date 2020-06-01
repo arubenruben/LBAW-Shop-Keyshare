@@ -33,7 +33,7 @@
                 </button>
                 <div id="collapseCategories" class="dropdown-menu">
                     @foreach($categories as $category)
-                        <a class="dropdown-item" href="{{route('search', ['$category' => $category->name])}}">{{$category->name}}</a>
+                        <a class="dropdown-item" href="{{route('search', ['category' => $category->name])}}">{{$category->name}}</a>
                     @endforeach
                 </div>
             </div>
