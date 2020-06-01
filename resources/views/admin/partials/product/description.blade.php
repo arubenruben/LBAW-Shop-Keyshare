@@ -5,7 +5,7 @@
         if(isset($data)){
         @endphp
         <textarea class="form-control" id="gameDescription" name="gameDescription"
-            rows="5">$data->description</textarea>
+            rows="5">{{$data->description}}</textarea>
         @php
         }else {
         @endphp

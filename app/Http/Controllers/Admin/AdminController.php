@@ -139,6 +139,8 @@ class AdminController extends Controller
     public function productGet()
     {
 
+
+
     }
 
     public function productAddForm()
@@ -149,10 +151,26 @@ class AdminController extends Controller
     public function productUpdateView($id)
     {
 
+        $product=Product::findOrFail($id);
+
+
+        return view('admin.pages.productEdit',['data'=>$product]);
+
     }
 
-    public function productUpdate($id)
+    public function productUpdate(ProductAddRequest $request,$id)
     {
+        try {
+            $this->authorize('addProduct', Admin::class);
+        } catch (AuthorizationException $e) {
+            return response(json_encode($e->getMessage()), 400);
+        }
+        
+        Product::findOrFail($id);
+
+
+
+        return "ok";
 
     }
 

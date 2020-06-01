@@ -35,7 +35,7 @@ class ProductAddRequest extends FormRequest
             'gamePlatforms' => 'bail | required|filled| string | max:100 ',
             'gameCategories' => 'bail | required|filled| string | max:100 ',
             'gameDescription' => 'bail | required|filled| string | max:500 ',
-            'img-upload' => 'bail | required|filled| image',
+            'img-upload' => 'bail | sometimes|filled| image',
         ];
     }
 

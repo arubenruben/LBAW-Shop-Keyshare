@@ -17,7 +17,10 @@
     <form action={{ route('product_add') }} method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
-        @include('admin.partials.product.info')
+        <div class="row">
+            @include('admin.partials.product.picture')
+            @include('admin.partials.product.name')
+        </div>
         @include('admin.partials.product.description')
         <hr>
         @include('admin.partials.product.genres')

@@ -10,7 +10,7 @@ Route::get('/admin', 'AdminController@show')->name('admin_homepage');
 Route::get('/admin/products', 'AdminController@productShow');
 Route::get('/admin/product', 'AdminController@productAddForm');
 Route::put('/admin/product', 'AdminController@productAdd')->name('product_add');
-Route::get('/admin/product/{id}', 'AdminController@productAdd')->where('id', '[0-9]+');
+Route::get('/admin/product/{id}', 'AdminController@productUpdateView')->where('id', '[0-9]+');
 Route::delete('/admin/product/{id}', 'AdminController@productDelete')->where('id', '[0-9]+');
 Route::post('/admin/product/{id}', 'AdminController@productUpdate')->where('id', '[0-9]+');
 Route::get('/api/admin/category', 'AdminController@categoryGet');

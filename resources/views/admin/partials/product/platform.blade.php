@@ -16,7 +16,7 @@
         if(isset($data)){
         @endphp
         <input id="gamePlatforms" name="gamePlatforms" type="text" class="form-control"
-            aria-label="Text input with dropdown button" value="Any Platform Selected Yet">
+            aria-label="Text input with dropdown button" value="COLOCAR ELEMENTS DIREITOS">
         @php
         }else{
         @endphp

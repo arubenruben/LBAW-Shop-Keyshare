@@ -14,7 +14,10 @@
     <form action="" method="POST">
         @csrf
         @method('put')
-        @include('admin.partials.product.info'['data'=>$data])
+        <div class="row">
+            @include('admin.partials.product.picture',['data'=>$data])
+            @include('admin.partials.product.name',['data'=>$data])
+        </div>
         @include('admin.partials.product.description',['data'=>$data])
         <hr>
         @include('admin.partials.product.genres',['data'=>$data])
@@ -25,7 +28,7 @@
         <!--
         <a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>
         -->
-        <input class="btn bg-orange mr-4 text-white" role="button" type="submit" value="Edit Product">
+        <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Edit Product">
     </div>
 </div>
 @endsection
