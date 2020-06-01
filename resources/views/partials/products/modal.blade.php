@@ -22,23 +22,23 @@
                                     </button>
                                     <div id="collapseOrder" class="collapse show">
                                         <div class="custom-control custom-radio my-2 ml-3">
-                                            <input type="radio" class="custom-control-input sort-by" id="SortBy11"
-                                                name="sort_by" value="Highest Price">
+                                            <input type="radio" class="custom-control-input sort-by" id="SortBy11" name="sort_by" value="1"
+                                                    {{(Request::has('sort_by') && Request::get('sort_by') == 1) ? 'checked' : ''}} >
                                             <label class="custom-control-label" for="SortBy11">Highest Price</label>
                                         </div>
                                         <div class="custom-control custom-radio my-2 ml-3">
-                                            <input type="radio" class="custom-control-input sort-by" id="SortBy22"
-                                                name="sort_by" value="Lowest Price">
+                                            <input type="radio" class="custom-control-input sort-by" id="SortBy22" name="sort_by" value="2"
+                                                    {{(Request::has('sort_by') && Request::get('sort_by') == 2) ? 'checked' : ''}} >
                                             <label class="custom-control-label" for="SortBy22">Lowest Price</label>
                                         </div>
                                         <div class="custom-control custom-radio my-2 ml-3">
-                                            <input type="radio" class="custom-control-input sort-by" id="SortBy33"
-                                                name="sort_by" value="Most popular">
+                                            <input type="radio" class="custom-control-input sort-by" id="SortBy33" name="sort_by" value="3"
+                                                    {{(Request::has('sort_by') && Request::get('sort_by') == 3) ? 'checked' : ''}} >
                                             <label class="custom-control-label" for="SortBy33">Most popular</label>
                                         </div>
                                         <div class="custom-control custom-radio my-2 ml-3">
-                                            <input type="radio" class="custom-control-input sort-by" id="SortBy44"
-                                                name="sort_by" value="Most recent">
+                                            <input type="radio" class="custom-control-input sort-by" id="SortBy44" name="sort_by" value="4"
+                                                    {{(Request::has('sort_by') && Request::get('sort_by') == 4) ? 'checked' : ''}} >
                                             <label class="custom-control-label" for="SortBy44">Most recent</label>
                                         </div>
                                     </div>
@@ -48,44 +48,38 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true"
                                         aria-controls="collapseGenres">
-                                        <h5 class="productSideBarTitle pb-2">Genres
-                                            <i class="fas fa-caret-down ml-1"></i>
-                                        </h5>
+                                        <h5 class="productSideBarTitle pb-2">Genres<i class="fas fa-caret-down ml-1"></i></h5>
                                     </button>
                                     <div id="collapseGenres" class="collapse show">
-                                        @php $i = 1; @endphp
-                                        @foreach($genres as $genre)
-                                        @php $i++; @endphp
-                                        <div class="custom-control custom-checkbox row ml-3 my-2">
-                                            <input type="checkbox" class="custom-control-input genre"
-                                                id="checkBoxGenre{{$i}}{{$i}}" value="{{$genre->name}}">
-                                            <label class="custom-control-label"
-                                                for="checkBoxGenre{{$i}}{{$i}}">{{$genre->name}}</label>
-                                        </div>
-                                        @endforeach
+                                        @for($i = 0; $i < count($genres); $i++)
+                                            <div class="custom-control custom-checkbox row ml-3 my-2">
+                                                <input type="checkbox" name="genres[]" class="custom-control-input genre" id="checkBoxGenre{{$i+1}}_" value="{{$genres->get($i)->name}}"
+                                                        {{ Request::has('genres') && in_array($genres->get($i)->name, explode(',', Request::get('genres'))) ?  'checked' : ''  }} >
+                                                <label class="custom-control-label" for="checkBoxGenre{{$i+1}}_">{{$genres->get($i)->name}}</label>
+                                            </div>
+                                        @endfor
                                     </div>
                                     <hr>
                                 </section>
                                 <section class="mt-4">
-                                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
-                                        data-toggle="collapse" data-target="#collapsePlatforms" aria-expanded="true"
-                                        aria-controls="collapsePlatforms">
-                                        <h5 class="productSideBarTitle">Platforms
-                                            <i class="fas fa-caret-down ml-1"></i>
-                                        </h5>
+                                    <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse"
+                                            data-target="#collapsePlatforms" aria-expanded="true" aria-controls="collapsePlatforms">
+                                        <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i></h5>
                                     </button>
                                     <div id="collapsePlatforms" class="collapse show">
-                                        @php $i = 1; @endphp
-                                        @foreach($platforms as $platform)
-                                        @php $i++; @endphp
-                                        <div class="custom-control custom-radio my-2 ml-3">
-                                            <input type="radio" class="custom-control-input platform"
-                                                id="checkBoxPlatforms{{$i}}{{$i}}" name="platform"
-                                                value="{{$platform->name}}">
-                                            <label class="custom-control-label"
-                                                   for="checkBoxPlatforms{{$i}}{{$i}}">{{$platform->name}}</label>
+                                        <div class="custom-control custom-radio row ml-3 my-2">
+                                            <input type="radio" class="custom-control-input category" id="noPlatform"
+                                                   name="platform" value="">
+                                            <label class="custom-control-label" for="noPlatform">All</label>
                                         </div>
-                                        @endforeach
+                                        @for($i = 0; $i < count($platforms); $i++)
+                                            <div class="custom-control custom-radio my-2 ml-3">
+                                                <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}_"
+                                                       name="platform" value="{{$platforms->get($i)->name}}"
+                                                       {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ?  'checked' : '' }}>
+                                                <label class="custom-control-label" for="checkBoxPlatforms{{$i+1}}_">{{$platforms->get($i)->name}}</label>
+                                            </div>
+                                        @endfor
                                     </div>
                                     <hr>
                                 </section>
@@ -93,31 +87,31 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
                                         aria-controls="collapseCategories">
-                                        <h5 class="productSideBarTitle">Categories
-                                            <i class="fas fa-caret-down ml-1"></i>
-                                        </h5>
+                                        <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i></h5>
                                     </button>
                                     <div id="collapseCategories" class="collapse show">
-                                        @php $i = 1; @endphp
-                                        @foreach($categories as $category)
-                                        @php $i++; @endphp
                                         <div class="custom-control custom-radio row ml-3 my-2">
-                                            <input type="radio" class="custom-control-input category"
-                                                id="checkBoxCategories{{$i}}{{$i}}" name="category"
-                                                value="{{$category->name}}">
-                                            <label class="custom-control-label"
-                                                for="checkBoxCategories{{$i}}{{$i}}">{{$category->name}}</label>
+                                            <input type="radio" class="custom-control-input category" id="noCategory"
+                                                   name="category" value="">
+                                            <label class="custom-control-label" for="noCategory">All</label>
                                         </div>
-                                        @endforeach
+                                        @for($i = 0; $i < count($categories); $i++)
+                                            <div class="custom-control custom-radio row ml-3 my-2">
+                                                <input type="radio" class="custom-control-input category" id="checkBoxCategories{{$i+1}}_"
+                                                       name="category" value="{{$categories->get($i)->name}}"
+                                                        {{(Request::has('category') && Request::get('category') == $categories->get($i)->name) ? 'checked': '' }}>
+                                                <label class="custom-control-label" for="checkBoxCategories{{$i+1}}_">{{$categories->get($i)->name}}</label>
+                                            </div>
+                                        @endfor
                                     </div>
                                     <hr>
                                 </section>
                                 <section class="mt-4">
-                                    <h5 class="productSideBarTitle my-2 ml-3">Max Price</h5>
-                                    <label for="price-range" class="my-2 ml-3" id="max_price_value">Value</label>
-                                    <input type="range" class="custom-range my-2 mx-auto" id="price-range"
-                                        name="maxPrice" max="{{$max_price}}" min="{{$min_price}}"
-                                        value="{{$max_price}}">
+                                    <h5 class="productSideBarTitle my-2 ml-3">Price Range</h5>
+                                    <article class="form-check form-check-inline">
+                                        <input class="form-control my-2 ml-3" type="number" value="{{Request::has('min_price') ? Request::get('min_price') : ''}}" name="min_price" id="min-price-range" placeholder="Min">
+                                        <input class="form-control my-2 ml-3" type="number" value="{{Request::has('max_price') ? Request::get('max_price') : ''}}" name="max_price" id="max-price-range" placeholder="Max">
+                                    </article>
                                 </section>
                             </div>
                         </form>

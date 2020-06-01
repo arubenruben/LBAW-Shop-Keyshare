@@ -59,9 +59,8 @@
                     </div>
                         @for($i = 0; $i < count($platforms); $i++)
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}"
-                            name="platform" value="{{$platforms->get($i)->name}}"
-                            @if(Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) checked @endif>
+                        <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}" name="platform" value="{{$platforms->get($i)->name}}"
+                            {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ? 'checked' : '' }}>
                         <label class="custom-control-label" for="checkBoxPlatforms{{$i+1}}">{{$platforms->get($i)->name}}</label>
                     </div>
                     @endfor
@@ -75,15 +74,14 @@
                 </button>
                 <div id="collapseCategories" class="collapse show">
                     <div class="custom-control custom-radio row ml-3 my-2">
-                        <input type="radio" class="custom-control-input category" id="noCategory"
-                               name="category" value="">
+                        <input type="radio" class="custom-control-input category" id="noCategory" name="category" value="">
                         <label class="custom-control-label" for="noCategory">All</label>
                     </div>
                     @for($i = 0; $i < count($categories); $i++)
                         <div class="custom-control custom-radio row ml-3 my-2">
                             <input type="radio" class="custom-control-input category" id="checkBoxCategories{{$i+1}}"
                                 name="category" value="{{$categories->get($i)->name}}"
-                                {{(Request::has('category') && Request::get('category') == $categories->get($i)->name) ? 'checked': '' }}>
+                                {{ (Request::has('category') && Request::get('category') == $categories->get($i)->name) ? 'checked': '' }}>
                             <label class="custom-control-label" for="checkBoxCategories{{$i+1}}">{{$categories->get($i)->name}}</label>
                         </div>
                     @endfor
