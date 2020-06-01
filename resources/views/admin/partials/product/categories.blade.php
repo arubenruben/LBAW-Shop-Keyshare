@@ -16,7 +16,7 @@
         if(isset($data)){
         @endphp
         <input id="gameCategories" name="gameCategories" type="text" class="form-control"
-            aria-label="Text input with dropdown button" value="COLOCAR AQUI OS ELEMENTOS SELECIONADOS">
+            aria-label="Text input with dropdown button" value="{{$data->category->name}}">
         @php
         }else {
         @endphp

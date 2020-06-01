@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+
+@push('head')
+<script src="{{ asset('js/admin/product.js') }}" defer></script>
+@endpush
+
 @section('header')
 @include('admin.partials.header.header_admin')
 @endsection
@@ -11,9 +16,8 @@
 @section('content')
 
 <div class="col mt-3">
-    <form action="" method="POST">
+    <form action={{ url('/admin/product/'.$data->id) }} method="POST" enctype="multipart/form-data">
         @csrf
-        @method('put')
         <div class="row">
             @include('admin.partials.product.picture',['data'=>$data])
             @include('admin.partials.product.name',['data'=>$data])
@@ -23,12 +27,10 @@
         @include('admin.partials.product.genres',['data'=>$data])
         @include('admin.partials.product.platform',['data'=>$data])
         @include('admin.partials.product.categories',['data'=>$data])
+        <div class="row flex-nowrap justify-content-between mt-5">
+            <!--<a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
+            <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Edit Product">
+        </div>
     </form>
-    <div class="row flex-nowrap justify-content-between mt-5">
-        <!--
-        <a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>
-        -->
-        <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Edit Product">
-    </div>
 </div>
 @endsection

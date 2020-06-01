@@ -15,11 +15,19 @@
 
         @php
         if(isset($data)){
+        $arrayName=array();
+        foreach ($data->genres as $genre) {
+        array_push($arrayName,$genre->name);
+        }
+
+        $string=implode(",",$arrayName);
+
         @endphp
         <input id="gameGenres" name="gameGenres" type="text" class="form-control"
-            aria-label="Text input with dropdown button" value="PREENCHER COM OS VALORES">
+            aria-label="Text input with dropdown button" value={{$string}}>
         @php
         }else {
+
         @endphp
         <input id="gameGenres" name="gameGenres" type="text" class="form-control"
             aria-label="Text input with dropdown button" placeholder="Any Genre Selected Yet">

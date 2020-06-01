@@ -14,9 +14,16 @@
         </div>
         @php
         if(isset($data)){
+
+        $arrayName=array();
+        foreach ($data->platforms as $platform) {
+        array_push($arrayName,$platform->name);
+        }
+
+        $string=implode(",",$arrayName);
         @endphp
         <input id="gamePlatforms" name="gamePlatforms" type="text" class="form-control"
-            aria-label="Text input with dropdown button" value="COLOCAR ELEMENTS DIREITOS">
+            aria-label="Text input with dropdown button" value={{$string}}>
         @php
         }else{
         @endphp
