@@ -10,7 +10,7 @@
 @endpush
 
 @section('navbar')
-    @include('partials.navbar.nonavbar', ['breadcrumbs'=> $breadcrumbs])
+    @include('partials.navbar.no_navbar', ['breadcrumbs'=> $breadcrumbs])
 @endsection
 
 @section('content')

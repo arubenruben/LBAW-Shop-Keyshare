@@ -9,7 +9,7 @@
 @endpush
 
 @section('navbar')
-    @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers',
+    @include('partials.navbar.profile_navbar', ['user' => $user, 'isOwner' => $isOwner, 'active' => 'Offers',
         'breadcrumbs'=> $breadcrumbs])
 @endsection
 

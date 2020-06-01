@@ -136,4 +136,19 @@ function encodeForAjax(data) {
     }).join('&');
 }
 
+function preventDefaultQuerySubmit() {
+    document.getElementById("#query-form").addEventListener("submit", function(event){
+        event.preventDefault()
+
+        let data = {};
+        data.query = document.querySelector("form input#query").value
+        sendGet(data)
+            .then(res => received(res))
+            .catch(error => console.error("Error: " + error));
+    });
+}
+
+console.log(document.getElementById("#headerFixed"))
+
 addEventListeners();
+preventDefaultQuerySubmit();

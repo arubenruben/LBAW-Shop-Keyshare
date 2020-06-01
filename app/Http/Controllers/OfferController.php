@@ -27,7 +27,7 @@ class OfferController extends Controller
         try {
             $this->authorize('unbanned', Offer::class);
         } catch (AuthorizationException $e) {
-            return redirect(url('/'));
+            return redirect()->route('home');
         }
         $user=Auth::user();
 

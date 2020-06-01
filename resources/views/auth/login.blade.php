@@ -7,7 +7,7 @@
 @endsection
 
 @section('navbar')
-    @include('partials.navbar.resetPasswordnavbar')
+    @include('partials.navbar.reset_password_navbar')
 @endsection
 
 @section('content')

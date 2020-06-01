@@ -21,7 +21,7 @@ Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
 
 // Products
-Route::get('/', 'ProductController@home');                                                           // Homepage
+Route::get('/', 'ProductController@home')->name('home');                                       // Homepage
 Route::get('/search', 'ProductController@search')->name('search');                             // Products list
 Route::get('/api/product', 'ProductController@get');                                                 // Products list
 Route::get('/api/product/sort', 'ProductController@sort');                                           // Products list
