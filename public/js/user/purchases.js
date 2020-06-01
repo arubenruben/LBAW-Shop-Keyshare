@@ -51,12 +51,15 @@ const processClick = (keyId, orderNumber) => {
     });
 
     sendGet('/api/key/' + keyId).then(function (res) {
-        orderNumberPlaceHolder.innerHTML += orderNumber;
+        //TODO : DONT KNOW IF THIS IS SUPOOSED to be here
+        //orderNumberPlaceHolder.innerHTML += orderNumber;
         usernamePlaceHolder.innerHTML = usernameOriginalContent + res.seller.username;
         pricePlaceHolder.innerHTML = priceOriginalContent + res.offer.price;
         productNamePlaceHolder.innerHTML = productNameOriginalContent + res.product.name;
         approvalRatePlaceHolder.innerHTML = approvalRateOriginalContent + res.seller.rating;
         numSellsPlaceHolder.innerHTML = numSellsOriginalContent + res.seller.num_sells;
+        orderNumberPlaceHolder.innerHTML = orderNumberOriginalContent + orderNumber;
+        commentPlaceHolder.innerHTML = commentOriginalContent;
 
         if (res.feedback !== null) {
             buttonSubmitFeedback.remove();
@@ -81,9 +84,12 @@ const processClick = (keyId, orderNumber) => {
             }
 
         } else {
-            commentPlaceHolder.innerHTML = commentOriginalContent;
             if (!document.body.contains(buttonSubmitFeedback))
                 submitButtonContainer.append(buttonSubmitFeedback);
+            if (!positiveButtonContainer.contains(positiveButton))
+                positiveButtonContainer.append(positiveButton);
+            if (!negativeButtonContainer.contains(negativeButton))
+                negativeButtonContainer.append(negativeButton);
         }
 
     })
@@ -91,7 +97,7 @@ const processClick = (keyId, orderNumber) => {
 
 const buttonPositiveClick = () => {
     evaluation = true;
-    positiveButton.classList.add('bg-success');
+    positiveButton.classList.add('bg-aux1');
     positiveThumb.classList.add('cl-white');
     negativeButton.classList.remove('bg-aux');
     negativeThumb.classList.remove('cl-white');
@@ -102,7 +108,7 @@ const buttonNegativeClick = () => {
     evaluation = false;
     negativeButton.classList.add('bg-aux');
     negativeThumb.classList.add('cl-white');
-    positiveButton.classList.remove('bg-success');
+    positiveButton.classList.remove('bg-aux1');
     positiveThumb.classList.remove('cl-white');
 
 }
