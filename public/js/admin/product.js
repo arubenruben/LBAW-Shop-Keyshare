@@ -61,5 +61,4 @@ function pictureUpdate() {
     }
     fileReader.readAsDataURL(fileBlob);
 
-
 }

@@ -15,13 +15,13 @@
         @php
         if(isset($data)){
         @endphp
-        <input id="gamePlatforms" type="text" class="form-control" aria-label="Text input with dropdown button"
-            value="Any Platform Selected Yet">
+        <input id="gamePlatforms" name="gamePlatforms" type="text" class="form-control"
+            aria-label="Text input with dropdown button" value="Any Platform Selected Yet">
         @php
         }else{
         @endphp
-        <input id="gamePlatforms" type="text" class="form-control" aria-label="Text input with dropdown button"
-            placeholder="Any Platform Selected Yet">
+        <input id="gamePlatforms" name="gamePlatforms" type="text" class="form-control"
+            aria-label="Text input with dropdown button" placeholder="Any Platform Selected Yet">
         @php
         }
 

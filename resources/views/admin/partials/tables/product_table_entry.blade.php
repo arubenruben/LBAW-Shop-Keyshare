@@ -28,7 +28,7 @@
     </td>
     <td class="align-middle">
         <div class="btn-group-justified btn-group-md">
-            <a href="admin_product_edit.php" class="btn btn-blue btn-block">
+            <a href={{'/admin/product/'.$data->id}} class="btn btn-blue btn-block">
                 <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-lg-inline-block">
                     Edit Product </span>
             </a>

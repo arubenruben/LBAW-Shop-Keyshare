@@ -50,7 +50,7 @@
             </thead>
             <tbody>
                 @foreach ($data as $product)
-                @include('admin.partials.tables.user_table_entry',['data'=>$product])
+                @include('admin.partials.tables.product_table_entry',['data'=>$product])
                 @endforeach
             </tbody>
         </table>

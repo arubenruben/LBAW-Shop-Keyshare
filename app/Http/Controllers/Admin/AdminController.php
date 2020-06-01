@@ -9,6 +9,8 @@ use App\Report;
 use Illuminate\Support\Facades\View;
 use App\Product;
 
+use App\Http\Requests\ProductAddRequest;
+
 class AdminController extends Controller
 {
     
@@ -69,9 +71,9 @@ class AdminController extends Controller
         return view('admin.pages.products',['data'=>$products]);
     }
 
-    public function productAdd()
+    public function productAdd(ProductAddRequest $request)
     {
-        return "true";
+        return $request;
 
     }
 

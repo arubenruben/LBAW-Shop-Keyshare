@@ -16,13 +16,13 @@
         @php
         if(isset($data)){
         @endphp
-        <input id="gameGenres" type="text" class="form-control" aria-label="Text input with dropdown button"
-            value="PREENCHER COM OS VALORES">
+        <input id="gameGenres" name="gameGenres" type="text" class="form-control"
+            aria-label="Text input with dropdown button" value="PREENCHER COM OS VALORES">
         @php
         }else {
         @endphp
-        <input id="gameGenres" type="text" class="form-control" aria-label="Text input with dropdown button"
-            placeholder="Any Genre Selected Yet">
+        <input id="gameGenres" name="gameGenres" type="text" class="form-control"
+            aria-label="Text input with dropdown button" placeholder="Any Genre Selected Yet">
         @php
         }
 
