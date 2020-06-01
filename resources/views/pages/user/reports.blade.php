@@ -2,7 +2,7 @@
 
 @section('title', $user->username.' Reports')
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @section('navbar')
     @include('partials.navbar.profilenavbar', ['user' => $user, 'isOwner' => $isOwner,

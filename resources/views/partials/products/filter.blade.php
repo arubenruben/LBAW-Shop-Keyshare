@@ -8,23 +8,19 @@
                 </button>
                 <div id="collapseOrder" class="collapse show">
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy1" name="sort_by"
-                            value="Highest Price">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy1" name="sort_by" value="1">
                         <label class="custom-control-label" for="SortBy1">Highest Price</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy2" name="sort_by"
-                            value="Lowest Price">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy2" name="sort_by" value="2">
                         <label class="custom-control-label" for="SortBy2">Lowest Price</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy3" name="sort_by"
-                            value="Most popular">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy3" name="sort_by" value="3">
                         <label class="custom-control-label" for="SortBy3">Most popular</label>
                     </div>
                     <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input sort-by" id="SortBy4" name="sort_by"
-                            value="Most recent">
+                        <input type="radio" class="custom-control-input sort-by" id="SortBy4" name="sort_by" value="4">
                         <label class="custom-control-label" for="SortBy4">Most recent</label>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     </div>
 
     <div class="row d-none d-xl-block pt-4">
-        @include('partials.cart.progressBar')
+        @include('partials.cart.progress_bar')
     </div>
     <div id="checkoutProductPreviewContainer mb-0" class="row">
         <div id="content" class="container mt-4 pb-0">
@@ -36,7 +36,7 @@
                             <tbody>
                             @foreach ($userCartEntries as $item)
                                 @php $allOffers->add($item->offer);@endphp
-                                @include('partials.cart.cartentry',['data'=>$item])
+                                @include('partials.cart.cart_entry',['data'=>$item])
                             @endforeach
                             </tbody>
                         </table>

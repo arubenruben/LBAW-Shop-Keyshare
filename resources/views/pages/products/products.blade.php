@@ -1,13 +1,12 @@
 @extends('layouts.app')
-
-@section('title')Products @endsection
+@section('title', 'Products')
 
 @push('head')
     <script src="{{ asset('js/products/products.js') }}" defer></script>
 @endpush
 
 @section('header')
-    @include('partials.header.userheader')
+    @include('partials.header.user_header')
 @endsection
 
 @section('navbar')

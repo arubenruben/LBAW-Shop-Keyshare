@@ -2122,21 +2122,19 @@ INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(54,5,'I M NOT A SCAM
 
 INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
 
-INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I HABE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('WHAT IS keyHARE?','FAQ REPLY');
-INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE keyHARE WEBISTE FOREVER?','FAQ REPLY');
+INSERT INTO faq(question, answer) VALUES('WHAT IS KEYSHARE?','KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
+INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?','The only available payment method Paypal');
+INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?','Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
+INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','The full price is as listed, so no!');
+INSERT INTO faq(question, answer) VALUES('DO I HAVE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','In case a product does not work, you should report the seller and the admin will analyze yoyr situation');
+INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?','Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
 
---SSN
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','ssn@fe.up.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
-
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (562.63, '2019-10-17 09:37:43', null, 0, 3, 103, 19, 3);
+-- SSN --
+INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','up310021@g.uporto.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 4, 103, 2, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', null, 0, 2, 103, 19, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', null, 0, 3, 103, 19, 3);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSa', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSb', 92);
 INSERT INTO keys (key, offer_id)values ('1C6NKSfShFgnCwpKxKHt6yVqGj1tpkMFSc', 92);
@@ -2147,3 +2145,12 @@ INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2019-08-18 16:52:45', 103, 'Léonie', 'kfraschini0@furl.net', 'pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in', '06563');
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZ', 17.44, 82, 501);
 INSERT INTO keys (key,price_sold, offer_id, order_id) VALUES ('1MF39tBHAtyZtvy9oBdTxe9TGSFJhuFSjZW', 17.44, 82, 502);
+
+
+-- new offers --
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.63, '2019-10-17 09:37:43', '2020-12-02 12:43:32', 67.14, 3, 103, 1, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (53.68, '2016-12-13 07:19:42', null, 0, 1, 68, 5, 5);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (63.68, '2019-12-13 07:19:42', null, 0, 2, 68, 8, 5);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (53.68, '2016-12-13 07:19:42', null, 0, 3, 4, 24, 12);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (63.68, '2019-12-13 07:19:42', null, 0, 4, 6, 15, 7);
+

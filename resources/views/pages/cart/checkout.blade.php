@@ -15,7 +15,7 @@
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>
 @endpush
 
-@include('partials.header.userheader')
+@include('partials.header.user_header')
 
 @section('navbar')
     @include('partials.navbar.nonavbar',['breadcrumbs'=>$breadcrumbs])
@@ -26,15 +26,15 @@
     <span class="d-none" id="client-token">{{$clientToken}}</span>
     <div id="content" class="container">
         <section id="checkout-tab-1" >
-            @include('partials.cart.checkoutTab1', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+            @include('partials.cart.checkout1.blade.php', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
         </section>
 
         <section id="checkout-tab-2">
-            @include('partials.cart.checkoutTab2', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+            @include('partials.cart.checkout2', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
         </section>
 
         <section id="checkout-tab-3">
-            @include('partials.cart.checkoutTab3')
+            @include('partials.cart.checkout3')
         </section>
     </div>
 

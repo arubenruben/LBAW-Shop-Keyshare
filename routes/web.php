@@ -21,11 +21,11 @@ Route::delete('user', 'UserController@delete');
 Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
 
 // Products
-Route::get('/', 'ProductController@home');
-Route::get('/search', 'ProductController@search')->name('search');
-Route::get('/api/product', 'ProductController@get');
-Route::get('/api/product/sort', 'ProductController@sort');
-Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product');
+Route::get('/', 'ProductController@home');                                                           // Homepage
+Route::get('/search', 'ProductController@search')->name('search');                             // Products list
+Route::get('/api/product', 'ProductController@get');                                                 // Products list
+Route::get('/api/product/sort', 'ProductController@sort');                                           // Products list
+Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product'); // Products page
 
 // Cart
 Route::get('/cart', 'CartController@show');
@@ -68,7 +68,7 @@ Route::put('/report/{id}', 'ReportController@message');
 // FAQ
 Route::get('/faq', 'FAQController@show');
 
-/*
+
 // Static
 Route::get('/about', function () {
     return view('pages.static.about', ['breadcrumbs' => ['About Us' => url("/about")]]);
@@ -76,7 +76,7 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('pages.static.contact', ['breadcrumbs' => ['Contact Us' => url("/contact")]]);
-});*/
+});
 
 // Admin
 Route::get('/admin', 'AdminController@show');

@@ -4,8 +4,9 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div id="sidebar" class="col">
@@ -15,7 +16,8 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true"
                                         aria-controls="collapseOrder">
-                                        <h5 class="productSideBarTitle">Sort by<i class="fas fa-caret-down ml-1"></i>
+                                        <h5 class="productSideBarTitle">Sort by
+                                            <i class="fas fa-caret-down ml-1"></i>
                                         </h5>
                                     </button>
                                     <div id="collapseOrder" class="collapse show">
@@ -46,8 +48,9 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapseGenres" aria-expanded="true"
                                         aria-controls="collapseGenres">
-                                        <h5 class="productSideBarTitle pb-2">Genres<i
-                                                class="fas fa-caret-down ml-1"></i></h5>
+                                        <h5 class="productSideBarTitle pb-2">Genres
+                                            <i class="fas fa-caret-down ml-1"></i>
+                                        </h5>
                                     </button>
                                     <div id="collapseGenres" class="collapse show">
                                         @php $i = 1; @endphp
@@ -67,7 +70,8 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapsePlatforms" aria-expanded="true"
                                         aria-controls="collapsePlatforms">
-                                        <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i>
+                                        <h5 class="productSideBarTitle">Platforms
+                                            <i class="fas fa-caret-down ml-1"></i>
                                         </h5>
                                     </button>
                                     <div id="collapsePlatforms" class="collapse show">
@@ -79,7 +83,7 @@
                                                 id="checkBoxPlatforms{{$i}}{{$i}}" name="platform"
                                                 value="{{$platform->name}}">
                                             <label class="custom-control-label"
-                                                for="checkBoxPlatforms{{$i}}{{$i}}">{{$platform->name}}</label>
+                                                   for="checkBoxPlatforms{{$i}}{{$i}}">{{$platform->name}}</label>
                                         </div>
                                         @endforeach
                                     </div>
@@ -89,7 +93,8 @@
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"
                                         data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true"
                                         aria-controls="collapseCategories">
-                                        <h5 class="productSideBarTitle">Categories<i class="fas fa-caret-down ml-1"></i>
+                                        <h5 class="productSideBarTitle">Categories
+                                            <i class="fas fa-caret-down ml-1"></i>
                                         </h5>
                                     </button>
                                     <div id="collapseCategories" class="collapse show">

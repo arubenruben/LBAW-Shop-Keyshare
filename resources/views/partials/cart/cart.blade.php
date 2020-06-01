@@ -32,7 +32,7 @@
                         @php
                             $allOffers->add($item->offer);
                         @endphp
-                        @include('partials.cart.cartentry',['data'=>$item])
+                        @include('partials.cart.cart_entry',['data'=>$item])
                     @endforeach
                     </tbody>
                 </table>
