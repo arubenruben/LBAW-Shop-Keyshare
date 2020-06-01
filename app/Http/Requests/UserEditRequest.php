@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserEditRequest extends FormRequest
 {
@@ -12,7 +13,7 @@ class UserEditRequest extends FormRequest
      * @return bool
      */
     public function authorize() {
-        return true;
+        return Auth::check() && !Auth::user()->isBanned();
     }
 
     /**

@@ -70,28 +70,30 @@
                                                             class="fas fa-key d-inline-block"></i> <span
                                                             class="d-none d-md-inline-block"> See key </span></button>
                                                     @if($user->feedback->where("key", "=", $key->id)->count() == 0)
-                                                    <button type="button mt-5 mb-5 "
-                                                        class="btn btn-blue btn-block flex-nowrap modal-feedback-opener"
-                                                        data-toggle="modal" data-key-id="{{$key->id}}"
-                                                        data-order-number="{{$order->number}}"
-                                                        data-target="#modalGiveFeedback {{ $user->isBanned() ? 'disabled' : ''}}">
-                                                        <i class="far fa-comment-alt d-inline-block"></i>
-                                                        <span class="d-none d-md-inline-block">Leave feedback</span>
-                                                    </button>
+                                                        <button type="button mt-5 mb-5 "
+                                                            class="btn btn-blue btn-block flex-nowrap modal-feedback-opener"
+                                                            data-toggle="modal" data-key-id="{{$key->id}}"
+                                                            data-order-number="{{$order->number}}"
+                                                            data-target="#modalGiveFeedback {{ $user->isBanned() ? 'disabled' : ''}}">
+                                                            <i class="far fa-comment-alt d-inline-block"></i>
+                                                            <span class="d-none d-md-inline-block">Leave feedback</span>
+                                                        </button>
                                                     @endif
                                                     @if($key->report == null)
-                                                    <button type="button mt-5 mb-5 "
-                                                        class="btn btn-red btn-block flex-nowrap"
-                                                        data-toggle="modal" data-key-id="{{$key->id}}"
-                                                        data-target="#modalGiveReport {{ $user->isBanned() ? 'disabled' : ''}}">
-                                                        <i class="fas fa-user-slash d-inline-block"></i>
-                                                        <span class="d-none d-md-inline-block"> Report Seller </span>
-                                                    </button>
+                                                        <button type="button mt-5 mb-5 "
+                                                            class="btn btn-red btn-block flex-nowrap modal-report-opener"
+                                                            data-toggle="modal" data-key-id="{{$key->id}}"
+                                                            data-order-number="{{$order->number}}"
+                                                            data-target="#modalGiveReport {{ $user->isBanned() ? 'disabled' : ''}}">
+                                                            <i class="fas fa-user-slash d-inline-block"></i>
+                                                            <span class="d-none d-md-inline-block"> Report Seller </span>
+                                                        </button>
                                                     @else
-                                                    <a href="{{ url('/report/'.$key->report->id) }}"
-                                                        class="btn btn-blue btn-block flex-nowrap" role="button"> <i
-                                                            class="fas fa-edit d-inline-block"></i> <span
-                                                            class="d-none d-md-inline-block"> View Report </span></a>
+                                                        <a href="{{ url('/report/'.$key->report->id) }}"
+                                                            class="btn btn-blue btn-block flex-nowrap" role="button"> <i
+                                                                class="fas fa-edit d-inline-block"></i> <span
+                                                                class="d-none d-md-inline-block"> View Report </span>
+                                                        </a>
                                                     @endif
                                                 </div>
                                             </td>

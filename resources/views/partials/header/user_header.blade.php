@@ -14,7 +14,7 @@
 
             @if(Request::has('query'))
                 <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
-                    aria-label="Search" name="query" id="query" value="{{::get('query')}}">
+                    aria-label="Search" name="query" id="query" value="{{Request::get('query')}}">
             @else
                 <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
                        aria-label="Search" name="query" id="query" value="">

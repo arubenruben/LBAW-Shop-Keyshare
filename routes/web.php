@@ -53,7 +53,7 @@ Route::delete('/discount/{discountId}', 'DiscountController@delete');
 // Keys
 Route::post('/key/{id}', 'KeyController@update');
 Route::delete('/key/{id}', 'KeyController@delete');
-Route::put('/key/{id}/feedback', 'KeyController@add');
+Route::put('/key/{id}/feedback', 'KeyController@feedback');
 Route::get('/key/{id}/feedback', 'KeyController@view');
 Route::put('/key/{id}/report', 'KeyController@report');
 Route::get('/api/key/{id}', 'KeyController@get');

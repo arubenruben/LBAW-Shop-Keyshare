@@ -32,8 +32,22 @@ class KeyController extends Controller
 
         return response(json_encode(['offer'=>$offer,'seller'=>$seller,'product'=>$product,'feedback'=>$feedback]),200);
     }
-    
-    public function add(FeedbackAddRequest $request)
+
+    public function delete($id) {
+        $key = Key::findOrFail($id);
+
+        try {
+            $this->authorize('delete', $key);
+        } catch (AuthorizationException $e) {
+            return response("You can't delete this key", 401);
+        }
+
+        $key->delete();
+
+        return response('Success',200);
+    }
+
+    public function feedback(FeedbackAddRequest $request)
     {
         $key = Key::findOrFail($request->get('key'));
 
@@ -53,20 +67,6 @@ class KeyController extends Controller
         if(!$feedback->save()) return response('Cannot give feedback at this time', 401);
 
         return response('Success', 200);
-    }
-
-    public function delete($id) {
-        $key = Key::findOrFail($id);
-
-        try {
-            $this->authorize('delete', $key);
-        } catch (AuthorizationException $e) {
-            return response("You can't delete this key", 401);
-        }
-
-        $key->delete();
-
-        return response('Success',200);
     }
 
     public function report(Request $request)
