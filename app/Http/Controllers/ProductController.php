@@ -50,7 +50,7 @@ class ProductController extends Controller
         $numberResults = 20;
         $productsCollection = $this->getProductPlatformPair();
 
-        $products = $productsCollection->filter(function ($entry) {
+        $purchableOffers = $productsCollection->filter(function ($entry) {
             $plat_id = $entry->platform->id;
             $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
                 return $offer->platform_id == $plat_id && $offer->final_date == null && $offer->stock != 0;
@@ -60,11 +60,11 @@ class ProductController extends Controller
         });
 
         $homepageData = collect([
-            'mostPopulars' => $products->sortByDesc(function ($entry) {
+            'mostPopulars' => $purchableOffers->sortByDesc(function ($entry) {
                 return $entry->product->num_sells;
             })->slice(0, $numberResults),
 
-            'mostRecents' => $products->sortByDesc(function ($entry) {
+            'mostRecents' => $purchableOffers->sortByDesc(function ($entry) {
                 return $entry->product->launch_date;
             })->slice(0, $numberResults),
 
@@ -242,7 +242,7 @@ class ProductController extends Controller
                     return $offers->min('price');
                 });
             } else if ($request->input('sort_by') == 2) {
-                $filter = $filter->sortBy(function ($entry) {
+                $filter = $filter->sortByDesc(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
                         return $offer->stock > 0 && $offer->platform_id == $plat_id;

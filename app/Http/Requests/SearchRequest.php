@@ -24,7 +24,7 @@ class SearchRequest extends FormRequest
     {
         return [
             'sort' => 'bail | sometimes | integer | between:1,4',
-            'genres' => 'bail | sometimes | array',
+            'genres' => 'bail | sometimes',
             'platform' => 'bail | sometimes | string | exists:platforms,name',
             'category' => 'bail | sometimes | string | exists:categories,name',
             'max_price' => 'bail | sometimes | numeric | min:0',
