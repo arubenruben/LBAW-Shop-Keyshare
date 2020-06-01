@@ -1,17 +1,14 @@
 @extends('layouts.admin')
 
 @section('header')
-@include('admin.partials.header.header_admin')
+    @include('admin.partials.header.header_admin')
 @endsection
-@section('navbar')
-<nav>
-    <h3>Dashboard</h3>
-</nav>
+
+@section('sidebar')
+    @include('admin.partials.sidebar.sidebar')
 @endsection
+
 @section('content')
-
-@include('admin.partials.sidebar.sidebar')
-
 <div class="row mt-4 justify-content-between justify-content-md-end">
     <div class="col-12 col-lg-9">
         <div class="row justify-content-between flex-nowrap">
