@@ -25,7 +25,7 @@ class ReportAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'key' => "bail | required | filled | string | exists:keys,id",
+            'key' => "bail | required | filled | integer",
             'title' =>"bail | required | filled | string",
             'description' =>"bail | required | filled | string"
         ];

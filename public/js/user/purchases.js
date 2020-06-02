@@ -42,7 +42,7 @@ const sendGet = get => {
         .catch(error => console.error("Error: " + error));
 }
 
-const sendPut = (put) => {
+const sendPut = (put, url) => {
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const sendPut = (put) => {
         body: JSON.stringify(put)
     }
 
-    return fetch('/key/' + put.key + '/feedback', options)
+    return fetch(url, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }
@@ -250,10 +250,10 @@ const giveReport = (keyId, orderNumber) => {
 };
 
 const submitReport = (keyId) => {
-    let title = document.querySelector("#report-title");
-    let description = document.querySelector("#report-description");
+    let title = document.querySelector("#report-title").value;
+    let description = document.querySelector("#report-description").value;
     let data = {
-        key_id: keyId,
+        key: keyId,
         title: title,
         description: description,
     };
