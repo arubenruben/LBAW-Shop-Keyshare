@@ -70,7 +70,18 @@ class ProductController extends Controller
                 return $entry->product->launch_date;
             })->slice(0, $numberResults),
 
-            'carousel' => [asset('pictures/carousel/1.png'), asset('pictures/carousel/2.png'), asset('pictures/carousel/3.png')]
+            'carousel' => [
+                asset('pictures/carousel/1.png'),
+                asset('pictures/carousel/2.jpg'),
+                asset('pictures/carousel/3.jpg'),
+                asset('pictures/carousel/4.jpg'),
+                asset('pictures/carousel/4.png'),
+                asset('pictures/carousel/5.jpg'),
+                asset('pictures/carousel/7.jpg'),
+                asset('pictures/carousel/8.jpg'),
+                asset('pictures/carousel/9.jpg'),
+                asset('pictures/carousel/10.jpg'),
+            ]
         ]);
 
 

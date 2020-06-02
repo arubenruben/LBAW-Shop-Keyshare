@@ -4,7 +4,7 @@
         @if(Auth::user()->banAppeal == null)
             <a class="font-weight-bold" href="#appealModal" data-toggle="modal" data-target="#appealModal">Click to appeal</a>
         @else
-            <p class="mb-0">Your ban appeal: {{ Auth::user()->banAppeal->ban_appeal }}</p>
+            <p class="mb-0">Your ban appeal: '{{ Auth::user()->banAppeal->ban_appeal }}'</p>
         @endif
     </div>
 
