@@ -26,12 +26,13 @@
                             <h6><u> Product in question</u></h6>
                             <div class="pl-2 pt-2">
                                 <a href="{{route('product', ['productName' => $report->key->offer->product->name, 'platformName' => $report->key->offer->platform->name])}}">
-                                    <img src="{{asset('pictures/games/'.$report->key->offer->product->picture->url)}}" alt="" width="150" class="img-fluid rounded shadow-smuserOffersTableEntryImage">
+                                    <img src="{{asset('pictures/games/'.$report->key->offer->product->picture->url)}}" alt="" width="150" class="img-fluid rounded shadow-sm userOffersTableEntryImage">
                                 </a>
                                 <div class="ml-1 align-middle flex-nowrap">
                                     <h6 class="mb-0 d-inline">
-                                        <a href="{{route('product', ['productName' => $report->key->offer->product->name, 'platformName' => $report->key->offer->platform->name])}}" class="text-dark">{{$report->key->offer->product->name}}</a></h6>
-                                    <span class="text-muted font-italic d-inline"> {{$report->key->offer->platform->name}}</span>
+                                        <a href="{{route('product', ['productName' => $report->key->offer->product->name, 'platformName' => $report->key->offer->platform->name])}}" class="text-dark">{{$report->key->offer->product->name}}</a>
+                                    </h6>
+                                    <span class="text-muted font-italic d-inline"> [{{$report->key->offer->platform->name}}] </span>
                                 </div>
                             </div>
                         </div>
