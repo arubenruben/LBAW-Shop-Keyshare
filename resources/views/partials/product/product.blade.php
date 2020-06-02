@@ -28,7 +28,7 @@
             <div class="col-6">
                 <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{$numberOffers}}</span></h4>
             </div>
-            <div class="col-6 text-right">
+            <div id="radio-buttons" class="col-6 text-right {{ count($offers)===0 ? 'd-none': '' }}">
                 <h6 class="d-inline-block mr-3">Sort by:  </h6>
                 <div style='display:inline;' class="mr-3">
                     <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_price" checked/>
@@ -42,7 +42,7 @@
         </div>
         <div class="row mt-2">
             <div class="col-12">
-                <div class="table-responsive table-striped ">
+                <div id="offers-content" class="table-responsive table-striped ">
                     @if(count($offers)>0)
                         <table id="userOffersTable" class="table p-0">
                             <thead>
