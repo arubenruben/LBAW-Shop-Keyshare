@@ -27,9 +27,9 @@
         @include('admin.partials.product.genres',['data'=>$data,'genres'=>$genres])
         @include('admin.partials.product.platform',['data'=>$data,'platforms'=>$platforms])
         @include('admin.partials.product.categories',['data'=>$data,'categories'=>$categories])
-        <div class="row flex-nowrap justify-content-between mt-5">
+        <div class="row flex-nowrap justify-content-between mt-5 mb-5">
             <!--<a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
-            <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Edit Product">
+            <button class="btn btn-orange mr-4 ml-auto text-white" role="button" type="submit">Edit Product</button>
         </div>
     </form>
 </div>

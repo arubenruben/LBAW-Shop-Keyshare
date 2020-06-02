@@ -248,8 +248,6 @@ class AdminController extends Controller
         $product->genres()->detach();
         $product->platforms()->detach();
 
-
-
         foreach ($genres as $genre) {
 
             $founded = Genre::where('name', strtoupper($genre))->first();
@@ -263,7 +261,6 @@ class AdminController extends Controller
 
             $product->platforms()->attach($founded->id);
         }
-
 
         return redirect('/admin/products');
     }
@@ -320,7 +317,12 @@ class AdminController extends Controller
         $this->authorize('addProduct', Admin::class);
 
         $category = Category::findOrFail($id);
-        $category->delete();
+
+        try {
+            $category->delete();
+        } catch (QueryException $ex) {
+            return redirect('/admin');
+        }
 
         return back();
     }

@@ -29,7 +29,7 @@
         @include('admin.partials.product.categories',['categories'=>$categories])
         <div class="row flex-nowrap justify-content-between mt-5">
             <!--a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
-            <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Publish Product">
+            <button class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit">Publish Product</button>
         </div>
     </form>
 </div>
