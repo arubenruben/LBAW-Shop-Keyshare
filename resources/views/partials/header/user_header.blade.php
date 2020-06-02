@@ -60,7 +60,9 @@
     <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
         <div class="row">
             <a href="{{ route('showCart') }}" class="mt-auto mb-auto ml-auto mr-3">
-                <i class="fas fa-shopping-cart headerIcon cl-orange badge badge-secondary"></i><span id="shopping_cart_item_counter">{{ Auth::check() ? Auth::user()->cart->count() :  count(session('cart',array())) }}</span></a>
+                <i class="fas fa-shopping-cart headerIcon cl-orange"></i>
+                <span id="shopping_cart_item_counter" class="badge badge-secondary">{{ Auth::check() ? Auth::user()->cart->count() :  count(session('cart', array())) }}</span>
+            </a>
         </div>
     </div>
 
