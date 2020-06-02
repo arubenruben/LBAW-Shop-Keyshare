@@ -89,7 +89,7 @@ class UserController extends Controller
         try {
             $this->authorize('update', User::class);
         } catch (AuthorizationException $e) {
-            return response(json_encode("You can't edit this profile"), 400);
+            return response(json_encode(["message" => "Failure", "errors" => ["newPassword" => "", "oldPassword" => "You dont have Permission to edit this user"]], 400));
         }
 
         //$request = $request->validated();
@@ -105,7 +105,8 @@ class UserController extends Controller
             if (Hash::check($request->oldPassword, Auth::user()->password)) {
                 Auth::user()->password = Hash::make($request->newPassword);
             } else {
-                return response(json_encode("Old password is incorrect"), 400);
+
+                return response(json_encode(["message" => "Failure", "errors" => ["oldPassword" => "Old password is incorrect"]]), 400);
             }
         }
         if (isset($request->paypal)) {

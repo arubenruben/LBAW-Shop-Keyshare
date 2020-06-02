@@ -40,7 +40,6 @@ class UserEditRequest extends FormRequest
             'email.email' => 'The email provided is not a valid one',                
             'description.string' => 'The description must be a string',
             'description.max' => 'The description has a maximum number of 500 characters',
-            
             'oldPassword.required_with' => 'A new password must be sent in conjunction with the old one',
             'newPassword.min' => 'The new password must be over 6 characters',
             'newPassword.max' => 'The new password must be under 100 characters',
