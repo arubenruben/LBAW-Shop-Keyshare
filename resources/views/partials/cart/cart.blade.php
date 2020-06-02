@@ -1,21 +1,21 @@
 <article>
-    <header class="row">
+    <header class="row mt-4">
         <div class="col-sm-6 text-left">
             <h4>My Cart <span id="counter_products_cart" class="badge badge-secondary">{{count($data)}}</span></h4>
         </div>
         <div class="col-6 text-right">
-            @if(count($data) > 0)
-                <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="{{route('checkoutInit') }}" role="button">
-                    <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline"> Checkout</span>
-                </a>
-            @endif
+            <a id="checkout-top-button" class="btn btn-lg btn-orange deleteButtonCheckout align-right {{count($data) == 0 ? 'd-none' : ''}}" href="{{route('checkoutInit') }}" role="button">
+                <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline"> Checkout</span>
+            </a>
         </div>
     </header>
     <section class="row">
         <div class="col-sm-12">
-            @if(count($data) == 0) @include('partials.cart.cart_no_entries')
-            @else
-                <div class="table-responsive table-striped  mt-3">
+
+                <div id = "cart-no-entries" class="{{count($data) == 0 ? '' : 'd-none'}}">
+                    @include('partials.cart.cart_no_entries')
+                </div>
+                <div id="tableOffers" class="table-responsive table-striped  mt-3 {{count($data) == 0 ? 'd-none' : ''}}">
                     <table id="userOffersTable" class="table p-0">
                         <thead>
                         <tr>
@@ -41,11 +41,9 @@
                         </tbody>
                     </table>
                 </div>
-            @endif
         </div>
     </section>
-    @php($totalPrice = 0)@endphp
-    @if(count($data) > 0)
+    <div id="total-price-div" class="{{count($data) == 0 ? 'd-none' : ''}}">
         <div class="row mt-4">
             <div class="col text-right">
                 <h4>Total Price: <span id="total_price">{{$allOffers->sum('discountPriceColumn')}}</span>$</h4>
@@ -58,7 +56,6 @@
                 </a>
             </div>
         </div>
-    @endif
-
+    </div>
 
 </article>

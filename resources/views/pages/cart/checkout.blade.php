@@ -10,9 +10,7 @@
     <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.62.0/js/data-collector.min.js"></script>
-
     <script src="{{ asset('js/cart/checkoutC.js') }}" defer></script>
-    <script src="{{ asset('js/cart/cart.js') }}" defer></script>
 @endpush
 
 @section('header')
@@ -26,9 +24,9 @@
 @section('content')
 
     <span class="d-none" id="client-token">{{$clientToken}}</span>
-    <div id="content" class="container">
-        <section id="checkout-tab-1" >
-            @include('partials.cart.checkout1.blade.php', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
+    <div id="content" class="container mt-2">
+        <section id="checkout-tab-1">
+            @include('partials.cart.checkout1', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
         </section>
 
         <section id="checkout-tab-2">
