@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Product add')
 
 @push('head')
 <script src="{{ asset('js/admin/product.js') }}" defer></script>

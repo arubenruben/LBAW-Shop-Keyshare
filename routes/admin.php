@@ -39,9 +39,10 @@ Route::get('/admin/user', 'AdminController@userShow');
 Route::post('/admin/user/{id}', 'AdminController@userUpdate');
 
 Route::get('/api/admin/report', 'AdminController@reportGet');
-Route::get('/admin/report', 'AdminController@reportShow');
-Route::get('/admin/report/{id}', 'AdminController@reportShowMessages');
-Route::put('/admin/report/{id}', 'AdminController@reportMessage');
+Route::get('/admin/report', 'AdminController@allReports');
+Route::get('/admin/report/{reportId}', 'AdminController@reportShow');
+Route::post('/admin/report/{reportId}', 'AdminController@reportUpdate')->name('updateReport');
+Route::put('/admin/report/{reportId}', 'AdminController@reportMessage');
 
 Route::get('/api/admin/transaction', 'AdminController@transactionGet');
 Route::get('/admin/transaction', 'AdminController@transactionShow');

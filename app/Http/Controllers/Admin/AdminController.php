@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\AdminBanRequest;
 use App\Http\Requests\AdminUserRequest;
+use App\Http\Requests\ReportUpdateRequest;
 use App\Order;
 use App\Report;
 use App\User;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use App\Product;
 use App\Admin;
@@ -267,11 +269,7 @@ class AdminController extends Controller
 
     public function productDelete($id)
     {
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
+        $this->authorize('addProduct', Admin::class);
 
         $product = Product::findOrFail($id);
         $product->delete();
@@ -287,6 +285,8 @@ class AdminController extends Controller
 
     public function categoryAdd(Request $request)
     {
+        $this->authorize('addProduct', Admin::class);
+
         if (!$request->has('category'))
             return response(400);
 
@@ -302,6 +302,8 @@ class AdminController extends Controller
 
     public function categoryUpdate(Request $request, $id)
     {
+        $this->authorize('addProduct', Admin::class);
+
         $category = Category::findOrFail($id);
 
         if (!$request->has('category'))
@@ -315,6 +317,8 @@ class AdminController extends Controller
 
     public function categoryDelete(Request $request, $id)
     {
+        $this->authorize('addProduct', Admin::class);
+
         $category = Category::findOrFail($id);
         $category->delete();
 
@@ -323,6 +327,8 @@ class AdminController extends Controller
 
     public function genreShow()
     {
+        $this->authorize('addProduct', Admin::class);
+
         $data = Genre::all();
 
         return view('admin.pages.genres', ['data' => $data]);
@@ -330,6 +336,7 @@ class AdminController extends Controller
 
     public function genreAdd(Request $request)
     {
+        $this->authorize('addProduct', Admin::class);
 
         if (!$request->has('genre'))
             return response(400);
@@ -346,6 +353,7 @@ class AdminController extends Controller
 
     public function genreUpdate(Request $request, $id)
     {
+        $this->authorize('addProduct', Admin::class);
 
         $genre = Genre::findOrFail($id);
 
@@ -360,6 +368,8 @@ class AdminController extends Controller
 
     public function genreDelete(Request $request, $id)
     {
+        $this->authorize('addProduct', Admin::class);
+
         $genre = Genre::findOrFail($id);
         $genre->delete();
 
@@ -368,30 +378,38 @@ class AdminController extends Controller
 
     public function platformGet()
     {
+
     }
 
     public function platformShow()
     {
+
     }
 
     public function platformAdd()
     {
+
     }
 
     public function platformUpdate($id)
     {
+
     }
 
     public function platformDelete($id)
     {
+
     }
 
     public function userGet()
     {
+
     }
 
     public function userShow(AdminUserRequest $request)
     {
+        $this->authorize('addProduct', Admin::class);
+
         if ($request->has('query')) {
             $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
             $users = User::whereRaw("name_tsvector @@ to_tsquery('" . $query . ":*')")->get();
@@ -416,6 +434,8 @@ class AdminController extends Controller
     {
         User::findOrFail($id);
 
+        $this->authorize('addProduct', Admin::class);
+
         if ($request->input('ban') == "1") {
             if (BannedUser::find($id) === null) {
                 BannedUser::create([
@@ -431,58 +451,91 @@ class AdminController extends Controller
 
     public function reportGet()
     {
+
     }
 
-    public function reportShow()
-    {
+    public function allReports() {
+        $this->authorize('addProduct', Admin::class);
+
+        $reports = Report::orderBy('date', 'DESC')->get();
+        $reports_paginated = $this->paginate($reports, Input::input('page', 1));
+        $reports_paginated->withPath('/admin/user');
+
+        return view('admin.pages.all_reports', [
+            'title' => 'Reports',
+            'reports' => $reports_paginated->items(),
+            'links' => $reports_paginated->links()
+        ]);
     }
 
-    public function reportShowMessages($id)
-    {
+    public function reportUpdate($reportId, ReportUpdateRequest $request) {
+        $this->authorize('addProduct', Admin::class);
+
+        $report = Report::findOrFail($reportId);
+
+        $report->status = $request->input('status') == '1';
+        $report->save();
+
+        return back();
     }
 
-    public function reportMessage($id)
+    public function reportShow($reportId) {
+
+    }
+
+    public function reportMessage($reportId)
     {
+
     }
 
     public function transactionGet()
     {
+
     }
 
     public function transactionShow()
     {
+
     }
 
     public function feedbackGet()
     {
+
     }
 
     public function feedbackShow()
     {
+
     }
 
     public function feedbackDelete($id)
     {
+
     }
 
     public function faqGet()
     {
+
     }
 
     public function faqShow()
     {
+
     }
 
     public function faqAdd()
     {
+
     }
 
     public function faqUpdate($id)
     {
+
     }
 
     public function faqDelete($id)
     {
+
     }
 
     public function __construct()
