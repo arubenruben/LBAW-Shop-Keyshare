@@ -16,6 +16,7 @@
             <div class="col-sm-8  border">
 
                 <form id="formCheckout">
+                    @csrf
                     <div class="form-group">
                         <label for="checkoutInputName">Name</label>
                         <input type="text" class="form-control checkoutInput" id="checkoutInputName" placeholder="Enter Your Name">

@@ -8,6 +8,7 @@
     <!-- Search -->
     <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
         <form id="query-form" class="form-inline" action="{{ route('search') }}" method="get">
+            @csrf
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>
@@ -76,6 +77,7 @@
 <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
     <div class="col w-100">
         <form class="form-inline" action="{{route('search')}}" method="get">
+            @csrf
             <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
                    aria-label="Search" name="query"/>

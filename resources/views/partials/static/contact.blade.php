@@ -3,6 +3,7 @@
         <div class="col-8 ml-auto mr-auto">
             <h1> Contact us</h1>
             <form>
+                @csrf
                 <div class="row my-3 mx-2">
                     <input type="email" class="form-control" placeholder="name">
                 </div>

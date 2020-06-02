@@ -17,6 +17,7 @@
 @section('content')
     @if ($isOwner)
         @include('partials.user.profileAsOwner', ['user' => $user])
+        @include('partials.user.ban_appeal')
     @else
         @include('partials.user.profileAsGuest', ['user' => $user])
     @endif

@@ -12,6 +12,7 @@
 @section('content')
     @include('partials.user.reports', ['user' => $user, 'myReports' => $myReports,
         'reportsAgainstMe' => $reportsAgainstMe])
+    @include('partials.user.ban_appeal')
 @endsection
 
 @section('footer')
