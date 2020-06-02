@@ -201,9 +201,11 @@ class AdminController extends Controller
         User::findOrFail($id);
 
         if($request->input('ban') == "1") {
-            BannedUser::create([
-                'id' => $id
-            ])->save();
+            if(BannedUser::find($id) === null) {
+                BannedUser::create([
+                    'id' => $id
+                ])->save();
+            }
         } else {
             BannedUser::destroy($id);
         }
