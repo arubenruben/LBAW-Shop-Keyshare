@@ -66,10 +66,5 @@ Route::get('/report/{id}', 'ReportController@show')->name('showReport');
 Route::get('/faq', 'FAQController@show')->name('faq');
 
 // Static
-Route::get('/about', function () {
-    return view('pages.static.about', ['breadcrumbs' => ['About Us' => url("/about")]]);
-})->name('about');
-
-Route::get('/contact', function () {
-    return view('pages.static.contact', ['breadcrumbs' => ['Contact Us' => url("/contact")]]);
-})->name('contact');
+Route::get('/about', 'AboutController@show')->name('about');
+Route::get('/contact', 'ContactController@show')->name('contact');
