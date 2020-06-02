@@ -72,13 +72,31 @@ class AdminController extends Controller
         );
     }
 
-    public function productShow()
+    public function productShow(Request $request)
     {
-        $data = array();
+
+        if($request->has('query')) {
+            $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
+            $products = Product::whereRaw("name_tsvector @@ to_tsquery('". $query.":*')")->get();
+        } else {
+            $products = Product::all();
+        }
+
+        $page = $request->has('page') ? $request->input('page') : 1;
+        
+        $products_paginated = $this->paginate($products, $page);
+        
+        $products_paginated->withPath('/admin/products');
 
         $products = Product::paginate(10);
 
-        return view('admin.pages.products', ['data' => $products]);
+        return view('admin.pages.products', [
+            'products' => $products_paginated->items(),
+            'title' => 'Products',
+            'query'=>($request->has('query') ? $request->input('query') : ""),
+            'links' => $products_paginated->links()
+
+        ]);
     }
 
     public function productAdd(ProductAddRequest $request)
