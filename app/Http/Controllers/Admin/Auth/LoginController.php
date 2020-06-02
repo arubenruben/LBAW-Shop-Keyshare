@@ -13,7 +13,7 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     protected $redirectTo = '/admin';
-    
+
     public function username()
     {
         return 'username';
@@ -28,23 +28,22 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    protected function guard(){
+    protected function guard()
+    {
         return Auth::guard('admin');
     }
 
     public function login(Request $request)
-    { 
-        if(Auth::guard('admin')->attempt($request->only('username','password'),$request->filled('remember'))){
+    {
+        if (Auth::guard('admin')->attempt($request->only('username', 'password'), $request->filled('remember'))) {
             return redirect()->route('admin_homepage');
         }
-    
+
         //Authentication failed...
-       return redirect()->route('login_page')
-        ->withInput($request->only($this->username(), 'remember'))
-        ->withErrors([
-        'password' => Lang::get('auth.password'),
-        ]);
+        return redirect()->route('login_page')
+            ->withInput($request->only($this->username(), 'remember'))
+            ->withErrors([
+                'password' => Lang::get('auth.password'),
+            ]);
     }
-
-
 }

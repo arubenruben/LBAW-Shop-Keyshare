@@ -2,9 +2,9 @@
 
 
 // Admin
-Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('login_page');
-Route::post('/admin/login', 'Auth\LoginController@login')->name('login');
-Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('login_page_admin');
+Route::post('/admin/login', 'Auth\LoginController@login')->name('loginAdmin');
+Route::post('/admin/logout', 'Auth\LoginController@logout')->name('logoutAdmin');
 
 Route::get('/admin', 'AdminController@show')->name('admin_homepage');
 Route::get('/admin/products', 'AdminController@productShow');
