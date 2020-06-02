@@ -40,7 +40,7 @@ class KeyController extends Controller
             return response("You can't delete this key", 401);
         }
 
-        $key->delete();
+        if(!$key->delete()) return response('Cannot delete key at this time', 401);;
 
         return response('Success', 200);
     }
@@ -69,20 +69,18 @@ class KeyController extends Controller
 
     public function report(ReportAddRequest $request)
     {
-
         $key = Key::findOrFail($request->get('key'));
 
         if ($key->report != null)
             return response("You already reported this key", 400);
 
-        $report = new Report;
-        $report->title = $request->get('title');
-        $report->description = $request->get('description');
-        $report->key_id = $key->id;
-        $report->reporter_id = Auth::user()->id;
-        $report->reported_id = $key->offer->seller->id;
-
-
+        $report = Report::create([
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'key_id' => $key->id,
+            'reporter_id' => Auth::id(),
+            'reported_id' => $key->offer->seller->id
+        ]);
 
         if (!$report->save()) return response('Cannot give feedback at this time', 401);
 

@@ -6,11 +6,9 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserEditRequest;
 use App\Picture;
 use App\User;
-use Image;
 
 
 class UserController extends Controller

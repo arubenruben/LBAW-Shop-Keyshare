@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class Report extends Model
 {
@@ -11,6 +12,19 @@ class Report extends Model
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'key_id',
+        'reporter_id',
+        'reported_id',
+    ];
 
     /**
      * The user who received the report
