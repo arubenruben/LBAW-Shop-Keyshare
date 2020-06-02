@@ -13,11 +13,22 @@ class Admin extends Authenticatable
     public $timestamps  = false;
 
     /**
-     * The model's default values for attributes.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $attributes = [
-        'image' => 1,
+    protected $fillable = [
+        'username',
+        'email',    
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password'
     ];
 }

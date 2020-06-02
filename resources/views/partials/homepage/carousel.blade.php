@@ -1,19 +1,15 @@
 <article id="carouselExampleIndicators" class="carousel slide ml-auto mr-auto row mx-3 my-5" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        @for($i = 0; $i < count($carousel); $i++)
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="{{$i == 0 ? 'active' : ''}}"></li>
+        @endfor
     </ol>
     <section class="carousel-inner">
-        <div class="carousel-item active">
-            <a href="{{route('search')}}"><img src="{{$carousel[0]}}" class="d-block w-100"></a>
-        </div>
-        <div class="carousel-item">
-            <a href="{{route('search')}}"><img src="{{$carousel[1]}}" class="d-block w-100"></a>
-        </div>
-        <div class="carousel-item">
-            <a href="{{route('search')}}"><img src="{{$carousel[2]}}" class="d-block w-100"></a>
-        </div>
+        @for($i = 0; $i < count($carousel); $i++)
+            <div class="carousel-item {{$i == 0 ? 'active' : ''}}">
+                <a href="{{route('search')}}"><img src="{{$carousel[$i]}}" class="d-block w-100"></a>
+            </div>
+        @endfor
     </section>
     <a id="carouselArrowLeft" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
