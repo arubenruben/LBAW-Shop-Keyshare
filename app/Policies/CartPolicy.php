@@ -10,8 +10,7 @@ use App\Cart;
 class CartPolicy 
 {
     use HandlesAuthorization;
-    public function loggedIn(User $user) {
-        
+    public function loggedIn(User $user) {        
         return Auth::check();
     }
     public function delete(User $user, Cart $cart){

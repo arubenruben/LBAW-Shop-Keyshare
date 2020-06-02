@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta http-equiv="cache-control" content="private, max-age=0, no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
   <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
   <!-- Styles -->
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
@@ -15,7 +18,7 @@
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
   <!-- fonts -->
-  <link href="{{ asset('css/montserrat.css') }}" rel="stylesheet">
+  <link href="{{asset('css/montserrat.css') }}" rel="stylesheet">
   <script src="{{ asset('jquery/jquery.slim.js') }}"></script>
   <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>

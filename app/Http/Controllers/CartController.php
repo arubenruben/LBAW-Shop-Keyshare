@@ -10,199 +10,223 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
 use App\Offer;
-Use Braintree;
+use Braintree;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Cache;
 
 class CartController extends Controller
 {
     public function show(Request $request)
-    {    
-        $data=array();
+    {
 
-        $this->authorize('loggedIn',Cart::class);
-        $user = Auth::user();
-        $loggedIn = true;
-        
+        Cache::flush();
+
+        $data = array();
+
+        try {
+            $this->authorize('loggedIn', Cart::class);
+            $user = Auth::user();
+            $loggedIn = true;
+        } catch (AuthorizationException $e) {
+            $loggedIn = false;
+        }
+
         //If logged in -> Get the Cart from the database
-        if($loggedIn){          
+        if ($loggedIn) {
             //Get Content in the session
-            $cart=$user->cart;
-            
-            for($i=0;$i<count($cart);$i++){
-                $data[$i]=Cart::findOrFail($cart[$i]->id);
+            $cart = $user->cart;
+
+            for ($i = 0; $i < count($cart); $i++) {
+                $data[$i] = Cart::findOrFail($cart[$i]->id);
             }
-        }
-        else if($request->session()->has('cart')){
+        } else if ($request->session()->has('cart')) {
             //If not logged int get the cart from the session cookie if exists
-            $cartItemsInSession=$request->session()->get('cart');
-            for($i=0;$i<count($cartItemsInSession);$i++){
-                $data[$i]=$cartItemsInSession[$i];
+            $cartItemsInSession = $request->session()->get('cart');
+            for ($i = 0; $i < count($cartItemsInSession); $i++) {
+                $data[$i] = $cartItemsInSession[$i];
             }
         }
-        
-        return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
-            'breadcrumbs' => ['Cart' => route('showCart')]]);
-            
+
+        return view('pages.cart.cart', [
+            'data' => $data, 'loggedIn' => $loggedIn,
+            'breadcrumbs' => ['Cart' => route('showCart')]
+        ]);
     }
 
-    public function delete(Request $request,$cartId) {
+    public function delete(Request $request, $cartId)
+    {
 
         $cart = Cart::find($cartId);
-        $loggedIn=false;
+        $loggedIn = false;
 
-        if(isset($cart)){
-            $this->authorize('delete',$cart);
-            $user = Auth::user();
-            $loggedIn=true;
+        if (isset($cart)) {
+            try {
+                $this->authorize('delete', $cart);
+                $user = Auth::user();
+                $loggedIn = true;
+            } catch (AuthorizationException $e) {
+                $loggedIn = false;
+            }
         }
 
         //If logged in delete the cart entry from the database
-        if($loggedIn){
+        if ($loggedIn) {
             $cart->delete();
         }
         //If not logged in refresh the content of the session variable
-        else if($request->session()->has('cart')){
-            
-            $cartSessionContent=$request->session()->get('cart');
-            $tempArray=array();
-            
+        else if ($request->session()->has('cart')) {
+
+            $cartSessionContent = $request->session()->get('cart');
+            $tempArray = array();
+
             //Copy of session cart
-            for($i=0;$i<count($cartSessionContent);$i++)
+            for ($i = 0; $i < count($cartSessionContent); $i++)
                 array_push($tempArray, $cartSessionContent[$i]);
 
             $request->session()->forget('cart');
-    
-            for($i=0;$i<count($tempArray);$i++){
-                if($tempArray[$i]->id!=$cartId)
+
+            for ($i = 0; $i < count($tempArray); $i++) {
+                if ($tempArray[$i]->id != $cartId)
                     $request->session()->push('cart', $tempArray[$i]);
-            }        
+            }
         }
         return response(json_encode("Success"), 200);
     }
-    
-    public function add(Request $request){
-        $this->authorize('loggedIn',Cart::class);
-        $user = Auth::user();
-        $loggedIn=true;
+
+    public function add(Request $request)
+    {
+        try {
+            $this->authorize('loggedIn', Cart::class);
+            $user = Auth::user();
+            $loggedIn = true;
+        } catch (AuthorizationException $e) {
+            $loggedIn = false;
+        }
 
         $offer = Offer::find($request->offer_id);
         $stock = $offer->stock;
 
         $cart = new Cart;
 
-        if($loggedIn){       
-            
-           if(!$this->checkOfferStock($user->cart,$request->offer_id,$stock))
+        if ($loggedIn) {
+
+            if (!$this->checkOfferStock($user->cart, $request->offer_id, $stock))
                 response(json_encode("Out of Stock"), 401);
 
             $cart->user_id = $user->id;
             $cart->offer_id = $offer->id;
             $cart->save();
-            
-        }else{
-        
-            if($request->session()->has('cart')&& !$this->checkOfferStock($request->session()->get('cart'),$request->offer_id,$stock))
+        } else {
+
+            if ($request->session()->has('cart') && !$this->checkOfferStock($request->session()->get('cart'), $request->offer_id, $stock))
                 return response(json_encode("Out of Stock"), 401);
 
-            if($request->session()->has('cart')){            
-                $cart->id=count($request->session()->get('cart'));
-            }else{
-                $cart->id=0;
+            if ($request->session()->has('cart')) {
+                $cart->id = count($request->session()->get('cart'));
+            } else {
+                $cart->id = 0;
             }
 
-            $cart->user_id=-1;
-            $cart->offer_id=$offer->id;                        
+            $cart->user_id = -1;
+            $cart->offer_id = $offer->id;
             $request->session()->push('cart', $cart);
         }
 
         return response(json_encode("Success"), 200);
     }
-    private function checkOfferStock($arrayCart,$offerId,$stock){
-        
-        for($i=0;$i<count($arrayCart);$i++){
-            
-            $counter=0;
-            if($arrayCart[$i]->offer_id==$offerId){
-                $counter++;    
+    private function checkOfferStock($arrayCart, $offerId, $stock)
+    {
+
+        for ($i = 0; $i < count($arrayCart); $i++) {
+
+            $counter = 0;
+            if ($arrayCart[$i]->offer_id == $offerId) {
+                $counter++;
             }
 
-            if($counter>=$stock)
+            if ($counter >= $stock)
                 return false;
         }
-        
+
         return true;
     }
 
     public function checkout(Request $request)
     {
 
-        $loggedIn=true;
-        $data=array();
+        $loggedIn = true;
+        $data = array();
 
-        $this->authorize('loggedIn',Cart::class);
+
+        $this->authorize('loggedIn', Cart::class);
         $user = Auth::user();
 
         //If logged in -> Get the Cart from the database
-        if($loggedIn){
-            $user=$user->cart;
+        if ($loggedIn) {
+            $user = $user->cart;
 
-            for($i=0;$i<count($user);$i++){
-                    $data[$i]=Cart::findOrFail($user[$i]['id']);
+            for ($i = 0; $i < count($user); $i++) {
+                $data[$i] = Cart::findOrFail($user[$i]['id']);
             }
             //If not logged int get the cart from the session cookie if exists
-        }else if($request->session()->has('cart')){
-            $cartItemsInSession=$request->session()->get('cart');
+        } else if ($request->session()->has('cart')) {
+            $cartItemsInSession = $request->session()->get('cart');
 
-            for($i=0;$i<count($cartItemsInSession);$i++){
-                $data[$i]=$cartItemsInSession[$i];
+            for ($i = 0; $i < count($cartItemsInSession); $i++) {
+                $data[$i] = $cartItemsInSession[$i];
             }
         }
 
         $collectionOffers = collect();
 
-        for($i=0;$i<count($data);$i++){
-           $collectionOffers->add($data[$i]->offer);
+        for ($i = 0; $i < count($data); $i++) {
+            $collectionOffers->add($data[$i]->offer);
         }
 
         $totalPrice = $collectionOffers->sum('discountPriceColumn');
 
-        if($totalPrice == 0){
-            return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
-                'breadcrumbs' => ['Cart' => route('showCart')]]);
+        if ($totalPrice == 0) {
+            return view('pages.cart.cart', [
+                'data' => $data, 'loggedIn' => $loggedIn,
+                'breadcrumbs' => ['Cart' => route('showCart')]
+            ]);
         }
 
 
-        return view('pages.cart.checkout',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn, 'clientToken' => $this->generateClientToken(), 'userCartEntries' => $data,
-                'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
-
+        return view('pages.cart.checkout', [
+            'totalPrice' => $totalPrice, 'loggedIn' => $loggedIn, 'clientToken' => $this->generateClientToken(), 'userCartEntries' => $data,
+            'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]
+        ]);
     }
 
-    public function getCartTotalPrice(Request $request){
+    public function getCartTotalPrice(Request $request)
+    {
 
-        $loggedIn=true;
-        $data=array();
+        $loggedIn = true;
+        $data = array();
 
-        $this->authorize('loggedIn',Cart::class);
+        $this->authorize('loggedIn', Cart::class);
         $user = Auth::user();
 
         //If logged in -> Get the Cart from the database
-        if($loggedIn){
-            $user=$user->cart;
+        if ($loggedIn) {
+            $user = $user->cart;
 
-            for($i=0;$i<count($user);$i++){
-                $data[$i]=Cart::findOrFail($user[$i]['id']);
+            for ($i = 0; $i < count($user); $i++) {
+                $data[$i] = Cart::findOrFail($user[$i]['id']);
             }
             //If not logged int get the cart from the session cookie if exists
-        }else if($request->session()->has('cart')){
-            $cartItemsInSession=$request->session()->get('cart');
+        } else if ($request->session()->has('cart')) {
+            $cartItemsInSession = $request->session()->get('cart');
 
-            for($i=0;$i<count($cartItemsInSession);$i++){
-                $data[$i]=$cartItemsInSession[$i];
+            for ($i = 0; $i < count($cartItemsInSession); $i++) {
+                $data[$i] = $cartItemsInSession[$i];
             }
         }
 
         $collectionOffers = collect();
 
-        for($i=0;$i<count($data); $i++){
+        for ($i = 0; $i < count($data); $i++) {
             $collectionOffers->add($data[$i]->offer);
         }
 
@@ -210,11 +234,10 @@ class CartController extends Controller
         return [
             'amount' => $collectionOffers->sum('discountPriceColumn'),
         ];
-
-
     }
 
-    public function generateClientToken(){
+    public function generateClientToken()
+    {
 
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
@@ -223,10 +246,11 @@ class CartController extends Controller
         $clientToken = $gateway->clientToken()->generate();
 
         return $clientToken;
-
     }
 
-    public function finishCheckout(CheckoutInfoRequest $request){
+    public function finishCheckout(CheckoutInfoRequest $request)
+    {
+
         // Access token
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
@@ -240,9 +264,9 @@ class CartController extends Controller
 
         // Used in the description of the paypal transaction
         $line_items = array();
-        for($i = 0; $i < count($user->cart); $i++){
+        for ($i = 0; $i < count($user->cart); $i++) {
             $line_items[$i] = [
-                'name' => $user->cart[$i]->offer->product->name." ".$user->cart[$i]->offer->platform->name,
+                'name' => $user->cart[$i]->offer->product->name . " " . $user->cart[$i]->offer->platform->name,
                 'quantity' => 1,
                 'unit_amount' => $user->cart[$i]->offer->discountPriceColum,
                 'kind' => 'debit',
@@ -271,18 +295,16 @@ class CartController extends Controller
                 DB::commit();
                 return [
                     'success' => true,
-                    'message' => 'Transaction was a success with id'.$result->transaction->id,
+                    'message' => 'Transaction was a success with id' . $result->transaction->id,
                 ];
-            }
-            else{
+            } else {
                 DB::rollBack();
                 return [
                     'success' => false,
                     'message' => $result->message
                 ];
             }
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
 
             $this->checkIfKeysAreAvailable($user->cart);
@@ -292,12 +314,11 @@ class CartController extends Controller
                 'message' => $e->getMessage()
             ];
         }
-
-
     }
 
 
-    public function checkIfKeysAreAvailable($userCartEntries){
+    public function checkIfKeysAreAvailable($userCartEntries)
+    {
 
 
         $cartEntriesToEliminate = collect();
@@ -311,17 +332,17 @@ class CartController extends Controller
                     break;
                 }
             }
-            if(!$keyExists)
+            if (!$keyExists)
                 $cartEntriesToEliminate->add($userCartEntries[$i]);
         }
 
-        if(count($cartEntriesToEliminate) > 0){
-            for($i = 0; $i < count($cartEntriesToEliminate); $i++)
-            Cart::where('user_id', $cartEntriesToEliminate[$i]->user_id)->where('offer_id', $cartEntriesToEliminate[$i]->offer_id)->delete();
+        if (count($cartEntriesToEliminate) > 0) {
+            for ($i = 0; $i < count($cartEntriesToEliminate); $i++)
+                Cart::where('user_id', $cartEntriesToEliminate[$i]->user_id)->where('offer_id', $cartEntriesToEliminate[$i]->offer_id)->delete();
         }
-
     }
-    public function createOrder($name, $email, $address, $zipcode, $userCartEntries, $userId){
+    public function createOrder($name, $email, $address, $zipcode, $userCartEntries, $userId)
+    {
 
         $order = new Order();
 
@@ -352,9 +373,12 @@ class CartController extends Controller
             $userCartEntries[$i]->offer->stock -= 1;
             $userCartEntries[$i]->offer->save();
         }
-        
+
         Cart::where('user_id', $userId)->delete();
     }
 
-
+    public function __construct()
+    {
+        $this->middleware('preventBackHistory');
+    }
 }

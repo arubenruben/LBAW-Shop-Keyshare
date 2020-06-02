@@ -4,9 +4,16 @@
             <h4>My Cart <span id="counter_products_cart" class="badge badge-secondary">{{count($data)}}</span></h4>
         </div>
         <div class="col-6 text-right">
-            <a id="checkout-top-button" class="btn btn-lg btn-orange deleteButtonCheckout align-right {{count($data) == 0 ? 'd-none' : ''}}" href="{{route('checkoutInit') }}" role="button">
-                <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline"> Checkout</span>
+            @if (Auth::check())
+            <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="{{route('checkoutInit') }}"
+                role="button"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
             </a>
+            @else
+            <button class="btn btn-lg btn-orange deleteButtonCheckout align-right" data-toggle="modal"
+                data-target="#authenticationModal">
+                <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
+            </button>
+            @endif
         </div>
     </header>
     <section class="row">
@@ -28,18 +35,18 @@
                                 <div class="py-2 text-uppercase">Remove</div>
                             </th>
                         </tr>
-                        </thead>
-                        @php $allOffers = collect(); @endphp
-                        <tbody>
+                    </thead>
+                    @php $allOffers = collect(); @endphp
+                    <tbody>
                         @foreach ($data as $item)
-                            @php
-                                $allOffers->add($item->offer);
-                            @endphp
-                            @include('partials.cart.cart_entry',['data'=>$item])
+                        @php
+                        $allOffers->add($item->offer);
+                        @endphp
+                        @include('partials.cart.cart_entry',['data'=>$item])
                         @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
     <div id="total-price-div" class="{{count($data) == 0 ? 'd-none' : ''}}">
@@ -50,9 +57,16 @@
         </div>
         <div class="row mt-4">
             <div class="col text-right">
+                @if (Auth::check())
                 <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="{{route('checkoutInit') }}"
-                   role="button"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
+                    role="button"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
                 </a>
+                @else
+                <button class="btn btn-lg btn-orange deleteButtonCheckout align-right" data-toggle="modal"
+                    data-target="#authenticationModal">
+                    <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
+                </button>
+                @endif
             </div>
         </div>
     </div>
