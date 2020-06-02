@@ -109,6 +109,7 @@
         </div>
     </div>
     <form class="row mt-5" action="{{ url()->current() }}" method="POST">
+        @csrf
         @method('DELETE')
         <div class="col-12 text-right">
             <div class="form-group">
