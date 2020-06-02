@@ -278,28 +278,47 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function categoryGet()
-    {
-    }
-
     public function categoryShow()
     {
+        $data = Category::all();
+
+        return view('admin.pages.category', ['data' => $data]);
     }
 
-    public function categoryAdd()
+    public function categoryAdd(Request $request)
     {
+        if (!$request->has('category'))
+            return response(400);
+
+        $category = new Category;
+
+        $category->name = $request->get('category');
+
+        $category->save();
+
+
+        return redirect('/admin/category');
     }
 
-    public function categoryUpdate($id)
+    public function categoryUpdate(Request $request, $id)
     {
+        $category = Category::findOrFail($id);
+
+        if (!$request->has('category'))
+            return response(400);
+
+        $category->name = $request->get('category');
+        $category->save();
+
+        return redirect('/admin/category');
     }
 
-    public function categoryDelete($id)
+    public function categoryDelete(Request $request, $id)
     {
-    }
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-    public function genreGet()
-    {
+        return redirect('/admin/category');
     }
 
     public function genreShow()
