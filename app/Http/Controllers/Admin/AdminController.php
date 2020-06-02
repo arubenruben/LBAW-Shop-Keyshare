@@ -30,7 +30,8 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function show() {
+    public function show()
+    {
         $active_reports = Report::where('status', '=', 'false');
 
         $daily_orders = Order::where('date', '=', 'CURRENT_DATE');
@@ -62,12 +63,16 @@ class AdminController extends Controller
                 'contents' => [
                     'Tasks to be done' => ['Active Reports: ' . $active_reports->count()],
                     'Daily Statistics' => [
-                        'Transactions made: '.$daily_keys_collection->count(),
-                        'Money made: '.$daily_keys_collection->sum(function ($daily_key) { return $daily_key->price; }).' US$'
+                        'Transactions made: ' . $daily_keys_collection->count(),
+                        'Money made: ' . $daily_keys_collection->sum(function ($daily_key) {
+                            return $daily_key->price;
+                        }) . ' US$'
                     ],
                     'Monthly Statistics' => [
-                        'Transactions made: '.$monthly_keys_collection->count(),
-                        'Money made: '.$monthly_keys_collection->sum(function ($monthly_key) { return $monthly_key->price; }).' US$'
+                        'Transactions made: ' . $monthly_keys_collection->count(),
+                        'Money made: ' . $monthly_keys_collection->sum(function ($monthly_key) {
+                            return $monthly_key->price;
+                        }) . ' US$'
                     ]
                 ]
             ]
@@ -77,9 +82,9 @@ class AdminController extends Controller
     public function productShow(Request $request)
     {
 
-        if($request->has('query')) {
+        if ($request->has('query')) {
             $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
-            $products = Product::whereRaw("name_tsvector @@ to_tsquery('". $query.":*')")->get();
+            $products = Product::whereRaw("name_tsvector @@ to_tsquery('" . $query . ":*')")->get();
         } else {
             $products = Product::all();
         }
@@ -95,7 +100,7 @@ class AdminController extends Controller
         return view('admin.pages.products', [
             'products' => $products_paginated->items(),
             'title' => 'Products',
-            'query'=>($request->has('query') ? $request->input('query') : ""),
+            'query' => ($request->has('query') ? $request->input('query') : ""),
             'links' => $products_paginated->links()
 
         ]);
@@ -275,88 +280,102 @@ class AdminController extends Controller
 
     public function categoryGet()
     {
-
     }
 
     public function categoryShow()
     {
-
     }
 
     public function categoryAdd()
     {
-
     }
 
     public function categoryUpdate($id)
     {
-
     }
 
     public function categoryDelete($id)
     {
-
     }
 
     public function genreGet()
     {
-
     }
 
     public function genreShow()
     {
+        $data = Genre::all();
 
+        return view('admin.pages.genres', ['data' => $data]);
     }
 
-    public function genreAdd()
+    public function genreAdd(Request $request)
     {
 
+        if (!$request->has('genre'))
+            return response(400);
+
+        $genre = new Genre;
+
+        $genre->name = $request->get('genre');
+
+        $genre->save();
+
+
+        return redirect('/admin/genre');
     }
 
-    public function genreUpdate($id)
+    public function genreUpdate(Request $request, $id)
     {
 
+        $genre = Genre::findOrFail($id);
+
+        if (!$request->has('genre'))
+            return response(400);
+
+        $genre->name = $request->get('genre');
+        $genre->save();
+
+        return redirect('/admin/genre');
     }
 
-    public function genreDelete($id)
+    public function genreDelete(Request $request, $id)
     {
+        $genre = Genre::findOrFail($id);
+        $genre->delete();
 
+        return redirect('/admin/genre');
     }
 
     public function platformGet()
     {
-
     }
 
     public function platformShow()
     {
-
     }
 
     public function platformAdd()
     {
-
     }
 
     public function platformUpdate($id)
     {
-
     }
 
     public function platformDelete($id)
     {
-
     }
 
     public function userGet()
     {
-
     }
 
-    public function userShow(AdminUserRequest $request) {
-        if($request->has('query')) {
+    public function userShow(AdminUserRequest $request)
+    {
+        if ($request->has('query')) {
             $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
-            $users = User::whereRaw("name_tsvector @@ to_tsquery('". $query.":*')")->get();
+            $users = User::whereRaw("name_tsvector @@ to_tsquery('" . $query . ":*')")->get();
         } else {
             $users = User::all();
         }
@@ -374,11 +393,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function userUpdate(AdminBanRequest $request, $id) {
+    public function userUpdate(AdminBanRequest $request, $id)
+    {
         User::findOrFail($id);
 
-        if($request->input('ban') == "1") {
-            if(BannedUser::find($id) === null) {
+        if ($request->input('ban') == "1") {
+            if (BannedUser::find($id) === null) {
                 BannedUser::create([
                     'id' => $id
                 ])->save();
@@ -392,72 +412,58 @@ class AdminController extends Controller
 
     public function reportGet()
     {
-
     }
 
     public function reportShow()
     {
-
     }
 
     public function reportShowMessages($id)
     {
-
     }
 
     public function reportMessage($id)
     {
-
     }
 
     public function transactionGet()
     {
-
     }
 
     public function transactionShow()
     {
-
     }
 
     public function feedbackGet()
     {
-
     }
 
     public function feedbackShow()
     {
-
     }
 
     public function feedbackDelete($id)
     {
-
     }
 
     public function faqGet()
     {
-
     }
 
     public function faqShow()
     {
-
     }
 
     public function faqAdd()
     {
-
     }
 
     public function faqUpdate($id)
     {
-
     }
 
     public function faqDelete($id)
     {
-
     }
 
     public function __construct()
