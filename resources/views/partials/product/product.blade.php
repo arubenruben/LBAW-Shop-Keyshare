@@ -1,8 +1,8 @@
-<article class="row ml-auto mr-auto">
-    <div class="col-5 p-0">
+<article id="top-page" class="row ml-auto mr-auto">
+    <div class="col-5 mt-5  p-0">
         <img class="img-fluid productPageImgPreview" src="/pictures/games/{{$product->picture->url}}" />
     </div>
-    <aside class="col-6">
+    <aside class="col-6 mt-5">
         <div class="row">
             <div class="col-12">
                 <h3 id="product_name_platform" data_product_name="{{$product->name}}"
@@ -33,7 +33,7 @@
     <div class="col-sm-12 ">
         <div class="row mt-4">
             <div class="col-6">
-                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{count($offers)}}</span></h4>
+                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{$numberOffers}}</span></h4>
             </div>
             <div class="col-6 text-right">
                 <h6 class="d-inline-block mr-3">Sort by:  </h6>
@@ -85,18 +85,19 @@
                 @endif
             </div>
         </div>
-        @if(count($offers) > 9)
-        <div class="row mt-4 mx-auto">
+
+        <div id="see-more-buttons" class="row mt-4 mx-auto {{$numberOffers > 10 ? '' : 'd-none'}}">
             <div class="col-12">
                 <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the
                     other offers <i class="fas fa-angle-down"></i> </button>
                 <div  id="loading_offers" class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <button id="close_more_offers" class="btn-blue btn-primary" style="display: none;"> <i
-                        class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </button>
+                <a id="close_more_offers" href="#top-page" class="btn-blue btn-primary" style="display: none;"> <i
+                        class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </a>
             </div>
         </div>
-        @endif
+
+
     </div>
 </article>

@@ -364,7 +364,7 @@ class ProductController extends Controller
         $platformName = $platform->name;
 
         return view('pages.product.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName,
-            'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating,
+            'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating, 'numberOffers' => $offers->count(),
             'breadcrumbs' => [ $product->name.' ['.$platformName.']' => route('product', ['productName' => $product->name, 'platformName' => $platformName])]]);
     }
 
@@ -436,6 +436,8 @@ class ProductController extends Controller
                 return $offer->product->name == $request->input('game_name') && $offer->platform->name == $request->input('game_platform') && $offer->stock > 0;
             });
 
+            $sortBy = $this->filterOffersAlreadyInCart($request,$sortBy);
+
             if ($request->input('sort_by') == 'rating') {
 
                 $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer) {
@@ -452,7 +454,7 @@ class ProductController extends Controller
                 })->sortBy('discountPriceColumn');
             }
 
-            $sortBy = $sortBy->map(function ($offer, $key) {
+            $sortBy = $sortBy->map(function ($offer, $key){
                 return [
                     'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
                     'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
@@ -468,11 +470,12 @@ class ProductController extends Controller
             else {
                 $banned = $current_user->isBanned();
             }
-
-            if($request->input('all_offers') === true)
+            if($request->input('all_offers') == 'true'){
+                //dd(count($sortBy->toArray()));
                 return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 10, count($sortBy->toArray()))), 'current_user' => $current_user, 'banned' => $banned]);
+            }
             else
-                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 0, 10)), 'current_user' => $current_user, 'banned' => $banned]);
+                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 0, 10)), 'current_user' => $current_user, 'banned' => $banned, 'numberOffers' => count($sortBy->toArray())]);
         }
     }
 }
