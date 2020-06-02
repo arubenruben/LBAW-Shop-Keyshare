@@ -141,13 +141,13 @@ const received = (response) => {
     let entriesTable = "";
     let boolean;
 
-    if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
+   /* if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
             seeMoreButtons.classList.remove('d-none');
     else if(!seeMoreButtons.classList.contains('d-none'))
         seeMoreButtons.className += " d-none";
-    
+
     if(response.numberOffers !== counterNumberOffers.innerHTML)
-            counterNumberOffers.innerHTML = response.numberOffers;
+            counterNumberOffers.innerHTML = response.numberOffers;*/
 
 
     for (let i = 0; i < response.offers.length; i++) {
