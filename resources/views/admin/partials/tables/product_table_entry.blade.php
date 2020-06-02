@@ -32,14 +32,12 @@
                 <i class="fas fa-edit d-inline-block"></i> <span class="d-none d-lg-inline-block">
                     Edit Product </span>
             </a>
-            <form action="{{url('/admin/product/'.$data->id)}}" method="POST">
-                @csrf
-                @method('delete')
-                <span class="d-none d-lg-inline-block">
-                    <input type="submit" class="btn btn-red btn-block" data-toggle="modal" data-target="#modalConfirm"
-                        value="Delete Product">
-                </span>
-            </form>
+            <button type="button mt-5 mb-5 " class="btn btn-red btn-block" data-toggle="modal"
+                data-target="#modal-delete">
+                <i class="fas fa-trash-alt"></i> <span class="d-none d-lg-inline-block"> Delete
+                    Product </span>
+            </button>
+            @include('admin.partials.modal.confirmProductDelete',['data'=>$data->id])
         </div>
     </td>
 </tr>
