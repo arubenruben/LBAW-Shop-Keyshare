@@ -7,9 +7,9 @@
             <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Dropdown</button>
             <ul id="dropdownCategory" class="dropdown-menu">
-                <li class="dropdown-item">Game</li>
-                <li class="dropdown-item">DLC</li>
-                <li class="dropdown-item">Patch</li>
+                @foreach ($categories as $category)
+                <li class="dropdown-item">{{$category->name}}</li>
+                @endforeach
             </ul>
         </div>
         @php

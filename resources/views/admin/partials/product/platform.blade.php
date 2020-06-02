@@ -7,9 +7,9 @@
             <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Platforms</button>
             <ul id="dropdownPlatform" class="dropdown-menu">
-                <li class="dropdown-item">PC</li>
-                <li class="dropdown-item">PS4</li>
-                <li class="dropdown-item">Xbox</li>
+                @foreach ($platforms as $platform)
+                <li class="dropdown-item">{{$platform->name}}</li>
+                @endforeach
             </ul>
         </div>
         @php

@@ -149,7 +149,11 @@ class AdminController extends Controller
 
     public function productAddForm()
     {
-        return view('admin.pages.productAdd');
+        $categories = Category::all();
+        $genres = Genre::all();
+        $platforms = Platform::all();
+
+        return view('admin.pages.productAdd', ['categories' => $categories, 'genres' => $genres, 'platforms' => $platforms]);
     }
 
     public function productUpdateView($id)
@@ -161,10 +165,14 @@ class AdminController extends Controller
             return response(json_encode($e->getMessage()), 400);
         }
 
+        $categories = Category::all();
+        $genres = Genre::all();
+        $platforms = Platform::all();
+
         $product = Product::findOrFail($id);
 
 
-        return view('admin.pages.productEdit', ['data' => $product]);
+        return view('admin.pages.productEdit', ['data' => $product, 'categories' => $categories, 'genres' => $genres, 'platforms' => $platforms]);
     }
 
     public function productUpdate(ProductAddRequest $request, $id)

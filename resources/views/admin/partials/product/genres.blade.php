@@ -7,9 +7,9 @@
             <button class="btn btnAdminProduct btn-blue dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Genres</button>
             <div id="dropdownGenre" class="dropdown-menu">
-                <a class="dropdown-item">Action</a>
-                <a class="dropdown-item">Simulation</a>
-                <a class="dropdown-item">Racing</a>
+                @foreach ($genres as $genre)
+                <a class="dropdown-item">{{$genre->name}}</a>
+                @endforeach
             </div>
         </div>
 

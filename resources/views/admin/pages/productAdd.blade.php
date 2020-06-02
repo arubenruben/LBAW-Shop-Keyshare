@@ -23,9 +23,9 @@
         </div>
         @include('admin.partials.product.description')
         <hr>
-        @include('admin.partials.product.genres')
-        @include('admin.partials.product.platform')
-        @include('admin.partials.product.categories')
+        @include('admin.partials.product.genres',['genres'=>$genres])
+        @include('admin.partials.product.platform',['platforms'=>$platforms])
+        @include('admin.partials.product.categories',['categories'=>$categories])
         <div class="row flex-nowrap justify-content-between mt-5">
             <!--a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
             <input class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit" value="Publish Product">
