@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Report;
-use App\User;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
@@ -13,13 +10,10 @@ class ReportController extends Controller
     {
         $report = Report::findOrFail($reportId);
 
-        try {
-            $this->authorize('canSee', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
+        $this->authorize('canSee', $report);
 
-        return view('pages.', ['report' => $report, 'breadcrumbs' => ['Report details' =>
+
+        return view('pages.report.report', ['report' => $report, 'breadcrumbs' => ['Report details' =>
             route('showReport', ['id' => $reportId])]]);
     }
 }
