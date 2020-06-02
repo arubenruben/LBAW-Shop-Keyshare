@@ -6,12 +6,8 @@ use App\Http\Requests\CheckoutInfoRequest;
 use App\Order;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Policies\CartPolicy;
 use App\Cart;
 use App\Offer;
 Use Braintree;
@@ -21,13 +17,10 @@ class CartController extends Controller
     public function show(Request $request)
     {    
         $data=array();
-        try {
-            $this->authorize('loggedIn',Cart::class);
-            $user = Auth::user();
-            $loggedIn=true;
-        }catch (AuthorizationException $e) {
-            $loggedIn=false;    
-        }
+
+        $this->authorize('loggedIn',Cart::class);
+        $user = Auth::user();
+        $loggedIn=true;
         
         //If logged in -> Get the Cart from the database
         if($loggedIn){          
@@ -57,15 +50,12 @@ class CartController extends Controller
         $loggedIn=false;
 
         if(isset($cart)){
-            try {
-                $this->authorize('delete',$cart);
-                $user = Auth::user();
-                $loggedIn=true;
-            } catch (AuthorizationException $e) {
-                $loggedIn=false;
-            }
+            $this->authorize('delete',$cart);
+            $user = Auth::user();
+            $loggedIn=true;
         }
-        //IF logged in delete the cart entry from the database
+
+        //If logged in delete the cart entry from the database
         if($loggedIn){
             $cart->delete();
         }
@@ -90,28 +80,22 @@ class CartController extends Controller
     }
     
     public function add(Request $request){
+        $this->authorize('loggedIn',Cart::class);
+        $user = Auth::user();
+        $loggedIn=true;
 
-    
-        try {
-            $this->authorize('loggedIn',Cart::class);
-            $user = Auth::user();
-            $loggedIn=true;    
-        } catch (AuthorizationException $e) {
-            $loggedIn=false;
-        }
-        
-        $offer=Offer::find($request->offer_id);
-        $stock=$offer->stock;
+        $offer = Offer::find($request->offer_id);
+        $stock = $offer->stock;
 
-        $cart=new Cart;
+        $cart = new Cart;
 
         if($loggedIn){       
             
            if(!$this->checkOfferStock($user->cart,$request->offer_id,$stock))
                 response(json_encode("Out of Stock"), 401);
 
-            $cart->user_id=$user->id;
-            $cart->offer_id=$offer->id;
+            $cart->user_id = $user->id;
+            $cart->offer_id = $offer->id;
             $cart->save();
             
         }else{
@@ -154,12 +138,8 @@ class CartController extends Controller
         $loggedIn=true;
         $data=array();
 
-        try {
-            $this->authorize('loggedIn',Cart::class);
-            $user = Auth::user();
-        }catch (AuthorizationException $e) {
-            $loggedIn=false;
-        }
+        $this->authorize('loggedIn',Cart::class);
+        $user = Auth::user();
 
         //If logged in -> Get the Cart from the database
         if($loggedIn){
@@ -196,12 +176,8 @@ class CartController extends Controller
         $loggedIn=true;
         $data=array();
 
-        try {
-            $this->authorize('loggedIn',Cart::class);
-            $user = Auth::user();
-        }catch (AuthorizationException $e) {
-            $loggedIn=false;
-        }
+        $this->authorize('loggedIn',Cart::class);
+        $user = Auth::user();
 
         //If logged in -> Get the Cart from the database
         if($loggedIn){

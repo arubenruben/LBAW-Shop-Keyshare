@@ -16,6 +16,7 @@ class UserPolicy
         // Only the own user can visit its purchases
         return Auth::check();
     }
+
     public function update(User $user) {
         // Only the own user can change any profile detail
         return Auth::check();

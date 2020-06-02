@@ -103,14 +103,7 @@ class AdminController extends Controller
 
     public function productAdd(ProductAddRequest $request)
     {
-
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
-
+        $this->authorize('addProduct', Admin::class);
         $product = new Product;
 
         $product->name = $request->get('gameName');
@@ -174,12 +167,7 @@ class AdminController extends Controller
 
     public function productUpdateView($id)
     {
-
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
+        $this->authorize('addProduct', Admin::class);
 
         $categories = Category::all();
         $genres = Genre::all();
@@ -193,22 +181,10 @@ class AdminController extends Controller
 
     public function productUpdate(ProductAddRequest $request, $id)
     {
-
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
+        $this->authorize('addProduct', Admin::class);
         $product = Product::findOrFail($id);
 
-
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
+        $this->authorize('addProduct', Admin::class);
 
         $product->name = $request->get('gameName');
         $product->description = $request->get('gameDescription');
@@ -262,14 +238,10 @@ class AdminController extends Controller
 
     public function productDelete($id)
     {
-        try {
-            $this->authorize('addProduct', Admin::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
+        $this->authorize('addProduct', Admin::class);
         $product = Product::findOrFail($id);
         $product->delete();
+
         return redirect()->back();
     }
 

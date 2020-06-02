@@ -7,14 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Policies\CartPolicy;
 use App\Cart;
-use App\Offer;
 use Lang;
 
 
