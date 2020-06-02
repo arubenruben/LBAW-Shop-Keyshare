@@ -11,7 +11,6 @@
     </header>
     <section class="row">
         <div class="col-sm-12">
-
                 <div id = "cart-no-entries" class="{{count($data) == 0 ? '' : 'd-none'}}">
                     @include('partials.cart.cart_no_entries')
                 </div>
