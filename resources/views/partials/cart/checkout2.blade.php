@@ -3,9 +3,21 @@
     <div class="row px-3">
         <h3>Confirm Your Order</h3>
     </div>
-
     <div class="row d-none d-xl-block pt-4">
-        @include('partials.cart.progress_bar')
+        <div class="row d-none d-xl-block pt-4">
+            <div class="progress-bar-wrapper">
+                <div class="status-bar">
+                    <!--
+                                <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>
+                            -->
+                </div>
+                <ul class="progress-bar-adapted">
+                    <li class="section visited current status-bar-circle">Your Info</li>
+                    <li class="section visited status-bar-circle">Confirm Your Order</li>
+                    <li class="section status-bar-circle">Transaction Status</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div id="checkoutProductPreviewContainer mb-0" class="row">
         <div id="content" class="container mt-4 pb-0">
