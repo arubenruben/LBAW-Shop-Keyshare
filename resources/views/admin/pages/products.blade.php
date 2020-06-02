@@ -2,11 +2,11 @@
 @section('title', 'Products')
 
 @section('header')
-@include('admin.partials.header.header_admin')
+    @include('admin.partials.header.header_admin')
 @endsection
 
 @section('sidebar')
-@include('admin.partials.sidebar.sidebar')
+    @include('admin.partials.sidebar.sidebar')
 @endsection
 
 @section('content')

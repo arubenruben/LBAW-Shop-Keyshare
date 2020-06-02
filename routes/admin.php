@@ -15,43 +15,35 @@ Route::put('/admin/product', 'AdminController@productAdd')->name('product_add');
 Route::get('/admin/product/{id}', 'AdminController@productUpdateView')->where('id', '[0-9]+');
 Route::delete('/admin/product/{id}', 'AdminController@productDelete')->where('id', '[0-9]+');
 Route::post('/admin/product/{id}', 'AdminController@productUpdate')->where('id', '[0-9]+');
-Route::get('/api/admin/category', 'AdminController@categoryGet');
 
 Route::get('/admin/category', 'AdminController@categoryShow');
 Route::put('/admin/category', 'AdminController@categoryAdd');
 Route::post('/admin/category/{id}', 'AdminController@categoryUpdate');
 Route::delete('/admin/category/{id}', 'AdminController@categoryDelete');
 
-Route::get('/api/admin/genre', 'AdminController@genreGet');
 Route::get('/admin/genre', 'AdminController@genreShow');
 Route::put('/admin/genre', 'AdminController@genreAdd');
 Route::post('/admin/genre/{id}', 'AdminController@genreUpdate');
 Route::delete('/admin/genre/{id}', 'AdminController@genreDelete');
 
-Route::get('/api/admin/platform', 'AdminController@platformGet');
 Route::get('/admin/platform', 'AdminController@platformShow');
 Route::put('/admin/platform', 'AdminController@platformAdd');
 Route::post('/admin/platform/{id}', 'AdminController@platformUpdate');
 Route::delete('/admin/platform/{id}', 'AdminController@platformDelete');
 
-Route::get('/api/admin/user', 'AdminController@userGet');
 Route::get('/admin/user', 'AdminController@userShow');
 Route::post('/admin/user/{id}', 'AdminController@userUpdate');
 
-Route::get('/api/admin/report', 'AdminController@reportGet');
 Route::get('/admin/report', 'AdminController@allReports');
 Route::get('/admin/report/{reportId}', 'AdminController@reportShow');
 Route::post('/admin/report/{reportId}', 'AdminController@reportUpdate')->name('updateReport');
 Route::put('/admin/report/{reportId}', 'AdminController@reportMessage');
 
-Route::get('/api/admin/transaction', 'AdminController@transactionGet');
 Route::get('/admin/transaction', 'AdminController@transactionShow');
 
-Route::get('/api/admin/feedback', 'AdminController@feedbackGet');
 Route::get('/admin/feedback', 'AdminController@feedbackShow');
-Route::delete('/admin/feedback/{id}', 'AdminController@feedbackDelete');
+Route::delete('/admin/feedback/{feedbackId}', 'AdminController@feedbackDelete')->name('deleteFeedback');
 
-Route::get('/api/admin/faq', 'AdminController@faqGet');
 Route::get('/admin/faq', 'AdminController@faqShow');
 Route::put('/admin/faq', 'AdminController@faqAdd');
 Route::post('/admin/faq/{id}', 'AdminController@faqUpdate');

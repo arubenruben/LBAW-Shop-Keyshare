@@ -2,17 +2,13 @@
 @section('title', 'Product add')
 
 @push('head')
-<script src="{{ asset('js/admin/product.js') }}" defer></script>
+    <script src="{{ asset('js/admin/product.js') }}" defer></script>
 @endpush
 
 @section('header')
-@include('admin.partials.header.header_admin')
+    @include('admin.partials.header.header_admin')
 @endsection
-@section('navbar')
-<nav>
-    <h3>Add Product</h3>
-</nav>
-@endsection
+
 @section('content')
 <div class="col mt-3">
     <form action={{ route('product_add') }} method="POST" enctype="multipart/form-data">

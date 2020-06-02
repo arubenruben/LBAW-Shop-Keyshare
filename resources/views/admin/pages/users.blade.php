@@ -14,5 +14,5 @@
 @endsection
 
 @section('content')
-    @include('admin.partials.tables.table_all_users', ['title' => $title, 'users' => $users, 'query' => $query, 'links' => $links])
+    @include('admin.partials.tables.table_users', ['title' => $title, 'users' => $users, 'query' => $query, 'links' => $links])
 @endsection
