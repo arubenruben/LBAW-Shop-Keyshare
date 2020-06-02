@@ -23,6 +23,9 @@ for (let i = 0; i < cards.length; i++) {
 }
 
 
+
+
+
 for(let i = 0; i < most_popular.length && i < most_recent.length; i++) {
     if(i < 5) {
         most_popular[i].style.display  = 'block';

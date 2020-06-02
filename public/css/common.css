@@ -58,6 +58,12 @@ footer {
     background-color: var(--color-background-full-white);
 }
 
+.card-footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
 header.navbar {
     background-color: var(--color-background-dark-blue);
 }
