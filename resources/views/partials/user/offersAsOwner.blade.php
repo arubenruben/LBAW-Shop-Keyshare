@@ -5,7 +5,7 @@
                 <div class="row mb-2">
                     <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
                         data-toggle="modal" data-target="#modalAppeal">
-                        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
+                        You are currently banned! Some functionalities are disabled. <a href="{{route('')}}"><strong >Click to appeal</strong></a>
                     </div>
                 </div>
             @endif

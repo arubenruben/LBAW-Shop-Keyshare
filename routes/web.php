@@ -62,7 +62,7 @@ Route::put('/key/{id}/report', 'KeyController@report')->name('report');
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');
 
 // Reports
-Route::get('/report/{id}', 'ReportController@show');
+Route::get('/report/{id}', 'ReportController@show')->name('showReport');
 Route::put('/report/{id}', 'ReportController@message');
 
 // FAQ
