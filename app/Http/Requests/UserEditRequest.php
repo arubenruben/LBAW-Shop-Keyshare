@@ -13,7 +13,7 @@ class UserEditRequest extends FormRequest
      * @return bool
      */
     public function authorize() {
-        return Auth::check() && !Auth::user()->isBanned();
+        return Auth::check();
     }
 
     /**
@@ -26,7 +26,7 @@ class UserEditRequest extends FormRequest
             'email' => 'bail | sometimes | string | email | unique:users,email',
             'description' => 'bail | sometimes | string |  max:500 ',
             'oldPassword' => 'bail | sometimes | required_with:newPassword',
-            'newPassword' => 'bail | sometimes | required_with:oldPassword | string | confirmed | min:6 | max:100',
+            'newPassword' => [ 'bail' , 'sometimes' , 'required_with:oldPassword' , 'string' , 'confirmed', 'min:6' , 'max:100' , 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/u'],
             'paypal' => 'bail | sometimes | required | string | email',
             'image' => 'bail | sometimes | required | image'  
         ];
@@ -44,12 +44,11 @@ class UserEditRequest extends FormRequest
             'newPassword.min' => 'The new password must be over 6 characters',
             'newPassword.max' => 'The new password must be under 100 characters',
             'newPassword.confirmed' => 'The password_confirmation field must be filled',
-            'newPassword.regex' => 'The password needs to contains characters from at least three of the following five categories:
-                English uppercase characters (A – Z)
-                English lowercase characters (a – z)
-                Base 10 digits (0 – 9)
-                Non-alphanumeric (For example: !, $, #, or %)
-                Unicode characters',
+            'newPassword.regex' => "<p>The password needs to contains characters from this categories:</p>
+                <p>* Minimum eight characters</p>
+                <p>* At least one uppercase letter </p>
+                <p>* One lowercase letter</p>
+                <p>* One number and one special character</p>",
             'paypal.string' => 'The paypal email must be a string',
             'paypal.email' => 'The paypal email provided  is not a valid one',
             'image.image' => 'THe image provided is not a valid one'

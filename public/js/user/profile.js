@@ -8,6 +8,10 @@ const isValidEmail = (email) => {
     return /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email);
 }
 
+const isValidPassword = (password) => {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/u.test(password);
+}
+
 const isValidDescription = (description) => {
     return description.length <= 500;
 }
@@ -155,7 +159,21 @@ password_btn.addEventListener("click", () => {
         invalid_feedback_new_password.className = "invalid-feedback d-block";
         valid_new = false;
 
-    } else {
+    } else if(!isValidPassword(newPassword_value)){
+        if(newPassword.classList.contains('border-success'))
+            newPassword.classList.remove('border-success');
+        valid_feedback_confirmation.innerHTML = "";
+        newPassword.className += " border-danger";
+        newPassword_confirmation.className += " border-danger";
+        invalid_feedback_new_password.innerHTML = " <p>The password needs to contains characters from this categories:</p>\n" +
+            "        <p>* Minimum eight characters</p>\n" +
+            "        <p>* At least one uppercase letter </p>\n" +
+            "        <p>* One lowercase letter</p>\n" +
+            "        <p>* One number and one special character</p>";
+        invalid_feedback_new_password.className = "invalid-feedback d-block";
+        valid_new = false;
+    }
+    else {
         invalid_feedback_new_password.innerHTML = "";
         invalid_feedback_new_password.className = "invalid-feedback";
 
