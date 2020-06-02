@@ -24,12 +24,12 @@
     <td class="text-center align-middle">
         <div class="btn-group-justified">
             @if($user != null)
-                <button id="add_offer_to_cart_{{$offer->id}}" onclick="addToCart({{$offer->id}})"
-                    class="btn btn-orange" {{$user->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
+                <button data-offer = "{{$offer->id}}"
+                    class="btn btn-orange button-offer" {{$user->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
                 </button>
             @else
-                <button id="add_offer_to_cart_{{$offer->id}}" onclick="addToCart({{$offer->id}})"
-                    class="btn btn-orange"><i class="fas fa-cart-plus"></i>
+                <button data-offer ="{{$offer->id}}"
+                    class="btn btn-orange button-offer"><i class="fas fa-cart-plus"></i>
                 </button>
             @endif
         </div>
