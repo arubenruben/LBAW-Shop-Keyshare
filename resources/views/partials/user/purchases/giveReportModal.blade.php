@@ -14,8 +14,12 @@
             <section class="modal-body">
                 <div class="row">
                     <div id="reportBorderInfo" class="col-6 text-left">
-                        <u><h5>Seller's Info</h5></u>
-                        <a><h6 id="username-report"></h6></a>
+                        <u>
+                            <h5>Seller's Info</h5>
+                        </u>
+                        <a>
+                            <h6 id="username-report"></h6>
+                        </a>
                         <p>
                             <i class="fas fa-thumbs-up cl-success"></i>
                             <span id="approvalRate-report" class="font-weight-bold cl-success">%</span>
@@ -34,22 +38,22 @@
                 <div class="row mt-3">
                     <div class="col">
                         <h5>Report Title</h5>
-                        <input class="form-control" type="text" id="report-title" name="title" placeholder="Problem title">
+                        <input class="form-control" type="text" id="report-title" name="title"
+                            placeholder="Problem title">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
                         <h6>Report Description</h6>
-                        <textarea class="form-control userDetailsForm"
-                                  id="report-description"
-                                  placeholder="Describe your problem" value="" rows="3"></textarea>
+                        <textarea class="form-control userDetailsForm" id="report-description"
+                            placeholder="Describe your problem" value="" rows="3"></textarea>
                         <div class="report-response" hidden></div>
                     </div>
                 </div>
             </section>
             <section class="modal-footer">
                 <div id="submit-button-container-report" class="col text-right submit-report">
-                    <button id="submitButton" class="btn btn-blue submit">Submit</button>
+                    <button id="submitButtonReport" class="btn btn-blue submit">Submit</button>
                 </div>
             </section>
         </div>
