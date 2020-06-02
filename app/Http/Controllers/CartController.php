@@ -185,6 +185,11 @@ class CartController extends Controller
 
         $totalPrice = $collectionOffers->sum('discountPriceColumn');
 
+        if($totalPrice == 0){
+            return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
+                'breadcrumbs' => ['Cart' => route('showCart')]]);
+        }
+
 
         return view('pages.cart.checkout',['totalPrice' => $totalPrice,'loggedIn'=>$loggedIn, 'clientToken' => $this->generateClientToken(), 'userCartEntries' => $data,
                 'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]]);
