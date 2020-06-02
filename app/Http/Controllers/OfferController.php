@@ -114,7 +114,6 @@ class OfferController extends Controller
     }
 
     public function delete($offerId) {
-        
         $offer = Offer::findOrFail($offerId);
 
         try {
@@ -126,8 +125,6 @@ class OfferController extends Controller
         $offer->final_date = date("Y-m-d");
         $offer->save();
 
-        $response=['profit'=>$offer->profit];
-        
         return redirect('/user/'.Auth::user()->username.'/offers');
     }
 

@@ -25,7 +25,6 @@ class OfferPolicy
 
     public function seller(User $user, Offer $offer) {
         // Only the owner of the offer can change any details
-
         return Auth::check() && ($user->id === $offer->user_id);
     }
 }
