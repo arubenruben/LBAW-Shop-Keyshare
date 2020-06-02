@@ -25,6 +25,7 @@ use App\Category;
 use App\Picture;
 use Image;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -293,8 +294,7 @@ class AdminController extends Controller
 
         $category->save();
 
-
-        return redirect('/admin/category');
+        return back();
     }
 
     public function categoryUpdate(Request $request, $id)
@@ -309,7 +309,7 @@ class AdminController extends Controller
         $category->name = $request->get('category');
         $category->save();
 
-        return redirect('/admin/category');
+        return back();
     }
 
     public function categoryDelete(Request $request, $id)
@@ -319,7 +319,7 @@ class AdminController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect('/admin/category');
+        return back();
     }
 
     public function genreShow()
@@ -345,7 +345,7 @@ class AdminController extends Controller
         $genre->save();
 
 
-        return redirect('/admin/genre');
+        return back();
     }
 
     public function genreUpdate(Request $request, $id)
@@ -360,7 +360,7 @@ class AdminController extends Controller
         $genre->name = $request->get('genre');
         $genre->save();
 
-        return redirect('/admin/genre');
+        return back();
     }
 
     public function genreDelete(Request $request, $id)
@@ -370,27 +370,55 @@ class AdminController extends Controller
         $genre = Genre::findOrFail($id);
         $genre->delete();
 
-        return redirect('/admin/genre');
+        return back();
     }
 
     public function platformShow()
     {
+        $data = Platform::all();
 
+        return view('admin.pages.platform', ['data' => $data]);
     }
 
-    public function platformAdd()
+    public function platformAdd(Request $request)
     {
+        if (!$request->has('platform'))
+            response(400);
 
+        $platform = new Platform;
+
+        $platform->name = $request->get('platform');
+
+        $platform->save();
+
+        return back();
     }
 
-    public function platformUpdate($id)
+    public function platformUpdate(Request $request, $id)
     {
 
+        if (!$request->has('platform'))
+            response(400);
+
+        $platform = Platform::findOrFail($id);
+        $platform->name = $request->get('platform');
+
+        $platform->save();
+
+        return back();
     }
 
-    public function platformDelete($id)
+    public function platformDelete(Request $request, $id)
     {
+        $platform = Platform::findOrFail($id);
 
+        try {
+            $platform->delete();
+        } catch (QueryException $ex) {
+            return redirect('/admin');
+        }
+
+        return back();
     }
 
     public function userShow(AdminUserRequest $request)
@@ -465,8 +493,7 @@ class AdminController extends Controller
 
     }
 
-    public function reportMessage($reportId)
-    {
+    public function reportMessage($reportId) {
 
     }
 
