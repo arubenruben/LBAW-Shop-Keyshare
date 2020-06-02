@@ -23,6 +23,7 @@ const addEventListeners = () => {
                 let response = await sendGet();
                 totalPrice.innerHTML = response.amount;
                 if(response.amount === 0){
+
                     if(!table.classList.contains('d-none'))
                         table.className += " d-none";
                     if(cartNoEntries.classList.contains('d-none'))

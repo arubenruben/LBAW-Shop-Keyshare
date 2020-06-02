@@ -24,7 +24,7 @@
 @section('content')
 
     <span class="d-none" id="client-token">{{$clientToken}}</span>
-    <div id="content" class="container mt-2">
+    <div id="content" class="container mt-4">
         <section id="checkout-tab-1">
             @include('partials.cart.checkout1', ['userCartEntries' => $userCartEntries, 'totalPrice' => $totalPrice])
         </section>
