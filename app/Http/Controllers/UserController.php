@@ -140,14 +140,13 @@ class UserController extends Controller
         return response(json_encode("Success"), 200);
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
         try {
             $this->authorize('delete', User::class);
         } catch (AuthorizationException $e) {
             return response(json_encode("You can't delete this profile"), 400);
         }
-
         User::destroy(Auth::id());
     }
 
