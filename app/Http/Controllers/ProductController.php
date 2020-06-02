@@ -188,7 +188,8 @@ class ProductController extends Controller
 
         return view('pages.products.products', [
             'genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
-            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $filtered, 'breadcrumbs' => ['Products' => url('/products/')]
+            'min_price' => $min_price, 'max_price' => $max_price, 'products' => $filtered, 'breadcrumbs' => [
+                'Products' => route('search')]
         ]);
     }
 

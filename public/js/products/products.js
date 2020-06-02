@@ -4,52 +4,82 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/search';
 
 const addEventListeners = () => {
-    let sort_by_input = document.querySelectorAll("form#option input.sort-by");
-    let genres_input = document.querySelectorAll("form#option input.genre");
-    let platform_input = document.querySelectorAll("form#option input.platform");
-    let category_input = document.querySelectorAll("form#option input.category");
-    let min_price_input = document.querySelector("form#option input#min-price-range");
-    let max_price_input = document.querySelector("form#option input#max-price-range");
+    let filters = document.querySelectorAll("form.option");
 
-    for (let i = 0; i < sort_by_input.length; i++) {
-        sort_by_input[i].addEventListener("click", sendRequest);
+    for(let i = 0; i < filters.length; i++) {
+        filters[i].addEventListener("click", function () {
+            let sort_by_input = filters[i].querySelectorAll("input.sort-by");
+            let genres_input = filters[i].querySelectorAll("input.genre");
+            let platform_input = filters[i].querySelectorAll("input.platform");
+            let category_input = filters[i].querySelectorAll("input.category");
+            let min_price_input = filters[i].querySelector("input#min-price-range");
+            let max_price_input = filters[i].querySelector("input#max-price-range");
+
+            for (let i = 0; i < sort_by_input.length; i++) {
+                sort_by_input[i].addEventListener("click", sendRequest.bind(sort_by_input[i], filters[i]));
+            }
+
+            for (let i = 0; i < genres_input.length; i++) {
+                genres_input[i].addEventListener("click", sendRequest.bind(genres_input[i], filters[i]));
+            }
+
+            for (let i = 0; i < platform_input.length; i++) {
+                platform_input[i].addEventListener("click", sendRequest.bind(platform_input[i], filters[i]));
+            }
+
+            for (let i = 0; i < category_input.length; i++) {
+                category_input[i].addEventListener("click", sendRequest.bind(category_input[i], filters[i]));
+            }
+
+            min_price_input.addEventListener("keyup", function () {
+                if(max_price_input && max_price_input.value && min_price_input.value && (max_price_input.value < min_price_input.value || min_price_input < 0))
+                    min_price_input.value = max_price_input.value;
+
+                sendRequest(filters[i]);
+            });
+            max_price_input.addEventListener("keyup", function () {
+                if(min_price_input && min_price_input.value && max_price_input.value && (min_price_input.value > max_price_input.value || max_price_input < 0))
+                    max_price_input.value = min_price_input.value
+
+                sendRequest(filters[i])
+            });
+        });
     }
-
-    for (let i = 0; i < genres_input.length; i++) {
-        genres_input[i].addEventListener("click", sendRequest);
-    }
-
-    for (let i = 0; i < platform_input.length; i++) {
-        platform_input[i].addEventListener("click", sendRequest);
-    }
-
-    for (let i = 0; i < category_input.length; i++) {
-        category_input[i].addEventListener("click", sendRequest);
-    }
-
-    min_price_input.addEventListener("keyup", function () {
-        if(max_price_input && max_price_input.value && min_price_input.value && (max_price_input.value < min_price_input.value || min_price_input < 0))
-            min_price_input.value = max_price_input.value;
-
-        sendRequest();
-    });
-    max_price_input.addEventListener("keyup", function () {
-        if(min_price_input && min_price_input.value && max_price_input.value && (min_price_input.value > max_price_input.value || max_price_input < 0))
-            max_price_input.value = min_price_input.value
-
-        sendRequest()
-    });
 }
 
-const sendRequest = () => {
-    let data = assembleData();
+const sendGet = get => {
+    let request = encodeForAjax(get);
+    console.log(get)
+
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'get',
+        credentials: "same-origin",
+    }
+
+    window.history.pushState("", "", window.location.pathname + "?" + request);
+
+    return fetch("api/product?" + request, options)
+        .then(res => res.json())
+        .catch(error => console.error("Error: " + error));
+}
+
+/** Filter results **/
+const sendRequest = form => {
+    let data = assembleData(form);
     sendGet(data)
         .then(res => received(res))
         .catch(error => console.error("Error: " + error));
 }
 
-const assembleData = () => {
-    const form = new FormData(document.querySelector("form#option"));
+const assembleData = formElement => {
+    const form = new FormData(formElement);
+
     let data = {};
 
     let sort_by = form.get('sort_by');
@@ -83,29 +113,7 @@ const assembleData = () => {
         data.max_price = max_price;
     }
 
-    console.log(data)
-
     return data;
-}
-
-const sendGet = get => {
-    let request = encodeForAjax(get);
-    const options = {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text-plain, */*",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
-        },
-        method: 'get',
-        credentials: "same-origin",
-    }
-
-    window.history.pushState("", "", window.location.pathname + "?" + request);
-
-    return fetch("api/product?" + request, options)
-        .then(res => res.json())
-        .catch(error => console.error("Error: " + error));
 }
 
 const received = (response) => {

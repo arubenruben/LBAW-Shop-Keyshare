@@ -1,14 +1,17 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-const btnText = document.getElementById("moreTextButton");
-const cartItemCounter = document.querySelector("#shopping_cart_item_counter");
-const counterNumberOffers = document.querySelector("#counter-number-offers");
-const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middle"> <p class = "mt-5" >No offers available for this product</p> </div >'
-const htmlToInsertPlace = document.querySelector('#offers_body');
 
-btnText.addEventListener('click', collapseDescription);
+/** Read More **/
+const btnText = document.getElementById("moreTextButton");
 const dots = document.getElementById("dots");
 const moreText = document.getElementById("more");
 const seeMoreButtons = document.getElementById("see-more-buttons");
+const readmoreText = document.querySelector("#text-readmore");
+
+if(readmoreText.length < 200) {
+    readmoreText.style.display = none
+} else {
+    btnText.addEventListener('click', collapseDescription);
+}
 
 function collapseDescription() {
     if (dots.style.display === "none") {
@@ -21,6 +24,12 @@ function collapseDescription() {
         moreText.style.display = "inline";
     }
 }
+
+/** Add to cart **/
+const cartItemCounter = document.querySelector("#shopping_cart_item_counter");
+const counterNumberOffers = document.querySelector("#counter-number-offers");
+const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middle"> <p class = "mt-5" >No offers available for this product</p> </div >'
+const htmlToInsertPlace = document.querySelector('#offers_body');
 
 function pressed_add_offer_to_cart(id) {
     let data = {

@@ -20,7 +20,7 @@ class CartController extends Controller
 
         $this->authorize('loggedIn',Cart::class);
         $user = Auth::user();
-        $loggedIn=true;
+        $loggedIn = true;
         
         //If logged in -> Get the Cart from the database
         if($loggedIn){          
