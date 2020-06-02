@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
 
 use Illuminate\Support\Facades\Auth;
+use function foo\func;
+use function Sodium\add;
 
 class ProductController extends Controller
 {
@@ -71,7 +73,50 @@ class ProductController extends Controller
             'carousel' => [asset('pictures/carousel/1.png'), asset('pictures/carousel/2.png'), asset('pictures/carousel/3.png')]
         ]);
 
-        return view('pages.homepage.homepage', ['data' => $homepageData, 'genres' => Genre::all(),
+
+        $offersMostPopular = collect();
+        $offersMostRecents = collect();
+
+
+        foreach ($homepageData['mostPopulars'] as $entry) {
+            if ($entry->product->active_offers != null) {
+                $plat_id = $entry->platform->id;
+                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                    return $active_offer->offer->platform_id == $plat_id;
+                });
+
+
+
+                $minPrice = $active_offers->min(function (ActiveOffer $activeOffer) {
+                     return $activeOffer->offer->discount_price();
+                 });
+
+                $offersMostPopular->add($active_offers->filter(function (ActiveOffer $activeOffer) use($minPrice){
+                   return $activeOffer->offer->discount_price() ==  $minPrice;
+                })->first());
+            }
+        }
+
+        foreach ($homepageData['mostRecents'] as $entry) {
+            if ($entry->product->active_offers != null) {
+                $plat_id = $entry->platform->id;
+                $active_offers = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
+                    return $active_offer->offer->platform_id == $plat_id;
+                });
+
+
+
+                $minPrice = $active_offers->min(function (ActiveOffer $activeOffer) {
+                    return $activeOffer->offer->discount_price();
+                });
+
+                $offersMostRecents->add($active_offers->filter(function (ActiveOffer $activeOffer) use($minPrice){
+                    return $activeOffer->offer->discount_price() ==  $minPrice;
+                })->first());
+            }
+        }
+
+        return view('pages.homepage.homepage', ['carousel' => $homepageData['carousel'], 'mostPopulars' => $offersMostPopular, 'mostRecents' => $offersMostRecents,  'genres' => Genre::all(),
             'platforms' => Platform::all(), 'categories' => Category::all(),'breadcrumbs' => []]);
     }
 

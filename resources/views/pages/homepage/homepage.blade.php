@@ -14,9 +14,9 @@
 @endsection
 
 @section('content')
-    @include('partials.homepage.carousel',['carousel' => $data['carousel']])
-    @include('partials.homepage.most_populars',['data' => $data['mostPopulars']])
-    @include('partials.homepage.most_recents',['data' => $data['mostRecents']])
+    @include('partials.homepage.carousel',['carousel' => $carousel])
+    @include('partials.homepage.most_populars',['data' => $mostPopulars])
+    @include('partials.homepage.most_recents',['data' => $mostRecents])
 @endsection
 
 @section('footer')
