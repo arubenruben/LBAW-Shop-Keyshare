@@ -13,6 +13,15 @@ class BannedUser extends Model
     public $timestamps  = false;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+    ];
+
+    /**
      * User account that is banned
      */
     public function user() {

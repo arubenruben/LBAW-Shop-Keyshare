@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BannedUser;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\AdminBanRequest;
 use App\Http\Requests\AdminUserRequest;
 use App\Order;
 use App\Report;
@@ -83,9 +85,9 @@ class AdminController extends Controller
         }
 
         $page = $request->has('page') ? $request->input('page') : 1;
-        
+
         $products_paginated = $this->paginate($products, $page);
-        
+
         $products_paginated->withPath('/admin/products');
 
         $products = Product::paginate(10);
@@ -273,66 +275,82 @@ class AdminController extends Controller
 
     public function categoryGet()
     {
+
     }
 
     public function categoryShow()
     {
+
     }
 
     public function categoryAdd()
     {
+
     }
 
     public function categoryUpdate($id)
     {
+
     }
 
     public function categoryDelete($id)
     {
+
     }
 
     public function genreGet()
     {
+
     }
 
     public function genreShow()
     {
+
     }
 
     public function genreAdd()
     {
+
     }
 
     public function genreUpdate($id)
     {
+
     }
 
     public function genreDelete($id)
     {
+
     }
 
     public function platformGet()
     {
+
     }
 
     public function platformShow()
     {
+
     }
 
     public function platformAdd()
     {
+
     }
 
     public function platformUpdate($id)
     {
+
     }
 
     public function platformDelete($id)
     {
+
     }
 
     public function userGet()
     {
+
     }
 
     public function userShow(AdminUserRequest $request) {
@@ -356,64 +374,90 @@ class AdminController extends Controller
         ]);
     }
 
-    public function userUpdate($id)
-    {
+    public function userUpdate(AdminBanRequest $request, $id) {
+        User::findOrFail($id);
+
+        if($request->input('ban') == "1") {
+            if(BannedUser::find($id) === null) {
+                BannedUser::create([
+                    'id' => $id
+                ])->save();
+            }
+        } else {
+            BannedUser::destroy($id);
+        }
+
+        return back();
     }
 
     public function reportGet()
     {
+
     }
 
     public function reportShow()
     {
+
     }
 
     public function reportShowMessages($id)
     {
+
     }
 
     public function reportMessage($id)
     {
+
     }
 
     public function transactionGet()
     {
+
     }
 
     public function transactionShow()
     {
+
     }
 
     public function feedbackGet()
     {
+
     }
 
     public function feedbackShow()
     {
+
     }
 
     public function feedbackDelete($id)
     {
+
     }
 
     public function faqGet()
     {
+
     }
 
     public function faqShow()
     {
+
     }
 
     public function faqAdd()
     {
+
     }
 
     public function faqUpdate($id)
     {
+
     }
 
     public function faqDelete($id)
     {
+
     }
 
     public function __construct()
