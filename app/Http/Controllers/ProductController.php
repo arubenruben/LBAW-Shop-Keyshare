@@ -363,7 +363,9 @@ class ProductController extends Controller
         $offersSortRating = $this->sortOffersByRating($offers);
         $platformName = $platform->name;
 
-        return view('pages.product.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName, 'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating, 'breadcrumbs' => ['Product' => url('/product/')]]);
+        return view('pages.product.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName,
+            'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating,
+            'breadcrumbs' => [ $product->name.' ['.$platformName.']' => route('product', ['productName' => $product->name, 'platformName' => $platformName])]]);
     }
 
     private function filterOffersAlreadyInCart(Request $request, $offers)

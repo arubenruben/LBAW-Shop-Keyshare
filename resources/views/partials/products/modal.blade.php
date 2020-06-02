@@ -11,6 +11,7 @@
                 <div class="modal-body">
                     <div id="sidebar" class="col">
                         <form>
+                            @csrf
                             <div class="col">
                                 <section>
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button"

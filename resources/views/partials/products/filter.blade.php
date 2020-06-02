@@ -1,5 +1,6 @@
 <div id="sidebar" class="col-3 d-none d-lg-block h-100">
     <form id="option">
+        @csrf
         <div class="col">
             <section>
                 <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse"

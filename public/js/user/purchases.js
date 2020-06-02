@@ -6,16 +6,18 @@ const addFeedbackEventListeners = () => {
     const arrayButtonsToOpenGiveFeedback = document.querySelectorAll('.modal-feedback-opener');
     arrayButtonsToOpenGiveFeedback.forEach(button => {
         let keyId = button.getAttribute('data-key-id');
+        let orderNumber = button.getAttribute('data-order-number');
         button.addEventListener('click', function () {
-            leaveFeedback(keyId);
+            leaveFeedback(keyId, orderNumber);
         });
     });
 
     const arrayButtonsToOpenReportSeller = document.querySelectorAll('.modal-report-opener');
     arrayButtonsToOpenReportSeller.forEach(button => {
         let keyId = button.getAttribute('data-key-id');
+        let orderNumber = button.getAttribute('data-order-number');
         button.addEventListener('click', function () {
-            giveReport(keyId);
+            giveReport(keyId, orderNumber);
         });
     });
 
@@ -40,7 +42,7 @@ const sendGet = get => {
         .catch(error => console.error("Error: " + error));
 }
 
-const sendPut = (put, link) => {
+const sendPut = (put, url) => {
     const options = {
         headers: {
             "Content-Type": "application/json",
@@ -53,14 +55,16 @@ const sendPut = (put, link) => {
         body: JSON.stringify(put)
     }
 
-    return fetch('/key/' + put.key + '/feedback', options)
+    return fetch(url, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
 }
 
-const getKeyInfo = (keyId, option) => {
+const getKeyInfo = (keyId, option, orderNumber) => {
+
     sendGet('/api/key/' + keyId).then(function (res) {
-        if(option === "feedback") {
+
+        if (option === "feedback") {
             usernamePlaceHolderFeedback.innerHTML = usernameOriginalContentFeedback + res.seller.username;
             pricePlaceHolderFeedback.innerHTML = priceOriginalContentFeedback + res.offer.price;
             productNamePlaceHolderFeedback.innerHTML = productNameOriginalContentFeedback + res.product.name;
@@ -68,7 +72,8 @@ const getKeyInfo = (keyId, option) => {
             numSellsPlaceHolderFeedback.innerHTML = numSellsOriginalContentFeedback + res.seller.num_sells;
             orderNumberPlaceHolderFeedback.innerHTML = orderNumberOriginalContentFeedback + orderNumber;
             commentPlaceHolder.innerHTML = commentOriginalContent;
-        } else if(option === "report") {
+        } else if (option === "report") {
+
             usernamePlaceHolderReport.innerHTML = usernameOriginalContentReport + res.seller.username;
             pricePlaceHolderReport.innerHTML = priceOriginalContentReport + res.offer.price;
             productNamePlaceHolderReport.innerHTML = productNameOriginalContentReport + res.product.name;
@@ -79,7 +84,9 @@ const getKeyInfo = (keyId, option) => {
         }
 
         if (option === "feedback" && res.feedback !== null) {
-            submitButtonReport.remove();
+            const feedbackResponse = document.querySelector('#feedback-response');
+            feedbackResponse.innerHTML = '';
+            submitButtonFeedback.remove();
             commentPlaceHolder.innerHTML = res.feedback.comment;
 
             if (res.feedback.evaluation) {
@@ -101,12 +108,19 @@ const getKeyInfo = (keyId, option) => {
             }
 
         } else {
-            if (!document.body.contains(submitButtonReport))
+            const feedbackResponse = document.querySelector('#feedback-response');
+            feedbackResponse.innerHTML = '';
+            if (!document.body.contains(submitButtonFeedback))
                 submitButtonContainerFeedback.append(submitButtonFeedback);
             if (!positiveButtonContainer.contains(positiveButton))
                 positiveButtonContainer.append(positiveButton);
             if (!negativeButtonContainer.contains(negativeButton))
                 negativeButtonContainer.append(negativeButton);
+            negativeButton.classList.remove('bg-aux');
+            positiveButton.classList.remove('bg-aux1');
+            commentPlaceHolder.innerHTML = commentOriginalContent;
+
+
 
         }
     });
@@ -137,7 +151,7 @@ const approvalRateOriginalContentFeedback = approvalRatePlaceHolderFeedback.inne
 const numSellsPlaceHolderFeedback = document.querySelector('#numSells-feedback');
 const numSellsOriginalContentFeedback = numSellsPlaceHolderFeedback.innerHTML;
 const submitButtonContainerFeedback = document.querySelector('#submit-button-container-feedback');
-const submitButtonFeedback = document.querySelector('#submitButton-feedback');
+const submitButtonFeedback = document.querySelector('#submitButtonFeedback');
 
 let evaluation = null;
 const positiveButton = document.querySelector('#buttonPositive');
@@ -149,14 +163,15 @@ const negativeThumb = document.querySelector('#negative-thumb');
 const commentPlaceHolder = document.querySelector('#comment');
 const commentOriginalContent = commentPlaceHolder.innerHTML;
 
-const leaveFeedback = (keyId) => {
+const leaveFeedback = (keyId, orderNumber) => {
     positiveButton.addEventListener('click', buttonPositiveClick);
     negativeButton.addEventListener('click', buttonNegativeClick);
+    getKeyInfo(keyId, "feedback", orderNumber);
+
     submitButtonFeedback.addEventListener('click', function () {
         submitComment(keyId);
     });
 
-    getKeyInfo(keyId);
 };
 
 const buttonPositiveClick = () => {
@@ -176,34 +191,37 @@ const buttonNegativeClick = () => {
 }
 
 const submitComment = (keyId) => {
+
+    console.log('Submeti')
     let data = {
         comment: commentPlaceHolder.value,
         evaluation: evaluation,
         key: keyId
     };
 
-    sendPut(data, '/key/' + data.key + '/feedback').then(function (res) {
-        if (res == "Success") {
-            if (data.evaluation && negativeButtonContainer.contains(negativeButton))
-                negativeButton.remove();
-            else if(positiveButtonContainer.contains(positiveButton))
-                positiveButton.remove();
+    sendPut(data, '/key/' + data.key + '/feedback').then(function () {
 
-            submitButtonFeedback.remove();
+        if (data.evaluation && negativeButtonContainer.contains(negativeButton))
+            negativeButton.remove();
+        else if (positiveButtonContainer.contains(positiveButton))
+            positiveButton.remove();
 
-            // Print success response
-            const feedbackResponse = document.querySelector('#feedback-response');
-            feedbackResponse.innerHTML = 'Submited feedback successfully';
-            feedbackResponse.style.color = 'green';
-            feedbackResponse.style.textAlign = 'left';
-        } else {
-            // Print fail response
-            const feedbackResponse = document.querySelector('#feedback-response');
-            if(res['errors'][0] !== undefined) feedbackResponse.innerHTML = res['errors'][0];
-            else feedbackResponse.innerHTML = 'Error while submitting feedback';
-            feedbackResponse.style.color = 'red';
-            feedbackResponse.style.textAlign = 'left';
-        }
+        submitButtonFeedback.remove();
+
+        // Print success response
+        const feedbackResponse = document.querySelector('#feedback-response');
+        feedbackResponse.innerHTML = 'Submited feedback successfully';
+        feedbackResponse.style.color = 'green';
+        feedbackResponse.style.textAlign = 'left'
+
+
+    }).catch(function () {
+        const feedbackResponse = document.querySelector('#feedback-response');
+        if (res['errors'][0] !== undefined) feedbackResponse.innerHTML = res['errors'][0];
+        else feedbackResponse.innerHTML = 'Error while submitting feedback';
+        feedbackResponse.style.color = 'red';
+        feedbackResponse.style.textAlign = 'left';
+
     });
 };
 
@@ -221,21 +239,21 @@ const approvalRateOriginalContentReport = approvalRatePlaceHolderReport.innerHTM
 const numSellsPlaceHolderReport = document.querySelector('#numSells-report');
 const numSellsOriginalContentReport = numSellsPlaceHolderReport.innerHTML;
 const submitButtonContainerReport = document.querySelector('#submit-button-container-report');
-const submitButtonReport = document.querySelector('#submitButton-report');
+const submitButtonReport = document.querySelector('#submitButtonReport');
 
 const giveReport = (keyId, orderNumber) => {
     submitButtonReport.addEventListener('click', function () {
         submitReport(keyId);
     });
 
-    getKeyInfo(keyId);
+    getKeyInfo(keyId, "report", orderNumber);
 };
 
 const submitReport = (keyId) => {
-    let title = document.querySelector("#report-title");
-    let description = document.querySelector("#report-description");
+    let title = document.querySelector("#report-title").value;
+    let description = document.querySelector("#report-description").value;
     let data = {
-        key_id: keyId,
+        key: keyId,
         title: title,
         description: description,
     };

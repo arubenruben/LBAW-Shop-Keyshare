@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
-@section('title') About us @endsection
+@section('title', 'Contact us')
 
-@include('partials.header.user_header')
+@section('header')
+    @include('partials.header.user_header')
+@endsection
 
 @section('navbar')
-@include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
+    @include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
 @endsection
 
 @section('content')
-@include('partials.static.contact')
+    @include('partials.static.contact')
 @endsection
 
 @section('footer')
-@include('partials.footer.footer')
+    @include('partials.footer.footer')
 @endsection

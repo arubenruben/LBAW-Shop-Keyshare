@@ -1,4 +1,5 @@
 <form id="content" class="container">
+    @csrf
     <div class="row mt-5">
         <div class="col">
             <h3>Choose a Game</h3>

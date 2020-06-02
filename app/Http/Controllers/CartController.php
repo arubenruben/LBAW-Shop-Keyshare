@@ -47,7 +47,7 @@ class CartController extends Controller
         }
         
         return view('pages.cart.cart',['data'=>$data,'loggedIn'=>$loggedIn,
-            'breadcrumbs' => ['Cart' => url('/cart')]]);
+            'breadcrumbs' => ['Cart' => route('showCart')]]);
             
     }
 

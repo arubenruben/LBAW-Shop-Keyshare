@@ -1,21 +1,18 @@
 @extends('layouts.app')
+@section('title', 'Products')
 
-@section('title', 'My Cart')
-
-@push('head')
-    <script src="{{ asset('js/cart/cart.js') }}" defer></script>
-@endpush
+@include('partials.header.user_header')
 
 @section('header')
     @include('partials.header.user_header')
 @endsection
 
 @section('navbar')
-    @include('partials.navbar.no_navbar',['breadcrumbs'=>$breadcrumbs])
+    @include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
 @endsection
 
 @section('content')
-    @include('partials.cart.cart')
+    @include('partials.report.report', ['report' => $report, ])
 @endsection
 
 @section('footer')
