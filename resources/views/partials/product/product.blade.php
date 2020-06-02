@@ -1,12 +1,11 @@
 <article id="top-page" class="row ml-auto mr-auto">
     <div class="col-5 mt-5  p-0">
-        <img class="img-fluid productPageImgPreview" src="/pictures/games/{{$product->picture->url}}" />
+        <img class="img-fluid productPageImgPreview" src="{{asset('/pictures/games/'.$product->picture->url)}}" />
     </div>
     <aside class="col-6 mt-5">
         <div class="row">
             <div class="col-12">
-                <h3 id="product_name_platform" data_product_name="{{$product->name}}"
-                    data_product_platform="{{$platformName}}">{{$product->name}} [{{$platformName}}]</h3>
+                <h3 id="product_name_platform" data_product_name="{{$product->name}}" data_product_platform="{{$platformName}}">{{$product->name}} [{{$platformName}}]</h3>
             </div>
         </div>
         <div class="row  mt-4 mb-4">
@@ -18,13 +17,7 @@
         </div>
         <div class="row">
             <div class="col-12 d-none d-lg-inline ">
-                <p class="text-justify" id="text-readmore" value="{{substr($product->description, 0 , 200)}}">
-                    {{substr($product->description, 0 , 200)}}
-                    <span id="dots">...</span><span id="more" class="text-justify">
-                        {{substr($product->description, 200 , strlen($product->description))}}
-                    </span>
-                </p>
-                <a id="moreTextButton" href="#">Read more</a>
+                <p class="text-justify" id="text-readmore" value="{{substr($product->description, 0 , 200)}}"> {{substr($product->description, 0 , 200)}}<span id="dots"></span><span id="more" class="text-justify">{{substr($product->description, 200 , strlen($product->description))}}</span></p><a id="moreTextButton" href="#">Read more</a>
             </div>
         </div>
     </aside>

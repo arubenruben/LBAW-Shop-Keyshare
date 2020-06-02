@@ -7,10 +7,11 @@ const moreText = document.getElementById("more");
 const seeMoreButtons = document.getElementById("see-more-buttons");
 const readmoreText = document.querySelector("#text-readmore");
 
-if(readmoreText.length < 200) {
-    readmoreText.style.display = none
+if(readmoreText.textContent.length < 200) {
+    btnText.style.display = 'none';
 } else {
     btnText.addEventListener('click', collapseDescription);
+    btnText.style.display = 'block';
 }
 
 function collapseDescription() {
