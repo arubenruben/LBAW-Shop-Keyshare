@@ -4,7 +4,7 @@
 
 <article class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="table-responsive table-striped">
-        <table id="all-report-table" class="table p-0">
+        <table id="all-transaction-table" class="table p-0">
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">

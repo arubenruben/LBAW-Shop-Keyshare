@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Reports')
+@section('title', $title)
 
 @section('header')
     @include('admin.partials.header.header_admin')

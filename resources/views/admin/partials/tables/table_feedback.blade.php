@@ -4,7 +4,7 @@
 
 <article class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="table-responsive table-striped">
-        <table id="all-report-table" class="table p-0">
+        <table id="all-feedback-table" class="table p-0">
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
@@ -47,11 +47,11 @@
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
-                            <form action="{{ route('deleteFeedback', [$feedback_entry->id]) }}">
+                            <form action="{{ route('feedbackDelete', [$feedback_entry->id]) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-red btn-block flex-nowrap">
-                                    <span class="d-md-inline-block">Delete</span>
+                                    <i class="fas fa-trash-alt"></i> <span class="d-inline-block">Delete</span>
                                 </button>
                             </form>
                         </div>

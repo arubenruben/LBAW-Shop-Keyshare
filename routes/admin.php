@@ -36,15 +36,15 @@ Route::post('/admin/user/{id}', 'AdminController@userUpdate');
 
 Route::get('/admin/report', 'AdminController@allReports');
 Route::get('/admin/report/{reportId}', 'AdminController@reportShow');
-Route::post('/admin/report/{reportId}', 'AdminController@reportUpdate')->name('updateReport');
+Route::post('/admin/report/{reportId}', 'AdminController@reportUpdate')->name('reportUpdate');
 Route::put('/admin/report/{reportId}', 'AdminController@reportMessage');
 
 Route::get('/admin/transaction', 'AdminController@transactionShow');
 
 Route::get('/admin/feedback', 'AdminController@feedbackShow');
-Route::delete('/admin/feedback/{feedbackId}', 'AdminController@feedbackDelete')->name('deleteFeedback');
+Route::delete('/admin/feedback/{feedbackId}', 'AdminController@feedbackDelete')->name('feedbackDelete');
 
-Route::get('/admin/faq', 'AdminController@faqShow');
-Route::put('/admin/faq', 'AdminController@faqAdd');
-Route::post('/admin/faq/{id}', 'AdminController@faqUpdate');
-Route::delete('/admin/faq/{id}', 'AdminController@faqDelete');
+Route::get('/admin/faq', 'AdminController@faqShow')->name('faqShow');
+Route::put('/admin/faq', 'AdminController@faqAdd')->name('faqAdd');
+Route::post('/admin/faq/{faqId}', 'AdminController@faqUpdate')->name('faqUpdate');
+Route::delete('/admin/faq/{faqId}', 'AdminController@faqDelete')->name('faqDelete');

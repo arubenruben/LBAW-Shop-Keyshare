@@ -50,7 +50,7 @@
                             <a href="{{ url('/admin/report/'.$report->id) }}" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
                                 <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
                             </a>
-                            <form class="mt-1" action="{{ route('updateReport', [$report->id]) }}" method="post">
+                            <form class="mt-1" action="{{ route('reportUpdate', [$report->id]) }}" method="post">
                                 @csrf
                                 <input hidden type="text" name="status" value="{{ $report->status ? 0 : 1 }}">
                                 @if($report->status)

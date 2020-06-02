@@ -1,8 +1,8 @@
 @extends('layouts.admin')
-@section('title', 'Users')
+@section('title', $title)
 
 @push('head')
-    <script src="{{ asset('js/admin/all_users.js') }}" defer></script>
+    <script src="{{ asset('js/admin/users.js') }}" defer></script>
 @endpush
 
 @section('header')

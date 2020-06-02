@@ -25,8 +25,8 @@
 </head>
 
 <body>
-    @yield('header')
     <main id="wrapper">
+        @yield('header')
         <section class="container-fluid">
             <div class="row pt-3">
                 <nav class="col-md-3">

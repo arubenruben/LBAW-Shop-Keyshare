@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Faq;
+use App\FAQ;
 
 class FAQController extends Controller
 {
     public function show() {
-        $faqs = Faq::all();
-        return view('pages.faq.faq', ['faqs' => $faqs,'breadcrumbs' => ['Faq' => url("/faq")]]);
+        $faqs = FAQ::all();
+        return view('pages.faq.faq', ['faqs' => $faqs,'breadcrumbs' => ['FAQ' => url("/faq")]]);
     }
 }

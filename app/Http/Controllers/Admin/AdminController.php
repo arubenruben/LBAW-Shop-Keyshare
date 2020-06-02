@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\BannedUser;
+use App\FAQ;
 use App\Feedback;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\AdminBanRequest;
 use App\Http\Requests\AdminUserRequest;
+use App\Http\Requests\FAQRequest;
 use App\Http\Requests\ReportUpdateRequest;
 use App\Order;
 use App\Report;
@@ -114,7 +116,7 @@ class AdminController extends Controller
     {
 
         try {
-            $this->authorize('addProduct', Admin::class);
+            $this->authorize('admin', Admin::class);
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -181,7 +183,7 @@ class AdminController extends Controller
     {
 
         try {
-            $this->authorize('addProduct', Admin::class);
+            $this->authorize('admin', Admin::class);
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -200,7 +202,7 @@ class AdminController extends Controller
     {
 
         try {
-            $this->authorize('addProduct', Admin::class);
+            $this->authorize('admin', Admin::class);
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -209,7 +211,7 @@ class AdminController extends Controller
 
 
         try {
-            $this->authorize('addProduct', Admin::class);
+            $this->authorize('admin', Admin::class);
         } catch (AuthorizationException $e) {
             return response(json_encode($e->getMessage()), 400);
         }
@@ -264,7 +266,7 @@ class AdminController extends Controller
 
     public function productDelete($id)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $product = Product::findOrFail($id);
         $product->delete();
@@ -280,7 +282,7 @@ class AdminController extends Controller
 
     public function categoryAdd(Request $request)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         if (!$request->has('category'))
             return response(400);
@@ -296,7 +298,7 @@ class AdminController extends Controller
 
     public function categoryUpdate(Request $request, $id)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $category = Category::findOrFail($id);
 
@@ -311,7 +313,7 @@ class AdminController extends Controller
 
     public function categoryDelete(Request $request, $id)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $category = Category::findOrFail($id);
 
@@ -326,7 +328,7 @@ class AdminController extends Controller
 
     public function genreShow()
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $data = Genre::all();
 
@@ -335,7 +337,7 @@ class AdminController extends Controller
 
     public function genreAdd(Request $request)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         if (!$request->has('genre'))
             return response(400);
@@ -352,7 +354,7 @@ class AdminController extends Controller
 
     public function genreUpdate(Request $request, $id)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $genre = Genre::findOrFail($id);
 
@@ -367,7 +369,7 @@ class AdminController extends Controller
 
     public function genreDelete(Request $request, $id)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $genre = Genre::findOrFail($id);
         $genre->delete();
@@ -425,7 +427,7 @@ class AdminController extends Controller
 
     public function userShow(AdminUserRequest $request)
     {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         if ($request->has('query')) {
             $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
@@ -451,7 +453,7 @@ class AdminController extends Controller
     {
         User::findOrFail($id);
 
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         if ($request->input('ban') == "1") {
             if (BannedUser::find($id) === null) {
@@ -467,7 +469,7 @@ class AdminController extends Controller
     }
 
     public function allReports() {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $reports = Report::orderBy('date', 'DESC')->get();
         $reports_paginated = $this->paginate($reports, Input::input('page', 1));
@@ -481,7 +483,7 @@ class AdminController extends Controller
     }
 
     public function reportUpdate($reportId, ReportUpdateRequest $request) {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $report = Report::findOrFail($reportId);
 
@@ -500,7 +502,7 @@ class AdminController extends Controller
     }
 
     public function transactionShow() {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $transactions = Order::paginate();
 
@@ -512,7 +514,7 @@ class AdminController extends Controller
     }
 
     public function feedbackShow() {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         $feedback = Feedback::paginate();
 
@@ -524,7 +526,7 @@ class AdminController extends Controller
     }
 
     public function feedbackDelete($feedbackId) {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
         Feedback::destroy($feedbackId);
 
@@ -532,27 +534,46 @@ class AdminController extends Controller
     }
 
     public function faqShow() {
-        $this->authorize('addProduct', Admin::class);
+        $this->authorize('admin', Admin::class);
 
-        $faq = Feedback::paginate();
+        $faq = FAQ::orderBy('id', 'ASC')->paginate();
 
         return view('admin.pages.faq', [
             'title' => 'FAQ',
-            'feedback' => $faq->items(),
+            'faq' => $faq->items(),
             'links' => $faq->links()
         ]);
     }
 
-    public function faqAdd() {
+    public function faqAdd(FAQRequest $request) {
+        $this->authorize('admin', Admin::class);
 
+        FAQ::create([
+            'question' => $request->input('question'),
+            'answer' => $request->input('answer')
+        ])->save();
+
+        return back();
     }
 
-    public function faqUpdate($id) {
+    public function faqUpdate(FAQRequest $request, $faqId) {
+        $this->authorize('admin', Admin::class);
 
+        $faq = FAQ::findOrFail($faqId);
+
+        $faq->question = $request->input('question');
+        $faq->answer = $request->input('answer');
+        $faq->save();
+
+        return back();
     }
 
-    public function faqDelete($id) {
+    public function faqDelete($faqId) {
+        $this->authorize('admin', Admin::class);
 
+        FAQ::destroy($faqId);
+
+        return back();
     }
 
     public function __construct() {
