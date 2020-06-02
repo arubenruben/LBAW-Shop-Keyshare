@@ -440,10 +440,9 @@ class ProductController extends Controller
 
                 $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer) {
                     return $offer->seller()->getResults()->num_sells;
-                })
-                    ->sortByDesc(function (Offer $offer) {
-                        return $offer->seller()->getResults()->rating;
-                    });
+                })->sortByDesc(function (Offer $offer) {
+                    return $offer->seller()->getResults()->rating;
+                });
             } else {
 
                 $sortBy = $sortBy->sortByDesc(function (Offer $offer) {
@@ -471,7 +470,7 @@ class ProductController extends Controller
             }
 
             if($request->input('all_offers') === true)
-                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 0, count($sortBy->toArray()))), 'current_user' => $current_user, 'banned' => $banned]);
+                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 10, count($sortBy->toArray()))), 'current_user' => $current_user, 'banned' => $banned]);
             else
                 return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 0, 10)), 'current_user' => $current_user, 'banned' => $banned]);
         }

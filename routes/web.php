@@ -12,11 +12,11 @@ Route::get('login/google', 'Auth\LoginController@redirectToProvider')->name('log
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 // User
-Route::get('user/purchases', 'UserController@showPurchases');
-Route::get('user/reports', 'UserController@showReports');
+Route::get('user/purchases', 'UserController@showPurchases')->name('userPurchases');
+Route::get('user/reports', 'UserController@showReports')->name('userReports');
 Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('profile');
-Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
+Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('userOffers');
 Route::post('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
 

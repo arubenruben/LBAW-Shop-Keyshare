@@ -26,9 +26,13 @@ class UserController extends Controller
         $user = $this->getUser($username);
 
         if (Auth::check() && Auth::id() == $user->id) {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'breadcrumbs' => ['User' => url('/user/' . $username)]]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => True, 'breadcrumbs' =>
+                ['User' => route('profile', ['username' => $username]),
+                    'Account' => route('profile', ['username' => $username])]]);
         } else {
-            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'breadcrumbs' => ['User' => url('/user/' . $username)]]);
+            return view('pages.user.profile', ['user' => $user, 'isOwner' => false, 'breadcrumbs' =>
+                ['User' => route('profile', ['username' => $username]),
+                'Account' => route('profile', ['username' => $username])]]);
         }
     }
 
@@ -45,7 +49,9 @@ class UserController extends Controller
         $orders = $user->orders;
         $isBanned = $user->isBanned();
 
-        return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'breadcrumbs' => ['User' => url('/user/' . $user->username), 'Purchases' => url('/user/purchases')]]);
+        return view('pages.user.purchases', ['user' => $user, 'orders' => $orders, 'isBanned' => $isBanned, 'isOwner' => true, 'breadcrumbs' =>
+            ['User' => route('profile', ['username' => $user->username]),
+            'Purchases' => route('userPurchases')]]);
     }
 
     public function showOffers($username)
@@ -58,7 +64,9 @@ class UserController extends Controller
 
         return view('pages.user.offers', [
             'user' => $user, 'pastOffers' => $pastOffers,
-            'currOffers' => $currOffers, 'isOwner' => $isOwner, 'breadcrumbs' => ['User' => url('/user/' . $username), 'Offers' => url('/user/' . $username . '/offers')]
+            'currOffers' => $currOffers, 'isOwner' => $isOwner, 'breadcrumbs' =>
+                ['User' => route('profile', ['username' => $username]),
+                'Offers' => route('userOffers', ['username' => $username])]
         ]);
     }
 
@@ -77,8 +85,9 @@ class UserController extends Controller
 
         return view('pages.user.reports', [
             'user' => $user, 'myReports' => $myReports,
-            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true,
-            'breadcrumbs' => ['User' => url('/user/' . $user->username), 'Reports' => url('/user/reports')]
+            'reportsAgainstMe' => $reportsAgainstMe, 'isOwner' => true, 'breadcrumbs' =>
+                ['User' => route('profile', ['username' => $user->username]),
+                'Reports' => route('userReports')]
         ]);
     }
 
