@@ -15,7 +15,6 @@
 
 @section('content')
     @include('partials.user.purchases', ['user' => $user, 'orders' => $orders])
-    @include('partials.user.ban_appeal')
 @endsection
 
 @section('footer')
