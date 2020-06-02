@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -38,12 +37,7 @@ class UserController extends Controller
 
     public function showPurchases()
     {
-        try {
-            $this->authorize('loggedIn', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
+        $this->authorize('loggedIn', User::class);
         $user = Auth::user();
 
         $orders = $user->orders;
@@ -72,12 +66,7 @@ class UserController extends Controller
 
     public function showReports()
     {
-        try {
-            $this->authorize('loggedIn', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode($e->getMessage()), 400);
-        }
-
+        $this->authorize('loggedIn', User::class);
         $user = Auth::user();
 
         $myReports = $user->reportsGiven;
@@ -94,11 +83,7 @@ class UserController extends Controller
     public function update(UserEditRequest $request)
     {
 
-        try {
-            $this->authorize('update', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode(["message" => "Failure", "errors" => ["newPassword" => "", "oldPassword" => "You dont have Permission to edit this user"]], 400));
-        }
+        $this->authorize('update', User::class);
 
         //$request = $request->validated();
 
@@ -141,30 +126,19 @@ class UserController extends Controller
             Auth::user()->picture_id=$pictureORM->id;
         }
 
-        
         Auth::user()->save();
-
         return response(json_encode("Success"), 200);
     }
 
-    public function delete(Request $request)
+    public function delete()
     {
-        try {
-            $this->authorize('delete', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode("You can't delete this profile"), 400);
-        }
+        $this->authorize('delete', User::class);
         User::destroy(Auth::id());
     }
 
     public function deleteImage()
     {
-        try {
-            $this->authorize('update', User::class);
-        } catch (AuthorizationException $e) {
-            return response(json_encode("You can't edit this profile"), 400);
-        }
-        
+        $this->authorize('update', User::class);
         if(Auth::user()->picture->id!=1) Picture::find(Auth::user()->picture->id)->delete();
 
         return back();

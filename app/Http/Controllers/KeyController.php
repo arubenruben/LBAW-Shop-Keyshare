@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Key;
 use App\Feedback;
-use Illuminate\Auth\Access\AuthorizationException;
 use App\Http\Requests\FeedbackAddRequest;
 use App\Http\Requests\ReportAddRequest;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +14,8 @@ class KeyController extends Controller
     public function get($id)
     {
         $key = Key::findOrFail($id);
+        $this->authorize('get', $key);
 
-        try {
-            $this->authorize('get', $key);
-        } catch (AuthorizationException $e) {
-            return response("You can't get this key", 401);
-        }
 
         $offer = $key->offer;
         $seller = $offer->seller;
@@ -33,12 +28,7 @@ class KeyController extends Controller
     public function delete($id)
     {
         $key = Key::findOrFail($id);
-
-        try {
-            $this->authorize('delete', $key);
-        } catch (AuthorizationException $e) {
-            return response("You can't delete this key", 401);
-        }
+        $this->authorize('delete', $key);
 
         if(!$key->delete()) return response('Cannot delete key at this time', 401);;
 
@@ -48,12 +38,7 @@ class KeyController extends Controller
     public function feedback(FeedbackAddRequest $request)
     {
         $key = Key::findOrFail($request->get('key'));
-
-        try {
-            $this->authorize('submitFeedback', $key);
-        } catch (AuthorizationException $e) {
-            return response("You can't get this key", 401);
-        }
+        $this->authorize('submitFeedback', $key);
 
         $feedback = Feedback::create([
             'evaluation' => $request->get('evaluation'),

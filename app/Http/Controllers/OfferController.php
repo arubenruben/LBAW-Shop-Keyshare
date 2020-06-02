@@ -130,29 +130,15 @@ class OfferController extends Controller
 
     public function getKeys($offerId) {
         $offer = Offer::findOrFail($offerId);
-
-        try {
-            $this->authorize('seller', $offer);
-        } catch (AuthorizationException $e) {
-            return response('User does not have permissions to add a discount to this offer.', 401);
-        }
-
+        $this->authorize('seller', $offer);
         return response()->json(['keys' => $offer->keys]);
     }
 
     public function addKey(KeyAddRequest $request, $offerId) {
         $offer = Offer::findOrFail($offerId);
 
-        try {
-            $this->authorize('seller', $offer);
-        } catch (AuthorizationException $e) {
-            return response('User does not have permissions to add a key to this offer.', 401);
-        }
-        try {
-            $this->authorize('unfinished', $offer);
-        } catch (AuthorizationException $e) {
-            return response('The offer selected is sold out. You cannot add a key to this offer.', 401);
-        }
+        $this->authorize('seller', $offer);
+        $this->authorize('unfinished', $offer);
 
         $key = Key::create([
             'offer_id' => $offerId,
@@ -164,29 +150,15 @@ class OfferController extends Controller
 
     public function getDiscounts($offerId) {
         $offer = Offer::findOrFail($offerId);
-
-        try {
-            $this->authorize('seller', $offer);
-        } catch (AuthorizationException $e) {
-            return response('User does not have permissions to add a discount to this offer.', 401);
-        }
-
+        $this->authorize('seller', $offer);
         return response()->json(['discounts' => $offer->discounts]);
     }
 
     public function addDiscount(DiscountAddRequest $request, $offerId) {
         $offer = Offer::findOrFail($offerId);
 
-        try {
-            $this->authorize('seller', $offer);
-        } catch (AuthorizationException $e) {
-            return response('User does not have permissions to add a discount to this offer.', 401);
-        }
-        try {
-            $this->authorize('unfinished', $offer);
-        } catch (AuthorizationException $e) {
-            return response('The offer selected is sold out. You cannot add a discount to this offer.', 401);
-        }
+        $this->authorize('seller', $offer);
+        $this->authorize('unfinished', $offer);
 
         $discount = Discount::create([
             'offer_id' => $offerId,

@@ -1,14 +1,16 @@
-let all_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.all");
-let positive_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.positive");
-let negative_feedback = document.querySelector(".modal-body #userNavbar .nav-item button.negative");
+let all_feedback = document.querySelectorAll(".modal-body #userNavbar .nav-item button.all");
+let positive_feedback = document.querySelectorAll(".modal-body #userNavbar .nav-item button.positive");
+let negative_feedback = document.querySelectorAll(".modal-body #userNavbar .nav-item button.negative");
 
 const addFeedbackEventListeners = () => {
-    all_feedback.addEventListener("click", showAll);
-    positive_feedback.addEventListener("click", showPositive);
-    negative_feedback.addEventListener("click", showNegative);
+    for(let i = 0; i < all_feedback.length; i++) {
+        all_feedback[i].addEventListener("click", showAll.bind(all_feedback[i], all_feedback[i], positive_feedback[i], negative_feedback[i]));
+        positive_feedback[i].addEventListener("click", showPositive.bind(all_feedback[i], all_feedback[i], positive_feedback[i], negative_feedback[i]));
+        negative_feedback[i].addEventListener("click", showNegative.bind(all_feedback[i], all_feedback[i], positive_feedback[i], negative_feedback[i]));
+    }
 }
 
-const showAll = () => {
+const showAll = (all_feedback, positive_feedback, negative_feedback) => {
     if(!all_feedback.classList.contains('btn-blue-full')) {
         all_feedback.classList.remove('btn-blue')
         all_feedback.classList.add('btn-blue-full')
@@ -29,7 +31,7 @@ const showAll = () => {
     }
 }
 
-const showPositive = () => {
+const showPositive = (all_feedback, positive_feedback, negative_feedback) => {
     positive_feedback.classList.add('btn-green-full')
     if(!positive_feedback.classList.contains('btn-green-full')) {
         positive_feedback.classList.remove('btn-green')
@@ -55,7 +57,7 @@ const showPositive = () => {
     }
 }
 
-const showNegative = () => {
+const showNegative = (all_feedback, positive_feedback, negative_feedback) => {
     if(!negative_feedback.classList.contains('btn-red-full')) {
         negative_feedback.classList.remove('btn-red')
         negative_feedback.classList.add('btn-red-full')

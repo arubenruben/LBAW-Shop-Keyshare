@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="sidebar" class="col">
-                        <form>
+                        <form class="option">
                             @csrf
                             <div class="col">
                                 <section>
@@ -64,20 +64,20 @@
                                 </section>
                                 <section class="mt-4">
                                     <button class="btn btn-primary showAllProductListSideBar ml-3" type="button" data-toggle="collapse"
-                                            data-target="#collapsePlatforms" aria-expanded="true" aria-controls="collapsePlatforms">
+                                        data-target="#collapsePlatforms" aria-expanded="true" aria-controls="collapsePlatforms">
                                         <h5 class="productSideBarTitle">Platforms<i class="fas fa-caret-down ml-1"></i></h5>
                                     </button>
                                     <div id="collapsePlatforms" class="collapse show">
                                         <div class="custom-control custom-radio row ml-3 my-2">
                                             <input type="radio" class="custom-control-input category" id="noPlatform"
-                                                   name="platform" value="">
+                                               name="platform" value="">
                                             <label class="custom-control-label" for="noPlatform">All</label>
                                         </div>
                                         @for($i = 0; $i < count($platforms); $i++)
                                             <div class="custom-control custom-radio my-2 ml-3">
                                                 <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}_"
-                                                       name="platform" value="{{$platforms->get($i)->name}}"
-                                                       {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ?  'checked' : '' }}>
+                                                   name="platform" value="{{$platforms->get($i)->name}}"
+                                                   {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ?  'checked' : '' }}>
                                                 <label class="custom-control-label" for="checkBoxPlatforms{{$i+1}}_">{{$platforms->get($i)->name}}</label>
                                             </div>
                                         @endfor

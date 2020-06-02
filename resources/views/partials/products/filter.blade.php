@@ -1,5 +1,5 @@
 <div id="sidebar" class="col-3 d-none d-lg-block h-100">
-    <form id="option">
+    <form class="option">
         @csrf
         <div class="col">
             <section>
@@ -58,12 +58,12 @@
                                name="platform" value="">
                         <label class="custom-control-label" for="noPlatform">All</label>
                     </div>
-                        @for($i = 0; $i < count($platforms); $i++)
-                    <div class="custom-control custom-radio my-2 ml-3">
-                        <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}" name="platform" value="{{$platforms->get($i)->name}}"
-                            {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="checkBoxPlatforms{{$i+1}}">{{$platforms->get($i)->name}}</label>
-                    </div>
+                    @for($i = 0; $i < count($platforms); $i++)
+                        <div class="custom-control custom-radio my-2 ml-3">
+                            <input type="radio" class="custom-control-input platform" id="checkBoxPlatforms{{$i+1}}" name="platform" value="{{$platforms->get($i)->name}}"
+                                {{ (Request::has('platform') && Request::get('platform') == $platforms->get($i)->name) ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="checkBoxPlatforms{{$i+1}}">{{$platforms->get($i)->name}}</label>
+                        </div>
                     @endfor
                 </div>
                 <hr>
