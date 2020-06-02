@@ -159,7 +159,7 @@ class ProductController extends Controller
             $min_price = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
                 return $active_offer->offer->platform_id == $plat_id;
             })->min(function (ActiveOffer $active_offer) {
-                return $active_offer->offer->price;
+                return $active_offer->offer->discount_price();
             });
 
             return (object)[
@@ -202,14 +202,14 @@ class ProductController extends Controller
             $min_price = $entry->product->active_offers->filter(function (ActiveOffer $active_offer) use ($plat_id) {
                 return $active_offer->offer->platform_id == $plat_id;
             })->min(function (ActiveOffer $active_offer) {
-                return $active_offer->offer->price;
+                return $active_offer->offer->discount_price();
             });
 
             return [
                 'name' => $entry->product->name . ' ['.$entry->platform->name.']',
                 'url' => route('product', ['productName' => $entry->product->name, 'platformName' => $entry->platform->name]),
                 'image' => asset('/pictures/games/' . $entry->product->picture->url),
-                'price' => $min_price
+                'price' => $min_price,
             ];
         });
 
@@ -228,7 +228,6 @@ class ProductController extends Controller
 
             return $offers->isNotEmpty();
         });
-
 
         if($request->has('query')) {
             $query = htmlentities($request->input('query'));
@@ -272,7 +271,11 @@ class ProductController extends Controller
                     return $offer->platform_id == $plat_id;
                 });
 
-                return $offers->min('price') >= $request->input('min_price');
+                $min_price = $offers->min(function ($offer) {
+                  return $offer->discount_price();
+                });
+
+                return $min_price >= $request->input('min_price');
             });
         }
 
@@ -283,7 +286,11 @@ class ProductController extends Controller
                     return $offer->platform_id == $plat_id;
                 });
 
-                return $offers->min('price') <= $request->input('max_price');
+                $min_price = $offers->min(function ($offer) {
+                    return $offer->discount_price();
+                });
+
+                return $min_price <= $request->input('max_price');
             });
         }
 
@@ -298,7 +305,7 @@ class ProductController extends Controller
                     return $offers->min('price');
                 });
             } else if ($request->input('sort_by') == 2) {
-                $filter = $filter->sortByDesc(function ($entry) {
+                $filter = $filter->sortBy(function ($entry) {
                     $plat_id = $entry->platform->id;
                     $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
                         return $offer->stock > 0 && $offer->platform_id == $plat_id;
