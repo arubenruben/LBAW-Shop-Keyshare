@@ -6,7 +6,13 @@
     <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
 @endpush
 
-@include('partials.header.user_header')
+@section('header')
+    @include('partials.header.user_header')
+@endsection
+
+@section('navbar')
+    @include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
+@endsection
 
 @section('content')
     @include('partials.product.product')

@@ -83,7 +83,7 @@
                                                 <span class="d-none d-md-inline-block"> Report Seller </span>
                                             </button>
                                             @else
-                                            <a href="{{ url('/report/'.$key->report->id) }}"
+                                            <a href="{{ route('report', ['id' => $key->report->id])}}"
                                                 class="btn btn-blue btn-block flex-nowrap" role="button">
                                                 <i class="fas fa-edit d-inline-block"></i>
                                                 <span class="d-none d-md-inline-block"> View Report </span>

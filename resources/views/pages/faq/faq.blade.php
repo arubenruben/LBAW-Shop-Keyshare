@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title', 'FAQ')
 
-@include('partials.header.user_header')
+@section('header')
+    @include('partials.header.user_header')
+@endsection
 
 @section('navbar')
     @include('partials.navbar.breadcrumbs',['breadcrumbs'=> $breadcrumbs])
