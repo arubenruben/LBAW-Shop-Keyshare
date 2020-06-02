@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-sm-12 usercontent-left">
             @if($user->isBanned())
-                <div class="row mb-2">
-                    <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
-                        data-toggle="modal" data-target="#modalAppeal">
-                        You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
-                    </div>
+            <div class="row mb-2">
+                <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
+                    data-toggle="modal" data-target="#modalAppeal">
+                    You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
                 </div>
+            </div>
             @endif
             <div class="row px-3">
                 <div class="col-sm-9 " style=" display:flex; align-items: center;">
@@ -44,51 +44,55 @@
                                 </thead>
                                 <tbody>
                                     @foreach($currOffers as $currentOffer)
-                                        <tr id="offer{{$currentOffer->id}}">
-                                            <td scope="row" class="border-0 align-middle">
-                                                <div class="p-2">
-                                                    <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
-                                                        alt="" width="150"
-                                                        class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a
-                                                                href="{{url('product/'.$currentOffer->product->name.'/'.$currentOffer->platform->name)}}"
-                                                                class=" text-dark">{{$currentOffer->product->name}}</a>
-                                                        </h5>
-                                                        <span
-                                                            class="text-muted font-weight-normal font-italic d-inline-block">
-                                                            [{{$currentOffer->platform->name}}]
-                                                        </span>
-                                                        <h6>Stock: {{$currentOffer->stock}} keys</h6>
-                                                    </div>
+                                    <tr id="offer{{$currentOffer->id}}">
+                                        <td scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
+                                                    alt="" width="150"
+                                                    class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                    <h5 class="mb-0 d-inline-block"><a
+                                                            href="{{url('product/'.$currentOffer->product->name.'/'.$currentOffer->platform->name)}}"
+                                                            class=" text-dark">{{$currentOffer->product->name}}</a>
+                                                    </h5>
+                                                    <span
+                                                        class="text-muted font-weight-normal font-italic d-inline-block">
+                                                        [{{$currentOffer->platform->name}}]
+                                                    </span>
+                                                    <h6>Stock: {{$currentOffer->stock}} keys</h6>
                                                 </div>
-                                            </td>
-                                            <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
-                                            @if($currentOffer->price != $currentOffer->discount_price())
-                                                <td class="text-center align-middle">
-                                                    <del><strong>${{$currentOffer->price}}</strong></del>
-                                                    <strong class="cl-green pl-2">${{$currentOffer->discount_price()}}</strong>
-                                                </td>
-                                            @else
-                                                <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong></td>
-                                            @endif
-                                            <td class="align-middle">
-                                                <div class="btn-group-justified btn-group-md">
-                                                    <a href="{{ route('editOffer', ['id' => $currentOffer->id])}}"
-                                                        class="btn btn-blue btn-block flex-nowrap" role="button">
-                                                        <i class="fas fa-edit d-inline-block"> </i>
-                                                        <span class="d-none d-md-inline-block"> Edit Offer </span>
-                                                    </a>
-                                                    <form action="{{route('deleteOffer', ['id' => $currentOffer->id])}}" method="POST">
-                                                        @csrf @method('DELETE')
-                                                        <button type="button" class=" btn btn-red btn-block flex-nowrap mt-2" id="delete-offer-btn">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                            <span class="d-none d-md-inline-block"> Delete Offer </span>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
+                                        @if($currentOffer->price != $currentOffer->discount_price())
+                                        <td class="text-center align-middle">
+                                            <del><strong>${{$currentOffer->price}}</strong></del>
+                                            <strong class="cl-green pl-2">${{$currentOffer->discount_price()}}</strong>
+                                        </td>
+                                        @else
+                                        <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong>
+                                        </td>
+                                        @endif
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <a href="{{ route('editOffer', ['id' => $currentOffer->id])}}"
+                                                    class="btn btn-blue btn-block flex-nowrap" role="button">
+                                                    <i class="fas fa-edit d-inline-block"> </i>
+                                                    <span class="d-none d-md-inline-block"> Edit Offer </span>
+                                                </a>
+                                                <form action="{{route('deleteOffer', ['id' => $currentOffer->id])}}"
+                                                    method="POST">
+                                                    @csrf @method('DELETE')
+                                                    <button type="submit"
+                                                        class=" btn btn-red btn-block flex-nowrap mt-2"
+                                                        id="delete-offer-btn">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        <span class="d-none d-md-inline-block"> Delete Offer </span>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -131,7 +135,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($pastOffers as $pastOffer)
-                                        @include('partials.user.tables.pastOfferEntry',['pastOffer'=>$pastOffer])
+                                    @include('partials.user.tables.pastOfferEntry',['pastOffer'=>$pastOffer])
                                     @endforeach
                                 </tbody>
                             </table>
