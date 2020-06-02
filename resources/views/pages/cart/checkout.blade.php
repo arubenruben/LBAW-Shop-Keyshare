@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')Checkout @endsection
+@section('title', 'Checkout')
 
 @push("head")
     <!-- Load the required checkout.js script -->

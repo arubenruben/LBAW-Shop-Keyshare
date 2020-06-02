@@ -30,7 +30,7 @@ Route::get('product/{productName}/{platformName}', 'ProductController@show')->na
 // Cart
 Route::get('/cart', 'CartController@show')->name('showCart');
 Route::put('/cart', 'CartController@add');
-Route::get('/cart/checkout', 'CartController@checkout');
+Route::get('/cart/checkout', 'CartController@checkout')->name('checkoutInit');
 Route::put('/cart/checkout', 'CartController@finishCheckout');
 Route::get('api/getCartTotalPrice', 'CartController@getCartTotalPrice');
 Route::delete('/cart/{id}', 'CartController@delete');
@@ -67,7 +67,6 @@ Route::put('/report/{id}', 'ReportController@message');
 
 // FAQ
 Route::get('/faq', 'FAQController@show')->name('faq');
-
 
 // Static
 Route::get('/about', function () {

@@ -39,10 +39,15 @@ const sendDelete = (cartId, offerPrice) => {
                 let totalPriceNumber = parseFloat(totalPrice.innerHTML).toFixed(2);
                 totalPriceNumber -= offerPrice
                 totalPrice.innerHTML = totalPriceNumber.toFixed(2);
+
                 let tableEntry = document.querySelector('#row' + cartId);
                 tableEntry.remove();
                 cartItemCounter.innerHTML = cartItemCounter.innerHTML - 1;
                 counter_products_cart.innerHTML = counter_products_cart.innerHTML - 1;
+
+                if(totalPriceNumber == 0) {
+                    window.location.replace('/')
+                }
             }
 
         })

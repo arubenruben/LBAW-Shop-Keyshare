@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')Homepage @endsection
+@section('title', 'My Cart')
 
 @push('head')
     <script src="{{ asset('js/cart/cart.js') }}" defer></script>
