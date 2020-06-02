@@ -13,6 +13,16 @@ class BanAppeal extends Model
     public $timestamps  = false;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+        'ban_appeal',
+    ];
+
+    /**
      * Banned User that made the appeal
      */
     public function user() {

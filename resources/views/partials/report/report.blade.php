@@ -80,18 +80,18 @@
 
             <div class="msg_history ">
                 <div class="incoming_msg">
-                    <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                    <div class="received_msg">
+                    <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" class="mt-2"> </div>
+                    <div class="received_msg mt-2">
                         <div class="received_withd_msg">
-                            <p>Test, which is a new approach to have</p>
-                            <span class="time_date"> 11:01 AM | Yesterday</span>
+                            <p>{{$report->description}}</p>
+                            <span class="time_date"> {{$report->date}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="outgoing_msg">
                     <div class="sent_msg">
-                        <p>Apollo University, Delhi, India Test</p>
-                        <span class="time_date"> 11:01 AM | Today</span>
+                        <p>Awaiting for admin response ...</p>
+                        <span class="time_date"> - </span>
                     </div>
                 </div>
 

@@ -24,7 +24,7 @@ const addEventListeners = () => {
     email_btn.addEventListener("click", () => {
         let email_field = document.querySelector("#form_update_user #email-input");
 
-       if(!isValidEmail(email_field.value)){
+        if(!isValidEmail(email_field.value)){
             email_invalid.innerHTML = "Invalid Email, choose another one";
             if(email_field.classList.contains('border-success'))
                 email_field.classList.remove('border-success');
@@ -49,246 +49,274 @@ const addEventListeners = () => {
                     email_invalid.innerHTML = "";
                     email_valid.innerHTML = "Changed email successfully";
                 }
+            });
+        }
+    });
+
+
+    const description_btn = document.querySelector("#button_submit_description");
+    description_btn.addEventListener("click", () => {
+        const description_field = document.querySelector("#form_update_user #description_textarea");
+        let description_invalid = document.querySelector("#description-invalid");
+        let description_valid = document.querySelector("#description-valid");
+
+        console.log(description_valid);
+        console.log(description_invalid)
+
+        if(!isValidDescription(description_field.value)){
+            description_invalid.innerHTML = "Invalid Email, choose another one";
+            if(description_field.classList.contains('border-success'))
+                description_field.classList.remove('border-success');
+            if(description_valid.classList.contains('d-block'))
+                description_valid.classList.remove('d-block');
+            description_valid.innerHTML = "";
+            description_field.className += " border-danger";
+            description_invalid.className += " d-block";
+            description_invalid.innerHTML =  "Description must have 500 or less characters";
+        }else {
+            const data = {
+                description: description_field.value
             }
-        );
-    }
-});
-
-
-const description_btn = document.querySelector("#button_submit_description");
-description_btn.addEventListener("click", () => {
-    const description_field = document.querySelector("#form_update_user #description_textarea");
-    let description_invalid = document.querySelector("#description-invalid");
-    let description_valid = document.querySelector("#description-valid");
-
-    console.log(description_valid);
-    console.log(description_invalid)
-
-    if(!isValidDescription(description_field.value)){
-        description_invalid.innerHTML = "Invalid Email, choose another one";
-        if(description_field.classList.contains('border-success'))
-            description_field.classList.remove('border-success');
-        if(description_valid.classList.contains('d-block'))
-            description_valid.classList.remove('d-block');
-        description_valid.innerHTML = "";
-        description_field.className += " border-danger";
-        description_invalid.className += " d-block";
-        description_invalid.innerHTML =  "Description must have 500 or less characters";
-    }else {
-        const data = {
-            description: description_field.value
+            sendPost(data).then(res => {
+                if (res != "Success") {
+                    if(description_field.classList.contains('border-success'))
+                        description_field.classList.remove('border-success');
+                    if(description_valid.classList.contains('d-block'))
+                        description_valid.classList.remove('d-block');
+                    description_field.className += " border-danger";
+                    description_valid.innerHTML = "";
+                    description_invalid.className += " d-block";
+                    description_invalid.innerHTML = res['errors']['description'];
+                }else {
+                    if(description_field.classList.contains('border-danger'))
+                        description_field.classList.remove('border-danger');
+                    if(description_field.classList.contains('d-block'))
+                        description_field.classList.remove('d-block');
+                    description_field.className += " border-success";
+                    description_invalid.innerHTML = "";
+                    description_valid.className += " d-block";
+                    description_valid.innerHTML = "Changed description successfully";
+                }
+            });
         }
-        sendPost(data).then(res => {
-            if (res != "Success") {
-                if(description_field.classList.contains('border-success'))
-                    description_field.classList.remove('border-success');
-                if(description_valid.classList.contains('d-block'))
-                    description_valid.classList.remove('d-block');
-                description_field.className += " border-danger";
-                description_valid.innerHTML = "";
-                description_invalid.className += " d-block";
-                description_invalid.innerHTML = res['errors']['description'];
-            }else {
-                if(description_field.classList.contains('border-danger'))
-                    description_field.classList.remove('border-danger');
-                if(description_field.classList.contains('d-block'))
-                    description_field.classList.remove('d-block');
-                description_field.className += " border-success";
-                description_invalid.innerHTML = "";
-                description_valid.className += " d-block";
-                description_valid.innerHTML = "Changed description successfully";
+    });
+
+
+    const password_btn = document.querySelector("#button_submit_password");
+    password_btn.addEventListener("click", () => {
+
+        let oldPassword = (document.querySelector("#old-password-input"));
+        let newPassword = (document.querySelector("#new-password-input"));
+        let newPassword_confirmation = (document.querySelector("#confirm-password-input"));
+
+        let oldPassword_value = oldPassword.value;
+        let newPassword_value = newPassword.value;
+        let newPassword_confirmation_value = newPassword_confirmation.value;
+
+        let invalid_feedback_new_password = (document.querySelector("#new-password-invalid"));
+        let invalid_feedback_old_password = (document.querySelector("#old-password-invalid"));
+        let valid_feedback_confirmation = (document.querySelector("#new-password-valid"));
+
+
+
+        let valid_old = true;
+        let valid_new = true;
+
+        if (oldPassword_value === "") {
+            if(oldPassword.classList.contains('border-success'))
+                oldPassword.classList.remove('border-success');
+            valid_feedback_confirmation.innerHTML = "";
+            oldPassword.className += " border-danger";
+            invalid_feedback_old_password.innerHTML = "Please fill out the old password";
+            invalid_feedback_old_password.className = "invalid-feedback d-block";
+            valid_old = false;
+        } else {
+            if (oldPassword.classList.contains('border-danger')) {
+                oldPassword.classList.remove('border-danger');
+                invalid_feedback_old_password.className = "invalid-feedback";
             }
-        });
-    }
-});
-
-
-const password_btn = document.querySelector("#button_submit_password");
-password_btn.addEventListener("click", () => {
-
-    let oldPassword = (document.querySelector("#old-password-input"));
-    let newPassword = (document.querySelector("#new-password-input"));
-    let newPassword_confirmation = (document.querySelector("#confirm-password-input"));
-
-    let oldPassword_value = oldPassword.value;
-    let newPassword_value = newPassword.value;
-    let newPassword_confirmation_value = newPassword_confirmation.value;
-
-    let invalid_feedback_new_password = (document.querySelector("#new-password-invalid"));
-    let invalid_feedback_old_password = (document.querySelector("#old-password-invalid"));
-    let valid_feedback_confirmation = (document.querySelector("#new-password-valid"));
-
-
-
-    let valid_old = true;
-    let valid_new = true;
-
-    if (oldPassword_value === "") {
-        if(oldPassword.classList.contains('border-success'))
-            oldPassword.classList.remove('border-success');
-        valid_feedback_confirmation.innerHTML = "";
-        oldPassword.className += " border-danger";
-        invalid_feedback_old_password.innerHTML = "Please fill out the old password";
-        invalid_feedback_old_password.className = "invalid-feedback d-block";
-        valid_old = false;
-    } else {
-        if (oldPassword.classList.contains('border-danger')) {
-            oldPassword.classList.remove('border-danger');
-            invalid_feedback_old_password.className = "invalid-feedback";
         }
-    }
 
 
-    if (newPassword_value === "" || newPassword_confirmation_value === "") {
-        if(newPassword.classList.contains('border-success'))
-            newPassword.classList.remove('border-success');
-        valid_feedback_confirmation.innerHTML = "";
-        newPassword.className += " border-danger";
-        newPassword_confirmation.className += " border-danger";
-        invalid_feedback_new_password.innerHTML = "Please provide and confirm a new password";
-        invalid_feedback_new_password.className = "invalid-feedback d-block";
-        valid_new = false;
+        if (newPassword_value === "" || newPassword_confirmation_value === "") {
+            if(newPassword.classList.contains('border-success'))
+                newPassword.classList.remove('border-success');
+            valid_feedback_confirmation.innerHTML = "";
+            newPassword.className += " border-danger";
+            newPassword_confirmation.className += " border-danger";
+            invalid_feedback_new_password.innerHTML = "Please provide and confirm a new password";
+            invalid_feedback_new_password.className = "invalid-feedback d-block";
+            valid_new = false;
 
-    } else if (newPassword_value !== newPassword_confirmation_value) {
-        if(newPassword.classList.contains('border-success'))
-            newPassword.classList.remove('border-success');
-        valid_feedback_confirmation.innerHTML = "";
-        newPassword.className += " border-danger";
-        newPassword_confirmation.className += " border-danger";
-        invalid_feedback_new_password.innerHTML = "The passwords dont match";
-        invalid_feedback_new_password.className = "invalid-feedback d-block";
-        valid_new = false;
+        } else if (newPassword_value !== newPassword_confirmation_value) {
+            if(newPassword.classList.contains('border-success'))
+                newPassword.classList.remove('border-success');
+            valid_feedback_confirmation.innerHTML = "";
+            newPassword.className += " border-danger";
+            newPassword_confirmation.className += " border-danger";
+            invalid_feedback_new_password.innerHTML = "The passwords dont match";
+            invalid_feedback_new_password.className = "invalid-feedback d-block";
+            valid_new = false;
 
-    } else if(!isValidPassword(newPassword_value)){
-        if(newPassword.classList.contains('border-success'))
-            newPassword.classList.remove('border-success');
-        valid_feedback_confirmation.innerHTML = "";
-        newPassword.className += " border-danger";
-        newPassword_confirmation.className += " border-danger";
-        invalid_feedback_new_password.innerHTML = " <p>The password needs to contains characters from this categories:</p>\n" +
-            "        <p>* Minimum eight characters</p>\n" +
-            "        <p>* At least one uppercase letter </p>\n" +
-            "        <p>* One lowercase letter</p>\n" +
-            "        <p>* One number and one special character</p>";
-        invalid_feedback_new_password.className = "invalid-feedback d-block";
-        valid_new = false;
-    }
-    else {
-        invalid_feedback_new_password.innerHTML = "";
-        invalid_feedback_new_password.className = "invalid-feedback";
-
-        if (newPassword.classList.contains('border-danger')) {
-            newPassword.classList.remove('border-danger');
+        } else if(!isValidPassword(newPassword_value)){
+            if(newPassword.classList.contains('border-success'))
+                newPassword.classList.remove('border-success');
+            valid_feedback_confirmation.innerHTML = "";
+            newPassword.className += " border-danger";
+            newPassword_confirmation.className += " border-danger";
+            invalid_feedback_new_password.innerHTML = " <p>The password needs to contains characters from this categories:</p>\n" +
+                "        <p>* Minimum eight characters</p>\n" +
+                "        <p>* At least one uppercase letter </p>\n" +
+                "        <p>* One lowercase letter</p>\n" +
+                "        <p>* One number and one special character</p>";
+            invalid_feedback_new_password.className = "invalid-feedback d-block";
+            valid_new = false;
         }
-        if (newPassword_confirmation.classList.contains('border-danger')) {
-            newPassword_confirmation.classList.remove('border-danger');
+        else {
+            invalid_feedback_new_password.innerHTML = "";
+            invalid_feedback_new_password.className = "invalid-feedback";
+
+            if (newPassword.classList.contains('border-danger')) {
+                newPassword.classList.remove('border-danger');
+            }
+            if (newPassword_confirmation.classList.contains('border-danger')) {
+                newPassword_confirmation.classList.remove('border-danger');
+            }
         }
-    }
 
     if (valid_new && valid_old){
 
-        const data = {
-            oldPassword: oldPassword.value,
-            newPassword: newPassword.value,
-            newPassword_confirmation: newPassword_confirmation.value
+            const data = {
+                oldPassword: oldPassword.value,
+                newPassword: newPassword.value,
+                newPassword_confirmation: newPassword_confirmation.value
+            }
+
+            sendPost(data).then(res => {
+                if (res != "Success") {
+                    if(oldPassword.classList.contains('border-success'))
+                        oldPassword.classList.remove('border-success');
+                    if(newPassword.classList.contains('border-success'))
+                        newPassword.classList.remove('border-success');
+                    if(newPassword_confirmation.classList.contains('border-success'))
+                        newPassword_confirmation.classList.remove('border-success');
+
+                    valid_feedback_confirmation.innerHTML = "";
+                    console.log(res);
+                    if(typeof res['errors']['newPassword']  !== 'undefined') {
+                        if(!newPassword.classList.contains('border-danger'))
+                            newPassword.className += " border-danger";
+                        if(!newPassword_confirmation.classList.contains('border-danger'))
+                            newPassword_confirmation.className += ' border-danger';
+                        invalid_feedback_new_password.innerHTML = res['errors']['newPassword']
+                        invalid_feedback_new_password.className = "invalid-feedback d-block";
+                    }
+                    if(typeof res['errors']['oldPassword']  !== 'undefined') {
+                        if(!oldPassword.classList.contains('border-danger'))
+                            oldPassword.className += " border-danger";
+                        invalid_feedback_old_password.innerHTML = res['errors']['oldPassword'];
+                        invalid_feedback_old_password.className = "invalid-feedback d-block";
+                    }
+                }
+                else {
+                    if(oldPassword.classList.contains('border-danger'))
+                        oldPassword.classList.remove('border-danger');
+                    if(newPassword.classList.contains('border-danger'))
+                        newPassword.classList.remove('border-danger');
+                    if(newPassword_confirmation.classList.contains('border-danger'))
+                        newPassword_confirmation.classList.remove('border-danger');
+
+
+                    if(!oldPassword.classList.contains('border-success'))
+                        oldPassword.className += ' border-success';
+                    if(!newPassword.classList.contains('border-success'))
+                        newPassword.className += ' border-success';
+                    if(!newPassword_confirmation.classList.contains('border-success'))
+                        newPassword_confirmation.className += ' border-success';
+
+
+                    invalid_feedback_new_password.innerHTML = "";
+                    invalid_feedback_old_password.innerHTML = "";
+                    invalid_feedback_old_password.className = "invalid-feedback";
+                    invalid_feedback_new_password.className = "invalid-feedback";
+
+                    valid_feedback_confirmation.className = "valid-feedback d-block";
+                    valid_feedback_confirmation.innerHTML = "Changed password successfully";
+                }
+            });
         }
+    });
 
-        sendPost(data).then(res => {
-            if (res != "Success") {
-                if(oldPassword.classList.contains('border-success'))
-                    oldPassword.classList.remove('border-success');
-                if(newPassword.classList.contains('border-success'))
-                    newPassword.classList.remove('border-success');
-                if(newPassword_confirmation.classList.contains('border-success'))
-                    newPassword_confirmation.classList.remove('border-success');
+    const delete_account_btn = document.querySelector("#delete-account-confirmation");
+    const delete_account_input = document.querySelector("#delete-account-confirmation-input");
+    const invalid_username_feedback = document.querySelector("#invalid-username-feedback");
+    const username = document.querySelector("#username");
+    delete_account_btn.addEventListener("click", () => {
+        if(delete_account_input.value !== username.innerHTML){
+            delete_account_input.className += " border-danger";
+            invalid_username_feedback.className = "invalid-feedback d-block";
+            invalid_username_feedback.innerHTML = "Username doesn't match";
+        }
+        else {
+            if(delete_account_input.classList.contains('border-danger'))
+                delete_account_input.classList.remove('border-danger');
+            invalid_username_feedback.className = "invalid-feedback";
+            invalid_username_feedback.innerHTML = "";
+            sendDelete(username.innerHTML).then(window.location.replace("/"))
+        }
+    });
 
-                valid_feedback_confirmation.innerHTML = "";
-                console.log(res);
-                if(typeof res['errors']['newPassword']  !== 'undefined') {
-                    if(!newPassword.classList.contains('border-danger'))
-                        newPassword.className += " border-danger";
-                    if(!newPassword_confirmation.classList.contains('border-danger'))
-                        newPassword_confirmation.className += ' border-danger';
-                    invalid_feedback_new_password.innerHTML = res['errors']['newPassword']
-                    invalid_feedback_new_password.className = "invalid-feedback d-block";
-                }
-                if(typeof res['errors']['oldPassword']  !== 'undefined') {
-                    if(!oldPassword.classList.contains('border-danger'))
-                        oldPassword.className += " border-danger";
-                    invalid_feedback_old_password.innerHTML = res['errors']['oldPassword'];
-                    invalid_feedback_old_password.className = "invalid-feedback d-block";
-                }
+    const uploadImageForm = document.querySelector('#form-img-upload');
+    uploadImageForm.addEventListener('change', () => {
+
+        const fileBlob = document.querySelector('#img-upload').files[0];
+
+        const fileReader = new FileReader();
+
+        fileReader.onload = function () {
+            const imgPreview = document.querySelector('#profile-image');
+            const imgPreviewHeader = document.querySelector('#profile-image-icon');
+            imgPreview.setAttribute('src', fileReader.result);
+            imgPreviewHeader.setAttribute('src', fileReader.result);
+        }
+        fileReader.readAsDataURL(fileBlob);
+
+        uploadFile(fileBlob);
+
+    });
+
+    const appeal_btn = document.getElementById('appealModal-submit');
+
+    if(appeal_btn != null) {
+        let sendAppeal = function () {
+            const appeal = document.querySelector('#appealModal textarea[name="appeal"]');
+            const appeal_message = document.querySelector('#appealModal span#appealModal-message');
+
+            appeal.classList.remove('border-danger');
+            appeal_message.classList.remove('cl-success', 'cl-fail', 'd-block');
+            appeal_message.textContent = "";
+
+            if (appeal.value.length === 0) {
+                appeal_message.classList.add('cl-fail', 'd-block');
+                appeal_message.textContent = "Please give us your reasons";
+                appeal.classList.add('border-danger');
+            } else {
+                sendPut({appeal: appeal.value})
+                    .then(res => {
+                        appeal_message.classList.add('cl-success');
+                        appeal_message.textContent = res.message;
+                        appeal_btn.classList.add('noHover');
+                        appeal_btn.removeEventListener('click', sendAppeal);
+                        document.querySelector('a[data-target="#appealModal"]').remove();
+                    })
+                    .catch(res => {
+                        appeal_message.classList.add('cl-fail', 'd-block');
+                        appeal_message.textContent = res.message;
+                    });
             }
-            else {
-                if(oldPassword.classList.contains('border-danger'))
-                    oldPassword.classList.remove('border-danger');
-                if(newPassword.classList.contains('border-danger'))
-                    newPassword.classList.remove('border-danger');
-                if(newPassword_confirmation.classList.contains('border-danger'))
-                    newPassword_confirmation.classList.remove('border-danger');
-
-
-                if(!oldPassword.classList.contains('border-success'))
-                    oldPassword.className += ' border-success';
-                if(!newPassword.classList.contains('border-success'))
-                    newPassword.className += ' border-success';
-                if(!newPassword_confirmation.classList.contains('border-success'))
-                    newPassword_confirmation.className += ' border-success';
-
-
-                invalid_feedback_new_password.innerHTML = "";
-                invalid_feedback_old_password.innerHTML = "";
-                invalid_feedback_old_password.className = "invalid-feedback";
-                invalid_feedback_new_password.className = "invalid-feedback";
-
-                valid_feedback_confirmation.className = "valid-feedback d-block";
-                valid_feedback_confirmation.innerHTML = "Changed password successfully";
-            }
-        });
+        }
+        appeal_btn.addEventListener('click', sendAppeal);
     }
-});
-
-
-
-
-
-const delete_account_btn = document.querySelector("#delete-account-confirmation");
-const delete_account_input = document.querySelector("#delete-account-confirmation-input");
-const invalid_username_feedback = document.querySelector("#invalid-username-feedback");
-const username = document.querySelector("#username");
-delete_account_btn.addEventListener("click", () => {
-    if(delete_account_input.value !== username.innerHTML){
-        delete_account_input.className += " border-danger";
-        invalid_username_feedback.className = "invalid-feedback d-block";
-        invalid_username_feedback.innerHTML = "Username doesn't match";
-    }
-    else {
-        if(delete_account_input.classList.contains('border-danger'))
-            delete_account_input.classList.remove('border-danger');
-        invalid_username_feedback.className = "invalid-feedback";
-        invalid_username_feedback.innerHTML = "";
-        sendDelete(username.innerHTML).then(window.location.replace("/"))
-    }
-});
-
-const uploadImageForm = document.querySelector('#form-img-upload');
-uploadImageForm.addEventListener('change', () => {
-
-    const fileBlob = document.querySelector('#img-upload').files[0];
-
-    const fileReader = new FileReader();
-
-    fileReader.onload = function () {
-        const imgPreview = document.querySelector('#profile-image');
-        const imgPreviewHeader = document.querySelector('#profile-image-icon');
-        imgPreview.setAttribute('src', fileReader.result);
-        imgPreviewHeader.setAttribute('src', fileReader.result);
-    }
-    fileReader.readAsDataURL(fileBlob);
-
-    uploadFile(fileBlob);
-
-});
 }
 
 const sendPost = post => {
@@ -381,6 +409,23 @@ const passwordIsLegal = (curr_password, newPassword, newPassword_confirmation) =
         msg.style.backgroundColor = 'rgb(246, 220, 220)';
     }
     return false;
+}
+
+const sendPut = put => {
+    const options = {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token
+        },
+        method: 'put',
+        credentials: "same-origin",
+        body: JSON.stringify(put)
+    }
+
+    return fetch("/user/appeal", options)
+        .then(res => res.json());
 }
 
 addEventListeners();
