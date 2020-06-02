@@ -1,4 +1,3 @@
-
 <!--Only draw ProgressBar when is XL. Not responsive-->
 <div class="col">
     <div class="row px-3">
@@ -12,7 +11,8 @@
         <div id="content" class="container mt-4 pb-0">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <h4>My Cart <span id="counter_products_cart" class="badge badge-secondary">{{count($userCartEntries)}}</span></h4>
+                    <h4>My Cart <span id="counter_products_cart"
+                            class="badge badge-secondary">{{count($userCartEntries)}}</span></h4>
                 </div>
             </div>
             <div class="row">
@@ -20,24 +20,24 @@
                     <div class="table-responsive table-striped  mt-3">
                         <table id="userOffersTable" class="table p-0">
                             <thead>
-                            <tr>
-                                <th scope="col" class="border-0 bg-light">
-                                    <div class="p-2 px-3 text-uppercase">Product Details</div>
-                                </th>
-                                <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-2 text-uppercase">Price</div>
-                                </th>
-                                <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-2 text-uppercase">Remove</div>
-                                </th>
-                            </tr>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Product Details</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Remove</div>
+                                    </th>
+                                </tr>
                             </thead>
                             @php $allOffers = collect(); @endphp
                             <tbody>
-                            @foreach ($userCartEntries as $item)
+                                @foreach ($userCartEntries as $item)
                                 @php $allOffers->add($item->offer);@endphp
                                 @include('partials.cart.cart_entry',['data'=>$item])
-                            @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -58,14 +58,16 @@
             <h4>Pricing</h4>
             <h5> Subtotal ({{count($userCartEntries)}} items) </h5>
             <span>
-                    <h5> Total price: <h3 id="total_price">{{$totalPrice}}$</h3> </h5>
+                <h5> Total price: <h3 id="total_price">{{$totalPrice}}$</h3>
+                </h5>
             </span>
         </div>
     </div>
     <hr>
     <div id="checkoutButtonsContainer" class="row">
         <div class="col-6">
-            <a  id="your-info"  class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Your Info</span></a>
+            <a id="your-info" class="btn btn-blue btn-lg mr-auto ml-4"> <i class="fas fa-arrow-left"></i> <span
+                    class="d-none d-md-inline">Your Info</span></a>
         </div>
         <div class="col-6">
             <div class="float-right" id="paypal-button"></div>
