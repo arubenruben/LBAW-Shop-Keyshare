@@ -12,7 +12,7 @@
         <div class="row  mt-4 mb-4">
             <div class="col-12">
                 @if(count($offers)>0)
-                <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
+                    <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
                 @endif
             </div>
         </div>
@@ -33,8 +33,7 @@
     <div class="col-sm-12 ">
         <div class="row mt-4">
             <div class="col-6">
-                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{count($offers)}}</span>
-                </h4>
+                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{count($offers)}}</span></h4>
             </div>
             <div class="col-6 text-right">
                 <h6 class="d-inline-block mr-3">Sort by:  </h6>
@@ -53,32 +52,30 @@
             <div class="col-12">
                 <div class="table-responsive table-striped ">
                     @if(count($offers)>0)
-                    <table id="userOffersTable" class="table p-0">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="border-0 bg-light">
-                                    <div class="p-2 px-3 text-uppercase">Seller Details</div>
-                                </th>
-                                <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-2 text-uppercase">Price</div>
-                                </th>
-                                <th scope="col" class="border-0 bg-light text-center">
-                                    <div class="py-3 text-uppercase"></div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="offers_body">
-                            @php $i = 0; @endphp
-                            @foreach($offers as $offer)
-                                @if($i < 10) @include('partials.product.product_offer_item',['offer'=>$offer, 'display'
-                                    =>true])
-                                @else
-                                    @break
-                                @endif
-                                @php $i++; @endphp
-                            @endforeach
-                        </tbody>
-                    </table>
+                        <table id="userOffersTable" class="table p-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Seller Details</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-3 text-uppercase"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="offers_body">
+                                @php $i = 0; @endphp
+                                @foreach($offers as $offer)
+                                    @if($i < 10) @include('partials.product.product_offer_item',['offer'=> $offer, 'display'=>true])
+                                    @else @break
+                                    @endif
+                                    @php $i++; @endphp
+                                @endforeach
+                            </tbody>
+                        </table>
                     @else
                 </div>
                 <div class="row mt-5" id="offersListing">
