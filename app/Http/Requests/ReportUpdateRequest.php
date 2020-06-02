@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminBanRequest extends FormRequest
+class ReportUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class AdminBanRequest extends FormRequest
     public function rules()
     {
         return [
-            'ban' => "bail | required | boolean",
+            'status' => "bail | required | boolean",
         ];
     }
 
@@ -36,8 +36,8 @@ class AdminBanRequest extends FormRequest
     public function messages()
     {
         return [
-            'ban.required' => "A value for ban must present and of boolean type",
-            'ban.boolean' => "Ban value must be of boolean type",
+            'status.required' => "A value for status must present and of boolean type",
+            'status.boolean' => "Status value must be of boolean type",
         ];
     }
 }

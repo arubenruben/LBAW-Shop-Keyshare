@@ -13,7 +13,7 @@ class AdminPolicy
 
     public function addProduct(Admin $admin) {
         
-        Admin::findOrFail(Auth::user()->id);
+        Admin::findOrFail(Auth::id());
         
         return Auth::check();
     }

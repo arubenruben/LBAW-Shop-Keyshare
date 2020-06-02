@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Admin home')
+@section('title', 'Reports')
 
 @section('header')
     @include('admin.partials.header.header_admin')
@@ -10,5 +10,5 @@
 @endsection
 
 @section('content')
-    @include('admin.partials.tables.table_homepage', ['title' => $title, 'contents' => $contents])
+    @include('admin.partials.tables.table_all_reports', ['title' => $title, 'reports' => $reports, 'links' => $links])
 @endsection

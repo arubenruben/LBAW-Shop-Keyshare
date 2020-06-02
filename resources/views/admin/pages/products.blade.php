@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Products')
 
 @section('header')
 @include('admin.partials.header.header_admin')
