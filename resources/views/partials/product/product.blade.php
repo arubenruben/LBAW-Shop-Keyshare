@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <div class="col-12 d-none d-lg-inline ">
-                <p class="text-justify" id="text-readmore">
+                <p class="text-justify" id="text-readmore" value="{{substr($product->description, 0 , 200)}}">
                     {{substr($product->description, 0 , 200)}}
                     <span id="dots">...</span><span id="more" class="text-justify">
                         {{substr($product->description, 200 , strlen($product->description))}}

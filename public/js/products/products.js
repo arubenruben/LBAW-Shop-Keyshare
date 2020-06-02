@@ -73,7 +73,7 @@ const sendGet = get => {
 const sendRequest = form => {
     let data = assembleData(form);
     sendGet(data)
-        .then(res => received(res))
+        .then(res => received(res, form))
         .catch(error => console.error("Error: " + error));
 }
 
@@ -116,7 +116,7 @@ const assembleData = formElement => {
     return data;
 }
 
-const received = (response) => {
+const received = (response, form) => {
     const receivedProducts = (products) => {
         const templateListInit = `<div class="row justify-content-between mx-auto flex-wrap">`;
         const templateListEnd = `</div>`;
@@ -133,20 +133,7 @@ const received = (response) => {
         productList.innerHTML = list + templateListEnd;
     }
 
-    const receivedPrices = (maxPrice, minPrice) => {
-        const max_price_input = document.querySelector("form#option input#price-range");
-        max_price_input.setAttribute('max', maxPrice);
-        max_price_input.setAttribute('min', minPrice);
-
-        if (parseFloat(max_price_input.value) > parseFloat(maxPrice)) {
-            max_price_input.value = maxPrice;
-        } else if (parseFloat(max_price_input.value) < parseFloat(minPrice)) {
-            max_price_input.value = minPrice;
-        }
-    }
-
     receivedProducts(response.products);
-    receivedPrices(response.max_price, response.min_price);
 }
 
 const templateProduct = (name, url, image, price) => {
