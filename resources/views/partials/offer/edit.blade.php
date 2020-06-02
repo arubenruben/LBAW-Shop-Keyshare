@@ -102,27 +102,9 @@
             </div>
         </section>
         <div class="col mt-5">
-            <h3>Billing</h3>
             <div class="form-group mt-5">
-                <h4 class="pt-1">Price Per Key</h4>
-                <p class="form-control" readonly>{{ $offer->price }}</p>
-            </div>
-            <div class="form-group mt-4">
-                <label for="paypal" class="h4">
-                    Billing Email
-                </label>
-                <div class="input-group">
-                    <input type="email" id="paypal" name="paypal" class="form-control mt-auto mb-auto"
-                        placeholder="Billing Email" value={{$paypal}}>
-                    <span class="input-group-btn">
-                        <button type="button" id="paypalButton"
-                            class="btn d-none d-lg-block btn-sm px-4 py-1 btn-outline-primary ml-2"><img
-                                src="{{ asset('/pictures/paypal/paypal.png') }}" height="26"></button>
-                        <button type="button" id="paypalButton"
-                            class="btn d-block d-lg-none btn-sm px-4 py-1 btn-outline-primary ml-2"><img
-                                src="{{ asset('/pictures/paypal/paypalLogo.png') }}" height="26"></button>
-                    </span>
-                </div>
+                <h4 class="pt-1">Price/key</h4>
+                <p class="form-control" readonly>{{ $offer->price }} $</p>
             </div>
         </div>
     </div>

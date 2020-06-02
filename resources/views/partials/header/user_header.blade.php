@@ -25,7 +25,7 @@
     <!--Buttons-->
     <div class="col d-none d-xl-block mt-auto mb-auto">
         <div class="row justify-content-end">
-            <a href="{{ url('/search') }}" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton"
+            <a href="{{ route('search') }}" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton"
                 role="button">Explore</a>
             @if (Auth::check())
             <a href="{{ url('/offer') }}" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
@@ -58,7 +58,7 @@
     <!-- Cart icon -->
     <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
         <div class="row">
-            <a href="{{ url('/cart') }}" class="mt-auto mb-auto ml-auto mr-3">
+            <a href="{{ route('showCart') }}" class="mt-auto mb-auto ml-auto mr-3">
                 <i class="fas fa-shopping-cart headerIcon cl-orange badge badge-secondary"></i><span id="shopping_cart_item_counter">{{ Auth::check() ? Auth::user()->cart->count() :  count(session('cart',array())) }}</span></a>
         </div>
     </div>
@@ -83,19 +83,19 @@
 
         <div class="row flex-nowrap justify-content-around mt-3">
             @if (!Auth::check())
-            <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" data-toggle="modal"
-                data-target="#authenticationModal">
-                <i class="fas fa-user headerIcon"></i> Log in
-            </button>
+                <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" data-toggle="modal"
+                    data-target="#authenticationModal">
+                    <i class="fas fa-user headerIcon"></i> Log in
+                </button>
             @endif
-            <a href="{{ url('/search') }}" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
+            <a href="{{ route('search') }}" class="btn btn-outline-light navbarButtonSmall" role="button">Explore</a>
             @if (Auth::check())
-            <a id="sellNowButtonNavbar" href="{{ url('/offer') }}products_list.php"
-                class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
+                <a id="sellNowButtonNavbar" href="{{ route('addOffer') }}"
+                    class="btn btn-outline-light navbarButtonSmall" role="button">Sell Now</a>
             @endif
-            <a id="shoppingCartIconHamburguer" href="{{ url('/cart') }}" class="mt-auto mb-auto mr-2"><i
-                    class="fas fa-shopping-cart headerIcon cl-orange"></i><span
-                    class="badge badge-secondary"></span></a>
+                <a id="shoppingCartIconHamburguer" href="{{ route('showCart') }}" class="mt-auto mb-auto mr-2"><i
+                        class="fas fa-shopping-cart headerIcon cl-orange"></i><span
+                        class="badge badge-secondary"></span></a>
         </div>
     </div>
 </div>

@@ -12,13 +12,13 @@ Route::get('login/google', 'Auth\LoginController@redirectToProvider')->name('log
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 // User
-Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('profile');
-Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
+Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
+Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('profile');
+Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::post('user', 'UserController@update');
 Route::delete('user', 'UserController@delete');
-Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
 
 // Products
 Route::get('/', 'ProductController@home')->name('home');                                       // Homepage
@@ -28,19 +28,19 @@ Route::get('/api/product/sort', 'ProductController@sort');                      
 Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product'); // Products page
 
 // Cart
-Route::get('/cart', 'CartController@show');
+Route::get('/cart', 'CartController@show')->name('showCart');
 Route::put('/cart', 'CartController@add');
-Route::delete('/cart/{id}', 'CartController@delete');
 Route::get('/cart/checkout', 'CartController@checkout');
 Route::put('/cart/checkout', 'CartController@finishCheckout');
 Route::get('api/getCartTotalPrice', 'CartController@getCartTotalPrice');
+Route::delete('/cart/{id}', 'CartController@delete');
 
 // Offers
 Route::get('offer', 'OfferController@show');
-Route::put('offer', 'OfferController@add');
+Route::put('offer', 'OfferController@add')->name('addOffer');
 Route::get('offer/{id}', 'OfferController@showOffer');
-Route::post('offer/{id}', 'OfferController@update');
-Route::delete('offer/{id}', 'OfferController@delete');
+Route::post('offer/{id}', 'OfferController@update')->name('editOffer');
+Route::delete('offer/{id}', 'OfferController@delete')->name('deleteOffer');
 Route::get('api/offer/{id}/key', 'OfferController@getKeys');
 Route::put('offer/{id}/key', 'OfferController@addKey');
 Route::get('api/offer/{id}/discount', 'OfferController@getDiscounts');
@@ -53,10 +53,10 @@ Route::delete('/discount/{discountId}', 'DiscountController@delete');
 // Keys
 Route::post('/key/{id}', 'KeyController@update')->name('keyUpdate');
 Route::delete('/key/{id}', 'KeyController@delete')->name('keyDelete');
+Route::get('/api/key/{id}', 'KeyController@get')->name('key');
 Route::put('/key/{id}/feedback', 'KeyController@feedback');
 Route::get('/key/{id}/feedback', 'KeyController@view')->name('feedback');
 Route::put('/key/{id}/report', 'KeyController@report')->name('report');
-Route::get('/api/key/{id}', 'KeyController@get')->name('key');
 
 // Feedback
 Route::get('/api/user/{username}/feedback', 'FeedbackController@get');
