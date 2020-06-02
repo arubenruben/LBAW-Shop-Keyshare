@@ -90,7 +90,7 @@
               <div id="email-invalid" class="invalid-feedback d-block"> </div>
               <div id="email-valid" class="valid-feedback d-block"> </div>
               <div class="text-right mt-3">
-                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue">
+                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue"  {{ $user->isBanned() ? 'disabled' : ''}}>
                   <i class="fas fa-envelope"></i> Change email
                 </button>
               </div>
@@ -98,9 +98,10 @@
             </div>
             <div class="mb-3 text-left">
               <label for="description">Description</label>
-              <textarea id="description_textarea" class="form-control userDetailsForm" id="exampleFormControlTextarea1"
+              <div class="input-group">
+              <textarea id="description_textarea" class="form-control userDetailsForm"
                 placeholder="Write something about yourself!!" rows="3"
-                {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea>
+                      {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea></div>
               <div id="description-invalid" class="invalid-feedback">   </div>
               <div id="description-valid" class="valid-feedback">   </div>
               <div class="text-right mt-3">

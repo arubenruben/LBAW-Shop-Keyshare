@@ -84,26 +84,33 @@ class UserController extends Controller
 
     public function update(UserEditRequest $request)
     {
+
         try {
             $this->authorize('update', User::class);
         } catch (AuthorizationException $e) {
-            return response(json_encode("You can't edit this profile"), 400);
+            return response(json_encode(["message" => "Failure", "errors" => ["newPassword" => "", "oldPassword" => "You dont have Permission to edit this user"]], 400));
         }
 
         //$request = $request->validated();
 
         if (isset($request->email)) {
+            if(Auth::user()->isBanned())
+                return response(json_encode(["message" => "Failure", "errors" => ["email" => "You are currently banned"]]));
             Auth::user()->email = $request->email;
         }
 
         if (isset($request->description)) {
+            if(Auth::user()->isBanned())
+                return response(json_encode(["message" => "Failure", "errors" => ["description" => "You are currently banned"]]));
             Auth::user()->description = $request->description;
         }
         if (isset($request->oldPassword) && isset($request->newPassword)) {
             if (Hash::check($request->oldPassword, Auth::user()->password)) {
+                if(Hash::check($request->newPassword, Auth::user()->password))
+                    return response(json_encode(["message" => "Failure", "errors" => ["newPassword" => "New password is equal to the old password, choose another"]]), 400);
                 Auth::user()->password = Hash::make($request->newPassword);
             } else {
-                return response(json_encode("Old password is incorrect"), 400);
+                return response(json_encode(["message" => "Failure", "errors" => ["oldPassword" => "Old password is incorrect"]]), 400);
             }
         }
         if (isset($request->paypal)) {
@@ -111,7 +118,6 @@ class UserController extends Controller
         }
 
         if ($request->hasFile('picture')) {
-
             $picture = $request->file('picture');
             $pictureORM = new Picture;
             $username = Auth::user()->username;
