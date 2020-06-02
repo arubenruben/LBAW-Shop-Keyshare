@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-    @include('partials.product.product')
+    @include('partials.product.product', ['numberOffers' => $numberOffers])
 @endsection
 
 @section('footer')

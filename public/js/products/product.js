@@ -8,6 +8,7 @@ const htmlToInsertPlace = document.querySelector('#offers_body');
 btnText.addEventListener('click', collapseDescription);
 const dots = document.getElementById("dots");
 const moreText = document.getElementById("more");
+const seeMoreButtons = document.getElementById("see-more-buttons");
 
 function collapseDescription() {
     if (dots.style.display === "none") {
@@ -139,6 +140,15 @@ const received = (response) => {
     let tableOffersBody = document.querySelector("#offers_body");
     let entriesTable = "";
     let boolean;
+
+    if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
+            seeMoreButtons.classList.remove('d-none');
+    else if(!seeMoreButtons.classList.contains('d-none'))
+        seeMoreButtons.className += " d-none";
+    
+    if(response.numberOffers !== counterNumberOffers.innerHTML)
+            counterNumberOffers.innerHTML = response.numberOffers;
+
 
     for (let i = 0; i < response.offers.length; i++) {
         if (i < 10)

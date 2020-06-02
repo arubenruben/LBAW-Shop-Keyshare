@@ -16,7 +16,7 @@
         </div>
     </td>
     @if($offer->price != $offer->discount_price())
-        <td class="text-center align-middle"><del><strong>${{$offer->price}}</strong></del><strong
+        <td class="text-center align-middle"><del><strong>${{number_format((float)$offer->price, 2, '.', '')}}</strong></del><strong
                 class="cl-success pl-2">${{number_format((float)$offer->discount_price(), 2, '.', '')}}</strong></td>
     @else
         <td class="text-center align-middle"><strong>${{number_format((float)$offer->price, 2, '.', '')}}</strong></td>
