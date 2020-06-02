@@ -1,0 +1,13 @@
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Montserrat';
+    src:  url('public/fonts/montserrat/Montserrat-Regular.ttf') format('embedded-opentype'),/* Internet Explorer */
+    url('public/fonts/montserrat/Montserrat-Regular.ttf') format('embedded-opentype'),/* Super Modern Browsers */
+    url('public/fonts/montserrat/Montserrat-Regular.ttf') format('embedded-opentype'),/* Pretty Modern Browsers */
+    url('public/fonts/montserrat/Montserrat-Regular.ttf') format('embedded-opentype'), /* Safari, Android, iOS */
+    url('public/fonts/montserrat/Montserrat-Regular.ttf') format('embedded-opentype'); /* Legacy iOS */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', serif;
+}

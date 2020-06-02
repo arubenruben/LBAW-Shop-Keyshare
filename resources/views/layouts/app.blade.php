@@ -15,7 +15,7 @@
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
   <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="{{ asset('css/montserrat.css') }}" rel="stylesheet">
   <script src="{{ asset('jquery/jquery.slim.js') }}"></script>
   <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>
