@@ -7,12 +7,13 @@
                     <h4 class="text-left">Current Offers<span id="current-offer-counter"
                             class="badge ml-1 badge-secondary"> {{$currOffers->count()}}</span></h4>
                 </div>
-                <div class="col-sm-3">
-                    <a href={{url('/offer')}} class=" btn p-2 btn-sm btn-orange btn-block text-white
-                        {{ $user->isBanned() ? 'disabled' : ''}}" role="button"> <i class="mr-1 fas fa-plus"></i>
-                        <span class="d-none d-md-inline-block"> Add offer </span>
-                    </a>
-                </div>
+                @if(!$user->isBanned())
+                    <div class="col-sm-3">
+                        <a href={{url('/offer')}} class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i class="mr-1 fas fa-plus"></i>
+                            <span class="d-none d-md-inline-block"> Add offer </span>
+                        </a>
+                    </div>
+                @endif
             </div>
             <div class="container mt-3 mb-3">
                 <div class="row ">
