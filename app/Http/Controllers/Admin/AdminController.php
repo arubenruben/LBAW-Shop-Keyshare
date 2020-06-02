@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BannedUser;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\AdminBanRequest;
 use App\Http\Requests\AdminUserRequest;
 use App\Order;
 use App\Report;
@@ -195,9 +197,18 @@ class AdminController extends Controller
         ]);
     }
 
-    public function userUpdate($id)
-    {
+    public function userUpdate(AdminBanRequest $request, $id) {
+        User::findOrFail($id);
 
+        if($request->input('ban') == "1") {
+            BannedUser::create([
+                'id' => $id
+            ])->save();
+        } else {
+            BannedUser::destroy($id);
+        }
+
+        return back();
     }
 
     public function reportGet()

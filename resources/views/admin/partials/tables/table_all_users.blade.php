@@ -47,12 +47,12 @@
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
                             @if($user->isBanned())
-                                <button type="button" class="btn btn-green btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}">
-                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Unban User</span>
+                                <button type="button" class="btn btn-green btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}" data-banned="true">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Unban</span>
                                 </button>
                             @else
-                                <button type="button" class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}">
-                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban User</span>
+                                <button type="button" class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}" data-banned="false">
+                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban</span>
                                 </button>
                             @endif
                         </div>
@@ -82,10 +82,14 @@
                 <span id="banModal-message">Are you sure you want to ban/unban this user?</span>
             </div>
             <div class="modal-footer">
-                <form method="post" class="col text-left" data-default="{{ url('/admin/user/') }}" id="banModal-confirm">
+                <form method="post" class="col text-left" data-default="{{ url('/admin/user').'/' }}" id="banModal-confirm">
+                    @csrf
+                    <input hidden name="ban" type="text">
                     <button type="submit" class="btn btn-blue"><i class="fas fa-check mr-2"></i> Confirm </button>
                 </form>
-                <button type="button" class="col text-right btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button>
+                <div class="col text-right">
+                    <button type="button" class="btn btn-blue" data-dismiss="modal"><i class="fas fa-times mr-2"></i> Cancel </button>
+                </div>
             </div>
         </div>
     </div>
