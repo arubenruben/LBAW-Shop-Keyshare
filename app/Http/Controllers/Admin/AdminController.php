@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\BannedUser;
+use App\Feedback;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\AdminBanRequest;
@@ -164,10 +165,6 @@ class AdminController extends Controller
 
 
         return redirect('/admin/products');
-    }
-
-    public function productGet()
-    {
     }
 
     public function productAddForm()
@@ -376,11 +373,6 @@ class AdminController extends Controller
         return redirect('/admin/genre');
     }
 
-    public function platformGet()
-    {
-
-    }
-
     public function platformShow()
     {
 
@@ -401,11 +393,6 @@ class AdminController extends Controller
 
     }
 
-    public function userGet()
-    {
-
-    }
-
     public function userShow(AdminUserRequest $request)
     {
         $this->authorize('addProduct', Admin::class);
@@ -422,7 +409,7 @@ class AdminController extends Controller
         $users_paginated = $this->paginate($users, $page);
         $users_paginated->withPath('/admin/user');
 
-        return view('admin.pages.all_users', [
+        return view('admin.pages.users', [
             'title' => 'Users',
             'users' => $users_paginated->items(),
             'query' => ($request->has('query') ? $request->input('query') : ""),
@@ -449,11 +436,6 @@ class AdminController extends Controller
         return back();
     }
 
-    public function reportGet()
-    {
-
-    }
-
     public function allReports() {
         $this->authorize('addProduct', Admin::class);
 
@@ -461,7 +443,7 @@ class AdminController extends Controller
         $reports_paginated = $this->paginate($reports, Input::input('page', 1));
         $reports_paginated->withPath('/admin/user');
 
-        return view('admin.pages.all_reports', [
+        return view('admin.pages.reports', [
             'title' => 'Reports',
             'reports' => $reports_paginated->items(),
             'links' => $reports_paginated->links()
@@ -493,55 +475,58 @@ class AdminController extends Controller
 
         $transactions = Order::paginate();
 
-        return view('admin.pages.all_transactions', [
+        return view('admin.pages.transactions', [
             'title' => 'Transactions',
             'transactions' => $transactions->items(),
             'links' => $transactions->links()
         ]);
     }
 
-    public function feedbackGet()
-    {
+    public function feedbackShow() {
+        $this->authorize('addProduct', Admin::class);
+
+        $feedback = Feedback::paginate();
+
+        return view('admin.pages.feedback', [
+            'title' => 'Feedback',
+            'feedback' => $feedback->items(),
+            'links' => $feedback->links()
+        ]);
+    }
+
+    public function feedbackDelete($feedbackId) {
+        $this->authorize('addProduct', Admin::class);
+
+        Feedback::destroy($feedbackId);
+
+        return back();
+    }
+
+    public function faqShow() {
+        $this->authorize('addProduct', Admin::class);
+
+        $faq = Feedback::paginate();
+
+        return view('admin.pages.faq', [
+            'title' => 'FAQ',
+            'feedback' => $faq->items(),
+            'links' => $faq->links()
+        ]);
+    }
+
+    public function faqAdd() {
 
     }
 
-    public function feedbackShow()
-    {
+    public function faqUpdate($id) {
 
     }
 
-    public function feedbackDelete($id)
-    {
+    public function faqDelete($id) {
 
     }
 
-    public function faqGet()
-    {
-
-    }
-
-    public function faqShow()
-    {
-
-    }
-
-    public function faqAdd()
-    {
-
-    }
-
-    public function faqUpdate($id)
-    {
-
-    }
-
-    public function faqDelete($id)
-    {
-
-    }
-
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth:admin');
 
         View::share('nav', 'dashboard');
@@ -557,8 +542,7 @@ class AdminController extends Controller
      *
      * @return LengthAwarePaginator
      */
-    public function paginate($items, $page = null, $perPage = 10, $options = [])
-    {
+    public function paginate($items, $page = null, $perPage = 10, $options = []) {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);

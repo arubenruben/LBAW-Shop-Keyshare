@@ -1,18 +1,14 @@
 @extends('layouts.admin')
-
+@section('title', 'Genres')
 
 @section('header')
-@include('admin.partials.header.header_admin')
+    @include('admin.partials.header.header_admin')
 @endsection
 
 @section('sidebar')
-@include('admin.partials.sidebar.sidebar')
+    @include('admin.partials.sidebar.sidebar')
 @endsection
-@section('navbar')
-<nav>
-    <h3>Genres</h3>
-</nav>
-@endsection
+
 @section('content')
 
 <div class="row mt-4 justify-content-between justify-content-md-end">

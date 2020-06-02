@@ -8,19 +8,19 @@
             <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Title</div>
+                        <div class="p-2 px-3 text-uppercase">Buyer</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Description</div>
+                        <div class="p-2 px-3 text-uppercase">Evaluation</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Reported</div>
+                        <div class="p-2 px-3 text-uppercase">Comment</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Reporter</div>
+                        <div class="p-2 px-3 text-uppercase">Date</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
-                        <div class="p-2 px-3 text-uppercase">Status</div>
+                        <div class="p-2 px-3 text-uppercase">Seller</div>
                     </th>
                     <th scope="col" class="border-0 bg-light text-center">
                         <div class="py-2 text-uppercase">Actions</div>
@@ -28,40 +28,31 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($reports as $report)
+                @foreach($feedback as $feedback_entry)
                 <tr>
                     <td class="align-middle text-center">
-                        <h6>{{ $report->title }}</h6>
+                        <h6>{{ $feedback_entry->buyer->username }}</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h6>{{ $report->description }}</h6>
+                        <i class="fas fa-thumbs-{{ $feedback_entry->evaluation ? 'up cl-success' : 'down cl-fail' }}"></i>
                     </td>
                     <td class="align-middle text-center">
-                        <h6>{{ $report->reported->username }}</h6>
+                        <h6>{{ $feedback_entry->comment }}</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h6>{{ $report->reporter->username }}</h6>
+                        <h6>{{ $feedback_entry->evaluation_date }}</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h6>{{ $report->status ? 'Closed' : 'Open' }}</h6>
+                        <h6>{{ $feedback_entry->seller->username }}</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
-                            <a href="{{ url('/admin/report/'.$report->id) }}" type="button mt-5 mb-5" class="btn btn-outline-dark btn-block flex-nowrap">
-                                <span class="d-none d-md-inline-block">More Details</span><i class="ml-2 fas fa-arrow-circle-right"></i>
-                            </a>
-                            <form class="mt-1" action="{{ route('updateReport', [$report->id]) }}" method="post">
+                            <form action="{{ route('deleteFeedback', [$feedback_entry->id]) }}">
                                 @csrf
-                                <input hidden type="text" name="status" value="{{ $report->status ? 0 : 1 }}">
-                                @if($report->status)
-                                    <button type="submit" class="btn btn-green btn-block flex-nowrap">
-                                        <span class="d-none d-md-inline-block">Open</span>
-                                    </button>
-                                @else
-                                    <button type="submit" class="btn btn-red btn-block flex-nowrap">
-                                        <span class="d-none d-md-inline-block">Close</span>
-                                    </button>
-                                @endif
+                                @method('delete')
+                                <button type="submit" class="btn btn-red btn-block flex-nowrap">
+                                    <span class="d-md-inline-block">Delete</span>
+                                </button>
                             </form>
                         </div>
                     </td>
