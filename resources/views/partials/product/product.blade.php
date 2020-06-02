@@ -90,12 +90,11 @@
             <div class="col-12">
                 <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the
                     other offers <i class="fas fa-angle-down"></i> </button>
-                <!-- <i id="loading_offers" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>-->
                 <div  id="loading_offers" class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
                 <button id="close_more_offers" class="btn-blue btn-primary" style="display: none;"> <i
-                        class="fas fa-angle-up"></i> Only see 10 offers <i class="fas fa-angle-up"></i> </button>
+                        class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </button>
             </div>
         </div>
         @endif

@@ -184,7 +184,7 @@ const addEventListeners = () => {
             }
         }
 
-        if (valid_new && valid_old){
+    if (valid_new && valid_old){
 
             const data = {
                 oldPassword: oldPassword.value,
@@ -248,10 +248,22 @@ const addEventListeners = () => {
     });
 
     const delete_account_btn = document.querySelector("#delete-account-confirmation");
+    const delete_account_input = document.querySelector("#delete-account-confirmation-input");
+    const invalid_username_feedback = document.querySelector("#invalid-username-feedback");
+    const username = document.querySelector("#username");
     delete_account_btn.addEventListener("click", () => {
-        sendDelete()
-            .then(r => console.log(r))
-            .then(window.location.replace("/"))
+        if(delete_account_input.value !== username.innerHTML){
+            delete_account_input.className += " border-danger";
+            invalid_username_feedback.className = "invalid-feedback d-block";
+            invalid_username_feedback.innerHTML = "Username doesn't match";
+        }
+        else {
+            if(delete_account_input.classList.contains('border-danger'))
+                delete_account_input.classList.remove('border-danger');
+            invalid_username_feedback.className = "invalid-feedback";
+            invalid_username_feedback.innerHTML = "";
+            sendDelete(username.innerHTML).then(window.location.replace("/"))
+        }
     });
 
     const uploadImageForm = document.querySelector('#form-img-upload');

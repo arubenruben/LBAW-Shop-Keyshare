@@ -4,10 +4,10 @@
             <h4><a data-toggle="modal" data-target="#user-{{$offer->seller->id}}" href="#" class="seller"
                     style="color:black">{{$offer->seller->username}}</a></h4>
             <span class="font-weight-bold cl-success">
-                <i class="fas fa-thumbs-up"></i>{{ $offer->seller->rating }}|
+                <i class="fas fa-thumbs-up"></i> {{ $offer->seller->rating }}
             </span>
             <span>
-                <i class="fas fa-shopping-cart"></i> {{$offer->seller->num_sells}}|
+                {{'|'}} <i class="fas fa-shopping-cart"></i> {{$offer->seller->num_sells}} |
             </span>
             <span >
                 Stock:<span id="offer-{{$offer->id}}-stock">{{$offer->stock}}</span>
@@ -24,11 +24,11 @@
     <td class="text-center align-middle">
         <div class="btn-group-justified">
             @if($user != null)
-                <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
+                <button id="add_offer_to_cart_{{$offer->id}}" onclick="addToCart({{$offer->id}})"
                     class="btn btn-orange" {{$user->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
                 </button>
             @else
-                <button id="add_offer_to_cart_{{$offer->id}}" onclick="pressed_add_offer_to_cart({{$offer->id}})"
+                <button id="add_offer_to_cart_{{$offer->id}}" onclick="addToCart({{$offer->id}})"
                     class="btn btn-orange"><i class="fas fa-cart-plus"></i>
                 </button>
             @endif

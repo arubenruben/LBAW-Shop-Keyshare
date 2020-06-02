@@ -11,6 +11,7 @@
           <input id="delete-account-confirmation-input" type="text-area"
                  class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
                  placeholder="Type your username to proceed"/>
+          <div id="invalid-username-feedback" class="invalid-feedback">  </div>
         </div>
         <div class="modal-footer">
           <div class="col text-left">
@@ -32,7 +33,7 @@
     <div class="col-sm-4 usercontent-left  border rounded-top">
       <div class="row ">
         <div class="col-sm-12 mt-3">
-          <h4 class="text-center">{{ $user->username }}</h4>
+          <h4 id="username" class="text-center">{{$user->username}}</h4>
         </div>
       </div>
       <div class="row">
