@@ -488,14 +488,16 @@ class AdminController extends Controller
 
     }
 
-    public function transactionGet()
-    {
+    public function transactionShow() {
+        $this->authorize('addProduct', Admin::class);
 
-    }
+        $transactions = Order::paginate();
 
-    public function transactionShow()
-    {
-
+        return view('admin.pages.all_transactions', [
+            'title' => 'Transactions',
+            'transactions' => $transactions->items(),
+            'links' => $transactions->links()
+        ]);
     }
 
     public function feedbackGet()
