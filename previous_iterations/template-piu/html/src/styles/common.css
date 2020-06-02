@@ -4,6 +4,7 @@
 @import "./user.css";
 @import "./report.css";
 @import "./common.css";
+
 html {
     height: 100%;
     margin: 0;
@@ -158,11 +159,6 @@ header.navbar {
 .cardHomepage .cardHomepageImg {
     object-fit: cover;
     height: 10rem;
-}
-
-#userOffersTable .userOffersTableEntryImage {
-    object-fit: cover;
-    height: 5rem;
 }
 
 #searchBar {
