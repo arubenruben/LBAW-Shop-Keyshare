@@ -105,6 +105,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Set when the user is banned
+     */
+    public function banAppeal(){
+        return $this->hasOneThrough('App\BanAppeal', 'App\BannedUser', 'id', 'id', 'id');
+    }
+
+    /**
      * Returns true if user is banned
      */
     public function isBanned(){

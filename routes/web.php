@@ -15,6 +15,7 @@ Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback
 Route::get('user/purchases', 'UserController@showPurchases');
 Route::get('user/reports', 'UserController@showReports');
 Route::delete('user/image', 'UserController@deleteImage')->name('deleteProfilePicture');
+Route::put('user/appeal', 'BanAppealController@appeal')->name('appeal');
 Route::get('user/{username}', 'UserController@show')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$')->name('profile');
 Route::get('user/{username}/offers', 'UserController@showOffers')->where('username', '^(?!(reports|purchases)$)[a-z A-Z0-9\s]+$');
 Route::post('user', 'UserController@update');
