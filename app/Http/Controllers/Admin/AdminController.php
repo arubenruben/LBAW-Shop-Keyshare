@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\AdminUserRequest;
 use App\Order;
 use App\Report;
+use App\User;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use App\Product;
 use App\Admin;
@@ -23,35 +28,30 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-
-
-
-
-    public function show()
-    {
+    public function show() {
         $active_reports = Report::where('status', '=', 'false');
 
-        $dailyOrders = Order::where('date', '=', 'CURRENT_DATE');
+        $daily_orders = Order::where('date', '=', 'CURRENT_DATE');
 
-        $dailyKeys = [];
-        foreach ($dailyOrders as $dailyOrder) {
-            foreach ($dailyOrder->keys as $key) {
-                array_push($dailyKeys, $key);
+        $daily_keys = [];
+        foreach ($daily_orders as $daily_order) {
+            foreach ($daily_order->keys as $key) {
+                array_push($daily_keys, $key);
             }
         }
 
-        $dailyKeysCollection = collect($dailyKeys);
+        $daily_keys_collection = collect($daily_keys);
 
-        $monthlyOrders = Order::where('date', '>=', 'cast(date_trunc(\'month\', CURRENT_DATE) as date)');
+        $monthly_orders = Order::where('date', '>=', 'cast(date_trunc(\'month\', CURRENT_DATE) as date)');
 
-        $monthlyKeys = [];
-        foreach ($monthlyOrders as $monthlyOrder) {
-            foreach ($monthlyOrder->keys as $key) {
-                array_push($monthlyKeys, $key);
+        $monthly_keys = [];
+        foreach ($monthly_orders as $monthly_order) {
+            foreach ($monthly_order->keys as $key) {
+                array_push($monthly_keys, $key);
             }
         }
 
-        $monthlyKeysCollection = collect($monthlyKeys);
+        $monthly_keys_collection = collect($monthly_keys);
 
         return view(
             'admin.pages.homepage',
@@ -60,16 +60,12 @@ class AdminController extends Controller
                 'contents' => [
                     'Tasks to be done' => ['Active Reports: ' . $active_reports->count()],
                     'Daily Statistics' => [
-                        'Transactions made: ' . $dailyKeysCollection->count(),
-                        'Money made: ' . $dailyKeysCollection->sum(function ($dailyKey) {
-                            return $dailyKey->price;
-                        }) . ' US$'
+                        'Transactions made: '.$daily_keys_collection->count(),
+                        'Money made: '.$daily_keys_collection->sum(function ($daily_key) { return $daily_key->price; }).' US$'
                     ],
                     'Monthly Statistics' => [
-                        'Transactions made: ' . $monthlyKeysCollection->count(),
-                        'Money made: ' . $monthlyKeysCollection->sum(function ($monthlyKey) {
-                            return $monthlyKey->price;
-                        }) . ' US$'
+                        'Transactions made: '.$monthly_keys_collection->count(),
+                        'Money made: '.$monthly_keys_collection->sum(function ($monthly_key) { return $monthly_key->price; }).' US$'
                     ]
                 ]
             ]
@@ -321,8 +317,25 @@ class AdminController extends Controller
     {
     }
 
-    public function userShow()
-    {
+    public function userShow(AdminUserRequest $request) {
+        if($request->has('query')) {
+            $query = implode(':* &', explode(' ', htmlentities($request->input('query'))));
+            $users = User::whereRaw("name_tsvector @@ to_tsquery('". $query.":*')")->get();
+        } else {
+            $users = User::all();
+        }
+
+        $page = $request->has('page') ? $request->input('page') : 1;
+
+        $users_paginated = $this->paginate($users, $page);
+        $users_paginated->withPath('/admin/user');
+
+        return view('admin.pages.all_users', [
+            'title' => 'Users',
+            'users' => $users_paginated->items(),
+            'query' => ($request->has('query') ? $request->input('query') : ""),
+            'links' => $users_paginated->links()
+        ]);
     }
 
     public function userUpdate($id)
@@ -384,10 +397,28 @@ class AdminController extends Controller
     public function faqDelete($id)
     {
     }
+
     public function __construct()
     {
         $this->middleware('auth:admin');
 
         View::share('nav', 'dashboard');
+    }
+
+    /**
+     * Generates a pagination of the items of an array or collection
+     *
+     * @param array|Collection      $items
+     * @param int  $page
+     * @param int   $perPage
+     * @param array $options
+     *
+     * @return LengthAwarePaginator
+     */
+    public function paginate($items, $page = null, $perPage = 10, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }

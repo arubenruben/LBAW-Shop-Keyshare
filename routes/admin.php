@@ -14,7 +14,7 @@ Route::get('/admin/product/{id}', 'AdminController@productUpdateView')->where('i
 Route::delete('/admin/product/{id}', 'AdminController@productDelete')->where('id', '[0-9]+');
 Route::post('/admin/product/{id}', 'AdminController@productUpdate')->where('id', '[0-9]+');
 Route::get('/api/admin/category', 'AdminController@categoryGet');
-/*
+
 Route::get('/admin/category', 'AdminController@categoryShow');
 Route::put('/admin/category', 'AdminController@categoryAdd');
 Route::post('/admin/category/{id}', 'AdminController@categoryUpdate');
@@ -46,5 +46,5 @@ Route::get('/admin/faq', 'AdminController@faqShow');
 Route::put('/admin/faq', 'AdminController@faqAdd');
 Route::post('/admin/faq/{id}', 'AdminController@faqUpdate');
 Route::delete('/admin/faq/{id}', 'AdminController@faqDelete');
-*/
+
 ?>

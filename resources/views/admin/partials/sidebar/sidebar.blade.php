@@ -1,4 +1,4 @@
-<aside class="card">
+<nav class="card">
     <ul class="list-unstyled m-0">
         <li><a href="{{ url('/admin') }}" class="list-group-item bg-active">Dashboard </a> </li>
         <li><a href="{{ url('/admin/products') }}" class="list-group-item"> Products </a> </li>
@@ -11,4 +11,4 @@
         <li><a href="{{ url('/admin/feedback') }}" class="list-group-item"> User Feedback </a> </li>
         <li><a href="{{ url('/admin/faq') }}" class="list-group-item"> FAQ </a> </li>
     </ul>
-</aside>
+</nav>
