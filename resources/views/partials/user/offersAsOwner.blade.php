@@ -1,14 +1,7 @@
 <div id="content" class="container mt-5">
     <div class="row">
         <div class="col-sm-12 usercontent-left">
-            @if($user->isBanned())
-            <div class="row mb-2">
-                <div class="col-7 hoverable color:red text-center mx-auto alert alert-danger" role="alert"
-                    data-toggle="modal" data-target="#modalAppeal">
-                    You are currently banned! Some functionalities are disabled. <strong>Click to appeal</strong>
-                </div>
-            </div>
-            @endif
+            @if($user->isBanned()) @include('partials.user.ban_appeal') @endif
             <div class="row px-3">
                 <div class="col-sm-9 " style=" display:flex; align-items: center;">
                     <h4 class="text-left">Current Offers<span id="current-offer-counter"

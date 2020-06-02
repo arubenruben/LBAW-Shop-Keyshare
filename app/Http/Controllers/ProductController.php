@@ -265,6 +265,17 @@ class ProductController extends Controller
             });
         }
 
+        if ($request->has('min_price')) {
+            $filter = $filter->filter(function ($entry) use ($request) {
+                $plat_id = $entry->platform->id;
+                $offers = $entry->product->offers->filter(function (Offer $offer) use ($plat_id) {
+                    return $offer->platform_id == $plat_id;
+                });
+
+                return $offers->min('price') >= $request->input('min_price');
+            });
+        }
+
         if ($request->has('max_price')) {
             $filter = $filter->filter(function ($entry) use ($request) {
                 $plat_id = $entry->platform->id;
