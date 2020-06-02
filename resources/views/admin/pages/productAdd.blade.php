@@ -2,11 +2,11 @@
 @section('title', 'Product add')
 
 @push('head')
-    <script src="{{ asset('js/admin/product.js') }}" defer></script>
+<script src="{{ asset('js/admin/product.js') }}" defer></script>
 @endpush
 
 @section('header')
-    @include('admin.partials.header.header_admin')
+@include('admin.partials.header.header_admin')
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
         @include('admin.partials.product.categories',['categories'=>$categories])
         <div class="row flex-nowrap justify-content-between mt-5">
             <!--a href="product.php" class="btn btn-blue ml-4" role="button">Preview Product</a>-->
-            <button class="btn bg-orange mr-4 ml-auto text-white" role="button" type="submit">Publish Product</button>
+            <button class="btn btn-orange mr-4 ml-auto text-white" role="button" type="submit">Submit Product</button>
         </div>
     </form>
 </div>
