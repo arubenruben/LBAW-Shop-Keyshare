@@ -12,11 +12,15 @@ use App\Cart;
 use App\Offer;
 use Braintree;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Cache;
 
 class CartController extends Controller
 {
     public function show(Request $request)
     {
+
+        Cache::flush();
+
         $data = array();
 
         try {
@@ -371,5 +375,10 @@ class CartController extends Controller
         }
 
         Cart::where('user_id', $userId)->delete();
+    }
+
+    public function __construct()
+    {
+        $this->middleware('preventBackHistory');
     }
 }
