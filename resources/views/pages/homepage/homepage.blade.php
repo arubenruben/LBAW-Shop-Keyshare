@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Homepage')
 
-@push('head')
-    <script src="{{ asset('js/homepage/homepage.min.js') }}" async></script>
-@endpush
-
 @section('header')
     @include('partials.header.user_header')
 @endsection

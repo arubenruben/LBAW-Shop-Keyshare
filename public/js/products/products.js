@@ -4,17 +4,6 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/search';
 
 const addEventListeners = () => {
-    document.querySelectorAll('section#content img').forEach(function (image) {
-        if(!image.complete) {
-            let prev_image = image.cloneNode(true);
-            image.src = 'pictures/spinner.gif';
-            image.style.visibility = 'visible';
-
-            if(!image.complete)
-                prev_image.addEventListener('load', loaded.bind(prev_image, image, prev_image.src));
-        }
-    });
-
     const filters = document.querySelectorAll("form.option");
 
     for(let i = 0; i < filters.length; i++) {

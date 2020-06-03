@@ -8,7 +8,7 @@
         @for($i = 0; $i < count($carousel); $i++)
             <div class="carousel-item {{$i == 0 ? 'active' : ''}}">
                 <a href="{{route('search')}}">
-                    <img src="{{$carousel[$i]}}" class="carousel-item d-block w-100" alt="Carousel Image" style="visibility: hidden;">
+                    <img src="{{$carousel[$i]}}" class="carousel-item d-block w-100" alt="Carousel Image">
                 </a>
             </div>
         @endfor
