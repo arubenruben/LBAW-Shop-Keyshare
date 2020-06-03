@@ -25,7 +25,7 @@ const addEventListeners = () => {
         let platform_inputs = filter.querySelectorAll("input[name='platform']");
         let category_inputs = filter.querySelectorAll("input[name='category']");
         let min_price_input = filter.querySelector("input[name='min_price']");
-        let max_price_input = filter.querySelector("input[name='min_price']");
+        let max_price_input = filter.querySelector("input[name='max_price']");
 
         for (let i = 0; i < sort_by_inputs.length; i++) {
             let sort_by_input = sort_by_inputs[i];
@@ -47,14 +47,14 @@ const addEventListeners = () => {
             category_input.addEventListener("click", sendRequest.bind(filter, filter));
         }
 
-        min_price_input.addEventListener("change", function () {
+        min_price_input.addEventListener("keyup", function () {
             if(max_price_input && max_price_input.value && min_price_input.value && (max_price_input.value < min_price_input.value || min_price_input < 0))
                 min_price_input.value = max_price_input.value;
 
             sendRequest(filter);
         });
 
-        max_price_input.addEventListener("change", function () {
+        max_price_input.addEventListener("keyup", function () {
             if(min_price_input && min_price_input.value && max_price_input.value && (min_price_input.value > max_price_input.value || max_price_input < 0))
                 max_price_input.value = min_price_input.value
 
@@ -126,12 +126,12 @@ const assembleData = formElement => {
 
     let min_price = form.get('min_price');
     if (min_price) {
-        data.min_price = min_price;
+        data.min_price = Math.max(0, min_price);
     }
 
     let max_price = form.get('max_price');
     if (max_price) {
-        data.max_price = max_price;
+        data.max_price = Math.max(data.min_price, max_price);
     }
 
     return data;
