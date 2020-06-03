@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Admin;
 
-class ProductAddRequest extends FormRequest
+class FAQRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +24,8 @@ class ProductAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'gameName' => 'bail | required|filled| string | max:100 ',
-            'gameGenres' => 'bail | required|filled| string | max:100 ',
-            'gamePlatforms' => 'bail | required|filled| string | max:100 ',
-            'gameCategories' => 'bail | required|filled| string | max:100 ',
-            'gameDescription' => 'bail | required|filled| string | max:5000 ',
-            'img-upload' => 'sometimes|nullable',
+            'question' => "bail | required | filled | string",
+            'answer' => "bail | required | filled | string",
         ];
     }
 
@@ -41,7 +36,12 @@ class ProductAddRequest extends FormRequest
      */
     public function messages() {
         return [
-       
+            'question.required' => 'Please provide a question',
+            'question.filled' => 'Please provide a question',
+            'question.string' => 'The question must be a text',
+            'answer.required' => 'Please provide a answer',
+            'answer.filled' => 'Please provide a answer',
+            'answer.string' => 'The answer must be a text'
         ];
     }
 }

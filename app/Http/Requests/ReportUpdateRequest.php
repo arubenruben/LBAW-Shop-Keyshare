@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Admin;
 
-class ProductAddRequest extends FormRequest
+class ReportUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +24,7 @@ class ProductAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'gameName' => 'bail | required|filled| string | max:100 ',
-            'gameGenres' => 'bail | required|filled| string | max:100 ',
-            'gamePlatforms' => 'bail | required|filled| string | max:100 ',
-            'gameCategories' => 'bail | required|filled| string | max:100 ',
-            'gameDescription' => 'bail | required|filled| string | max:5000 ',
-            'img-upload' => 'sometimes|nullable',
+            'status' => "bail | required | boolean",
         ];
     }
 
@@ -39,9 +33,11 @@ class ProductAddRequest extends FormRequest
      *
      * @return array
      */
-    public function messages() {
+    public function messages()
+    {
         return [
-       
+            'status.required' => "A value for status must present and of boolean type",
+            'status.boolean' => "Status value must be of boolean type",
         ];
     }
 }

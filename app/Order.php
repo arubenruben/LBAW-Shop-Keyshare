@@ -20,14 +20,14 @@ class Order extends Model
     protected $primaryKey = 'number';
 
     /**
-     * The user this offer belongs to
+     * The user this order belongs to
      */
     public function buyer() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**
-     * The keys this offer has
+     * The keys this order has
      */
     public function keys() {
         return $this->hasMany('App\Key', 'order_id');

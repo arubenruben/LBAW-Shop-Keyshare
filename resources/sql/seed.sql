@@ -37,7 +37,7 @@ CREATE TABLE products (
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
   description TEXT,
-  category_id INTEGER REFERENCES categories (id) ON DELETE SET NULL ON UPDATE CASCADE,
+  category_id INTEGER NOT NULL REFERENCES categories (id) ON DELETE RESTRICT ON UPDATE CASCADE,
   picture_id INTEGER DEFAULT 2 NOT NULL REFERENCES pictures (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
   launch_date DATE NOT NULL,
@@ -826,12 +826,12 @@ INSERT INTO genres(name) VALUES('ANIME');
 INSERT INTO platforms(name) VALUES('PC');
 INSERT INTO platforms(name) VALUES('PS4');
 INSERT INTO platforms(name) VALUES('NINTENDO');
-INSERT INTO platforms(name) VALUES('XBOX ONE');
+INSERT INTO platforms(name) VALUES('XBOXONE');
 INSERT INTO platforms(name) VALUES('PS3');
 INSERT INTO platforms(name) VALUES('MAC');
-INSERT INTO platforms(name) VALUES('Android');
+INSERT INTO platforms(name) VALUES('ANDROID');
 INSERT INTO platforms(name) VALUES('PS2');
-INSERT INTO platforms(name) VALUES('XBOX 360');
+INSERT INTO platforms(name) VALUES('XBOX360');
 
 INSERT INTO pictures (url) VALUES ('user.png');
 INSERT INTO pictures (url) VALUES ('product.png');

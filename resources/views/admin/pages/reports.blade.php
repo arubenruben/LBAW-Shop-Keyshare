@@ -10,5 +10,5 @@
 @endsection
 
 @section('content')
-    @include('admin.partials.tables.table_homepage', ['title' => $title, 'contents' => $contents])
+    @include('admin.partials.tables.table_reports', ['title' => $title, 'reports' => $reports, 'links' => $links])
 @endsection

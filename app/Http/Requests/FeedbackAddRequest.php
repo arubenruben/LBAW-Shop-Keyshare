@@ -28,8 +28,8 @@ class FeedbackAddRequest extends FormRequest
     {
         return [
             'key' => "bail | required | filled | string | exists:keys,id",
-            'comment' =>"bail | required | filled | string",
-            'evaluation' =>"bail | required | filled | boolean"
+            'comment' => "bail | required | filled | string",
+            'evaluation' => "bail | required | filled | boolean"
         ];
     }
 

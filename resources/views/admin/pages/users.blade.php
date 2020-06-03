@@ -1,7 +1,8 @@
 @extends('layouts.admin')
+@section('title', $title)
 
 @push('head')
-    <script src="{{ asset('js/admin/all_users.js') }}" defer></script>
+    <script src="{{ asset('js/admin/users.js') }}" defer></script>
 @endpush
 
 @section('header')
@@ -13,5 +14,5 @@
 @endsection
 
 @section('content')
-    @include('admin.partials.tables.table_all_users', ['title' => $title, 'users' => $users, 'query' => $query, 'links' => $links])
+    @include('admin.partials.tables.table_users', ['title' => $title, 'users' => $users, 'query' => $query, 'links' => $links])
 @endsection

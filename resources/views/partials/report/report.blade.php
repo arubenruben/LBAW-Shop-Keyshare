@@ -1,5 +1,5 @@
 <div id="content" class="container">
-    <div class="row mt-4">
+    <div class="row pt-4">
         <div class="col-11 col-md-4">
             <h4> Report Page </h4>
         </div>
@@ -46,15 +46,8 @@
                     <div class="row mt-4 mb-4">
                         <div class="col">
                             <h6><u>Intervening parties</u></h6>
-
-                            {{--
-                            <div class="row mt-2 pl-2 pt-2">
-                                <div class="col incoming_msg_img_inter">
-                                    <div class="incoming_msg_img_inter"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                    <a href="{{route('profile', ['username' => $report->messages->get(0)->admin ])}}"><span
-                                class="d-inline-block"> {{$report->messages->get(0)->admin}} (admin) </span></a>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="row mt-2  pl-2 pt-2">
                         <div class="col">
                             <div class="incoming_msg_img_inter"> <img
@@ -78,35 +71,31 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="col-11 col-md-8  mt-4 border rounded-top">
-    <div class="row border">
-        <div class="col">
-            <h5 class="mt-1 mb-1"> The Conversation </h5>
-        </div>
-    </div>
+        <div class="col-11 col-md-8  mt-4 border rounded-top">
+            <div class="row border">
+                <div class="col">
+                    <h5 class="mt-1 mb-1"> The Conversation </h5>
+                </div>
+            </div>
 
-    <div class="msg_history ">
-        <div class="incoming_msg">
-            <div class="incoming_msg_img"> <img src={{ asset('/pictures/profile/report.png') }} alt="profile picture"
-                    class="mt-2"> </div>
-            <div class="received_msg mt-2">
-                <div class="received_withd_msg">
-                    <p>{{$report->description}}</p>
-                    <span class="time_date"> {{$report->date}}</span>
+            <div class="msg_history ">
+                <div class="incoming_msg">
+                    <div class="incoming_msg_img"> <img src="{{ asset('pictures/profile/'.$report->reporter->picture->url) }}" alt="profile picture" class="mt-2"> </div>
+                    <div class="received_msg mt-2">
+                        <div class="received_withd_msg">
+                            <p>{{$report->description}}</p>
+                            <span class="time_date"> {{$report->date}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="outgoing_msg">
+                    <div class="sent_msg">
+                        <p>Awaiting for admin response ...</p>
+                        <span class="time_date"> - </span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="outgoing_msg">
-            <div class="sent_msg">
-                <p>Awaiting for admin response ...</p>
-                <span class="time_date"> - </span>
-            </div>
-        </div>
-
     </div>
-
-</div>
 </div>
