@@ -1,10 +1,10 @@
-@import "constants.css";
-@import "progress_bar.css";
-@import "checkout.css";
-@import "user.css";
-@import "report.css";
-@import "common.css";
-@import "montserrat.css";
+@import "constants.min.css";
+@import "progress_bar.min.css";
+@import "checkout.min.css";
+@import "users.min.css";
+@import "report.min.css";
+@import "common.min.css";
+@import "montserrat.min.css";
 
 html {
     height: 100%;

@@ -4,20 +4,27 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/';
 
 const addEventListeners = () => {
-    document.querySelectorAll('img').forEach(function (image) {
-        if(image.style.display === 'none') {
-            let source = image.cloneNode(true).src;
-            image.style.display = 'block';
+    document.querySelectorAll('section#content img').forEach(function (image) {
+        if(!image.complete) {
+            let prev_image = image.cloneNode(true);
             image.src = 'pictures/spinner.gif';
-            console.log('adding new event listener')
-            image.addEventListener('load', loaded.bind(image, image, source));
+            image.style.visibility = 'visible';
+
+            if(prev_image.classList.contains("carousel-item")) {
+                image.style = "max-width:700px; max-height: 700px !important; display:block";
+                image.className = "mx-auto";
+            }
+
+            if(!image.complete)
+                prev_image.addEventListener('load', loaded.bind(prev_image, image, prev_image.src, prev_image.style));
         }
     });
 }
 
-const loaded = (img, src) => {
-    if(img.complete) img.src = src;
-    this.removeEventListener('load', loaded);
+function loaded(img, src, style) {
+    img.src = src;
+    img.style = style;
+    if(img.classList.contains("mx-auto")) img.classList.remove("mx-auto");
 }
 
 addEventListeners();
