@@ -6,9 +6,18 @@
     </div>
 
     <!--Only draw ProgressBar when is XL. Not responsive-->
-    <div class="row d-none d-xl-block pt-4 mt-3">
-        <div class="col-12">
-            <?php //drawProgressBar3(); ?>
+    <div class="row d-none d-xl-block pt-4">
+        <div class="progress-bar-wrapper">
+            <div class="status-bar">
+                <!--
+                            <div class="current-status" style="width: 75%; transition: width 4500ms linear 0s;"></div>
+                        -->
+            </div>
+            <ul class="progress-bar-adapted">
+                <li class="section visited current status-bar-circle">Your Info</li>
+                <li class="section visited status-bar-circle">Confirm Your Order</li>
+                <li class="section vistied status-bar-circle">Transaction Status</li>
+            </ul>
         </div>
     </div>
     <div id="checkoutPage4" class="row mt-5 mb-5 pb-5">
@@ -17,7 +26,8 @@
             <div id="checkout-success">
                 <i id="checkoutStatusEmojiTrue" class="fas fa-check-circle mb-2" style="font-size: 4rem;"></i>
                 <h1 id="checkoutStatusTitleTrue">Success</h1>
-                <a href="/user/purchases" id="checkoutStatusButtonSuccess" class="btn btn-primary btn-lg mt-3">Back to my purchases</a>
+                <a href="/user/purchases" id="checkoutStatusButtonSuccess" class="btn btn-primary btn-lg mt-3">Back to
+                    my purchases</a>
             </div>
 
             <div id="checkout-fail">

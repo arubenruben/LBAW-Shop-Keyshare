@@ -12,11 +12,15 @@ use App\Cart;
 use App\Offer;
 use Braintree;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Cache;
 
 class CartController extends Controller
 {
     public function show(Request $request)
     {
+
+        Cache::flush();
+
         $data = array();
 
         try {
@@ -153,12 +157,9 @@ class CartController extends Controller
         $loggedIn = true;
         $data = array();
 
-        try {
-            $this->authorize('loggedIn', Cart::class);
-            $user = Auth::user();
-        } catch (AuthorizationException $e) {
-            $loggedIn = false;
-        }
+
+        $this->authorize('loggedIn', Cart::class);
+        $user = Auth::user();
 
         //If logged in -> Get the Cart from the database
         if ($loggedIn) {
@@ -249,6 +250,7 @@ class CartController extends Controller
 
     public function finishCheckout(CheckoutInfoRequest $request)
     {
+
         // Access token
         $gateway = new Braintree\Gateway([
             'accessToken' => 'access_token$sandbox$zxjj8c9jrsb489sf$217d59bb704d10cb0adf25d6cbb78604',
@@ -373,5 +375,10 @@ class CartController extends Controller
         }
 
         Cart::where('user_id', $userId)->delete();
+    }
+
+    public function __construct()
+    {
+        $this->middleware('preventBackHistory');
     }
 }

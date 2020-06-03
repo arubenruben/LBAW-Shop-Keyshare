@@ -7,6 +7,8 @@ const moreText = document.getElementById("more");
 const seeMoreButtons = document.getElementById("see-more-buttons");
 const readmoreText = document.querySelector("#text-readmore");
 let allAddToCartButtons = document.querySelectorAll(".button-offer");
+const radioButtons = document.getElementById("radio-buttons");
+
 
 if(readmoreText.textContent.length < 200) {
     btnText.style.display = 'none';
@@ -30,7 +32,7 @@ function collapseDescription() {
 const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middle"> <p class = "mt-5" >No offers available for this product</p> </div >'
 const cartItemCounter = document.querySelector("#shopping_cart_item_counter");
 const counterNumberOffers = document.querySelector("#counter-number-offers");
-const htmlToInsertPlace = document.querySelector('#offers_body');
+const htmlToInsertPlace = document.querySelector('#offers-content');
 /** Add to cart **/
 
 const sendPut = put => {
@@ -46,20 +48,33 @@ const sendPut = put => {
         body: JSON.stringify(put)
     }
 
+    let buttons = document.querySelectorAll(".button-offer");
+    let selectButton = null;
+
+    buttons.forEach(button => {
+        if(button.getAttribute('data-offer') === put.offer_id){
+            selectButton = button;
+        }
+    });
+
+    selectButton.disabled = true;
+
     return fetch("/cart/", options)
         .then(function (res) {
             if (res.ok) {
                 cartItemCounter.innerHTML = parseInt(cartItemCounter.innerHTML) + 1.0;
                 let offerStock = document.querySelector('#offer-' + put.offer_id + '-stock');
                 offerStock.innerHTML -= 1;
+                selectButton.disabled = false;
                 //Out of stock
                 if (offerStock.innerHTML == '0') {
                     let offerTableEntry = document.querySelector('#entry-offer-' + put.offer_id);
                     offerTableEntry.remove();
                     counterNumberOffers.innerHTML -= 1
-                }
-                if (counterNumberOffers.innerHTML === 0) {
-                    htmlToInsertPlace.innerHTML = htmlToInsertWithoutOffers;
+                    if(counterNumberOffers.innerHTML === '0' && !radioButtons.classList.contains('d-none')){
+                        radioButtons.className += " d-none";
+                        htmlToInsertPlace.innerHTML = htmlToInsertWithoutOffers;
+                    }
                 }
             }
             res.json();
@@ -166,6 +181,8 @@ const received = (response) => {
     let entriesTable = "";
     let boolean;
 
+    //TODO: THIS IS TO BE DONE BECAUSE THE ORDER BY RECEIVES MORE OFFERS THAN BEFORE THE BUTTONS
+    // NEED TO DISPLAY
    /* if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
             seeMoreButtons.classList.remove('d-none');
     else if(!seeMoreButtons.classList.contains('d-none'))
@@ -176,10 +193,7 @@ const received = (response) => {
 
 
     for (let i = 0; i < response.offers.length; i++) {
-        if (i < 10)
-            boolean = false;
-        else
-            boolean = true;
+        boolean = i >= 10;
          entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
     }
 

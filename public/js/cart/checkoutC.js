@@ -194,7 +194,6 @@ paypal.Button.render({
             amount: response.amount, // Required
             currency: 'USD', // Required
         });
-
     },
 
     onAuthorize: function (payload) {
@@ -241,7 +240,7 @@ const addEventListeners = () => {
             button.disabled = true;
             sendDelete(cartId, offerPrice).then(async () =>{
                 let response = await sendGet();
-                totalPrice.innerHTML = response.amount;
+                totalPrice.innerHTML = "$" + response.amount.toFixed(2);
                 if(response.amount === 0)
                     window.location.replace("/cart");
             })
@@ -265,7 +264,7 @@ const sendDelete = (cartId, offerPrice) => {
             if (res.ok) {
                 let totalPriceNumber = parseFloat(totalPrice.innerHTML).toFixed(2);
                 totalPriceNumber -= offerPrice
-                totalPrice.innerHTML = totalPriceNumber.toFixed(2);
+                totalPrice.innerHTML = "$" + totalPriceNumber.toFixed(2);
 
                 let tableEntry = document.querySelector('#row' + cartId);
                 tableEntry.remove();
