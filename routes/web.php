@@ -22,7 +22,7 @@ Route::delete('user', 'UserController@delete');
 Route::get('/', 'ProductController@home')->name('home');                                       // Homepage
 Route::get('/search', 'ProductController@search')->name('search');                             // Products list
 Route::get('/api/product', 'ProductController@get');                                                 // Products list
-Route::get('/api/product/sort', 'ProductController@sort');                                           // Products list
+Route::get('/api/product/{productName}/{platformName}/sort', 'ProductController@sort');              // Products list
 Route::get('product/{productName}/{platformName}', 'ProductController@show')->name('product'); // Products page
 
 // Cart

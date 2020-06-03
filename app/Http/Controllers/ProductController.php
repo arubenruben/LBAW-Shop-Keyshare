@@ -6,6 +6,7 @@ use App\ActiveOffer;
 use App\ActiveProduct;
 use App\Category;
 use App\Genre;
+use App\Http\Requests\ProductOffersRequest;
 use App\Http\Requests\SearchRequest;
 use App\Offer;
 use App\Platform;
@@ -379,11 +380,10 @@ class ProductController extends Controller
         $offers = Offer::where('product_id', '=', $product->id)->where('platform_id', '=', $platform->id)->where('stock', '>', 0)->get();
         $offers = $this->filterOffersAlreadyInCart($request,$offers);
         $offersSortPrice = $this->sortOffersByPrice($offers);
-        $offersSortRating = $this->sortOffersByRating($offers);
         $platformName = $platform->name;
 
         return view('pages.product.product', ['user' => Auth::user(), 'product' => $product, 'platformName' => $platformName,
-            'offers'  => $offers, 'offersSortPrice' => $offersSortPrice, 'offersSortRating' => $offersSortRating, 'numberOffers' => $offers->count(),
+            'offers'  => $offersSortPrice, 'numberOffers' => $offers->count(),
             'breadcrumbs' => [ $product->name.' ['.$platformName.']' => route('product', ['productName' => $product->name, 'platformName' => $platformName])]]);
     }
 
@@ -429,72 +429,53 @@ class ProductController extends Controller
     public function sortOffersByPrice($offers)
     {
         return $offers->sortByDesc(function (Offer $offer) {
-            return $offer->seller()->getResults()->rating;
+            return $offer->seller->rating;
         })->sortByDesc(function (Offer $offer) {
-            return $offer->seller()->getResults()->num_sells;
-        })->sortBy('discountPriceColumn');
+            return $offer->seller->num_sells;
+        })->sortBy(function (Offer $offer) {
+            return $offer->discount_price();
+        });
     }
 
     public function sortOffersByRating($offers)
     {
-        return $offers->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer) {
-            return $offer->seller()->getResults()->num_sells;
+        return $offers->sortBy(function (Offer $offer) {
+            return $offer->discount_price();
         })->sortByDesc(function (Offer $offer) {
-            return $offer->seller()->getResults()->rating;
+            return $offer->seller->num_sells;
+        })->sortByDesc(function (Offer $offer) {
+            return $offer->seller->rating;
         });
     }
 
-    public function sort(Request $request)
-    {
+    public function sort($productName, $platformName, ProductOffersRequest $request) {
+        $sortBy = Offer::all()->filter(function (Offer $offer) use ($productName, $platformName) {
+            return $offer->product->name == $productName && $offer->platform->name == $platformName && $offer->stock > 0;
+        });
 
-        if (!$request->has('sort_by') || !$request->has('game_name') || !$request->has('game_platform') || !$request->has('all_offers')) {
-            abort(400);
+        $sortBy = $this->filterOffersAlreadyInCart($request, $sortBy);
+
+        if ($request->input('sort_by') == 2) {
+
+            $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer) {
+                return $offer->seller->num_sells;
+            })->sortByDesc(function (Offer $offer) {
+                return $offer->seller->rating;
+            });
+
         } else {
 
-            $sortBy = Offer::all()->filter(function (Offer $offer) use ($request) {
-                return $offer->product->name == $request->input('game_name') && $offer->platform->name == $request->input('game_platform') && $offer->stock > 0;
-            });
-
-            $sortBy = $this->filterOffersAlreadyInCart($request,$sortBy);
-
-            if ($request->input('sort_by') == 'rating') {
-
-                $sortBy = $sortBy->sortBy('discountPriceColumn')->sortByDesc(function (Offer $offer) {
-                    return $offer->seller()->getResults()->num_sells;
-                })->sortByDesc(function (Offer $offer) {
-                    return $offer->seller()->getResults()->rating;
-                });
-            } else {
-
-                $sortBy = $sortBy->sortByDesc(function (Offer $offer) {
-                    return $offer->seller()->getResults()->rating;
-                })->sortByDesc(function (Offer $offer) {
-                    return $offer->seller()->getResults()->num_sells;
-                })->sortBy('discountPriceColumn');
-            }
-
-            $sortBy = $sortBy->map(function ($offer, $key){
-                return [
-                    'username' => $offer->seller->username, 'rating' => $offer->seller->rating,
-                    'offer_id' => $offer->id, 'num_sells' => $offer->seller->num_sells,
-                    'price' => $offer->price, 'discount_price' => $offer->discountPriceColumn,
-                    'stock' => $offer->stock
-                ];
-            });
-
-            $current_user = Auth::user();
-
-            if ($current_user == null)
-                $banned = false;
-            else {
-                $banned = $current_user->isBanned();
-            }
-            if($request->input('all_offers') == 'true'){
-                //dd(count($sortBy->toArray()));
-                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 10, count($sortBy->toArray()))), 'current_user' => $current_user, 'banned' => $banned]);
-            }
-            else
-                return response()->json(['offers' => array_values(array_slice($sortBy->toArray(), 0, 10)), 'current_user' => $current_user, 'banned' => $banned, 'numberOffers' => count($sortBy->toArray())]);
+            $sortBy = $sortBy->sortByDesc(function (Offer $offer) {
+                return $offer->seller()->getResults()->rating;
+            })->sortByDesc(function (Offer $offer) {
+                return $offer->seller()->getResults()->num_sells;
+            })->sortBy('discountPriceColumn');
         }
+
+        return view('partials.product.product_offers', [
+            'offers' => $sortBy,
+            'number' => $request->has('all_offers') && $request->input('all_offers') ? $sortBy->count() : 10,
+            'display' => true
+        ]);
     }
 }
