@@ -6,10 +6,12 @@ const url = '/';
 const spinner = document.querySelector("#spinner");
 
 const addEventListeners = () => {
-    document.querySelectorAll('img').forEach(function (image) {
-        let cloned = image.cloneNode(true);
+    let images = document.querySelectorAll('img');
+    images.forEach(function (image) {
+        let source = image.cloneNode(true).src;
+        image.style.display = "block";
         image.src = 'pictures/spinner.gif';
-        cloned.addEventListener('load', loaded.bind(image, image, img.src));
+        image.addEventListener('load', loaded.bind(image, image, source));
     });
 }
 
