@@ -27,4 +27,4 @@ function loaded(img, src, style) {
     if(img.classList.contains("mx-auto")) img.classList.remove("mx-auto");
 }
 
-addEventListeners();
+//addEventListeners();
