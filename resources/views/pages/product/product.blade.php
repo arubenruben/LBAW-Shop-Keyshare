@@ -2,7 +2,7 @@
 @section('title', $product->name.' ['. $platformName.']')
 
 @push('head')
-<script src="{{ asset('js/products/product.min.js') }}" defer></script>
+<script src="{{ asset('js/products/product.js') }}" defer></script>
 <script src="{{ asset('js/feedback/feedback.min.js') }}" defer></script>
 @endpush
 
@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-@include('partials.product.product', ['numberOffers' => $numberOffers, 'offers' => $offersSortPrice])
+@include('partials.product.product', ['numberOffers' => $numberOffers, 'offers' => $offers])
 @endsection
 
 @section('footer')

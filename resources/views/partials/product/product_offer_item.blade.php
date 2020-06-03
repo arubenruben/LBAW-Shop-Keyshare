@@ -17,17 +17,17 @@
     </td>
     @if($offer->price != $offer->discount_price())
     <td class="text-center align-middle">
-        <strong>${{number_format((float)$offer->price, 2, '.', '')}}</strong>
-        <strong>class="cl-success pl-2">${{number_format((float)$offer->discount_price(), 2, '.', '')}}</strong>
+        <del class="">${{number_format((float)$offer->price, 2, '.', '')}}</del>
+        <strong class="cl-success pl-2">${{number_format((float)$offer->discount_price(), 2, '.', '')}}</strong>
     </td>
     @else
     <td class="text-center align-middle"><strong>${{number_format((float)$offer->price, 2, '.', '')}}</strong></td>
     @endif
     <td class="text-center align-middle">
         <div class="btn-group-justified">
-            @if($user != null)
+            @if(Auth::check())
             <button data-offer="{{$offer->id}}" class="btn btn-orange button-offer"
-                {{$user->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
+                {{Auth::user()->isBanned() ? 'disabled' : ''}}><i class="fas fa-cart-plus"></i>
             </button>
             @else
             <button data-offer="{{$offer->id}}" class="btn btn-orange button-offer"><i class="fas fa-cart-plus"></i>
