@@ -5,11 +5,11 @@
         </div>
         <div class="col-6 text-right">
             @if (Auth::check())
-            <a class="btn btn-lg btn-orange deleteButtonCheckout align-right" href="{{route('checkoutInit') }}"
+            <a id = "checkout-top-button" class="btn btn-lg btn-orange deleteButtonCheckout align-right {{count($data) == 0 ? 'd-none' : ''}}" href="{{route('checkoutInit') }}"
                 role="button"><i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
             </a>
             @else
-            <button class="btn btn-lg btn-orange deleteButtonCheckout align-right" data-toggle="modal"
+            <button id="checkout-top-button" class="btn btn-lg btn-orange deleteButtonCheckout align-right {{count($data) == 0 ? 'd-none' : ''}}" data-toggle="modal"
                 data-target="#authenticationModal">
                 <i class="fas fa-money-check-alt d-inline"></i> <span class="d-inline">Checkout</span>
             </button>
