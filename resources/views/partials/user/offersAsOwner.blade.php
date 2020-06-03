@@ -8,11 +8,12 @@
                             class="badge ml-1 badge-secondary"> {{$currOffers->count()}}</span></h4>
                 </div>
                 @if(!$user->isBanned())
-                    <div class="col-sm-3">
-                        <a href={{url('/offer')}} class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i class="mr-1 fas fa-plus"></i>
-                            <span class="d-none d-md-inline-block"> Add offer </span>
-                        </a>
-                    </div>
+                <div class="col-sm-3">
+                    <a href={{url('/offer')}} class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i
+                            class="mr-1 fas fa-plus"></i>
+                        <span class="d-none d-md-inline-block"> Add offer </span>
+                    </a>
+                </div>
                 @endif
             </div>
             <div class="container mt-3 mb-3">
@@ -42,7 +43,7 @@
                                         <td scope="row" class="border-0 align-middle">
                                             <div class="p-2">
                                                 <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
-                                                    alt="" width="150"
+                                                    alt="Product Image" width="150"
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                     <h5 class="mb-0 d-inline-block"><a
