@@ -3,15 +3,15 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/';
 
-const spinner = document.querySelector("#spinner");
-
 const addEventListeners = () => {
-    let images = document.querySelectorAll('img');
-    images.forEach(function (image) {
-        let source = image.cloneNode(true).src;
-        image.style.display = "block";
-        image.src = 'pictures/spinner.gif';
-        image.addEventListener('load', loaded.bind(image, image, source));
+    document.querySelectorAll('img').forEach(function (image) {
+        if(image.style.display === 'none') {
+            let source = image.cloneNode(true).src;
+            image.style.display = 'block';
+            image.src = 'pictures/spinner.gif';
+            console.log('adding new event listener')
+            image.addEventListener('load', loaded.bind(image, image, source));
+        }
     });
 }
 
