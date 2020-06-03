@@ -33,6 +33,10 @@ The source code can be found in the group gitlab repository on: https://git.fe.u
 
 The development was supported by docker technologies. You can run the project docker image with the following commands:
 
+```
+docker run -it -p 8000:80 -e DB_DATABASE="lbaw2043" -e DB_USERNAME="lbaw2043" -e DB_PASSWORD="AS810664" lbaw2043/lbaw2043
+```
+
 ## Credentials
 
 ### User
