@@ -3,13 +3,15 @@
 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const url = '/';
 
-const spinner = document.querySelector("#spinner");
-
 const addEventListeners = () => {
     document.querySelectorAll('img').forEach(function (image) {
-        let cloned = image.cloneNode(true);
-        image.src = 'pictures/spinner.gif';
-        cloned.addEventListener('load', loaded.bind(image, image, img.src));
+        if(image.style.display === 'none') {
+            let source = image.cloneNode(true).src;
+            image.style.display = 'block';
+            image.src = 'pictures/spinner.gif';
+            console.log('adding new event listener')
+            image.addEventListener('load', loaded.bind(image, image, source));
+        }
     });
 }
 

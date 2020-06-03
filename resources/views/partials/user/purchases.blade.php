@@ -40,7 +40,7 @@
                                     <td scope="row" class="border-0 align-middle">
                                         <div class="p-2">
                                             <img src="{{ asset('/pictures/games/'.$key->offer->product->picture->url) }}"
-                                                alt="" width="150"
+                                                alt="Product Image" width="150"
                                                 class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle">
                                                 <h5 class="mb-0 d-inline-block"><a

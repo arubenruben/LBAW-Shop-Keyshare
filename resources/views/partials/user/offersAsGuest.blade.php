@@ -31,35 +31,35 @@
                                 </thead>
                                 <tbody>
                                     @foreach($currOffers as $currentOffer)
-                                        <tr>
-                                            <th scope="row" class="border-0 align-middle">
-                                                <div class="p-2">
-                                                    <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
-                                                        alt="" width="150"
-                                                        class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
-                                                    <div class="ml-3 d-inline-block align-middle flex-nowrap">
-                                                        <h5 class="mb-0 d-inline-block"><a
-                                                                href="{{ url('/product/'.$currentOffer->product->id) }}"
-                                                                class="text-dark">{{$currentOffer->product->name}}</a></h5>
-                                                        <span
-                                                            class="text-muted font-weight-normal font-italic d-inline-block">
-                                                            [{{$currentOffer->platform->name}}]</span>
-                                                        <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
-                                                    </div>
+                                    <tr>
+                                        <th scope="row" class="border-0 align-middle">
+                                            <div class="p-2">
+                                                <img src="{{ asset('/pictures/games/'.$currentOffer->product->picture->url) }}"
+                                                    alt="Product image" width="150"
+                                                    class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
+                                                <div class="ml-3 d-inline-block align-middle flex-nowrap">
+                                                    <h5 class="mb-0 d-inline-block"><a
+                                                            href="{{ url('/product/'.$currentOffer->product->id) }}"
+                                                            class="text-dark">{{$currentOffer->product->name}}</a></h5>
+                                                    <span
+                                                        class="text-muted font-weight-normal font-italic d-inline-block">
+                                                        [{{$currentOffer->platform->name}}]</span>
+                                                    <h6>Stock: {{$currentOffer->offer_stock}} keys</h6>
                                                 </div>
-                                            </th>
-                                            <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
-                                            <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="btn-group-justified btn-group-md">
-                                                    <a href="{{ url('/product/'.$currentOffer->product->id.'/'.$currentOffer->platform->platform_id)}}"
-                                                        class="btn btn-blue btn-block flex-nowrap" role="button"> <i
-                                                            class="fas fa-eye"></i> <span class="d-none d-md-inline-block">
-                                                            View Offer </span></a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            </div>
+                                        </th>
+                                        <td class="text-center align-middle">{{$currentOffer->init_date}}</td>
+                                        <td class="text-center align-middle"><strong>${{$currentOffer->price}}</strong>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="btn-group-justified btn-group-md">
+                                                <a href="{{ url('/product/'.$currentOffer->product->id.'/'.$currentOffer->platform->platform_id)}}"
+                                                    class="btn btn-blue btn-block flex-nowrap" role="button"> <i
+                                                        class="fas fa-eye"></i> <span class="d-none d-md-inline-block">
+                                                        View Offer </span></a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
