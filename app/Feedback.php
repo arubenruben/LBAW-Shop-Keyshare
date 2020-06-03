@@ -28,7 +28,7 @@ class Feedback extends Model
      * The buyer that is evaluating
      */
     public function buyer(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**

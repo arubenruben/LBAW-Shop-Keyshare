@@ -31,7 +31,7 @@
                 @foreach($feedback as $feedback_entry)
                 <tr>
                     <td class="align-middle text-center">
-                        <h6>{{ $feedback_entry->buyer->username }}</h6>
+                        <h6>{{ $feedback_entry->buyer == null ? 'Unknown' : $feedback_entry->buyer->username }}</h6>
                     </td>
                     <td class="align-middle text-center">
                         <i class="fas fa-thumbs-{{ $feedback_entry->evaluation ? 'up cl-success' : 'down cl-fail' }}"></i>
@@ -43,7 +43,7 @@
                         <h6>{{ $feedback_entry->evaluation_date }}</h6>
                     </td>
                     <td class="align-middle text-center">
-                        <h6>{{ $feedback_entry->seller->username }}</h6>
+                        <h6>{{ $feedback_entry->key->offer->seller->username }}</h6>
                     </td>
                     <td class="align-middle">
                         <div class="btn-group-justified btn-group-md">
