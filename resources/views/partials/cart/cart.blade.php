@@ -18,12 +18,12 @@
     </header>
     <section class="row">
         <div class="col-sm-12">
-                <div id = "cart-no-entries" class="{{count($data) == 0 ? '' : 'd-none'}}">
-                    @include('partials.cart.cart_no_entries')
-                </div>
-                <div id="tableOffers" class="table-responsive table-striped  mt-3 {{count($data) == 0 ? 'd-none' : ''}}">
-                    <table id="userOffersTable" class="table p-0">
-                        <thead>
+            <div id="cart-no-entries" class="{{count($data) == 0 ? '' : 'd-none'}}">
+                @include('partials.cart.cart_no_entries')
+            </div>
+            <div id="tableOffers" class="table-responsive table-striped  mt-3 {{count($data) == 0 ? 'd-none' : ''}}">
+                <table id="userOffersTable" class="table p-0">
+                    <thead>
                         <tr>
                             <th scope="col" class="border-0 bg-light">
                                 <div class="p-2 px-3 text-uppercase">Product Details</div>

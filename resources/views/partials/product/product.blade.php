@@ -5,37 +5,43 @@
     <aside class="col-6 mt-5">
         <div class="row">
             <div class="col-12">
-                <h3 id="product_name_platform" data_product_name="{{$product->name}}" data_product_platform="{{$platformName}}">{{$product->name}} [{{$platformName}}]</h3>
+                <h3 id="product_name_platform" data-product-name="{{$product->name}}"
+                    data-product-platform="{{$platformName}}">{{$product->name}} [{{$platformName}}]</h3>
             </div>
         </div>
         <div class="row  mt-4 mb-4">
             <div class="col-12">
                 @if(count($offers)>0)
-                    <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
+                <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
                 @endif
             </div>
         </div>
         <div class="row">
             <div class="col-12 d-none d-lg-inline ">
-                <p class="text-justify" id="text-readmore" value="{{substr($product->description, 0 , 200)}}"> {{substr($product->description, 0 , 200)}} @if(strlen(substr($product->description, 0 , 200)) < 200) ... @endif <span id="dots"></span><span id="more" class="text-justify">{{substr($product->description, 200 , strlen($product->description))}}</span></p><a id="moreTextButton" href="#">Read more</a>
+                <p class="text-justify" id="text-readmore">
+                    {{substr($product->description, 0 , 200)}} @if(strlen(substr($product->description, 0 , 200)) < 200)
+                        ... @endif <span id="dots"></span><span id="more"
+                            class="text-justify">{{substr($product->description, 200 , strlen($product->description))}}</span>
+                </p><a id="moreTextButton" href="#">Read more</a>
             </div>
         </div>
     </aside>
 </article>
 <article class="row mt-5" id="offersListing">
-    <div class="col-sm-12 ">
+    <div class="col-sm-12">
         <div class="row mt-4">
             <div class="col-6">
-                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{$numberOffers}}</span></h4>
+                <h4>Offers <span id="counter-number-offers" class="badge ml-1 badge-secondary">{{$numberOffers}}</span>
+                </h4>
             </div>
             <div id="radio-buttons" class="col-6 text-right {{ count($offers)===0 ? 'd-none': '' }}">
-                <h6 class="d-inline-block mr-3">Sort by:  </h6>
+                <h6 class="d-inline-block mr-3">Sort by: </h6>
                 <div style='display:inline;' class="mr-3">
-                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_price" checked/>
+                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_price" checked />
                     <label for="radio_best_price">Best Price</label>
                 </div>
-                <div  style='display:inline;'>
-                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_rating"/>
+                <div style='display:inline;'>
+                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_rating" />
                     <label for="radio_best_rating">Best Rating</label>
                 </div>
             </div>
@@ -44,30 +50,31 @@
             <div class="col-12">
                 <div id="offers-content" class="table-responsive table-striped ">
                     @if(count($offers)>0)
-                        <table id="userOffersTable" class="table p-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="border-0 bg-light">
-                                        <div class="p-2 px-3 text-uppercase">Seller Details</div>
-                                    </th>
-                                    <th scope="col" class="border-0 bg-light text-center">
-                                        <div class="py-2 text-uppercase">Price</div>
-                                    </th>
-                                    <th scope="col" class="border-0 bg-light text-center">
-                                        <div class="py-3 text-uppercase"></div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="offers_body">
-                                @php $i = 0; @endphp
-                                @foreach($offers as $offer)
-                                    @if($i < 10) @include('partials.product.product_offer_item',['offer'=> $offer, 'display'=>true])
-                                    @else @break
-                                    @endif
-                                    @php $i++; @endphp
+                    <table id="userOffersTable" class="table p-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Seller Details</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light text-center">
+                                    <div class="py-2 text-uppercase">Price</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light text-center">
+                                    <div class="py-3 text-uppercase"></div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="offers_body">
+                            @php $i = 0; @endphp
+                            @foreach($offers as $offer)
+                            @if($i < 10) @include('partials.product.product_offer_item',['offer'=> $offer,
+                                'display'=>true])
+                                @else @break
+                                @endif
+                                @php $i++; @endphp
                                 @endforeach
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
                     @else
                 </div>
                 <div class="row mt-5" id="offersListing">
@@ -78,19 +85,16 @@
                 @endif
             </div>
         </div>
-
         <div id="see-more-buttons" class="row mt-4 mx-auto {{$numberOffers > 10 ? '' : 'd-none'}}">
             <div class="col-12">
                 <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the
                     other offers <i class="fas fa-angle-down"></i> </button>
-                <div  id="loading_offers" class="spinner-border text-primary" role="status">
+                <div id="loading_offers" class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
                 <a id="close_more_offers" href="#top-page" class="btn-blue btn-primary" style="display: none;"> <i
                         class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </a>
             </div>
         </div>
-
-
     </div>
 </article>
