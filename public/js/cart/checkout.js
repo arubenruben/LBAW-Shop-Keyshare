@@ -154,7 +154,6 @@ function encodeForAjax(data) {
 
 
 function check_transaction_result(res){
-    console.log(JSON.stringify(res));
 
     checkout_tab_1.style.display = "none";
     checkout_tab_2.style.display = "none";
@@ -197,7 +196,7 @@ paypal.Button.render({
     },
 
     onAuthorize: function (payload) {
-        console.log(JSON.stringify(payload));
+
         const data = {
             nonce: payload.nonce,
             orderId: payload.orderID,

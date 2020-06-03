@@ -149,7 +149,7 @@ async function collapseOffers() {
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
         seeMoreOffers.style.display = "block";
         closeMoreOffers.style.display = "none";
-        console.log(tableOffersBody)
+
         for (let i = 0; i < tableOffersBody.length; i++) {
             if(i >= 10)
                 tableOffersBody[i].style.display = "none";

@@ -192,7 +192,6 @@ const buttonNegativeClick = () => {
 
 const submitComment = (keyId) => {
 
-    console.log('Submeti')
     let data = {
         comment: commentPlaceHolder.value,
         evaluation: evaluation,
@@ -258,11 +257,7 @@ const submitReport = (keyId) => {
         description: description,
     };
 
-    sendPut(data, '/key/' + data.key + '/report').then(function (res) {
-        if (res.ok) {
-            console.log(res)
-        }
-    });
+    sendPut(data, '/key/' + data.key + '/report').then(function (res) {});
 }
 
 addFeedbackEventListeners();
