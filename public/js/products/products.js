@@ -4,53 +4,16 @@ const token = document.querySelector('meta[name="csrf-token"]').getAttribute('co
 const url = '/search';
 
 const addEventListeners = () => {
-    const filters = document.querySelectorAll("form.option");
+    document.querySelectorAll('section#content img').forEach(function (image) {
+        if(!image.complete) {
+            let prev_image = image.cloneNode(true);
+            image.src = 'pictures/spinner.gif';
+            image.style.visibility = 'visible';
 
-    for(let i = 0; i < filters.length; i++) {
-        let filter = filters[i];
-
-        let sort_by_inputs = filter.querySelectorAll("input[name='sort_by");
-        let genres_inputs = filter.querySelectorAll("input[name='genres[]']");
-        let platform_inputs = filter.querySelectorAll("input[name='platform']");
-        let category_inputs = filter.querySelectorAll("input[name='category']");
-        let min_price_input = filter.querySelector("input[name='min_price']");
-        let max_price_input = filter.querySelector("input[name='min_price']");
-
-        for (let i = 0; i < sort_by_inputs.length; i++) {
-            let sort_by_input = sort_by_inputs[i];
-            sort_by_input.addEventListener("click", sendRequest.bind(filter, filter));
+            if(!image.complete)
+                prev_image.addEventListener('load', loaded.bind(prev_image, image, prev_image.src));
         }
-
-        for (let i = 0; i < genres_inputs.length; i++) {
-            let genres_input = genres_inputs[i];
-            genres_input.addEventListener("click", sendRequest.bind(filter, filter));
-        }
-
-        for (let i = 0; i < platform_inputs.length; i++) {
-            let platform_input = platform_inputs[i];
-            platform_input.addEventListener("click", sendRequest.bind(filter, filter));
-        }
-
-        for (let i = 0; i < category_inputs.length; i++) {
-            let category_input = category_inputs[i];
-            category_input.addEventListener("click", sendRequest.bind(filter, filter));
-        }
-
-        min_price_input.addEventListener("change", function () {
-            if(max_price_input && max_price_input.value && min_price_input.value && (max_price_input.value < min_price_input.value || min_price_input < 0))
-                min_price_input.value = max_price_input.value;
-
-            sendRequest(filter);
-        });
-
-        max_price_input.addEventListener("change", function () {
-            if(min_price_input && min_price_input.value && max_price_input.value && (min_price_input.value > max_price_input.value || max_price_input < 0))
-                max_price_input.value = min_price_input.value
-
-            sendRequest(filter)
-        });
-
-    }
+    });
 }
 
 const sendGet = get => {
@@ -72,6 +35,11 @@ const sendGet = get => {
     return fetch("api/product?" + request, options)
         .then(res => res.json())
         .catch(error => console.error("Error: " + error));
+}
+
+/** Spinner loading **/
+function loaded(img, src) {
+    img.src = src;
 }
 
 /** Filter results **/
