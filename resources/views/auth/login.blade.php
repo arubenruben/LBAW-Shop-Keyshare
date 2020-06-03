@@ -2,7 +2,9 @@
 
 @section('header')
     <header id="headerFixed" class="navbar row">
-        <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
+        <a href="{{ route('home') }}">
+            <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
+        </a>
     </header>
 @endsection
 
