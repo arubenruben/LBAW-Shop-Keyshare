@@ -3,10 +3,12 @@
 @section('title', $user->username.' Purchases')
 
 @push('head')
-<script src="{{ asset('js/user/purchases_min.js') }}" defer></script>
+<script src="{{ asset('js/user/purchases.min.js') }}" defer></script>
 @endpush
 
+@section('header')
 @include('partials.header.user_header')
+@endsection
 
 @section('navbar')
 @include('partials.navbar.profile_navbar', ['user' => $user, 'isOwner' => $isOwner,

@@ -18,11 +18,8 @@ class CartController extends Controller
 {
     public function show(Request $request)
     {
-
         Cache::flush();
-
         $data = array();
-
         try {
             $this->authorize('loggedIn', Cart::class);
             $user = Auth::user();
@@ -153,13 +150,15 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-
-        $loggedIn = true;
         $data = array();
-
-
-        $this->authorize('loggedIn', Cart::class);
-        $user = Auth::user();
+        try {
+            $loggedIn = true;
+            $this->authorize('loggedIn', Cart::class);
+            $user = Auth::user();
+        }
+        catch (AuthorizationException $e) {
+            $loggedIn = false;
+        }
 
         //If logged in -> Get the Cart from the database
         if ($loggedIn) {
@@ -201,12 +200,15 @@ class CartController extends Controller
 
     public function getCartTotalPrice(Request $request)
     {
-
-        $loggedIn = true;
         $data = array();
-
-        $this->authorize('loggedIn', Cart::class);
-        $user = Auth::user();
+        try {
+            $loggedIn = true;
+            $this->authorize('loggedIn', Cart::class);
+            $user = Auth::user();
+        }
+        catch (AuthorizationException $e) {
+            $loggedIn = false;
+        }
 
         //If logged in -> Get the Cart from the database
         if ($loggedIn) {

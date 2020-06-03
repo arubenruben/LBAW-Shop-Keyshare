@@ -32,7 +32,7 @@ Route::post('/admin/platform/{id}', 'AdminController@platformUpdate');
 Route::delete('/admin/platform/{id}', 'AdminController@platformDelete');
 
 Route::get('/admin/user', 'AdminController@userShow');
-Route::post('/admin/user/{id}', 'AdminController@userUpdate');
+Route::post('/admin/user/{id}', 'AdminController@userUpdate')->name('userAdminUpdate');
 
 Route::get('/admin/report', 'AdminController@allReports');
 Route::get('/admin/report/{reportId}', 'AdminController@reportShow');
@@ -48,3 +48,5 @@ Route::get('/admin/faq', 'AdminController@faqShow')->name('faqShow');
 Route::put('/admin/faq', 'AdminController@faqAdd')->name('faqAdd');
 Route::post('/admin/faq/{faqId}', 'AdminController@faqUpdate')->name('faqUpdate');
 Route::delete('/admin/faq/{faqId}', 'AdminController@faqDelete')->name('faqDelete');
+
+Route::get('/admin/appeal', 'AdminController@appealShow')->name('appealShow');
