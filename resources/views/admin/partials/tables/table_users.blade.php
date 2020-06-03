@@ -48,11 +48,11 @@
                         <div class="btn-group-justified btn-group-md">
                             @if($user->isBanned())
                                 <button type="button" class="btn btn-green btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}" data-banned="true">
-                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Unban</span>
+                                    <span class="d-inline-block">Unban</span>
                                 </button>
                             @else
                                 <button type="button" class="btn btn-red btn-block flex-nowrap" data-toggle="modal" data-target="#banModal" data-user="{{ $user->id }}" data-banned="false">
-                                    <i class="fas fa-times"></i> <span class="d-none d-md-inline-block">Ban</span>
+                                    <span class="d-inline-block">Ban</span>
                                 </button>
                             @endif
                         </div>

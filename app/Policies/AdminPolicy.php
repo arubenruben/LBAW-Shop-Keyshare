@@ -11,9 +11,9 @@ class AdminPolicy
 {
     use HandlesAuthorization;
 
-    public function addProduct(Admin $admin) {
+    public function admin(Admin $admin) {
         
-        Admin::findOrFail(Auth::user()->id);
+        Admin::findOrFail(Auth::id());
         
         return Auth::check();
     }
