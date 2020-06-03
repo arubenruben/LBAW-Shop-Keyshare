@@ -1,5 +1,4 @@
 <article>
-
     <header class="row">
         <div class="col-8">
             <h5 class="title"> Most Popular
