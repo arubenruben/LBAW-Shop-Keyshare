@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\ProductAddRequest;
 use Illuminate\Http\Request;
-use Intervention\Image\Image;
+use Image;
 
 class AdminController extends Controller {
     public function show() {
