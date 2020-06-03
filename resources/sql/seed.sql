@@ -70,7 +70,7 @@ CREATE TABLE users (
   paypal TEXT,
   picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
   num_sells INTEGER NOT NULL DEFAULT 0,
-
+  remember_token VARCHAR,
   CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
   CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18),
   CONSTRAINT num_sells_ck CHECK (num_sells >= 0)
