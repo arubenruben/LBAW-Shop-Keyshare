@@ -33,9 +33,6 @@
     @yield('navbar')
     <section id="content" class="container">
       @yield('content')
-      <div id="spinner" class="spinner-border text-secondary d-none" role="status">
-        <span class="sr-only ">Loading...</span>
-      </div>
     </section>
     @yield('footer')
   </main>

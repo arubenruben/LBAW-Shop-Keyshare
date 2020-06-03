@@ -2,7 +2,7 @@
 @section('title', 'Homepage')
 
 @push('head')
-    <script src="{{ asset('js/homepage/homepage.js') }}" defer></script>
+    <script src="{{ asset('js/homepage/homepage.js') }}" async></script>
 @endpush
 
 @section('header')
