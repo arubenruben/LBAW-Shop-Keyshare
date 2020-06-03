@@ -37,11 +37,11 @@
             <div id="radio-buttons" class="col-6 text-right {{ count($offers)===0 ? 'd-none': '' }}">
                 <h6 class="d-inline-block mr-3">Sort by: </h6>
                 <div style='display:inline;' class="mr-3">
-                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_price" checked />
+                    <input type="radio" style='transform:scale(1.4);' name="sort_by" id="radio_best_price" checked/>
                     <label for="radio_best_price">Best Price</label>
                 </div>
                 <div style='display:inline;'>
-                    <input type="radio" style='transform:scale(1.4);' name="radio" id="radio_best_rating" />
+                    <input type="radio" style='transform:scale(1.4);' name="sort_by" id="radio_best_rating"/>
                     <label for="radio_best_rating">Best Rating</label>
                 </div>
             </div>
@@ -65,14 +65,7 @@
                             </tr>
                         </thead>
                         <tbody id="offers_body">
-                            @php $i = 0; @endphp
-                            @foreach($offers as $offer)
-                            @if($i < 10) @include('partials.product.product_offer_item',['offer'=> $offer,
-                                'display'=>true])
-                                @else @break
-                                @endif
-                                @php $i++; @endphp
-                                @endforeach
+                            @include('partials.product.product_offers',['offers' => $offers, 'number' => 10, 'display'=>true])
                         </tbody>
                     </table>
                     @else
@@ -87,13 +80,14 @@
         </div>
         <div id="see-more-buttons" class="row mt-4 mx-auto {{$numberOffers > 10 ? '' : 'd-none'}}">
             <div class="col-12">
-                <button id="see_more_offers" class="btn-blue btn-primary"><i class="fas fa-angle-down"></i> See the
-                    other offers <i class="fas fa-angle-down"></i> </button>
-                <div id="loading_offers" class="spinner-border text-primary" role="status">
+                <button id="see_more_offers" class="btn btn-blue">
+                    <i class="fas fa-angle-down"></i> See the more offers <i class="fas fa-angle-down"></i>
+                </button>
+                <div id="loading_offers" class="spinner-border text-secondary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <a id="close_more_offers" href="#top-page" class="btn-blue btn-primary" style="display: none;"> <i
-                        class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </a>
+                <a id="close_more_offers" href="#top-page" class="btn btn-blue" role="button" style="display: none;">
+                    <i class="fas fa-angle-up"></i> See first 10 offers <i class="fas fa-angle-up"></i> </a>
             </div>
         </div>
     </div>

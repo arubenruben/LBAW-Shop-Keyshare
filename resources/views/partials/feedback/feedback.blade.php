@@ -1,17 +1,17 @@
 <article class="modal fade bd-modal-lg" id="user-{{$seller->id}}" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    aria-labelledby="user-{{$seller->id}}" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <header class="modal-header row justify-content-around mt-2 row ml-0 mr-0">
                 <section class="text-left col">
                     <h4 class="row">{{$seller->username}}</h4>
                     <p class="row"><i class="fas fa-thumbs-up cl-success"></i><span
-                            class="font-weight-bold cl-success">{{$seller->rating}}%</span> | <i
-                            class="fas fa-shopping-cart"></i> {{$seller->num_sells}} </p>
+                            class="font-weight-bold cl-success">{{$seller->rating}}%</span> |
+                        <i class="fas fa-shopping-cart"></i> {{$seller->num_sells}} </p>
                 </section>
                 <section class="col text-center mt-auto mb-auto">
-                    <a href="{{route('profile', ['username' => $seller->username])}}" class="btn btn-sm btn-blue"><i
-                            class="fas fa-user-alt d-inline-block"></i> <span class="d-inline-block">View profile
+                    <a href="{{route('profile', ['username' => $seller->username])}}" class="btn btn-sm btn-blue">
+                        <i class="fas fa-user-alt d-inline-block"></i> <span class="d-inline-block">View profile
                         </span></a>
                 </section>
                 <section class="col">
@@ -22,18 +22,20 @@
             </header>
             <div class="modal-body">
                 <ul id="userNavbar" class="nav nav-tabs justify-content-around p-3 flex-nowrap">
-                    @php $positive = 0; $negative = 0; @endphp
-                    @foreach($seller->offers as $offer)
-                    @foreach($offer->keys as $key)
-                    @if($key->feedback !== null)
-                    @if($key->feedback->evaluation)
-                    @php $positive++; @endphp
-                    @else
-                    @php $negative++; @endphp
-                    @endif
-                    @endif
-                    @endforeach
-                    @endforeach
+                    @php
+                        $positive = 0; $negative = 0;
+                        foreach ($seller->offers as $offer) {
+                            foreach ($offer->keys as $key) {
+                                if($key->feedback !== null) {
+                                    if($key->feedback->evaluation)
+                                        $positive++;
+                                    else
+                                        $negative++;
+                                }
+                            }
+                        }
+                    @endphp
+
                     <li class="nav-item"> <button class="btn all btn-blue-full active">All reviews<span
                                 class="badge badge-secondary d-none d-sm-inline-block ml-2">{{$positive + $negative}}</span></button>
                     </li>
@@ -64,23 +66,28 @@
                             </thead>
                             <tbody class="bg-white">
                                 @foreach($seller->offers as $offer)
-                                @foreach($offer->keys as $key)
-                                @if($key->feedback !== null)
-                                <tr class="feedback">
-                                    @if($key->feedback->evaluation)
-                                    <td class="eval text-center align-middle"><i
-                                            class="fas fa-thumbs-up cl-success"></i>
-                                    </td>
-                                    @else
-                                    <td class="eval text-center align-middle"><i class="fas fa-thumbs-down cl-fail"></i>
-                                    </td>
-                                    @endif
-                                    <td class="text-center align-middle">{{$key->feedback->evaluation_date}}</td>
-                                    <td class="text-center align-middle"><strong>{{$key->feedback->comment}}</strong>
-                                    </td>
-                                </tr>
-                                @endif
-                                @endforeach
+                                    @foreach($offer->keys as $key)
+                                        @if($key->feedback !== null)
+                                        <tr class="feedback">
+                                            @if($key->feedback->evaluation)
+                                                <td class="eval text-center align-middle">
+                                                    <i class="fas fa-thumbs-up cl-success"></i>
+                                                </td>
+                                            @else
+                                                <td class="eval text-center align-middle">
+                                                    <i class="fas fa-thumbs-down cl-fail"></i>
+                                                </td>
+                                            @endif
+
+                                            <td class="text-center align-middle">
+                                                {{$key->feedback->evaluation_date}}
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <strong>{{$key->feedback->comment}}</strong>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>

@@ -82,8 +82,6 @@ const sendPut = put => {
         .catch(error => console.error("Error:" + error));
 }
 
-
-
 const addEventListenerAddToCardButton = () => {
     allAddToCartButtons = document.querySelectorAll(".button-offer");
     allAddToCartButtons.forEach(button => {
@@ -111,8 +109,8 @@ const sendGet = get => {
         credentials: "same-origin",
     }
 
-    return fetch("/api/product/sort?" + encodeForAjax(get), options)
-        .then(res => res.json())
+    return fetch(`/api${window.location.pathname}/sort?` + encodeForAjax(get), options)
+        .then(res => res.text())
         .catch(error => console.error("Error: " + error));
 }
 
@@ -128,87 +126,16 @@ if (seeMoreOffers != null && closeMoreOffers != null) {
 
 }
 
-const templateEntryOffer = (username, rating, offer_id, num_sells, price, discount_price, stock, current_user, banned, display) => {
-    let html = `<tr id = "entry-offer-${offer_id}" class="offer`
-    if (display === true) {
-        html += ' offer_outside" style="display: none;';
-    }
-
-    html += `">
-    <td scope="row" class="border-0 align-middle">
-        <div class="p-2 m-0">
-            <h4><a data-toggle="modal" data-target="#user-{{$offer->seller->id}}" href="#"
-                    class="seller" style="color:black">${username}</a></h4>
-            <span class="font-weight-bold cl-success">
-                <i class="fas fa-thumbs-up"></i> ${rating}
-            </span>
-            <span>
-                | <i class="fas fa-shopping-cart"></i> ${num_sells} |
-            </span>
-            <span >
-                Stock:<span id="offer-${offer_id}-stock">${stock}</span>
-            </span>
-        </div>
-    </td>`;
-
-
-    if (price !== discount_price) {
-        html += `<td class="text-center align-middle"><del><strong> ` + '$' + `${(Math.round(price * 100) / 100).toFixed(2)}</strong></del><strong
-            class="cl-green pl-2">` + '$' + `${(Math.round(discount_price * 100) / 100).toFixed(2)} </strong></td>`;
-    } else {
-        html += ` <td class="text-center align-middle"><strong>` + '$' + `${(Math.round(price * 100) / 100).toFixed(2)}</strong></td>`;
-    }
-
-    html += `<td class="text-center align-middle">
-        <div class="btn-group-justified">`;
-
-    if (current_user !== 'none') {
-        html += ` <button data-offer="${offer_id}"
-                class="btn btn-orange button-offer"
-                ${banned ? 'disabled' : ''}><i class="fas fa-cart-plus"></i></button>`;
-    } else {
-        html += ` <button data-offer="${offer_id}"
-                   class="btn btn-orange button-offer"><i class="fas fa-cart-plus"></i></button>`
-
-    }
-    html += ` </div> </td> </tr>`;
-
-    return html;
-}
-
 const received = (response) => {
     let tableOffersBody = document.querySelector("#offers_body");
-    let entriesTable = "";
-    let boolean;
+    tableOffersBody.innerHTML = response;
 
-    //TODO: THIS IS TO BE DONE BECAUSE THE ORDER BY RECEIVES MORE OFFERS THAN BEFORE THE BUTTONS
-    // NEED TO DISPLAY
-    /* if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
-             seeMoreButtons.classList.remove('d-none');
-     else if(!seeMoreButtons.classList.contains('d-none'))
-         seeMoreButtons.className += " d-none";
-
-     if(response.numberOffers !== counterNumberOffers.innerHTML)
-             counterNumberOffers.innerHTML = response.numberOffers;*/
-
-
-    for (let i = 0; i < response.offers.length; i++) {
-        boolean = i >= 10;
-        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
-    }
-
-    tableOffersBody.innerHTML = entriesTable;
     addEventListenerAddToCardButton();
 }
 
 const receivedAll = (response) => {
     let tableOffersBody = document.querySelector("#offers_body");
-    let boolean;
-
-    for (let i = 0; i < response.offers.length; i++) {
-        boolean = true;
-        tableOffersBody.innerHTML += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
-    }
+    tableOffersBody.innerHTML = response;
 
     addEventListenerAddToCardButton();
 }
@@ -218,13 +145,15 @@ let changedSortBy = true;
 
 async function collapseOffers() {
 
-    let allMoreOffers = document.querySelectorAll(".offer_outside");
+    let tableOffersBody = document.querySelectorAll("#offers_body > tr");
 
     if (seeMoreOffers.style.display === "none" || seeMoreOffers.classList.contains("d-none")) {
         seeMoreOffers.style.display = "block";
         closeMoreOffers.style.display = "none";
-        for (let i = 0; i < allMoreOffers.length; i++) {
-            allMoreOffers[i].style.display = "none";
+        console.log(tableOffersBody)
+        for (let i = 0; i < tableOffersBody.length; i++) {
+            if(i >= 10)
+                tableOffersBody[i].style.display = "none";
         }
     } else if (closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")) {
         if (changedSortBy) {
@@ -234,11 +163,10 @@ async function collapseOffers() {
             changedSortBy = false;
         }
         loadingMoreOffers.style.display = "none";
-        allMoreOffers = document.querySelectorAll(".offer_outside");
         closeMoreOffers.style.display = "block";
         seeMoreOffers.style.display = "none";
-        for (let i = 0; i < allMoreOffers.length; i++) {
-            allMoreOffers[i].style.display = "table-row";
+        for (let i = 0; i < tableOffersBody.length; i++) {
+            tableOffersBody[i].style.display = "table-row";
         }
     }
 }
@@ -259,16 +187,12 @@ const sendRequestForAllOffers = async () => {
 }
 
 function assembleData(allOffers) {
-    let game = document.querySelector("#product_name_platform");
     let data = {};
 
-    data.game_name = game.getAttribute('data-product-name');
-    data.game_platform = game.getAttribute('data-product-platform');
+    if (radioBestRating.checked) data.sort_by = 2;
+    else data.sort_by = 1;
 
-    if (radioBestRating.checked) data.sort_by = "rating";
-    else data.sort_by = "price";
-
-    data.all_offers = allOffers;
+    data.all_offers = allOffers ? 1 : 0;
 
     return data;
 }
