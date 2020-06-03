@@ -13,12 +13,7 @@ class ProductAddRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        $admin=Auth::user();
-        
-        Admin::findOrFail($admin->id);
-
+    public function authorize() {
         return Auth::check();
     }
 

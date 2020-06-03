@@ -12,9 +12,6 @@ class AdminPolicy
     use HandlesAuthorization;
 
     public function admin(Admin $admin) {
-        
-        Admin::findOrFail(Auth::id());
-        
         return Auth::check();
     }
 

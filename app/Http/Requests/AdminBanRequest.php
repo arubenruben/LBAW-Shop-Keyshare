@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBanRequest extends FormRequest
 {
@@ -11,9 +12,8 @@ class AdminBanRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return true;
+    public function authorize() {
+        return Auth::check();
     }
 
     /**
@@ -24,7 +24,7 @@ class AdminBanRequest extends FormRequest
     public function rules()
     {
         return [
-            'ban' => "bail | required | boolean",
+            'ban' => "bail | filled | required | boolean",
         ];
     }
 
@@ -37,6 +37,7 @@ class AdminBanRequest extends FormRequest
     {
         return [
             'ban.required' => "A value for ban must present and of boolean type",
+            'ban.filled' => "A value for ban must present and of boolean type",
             'ban.boolean' => "Ban value must be of boolean type",
         ];
     }

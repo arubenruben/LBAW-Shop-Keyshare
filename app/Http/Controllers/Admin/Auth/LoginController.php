@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class LoginController extends Controller
 {
@@ -40,7 +40,7 @@ class LoginController extends Controller
         }
 
         //Authentication failed...
-        return redirect()->route('login_page')
+        return redirect()->route('login_page_admin')
             ->withInput($request->only($this->username(), 'remember'))
             ->withErrors([
                 'password' => Lang::get('auth.password'),
