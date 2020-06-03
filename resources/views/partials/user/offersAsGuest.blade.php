@@ -39,7 +39,7 @@
                                                     class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                                 <div class="ml-3 d-inline-block align-middle flex-nowrap">
                                                     <h5 class="mb-0 d-inline-block"><a
-                                                            href="{{ url('/product/'.$currentOffer->product->id) }}"
+                                                            href="{{ route('product', [$currentOffer->product->name, $currentOffer->platform->name]) }}"
                                                             class="text-dark">{{$currentOffer->product->name}}</a></h5>
                                                     <span
                                                         class="text-muted font-weight-normal font-italic d-inline-block">
@@ -53,7 +53,7 @@
                                         </td>
                                         <td class="align-middle">
                                             <div class="btn-group-justified btn-group-md">
-                                                <a href="{{ url('/product/'.$currentOffer->product->id.'/'.$currentOffer->platform->platform_id)}}"
+                                                <a href="{{ route('product', [$currentOffer->product->name, $currentOffer->platform->name]) }}"
                                                     class="btn btn-blue btn-block flex-nowrap" role="button"> <i
                                                         class="fas fa-eye"></i> <span class="d-none d-md-inline-block">
                                                         View Offer </span></a>

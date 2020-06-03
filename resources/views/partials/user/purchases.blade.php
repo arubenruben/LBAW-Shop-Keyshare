@@ -44,7 +44,7 @@
                                                 class="img-fluid rounded shadow-sm d-none d-sm-inline userOffersTableEntryImage">
                                             <div class="ml-3 d-inline-block align-middle">
                                                 <h5 class="mb-0 d-inline-block"><a
-                                                        href="{{url("/product/".$key->offer->product->id."/".$key->offer->platform->id)}}"
+                                                        href="{{ route("product", [$key->offer->product->name, $key->offer->platform->name]) }}"
                                                         class="text-dark">{{$key->offer->product->name}}</a></h5><span
                                                     class="text-muted font-weight-normal font-italic d-inline-block">
                                                     [{{$key->offer->platform->name}}]</span>
@@ -83,7 +83,7 @@
                                                 <span class="d-none d-md-inline-block"> Report Seller </span>
                                             </button>
                                             @else
-                                            <a href="{{ route('report', ['id' => $key->report->id])}}"
+                                            <a href="{{ route('showReport', ['id' => $key->report->id])}}"
                                                 class="btn btn-blue btn-block flex-nowrap" role="button">
                                                 <i class="fas fa-edit d-inline-block"></i>
                                                 <span class="d-none d-md-inline-block"> View Report </span>

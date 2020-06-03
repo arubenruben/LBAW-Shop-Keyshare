@@ -14,10 +14,10 @@ class UserController extends Controller
 {
     public function getUser($username)
     {
-        $user = DB::table('users')->select('id')->where('username', '=', $username)->first();
+        $user = User::where('username', '=', $username)->first();
 
-        if ($user != null) return User::findOrFail($user->id);
-        else abort(404, 'User doesn\'t exist');
+        if ($user != null) return $user;
+        else return abort(404, 'User doesn\'t exist');
     }
 
     public function show($username)
