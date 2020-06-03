@@ -2,8 +2,8 @@
 @section('title', $product->name.' ['. $platformName.']')
 
 @push('head')
-<script src="{{ asset('js/products/product.js') }}" defer></script>
-<script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
+<script src="{{ asset('js/products/product.min.js') }}" defer></script>
+<script src="{{ asset('js/feedback/feedback.min.js') }}" defer></script>
 @endpush
 
 @section('header')

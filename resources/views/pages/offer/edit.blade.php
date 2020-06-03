@@ -7,7 +7,7 @@
 @endsection
 @push('head')
     <meta name="offer-id" content="{{ $offer->id }}">
-    <script src="{{ asset('js/offer/edit.js') }}" defer></script>
+    <script src="{{ asset('js/offer/edit.min.js') }}" defer></script>
 @endpush
 
 @section('navbar')

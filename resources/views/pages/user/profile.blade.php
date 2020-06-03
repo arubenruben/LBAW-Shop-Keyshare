@@ -7,8 +7,8 @@
 @endsection
 
 @push('head')
-<script src="{{ asset('js/user/profile.js') }}" defer></script>
-<script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
+<script src="{{ asset('js/user/profile.min.js') }}" defer></script>
+<script src="{{ asset('js/feedback/feedback.min.js') }}" defer></script>
 @endpush
 
 @section('navbar')

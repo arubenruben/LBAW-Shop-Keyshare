@@ -2,7 +2,7 @@
 @section('title', 'Products')
 
 @push('head')
-<script src="{{ asset('js/products/products.js') }}" defer></script>
+<script src="{{ asset('js/products/products.min.js') }}" defer></script>
 @endpush
 
 @section('header')
