@@ -4,6 +4,7 @@
 @import "user.css";
 @import "report.css";
 @import "common.css";
+@import "montserrat.css";
 
 html {
     height: 100%;
@@ -12,7 +13,7 @@ html {
 }
 
 html body {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', serif;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -28,8 +29,6 @@ html body {
     padding-top: 0rem;
     padding-bottom: 15rem;
 }
-
-
 
 #carouselArrowLeft {
     z-index: 0;
@@ -57,7 +56,7 @@ footer {
 
 #sidebar {
     height: 100vh;
-    background-color: var(--color-background-full-white);
+    background-color: var(--color-background-white);
 }
 
 .card-footer{
@@ -276,7 +275,7 @@ header.navbar {
 }
 
 #sideBarFilterResponsive .modal.left.fade .modal-dialog {
-    left: 0px;
+    left: 0;
     -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
@@ -284,7 +283,7 @@ header.navbar {
 }
 
 #sideBarFilterResponsive .modal.left.fade.in .modal-dialog {
-    left: 0px;
+    left: 0;
 }
 
 #checkoutProductPreviewContainer .animationButton:hover {
@@ -396,7 +395,6 @@ button:focus {
         max-width: 7rem;
     }
 }
-
 
 /* cards css */
 
@@ -646,7 +644,6 @@ li.section.status-bar-circle:before {
 }
 
 #carouselExampleIndicators carousel-indicators li {
-
     z-index: 999;
 }
 
