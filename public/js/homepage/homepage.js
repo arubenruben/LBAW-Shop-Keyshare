@@ -6,16 +6,16 @@ const url = '/';
 const spinner = document.querySelector("#spinner");
 
 const addEventListeners = () => {
-    let images = document.querySelectorAll('img');
-    images.forEach(function (image) {
-        let source = image.cloneNode(true).src;
+    document.querySelectorAll('img').forEach(function (image) {
+        let cloned = image.cloneNode(true);
         image.src = 'pictures/spinner.gif';
-        image.addEventListener('load', loaded.bind(image, image, source));
-    })
+        cloned.addEventListener('load', loaded.bind(image, image, img.src));
+    });
 }
 
 const loaded = (img, src) => {
     if(img.complete) img.src = src;
+    this.removeEventListener('load', loaded);
 }
 
 addEventListeners();

@@ -3,10 +3,11 @@
         'min_price' => $min_price, 'max_price' => $max_price])
     @include('partials.products.modal', ['genres' => $genres, 'platforms' => $platforms, 'categories' => $categories,
         'min_price' => $min_price, 'max_price' => $max_price])
+    <section class="col">
+    @include('partials.products.modal_button')
 
     @if(isset($products) and $products != null)
         <div id="product_list" class="col ml-auto mr-auto">
-            @include('partials.products.modal_button')
             <div class="row justify-content-between mx-auto flex-wrap">
                 @if(sizeof($products) == 0) @include('partials.products.no_results') @endif
                 @php($i = 0)
@@ -30,4 +31,5 @@
             </div>
         </div>
     @endif
+    </section>
 </div>
