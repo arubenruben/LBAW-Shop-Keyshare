@@ -3,7 +3,7 @@
 @section('title', 'My Cart')
 
 @push('head')
-    <script src="{{ asset('js/cart/cart.js') }}" defer></script>
+    <script src="{{ asset('js/cart/cart_min.js') }}" defer></script>
 @endpush
 
 @section('header')

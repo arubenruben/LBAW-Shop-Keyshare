@@ -282,5 +282,3 @@ const sendDelete = (cartId, offerPrice) => {
 
 addEventListeners();
 addEventListenersCheckout();
-
-

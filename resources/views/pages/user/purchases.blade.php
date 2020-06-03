@@ -3,7 +3,7 @@
 @section('title', $user->username.' Purchases')
 
 @push('head')
-<script src="{{ asset('js/user/purchases.js') }}" defer></script>
+<script src="{{ asset('js/user/purchases_min.js') }}" defer></script>
 @endpush
 
 @include('partials.header.user_header')

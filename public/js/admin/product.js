@@ -1,6 +1,5 @@
 'use strict'
 
-
 const inputCategory = document.querySelector('#gameCategories');
 const inputPlatform = document.querySelector('#gamePlatforms');
 const inputGenre = document.querySelector('#gameGenres');
@@ -46,9 +45,7 @@ function genreChange() {
         inputGenre.value += ",";
         inputGenre.value += event.target.textContent;
     }
-
 }
-
 
 function pictureUpdate() {
     const fileBlob = document.querySelector('#img-upload').files[0];
@@ -60,5 +57,4 @@ function pictureUpdate() {
         imgPreview.setAttribute('src', fileReader.result);
     }
     fileReader.readAsDataURL(fileBlob);
-
 }

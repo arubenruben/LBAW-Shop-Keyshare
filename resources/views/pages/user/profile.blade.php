@@ -5,8 +5,8 @@
 @include('partials.header.user_header')
 
 @push('head')
-    <script src="{{ asset('js/user/profile.js') }}" defer></script>
-    <script src="{{ asset('js/feedback/feedback.js') }}" defer></script>
+    <script src="{{ asset('js/user/profile_min.js') }}" defer></script>
+    <script src="{{ asset('js/feedback/feedback_min.js') }}" defer></script>
 @endpush
 
 @section('navbar')

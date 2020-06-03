@@ -6,7 +6,7 @@
         @include('partials.header.user_header')
 @endsection
 @push('head')
-        <script src="{{ asset('js/offer/add.js') }}" defer></script>
+        <script src="{{ asset('js/offer/add_min.js') }}" defer></script>
 @endpush
 
 @section('navbar')
