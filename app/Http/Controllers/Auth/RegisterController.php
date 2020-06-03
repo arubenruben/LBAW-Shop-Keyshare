@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -52,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => 'required|string|max:255|unique:users,username',
             'email' => 'required|string|email|max:255|unique:users,email',
-            'birthDate' => 'required|string|date|max:255',
+            'birthDate' => ['required', 'string', 'date','max:255', 'before_or_equal:18 years ago'],
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
