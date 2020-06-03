@@ -48,7 +48,7 @@ class OfferController extends Controller
                 ];
         });
 
-        return view('pages.offer.add', ['products' => $active_products,'paypal'=>$user->paypal, 'breadcrumbs' => ['Add Offer' => url('/offer')]]);
+        return view('pages.offer.add', ['products' => $active_products, 'paypal'=>$user->paypal, 'breadcrumbs' => ['Add Offer' => route('addOffer')]]);
     }
 
     public function add(OfferAddRequest $request) {
@@ -104,9 +104,9 @@ class OfferController extends Controller
         }
 
         $user = Auth::user();
-        $curName=$user->username;
+        $curName = $user->username;
         
-        return view('pages.offer.edit', ['offer' => $offer,'paypal'=>$user->paypal, 'breadcrumbs' => ['User' => url("/user/${curName}/offers"), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
+        return view('pages.offer.edit', ['offer' => $offer,'paypal'=>$user->paypal, 'breadcrumbs' => ['User' => route('showOffers', ['username' => $curName]), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
     }
 
     public function update($offerId) {

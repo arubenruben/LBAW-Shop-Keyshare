@@ -195,7 +195,7 @@ class CartController extends Controller
 
         return view('pages.cart.checkout', [
             'totalPrice' => $totalPrice, 'loggedIn' => $loggedIn, 'clientToken' => $this->generateClientToken(), 'userCartEntries' => $data,
-            'breadcrumbs' => ['Cart' => url('/cart'), 'Checkout' => url('/cart/checkout')]
+            'breadcrumbs' => ['Cart' => route('showCart'), 'Checkout' => route('checkoutInit')]
         ]);
     }
 

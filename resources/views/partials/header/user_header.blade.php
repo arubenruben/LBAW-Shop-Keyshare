@@ -1,6 +1,6 @@
 <header id="headerFixed" class="navbar row">
     <div class="col col-md-3 col-lg-3 col-xl-1 mt-auto mb-auto">
-        <a href="{{ url('/') }}">
+        <a href="{{ route('home') }}">
             <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
         </a>
     </div>
@@ -28,7 +28,7 @@
             <a href="{{ route('search') }}" class="btn btn-outline-light mr-5 pl-4 pr-4 navbarButton"
                 role="button">Explore</a>
             @if (Auth::check())
-            <a href="{{ url('/offer') }}" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
+            <a href="{{ route('addOffer') }}" class="btn btn-orange navbarButton pl-4 pr-4" role="button">Sell Now</a>
             <!-- User Image -->
             <button class="btn btn-outline-light ml-5 navbarButton dropdown-toggle" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,10 +36,10 @@
                     class="img-header rounded-circle" alt="Img-Profile-Navbar"> {{Auth::user()->username}}
             </button>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url('/user/'.Auth::user()->username) }}">My Profile</a>
-                <a class="dropdown-item" href="{{ url('/user/purchases') }}">My Purchases</a>
-                <a class="dropdown-item" href="{{ url('/user/'.Auth::user()->username.'/offers') }}">My Offers</a>
-                <a class="dropdown-item" href="{{ url('/user/reports') }}">Reports</a>
+                <a class="dropdown-item" href="{{ route('profile', ['username' => Auth::user()->username]) }}">My Profile</a>
+                <a class="dropdown-item" href="{{ route('userPurchases') }}">My Purchases</a>
+                <a class="dropdown-item" href="{{ route('showOffers', ['username' => Auth::user()->username]) }}">My Offers</a>
+                <a class="dropdown-item" href="{{ route('showReport') }}">Reports</a>
                 <div class="dropdown-divider"></div>
                 <form action="{{url('/logout')}}" method="POST">
                     @csrf
