@@ -36,7 +36,7 @@ Route::delete('/cart/{id}', 'CartController@delete');
 // Offers
 Route::get('offer', 'OfferController@show');
 Route::put('offer', 'OfferController@add')->name('addOffer');
-Route::get('offer/{id}', 'OfferController@showOffer');
+Route::get('offer/{id}', 'OfferController@showOffer')->name('showOffer');
 Route::post('offer/{id}', 'OfferController@update')->name('editOffer');
 Route::delete('offer/{id}', 'OfferController@delete')->name('deleteOffer');
 Route::get('api/offer/{id}/key', 'OfferController@getKeys');

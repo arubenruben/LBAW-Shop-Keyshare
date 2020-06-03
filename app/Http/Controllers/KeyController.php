@@ -69,6 +69,6 @@ class KeyController extends Controller
 
         if (!$report->save()) return response('Cannot give feedback at this time', 401);
 
-        return response('Success', 200);
+        return response()->json(['message' => 'Success']);
     }
 }

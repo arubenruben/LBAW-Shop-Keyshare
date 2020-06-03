@@ -361,16 +361,14 @@ class ProductController extends Controller
     }
 
     /* Individual Product functions */
-    public function getProduct($productName)
-    {
-        $product = DB::table('products')->select('id')->where('name', '=', $productName)->first();
-        return Product::findOrFail($product->id);
+    public function getProduct($productName) {
+        $product = Product::where('name', '=', $productName)->first();
+        return ($product === null) ? abort(404, 'Product doesn\'t exist') : $product;
     }
 
-    public function getPlatform($platformName)
-    {
-        $platform = DB::table('platforms')->select('id')->where('name', '=', $platformName)->first();
-        return Platform::findOrFail($platform->id);
+    public function getPlatform($platformName) {
+        $platform = Platform::where('name', '=', $platformName)->first();
+        return ($platform === null) ? abort(404, 'Platform doesn\'t exist') : $platform;
     }
 
     public function show(Request $request, $productName, $platformName)

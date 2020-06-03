@@ -106,7 +106,7 @@ class OfferController extends Controller
         $user = Auth::user();
         $curName = $user->username;
         
-        return view('pages.offer.edit', ['offer' => $offer,'paypal'=>$user->paypal, 'breadcrumbs' => ['User' => route('showOffers', ['username' => $curName]), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
+        return view('pages.offer.edit', ['offer' => $offer,'paypal'=>$user->paypal, 'breadcrumbs' => ['User' => route('showOffer', ['username' => $curName]), 'Offers' => url("/user/${curName}/offers"), 'Edit Offer' => url()->current()]]);
     }
 
     public function update($offerId) {
