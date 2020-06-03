@@ -38,8 +38,8 @@
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{ route('profile', ['username' => Auth::user()->username]) }}">My Profile</a>
                 <a class="dropdown-item" href="{{ route('userPurchases') }}">My Purchases</a>
-                <a class="dropdown-item" href="{{ route('showOffers', ['username' => Auth::user()->username]) }}">My Offers</a>
-                <a class="dropdown-item" href="{{ route('showReport') }}">Reports</a>
+                <a class="dropdown-item" href="{{ route('userOffers', ['username' => Auth::user()->username]) }}">My Offers</a>
+                <a class="dropdown-item" href="{{ route('userReports') }}">Reports</a>
                 <div class="dropdown-divider"></div>
                 <form action="{{url('/logout')}}" method="POST">
                     @csrf
