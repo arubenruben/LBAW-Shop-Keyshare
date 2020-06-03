@@ -9,9 +9,9 @@
         <div class="modal-body text-left">
           <span> Confirm </span>
           <input id="delete-account-confirmation-input" type="text-area"
-                 class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
-                 placeholder="Type your username to proceed"/>
-          <div id="invalid-username-feedback" class="invalid-feedback">  </div>
+            class="form-control userDetailsForm mt-2 d-inline-block" id="exampleFormControlTextarea1"
+            placeholder="Type your username to proceed" />
+          <div id="invalid-username-feedback" class="invalid-feedback"> </div>
         </div>
         <div class="modal-footer">
           <div class="col text-left">
@@ -26,9 +26,7 @@
       </div>
     </div>
   </div>
-
   @if($user->isBanned()) @include('partials.user.ban_appeal') @endif
-
   <div class="row mt-2">
     <div class="col-sm-4 usercontent-left  border rounded-top">
       <div class="row ">
@@ -69,7 +67,8 @@
       </div>
       <div class="row mt-2 mb-5">
         <div class="col-sm-12 text-center">
-          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See all feedback</button>
+          <button type="button" data-toggle="modal" data-target="#user-{{ $user->id }}" class="btn btn-blue btn-sm">See
+            all feedback</button>
         </div>
       </div>
     </div>
@@ -91,7 +90,8 @@
               <div id="email-invalid" class="invalid-feedback d-block"> </div>
               <div id="email-valid" class="valid-feedback d-block"> </div>
               <div class="text-right mt-3">
-                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue"  {{ $user->isBanned() ? 'disabled' : ''}}>
+                <button id="button_submit_email" type="button" class="btn btn-sm btn-blue"
+                  {{ $user->isBanned() ? 'disabled' : ''}}>
                   <i class="fas fa-envelope"></i> Change email
                 </button>
               </div>
@@ -100,11 +100,11 @@
             <div class="mb-3 text-left">
               <label for="description">Description</label>
               <div class="input-group">
-              <textarea id="description_textarea" class="form-control userDetailsForm"
-                placeholder="Write something about yourself!!" rows="3"
-                      {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea></div>
-              <div id="description-invalid" class="invalid-feedback">   </div>
-              <div id="description-valid" class="valid-feedback">   </div>
+                <textarea id="description_textarea" class="form-control userDetailsForm"
+                  placeholder="Write something about yourself!!" rows="3"
+                  {{ $user->isBanned() ? 'disabled' : ''}}>{{ $user->description }}</textarea></div>
+              <div id="description-invalid" class="invalid-feedback"> </div>
+              <div id="description-valid" class="valid-feedback"> </div>
               <div class="text-right mt-3">
                 <button id="button_submit_description" type="button" class="btn btn-sm btn-blue"
                   {{ $user->isBanned() ? 'disabled' : ''}}><i class="fas fa-save"></i> Save changes
@@ -121,8 +121,8 @@
                 placeholder="New password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
               <input id="confirm-password-input" type="password" class="form-control userDetailsForm mb-1"
                 placeholder="Confirm new password" data-kwimpalastatus="alive" data-kwimpalaid="1583446459119-9">
-              <div id="new-password-invalid" class="invalid-feedback d-block">   </div>
-              <div id="new-password-valid" class="valid-feedback">   </div>
+              <div id="new-password-invalid" class="invalid-feedback d-block"> </div>
+              <div id="new-password-valid" class="valid-feedback"> </div>
             </div>
             <div class="text-right mt-3">
               <button id="button_submit_password" type="button" class="btn btn-sm btn-blue">

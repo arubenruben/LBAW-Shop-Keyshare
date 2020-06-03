@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BanAppeal;
 use App\BannedUser;
 use App\FAQ;
 use App\Feedback;
@@ -36,9 +37,9 @@ use Intervention\Image\Image;
 
 class AdminController extends Controller {
     public function show() {
-        $active_reports = Report::where('status', '=', 'false');
+        $active_reports = Report::where('status', false)->get();
 
-        $daily_orders = Order::where('date', '=', 'CURRENT_DATE');
+        $daily_orders = Order::where('date', 'now()')->get();
 
         $daily_keys = [];
         foreach ($daily_orders as $daily_order) {
@@ -49,7 +50,7 @@ class AdminController extends Controller {
 
         $daily_keys_collection = collect($daily_keys);
 
-        $monthly_orders = Order::where('date', '>=', 'cast(date_trunc(\'month\', CURRENT_DATE) as date)');
+        $monthly_orders = Order::where('date', '>=', new Carbon('first day of this month'))->get();
 
         $monthly_keys = [];
         foreach ($monthly_orders as $monthly_order) {
@@ -65,7 +66,10 @@ class AdminController extends Controller {
             [
                 'title' => 'Dashboard',
                 'contents' => [
-                    'Tasks to be done' => ['Active Reports: ' . $active_reports->count()],
+                    'Tasks to be done' => [
+                        'Active Reports: ' . $active_reports->count(),
+                        'Ban Appeals: ' . BanAppeal::all()->count()
+                    ],
                     'Daily Statistics' => [
                         'Transactions made: ' . $daily_keys_collection->count(),
                         'Money made: ' . $daily_keys_collection->sum(function ($daily_key) {
@@ -430,7 +434,7 @@ class AdminController extends Controller {
 
         $reports = Report::orderBy('date', 'DESC')->get();
         $reports_paginated = $this->paginate($reports, Input::input('page', 1));
-        $reports_paginated->withPath('/admin/user');
+        $reports_paginated->withPath('/admin/report');
 
         return view('admin.pages.reports', [
             'title' => 'Reports',
@@ -531,6 +535,18 @@ class AdminController extends Controller {
         FAQ::destroy($faqId);
 
         return back();
+    }
+
+    public function appealShow() {
+        $this->authorize('admin', Admin::class);
+
+        $appeals = BanAppeal::orderBy('date', 'DESC')->paginate();
+
+        return view('admin.pages.appeals', [
+            'title' => 'Ban Appeals',
+            'appeals' => $appeals->items(),
+            'links' => $appeals->links()
+        ]);
     }
 
     public function __construct() {

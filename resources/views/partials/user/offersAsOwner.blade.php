@@ -9,7 +9,7 @@
                 </div>
                 @if(!$user->isBanned())
                 <div class="col-sm-3">
-                    <a href={{route('addOffer')}} class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i
+                    <a href={{url('/offer')}} class="btn p-2 btn-sm btn-orange btn-block text-white" role="button"> <i
                             class="mr-1 fas fa-plus"></i>
                         <span class="d-none d-md-inline-block"> Add offer </span>
                     </a>

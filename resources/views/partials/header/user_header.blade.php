@@ -4,7 +4,6 @@
             <img class="img-fluid logo" src="{{ asset('pictures/logo/logo.png') }}" alt="Logo of KeyShare" />
         </a>
     </div>
-
     <!-- Search -->
     <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
         <form id="query-form" class="form-inline" action="{{ route('search') }}" method="get">
@@ -21,7 +20,6 @@
             @endif
         </form>
     </div>
-
     <!--Buttons-->
     <div class="col d-none d-xl-block mt-auto mb-auto">
         <div class="row justify-content-end">
@@ -36,10 +34,12 @@
                     class="img-header rounded-circle" alt="Img-Profile-Navbar"> {{Auth::user()->username}}
             </button>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ route('profile', ['username' => Auth::user()->username]) }}">My Profile</a>
+                <a class="dropdown-item" href="{{ route('profile', ['username' => Auth::user()->username]) }}">My
+                    Profile</a>
                 <a class="dropdown-item" href="{{ route('userPurchases') }}">My Purchases</a>
-                <a class="dropdown-item" href="{{ route('showOffers', ['username' => Auth::user()->username]) }}">My Offers</a>
-                <a class="dropdown-item" href="{{ route('showReport') }}">Reports</a>
+                <a class="dropdown-item" href="{{ route('userOffers', ['username' => Auth::user()->username]) }}">My
+                    Offers</a>
+                <a class="dropdown-item" href="{{ route('userReports') }}">Reports</a>
                 <div class="dropdown-divider"></div>
                 <form action="{{url('/logout')}}" method="POST">
                     @csrf
@@ -54,7 +54,6 @@
             @endif
         </div>
     </div>
-
     <!-- Cart icon -->
     <div class="col d-none col-xl-2 d-xl-block mt-auto mb-auto">
         <div class="row">
@@ -65,7 +64,6 @@
             </a>
         </div>
     </div>
-
     <!--Button Collapse Small -->
     <div class="col d-xl-none text-right pos-f-t">
         <button id="navbarHamburguer" type="button" class="navbar-toggler ml-auto" data-toggle="collapse"
@@ -75,7 +73,6 @@
         </button>
     </div>
 </header>
-
 <div id="hamburguerContentNavSmall" class="collapse sticky-top pt-3 pb-3">
     <div class="col w-100">
         <form class="form-inline" action="{{route('search')}}" method="get">
@@ -84,7 +81,6 @@
             <input class="form-control mr-auto mt-auto mb-auto mr-auto searchBar" type="search" placeholder="Search"
                 aria-label="Search" name="query" />
         </form>
-
         <div class="row flex-nowrap justify-content-around mt-3">
             @if (!Auth::check())
             <button class="btn btn-outline-light mt-auto mb-auto navbarButtonSmall ml-2" data-toggle="modal"

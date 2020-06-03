@@ -12,7 +12,8 @@
         <section class="col">
             <h5 class="title"> Shortcuts </h5>
             <ul class="list-unstyled">
-                @if(Auth::check()) <li><a href={{ route('profile', ['username' => Auth::user()->username]) }}> Profile</a></li>@endif
+                @if(Auth::check()) <li><a href={{ route('profile', ['username' => Auth::user()->username]) }}>
+                        Profile</a></li>@endif
                 <li><a href={{route('home')}}> Homepage</a></li>
                 <li><a href={{route('search')}}> All products</a></li>
             </ul>

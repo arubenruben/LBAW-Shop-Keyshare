@@ -7,6 +7,7 @@
         <li><a href="{{ url('/admin/platform') }}" class="list-group-item"> Platforms </a> </li>
         <li><a href="{{ url('/admin/user') }}" class="list-group-item"> Users </a> </li>
         <li><a href="{{ url('/admin/report') }}" class="list-group-item"> Reports </a> </li>
+        <li><a href="{{ url('/admin/appeal') }}" class="list-group-item"> Ban Appeals </a> </li>
         <li><a href="{{ url('/admin/transaction') }}" class="list-group-item"> Transactions </a> </li>
         <li><a href="{{ url('/admin/feedback') }}" class="list-group-item"> User Feedback </a> </li>
         <li><a href="{{ url('/admin/faq') }}" class="list-group-item"> FAQ </a> </li>

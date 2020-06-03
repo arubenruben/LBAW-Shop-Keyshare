@@ -1,4 +1,3 @@
-#!/bin/bash
 set -e
 
 cd /var/www; php artisan config:cache

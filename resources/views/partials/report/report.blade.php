@@ -11,7 +11,6 @@
                     <h5 class="mt-1 mb-1 "> Report Details </h5>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row mt-4">
@@ -20,7 +19,6 @@
                             <h6 class="pl-2 pt-2">In Process </h6>
                         </div>
                     </div>
-
                     <div class="row mt-4">
                         <div class="col">
                             <h6><u> Product in question</u></h6>
@@ -42,7 +40,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row mt-4 mb-4">
                         <div class="col">
                             <h6><u>Intervening parties</u></h6>
@@ -71,17 +68,17 @@
                 </div>
             </div>
         </div>
-
         <div class="col-11 col-md-8  mt-4 border rounded-top">
             <div class="row border">
                 <div class="col">
                     <h5 class="mt-1 mb-1"> The Conversation </h5>
                 </div>
             </div>
-
             <div class="msg_history ">
                 <div class="incoming_msg">
-                    <div class="incoming_msg_img"> <img src="{{ asset('pictures/profile/'.$report->reporter->picture->url) }}" alt="profile picture" class="mt-2"> </div>
+                    <div class="incoming_msg_img"> <img
+                            src="{{ asset('pictures/profile/'.$report->reporter->picture->url) }}" alt="profile picture"
+                            class="mt-2"> </div>
                     <div class="received_msg mt-2">
                         <div class="received_withd_msg">
                             <p>{{$report->description}}</p>

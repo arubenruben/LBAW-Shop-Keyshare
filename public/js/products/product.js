@@ -10,7 +10,7 @@ let allAddToCartButtons = document.querySelectorAll(".button-offer");
 const radioButtons = document.getElementById("radio-buttons");
 
 
-if(readmoreText.textContent.length < 200) {
+if (readmoreText.textContent.length < 200) {
     btnText.style.display = 'none';
 } else {
     btnText.addEventListener('click', collapseDescription);
@@ -52,7 +52,7 @@ const sendPut = put => {
     let selectButton = null;
 
     buttons.forEach(button => {
-        if(button.getAttribute('data-offer') === put.offer_id){
+        if (button.getAttribute('data-offer') === put.offer_id) {
             selectButton = button;
         }
     });
@@ -71,7 +71,7 @@ const sendPut = put => {
                     let offerTableEntry = document.querySelector('#entry-offer-' + put.offer_id);
                     offerTableEntry.remove();
                     counterNumberOffers.innerHTML -= 1
-                    if(counterNumberOffers.innerHTML === '0' && !radioButtons.classList.contains('d-none')){
+                    if (counterNumberOffers.innerHTML === '0' && !radioButtons.classList.contains('d-none')) {
                         radioButtons.className += " d-none";
                         htmlToInsertPlace.innerHTML = htmlToInsertWithoutOffers;
                     }
@@ -122,7 +122,7 @@ let seeMoreOffers = document.querySelector("#see_more_offers");
 let closeMoreOffers = document.querySelector("#close_more_offers");
 let loadingMoreOffers = document.querySelector("#loading_offers");
 
-if(seeMoreOffers != null && closeMoreOffers != null) {
+if (seeMoreOffers != null && closeMoreOffers != null) {
     seeMoreOffers.addEventListener('click', collapseOffers);
     closeMoreOffers.addEventListener('click', collapseOffers);
 
@@ -183,18 +183,18 @@ const received = (response) => {
 
     //TODO: THIS IS TO BE DONE BECAUSE THE ORDER BY RECEIVES MORE OFFERS THAN BEFORE THE BUTTONS
     // NEED TO DISPLAY
-   /* if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
-            seeMoreButtons.classList.remove('d-none');
-    else if(!seeMoreButtons.classList.contains('d-none'))
-        seeMoreButtons.className += " d-none";
+    /* if(response.numberOffers > 10 && seeMoreButtons.classList.contains('d-none'))
+             seeMoreButtons.classList.remove('d-none');
+     else if(!seeMoreButtons.classList.contains('d-none'))
+         seeMoreButtons.className += " d-none";
 
-    if(response.numberOffers !== counterNumberOffers.innerHTML)
-            counterNumberOffers.innerHTML = response.numberOffers;*/
+     if(response.numberOffers !== counterNumberOffers.innerHTML)
+             counterNumberOffers.innerHTML = response.numberOffers;*/
 
 
     for (let i = 0; i < response.offers.length; i++) {
         boolean = i >= 10;
-         entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
+        entriesTable += templateEntryOffer(response.offers[i].username, response.offers[i].rating, response.offers[i].offer_id, response.offers[i].num_sells, response.offers[i].price, response.offers[i].discount_price, response.offers[i].stock, response.current_user, response.banned, boolean);
     }
 
     tableOffersBody.innerHTML = entriesTable;
@@ -227,19 +227,19 @@ async function collapseOffers() {
             allMoreOffers[i].style.display = "none";
         }
     } else if (closeMoreOffers.style.display === "none" || closeMoreOffers.classList.contains("d-none")) {
-            if(changedSortBy) {
-                seeMoreOffers.style.display = "none";
-                loadingMoreOffers.style.display = "block";
-                await sendRequestForAllOffers();
-                changedSortBy = false;
-            }
-            loadingMoreOffers.style.display = "none";
-            allMoreOffers = document.querySelectorAll(".offer_outside");
-            closeMoreOffers.style.display = "block";
+        if (changedSortBy) {
             seeMoreOffers.style.display = "none";
-            for (let i = 0; i < allMoreOffers.length; i++) {
-                allMoreOffers[i].style.display = "table-row";
-            }
+            loadingMoreOffers.style.display = "block";
+            await sendRequestForAllOffers();
+            changedSortBy = false;
+        }
+        loadingMoreOffers.style.display = "none";
+        allMoreOffers = document.querySelectorAll(".offer_outside");
+        closeMoreOffers.style.display = "block";
+        seeMoreOffers.style.display = "none";
+        for (let i = 0; i < allMoreOffers.length; i++) {
+            allMoreOffers[i].style.display = "table-row";
+        }
     }
 }
 
@@ -262,8 +262,8 @@ function assembleData(allOffers) {
     let game = document.querySelector("#product_name_platform");
     let data = {};
 
-    data.game_name = game.getAttribute('data_product_name');
-    data.game_platform = game.getAttribute('data_product_platform');
+    data.game_name = game.getAttribute('data-product-name');
+    data.game_platform = game.getAttribute('data-product-platform');
 
     if (radioBestRating.checked) data.sort_by = "rating";
     else data.sort_by = "price";
@@ -275,7 +275,7 @@ function assembleData(allOffers) {
 
 function encodeForAjax(data) {
     if (data == null) return null;
-    return Object.keys(data).map(function(k){
+    return Object.keys(data).map(function (k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
 }
