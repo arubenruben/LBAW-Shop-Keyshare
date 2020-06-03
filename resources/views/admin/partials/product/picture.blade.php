@@ -1,4 +1,4 @@
-<div class="col text-center">
+<div class="col-3 text-center">
     @php
     if(isset($data)){
     @endphp

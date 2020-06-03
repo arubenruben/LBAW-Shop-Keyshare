@@ -14,7 +14,6 @@ const addEventListeners = () => {
 
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', updateModal.bind(buttons[i], buttons[i]));
-        buttons[i].getAttribute('data-user');
     }
 }
 
