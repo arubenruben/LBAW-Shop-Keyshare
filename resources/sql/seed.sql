@@ -429,7 +429,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_seller_feedback_tg ON feedback CASCADE;
 CREATE TRIGGER update_seller_feedback_tg
-AFTER INSERT OR UPDATE OR DELETE ON feedback
+AFTER INSERT OR UPDATE ON feedback
 FOR EACH ROW
 EXECUTE PROCEDURE update_seller_feedback();
 
