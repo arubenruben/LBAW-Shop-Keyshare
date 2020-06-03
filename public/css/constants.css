@@ -1,5 +1,4 @@
 :root{
-    
     /*Fonts*/
     --font-default-sans-serif: 'Montserrat';
     --font-default-serif:'Arvo';
@@ -25,5 +24,4 @@
     --color-background-dark-blue:#15303A;
     /*Main background*/
     --color-background-white:#EDF1F2;
-
 }

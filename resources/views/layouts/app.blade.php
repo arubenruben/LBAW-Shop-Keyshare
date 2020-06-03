@@ -12,13 +12,13 @@
   <meta http-equiv="expires" content="0">
   <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
   <!-- Styles -->
-  <link href="{{ asset('css/common.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/feedback.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/product.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/common.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/feedback.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/product.min.css') }}" rel="stylesheet">
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
   <!-- fonts -->
-  <link href="{{asset('css/montserrat.css') }}" rel="stylesheet">
+  <link href="{{asset('css/montserrat.min.css') }}" rel="stylesheet">
   <script src="{{ asset('jquery/jquery.slim.js') }}"></script>
   <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('fontawesome/js/fontawesome.min.js') }}"></script>
