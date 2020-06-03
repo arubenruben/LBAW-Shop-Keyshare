@@ -257,7 +257,9 @@ const submitReport = (keyId) => {
         description: description,
     };
 
-    sendPut(data, '/key/' + data.key + '/report').then(function (res) {});
+    sendPut(data, '/key/' + data.key + '/report').then(function (res) {
+        location.reload();
+    });
 }
 
 addFeedbackEventListeners();
