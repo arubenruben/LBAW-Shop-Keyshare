@@ -9,15 +9,7 @@ const readmoreText = document.querySelector("#text-readmore");
 let allAddToCartButtons = document.querySelectorAll(".button-offer");
 const radioButtons = document.getElementById("radio-buttons");
 
-
-if (readmoreText.textContent.length < 200) {
-    btnText.style.display = 'none';
-} else {
-    btnText.addEventListener('click', collapseDescription);
-    btnText.style.display = 'block';
-}
-
-function collapseDescription() {
+const collapseDescription = () => {
     if (dots.style.display === "none") {
         dots.style.display = "inline";
         btnText.innerHTML = "Read more";
@@ -27,6 +19,13 @@ function collapseDescription() {
         btnText.innerHTML = "Read less";
         moreText.style.display = "inline";
     }
+}
+
+if (readmoreText.textContent.length < 200) {
+    btnText.style.display = 'none';
+} else {
+    btnText.addEventListener('click', collapseDescription);
+    btnText.style.display = 'block';
 }
 
 const htmlToInsertWithoutOffers = '<div class="col-sm-12 text-center align-middle"> <p class = "mt-5" >No offers available for this product</p> </div >'
