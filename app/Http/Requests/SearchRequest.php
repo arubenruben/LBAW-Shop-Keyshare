@@ -28,7 +28,7 @@ class SearchRequest extends FormRequest
             'platform' => 'bail | sometimes | string | exists:platforms,name',
             'category' => 'bail | sometimes | string | exists:categories,name',
             'max_price' => 'bail | sometimes | numeric | min:0',
-            'query' => 'bail | sometimes | string | max:50 | regex:/^\w+$/u'
+            'query' => 'bail | sometimes | string | max:50 | regex:/^[\w\s]+$/u'
         ];
     }
 }
