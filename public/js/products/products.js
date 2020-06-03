@@ -18,22 +18,22 @@ const addEventListeners = () => {
 
         for (let i = 0; i < sort_by_inputs.length; i++) {
             let sort_by_input = sort_by_inputs[i];
-            sort_by_input.addEventListener("click", function () {sendRequest(filter)});
+            sort_by_input.addEventListener("click", sendRequest.bind(filter, filter));
         }
 
         for (let i = 0; i < genres_inputs.length; i++) {
             let genres_input = genres_inputs[i];
-            genres_input.addEventListener("click", function () {sendRequest(filter)});
+            genres_input.addEventListener("click", sendRequest.bind(filter, filter));
         }
 
         for (let i = 0; i < platform_inputs.length; i++) {
             let platform_input = platform_inputs[i];
-            platform_input.addEventListener("click", function () {sendRequest(filter)});
+            platform_input.addEventListener("click", sendRequest.bind(filter, filter));
         }
 
         for (let i = 0; i < category_inputs.length; i++) {
             let category_input = category_inputs[i];
-            category_input.addEventListener("click", function () {sendRequest(filter)});
+            category_input.addEventListener("click", sendRequest.bind(filter, filter));
         }
 
         min_price_input.addEventListener("change", function () {
@@ -55,7 +55,6 @@ const addEventListeners = () => {
 
 const sendGet = get => {
     let request = encodeForAjax(get);
-    console.log(get)
 
     const options = {
         headers: {
@@ -76,7 +75,7 @@ const sendGet = get => {
 }
 
 /** Filter results **/
-function sendRequest(form) {
+const sendRequest = form => {
     let data = assembleData(form);
 
     sendGet(data)

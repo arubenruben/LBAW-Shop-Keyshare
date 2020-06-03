@@ -1,7 +1,7 @@
 <tr>
     <td scope="row" class="border-0 text-center align-middle">
         <img src={{ asset('/pictures/games/'.$data->picture->url)}}
-            class="img-fluid rounded shadow-sm adminTableImagePreview">
+            class="img-fluid rounded shadow-sm adminTableImagePreview" alt="Game Picture">
     </td>
     <td class="text-center align-middle">{{$data->name}}</td>
     <td class="text-center align-middle">{{$data->category->name}}</td>
