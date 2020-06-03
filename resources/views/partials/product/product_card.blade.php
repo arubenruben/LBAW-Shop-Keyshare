@@ -1,7 +1,7 @@
 <article class="card col-xs-8 col-sm-8 col-md-2 col-lg-2 col-xl-2 mx-auto mx-sm-0 cardHomepage">
     <header>
         <a href="{{route('product', ['productName' => $card->offer->product->name, 'platformName' => $card->offer->platform['name']])}}">
-            <img class="card-img-top cardHomepageImg img-fluid" src="{{asset('/pictures/games/'.$card->offer->product->picture->url)}}" style="visibility: hidden;">
+            <img class="card-img-top cardHomepageImg img-fluid" src="{{asset('/pictures/games/'.$card->offer->product->picture->url)}}">
         </a>
     </header>
     <section class="card-body">
