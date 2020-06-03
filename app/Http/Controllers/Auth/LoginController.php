@@ -81,12 +81,13 @@ class LoginController extends Controller
         } catch (\Exception $e) {
             return redirect('/');
         }
-
+	
         $existingUser = User::where('email', $user->email)->first();
 
-        if ($existingUser) {
+        if ($existingUser != null) {
             // log them in
-            auth()->login($existingUser);
+            Auth::login($existingUser);
+	
             return redirect()->to('/');
         } else {
             return redirect('/');
