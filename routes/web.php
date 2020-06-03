@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 // Authentication
 Auth::routes();
-Route::get('login/google', 'Auth\LoginController@redirectToProvider')->name('loginGoogle');
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login/google', 'Auth\LoginController@redirectToProvider')->name('loginGoogle');
+Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 // User
 Route::get('user/purchases', 'UserController@showPurchases')->name('userPurchases');

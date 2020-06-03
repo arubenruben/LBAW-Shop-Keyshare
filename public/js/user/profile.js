@@ -60,9 +60,6 @@ const addEventListeners = () => {
         let description_invalid = document.querySelector("#description-invalid");
         let description_valid = document.querySelector("#description-valid");
 
-        console.log(description_valid);
-        console.log(description_invalid)
-
         if(!isValidDescription(description_field.value)){
             description_invalid.innerHTML = "Invalid Email, choose another one";
             if(description_field.classList.contains('border-success'))
@@ -202,7 +199,7 @@ const addEventListeners = () => {
                         newPassword_confirmation.classList.remove('border-success');
 
                     valid_feedback_confirmation.innerHTML = "";
-                    console.log(res);
+
                     if(typeof res['errors']['newPassword']  !== 'undefined') {
                         if(!newPassword.classList.contains('border-danger'))
                             newPassword.className += " border-danger";
@@ -335,7 +332,7 @@ const sendPost = post => {
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .catch(error => console.error("Error:" + error));
+        .catch(error => {});
 }
 
 const sendDelete = () => {
@@ -351,7 +348,7 @@ const sendDelete = () => {
 
     return fetch(url, options)
         .then(res => res.json())
-        .catch(error => console.error("Error:" + error));
+        .catch(error => {});
 }
 
 const uploadFile = file => {
@@ -373,7 +370,7 @@ const uploadFile = file => {
 
     return fetch("/user/", options)
         .then(res => res.json())
-        .catch(error => console.error("Error:" + error));
+        .catch(error => {});
 
 }
 
