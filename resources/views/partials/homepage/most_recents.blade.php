@@ -21,24 +21,26 @@
     <div class="row">
         <div id="carouselRecent" class="carousel slide mb-5" data-interval="false">
             <div class="carousel-inner">
-                @for($i = 0; $i < count($data)/5; $i++) @if($i==0) <div class="carousel-item active  px-3">
+                @for($i = 0; $i < count($data)/5; $i++)
+                    @if($i==0)
+                        <div class="carousel-item active  px-3">
                     @else
-                    <div class="carousel-item  px-3">
-                        @endif
+                        <div class="carousel-item  px-3">
+                    @endif
                         <div class="row justify-content-sm-center justify-content-md-between mt-3 mb-3 ml-auto mr-auto">
                             @php($j = 0)
                             @foreach($data as $card)
-                            @if($j >= $i*5)
-                            @include('partials.product.product_card', ['card' => $card])
-                            @endif
-                            @php($j++)
-                            @if($j >= $i*5+5)
-                            @break
-                            @endif
+                                @if($j >= $i*5)
+                                    @include('partials.product.product_card', ['card' => $card])
+                                @endif
+                                @php($j++)
+                                @if($j >= $i*5+5)
+                                    @break
+                                @endif
                             @endforeach
                         </div>
                     </div>
-                    @endfor
+                @endfor
             </div>
         </div>
     </div>

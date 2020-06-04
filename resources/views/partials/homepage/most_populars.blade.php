@@ -25,8 +25,8 @@
                     @if($i==0)
                         <div class="carousel-item active  px-3">
                     @else
-                    <div class="carousel-item  px-3">
-                        @endif
+                        <div class="carousel-item  px-3">
+                    @endif
                         <div class="row justify-content-sm-center justify-content-md-between mt-3 mb-3 ml-auto mr-auto">
                             @php($j = 0)
                             @foreach($data as $card)
