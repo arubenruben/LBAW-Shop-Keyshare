@@ -100,7 +100,7 @@ CREATE TABLE discounts (
                            end_date date NOT NULL,
                            offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
-                           CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
+                           CONSTRAINT start_date_ck CHECK (start_date >= date_trunc('day',NOW())),
                            CONSTRAINT end_date_ck CHECK (end_date > start_date),
                            CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
@@ -413,11 +413,14 @@ BEGIN
     WHERE u.id = o.user_id
     GROUP BY u.id;
 
-    IF num_reviews IS NULL THEN
-        num_reviews := 0;
+    IF num_reviews IS NULL OR num_reviews = 0 THEN
+        UPDATE users
+        SET rating = NULL
+        WHERE users.id = seller_id;
+        RETURN NEW;
     END IF;
 
-    total_feedback := 100 * (positive_reviews / num_reviews); -- PROB DA COR E DAQUI
+    total_feedback := 100 * (positive_reviews / num_reviews);
 
     UPDATE users
     SET rating = total_feedback
@@ -463,11 +466,14 @@ BEGIN
     WHERE u.id = o.user_id
     GROUP BY u.id;
 
-    IF num_reviews IS NULL THEN
-        num_reviews := 0;
+    IF num_reviews IS NULL OR num_reviews = 0 THEN
+        UPDATE users
+        SET rating = NULL
+        WHERE users.id = seller_id;
+        RETURN OLD;
     END IF;
 
-    total_feedback := 100 * (positive_reviews / num_reviews); -- PROB DA COR E DAQUI
+    total_feedback := 100 * (positive_reviews / num_reviews);
 
     UPDATE users
     SET rating = total_feedback
