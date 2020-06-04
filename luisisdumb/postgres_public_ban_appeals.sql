@@ -1,0 +1,2 @@
+INSERT INTO public.ban_appeals (id, admin_id, ban_appeal, date) VALUES (5, 2, 'I swear i will never sell to third parties. Please forgive me! This is my job!!', '2020-02-25');
+INSERT INTO public.ban_appeals (id, admin_id, ban_appeal, date) VALUES (9, 2, 'Just because i am a sith that does not mean i not a good community member. I think there was a mistake', '2020-05-12');

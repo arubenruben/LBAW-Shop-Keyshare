@@ -1,0 +1,1 @@
+INSERT INTO public.reports (id, date, description, title, status, key_id, reporter_id, reported_id) VALUES (1, '2020-06-04', 'The key is not working and the seller is a total fraud', 'fraud in key', false, 2, 8, 12);

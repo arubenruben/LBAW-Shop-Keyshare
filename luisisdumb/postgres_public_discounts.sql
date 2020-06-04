@@ -1,0 +1,1 @@
+INSERT INTO public.discounts (id, rate, start_date, end_date, offer_id) VALUES (7, 1, '2020-06-05', '2020-06-06', 41);

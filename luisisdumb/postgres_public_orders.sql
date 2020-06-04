@@ -1,0 +1,8 @@
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (1, '2020-04-03', 7, 'dsffdfwea', 'adfseaf@dsg.com', 'adsfergreg', '4100-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (2, '2020-04-03', 7, 'wefrfsegreggse', 'afd@sdfasdasd.com', 'sdfsdfsdfds', '3000-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (3, '2020-04-03', 7, 'asdfdsfsfgsf', 'asdas2afdds@asddsf.com', 'asdasdkaslfasdasd', '4100-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (4, '2020-04-03', 8, 'pkfsdofjnndf', 'asdknçasf@asfasf.com', 'oknfepfjnreponf', '1111-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (5, '2020-04-03', 10, 'TRGTG', 'asaf@afd.com', 'DSFSDFSD', '1341-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (6, '2020-04-03', 10, 'jblkpbjpijbipbpb', 'bihbii@adafd.com', 'dasdsadsad', '3100-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (7, '2020-04-03', 11, 'hjjhkhvkhkvhbhbhasdf', 'adlfndlsd@adfa.com', 'asdasibwfpabb', '1111-000');
+INSERT INTO public.orders (number, date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES (8, '2020-04-03', 12, 'oaj dfvasfsdf', 'marrgrt@dsf.com', 'dsgsgrgyn', '1111-000');

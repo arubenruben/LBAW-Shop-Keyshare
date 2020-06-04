@@ -1,0 +1,2 @@
+INSERT INTO public.admins (id, username, email, description, password, picture_id) VALUES (1, 'admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 1);
+INSERT INTO public.admins (id, username, email, description, password, picture_id) VALUES (2, 'ssn', 'up310021@g.uporto.pt', 'LBAW teacher and comercial master moderator', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 36);
