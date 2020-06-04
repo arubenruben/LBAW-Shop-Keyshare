@@ -100,8 +100,7 @@ CREATE TABLE discounts (
   end_date date NOT NULL,
   offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
-  --   TODO:
---   CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
+  CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
   CONSTRAINT end_date_ck CHECK (end_date > start_date),
   CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
@@ -193,11 +192,6 @@ CREATE TABLE carts (
   offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE about_us (
-  id SERIAL PRIMARY KEY,
-  description TEXT NOT NULL
-);
-
 CREATE TABLE faq (
   id SERIAL PRIMARY KEY,
   question TEXT NOT NULL,
@@ -227,7 +221,7 @@ CREATE MATERIALIZED VIEW active_offers AS
 -----------------------------------------
 CREATE INDEX offer_product_idx ON offers (product_id);
 CREATE INDEX offer_seller_idx ON offers (user_id);
-CREATE INDEX disocunt_offer_idx ON discounts (offer_id);
+CREATE INDEX discount_offer_idx ON discounts (offer_id);
 CREATE INDEX key_offer_idx ON keys (offer_id);
 CREATE INDEX discount_date_idx ON discounts (start_date, end_date);
 CREATE INDEX cart_buyer_idx ON carts (user_id);
@@ -844,8 +838,7 @@ EXECUTE PROCEDURE verify_banned_user_offer();
 -- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
 -----------------------------------------
 
-TRUNCATE about_us RESTART IDENTITY CASCADE; 
-TRUNCATE admins RESTART IDENTITY CASCADE; 
+TRUNCATE admins RESTART IDENTITY CASCADE;
 TRUNCATE ban_appeals RESTART IDENTITY CASCADE; 
 TRUNCATE banned_users RESTART IDENTITY CASCADE; 
 TRUNCATE carts RESTART IDENTITY CASCADE; 
@@ -871,7 +864,6 @@ TRUNCATE reports RESTART IDENTITY CASCADE;
 -----------------------------------------
 
 -- static pages
-INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
 INSERT INTO faq(question, answer) VALUES(UPPER('WHAT IS KEYSHARE?'),'KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
 INSERT INTO faq(question, answer) VALUES(UPPER('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?'),'The only available payment method Paypal');
 INSERT INTO faq(question, answer) VALUES(UPPER('WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?'),'Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
