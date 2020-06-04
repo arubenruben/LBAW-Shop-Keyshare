@@ -21,7 +21,7 @@
     <div class="row">
         <div id="carouselRecent" class="carousel slide mb-5" data-interval="false">
             <div class="carousel-inner">
-                @for($i = 0; $i < count($data)%5 - 1; $i++) @if($i==0) <div class="carousel-item active  px-3">
+                @for($i = 0; $i < count($data)/5; $i++) @if($i==0) <div class="carousel-item active  px-3">
                     @else
                     <div class="carousel-item  px-3">
                         @endif
