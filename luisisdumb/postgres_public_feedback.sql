@@ -1,5 +1,0 @@
-INSERT INTO public.feedback (id, evaluation, comment, evaluation_date, user_id, key_id) VALUES (1, true, 'Great product. Thank you!', '2020-06-04', 7, 1);
-INSERT INTO public.feedback (id, evaluation, comment, evaluation_date, user_id, key_id) VALUES (3, true, 'i''VS ENJOYED VERY MUCH THIS GAME!!!', '2020-06-04', 7, 47);
-INSERT INTO public.feedback (id, evaluation, comment, evaluation_date, user_id, key_id) VALUES (6, false, 'the game is very slow and the seller didn''t fix it', '2020-06-04', 7, 30);
-INSERT INTO public.feedback (id, evaluation, comment, evaluation_date, user_id, key_id) VALUES (13, false, 'very bad costumer service', '2020-06-04', 7, 31);
-INSERT INTO public.feedback (id, evaluation, comment, evaluation_date, user_id, key_id) VALUES (14, true, 'The very best seller of this platform!!', '2020-06-04', 10, 74);

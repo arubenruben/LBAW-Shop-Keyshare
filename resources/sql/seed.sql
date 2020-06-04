@@ -100,7 +100,6 @@ CREATE TABLE discounts (
                            end_date date NOT NULL,
                            offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
-                           CONSTRAINT start_date_ck CHECK (start_date >= date_trunc('day',NOW())),
                            CONSTRAINT end_date_ck CHECK (end_date > start_date),
                            CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
@@ -332,11 +331,15 @@ DECLARE
     sells INTEGER;
     product_id INTEGER;
 BEGIN
-    SELECT COUNT(products.id), products.id
-    INTO sells, product_id
-    FROM offers JOIN products ON products.id = offers.product_id
-    WHERE offers.id = NEW.offer_id
-    GROUP BY(products.id);
+    SELECT products.id INTO product_id
+    FROM products, offers
+    WHERE products.id = offers.product_id AND offers.id = NEW.offer_id
+    LIMIT 1;
+
+    SELECT COUNT(products.id) INTO sells
+    FROM (offers JOIN products ON products.id = offers.product_id)
+                 JOIN keys ON keys.offer_id = offers.id
+    WHERE keys.order_id IS NOT NULL;
 
     UPDATE products
     SET num_sells = sells
@@ -348,7 +351,7 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS product_num_sales_tg ON keys CASCADE;
 CREATE TRIGGER product_num_sales_tg
-    AFTER INSERT OR UPDATE OF order_id ON keys
+    AFTER UPDATE OF order_id ON keys
     FOR EACH ROW
 EXECUTE PROCEDURE product_num_sells();
 
@@ -361,13 +364,15 @@ DECLARE
 BEGIN
     seller_id := get_seller_through_key(NEW.id);
 
-    sells := (
-        SELECT COUNT(keys.id)
-        FROM keys JOIN offers ON keys.offer_id = offers.id
-                  JOIN users AS seller ON seller.id = offers.user_id
-        WHERE seller.id = seller_id
-        GROUP BY(seller.id)
-    );
+    SELECT COUNT(keys.id) INTO sells
+    FROM keys JOIN offers ON keys.offer_id = offers.id
+              JOIN users AS seller ON seller.id = offers.user_id
+    WHERE seller.id = seller_id AND keys.order_id IS NOT NULL
+    GROUP BY(seller.id);
+
+    IF sells IS NULL THEN
+        sells := 0;
+    END IF;
 
     UPDATE users
     SET num_sells = sells
@@ -546,7 +551,7 @@ BEGIN
 
     SELECT COUNT(id) INTO stock_quantity
     FROM keys
-    WHERE keys.offer_id = NEW.offer_id AND keys.order_id IS NULL;
+    WHERE keys.offer_id = OLD.offer_id AND keys.order_id IS NULL;
 
     IF(stock_quantity IS NULL) THEN
         stock_quantity:=0;
@@ -726,9 +731,24 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS refresh_active_products_view_tg ON products CASCADE;
 CREATE TRIGGER refresh_active_products_view_tg
-    AFTER INSERT OR DELETE OR UPDATE ON products
+    AFTER INSERT OR UPDATE ON products
     FOR EACH ROW
 EXECUTE PROCEDURE refresh_active_products_view();
+
+
+CREATE OR REPLACE FUNCTION refresh_active_products_view_delete()
+    RETURNS TRIGGER AS $$
+BEGIN
+    REFRESH MATERIALIZED VIEW active_products;
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS refresh_active_products_view_delete_tg ON products CASCADE;
+CREATE TRIGGER refresh_active_products_view_delete_tg
+    AFTER DELETE ON products
+    FOR EACH ROW
+EXECUTE PROCEDURE refresh_active_products_view_delete();
 
 
 CREATE OR REPLACE FUNCTION refresh_active_offers_view()
@@ -741,7 +761,22 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS refresh_active_offers_view_tg ON offers CASCADE;
 CREATE TRIGGER refresh_active_offers_view_tg
-    AFTER INSERT OR DELETE OR UPDATE OF final_date ON offers
+    AFTER INSERT OR UPDATE ON offers
+    FOR EACH ROW
+EXECUTE PROCEDURE refresh_active_offers_view();
+
+
+CREATE OR REPLACE FUNCTION refresh_active_offers_view_delete()
+    RETURNS TRIGGER AS $$
+BEGIN
+    REFRESH MATERIALIZED VIEW active_offers;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS refresh_active_offers_view_delete_tg ON offers CASCADE;
+CREATE TRIGGER refresh_active_offers_view_delete_tg
+    AFTER DELETE ON offers
     FOR EACH ROW
 EXECUTE PROCEDURE refresh_active_offers_view();
 
@@ -783,7 +818,7 @@ BEGIN
     END IF;
 
     UPDATE offers
-    SET profit = profit + offer_profit
+    SET profit = offer_profit
     WHERE id = NEW.offer_id;
 
     RETURN NEW;
@@ -813,9 +848,8 @@ BEGIN
         offer_profit:=0;
     END IF;
 
-
     UPDATE offers
-    SET profit = profit + offer_profit
+    SET profit = offer_profit
     WHERE id = OLD.offer_id;
 
     RETURN OLD;
@@ -1097,7 +1131,7 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,18);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,18);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,18);
 
-INSERT INTO products(name,description, picture_id,category_id, launch_date)VALUES (UPPER('Assassins Creed Brotherhood'), 'Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.It’s time to join the Brotherhood.', 29, 1, '2010-11-16');
+INSERT INTO products(name,description, picture_id,category_id, launch_date)VALUES (UPPER('Assassin''s Creed Brotherhood'), 'Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy. Defeating the corrupt tyrants entrenched there will require not only strength, but leadership, as Ezio commands an entire Brotherhood who will rally to his side. Only by working together can the Assassins defeat their mortal enemies.And for the first time, introducing an award-winning multiplayer layer that allows you to choose from a wide range of unique characters, each with their own signature weapons and assassination techniques, and match your skills against other players from around the world.It’s time to join the Brotherhood.', 29, 1, '2010-11-16');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(1,19);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(6,19);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(12,19);
@@ -1121,7 +1155,7 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,21);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,21);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,21);
 
-INSERT INTO products(name,description, picture_id,category_id, launch_date)VALUES (UPPER('Assassins Creed Unity'), 'Paris, 1789. The French Revolution turns a once-magnificent city into a place of terror and chaos. Its cobblestone streets run red with the blood of commoners who dared to rise up against the oppressive aristocracy. As the nation tears itself apart, a young man named Arno will embark on an extraordinary journey to expose the true powers behind the Revolution. His pursuit will throw him into the middle of a ruthless struggle for the fate of a nation, and transform him into a true Master Assassin. Introducing Assassin s Creed Unity, the next-gen evolution of the blockbuster franchise powered by an all-new game engine. From the storming of the Bastille to the execution of King Louis XVI, experience the French Revolution as never before, and help the people of France carve an entirely new destiny.', 16, 1, '2014-11-11');
+INSERT INTO products(name,description, picture_id,category_id, launch_date)VALUES (UPPER('Assassin''s Creed Unity'), 'Paris, 1789. The French Revolution turns a once-magnificent city into a place of terror and chaos. Its cobblestone streets run red with the blood of commoners who dared to rise up against the oppressive aristocracy. As the nation tears itself apart, a young man named Arno will embark on an extraordinary journey to expose the true powers behind the Revolution. His pursuit will throw him into the middle of a ruthless struggle for the fate of a nation, and transform him into a true Master Assassin. Introducing Assassin s Creed Unity, the next-gen evolution of the blockbuster franchise powered by an all-new game engine. From the storming of the Bastille to the execution of King Louis XVI, experience the French Revolution as never before, and help the people of France carve an entirely new destiny.', 16, 1, '2014-11-11');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(1,22);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(6,22);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(12,22);
@@ -1206,7 +1240,7 @@ INSERT INTO users (username, email, description, password, birth_date, picture_i
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ragnarok', 'ragnarok@gmail.com', 'No introductions needed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-07-25', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('yodajedi', 'yodajedi@gmail.com', 'I am really good person. May the force be with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1960-10-10', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('sithloard', 'sithloard@gmail.com', 'You either buy from me or dont buy at all', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1990-02-11', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassins creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 1);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassin''s creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('bjornironside', 'bjornironside@gmail.com', 'I am the true successor of Ragnar LothBrok', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1948-08-12', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW professor', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', '1958-09-14', 36);
 
@@ -1220,3 +1254,168 @@ INSERT INTO admins (username, email, description, password, picture_id)VALUES('s
 -- ban appeals
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(5, 2, 'I swear i will never sell to third parties. Please forgive me! This is my job!!', '2020-02-25');
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(9, 2, 'Just because i am a sith that does not mean i not a good community member. I think there was a mistake', '2020-05-12');
+
+-- offers
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 7, 6, 15, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (19.99, '2020-06-04', 7, 12, 5, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 7, 8, 6, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (9.99, '2020-06-04', 1, 6, 25, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (3.99, '2020-06-04', 9, 8, 24, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (59.99, '2020-06-04', 3, 12, 22, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (4.99, '2020-06-04', 4, 7, 4, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 9, 12, 13, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (20.99, '2020-06-04', 1, 7, 14, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (79.99, '2020-06-04', 3, 3, 18, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 7, 20, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (17.99, '2020-06-04', 1, 11, 28, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 10, 17, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 3, 4, 11, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (7.99, '2020-06-04', 1, 11, 10, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (22.99, '2020-06-04', 1, 10, 9, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (39.99, '2020-06-04', 1, 4, 16, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (8.99, '2020-06-04', 1, 7, 14, 7);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (44.99, '2020-06-04', 7, 11, 18, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (5.99, '2020-06-04', 7, 4, 7, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (2.99, '2020-06-04', 1, 10, 27, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (25.99, '2020-06-04', 3, 6, 9, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (25.99, '2020-06-04', 7, 3, 15, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 6, 12, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1, '2020-06-04', 1, 6, 20, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (19.99, '2020-06-04', 3, 3, 26, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1.99, '2020-06-04', 1, 12, 12, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 3, 10, 25, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (27.88, '2020-06-04', 3, 6, 9, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 1, 10, 13, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (8.99, '2020-06-04', 1, 12, 19, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (29.99, '2020-06-04', 1, 3, 20, 3);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 3, 12, 8, 1);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (17.99, '2020-06-04', 1, 12, 6, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1.99, '2020-06-04', 1, 11, 23, 4);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (13.99, '2020-06-04', 7, 11, 11, 2);
+INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (6.99, '2020-06-04', 1, 11, 25, 2);
+INSERT INTO offers (price, init_date, final_date, platform_id, user_id, product_id) VALUES (9.99, '2020-06-04', '2020-06-04', 7, 4, 21);
+
+-- orders
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'dsffdfwea', 'adfseaf@dsg.com', 'adsfergreg', '4100-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'wefrfsegreggse', 'afd@sdfasdasd.com', 'sdfsdfsdfds', '3000-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'asdfdsfsfgsf', 'asdas2afdds@asddsf.com', 'asdasdkaslfasdasd', '4100-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 8, 'pkfsdofjnndf', 'asdknwasf@asfasf.com', 'oknfepfjnreponf', '1111-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 10, 'TRGTG', 'asaf@afd.com', 'DSFSDFSD', '1341-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 10, 'jblkpbjpijbipbpb', 'bihbii@adafd.com', 'dasdsadsad', '3100-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 11, 'hjjhkhvkhkvhbhbhasdf', 'adlfndlsd@adfa.com', 'asdasibwfpabb', '1111-000');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 12, 'oaj dfvasfsdf', 'marrgrt@dsf.com', 'dsgsgrgyn', '1111-000');
+
+-- discounts
+INSERT INTO discounts (rate, start_date, end_date, offer_id) VALUES (1, '2020-06-05', '2020-06-06', 41);
+
+-- keys
+INSERT INTO keys (key, offer_id) VALUES ('34365uyjasFDHKL235', 1);
+INSERT INTO keys (key, offer_id) VALUES ('dfgrjt45765667SFG', 2);
+INSERT INTO keys (key, offer_id) VALUES ('sdfgdfh456457SBH', 2);
+INSERT INTO keys (key, offer_id) VALUES ('1234TGFBDSsdgfho54', 5);
+INSERT INTO keys (key, offer_id) VALUES ('12335ygyt7j76FDF', 6);
+INSERT INTO keys (key, offer_id) VALUES ('SCGW214346YH4T5H', 7);
+INSERT INTO keys (key, offer_id) VALUES ('SDFSDF234256UTYJGH', 7);
+INSERT INTO keys (key, offer_id) VALUES ('124345YYGFDGSDGFF32', 7);
+INSERT INTO keys (key, offer_id) VALUES ('sdgggghg66s2331r47', 11);
+INSERT INTO keys (key, offer_id) VALUES ('asfefg65787980ghfsd', 11);
+INSERT INTO keys (key, offer_id) VALUES ('asd-masdmlsm09091', 11);
+INSERT INTO keys (key, offer_id) VALUES ('asftrju6789dssvb-fh-n', 11);
+INSERT INTO keys (key, offer_id) VALUES ('svffgbjyk456456', 12);
+INSERT INTO keys (key, offer_id) VALUES ('fdbhym7457567', 12);
+INSERT INTO keys (key, offer_id) VALUES ('xvfgrhymjy57568', 12);
+INSERT INTO keys (key, offer_id) VALUES ('o-knfgvgroptg23', 13);
+INSERT INTO keys (key, offer_id) VALUES ('wferth56u467567', 13);
+INSERT INTO keys (key, offer_id) VALUES ('sadsadqweq123123', 13);
+INSERT INTO keys (key, offer_id) VALUES ('sdsfdsfsdfsdfq21212', 13);
+INSERT INTO keys (key, offer_id) VALUES ('DFD34536HGHDFGG', 16);
+INSERT INTO keys (key, offer_id) VALUES ('SDERT3534543543TF', 16);
+INSERT INTO keys (key, offer_id) VALUES ('AFDGRTH67658FDBD', 17);
+INSERT INTO keys (key, offer_id) VALUES ('FDGFHTY456456DFGS', 17);
+INSERT INTO keys (key, offer_id) VALUES ('DFSDGHTU646535REF', 17);
+INSERT INTO keys (key, offer_id) VALUES ('frthyuy867854', 19);
+INSERT INTO keys (key, offer_id) VALUES ('asdsftuj786543', 19);
+INSERT INTO keys (key, offer_id) VALUES ('asdsfgy6u54rr', 20);
+INSERT INTO keys (key, offer_id) VALUES ('asdweryth6jyad', 20);
+INSERT INTO keys (key, offer_id) VALUES ('adrth67u4rtyu76y', 20);
+INSERT INTO keys (key, offer_id) VALUES ('moksfpeiruogh3940', 21);
+INSERT INTO keys (key, offer_id) VALUES ('sdfo3i43o8u123123', 22);
+INSERT INTO keys (key, offer_id) VALUES ('qwadert3464543542', 23);
+INSERT INTO keys (key, offer_id) VALUES ('12323rty5u67i6u7y6trf', 23);
+INSERT INTO keys (key, offer_id) VALUES ('knjejhiweqohfqwgup', 23);
+INSERT INTO keys (key, offer_id) VALUES ('gepobpiwbgio0rub3r', 23);
+INSERT INTO keys (key, offer_id) VALUES ('dsfojpeorghwerphgpg', 24);
+INSERT INTO keys (key, offer_id) VALUES ('dfohwerpoghpferbguwpre', 24);
+INSERT INTO keys (key, offer_id) VALUES ('23oihpotwptop3btb4p', 25);
+INSERT INTO keys (key, offer_id) VALUES ('23oihpotwptop3btb41', 25);
+INSERT INTO keys (key, offer_id) VALUES ('ob8wrgfbweaweg', 26);
+INSERT INTO keys (key, offer_id) VALUES ('afopn3pugp93q4bpgqr', 27);
+INSERT INTO keys (key, offer_id) VALUES ('noppqbuhgrep9238042', 28);
+INSERT INTO keys (key, offer_id) VALUES ('onpjqrnopebvepa', 29);
+INSERT INTO keys (key, offer_id) VALUES ('sdewio439785', 29);
+INSERT INTO keys (key, offer_id) VALUES ('fwerijng', 29);
+INSERT INTO keys (key, offer_id) VALUES ('werwer', 29);
+INSERT INTO keys (key, offer_id) VALUES ('werwerwevdf', 29);
+INSERT INTO keys (key, offer_id) VALUES ('werfdfbsdc', 29);
+INSERT INTO keys (key, offer_id) VALUES ('qrdsdv', 29);
+INSERT INTO keys (key, offer_id) VALUES ('fvpoanvneav', 30);
+INSERT INTO keys (key, offer_id) VALUES ('wefwiherpgiwhwppowg', 31);
+INSERT INTO keys (key, offer_id) VALUES ('onkrqefe', 31);
+INSERT INTO keys (key, offer_id) VALUES ('kjbkhbbhkhblkhbhl', 32);
+INSERT INTO keys (key, offer_id) VALUES ('afsfdsfgsdgegera', 32);
+INSERT INTO keys (key, offer_id) VALUES ('ihbihoohvvhoo', 33);
+INSERT INTO keys (key, offer_id) VALUES ('hhohvhvohvvh', 33);
+INSERT INTO keys (key, offer_id) VALUES ('ih778g86gyygog', 33);
+INSERT INTO keys (key, offer_id) VALUES ('ojajsfgbbrsgbazabr', 34);
+INSERT INTO keys (key, offer_id) VALUES ('ewrooraeeeeeba', 34);
+INSERT INTO keys (key, offer_id) VALUES ('fgaarhjrzhgjjhgz', 34);
+INSERT INTO keys (key, offer_id) VALUES ('jtujgkguikgjbuik', 34);
+INSERT INTO keys (key, offer_id) VALUES ('aorghjjoahtfxoajoahthtx', 35);
+INSERT INTO keys (key, offer_id) VALUES ('ilgghghllflfhllflfylyflfllffflyfy', 35);
+INSERT INTO keys (key, offer_id) VALUES ('jhgkghkghhgkhggkjggjh', 35);
+INSERT INTO keys (key, offer_id) VALUES ('dfgifihjihdfdfgjdnfgdf', 36);
+INSERT INTO keys (key, offer_id) VALUES ('jkdjdhjkhjkhhjkhjkfjhfjf', 36);
+INSERT INTO keys (key, offer_id) VALUES ('hhhhokokokokokbkjkluli', 36);
+INSERT INTO keys (key, offer_id) VALUES ('ouuhuhhuhuhipilb', 37);
+INSERT INTO keys (key, offer_id) VALUES ('jnbhiibhbhhbobihobih', 37);
+INSERT INTO keys (key, offer_id) VALUES ('hblihbihbillibhibhlbkh', 37);
+INSERT INTO keys (key, offer_id) VALUES ('igiglgigiibbobo', 37);
+INSERT INTO keys (key, offer_id) VALUES ('iljllhpijhokjnokononon', 38);
+INSERT INTO keys (key, offer_id) VALUES ('rthnorpytohyrt', 38);
+INSERT INTO keys (key, offer_id) VALUES ('fdgonpjdophpnprppbrpdtbb', 39);
+INSERT INTO keys (key, offer_id) VALUES ('njippnbpgibphbpdb', 39);
+INSERT INTO keys (key, offer_id) VALUES ('jiorbiovrwvoeveowv', 40);
+INSERT INTO keys (key, offer_id) VALUES ('svhbfbvuhfwuobovowev', 40);
+INSERT INTO keys (key, offer_id) VALUES ('sdfhvbofvoibadboifdv', 40);
+INSERT INTO keys (key, offer_id) VALUES ('ifvbioweibvooweiv', 40);
+INSERT INTO keys (key, offer_id) VALUES ('sdnjivnivprivprvr', 41);
+INSERT INTO keys (key, offer_id) VALUES ('oprvopwvevprevrrer', 41);
+INSERT INTO keys (key, offer_id) VALUES ('oivbsovbsobsevoebvpesr', 41);
+INSERT INTO keys (key, offer_id) VALUES ('prnobptbnvwrpvpbrnvr', 42);
+INSERT INTO keys (key, offer_id) VALUES ('dbgryhtedbvrgweb', 42);
+INSERT INTO keys (key, offer_id) VALUES ('wrepojbgrpejpwebvrwg', 43);
+INSERT INTO keys (key, offer_id) VALUES ('ervseafjbkvwerkvp', 43);
+INSERT INTO keys (key, offer_id) VALUES ('grbtrnyytnynum', 43);
+INSERT INTO keys (key, offer_id) VALUES ('onvornpbsptboprb', 44);
+INSERT INTO keys (key, offer_id) VALUES ('dfgnospovopevpevfa', 44);
+INSERT INTO keys (key, offer_id) VALUES ('svinjepfvnpoeavvppdfv', 44);
+INSERT INTO keys (key, offer_id) VALUES ('njirtgoerptgpernprwh', 44);
+INSERT INTO keys (key, offer_id) VALUES ('ijbdfvbsfvipafvpaefvspdfvrgibjns', 45);
+INSERT INTO keys (key, offer_id) VALUES ('snvkkspvbpfsvbjspbr', 45);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('DSFDDGYTU67654567', 9.99, 18, 8);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('sdgnopre982341ndsl', 49.99, 1, 1);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('ASDSF435658679I6UH', 9.99, 18, 2);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('sgtrhtyj6757658', 19.99, 12, 3);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('sdferg35354435', 19.99, 12, 3);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('adfergSFGDG123213', 29.99, 7, 7);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('sdflk2424tergdqpkog', 49.99, 1, 4);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('jniibpbrbfvbfd', 12.99, 30, 5);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('wopnverojveqrve', 12.99, 30, 5);
+INSERT INTO keys (key, price_sold, offer_id, order_id) VALUES ('caojerjovnerabneearbn', 3.99, 31, 6);
+
+-- feedback
+INSERT INTO feedback (evaluation, comment, evaluation_date, user_id, key_id) VALUES (true, 'Great product. Thank you!', '2020-06-04', 7, 1);
+INSERT INTO feedback (evaluation, comment, evaluation_date, user_id, key_id) VALUES (true, 'i''VS ENJOYED VERY MUCH THIS GAME!!!', '2020-06-04', 7, 47);
+INSERT INTO feedback (evaluation, comment, evaluation_date, user_id, key_id) VALUES (false, 'the game is very slow and the seller didn''t fix it', '2020-06-04', 7, 30);
+INSERT INTO feedback (evaluation, comment, evaluation_date, user_id, key_id) VALUES (false, 'very bad costumer service', '2020-06-04', 7, 31);
+INSERT INTO feedback (evaluation, comment, evaluation_date, user_id, key_id) VALUES (true, 'The very best seller of this platform!!', '2020-06-04', 10, 74);

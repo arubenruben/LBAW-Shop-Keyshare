@@ -1,6 +1,0 @@
-INSERT INTO public.faq (id, question, answer) VALUES (1, 'WHAT IS KEYSHARE?', 'KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
-INSERT INTO public.faq (id, question, answer) VALUES (2, 'WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?', 'The only available payment method Paypal');
-INSERT INTO public.faq (id, question, answer) VALUES (3, 'WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?', 'Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
-INSERT INTO public.faq (id, question, answer) VALUES (4, 'DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE KEYHARE WEBSITE?', 'The full price is as listed, so no!');
-INSERT INTO public.faq (id, question, answer) VALUES (5, 'DO I HAVE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?', 'In case a product does not work, you should report the seller and the admin will analyze yoyr situation');
-INSERT INTO public.faq (id, question, answer) VALUES (6, 'DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?', 'Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
