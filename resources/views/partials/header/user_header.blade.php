@@ -7,6 +7,7 @@
     <!-- Search -->
     <div class="col-xl-4 d-none d-xl-block mt-auto mb-auto">
         <form id="query-form" class="form-inline" action="{{ route('search') }}" method="get">
+            @csrf
             <a class="ml-auto">
                 <i id="headerSearchIcon" class="fas fa-search mr-2"></i>
             </a>

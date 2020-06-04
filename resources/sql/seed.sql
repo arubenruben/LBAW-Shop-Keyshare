@@ -192,8 +192,8 @@ CREATE TABLE carts (
 );
 
 CREATE TABLE about_us (
-  id SERIAL PRIMARY KEY,
-  description TEXT NOT NULL
+                          id SERIAL PRIMARY KEY,
+                          description TEXT NOT NULL
 );
 
 CREATE TABLE faq (
@@ -338,7 +338,7 @@ BEGIN
 
     SELECT COUNT(products.id) INTO sells
     FROM (offers JOIN products ON products.id = offers.product_id)
-                 JOIN keys ON keys.offer_id = offers.id
+             JOIN keys ON keys.offer_id = offers.id
     WHERE keys.order_id IS NOT NULL;
 
     UPDATE products
@@ -1231,69 +1231,71 @@ INSERT INTO pictures (url)VALUES('2bd8cc3a6021fe4ea0f6bf3ce8575efc.png');
 INSERT INTO pictures (url)VALUES('c03a67ae76e1937cc8f5b741f264e71a.png');
 INSERT INTO pictures (url)VALUES('557a2acefd26cbecbd832951aaa66c16.png');
 -- users
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('motapinto', 'martimpintodasilva@gmail.com', 'Hey there! I am a software engineer and i am looking forward to trade with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1998-12-05', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('trustlessuser123', 'trustlessuser123@gmail.com', 'You should not, at all, trust me. Even then, there are some fools who will :)', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '200-02-11', 32);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lpvramos', 'up201706253@g.uporto.com', 'Doom and CS addict sometimes. When I am not that i am a game connoisseur  looking for some good deals', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1949-06-21 20:06:49', 34);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lockdown', 'kkeelinge1p@g.co', 'Bootstrap master by day, Trader by night', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1968-06-10', 33);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('arubenruben', 'lhumberstone1q@topsy.com', 'Hey! I am the one you gave up on google login. Ban me if you think that was the wrong move', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1972-03-11 ', 35);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('odin123', 'odinMaster@valhalla.god', 'If you want to join me in Valhalla buy from me.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1989-08-20', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ragnarok', 'ragnarok@gmail.com', 'No introductions needed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-07-25', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('yodajedi', 'yodajedi@gmail.com', 'I am really good person. May the force be with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1960-10-10', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('sithloard', 'sithloard@gmail.com', 'You either buy from me or dont buy at all', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1990-02-11', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassin''s creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('bjornironside', 'bjornironside@gmail.com', 'I am the true successor of Ragnar LothBrok', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1948-08-12', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW professor', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', '1958-09-14', 36);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(1, 'motapinto', 'martimpintodasilva@gmail.com', 'Hey there! I am a software engineer and i am looking forward to trade with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1998-12-05', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(2, 'trustlessuser123', 'trustlessuser123@gmail.com', 'You should not, at all, trust me. Even then, there are some fools who will :)', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '200-02-11', 32);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(5, 'arubenruben', 'lhumberstone1q@topsy.com', 'Hey! I am the one you gave up on google login. Ban me if you think that was the wrong move', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1972-03-11 ', 35);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(3, 'lpvramos', 'up201706253@g.uporto.com', 'Doom and CS addict sometimes. When I am not that i am a game connoisseur  looking for some good deals', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1949-06-21 20:06:49', 34);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(4, 'lockdown', 'kkeelinge1p@g.co', 'Bootstrap master by day, Trader by night', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1968-06-10', 33);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(6, 'odin123', 'odinMaster@valhalla.god', 'If you want to join me in Valhalla buy from me.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1989-08-20', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(7, 'ragnarok', 'ragnarok@gmail.com', 'No introductions needed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-07-25', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(8, 'yodajedi', 'yodajedi@gmail.com', 'I am really good person. May the force be with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1960-10-10', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(9, 'sithloard', 'sithloard@gmail.com', 'You either buy from me or dont buy at all', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1990-02-11', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(10, 'enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassin''s creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(11, 'bjornironside', 'bjornironside@gmail.com', 'I am the true successor of Ragnar LothBrok', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1948-08-12', 1);
+INSERT INTO users (id, username, email, description, password, birth_date, picture_id)VALUES(12, 'ssn', 'up310021@g.uporto.pt', 'LBAW professor', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', '1958-09-14', 36);
 
 -- banned users
 INSERT INTO banned_users(id)VALUES(1);
 INSERT INTO banned_users(id)VALUES(5);
 INSERT INTO banned_users(id)VALUES(9);
+
 -- admins
 INSERT INTO admins (username, email, description, password, picture_id)VALUES('admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 1);
 INSERT INTO admins (username, email, description, password, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW teacher and comercial master moderator', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 36);
+
 -- ban appeals
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(5, 2, 'I swear i will never sell to third parties. Please forgive me! This is my job!!', '2020-02-25');
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(9, 2, 'Just because i am a sith that does not mean i not a good community member. I think there was a mistake', '2020-05-12');
 
 -- offers
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 7, 6, 15, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (19.99, '2020-06-04', 7, 12, 5, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 7, 8, 6, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (9.99, '2020-06-04', 1, 6, 25, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (3.99, '2020-06-04', 9, 8, 24, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (59.99, '2020-06-04', 3, 12, 22, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (4.99, '2020-06-04', 4, 7, 4, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 9, 12, 13, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (20.99, '2020-06-04', 1, 7, 14, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (79.99, '2020-06-04', 3, 3, 18, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 7, 20, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (17.99, '2020-06-04', 1, 11, 28, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 10, 17, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 3, 4, 11, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (7.99, '2020-06-04', 1, 11, 10, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (22.99, '2020-06-04', 1, 10, 9, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (39.99, '2020-06-04', 1, 4, 16, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (8.99, '2020-06-04', 1, 7, 14, 7);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (44.99, '2020-06-04', 7, 11, 18, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (5.99, '2020-06-04', 7, 4, 7, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (2.99, '2020-06-04', 1, 10, 27, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (25.99, '2020-06-04', 3, 6, 9, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (25.99, '2020-06-04', 7, 3, 15, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (12.99, '2020-06-04', 1, 6, 12, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1, '2020-06-04', 1, 6, 20, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (19.99, '2020-06-04', 3, 3, 26, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1.99, '2020-06-04', 1, 12, 12, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 3, 10, 25, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (27.88, '2020-06-04', 3, 6, 9, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (15.99, '2020-06-04', 1, 10, 13, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (8.99, '2020-06-04', 1, 12, 19, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (29.99, '2020-06-04', 1, 3, 20, 3);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (49.99, '2020-06-04', 3, 12, 8, 1);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (17.99, '2020-06-04', 1, 12, 6, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (1.99, '2020-06-04', 1, 11, 23, 4);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (13.99, '2020-06-04', 7, 11, 11, 2);
-INSERT INTO offers (price, init_date, profit, platform_id, user_id, product_id) VALUES (6.99, '2020-06-04', 1, 11, 25, 2);
-INSERT INTO offers (price, init_date, final_date, platform_id, user_id, product_id) VALUES (9.99, '2020-06-04', '2020-06-04', 7, 4, 21);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (24, 15.99, '2020-06-04', 7, 6, 15);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (2, 19.99, '2020-06-04', 7, 12, 5);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (30, 12.99, '2020-06-04', 7, 8, 6);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (25, 9.99, '2020-06-04', 1, 6, 25);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (31, 3.99, '2020-06-04', 9, 8, 24);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (5, 59.99, '2020-06-04', 3, 12, 22);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (26, 4.99, '2020-06-04', 4, 7, 4);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (6, 49.99, '2020-06-04', 9, 12, 13);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (27, 20.99, '2020-06-04', 1, 7, 14);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (13, 79.99, '2020-06-04', 3, 3, 18);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (28, 12.99, '2020-06-04', 1, 7, 20);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (40, 17.99, '2020-06-04', 1, 11, 28);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (32, 12.99, '2020-06-04', 1, 10, 17);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (16, 49.99, '2020-06-04', 3, 4, 11);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (41, 7.99, '2020-06-04', 1, 11, 10);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (33, 22.99, '2020-06-04', 1, 10, 9);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (17, 39.99, '2020-06-04', 1, 4, 16);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (29, 8.99, '2020-06-04', 1, 7, 14);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (42, 44.99, '2020-06-04', 7, 11, 18);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (19, 5.99, '2020-06-04', 7, 4, 7);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (34, 2.99, '2020-06-04', 1, 10, 27);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (20, 25.99, '2020-06-04', 3, 6, 9);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (11, 25.99, '2020-06-04', 7, 3, 15);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (21, 12.99, '2020-06-04', 1, 6, 12);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (22, 1, '2020-06-04', 1, 6, 20);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (12, 19.99, '2020-06-04', 3, 3, 26);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (43, 1.99, '2020-06-04', 1, 12, 12);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (35, 15.99, '2020-06-04', 3, 10, 25);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (23, 27.88, '2020-06-04', 3, 6, 9);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (36, 15.99, '2020-06-04', 1, 10, 13);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (44, 8.99, '2020-06-04', 1, 12, 19);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (7, 29.99, '2020-06-04', 1, 3, 20);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (1, 49.99, '2020-06-04', 3, 12, 8);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (45, 17.99, '2020-06-04', 1, 12, 6);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (37, 1.99, '2020-06-04', 1, 11, 23);
+INSERT INTO offers (id, price, init_date, final_date, platform_id, user_id, product_id) VALUES (18, 9.99, '2020-06-04', '2020-06-04', 7, 4, 21);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (38, 13.99, '2020-06-04', 7, 11, 11);
+INSERT INTO offers (id, price, init_date, platform_id, user_id, product_id) VALUES (39, 6.99, '2020-06-04', 1, 11, 25);
 
 -- orders
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'dsffdfwea', 'adfseaf@dsg.com', 'adsfergreg', '4100-000');
@@ -1306,7 +1308,7 @@ INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 12, 'oaj dfvasfsdf', 'marrgrt@dsf.com', 'dsgsgrgyn', '1111-000');
 
 -- discounts
-INSERT INTO discounts (rate, start_date, end_date, offer_id) VALUES (1, '2020-06-05', '2020-06-06', 41);
+INSERT INTO discounts (rate, start_date, end_date, offer_id) VALUES (1, '2020-06-05', '2020-06-06', 45);
 
 -- keys
 INSERT INTO keys (key, offer_id) VALUES ('34365uyjasFDHKL235', 1);
