@@ -65,7 +65,7 @@ CREATE TABLE users (
   name_tsvector tsvector DEFAULT NULL,
   weight_tsvector  tsvector DEFAULT NULL,
   password TEXT NOT NULL,
-  rating INTEGER DEFAULT 100,
+  rating INTEGER DEFAULT NULL,
   birth_date date NOT NULL,
   paypal TEXT,
   picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
@@ -870,10 +870,21 @@ TRUNCATE reports RESTART IDENTITY CASCADE;
 -- Populate the database
 -----------------------------------------
 
+-- static pages
+INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
+INSERT INTO faq(question, answer) VALUES(UPPER('WHAT IS KEYSHARE?'),'KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
+INSERT INTO faq(question, answer) VALUES(UPPER('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?'),'The only available payment method Paypal');
+INSERT INTO faq(question, answer) VALUES(UPPER('WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?'),'Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
+INSERT INTO faq(question, answer) VALUES(UPPER('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?'),'The full price is as listed, so no!');
+INSERT INTO faq(question, answer) VALUES(UPPER('DO I HAVE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?'),'In case a product does not work, you should report the seller and the admin will analyze yoyr situation');
+INSERT INTO faq(question, answer) VALUES(UPPER('DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?'),'Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
+
+-- categories
 INSERT INTO categories(name) VALUES('GAME');
 INSERT INTO categories(name) VALUES('DLC');
 INSERT INTO categories(name) VALUES('EXPANSION');
 
+-- genres
 INSERT INTO genres(name) VALUES('ACTION');
 INSERT INTO genres(name) VALUES('SPORT');
 INSERT INTO genres(name) VALUES('ADVENTURE');
@@ -886,8 +897,8 @@ INSERT INTO genres(name) VALUES('FOOTBALL');
 INSERT INTO genres(name) VALUES('CO-OP');
 INSERT INTO genres(name) VALUES('MULTIPLAYER');
 INSERT INTO genres(name) VALUES('OPEN-WORLD');
-INSERT INTO genres(name) VALUES('ANIME');
 
+-- platforms
 INSERT INTO platforms(name) VALUES('PC');
 INSERT INTO platforms(name) VALUES('PS5');
 INSERT INTO platforms(name) VALUES('PS4');
@@ -898,8 +909,8 @@ INSERT INTO platforms(name) VALUES('XBOX ONE');
 INSERT INTO platforms(name) VALUES('XBOX 360');
 INSERT INTO platforms(name) VALUES('SWITCH');
 
-INSERT INTO pictures (url) VALUES ('user.png');
-INSERT INTO pictures (url) VALUES ('product.png');
+-- product pictures
+INSERT INTO pictures (id, url) VALUES (2 ,'product.png');
 INSERT INTO pictures (url) VALUES ('dcdb4945904bf4da6b15ce79ad9e0492.png');
 INSERT INTO pictures (url) VALUES ('6aeb7836dcb2ba2b4269accb3c2e64c7.png');
 INSERT INTO pictures (url) VALUES ('5353286093c4de6d762effd4d84f3259.png');
@@ -1178,117 +1189,60 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,30);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,30);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,30);
 
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('nightwalker739', 'nightwalker739@gmail.com', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 54, '1972-05-27 23:11:07', 'nightwalker739@gmail.com', 1, 0);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('trustlessuser123', 'trustlessuser123@gmail.com', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 54, '1972-05-27 23:11:07', 'nightwalker739@gmail.com', 1, 0);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('sboyn0', 'lfosberry0@biglobe.ne.jp', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 54, '1972-05-27 23:11:07', 'iaudiss0@irs.gov', 1, 40142);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ejenicke1', 'jwindous1@google.co.uk', 'ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 37, '1960-02-21 12:48:14', 'jlapping1@ted.com', 1, 49772);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('pkabos2', 'bhance2@weibo.com', 'gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 6, '1969-02-06 05:56:16', 'aspinetti2@china.com.cn', 1, 804);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('zdowning3', 'sivanitsa3@pictureshack.us', 'quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 18, '1931-07-22 08:18:02', 'tashlee3@facebook.com', 1, 28356);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ahackin4', 'xplunket4@php.net', 'ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 56, '2000-02-04 13:37:30', 'zposse4@yandex.ru', 1, 88053);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mpoulsen5', 'cpenvarden5@reddit.com', 'pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 93, '1930-03-22 17:12:22', null, 1, 23522);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('pthorsby6', 'bhaigh6@dmoz.org', 'imperdiet et commodo vulputate justo in blandit ultrices enim lorem', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 33, '1983-12-28 02:15:32', null, 1, 40271);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mborkin7', 'pruscoe7@msu.edu', 'nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 12, '1960-12-22 06:30:18', 'dcastane7@msu.edu', 1, 79615);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rdungate8', 'ffennelow8@mapy.cz', 'in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 44, '1979-10-15 17:53:16', 'bbisgrove8@admin.ch', 1, 64300);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('iharbage9', 'rbaiden9@issuu.com', 'nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 55, '1981-02-19 09:01:55', 'bfortesquieu9@nydailynews.com', 1, 62369);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mludwella', 'hteasdalea@weebly.com', 'facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 74, '1964-08-09 00:58:24', null, 1, 54541);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cstairmondb', 'bhayfieldb@tripod.com', 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 59, '1932-06-30 20:14:25', 'wmaycockb@nsw.gov.au', 1, 35738);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rheismanc', 'wdematteic@state.gov', 'maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 71, '1951-09-04 18:14:28', 'zlottc@va.gov', 1, 59040);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cswatlandd', 'tbennettd@cyberchimps.com', 'sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 87, '1940-02-01 14:18:01', null, 1, 40966);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('lmoire', 'ypeerye@cornell.edu', 'viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 49, '1984-06-01 06:15:09', 'hdiggese@quantcast.com', 1, 57934);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mpippingf', 'hayrtonf@senate.gov', 'mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 85, '1953-08-16 00:22:22', 'bsangraf@state.tx.us', 1, 85680);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('alapslieg', 'kflemyngg@cbsnews.com', 'nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 20, '1965-04-24 01:30:17', null, 1, 43639);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ldoodneyh', 'ffukeh@java.com', 'auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 6, '1925-11-06 09:08:45', null, 1, 4505);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('pbrymhami', 'bforrei@google.co.uk', 'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 82, '1991-03-11 22:42:44', 'ptrenti@jiathis.com', 1, 69178);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('gvankeevj', 'dboolej@domainmarket.com', 'cras in purus eu magna vulputate luctus cum sociis natoque penatibus et', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 69, '1958-09-03 00:46:53', 'trennardj@patch.com', 1, 53191);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cnewlingk', 'lrametk@comcast.net', 'donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 18, '1996-12-12 02:16:46', 'aprandink@unc.edu', 1, 33351);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ghamberl', 'bpittell@businesswire.com', 'nisl venenatis lacinia aenean sit amet justo morbi ut odio', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 34, '1946-12-07 18:51:24', 'jthoumasl@furl.net', 1, 77568);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bchidleym', 'mhisem@nbcnews.com', 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 80, '1943-12-08 05:34:53', 'gsickamorem@stumbleupon.com', 1, 4223);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bdethloffn', 'sbarenskien@wordpress.org', 'lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 82, '1930-06-17 01:41:40', null, 1, 74545);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('glivingstoneo', 'lwogdono@oakley.com', 'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 76, '1946-01-01 19:53:29', 'cmeekso@1und1.de', 1, 1286);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('dsecrettp', 'hwhitehairp@yandex.ru', 'rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 27, '1991-08-13 10:12:10', null, 1, 79434);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('dolivettiq', 'ctuxillq@ox.ac.uk', 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 39, '1961-11-16 19:23:21', 'gbonnarq@freewebs.com', 1, 68537);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('aliberor', 'dcomir@un.org', 'magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 45, '1951-05-20 19:23:23', 'rfidilisr@sogou.com', 1, 38705);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('pcamins', 'rsimesters@delicious.com', 'amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 54, '1982-01-16 14:49:52', 'cbannells@github.io', 1, 16783);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cmeckifft', 'aholmyardt@reddit.com', 'odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 45, '1976-12-19 11:48:10', null, 1, 10898);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bbumpasu', 'ssiddallu@edublogs.org', 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 94, '1995-08-07 09:41:35', 'hyukhtinu@last.fm', 1, 68321);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('adainv', 'ldabornev@zimbio.com', 'ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 27, '1972-08-08 03:17:23', null, 1, 47754);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cmakinsonw', 'lbricknerw@feedburner.com', 'lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 46, '1930-09-03 11:33:19', null, 1, 913);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('santonx', 'xjannx@hugedomains.com', 'pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 11, '1941-03-19 00:49:12', 'thablotx@digg.com', 1, 8820);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mvasilyonoky', 'kbandyy@shop-pro.jp', 'non lectus aliquam sit amet diam in magna bibendum imperdiet', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 45, '1962-08-21 07:51:58', 'hvoadeny@narod.ru', 1, 23320);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cshawyerz', 'khoodspethz@biglobe.ne.jp', 'vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 48, '1987-01-06 19:16:23', 'epresnailz@furl.net', 1, 86386);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('lscarbarrow10', 'cdik10@tumblr.com', 'mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 30, '1944-02-26 23:02:02', 'rcanadas10@ihg.com', 1, 50388);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('egritton11', 'gbampforth11@comsenz.com', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 63, '1923-05-23 23:30:13', null, 1, 47499);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('swidocks12', 'gdoudny12@dell.com', 'et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 29, '1983-08-29 06:51:15', 'hrosenwasser12@yellowpages.com', 1, 84314);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('hgoodliffe13', 'bgrishinov13@youku.com', 'libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 55, '1932-09-06 00:07:20', null, 1, 37722);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mbelloch14', 'mkeasy14@addtoany.com', 'varius ut blandit non interdum in ante vestibulum ante ipsum', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 69, '1930-09-23 09:21:05', 'dphilipps14@indiatimes.com', 1, 12232);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('vladell15', 'amckew15@imgur.com', 'pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 70, '1932-07-31 20:42:37', 'ledge15@reuters.com', 1, 84348);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('jtrusse16', 'wsatteford16@ow.ly', 'morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 37, '1961-10-23 11:04:30', 'ehounsome16@psu.edu', 1, 56779);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('corder17', 'broscamps17@google.com.au', 'ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 79, '1965-04-07 21:46:11', null, 1, 28900);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ebarti18', 'tgenty18@senate.gov', 'orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 84, '1971-10-28 09:11:01', null, 1, 50829);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('gbowdler19', 'ctranfield19@timesonline.co.uk', 'eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 6, '1934-10-06 14:44:39', 'cdefraine19@discovery.com', 1, 79601);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rbend1a', 'kdilgarno1a@google.com.hk', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 59, '1952-07-19 19:18:26', null, 1, 13192);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bcrasswell1b', 'achavrin1b@toplist.cz', 'consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 43, '1942-12-23 21:55:29', 'rvalente1b@about.me', 1, 88312);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mkurdani1c', 'hbasnett1c@utexas.edu', 'nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 82, '1974-10-26 02:31:35', 'mwaye1c@disqus.com', 1, 14540);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('esymper1d', 'etunnah1d@free.fr', 'primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 61, '1967-12-07 21:30:26', 'agohier1d@cargocollective.com', 1, 65234);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('truggiero1e', 'kjoynt1e@facebook.com', 'vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 83, '1943-07-15 10:16:05', 'ekilshaw1e@thetimes.co.uk', 1, 62491);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('channant1f', 'fdibdin1f@instagram.com', 'cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 36, '1952-10-24 21:29:41', 'edimmick1f@digg.com', 1, 70535);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mantonoyev1g', 'cjochens1g@e-recht24.de', 'amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 88, '1951-02-27 02:09:18', null, 1, 23911);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('tchattelaine1h', 'jmackieson1h@mit.edu', 'luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 19, '1998-04-30 03:23:17', null, 1, 70039);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('jhair1i', 'cdibatista1i@nature.com', 'non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 75, '1989-06-07 17:08:05', 'hmacian1i@hao123.com', 1, 28379);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('jclayhill1j', 'tbelch1j@census.gov', 'quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 92, '1975-01-18 19:41:43', 'ctolhurst1j@businessweek.com', 1, 74354);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('gdivis1k', 'msmieton1k@pagesperso-orange.fr', 'bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 56, '1985-11-22 15:26:18', 'qcoffin1k@nyu.edu', 1, 16146);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rcrunden1l', 'edoerren1l@pcworld.com', 'ornare consequat lectus in est risus auctor sed tristique in tempus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 7, '1960-01-02 06:46:37', 'mstation1l@rakuten.co.jp', 1, 3282);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bhalsey1m', 'pkibard1m@t-online.de', 'luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 10, '1930-08-04 21:34:49', 'hablett1m@wikia.com', 1, 54109);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('chowbrook1n', 'msysland1n@wikispaces.com', 'interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 8, '1990-10-21 00:05:01', null, 1, 9771);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mspacie1o', 'afackrell1o@ifeng.com', 'etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 93, '1949-06-21 20:06:49', 'lmaslen1o@pcworld.com', 1, 43605);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rgadesby1p', 'kkeelinge1p@g.co', 'consequat in consequat ut nulla sed accumsan felis ut at dolor quis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 2, '1968-06-12 23:26:00', 'tswigg1p@ning.com', 1, 69692);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cpagden1q', 'lhumberstone1q@topsy.com', 'nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 25, '1972-03-11 09:31:21', null, 1, 53016);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('psiaskowski1r', 'cwoodwing1r@europa.eu', 'et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 53, '1989-12-20 15:54:08', 'asoonhouse1r@yelp.com', 1, 77324);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rcrenage1s', 'cpenrose1s@umn.edu', 'luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 25, '1921-02-22 17:20:08', null, 1, 31771);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('nsalterne1t', 'acardo1t@army.mil', 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 84, '1931-06-26 18:16:27', 'tchmarny1t@hubpages.com', 1, 9378);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('eclouter1u', 'mfasham1u@google.cn', 'turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 39, '1961-06-03 01:31:51', null, 1, 45535);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('nlegge1v', 'cwyche1v@bandcamp.com', 'ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 84, '1994-10-27 05:03:25', 'jgouly1v@plala.or.jp', 1, 36911);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ddimic1w', 'svarfalameev1w@techcrunch.com', 'primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 32, '1960-10-17 15:38:44', 'agelardi1w@blog.com', 1, 4940);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('fabramowitch1x', 'bpeascod1x@webnode.com', 'amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 66, '1946-02-11 15:15:21', 'dmoyne1x@mayoclinic.com', 1, 9524);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('abertomeu1y', 'mgowland1y@github.com', 'auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 9, '1972-04-29 14:21:42', 'fgiorgielli1y@google.it', 1, 58492);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('isiley1z', 'oshoosmith1z@ovh.net', 'lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 42, '1971-05-24 07:25:15', null, 1, 56423);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('wstilly20', 'amoth20@youtu.be', 'sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 97, '1968-07-01 18:22:05', 'ctravers20@bing.com', 1, 10199);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('oraggett21', 'dburniston21@seattletimes.com', 'suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 100, '1932-04-05 13:39:15', 'scaff21@topsy.com', 1, 79690);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('egeany22', 'sromanini22@last.fm', 'purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 93, '1960-03-07 12:44:35', 'zkarpol22@mediafire.com', 1, 31478);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('vrehme23', 'ccuskery23@a8.net', 'nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 76, '1990-09-13 06:47:44', 'khagard23@arizona.edu', 1, 11697);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('emackness24', 'iwinley24@nytimes.com', 'dictumst etiam faucibus cursus urna ut tellus nulla ut erat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 50, '1940-11-01 11:54:22', 'tsimanek24@columbia.edu', 1, 89751);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ogallyon25', 'abrockwell25@npr.org', 'sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 40, '1925-04-10 13:58:31', 'cjedrzejczak25@cnn.com', 1, 11462);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('kboulde26', 'icouling26@vkontakte.ru', 'nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 13, '1971-11-18 18:47:06', 'dgecks26@cbslocal.com', 1, 30822);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mmusico27', 'dburnie27@miibeian.gov.cn', 'curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 36, '1962-10-12 02:36:54', null, 1, 25415);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('morr28', 'kcockton28@aboutads.info', 'eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 98, '1923-12-31 11:39:51', 'srabley28@dailymail.co.uk', 1, 17305);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ibenaine29', 'rpittson29@xinhuanet.com', 'tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 41, '1981-12-27 06:11:44', null, 1, 24614);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('gtruswell2a', 'lquinell2a@t.co', 'vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 71, '2000-01-09 20:22:45', null, 1, 16064);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('iuzielli2b', 'rbrisbane2b@mayoclinic.com', 'pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 64, '1952-12-10 08:33:14', 'jtyzack2b@fastcompany.com', 1, 45067);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bsim2c', 'jdeane2c@creativecommons.org', 'eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 75, '1965-04-20 14:42:27', 'pkochlin2c@springer.com', 1, 21037);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('dstell2d', 'bhaack2d@google.ru', 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 41, '1984-04-22 09:48:35', null, 1, 44608);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('cbrugh2e', 'jpresdee2e@intel.com', 'et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 79, '1967-10-25 05:50:12', 'ptolumello2e@cdbaby.com', 1, 9827);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('wborgnet2f', 'nspadaro2f@goo.gl', 'ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 16, '1995-10-02 03:36:44', 'vcutmare2f@stanford.edu', 1, 41541);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('jbustard2g', 'aspellissy2g@techcrunch.com', 'justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 32, '1985-04-29 03:15:33', 'acowderoy2g@istockphoto.com', 1, 11253);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('kderx2h', 'fvitler2h@goo.ne.jp', 'massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 2, '1919-08-09 21:44:00', 'kramsier2h@tripadvisor.com', 1, 28920);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('jbaldacco2i', 'lkilfether2i@homestead.com', 'aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 56, '1959-10-11 06:30:06', 'gmityakov2i@amazon.co.uk', 1, 13245);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('mbeau2j', 'amulder2j@wired.com', 'maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 35, '1948-03-04 12:12:33', null, 1, 27596);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bricharson2k', 'vbailie2k@indiegogo.com', 'sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 61, '1929-11-09 11:16:45', 'abussen2k@topsy.com', 1, 51963);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('gdrinkall2l', 'jmazzia2l@printfriendly.com', 'duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 43, '1930-05-28 10:35:11', 'mgerrelts2l@mashable.com', 1, 16468);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('tbenoy2m', 'smacbean2m@latimes.com', 'in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 38, '1920-11-05 23:47:24', 'aharyngton2m@bluehost.com', 1, 73281);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('pporson2n', 'amcneill2n@ucoz.ru', 'mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 39, '1999-07-07 08:48:18', 'dgatsby2n@disqus.com', 1, 63942);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('bpidler2o', 'hblankenship2o@imgur.com', 'vel augue vestibulum ante ipsum primis in faucibus orci luctus et', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 63, '1929-10-16 08:16:47', 'ahuish2o@auda.org.au', 1, 86085);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('ftallman2p', 'jbetancourt2p@europa.eu', 'est et tempus semper est quam pharetra magna ac consequat', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 69, '1937-11-30 11:00:56', 'ddraycott2p@usda.gov', 1, 2962);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('venzley2q', 'mgellier2q@acquirethisname.com', 'magna at nunc commodo placerat praesent blandit nam nulla integer', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 84, '1980-12-31 10:58:39', null, 1, 39360);
-INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells)values ('rjeckell2r', 'efranzonetti2r@statcounter.com', 'nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 73, '1938-06-18 20:31:38', 'fknightsbridge2r@bluehost.com', 1, 21746);
+-- users
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('motapinto', 'martimpintodasilva@gmail.com', 'Hey there! I am a software engineer and i am looking forward to trade with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1998-12-05', 100);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('trustlessuser123', 'trustlessuser123@gmail.com', 'You should not, at all, trust me. Even then, there are some fools who will :)', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '200-02-11', 101);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lpvramos', 'up201706253@g.uporto.com', 'Doom and CS addict sometimes. When I am not that i am a game connoisseur  looking for some good deals', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1949-06-21 20:06:49', 103);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lockdown', 'kkeelinge1p@g.co', 'Bootstrap master by day, Trader by night', '1968-06-10', 102);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('arubenruben', 'lhumberstone1q@topsy.com', 'Hey! I am the one you gave up on google login. Ban me if you think that was the wrong move', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1972-03-11 ', 104);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('odin123', 'odinMaster@valhalla.god', 'If you want to join me in Valhalla buy from me.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1989-08-20', 1);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ragnarok', 'ragnarok@gmail.com', 'No introductions needed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-07-25', 100);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('yodajedi', 'yodajedi@gmail.com', 'I am really good person. May the force be with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1960-10-10', 100);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('sithloard', 'sithloard@gmail.com', 'You either buy from me or dont buy at all', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1990-02-11', 100);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassins creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 100);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('bjornironside', 'bjornironside@gmail.com', 'I am the true successor of Ragnar LothBrok', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1948-08-12', 100);
+-- users images
+INSERT INTO pictures (id, url)VALUES(100, 'user.png');
+INSERT INTO pictures (id, url)VALUES(101, '7b28b3589283f938bd68c2941d0d69d5.png');
+INSERT INTO pictures (id, url)VALUES(102, '8d3e8eb63f8681d36f182a9d80e73c5a.png');
+INSERT INTO pictures (id, url)VALUES(103, '2bd8cc3a6021fe4ea0f6bf3ce8575efc.png');
+INSERT INTO pictures (id, url)VALUES(104, 'c03a67ae76e1937cc8f5b741f264e71a.png');
+INSERT INTO pictures (id, url)VALUES(105, '557a2acefd26cbecbd832951aaa66c16.png');
+-- banned users
+INSERT INTO banned_users(id)VALUES(1);
+INSERT INTO banned_users(id)VALUES(5);
+INSERT INTO banned_users(id)VALUES(9);
+-- ban appeals
+INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(5, 2, 'I swear i will never sell to third parties. Please forgive me! This is my job!!', '2020-02-25');
+INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(9, 2, 'Just because i am a sith that does not mean i not a good cumminity member. I think there was a mistake', '2020-05-12');
+-- admins
+INSERT INTO admins (username, email, description, password, picture_id)VALUES('admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 1);
+INSERT INTO admins (username, email, description, password, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW teacher and comercial master moderator', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 6);
+-- admins images
+INSERT INTO pictures (id, url)VALUES(106, 'user.png');
+INSERT INTO pictures (id, url)VALUES(107, '557a2acefd26cbecbd832951aaa66c16.png');
+-- reports
+INSERT INTO reports(date, description, title, key_id, status, reporter_id, reported_id)VALUES('2020-03-30', 'This is a report','Key dont work', 1, true, 2, 3);
+INSERT INTO reports(date, description, title, key_id, status, reporter_id, reported_id)VALUES('2020-03-30', 'This is a report','Key dont work', 2, true, 3, 2);
+INSERT INTO reports(date, description, title, key_id, status, reporter_id, reported_id)VALUES('2020-03-30', 'This is a report','Key dont work', 3, true, 10, 11);
 
-INSERT INTO admins (username, email, description, password, picture_id)values ('admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile', '$2y$12$u2C48.1BrDEkfmYC.HhYk.kgGsXzqwDudgU188esVRQr5XBWySey.', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('ssn', 'zdoughty0@printfriendly.com', 'rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('jotuohy1', 'tbloxham1@mozilla.org', 'sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('kwyllcocks2', 'cpibworth2@google.nl', 'ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('ajammes3', 'mtambling3@slate.com', 'vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('bskelington4', 'zpawfoot4@4shared.com', 'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('hdurran5', 'ccolliford5@godaddy.com', 'habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
-INSERT INTO admins (username, email, description, password, picture_id)values ('pvankov6', 'ngrisdale6@tumblr.com', 'et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam', '8ef92ae522fdebf2279ab8750995149d47f9630a', 1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 12, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock)values (308.98, '2019-06-17 16:30:33', null, 0, 2, 94, 20, 0);
@@ -2137,95 +2091,8 @@ INSERT INTO keys (key, offer_id)values ('13n8a2e4hV1mzSAP2KyKEdZ9gKudAjxtXA', 20
 
 
 
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',1, true,2,3);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',2, true,3,2);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',3, true,10,11);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',4, true,10,12);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',5, true,14,13);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',6, true,44,32);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',7, true,22,33);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',8, true,25,35);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',10, true,26,36);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',12, true,27,37);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',15, true,28,38);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',16, false,21,31);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',22, false,21,32);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',33, false,23,37);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',45, false,28,38);
-INSERT INTO reports(date,description,title, key_id,status,reporter_id,reported_id)VALUES ('2020-03-30','This is a report','Key dont work',56, true,55,56);
-
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,1);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',2,null,2);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',3,null,3);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',4,null,4);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',5,null,5);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',6,null,6);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',7,null,7);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,1,8);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,2,9);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,3,10);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,4,11);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,5,12);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,6,13);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,14);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',1,null,15);
-INSERT INTO messages(date,description,user_id,admin_id,report_id) VALUES('2019-05-05','Scammer',null,7,15);
-
-INSERT INTO carts(user_id, offer_id) VALUES(1,1);
-INSERT INTO carts(user_id, offer_id) VALUES(1,5);
-INSERT INTO carts(user_id, offer_id) VALUES(1,4);
-INSERT INTO carts(user_id, offer_id) VALUES(1,3);
-INSERT INTO carts(user_id, offer_id) VALUES(1,7);
-INSERT INTO carts(user_id, offer_id) VALUES(1,8);
-INSERT INTO carts(user_id, offer_id) VALUES(1,9);
-INSERT INTO carts(user_id, offer_id) VALUES(1,10);
-INSERT INTO carts(user_id, offer_id) VALUES(12,1);
-INSERT INTO carts(user_id, offer_id) VALUES(12,5);
-INSERT INTO carts(user_id, offer_id) VALUES(12,4);
-INSERT INTO carts(user_id, offer_id) VALUES(12,3);
-INSERT INTO carts(user_id, offer_id) VALUES(12,7);
-INSERT INTO carts(user_id, offer_id) VALUES(12,8);
-INSERT INTO carts(user_id, offer_id) VALUES(12,9);
-INSERT INTO carts(user_id, offer_id) VALUES(12,10);
-INSERT INTO carts(user_id, offer_id) VALUES(16,1);
-INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-INSERT INTO carts(user_id, offer_id) VALUES(16,5);
-INSERT INTO carts(user_id, offer_id) VALUES(16,4);
-INSERT INTO carts(user_id, offer_id) VALUES(16,3);
-INSERT INTO carts(user_id, offer_id) VALUES(16,7);
-INSERT INTO carts(user_id, offer_id) VALUES(16,8);
-INSERT INTO carts(user_id, offer_id) VALUES(16,9);
-INSERT INTO carts(user_id, offer_id) VALUES(16,10);
 
 
-INSERT INTO banned_users(id)VALUES (1);
-INSERT INTO banned_users(id)VALUES (50);
-INSERT INTO banned_users(id)VALUES (51);
-INSERT INTO banned_users(id)VALUES (52);
-INSERT INTO banned_users(id)VALUES (53);
-INSERT INTO banned_users(id)VALUES (54);
-INSERT INTO banned_users(id)VALUES (55);
-INSERT INTO banned_users(id)VALUES (56);
-INSERT INTO banned_users(id)VALUES (57);
-INSERT INTO banned_users(id)VALUES (2);
-    
-INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(1,1,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(51,2,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(52,3,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(53,4,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-INSERT INTO ban_appeals(id,admin_id,ban_appeal,date) VALUES(54,5,'I M NOT A SCAMMER', '2020-02-25 02:03:17');
-
-    
-
-INSERT INTO about_us(description) VALUES('HERE AT keyHARE WE AIM TO BECOME A ONE-STOP PLATFORM WHERE GAMERS AND GEEKS CAN GET EVERYTHING THEY NEED. GAMES, HARDWARE AND GADGETS, ALL I ONE PLACE. OUR MAIN FOCUES IS TO GIVE BACK THE CONSUMER ALL THE POWER BY HAVING THE HABILITY TO HAVE A MARKETPLACE IN WHICH IT CAN SELL AND BUY PRODUCTS');
-
-INSERT INTO faq(question, answer) VALUES('WHAT IS KEYSHARE?','KeyShare is a global marketplace which specializes in the sale of gaming related digital products using redemption keys');
-INSERT INTO faq(question, answer) VALUES('WHAT PAYMENT METHODS CAN I USE TO MAKE PURCHASE ON THE KEYSHARE WEBSITE?','The only available payment method Paypal');
-INSERT INTO faq(question, answer) VALUES('WHY DO I NEED TO CREATE AN ACCOUNT ON THE KEYSHARE WEBSITE?','Even though you can buy products without an account, if you register you can see your purchase history, have a savable cart, give feedback, etc');
-INSERT INTO faq(question, answer) VALUES('DO I NEED TO PAY ANY EXTRA TAX AFTER MAKEING A PURCHASE ON THE keyHARE WEBSITE?','The full price is as listed, so no!');
-INSERT INTO faq(question, answer) VALUES('DO I HAVE THE RIGHT TO A REFUND IN CASE A PRODUCT IS NOT WORKING?','In case a product does not work, you should report the seller and the admin will analyze yoyr situation');
-INSERT INTO faq(question, answer) VALUES('DO I HAVE ACCESS TO THE GAMES I BUY ON THE KEYSHARE WEBISTE FOREVER?','Yes, after buying any product, the key will work forever. If it does not, then you should report the seller');
 
 -- SSN --
 INSERT INTO users (username, email, description, password, rating, birth_date, paypal, picture_id, num_sells) VALUES ('ssn','up310021@g.uporto.pt','Professor de LBAW','$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6',100,'1989-02-05',null,1, 0);
