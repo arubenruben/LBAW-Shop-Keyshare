@@ -12,209 +12,209 @@ GRANT ALL ON SCHEMA public TO public;
 -----------------------------------------
 
 CREATE TABLE categories (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE
+                            id SERIAL PRIMARY KEY,
+                            name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE genres (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE
+                        id SERIAL PRIMARY KEY,
+                        name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE platforms (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE
+                           id SERIAL PRIMARY KEY,
+                           name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE pictures (
-  id SERIAL PRIMARY KEY,
-  url TEXT NOT NULL UNIQUE
+                          id SERIAL PRIMARY KEY,
+                          url TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE products (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE,
-  name_tsvector tsvector DEFAULT NULL,
-  weight_tsvector  tsvector DEFAULT NULL,
-  description TEXT,
-  category_id INTEGER NOT NULL REFERENCES categories (id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  picture_id INTEGER DEFAULT 2 NOT NULL REFERENCES pictures (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-  deleted BOOLEAN NOT NULL DEFAULT FALSE,
-  launch_date DATE NOT NULL,
-  num_sells INTEGER NOT NULL DEFAULT 0,
-  CONSTRAINT num_sells_chk CHECK (num_sells >= 0)
+                          id SERIAL PRIMARY KEY,
+                          name TEXT NOT NULL UNIQUE,
+                          name_tsvector tsvector DEFAULT NULL,
+                          weight_tsvector  tsvector DEFAULT NULL,
+                          description TEXT,
+                          category_id INTEGER NOT NULL REFERENCES categories (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+                          picture_id INTEGER DEFAULT 2 NOT NULL REFERENCES pictures (id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+                          deleted BOOLEAN NOT NULL DEFAULT FALSE,
+                          launch_date DATE NOT NULL,
+                          num_sells INTEGER NOT NULL DEFAULT 0,
+                          CONSTRAINT num_sells_chk CHECK (num_sells >= 0)
 );
 
 CREATE TABLE product_has_genres (
-  genre_id INTEGER NOT NULL REFERENCES genres(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (genre_id, product_id)
+                                    genre_id INTEGER NOT NULL REFERENCES genres(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                                    product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                                    PRIMARY KEY (genre_id, product_id)
 );
 
 CREATE TABLE product_has_platforms (
-  platform_id INTEGER REFERENCES platforms(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (platform_id, product_id)
+                                       platform_id INTEGER REFERENCES platforms(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                                       product_id INTEGER REFERENCES products(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                                       PRIMARY KEY (platform_id, product_id)
 );
 
 CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  username TEXT NOT NULL UNIQUE,
-  email TEXT NOT NULL UNIQUE,
-  description TEXT NOT NULL DEFAULT '',
-  name_tsvector tsvector DEFAULT NULL,
-  weight_tsvector  tsvector DEFAULT NULL,
-  password TEXT NOT NULL,
-  rating INTEGER DEFAULT NULL,
-  birth_date date NOT NULL,
-  paypal TEXT,
-  picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-  num_sells INTEGER NOT NULL DEFAULT 0,
-  remember_token VARCHAR,
-  CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
-  CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18),
-  CONSTRAINT num_sells_ck CHECK (num_sells >= 0)
+                       id SERIAL PRIMARY KEY,
+                       username TEXT NOT NULL UNIQUE,
+                       email TEXT NOT NULL UNIQUE,
+                       description TEXT NOT NULL DEFAULT '',
+                       name_tsvector tsvector DEFAULT NULL,
+                       weight_tsvector  tsvector DEFAULT NULL,
+                       password TEXT NOT NULL,
+                       rating INTEGER DEFAULT NULL,
+                       birth_date date NOT NULL,
+                       paypal TEXT,
+                       picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE,
+                       num_sells INTEGER NOT NULL DEFAULT 0,
+                       remember_token VARCHAR,
+                       CONSTRAINT rating_ck CHECK (rating >= 0 AND rating <= 100),
+                       CONSTRAINT birthdate_ck CHECK (date_part('year', age(birth_date)) >= 18),
+                       CONSTRAINT num_sells_ck CHECK (num_sells >= 0)
 );
 
 CREATE TABLE offers (
-  id SERIAL PRIMARY KEY,
-  price REAL NOT NULL,
-  init_date date NOT NULL DEFAULT NOW(),
-  final_date date,
-  profit REAL NOT NULL DEFAULT 0,
-  platform_id INTEGER NOT NULL REFERENCES platforms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  product_id INTEGER REFERENCES products(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  stock INTEGER NOT NULL DEFAULT 0,
-  CONSTRAINT price_ck CHECK (price > 0),
-  CONSTRAINT init_date_ck CHECK (init_date <= NOW()),
-  CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
-  CONSTRAINT profit_ck CHECK (profit >= 0),
-  CONSTRAINT stock_ck CHECK (stock >= 0)
+                        id SERIAL PRIMARY KEY,
+                        price REAL NOT NULL,
+                        init_date date NOT NULL DEFAULT NOW(),
+                        final_date date,
+                        profit REAL NOT NULL DEFAULT 0,
+                        platform_id INTEGER NOT NULL REFERENCES platforms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+                        user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                        product_id INTEGER REFERENCES products(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                        stock INTEGER NOT NULL DEFAULT 0,
+                        CONSTRAINT price_ck CHECK (price > 0),
+                        CONSTRAINT init_date_ck CHECK (init_date <= NOW()),
+                        CONSTRAINT final_date_ck CHECK (final_date IS NULL OR final_date >= init_date),
+                        CONSTRAINT profit_ck CHECK (profit >= 0),
+                        CONSTRAINT stock_ck CHECK (stock >= 0)
 );
 
 CREATE TABLE discounts (
-  id SERIAL PRIMARY KEY,
-  rate INTEGER NOT NULL,
-  start_date date NOT NULL,
-  end_date date NOT NULL,
-  offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                           id SERIAL PRIMARY KEY,
+                           rate INTEGER NOT NULL,
+                           start_date date NOT NULL,
+                           end_date date NOT NULL,
+                           offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
-  CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
-  CONSTRAINT end_date_ck CHECK (end_date > start_date),
-  CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
+                           CONSTRAINT start_date_ck CHECK (start_date >= NOW()),
+                           CONSTRAINT end_date_ck CHECK (end_date > start_date),
+                           CONSTRAINT rate_ck CHECK (rate >= 0 AND rate <= 100)
 );
 
 CREATE TABLE banned_users (
-  id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+    id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE admins (
-  id SERIAL PRIMARY KEY,
-  username TEXT NOT NULL UNIQUE,
-  email TEXT NOT NULL UNIQUE,
-  description TEXT NOT NULL DEFAULT '',
-  password TEXT NOT NULL,
-  picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
+                        id SERIAL PRIMARY KEY,
+                        username TEXT NOT NULL UNIQUE,
+                        email TEXT NOT NULL UNIQUE,
+                        description TEXT NOT NULL DEFAULT '',
+                        password TEXT NOT NULL,
+                        picture_id INTEGER NOT NULL DEFAULT 1 REFERENCES pictures(id) ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
 CREATE TABLE ban_appeals (
-  id INTEGER PRIMARY KEY REFERENCES banned_users(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  admin_id INTEGER REFERENCES admins(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  ban_appeal TEXT NOT NULL,
-  date date NOT NULL DEFAULT NOW(),
+                             id INTEGER PRIMARY KEY REFERENCES banned_users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                             admin_id INTEGER REFERENCES admins(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                             ban_appeal TEXT NOT NULL,
+                             date date NOT NULL DEFAULT NOW(),
 
-  CONSTRAINT date_ck CHECK(date <= NOW())
+                             CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE orders (
-  number SERIAL PRIMARY KEY,
-  date DATE NOT NULL DEFAULT NOW(),
-  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  order_info_name TEXT NOT NULL,
-  order_info_email TEXT NOT NULL,
-  order_info_address TEXT NOT NULL,
-  order_info_zipcode TEXT NOT NULL,
-  
-  CONSTRAINT date_ck CHECK(date <= NOW())
+                        number SERIAL PRIMARY KEY,
+                        date DATE NOT NULL DEFAULT NOW(),
+                        user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                        order_info_name TEXT NOT NULL,
+                        order_info_email TEXT NOT NULL,
+                        order_info_address TEXT NOT NULL,
+                        order_info_zipcode TEXT NOT NULL,
+
+                        CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE keys (
-  id SERIAL PRIMARY KEY,
-  key TEXT NOT NULL UNIQUE,
-  price_sold REAL DEFAULT NULL,
-  offer_id integer NOT NULL REFERENCES offers(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  order_id integer DEFAULT NULL REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
+                      id SERIAL PRIMARY KEY,
+                      key TEXT NOT NULL UNIQUE,
+                      price_sold REAL DEFAULT NULL,
+                      offer_id integer NOT NULL REFERENCES offers(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+                      order_id integer DEFAULT NULL REFERENCES orders(number) ON DELETE RESTRICT ON UPDATE CASCADE,
 
-  CONSTRAINT price_ck CHECK(price_sold IS NULL OR price_sold > 0),
-  CONSTRAINT sold_key_ck CHECK((price_sold IS NULL AND order_id IS NULL) or (price_sold IS NOT NULL AND order_id IS NOT NULL))
+                      CONSTRAINT price_ck CHECK(price_sold IS NULL OR price_sold > 0),
+                      CONSTRAINT sold_key_ck CHECK((price_sold IS NULL AND order_id IS NULL) or (price_sold IS NOT NULL AND order_id IS NOT NULL))
 
 );
 
 CREATE TABLE feedback (
-  id SERIAL PRIMARY KEY,
-  evaluation BOOLEAN NOT NULL,
-  comment TEXT,
-  evaluation_date DATE NOT NULL DEFAULT NOW() CONSTRAINT fb_date_ck CHECK(evaluation_date <= NOW()),
-  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  key_id INTEGER UNIQUE NOT NULL REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE
+                          id SERIAL PRIMARY KEY,
+                          evaluation BOOLEAN NOT NULL,
+                          comment TEXT,
+                          evaluation_date DATE NOT NULL DEFAULT NOW() CONSTRAINT fb_date_ck CHECK(evaluation_date <= NOW()),
+                          user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                          key_id INTEGER UNIQUE NOT NULL REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE reports (
-  id SERIAL PRIMARY KEY,
-  date date NOT NULL DEFAULT NOW(),
-  description TEXT NOT NULL ,
-  title TEXT NOT NULL,
-  status BOOLEAN NOT NULL DEFAULT false,
-  key_id INTEGER NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  reporter_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  reported_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                         id SERIAL PRIMARY KEY,
+                         date date NOT NULL DEFAULT NOW(),
+                         description TEXT NOT NULL ,
+                         title TEXT NOT NULL,
+                         status BOOLEAN NOT NULL DEFAULT false,
+                         key_id INTEGER NOT NULL UNIQUE REFERENCES keys(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+                         reporter_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                         reported_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
 
-  CONSTRAINT user_ck CHECK(reporter_id <> reported_id),
-  CONSTRAINT date_ck CHECK(date <= NOW())
+                         CONSTRAINT user_ck CHECK(reporter_id <> reported_id),
+                         CONSTRAINT date_ck CHECK(date <= NOW())
 );
 
 CREATE TABLE messages (
-  id SERIAL PRIMARY KEY,
-  date date NOT NULL DEFAULT NOW(),
-  description TEXT NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  admin_id INTEGER REFERENCES admins(id) ON DELETE SET NULL ON UPDATE CASCADE,
-  report_id INTEGER NOT NULL REFERENCES reports(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                          id SERIAL PRIMARY KEY,
+                          date date NOT NULL DEFAULT NOW(),
+                          description TEXT NOT NULL,
+                          user_id INTEGER REFERENCES users(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                          admin_id INTEGER REFERENCES admins(id) ON DELETE SET NULL ON UPDATE CASCADE,
+                          report_id INTEGER NOT NULL REFERENCES reports(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
-  CONSTRAINT date_ck CHECK(date <= NOW()),
-  CONSTRAINT user_type_ck CHECK((user_id IS NULL AND admin_id IS NOT NULL ) OR (user_id IS NOT NULL AND admin_id IS NULL))
+                          CONSTRAINT date_ck CHECK(date <= NOW()),
+                          CONSTRAINT user_type_ck CHECK((user_id IS NULL AND admin_id IS NOT NULL ) OR (user_id IS NOT NULL AND admin_id IS NULL))
 );
 
 CREATE TABLE carts (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE
+                       id SERIAL PRIMARY KEY,
+                       user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                       offer_id INTEGER NOT NULL REFERENCES offers(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE faq (
-  id SERIAL PRIMARY KEY,
-  question TEXT NOT NULL,
-  answer TEXT NOT NULL
+                     id SERIAL PRIMARY KEY,
+                     question TEXT NOT NULL,
+                     answer TEXT NOT NULL
 );
 CREATE TABLE password_resets (
-    email TEXT,
-    token TEXT,
-    created_at TIMESTAMP
+                                 email TEXT,
+                                 token TEXT,
+                                 created_at TIMESTAMP
 );
 
 -----------------------------------------
 -- MATERIALIZED VIEWS
 -----------------------------------------
 CREATE MATERIALIZED VIEW active_products AS
-    SELECT products.id AS product_id
-	FROM products
-    WHERE products.deleted = FALSE;
+SELECT products.id AS product_id
+FROM products
+WHERE products.deleted = FALSE;
 
 CREATE MATERIALIZED VIEW active_offers AS
-    SELECT offers.id AS offer_id
-	FROM offers
-    WHERE final_date IS NULL;
+SELECT offers.id AS offer_id
+FROM offers
+WHERE final_date IS NULL;
 
 -----------------------------------------
 -- INDEXES
@@ -227,25 +227,25 @@ CREATE INDEX discount_date_idx ON discounts (start_date, end_date);
 CREATE INDEX cart_buyer_idx ON carts (user_id);
 
 CREATE INDEX product_name_idx
-ON products
-USING GIST(name_tsvector);
+    ON products
+        USING GIST(name_tsvector);
 
 CREATE INDEX user_username_idx
-ON users
-USING GIST (name_tsvector);
+    ON users
+        USING GIST (name_tsvector);
 
 -----------------------------------------
 -- UDFs and TRIGGERS
 -----------------------------------------
 DROP FUNCTION IF EXISTS get_seller_through_key(integer) CASCADE;
 CREATE OR REPLACE FUNCTION get_seller_through_key(key_id integer)
-RETURNS INTEGER AS $seller_id$
+    RETURNS INTEGER AS $seller_id$
 DECLARE
     seller_id integer;
 BEGIN
     SELECT u.id INTO seller_id
     FROM keys k JOIN offers o ON k.offer_id = o.id
-    JOIN users u ON o.user_id = u.id
+                JOIN users u ON o.user_id = u.id
     WHERE k.id = key_id;
 
     RETURN seller_id;
@@ -255,44 +255,44 @@ $seller_id$ LANGUAGE plpgsql;
 
 
 CREATE OR REPLACE FUNCTION insert_product_tsvector()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
-	NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') ||
-            setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
+    NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') ||
+                           setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS insert_product_tsvector_tg ON products;
 CREATE TRIGGER insert_product_tsvector_tg
-BEFORE INSERT ON products
-FOR EACH ROW
+    BEFORE INSERT ON products
+    FOR EACH ROW
 EXECUTE PROCEDURE insert_product_tsvector();
 
 CREATE OR REPLACE FUNCTION update_product_tsvector()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     NEW.name_tsvector := to_tsvector(NEW.name || coalesce(NEW.description, ''));
     NEW.weight_tsvector := setweight(to_tsvector(NEW.name), 'A') ||
-        setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
+                           setweight(to_tsvector(coalesce(NEW.description, '')), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_product_tsvector_tg ON products;
 CREATE TRIGGER update_product_tsvector_tg
-BEFORE UPDATE ON products
-FOR EACH ROW
-WHEN (NEW.name <> OLD.name or NEW.description <> OLD.description)
+    BEFORE UPDATE ON products
+    FOR EACH ROW
+    WHEN (NEW.name <> OLD.name or NEW.description <> OLD.description)
 EXECUTE PROCEDURE update_product_tsvector();
 
 CREATE OR REPLACE FUNCTION insert_user_tsvector()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     NEW.name_tsvector := (to_tsvector('english',NEW.username) || to_tsvector('english',NEW.description));
     NEW.weight_tsvector := setweight(to_tsvector('english',NEW.username), 'A') ||
-        setweight(to_tsvector('english',NEW.description), 'B');
+                           setweight(to_tsvector('english',NEW.description), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -300,29 +300,29 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS insert_user_tsvector_tg ON users;
 CREATE TRIGGER insert_user_tsvector_tg
-BEFORE INSERT ON users
-FOR EACH ROW
+    BEFORE INSERT ON users
+    FOR EACH ROW
 EXECUTE PROCEDURE insert_user_tsvector();
 
 CREATE OR REPLACE FUNCTION update_user_tsvector()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
-   NEW.name_tsvector := (to_tsvector('english',NEW.username) || to_tsvector('english',NEW.description));
+    NEW.name_tsvector := (to_tsvector('english',NEW.username) || to_tsvector('english',NEW.description));
     NEW.weight_tsvector := setweight(to_tsvector('english',NEW.username), 'A') ||
-        setweight(to_tsvector('english',NEW.description), 'B');
+                           setweight(to_tsvector('english',NEW.description), 'B');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_user_tsvector_tg ON users;
 CREATE TRIGGER update_user_tsvector_tg
-BEFORE UPDATE ON users
-FOR EACH ROW
-WHEN (NEW.username <> OLD.username or NEW.description <> OLD.description)
+    BEFORE UPDATE ON users
+    FOR EACH ROW
+    WHEN (NEW.username <> OLD.username or NEW.description <> OLD.description)
 EXECUTE PROCEDURE update_user_tsvector();
 
 CREATE OR REPLACE FUNCTION product_num_sells()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     sells INTEGER;
     product_id INTEGER;
@@ -343,13 +343,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS product_num_sales_tg ON keys CASCADE;
 CREATE TRIGGER product_num_sales_tg
-AFTER INSERT OR UPDATE OF order_id ON keys
-FOR EACH ROW
+    AFTER INSERT OR UPDATE OF order_id ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE product_num_sells();
 
 
 CREATE OR REPLACE FUNCTION user_num_sells()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     sells INTEGER;
     seller_id INTEGER;
@@ -359,7 +359,7 @@ BEGIN
     sells := (
         SELECT COUNT(keys.id)
         FROM keys JOIN offers ON keys.offer_id = offers.id
-        JOIN users AS seller ON seller.id = offers.user_id
+                  JOIN users AS seller ON seller.id = offers.user_id
         WHERE seller.id = seller_id
         GROUP BY(seller.id)
     );
@@ -374,8 +374,8 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS user_num_sells_tg ON keys CASCADE;
 CREATE TRIGGER user_num_sells_tg
-AFTER UPDATE OF order_id ON keys
-FOR EACH ROW
+    AFTER UPDATE OF order_id ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE user_num_sells();
 
 CREATE OR REPLACE FUNCTION update_seller_feedback()
@@ -479,13 +479,13 @@ EXECUTE PROCEDURE update_seller_feedback_delete();
 
 
 CREATE OR REPLACE FUNCTION check_user_bought_product()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     IF NOT EXISTS (
-        SELECT *
-        FROM orders AS o JOIN keys AS k ON o.number = k.order_id
-        WHERE NEW.key_id = k.id AND o.user_id = NEW.user_id
-    ) THEN
+            SELECT *
+            FROM orders AS o JOIN keys AS k ON o.number = k.order_id
+            WHERE NEW.key_id = k.id AND o.user_id = NEW.user_id
+        ) THEN
         RAISE EXCEPTION 'Cannot review a product that you did not buy';
     END IF;
     RETURN NEW;
@@ -494,14 +494,14 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS check_user_bought_product_tg ON feedback CASCADE;
 CREATE TRIGGER check_user_bought_product_tg
-BEFORE INSERT
-ON feedback
-FOR EACH ROW
+    BEFORE INSERT
+    ON feedback
+    FOR EACH ROW
 EXECUTE PROCEDURE check_user_bought_product();
 
 
 CREATE OR REPLACE FUNCTION update_product_stock()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     stock_quantity INTEGER;
 BEGIN
@@ -522,13 +522,13 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_product_stock_tg ON keys CASCADE;
 CREATE TRIGGER update_product_stock_tg
-AFTER INSERT OR UPDATE OF order_id ON keys
-FOR EACH ROW
+    AFTER INSERT OR UPDATE OF order_id ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE update_product_stock();
 
 
 CREATE OR REPLACE FUNCTION update_product_stock_cancel()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     stock_quantity INTEGER;
 BEGIN
@@ -550,14 +550,14 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_product_stock_delete_tg ON keys CASCADE;
 CREATE TRIGGER update_product_stock_delete_tg
-AFTER DELETE ON keys
-FOR EACH ROW
+    AFTER DELETE ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE update_product_stock_cancel();
 
 
 
 CREATE OR REPLACE FUNCTION delete_from_cart()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     DELETE FROM carts
     WHERE offer_id IN (
@@ -571,15 +571,15 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS delete_from_cart_tg ON products CASCADE;
 CREATE TRIGGER delete_from_cart_tg
-AFTER INSERT OR UPDATE OF deleted ON products
-FOR EACH ROW
-WHEN (NEW.deleted = true)
+    AFTER INSERT OR UPDATE OF deleted ON products
+    FOR EACH ROW
+    WHEN (NEW.deleted = true)
 EXECUTE PROCEDURE delete_from_cart();
 
 
 
 CREATE OR REPLACE FUNCTION delete_from_cart_offer()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     DELETE FROM carts
     WHERE offer_id=NEW.id;
@@ -591,15 +591,15 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS delete_from_cart_update_tg ON products CASCADE;
 CREATE TRIGGER delete_from_cart_update_tg
-AFTER UPDATE OF final_date ON offers
-FOR EACH ROW
-WHEN (NEW.final_date IS NOT NULL)
+    AFTER UPDATE OF final_date ON offers
+    FOR EACH ROW
+    WHEN (NEW.final_date IS NOT NULL)
 EXECUTE PROCEDURE delete_from_cart_offer();
 
 
 DROP FUNCTION IF EXISTS check_not_self_buying() CASCADE;
 CREATE OR REPLACE FUNCTION check_not_self_buying()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     seller_id INTEGER;
 BEGIN
@@ -619,13 +619,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS check_not_self_buying_tg ON carts CASCADE;
 CREATE TRIGGER check_not_self_buying_tg
-AFTER INSERT ON carts
-FOR EACH ROW
+    AFTER INSERT ON carts
+    FOR EACH ROW
 EXECUTE PROCEDURE check_not_self_buying();
 
 
 CREATE OR REPLACE FUNCTION delete_keys_from_canceled_offers()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     DELETE FROM keys
     WHERE keys.offer_id = NEW.id AND keys.order_id IS NULL;
@@ -634,20 +634,20 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS delete_keys_from_canceled_offers_tg ON offers CASCADE;
 CREATE TRIGGER delete_keys_from_canceled_offers_tg
-AFTER UPDATE OF final_date ON offers
-FOR EACH ROW
-WHEN(NEW.final_date IS NOT NULL)
+    AFTER UPDATE OF final_date ON offers
+    FOR EACH ROW
+    WHEN(NEW.final_date IS NOT NULL)
 EXECUTE PROCEDURE delete_keys_from_canceled_offers();
 
 
 CREATE OR REPLACE FUNCTION rollback_offer_of_deleted_products()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     IF EXISTS(
-        SELECT *
-        FROM products
-        WHERE NEW.product_id = products.id AND products.deleted = TRUE
-     ) THEN
+            SELECT *
+            FROM products
+            WHERE NEW.product_id = products.id AND products.deleted = TRUE
+        ) THEN
         RAISE EXCEPTION 'You cannot insert an offer of a product that was deleted by the admin';
     END IF;
     RETURN NEW;
@@ -656,13 +656,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS rollback_offer_of_deleted_products_tg ON offers CASCADE;
 CREATE TRIGGER rollback_offer_of_deleted_products_tg
-BEFORE INSERT ON offers
-FOR EACH ROW
+    BEFORE INSERT ON offers
+    FOR EACH ROW
 EXECUTE PROCEDURE rollback_offer_of_deleted_products();
 
 
 CREATE OR REPLACE FUNCTION update_offer_final_date()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     UPDATE offers
     SET final_date = now()
@@ -674,23 +674,23 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS update_offer_final_date_tg ON offers CASCADE;
 CREATE TRIGGER update_offer_final_date_tg
-AFTER UPDATE OF stock ON offers
-FOR EACH ROW
-WHEN(NEW.final_date IS NULL AND NEW.stock=0)
+    AFTER UPDATE OF stock ON offers
+    FOR EACH ROW
+    WHEN(NEW.final_date IS NULL AND NEW.stock=0)
 EXECUTE PROCEDURE update_offer_final_date();
 
 
 CREATE OR REPLACE FUNCTION check_discount_date_overlap()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     IF EXISTS(
-        SELECT *
-        FROM discounts
-        WHERE start_date IS NOT NULL
-			AND start_date <= NEW.end_date
-			AND end_date >= NEW.start_date
-			AND NEW.offer_id = discounts.offer_id
-    ) THEN
+            SELECT *
+            FROM discounts
+            WHERE start_date IS NOT NULL
+              AND start_date <= NEW.end_date
+              AND end_date >= NEW.start_date
+              AND NEW.offer_id = discounts.offer_id
+        ) THEN
         RAISE EXCEPTION 'There is already a discount for that offer during the same time period';
     END IF;
 
@@ -700,13 +700,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS overlap_discount_dates_tg ON discounts CASCADE;
 CREATE TRIGGER overlap_discount_dates_tg
-BEFORE INSERT OR UPDATE ON discounts
-FOR EACH ROW
+    BEFORE INSERT OR UPDATE ON discounts
+    FOR EACH ROW
 EXECUTE PROCEDURE check_discount_date_overlap();
 
 
 CREATE OR REPLACE FUNCTION refresh_active_products_view()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     REFRESH MATERIALIZED VIEW active_products;
     RETURN NEW;
@@ -715,13 +715,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS refresh_active_products_view_tg ON products CASCADE;
 CREATE TRIGGER refresh_active_products_view_tg
-AFTER INSERT OR DELETE OR UPDATE ON products
-FOR EACH ROW
+    AFTER INSERT OR DELETE OR UPDATE ON products
+    FOR EACH ROW
 EXECUTE PROCEDURE refresh_active_products_view();
 
 
 CREATE OR REPLACE FUNCTION refresh_active_offers_view()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     REFRESH MATERIALIZED VIEW active_offers;
     RETURN NEW;
@@ -730,13 +730,13 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS refresh_active_offers_view_tg ON offers CASCADE;
 CREATE TRIGGER refresh_active_offers_view_tg
-AFTER INSERT OR DELETE OR UPDATE OF final_date ON offers
-FOR EACH ROW
+    AFTER INSERT OR DELETE OR UPDATE OF final_date ON offers
+    FOR EACH ROW
 EXECUTE PROCEDURE refresh_active_offers_view();
 
 
 CREATE OR REPLACE FUNCTION verify_banned_user_orders()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     IF NEW.user_id IN (SELECT id FROM banned_users) THEN
         RAISE EXCEPTION 'User with ID % is banned and cannot make purchases', NEW.user_id;
@@ -748,14 +748,14 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS verify_banned_user_orders_tg ON orders CASCADE;
 CREATE TRIGGER verify_banned_user_orders_tg
-BEFORE INSERT ON orders
-FOR EACH ROW
+    BEFORE INSERT ON orders
+    FOR EACH ROW
 EXECUTE PROCEDURE verify_banned_user_orders();
 
 
 ---
 CREATE OR REPLACE FUNCTION update_offer_profit()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     offer_profit REAL;
 
@@ -764,12 +764,12 @@ BEGIN
     SELECT SUM(keys.price_sold) into offer_profit
     FROM keys
     WHERE keys.offer_id = NEW.offer_id
-        AND keys.price_sold IS NOT NULL
+      AND keys.price_sold IS NOT NULL
     GROUP BY keys.offer_id;
 
     IF (offer_profit IS NULL) THEN
         offer_profit:=0;
-    END IF; 
+    END IF;
 
     UPDATE offers
     SET profit = profit + offer_profit
@@ -780,13 +780,13 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_offer_profit_tg ON keys CASCADE;
 CREATE TRIGGER update_offer_profit_tg
-AFTER INSERT OR UPDATE OF price_sold ON keys
-FOR EACH ROW
+    AFTER INSERT OR UPDATE OF price_sold ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE update_offer_profit();
 ---
 
 CREATE OR REPLACE FUNCTION update_offer_profit_delete()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 DECLARE
     offer_profit REAL;
 
@@ -795,12 +795,12 @@ BEGIN
     SELECT SUM(keys.price_sold) into offer_profit
     FROM keys
     WHERE keys.offer_id = OLD.offer_id
-        AND keys.price_sold IS NOT NULL
+      AND keys.price_sold IS NOT NULL
     GROUP BY keys.offer_id;
 
     IF (offer_profit IS NULL) THEN
         offer_profit:=0;
-    END IF; 
+    END IF;
 
 
     UPDATE offers
@@ -812,13 +812,13 @@ END;
 $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS update_offer_profit_delete_tg ON keys CASCADE;
 CREATE TRIGGER update_offer_profit_delete_tg
-AFTER DELETE ON keys
-FOR EACH ROW
+    AFTER DELETE ON keys
+    FOR EACH ROW
 EXECUTE PROCEDURE update_offer_profit_delete();
 
 
 CREATE OR REPLACE FUNCTION verify_banned_user_offer()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 BEGIN
     IF NEW.user_id IN (SELECT id FROM banned_users) THEN
         RAISE EXCEPTION 'User with ID % is banned and cannot make offers', NEW.user_id;
@@ -830,8 +830,8 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS verify_banned_user_offer_tg ON offers CASCADE;
 CREATE TRIGGER verify_banned_user_offer_tg
-BEFORE INSERT ON offers
-FOR EACH ROW
+    BEFORE INSERT ON offers
+    FOR EACH ROW
 EXECUTE PROCEDURE verify_banned_user_offer();
 
 -----------------------------------------
@@ -839,24 +839,24 @@ EXECUTE PROCEDURE verify_banned_user_offer();
 -----------------------------------------
 
 TRUNCATE admins RESTART IDENTITY CASCADE;
-TRUNCATE ban_appeals RESTART IDENTITY CASCADE; 
-TRUNCATE banned_users RESTART IDENTITY CASCADE; 
-TRUNCATE carts RESTART IDENTITY CASCADE; 
-TRUNCATE categories RESTART IDENTITY CASCADE; 
-TRUNCATE discounts RESTART IDENTITY CASCADE; 
-TRUNCATE faq RESTART IDENTITY CASCADE; 
+TRUNCATE ban_appeals RESTART IDENTITY CASCADE;
+TRUNCATE banned_users RESTART IDENTITY CASCADE;
+TRUNCATE carts RESTART IDENTITY CASCADE;
+TRUNCATE categories RESTART IDENTITY CASCADE;
+TRUNCATE discounts RESTART IDENTITY CASCADE;
+TRUNCATE faq RESTART IDENTITY CASCADE;
 TRUNCATE feedback RESTART IDENTITY CASCADE;
-TRUNCATE genres RESTART IDENTITY CASCADE; 
-TRUNCATE pictures RESTART IDENTITY CASCADE; 
-TRUNCATE keys RESTART IDENTITY CASCADE; 
-TRUNCATE messages RESTART IDENTITY CASCADE; 
-TRUNCATE offers RESTART IDENTITY CASCADE; 
-TRUNCATE orders RESTART IDENTITY CASCADE;  
-TRUNCATE platforms RESTART IDENTITY CASCADE; 
-TRUNCATE products RESTART IDENTITY CASCADE; 
-TRUNCATE product_has_genres RESTART IDENTITY CASCADE; 
-TRUNCATE product_has_platforms RESTART IDENTITY CASCADE; 
-TRUNCATE users RESTART IDENTITY CASCADE; 
+TRUNCATE genres RESTART IDENTITY CASCADE;
+TRUNCATE pictures RESTART IDENTITY CASCADE;
+TRUNCATE keys RESTART IDENTITY CASCADE;
+TRUNCATE messages RESTART IDENTITY CASCADE;
+TRUNCATE offers RESTART IDENTITY CASCADE;
+TRUNCATE orders RESTART IDENTITY CASCADE;
+TRUNCATE platforms RESTART IDENTITY CASCADE;
+TRUNCATE products RESTART IDENTITY CASCADE;
+TRUNCATE product_has_genres RESTART IDENTITY CASCADE;
+TRUNCATE product_has_platforms RESTART IDENTITY CASCADE;
+TRUNCATE users RESTART IDENTITY CASCADE;
 TRUNCATE reports RESTART IDENTITY CASCADE;
 
 -----------------------------------------
@@ -902,7 +902,8 @@ INSERT INTO platforms(name) VALUES('XBOX 360');
 INSERT INTO platforms(name) VALUES('SWITCH');
 
 -- product pictures
-INSERT INTO pictures (id, url) VALUES (2 ,'product.png');
+INSERT INTO pictures (url)VALUES('user.png');
+INSERT INTO pictures (url) VALUES ('product.png');
 INSERT INTO pictures (url) VALUES ('dcdb4945904bf4da6b15ce79ad9e0492.png');
 INSERT INTO pictures (url) VALUES ('6aeb7836dcb2ba2b4269accb3c2e64c7.png');
 INSERT INTO pictures (url) VALUES ('5353286093c4de6d762effd4d84f3259.png');
@@ -1120,7 +1121,6 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,22);
 INSERT INTO products(name,description, picture_id,category_id, launch_date)VALUES (UPPER('Grand Theft Auto III'), 'The sprawling crime epic that changed open-world games forever.Welcome to Liberty City. Where it all began. The critically acclaimed blockbuster Grand Theft Auto III brings to life the dark and seedy underworld of Liberty City. With a massive and diverse open world, a wild cast of characters from every walk of life and the freedom to explore at will, Grand Theft Auto III puts the dark, intriguing and ruthless world of crime at your fingertips.With stellar voice acting, a darkly comic storyline, a stunning soundtrack and revolutionary open-world gameplay, Grand Theft Auto III is the game that defined the open world genre for a generation.', 9, 1, '2001-10-22');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(2,23);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(7,23);
-INSERT INTO product_has_genres(genre_id, product_id)VALUES(13,23);
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(8,23);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,23);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,23);
@@ -1168,7 +1168,6 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,28);
 
 INSERT INTO products(name,description, picture_id,category_id,deleted, launch_date)VALUES (UPPER('DRAGON BALL FighterZ'), 'DRAGON BALL FighterZ is born from what makes the DRAGON BALL series so loved and famous: endless spectacular fights with its all-powerful fighters.', 3, 1, TRUE, '2018-01-26');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(1,29);
-INSERT INTO product_has_genres(genre_id, product_id)VALUES(13,29);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,29);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,29);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,29);
@@ -1176,40 +1175,35 @@ INSERT INTO product_has_platforms(platform_id, product_id)VALUES(9,29);
 
 INSERT INTO products(name,description, picture_id,category_id,deleted, launch_date)VALUES (UPPER('Shenmue I & II'), 'Originally released for the Dreamcast in 2000 and 2001, Shenmue I & II is an open world action 2 combining jujitsu combat, investigative sleuthing, RPG elements, and memorable mini-games. It pioneered many aspects of modern gaming, including open world city exploration, and was the game that coined the Quick Time Event (QTE). It was one of the first games with a persistent open world, where day cycles to night, weather changes, shops open and close and NPCs go about their business all on their own schedules. Its engrossing epic story and living world created a generation of passionate fans, and the game consistently makes the list of “greatest games of all time”.', 4, 1, TRUE, '2018-08-21');
 INSERT INTO product_has_genres(genre_id, product_id)VALUES(1,30);
-INSERT INTO product_has_genres(genre_id, product_id)VALUES(13,30);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(1,30);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(3,30);
 INSERT INTO product_has_platforms(platform_id, product_id)VALUES(7,30);
 
+-- users images
+INSERT INTO pictures (url)VALUES('7b28b3589283f938bd68c2941d0d69d5.png');
+INSERT INTO pictures (url)VALUES('8d3e8eb63f8681d36f182a9d80e73c5a.png');
+INSERT INTO pictures (url)VALUES('2bd8cc3a6021fe4ea0f6bf3ce8575efc.png');
+INSERT INTO pictures (url)VALUES('c03a67ae76e1937cc8f5b741f264e71a.png');
+INSERT INTO pictures (url)VALUES('557a2acefd26cbecbd832951aaa66c16.png');
 -- users
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('motapinto', 'martimpintodasilva@gmail.com', 'Hey there! I am a software engineer and i am looking forward to trade with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1998-12-05', 1);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('trustlessuser123', 'trustlessuser123@gmail.com', 'You should not, at all, trust me. Even then, there are some fools who will :)', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '200-02-11', 101);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lpvramos', 'up201706253@g.uporto.com', 'Doom and CS addict sometimes. When I am not that i am a game connoisseur  looking for some good deals', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1949-06-21 20:06:49', 103);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lockdown', 'kkeelinge1p@g.co', 'Bootstrap master by day, Trader by night', '1968-06-10', 102);
-INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('arubenruben', 'lhumberstone1q@topsy.com', 'Hey! I am the one you gave up on google login. Ban me if you think that was the wrong move', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1972-03-11 ', 104);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('trustlessuser123', 'trustlessuser123@gmail.com', 'You should not, at all, trust me. Even then, there are some fools who will :)', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '200-02-11', 32);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lpvramos', 'up201706253@g.uporto.com', 'Doom and CS addict sometimes. When I am not that i am a game connoisseur  looking for some good deals', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1949-06-21 20:06:49', 34);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('lockdown', 'kkeelinge1p@g.co', 'Bootstrap master by day, Trader by night', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1968-06-10', 33);
+INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('arubenruben', 'lhumberstone1q@topsy.com', 'Hey! I am the one you gave up on google login. Ban me if you think that was the wrong move', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1972-03-11 ', 35);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('odin123', 'odinMaster@valhalla.god', 'If you want to join me in Valhalla buy from me.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1989-08-20', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('ragnarok', 'ragnarok@gmail.com', 'No introductions needed', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-07-25', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('yodajedi', 'yodajedi@gmail.com', 'I am really good person. May the force be with you', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1960-10-10', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('sithloard', 'sithloard@gmail.com', 'You either buy from me or dont buy at all', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1990-02-11', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('enzioauditore', 'enzioauditore@gmail.com', 'I am part of an Assassins creed and fight for justice and good commercial relationships', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1991-04-26', 1);
 INSERT INTO users (username, email, description, password, birth_date, picture_id)VALUES('bjornironside', 'bjornironside@gmail.com', 'I am the true successor of Ragnar LothBrok', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', '1948-08-12', 1);
--- users images
-INSERT INTO pictures (id, url)VALUES(1, 'user.png');
-INSERT INTO pictures (id, url)VALUES(101, '7b28b3589283f938bd68c2941d0d69d5.png');
-INSERT INTO pictures (id, url)VALUES(102, '8d3e8eb63f8681d36f182a9d80e73c5a.png');
-INSERT INTO pictures (id, url)VALUES(103, '2bd8cc3a6021fe4ea0f6bf3ce8575efc.png');
-INSERT INTO pictures (id, url)VALUES(104, 'c03a67ae76e1937cc8f5b741f264e71a.png');
-INSERT INTO pictures (id, url)VALUES(105, '557a2acefd26cbecbd832951aaa66c16.png');
 -- banned users
 INSERT INTO banned_users(id)VALUES(1);
 INSERT INTO banned_users(id)VALUES(5);
 INSERT INTO banned_users(id)VALUES(9);
+-- admins
+INSERT INTO admins (username, email, description, password, picture_id)VALUES('admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 1);
+INSERT INTO admins (username, email, description, password, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW teacher and comercial master moderator', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 36);
 -- ban appeals
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(5, 2, 'I swear i will never sell to third parties. Please forgive me! This is my job!!', '2020-02-25');
 INSERT INTO ban_appeals(id, admin_id, ban_appeal, date)VALUES(9, 2, 'Just because i am a sith that does not mean i not a good community member. I think there was a mistake', '2020-05-12');
--- admins
-INSERT INTO admins (username, email, description, password, picture_id)VALUES('admin', 'admin@keyhare.com', 'Hello. Welcome to my Profile.', '$2y$10$.8Ql.bH9QsbCQMKNf5XR6Oz.4yt8/i0mKEy4EcX7prMZtG3jsuJ22', 1);
-INSERT INTO admins (username, email, description, password, picture_id)VALUES('ssn', 'up310021@g.uporto.pt', 'LBAW teacher and comercial master moderator', '$2y$10$PA30ELTzJN7HOUSZ./TyQOBAT6fUntWicXLQiXxWPFu/LKU456yn6', 6);
--- admins images
-INSERT INTO pictures (id, url)VALUES(106, 'user.png');
-INSERT INTO pictures (id, url)VALUES(107, '557a2acefd26cbecbd832951aaa66c16.png');
