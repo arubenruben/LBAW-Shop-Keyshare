@@ -900,6 +900,33 @@ CREATE TRIGGER update_banned_user_offers_tg
     AFTER INSERT ON banned_users
     FOR EACH ROW
 EXECUTE PROCEDURE update_banned_user_offers();
+
+
+CREATE OR REPLACE FUNCTION update_offers_stock()
+    RETURNS TRIGGER AS $$
+DECLARE
+    offer_stock INTEGER;
+BEGIN
+    SELECT COUNT(keys.id) INTO offer_stock
+    FROM keys
+    WHERE keys.offer_id = NEW.id
+      AND keys.order_id IS NULL;
+
+    IF (offer_stock IS NULL) THEN
+        offer_stock := 0;
+    END IF;
+
+    NEW.stock = offer_stock;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS update_offers_stock_tg ON offers CASCADE;
+CREATE TRIGGER update_offers_stock_tg
+    BEFORE INSERT OR UPDATE OF stock ON offers
+    FOR EACH ROW
+EXECUTE PROCEDURE update_offers_stock();
 -----------------------------------------
 -- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
 -----------------------------------------
