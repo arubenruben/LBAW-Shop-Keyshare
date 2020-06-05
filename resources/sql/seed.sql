@@ -105,7 +105,8 @@ CREATE TABLE discounts (
 );
 
 CREATE TABLE banned_users (
-    id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+                              id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                              username TEXT
 );
 
 CREATE TABLE admins (
@@ -927,6 +928,25 @@ CREATE TRIGGER update_offers_stock_tg
     BEFORE INSERT OR UPDATE OF stock ON offers
     FOR EACH ROW
 EXECUTE PROCEDURE update_offers_stock();
+
+
+CREATE OR REPLACE FUNCTION banned_user_username()
+    RETURNS TRIGGER AS $$
+BEGIN
+
+    SELECT users.username INTO NEW.username
+    FROM users
+    WHERE users.id = NEW.id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS banned_user_username_tg ON banned_users CASCADE;
+CREATE TRIGGER banned_user_username_tg
+    BEFORE INSERT ON banned_users
+    FOR EACH ROW
+EXECUTE PROCEDURE banned_user_username();
 -----------------------------------------
 -- Drop all old table data  (TRUNCATE quickly removes all rows from a set of tables. It has the same effect as an unqualified DELETE on each table, but since it does not actually scan the tables it is faster)
 -----------------------------------------
