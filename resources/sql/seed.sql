@@ -1330,45 +1330,45 @@ INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (49.99, '2020-06-04', null, 0, 3, 12, 8, 2);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (19.99, '2020-06-04', null, 0, 7, 12, 5, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.99, '2020-06-04', null, 0, 7, 8, 6, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (9.99, '2020-06-04', null, 0, 1, 6, 25, 1);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (3.99, '2020-06-04', null, 0, 9, 8, 24, 1);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (9.99, '2020-06-04', '2020-06-05', 9.99, 1, 6, 25, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (3.99, '2020-06-04', '2020-06-05', 3.99, 9, 8, 24, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (59.99, '2020-06-04', '2020-06-05', 29.99, 3, 12, 22, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (4.99, '2020-06-04', null, 0, 4, 7, 4, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (49.99, '2020-06-04', null, 0, 9, 12, 13, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (20.99, '2020-06-04', null, 0, 1, 7, 14, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (79.99, '2020-06-04', null, 0, 3, 3, 18, 4);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.99, '2020-06-04', '2020-06-05', 39.98, 1, 7, 20, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.99, '2020-06-04', null, 0, 1, 11, 28, 4);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.99, '2020-06-04', '2020-06-05', 78.95, 1, 7, 20, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.99, '2020-06-04', '2020-06-05', 71.96, 1, 11, 28, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.99, '2020-06-04', null, 0, 1, 10, 17, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (49.99, '2020-06-04', null, 0, 3, 4, 11, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (7.99, '2020-06-04', null, 0, 1, 11, 10, 2);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (22.99, '2020-06-04', null, 0, 1, 10, 9, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (39.99, '2020-06-04', '2020-06-05', 9.99, 1, 4, 16, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (8.99, '2020-06-04', null, 0, 1, 7, 14, 2);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (44.99, '2020-06-04', null, 0, 7, 11, 18, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (44.99, '2020-06-04', '2020-06-05', 134.97, 7, 11, 18, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (5.99, '2020-06-04', null, 0, 7, 4, 7, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (2.99, '2020-06-04', null, 0, 1, 10, 27, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (25.99, '2020-06-04', null, 0, 3, 6, 9, 4);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (25.99, '2020-06-04', null, 0, 7, 3, 15, 2);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.99, '2020-06-04', null, 0, 1, 6, 12, 2);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1, '2020-06-04', null, 0, 1, 6, 20, 1);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (19.99, '2020-06-04', null, 0, 3, 3, 26, 1);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1, '2020-06-04', '2020-06-05', 1, 1, 6, 20, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (19.99, '2020-06-04', '2020-06-05', 19.99, 3, 3, 26, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1.99, '2020-06-04', null, 0, 1, 12, 12, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (15.99, '2020-06-04', null, 0, 3, 10, 25, 7);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (27.88, '2020-06-04', '2020-06-05', 25.98, 3, 6, 9, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (15.99, '2020-06-04', '2020-06-05', 3.99, 1, 10, 13, 2);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (8.99, '2020-06-04', null, 0, 1, 12, 19, 2);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (29.99, '2020-06-04', null, 0, 1, 3, 20, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (8.99, '2020-06-04', '2020-06-05', 17.98, 1, 12, 19, 0);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (29.99, '2020-06-04', '2020-06-05', 89.97, 1, 3, 20, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (17.99, '2020-06-04', null, 0, 1, 12, 6, 4);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1.99, '2020-06-04', null, 0, 1, 11, 23, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1.99, '2020-06-04', '2020-06-05', 5.9700003, 1, 11, 23, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (9.99, '2020-06-04', '2020-06-04', 0, 7, 4, 21, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (13.99, '2020-06-04', null, 0, 7, 11, 11, 4);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (6.99, '2020-06-04', null, 0, 1, 11, 25, 0);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (1, '2020-06-05', null, 0, 4, 4, 3, 1);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (20, '2020-06-05', null, 40, 4, 4, 1, 1);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (20, '2020-06-05', '2020-06-05', 40, 4, 4, 1, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (69.99, '2020-06-05', '2020-06-05', 139.98, 6, 4, 2, 0);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (34.99, '2020-06-05', null, 69.98, 3, 4, 9, 3);
-INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (10.99, '2020-06-05', null, 43.96, 1, 4, 5, 1);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (34.99, '2020-06-05', '2020-06-05', 69.98, 3, 4, 9, 3);
+INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (10.99, '2020-06-05', '2020-06-05', 43.96, 1, 4, 5, 1);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (20.99, '2020-06-05', null, 0, 3, 7, 9, 5);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (19.99, '2020-06-05', null, 0, 3, 6, 9, 5);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (12.88, '2020-06-05', null, 0, 1, 4, 9, 8);
@@ -1380,7 +1380,6 @@ INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, 
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (19.98, '2020-06-05', null, 0, 3, 7, 9, 3);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (14.3, '2020-06-05', null, 0, 3, 2, 9, 7);
 INSERT INTO offers (price, init_date, final_date, profit, platform_id, user_id, product_id, stock) VALUES (50.99, '2020-06-05', null, 0, 3, 2, 9, 8);
-
 
 -- orders
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'dsffdfwea', 'adfseaf@dsg.com', 'adsfergreg', '4100-000');
@@ -1394,6 +1393,8 @@ INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 3, 'fdsfsfdf', 'fsdfsdfsdfsdf@email.com', 'fsdfsdfffs', 'fsdfsdfsf');
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 7, 'ddasdad', 'email@email.coms', 'dasddasdasd', '23413');
 INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 6, 'gffgfdgfdqg', 'email@emial.com', 'dfsdfsdff', '34343');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 10, 'fdfdsfsdfd', 'email@email.com', 'rua das ruas', '21323');
+INSERT INTO orders (date, user_id, order_info_name, order_info_email, order_info_address, order_info_zipcode) VALUES ('2020-04-03', 10, 'enzio', 'italy@myfamily.com', 'address', '3333');
 --discounts
 
 -- keys
