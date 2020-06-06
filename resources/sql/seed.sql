@@ -368,8 +368,7 @@ BEGIN
     SELECT COUNT(keys.id) INTO sells
     FROM keys JOIN offers ON keys.offer_id = offers.id
               JOIN users AS seller ON seller.id = offers.user_id
-    WHERE seller.id = seller_id AND keys.order_id IS NOT NULL
-    GROUP BY(seller.id);
+    WHERE seller.id = seller_id AND keys.order_id IS NOT NULL;
 
     IF sells IS NULL THEN
         sells := 0;
@@ -385,9 +384,41 @@ $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS user_num_sells_tg ON keys CASCADE;
 CREATE TRIGGER user_num_sells_tg
-    AFTER UPDATE OF order_id ON keys
+    AFTER INSERT OR UPDATE OF order_id ON keys
     FOR EACH ROW
 EXECUTE PROCEDURE user_num_sells();
+
+CREATE OR REPLACE FUNCTION user_num_sells_delete()
+    RETURNS TRIGGER AS $$
+DECLARE
+    sells INTEGER;
+    seller_id INTEGER;
+BEGIN
+    seller_id := get_seller_through_key(OLD.id);
+
+    SELECT COUNT(keys.id) INTO sells
+    FROM keys JOIN offers ON keys.offer_id = offers.id
+              JOIN users AS seller ON seller.id = offers.user_id
+    WHERE seller.id = seller_id AND keys.order_id IS NOT NULL;
+
+    IF sells IS NULL THEN
+        sells := 0;
+    END IF;
+
+    UPDATE users
+    SET num_sells = sells
+    WHERE id = seller_id;
+
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS user_num_sells_delete_tg ON keys CASCADE;
+CREATE TRIGGER user_num_sells_delete_tg
+    AFTER DELETE ON keys
+    FOR EACH ROW
+EXECUTE PROCEDURE user_num_sells_delete();
+
 
 CREATE OR REPLACE FUNCTION update_seller_feedback()
     RETURNS TRIGGER AS $$
@@ -400,24 +431,20 @@ BEGIN
     seller_id := get_seller_through_key(NEW.key_id);
 
     -- Number of positive reviews of seller with id seller_id
-    SELECT COUNT(u.id) INTO positive_reviews
-    FROM feedback f JOIN keys k ON f.key_id = k.id
-                    JOIN offers o ON k.offer_id = o.id
-                    JOIN users u ON o.user_id = u.id
-    WHERE f.evaluation = true and u.id = o.user_id
-    GROUP BY u.id;
+    SELECT COUNT(keys.id) INTO positive_reviews
+    FROM feedback JOIN keys ON feedback.key_id = keys.id
+                  JOIN offers ON keys.offer_id = offers.id
+    WHERE feedback.evaluation = true AND offers.user_id = seller_id;
 
     IF positive_reviews IS NULL THEN
         positive_reviews := 0;
     END IF;
 
     -- Number of reviews of seller with id seller_id
-    SELECT COUNT(u.id) INTO num_reviews
-    FROM feedback f JOIN keys k ON f.key_id = k.id
-                    JOIN offers o ON k.offer_id = o.id
-                    JOIN users u ON o.user_id = u.id
-    WHERE u.id = o.user_id
-    GROUP BY u.id;
+    SELECT COUNT(keys.id) INTO num_reviews
+    FROM feedback JOIN keys ON feedback.key_id = keys.id
+                  JOIN offers ON keys.offer_id = offers.id
+    WHERE offers.user_id = seller_id;
 
     IF num_reviews IS NULL OR num_reviews = 0 THEN
         UPDATE users
@@ -426,7 +453,7 @@ BEGIN
         RETURN NEW;
     END IF;
 
-    total_feedback := 100 * (positive_reviews / num_reviews);
+    total_feedback := (100 * positive_reviews) / num_reviews;
 
     UPDATE users
     SET rating = total_feedback
@@ -453,24 +480,20 @@ BEGIN
     seller_id := get_seller_through_key(OLD.key_id);
 
     -- Number of positive reviews of seller with id seller_id
-    SELECT COUNT(u.id) INTO positive_reviews
-    FROM feedback f JOIN keys k ON f.key_id = k.id
-                    JOIN offers o ON k.offer_id = o.id
-                    JOIN users u ON o.user_id = u.id
-    WHERE f.evaluation = true and u.id = o.user_id
-    GROUP BY u.id;
+    SELECT COUNT(keys.id) INTO positive_reviews
+    FROM feedback JOIN keys ON feedback.key_id = keys.id
+                  JOIN offers ON keys.offer_id = offers.id
+    WHERE feedback.evaluation = true AND offers.user_id = seller_id;
 
     IF positive_reviews IS NULL THEN
         positive_reviews := 0;
     END IF;
 
     -- Number of reviews of seller with id seller_id
-    SELECT COUNT(u.id) INTO num_reviews
-    FROM feedback f JOIN keys k ON f.key_id = k.id
-                    JOIN offers o ON k.offer_id = o.id
-                    JOIN users u ON o.user_id = u.id
-    WHERE u.id = o.user_id
-    GROUP BY u.id;
+    SELECT COUNT(keys.id) INTO num_reviews
+    FROM feedback JOIN keys ON feedback.key_id = keys.id
+                  JOIN offers ON keys.offer_id = offers.id
+    WHERE offers.user_id = seller_id;
 
     IF num_reviews IS NULL OR num_reviews = 0 THEN
         UPDATE users
@@ -479,7 +502,7 @@ BEGIN
         RETURN OLD;
     END IF;
 
-    total_feedback := 100 * (positive_reviews / num_reviews);
+    total_feedback := (100 * positive_reviews) / num_reviews;
 
     UPDATE users
     SET rating = total_feedback
