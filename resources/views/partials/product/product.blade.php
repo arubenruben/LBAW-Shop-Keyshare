@@ -12,15 +12,16 @@
         <div class="row  mt-4 mb-4">
             <div class="col-12">
                 @if(count($offers)>0)
-                <h4 class="title-price d-inline-block">Starting at: {{$offers[0]->discountPriceColumn}}$</h4>
+                <h4 class="title-price d-inline-block">Starting at: {{$offers->first()->discountPriceColumn}}$</h4>
                 @endif
             </div>
         </div>
         <div class="row">
             <div class="col-12 d-none d-lg-inline ">
                 <p class="text-justify" id="text-readmore">
-                    {{substr($product->description, 0 , 200)}} @if(strlen(substr($product->description, 0 , 200)) < 200)
-                        ... @endif <span id="dots"></span><span id="more"
+                    {{substr($product->description, 0 , 200)}}
+                    @if(strlen(substr($product->description, 0 , 200)) < 200)...@endif
+                    <span id="dots"></span><span id="more"
                             class="text-justify">{{substr($product->description, 200 , strlen($product->description))}}</span>
                 </p><a id="moreTextButton" href="#">Read more</a>
             </div>
