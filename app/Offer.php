@@ -84,7 +84,7 @@ class Offer extends Model
      */
     public function active_discount() {
         foreach($this->discounts as $discount){
-            if($discount->start_date < date("Y-m-d") && date("Y-m-d") < $discount->end_date){
+            if($discount->start_date <= date("Y-m-d") && date("Y-m-d") <= $discount->end_date){
                 return $discount;
             }
         }
@@ -96,11 +96,10 @@ class Offer extends Model
      */
     public function discount_price(){
         foreach($this->discounts as $discount){
-            if($discount->start_date < date("Y-m-d") && date("Y-m-d") < $discount->end_date){
+            if($discount->start_date <= date("Y-m-d") && date("Y-m-d") <= $discount->end_date){
                 return number_format((float)($this->price - ($this->price * $discount->rate/100)), 2, '.', '');
             }
         }
-
         return $this->price;
     }
 }
